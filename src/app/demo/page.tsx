@@ -11,8 +11,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Brain, Database, MessageSquare, FileText, Send } from "lucide-react";
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const DemoPage = () => {
+  // 设置演示页面元数据
+  usePageMetadata({
+    title: '产品演示 - 在线体验AI产品功能 | 艺创AI',
+    description: '在线体验艺创AI的数字分身、企业知识库、聊天绘画、论文创作等AI产品功能。免费试用，预约专业演示，感受人工智能如何改变工作方式。',
+    keywords: '产品演示,在线体验,AI产品试用,数字分身演示,企业知识库试用,聊天绘画体验,论文创作演示,艺创AI'
+  });
   const [activeDemo, setActiveDemo] = useState("digital-twin");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);

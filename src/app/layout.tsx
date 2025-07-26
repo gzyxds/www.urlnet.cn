@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI科技 - 人工智能解决方案提供商",
-  description: "AI科技提供先进的人工智能解决方案，包括数字分身、企业知识库、聊天绘画和论文创作等产品，帮助企业实现数字化转型和智能化升级。",
+  title: "艺创AI_AI系统源码_AI数字人系统_聊天绘画系统_ai平台源码_ai创作系统源码_ai官网源码",
+  description: "艺创AI专注提供AI系统源代码解决方案的技术团队「AI数字人系统」「企业全能AI变现系统」「AI聊天绘画系统」「AI论文写作系统」拥有PHP和Java两种语言版本，技术实力强，系统体验好支持私有部署，专业团队、售后无忧",
 };
 
 export default function RootLayout({

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp, Github, Bell, CircleUser } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,247 +12,420 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useMobile } from "@/hooks/use-mobile";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const isMobile = useMobile();
 
+  // 关闭移动菜单当窗口调整大小
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [mobileMenuOpen]);
+
+  // 当点击页面其他区域时关闭移动菜单
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const header = document.getElementById('main-header');
+      if (mobileMenuOpen && header && !header.contains(event.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const toggleMobileDropdown = (name: string) => {
+    setActiveDropdown(activeDropdown === name ? null : name);
+  };
+
   return (
     <header 
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
-      )}
+      id="main-header"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 py-2"
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between h-12">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <span className={cn(
-              "text-2xl font-bold transition-colors",
-              isScrolled ? "text-[#015bfe]" : "text-white"
-            )}>
-              AI科技
-            </span>
-          </Link>
+          <div className="flex items-center space-x-8">
+            <Link to="/" className="flex items-center group">
+              <motion.span 
+                className="text-xl font-bold text-[#015bfe] transition-colors relative flex items-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 9L12 5L21 9L12 13L3 9Z" stroke="#015bfe" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 9V15L12 19L21 15V9" stroke="#015bfe" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                艺创AI
+                <span className="ml-1 text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded-full">AI</span>
+              </motion.span>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-1">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button 
+                    variant="ghost" 
+                    className="flex items-center text-sm font-medium px-2 text-gray-600 hover:text-[#015bfe]"
+                  >
+                    <span>产品</span>
+                    <ChevronDown className="ml-1 h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="w-52 p-2 rounded-md border border-gray-100 shadow-md">
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2">
+                    <Link to="/products/digital-twin" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-blue-100 flex items-center justify-center mr-2">
+                        <span className="text-blue-600 text-xs">数字</span>
+                      </div>
+                      <span>数字分身</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
+                    <Link to="/products/knowledge-base" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-green-100 flex items-center justify-center mr-2">
+                        <span className="text-green-600 text-xs">知识</span>
+                      </div>
+                      <span>企业知识库</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
+                    <Link to="/products/chat-drawing" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-purple-100 flex items-center justify-center mr-2">
+                        <span className="text-purple-600 text-xs">绘画</span>
+                      </div>
+                      <span>聊天绘画</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
+                    <Link to="/products/paper-writing" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-amber-100 flex items-center justify-center mr-2">
+                        <span className="text-amber-600 text-xs">论文</span>
+                      </div>
+                      <span>论文创作</span>
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Link to="/demo">
                 <Button 
                   variant="ghost" 
-                  className={cn(
-                    "flex items-center",
-                    isScrolled ? "text-gray-700 hover:text-[#015bfe]" : "text-white hover:text-white/80"
-                  )}
+                  className="px-2 text-sm font-medium text-gray-600 hover:text-[#015bfe]"
                 >
-                  产品
-                  <ChevronDown className="ml-1 h-4 w-4" />
+                  产品演示
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="w-48">
-                <DropdownMenuItem asChild>
-                  <Link to="/products/digital-twin" className="w-full">数字分身</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/products/knowledge-base" className="w-full">企业知识库</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/products/chat-drawing" className="w-full">聊天绘画</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/products/paper-writing" className="w-full">论文创作</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </Link>
 
-            <Link to="/demo">
-              <Button 
-                variant="ghost" 
-                className={cn(
-                  isScrolled ? "text-gray-700 hover:text-[#015bfe]" : "text-white hover:text-white/80"
-                )}
-              >
-                产品演示
-              </Button>
-            </Link>
-
-            <Link to="/docs">
-              <Button 
-                variant="ghost" 
-                className={cn(
-                  isScrolled ? "text-gray-700 hover:text-[#015bfe]" : "text-white hover:text-white/80"
-                )}
-              >
-                产品文档
-              </Button>
-            </Link>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <Link to="/docs">
                 <Button 
                   variant="ghost" 
-                  className={cn(
-                    "flex items-center",
-                    isScrolled ? "text-gray-700 hover:text-[#015bfe]" : "text-white hover:text-white/80"
-                  )}
+                  className="px-2 text-sm font-medium text-gray-600 hover:text-[#015bfe]"
                 >
-                  支持与服务
-                  <ChevronDown className="ml-1 h-4 w-4" />
+                  产品文档
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="w-48">
-                <DropdownMenuItem asChild>
-                  <Link to="/support#updates" className="w-full">更新日志</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/support#integrations" className="w-full">集成与API</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/support#partnerships" className="w-full">聚道合作</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/support#downloads" className="w-full">APP下载</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </Link>
 
-            <Link to="/about">
-              <Button 
-                variant="ghost" 
-                className={cn(
-                  isScrolled ? "text-gray-700 hover:text-[#015bfe]" : "text-white hover:text-white/80"
-                )}
-              >
-                关于我们
-              </Button>
-            </Link>
-          </nav>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button 
+                    variant="ghost" 
+                    className="flex items-center text-sm font-medium px-2 text-gray-600 hover:text-[#015bfe]"
+                  >
+                    <span>支持与服务</span>
+                    <ChevronDown className="ml-1 h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="w-52 p-2 rounded-md border border-gray-100 shadow-md">
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2">
+                    <Link to="/support#updates" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-cyan-100 flex items-center justify-center mr-2">
+                        <span className="text-cyan-600 text-xs">更新</span>
+                      </div>
+                      <span>更新日志</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
+                    <Link to="/support#integrations" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-indigo-100 flex items-center justify-center mr-2">
+                        <span className="text-indigo-600 text-xs">API</span>
+                      </div>
+                      <span>集成与API</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
+                    <Link to="/support#partnerships" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-rose-100 flex items-center justify-center mr-2">
+                        <span className="text-rose-600 text-xs">合作</span>
+                      </div>
+                      <span>渠道合作</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
+                    <Link to="/support#downloads" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-emerald-100 flex items-center justify-center mr-2">
+                        <span className="text-emerald-600 text-xs">APP</span>
+                      </div>
+                      <span>APP下载</span>
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
-          {/* Action Buttons */}
-          <div className="hidden md:flex items-center space-x-2">
-            <Button 
-              variant={isScrolled ? "outline" : "ghost"} 
-              className={cn(
-                isScrolled 
-                  ? "border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white" 
-                  : "border-white text-white hover:bg-white/20"
-              )}
-            >
-              登录
-            </Button>
-            <Button 
-              className={cn(
-                isScrolled 
-                  ? "bg-[#015bfe] hover:bg-blue-700 text-white" 
-                  : "bg-white text-[#015bfe] hover:bg-white/90"
-              )}
-            >
-              免费试用
-            </Button>
+              <Link to="/about">
+                <Button 
+                  variant="ghost" 
+                  className="px-2 text-sm font-medium text-gray-600 hover:text-[#015bfe]"
+                >
+                  关于我们
+                </Button>
+              </Link>
+            </nav>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden"
-            onClick={toggleMobileMenu}
-            aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
-          >
-            {mobileMenuOpen ? (
-              <X className={isScrolled ? "text-gray-700" : "text-white"} />
-            ) : (
-              <Menu className={isScrolled ? "text-gray-700" : "text-white"} />
-            )}
-          </button>
+          {/* Action Buttons */}
+          <div className="flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-2 mr-2">
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-full h-8 w-8"
+              >
+                <Bell className="h-4 w-4" />
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-full h-8 w-8"
+              >
+                <Github className="h-4 w-4" />
+              </Button>
+            </div>
+            
+            <div className="hidden md:flex items-center space-x-2">
+              <Button 
+                variant="ghost" 
+                className="text-sm font-medium text-gray-600 hover:text-[#015bfe] hover:bg-blue-50"
+              >
+                登录
+              </Button>
+              <Button 
+                className="text-sm font-medium bg-[#015bfe] hover:bg-blue-700 text-white"
+              >
+                免费试用
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button 
+              className="md:hidden p-1 rounded-md border border-gray-200"
+              onClick={toggleMobileMenu}
+              aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 1 }}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5 text-gray-700" />
+              ) : (
+                <Menu className="h-5 w-5 text-gray-700" />
+              )}
+            </motion.button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="container mx-auto px-4 py-4">
-            <nav className="flex flex-col space-y-4">
-              <div className="border-b pb-2">
-                <div className="font-medium mb-2">产品</div>
-                <div className="pl-4 flex flex-col space-y-2">
-                  <Link to="/products/digital-twin" className="text-gray-600 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                    数字分身
-                  </Link>
-                  <Link to="/products/knowledge-base" className="text-gray-600 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                    企业知识库
-                  </Link>
-                  <Link to="/products/chat-drawing" className="text-gray-600 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                    聊天绘画
-                  </Link>
-                  <Link to="/products/paper-writing" className="text-gray-600 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                    论文创作
-                  </Link>
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            className="md:hidden bg-white shadow-md overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="container mx-auto px-4 py-4">
+              <nav className="flex flex-col space-y-4">
+                <div className="border-b pb-3">
+                  <button 
+                    onClick={() => toggleMobileDropdown('products')}
+                    className="flex items-center justify-between w-full py-2"
+                  >
+                    <div className="font-medium text-gray-800 flex items-center">
+                      <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center mr-2">
+                        <span className="text-blue-600 text-xs">产</span>
+                      </div>
+                      产品
+                    </div>
+                    {activeDropdown === 'products' ? 
+                      <ChevronUp className="h-5 w-5 text-gray-500" /> : 
+                      <ChevronDown className="h-5 w-5 text-gray-500" />
+                    }
+                  </button>
+                  
+                  <AnimatePresence>
+                    {activeDropdown === 'products' && (
+                      <motion.div 
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-9 flex flex-col space-y-3 py-2">
+                          <Link to="/products/digital-twin" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                              <span className="text-blue-600 text-xs">数</span>
+                            </div>
+                            数字分身
+                          </Link>
+                          <Link to="/products/knowledge-base" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-green-50 flex items-center justify-center mr-2">
+                              <span className="text-green-600 text-xs">知</span>
+                            </div>
+                            企业知识库
+                          </Link>
+                          <Link to="/products/chat-drawing" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-purple-50 flex items-center justify-center mr-2">
+                              <span className="text-purple-600 text-xs">绘</span>
+                            </div>
+                            聊天绘画
+                          </Link>
+                          <Link to="/products/paper-writing" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center mr-2">
+                              <span className="text-amber-600 text-xs">论</span>
+                            </div>
+                            论文创作
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </div>
-              
-              <Link to="/demo" className="text-gray-700 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                产品演示
-              </Link>
-              
-              <Link to="/docs" className="text-gray-700 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                产品文档
-              </Link>
-              
-              <div className="border-b pb-2">
-                <div className="font-medium mb-2">支持与服务</div>
-                <div className="pl-4 flex flex-col space-y-2">
-                  <Link to="/support#updates" className="text-gray-600 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                    更新日志
-                  </Link>
-                  <Link to="/support#integrations" className="text-gray-600 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                    集成与API
-                  </Link>
-                  <Link to="/support#partnerships" className="text-gray-600 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                    聚道合作
-                  </Link>
-                  <Link to="/support#downloads" className="text-gray-600 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                    APP下载
-                  </Link>
+                
+                <Link to="/demo" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={toggleMobileMenu}>
+                  <div className="w-7 h-7 rounded-full bg-cyan-100 flex items-center justify-center mr-2">
+                    <span className="text-cyan-600 text-xs">演</span>
+                  </div>
+                  产品演示
+                </Link>
+                
+                <Link to="/docs" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={toggleMobileMenu}>
+                  <div className="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
+                    <span className="text-indigo-600 text-xs">文</span>
+                  </div>
+                  产品文档
+                </Link>
+                
+                <div className="border-b pb-3">
+                  <button 
+                    onClick={() => toggleMobileDropdown('support')}
+                    className="flex items-center justify-between w-full py-2"
+                  >
+                    <div className="font-medium text-gray-800 flex items-center">
+                      <div className="w-7 h-7 rounded-full bg-rose-100 flex items-center justify-center mr-2">
+                        <span className="text-rose-600 text-xs">支</span>
+                      </div>
+                      支持与服务
+                    </div>
+                    {activeDropdown === 'support' ? 
+                      <ChevronUp className="h-5 w-5 text-gray-500" /> : 
+                      <ChevronDown className="h-5 w-5 text-gray-500" />
+                    }
+                  </button>
+                  
+                  <AnimatePresence>
+                    {activeDropdown === 'support' && (
+                      <motion.div 
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-9 flex flex-col space-y-3 py-2">
+                          <Link to="/support#updates" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-cyan-50 flex items-center justify-center mr-2">
+                              <span className="text-cyan-600 text-xs">更</span>
+                            </div>
+                            更新日志
+                          </Link>
+                          <Link to="/support#integrations" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-indigo-50 flex items-center justify-center mr-2">
+                              <span className="text-indigo-600 text-xs">集</span>
+                            </div>
+                            集成与API
+                          </Link>
+                          <Link to="/support#partnerships" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center mr-2">
+                              <span className="text-rose-600 text-xs">渠</span>
+                            </div>
+                            渠道合作
+                          </Link>
+                          <Link to="/support#downloads" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center mr-2">
+                              <span className="text-emerald-600 text-xs">A</span>
+                            </div>
+                            APP下载
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </div>
-              
-              <Link to="/about" className="text-gray-700 hover:text-[#015bfe]" onClick={toggleMobileMenu}>
-                关于我们
-              </Link>
-              
-              <div className="pt-2 flex flex-col space-y-2">
-                <Button variant="outline" className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full">
-                  登录
-                </Button>
-                <Button className="bg-[#015bfe] hover:bg-blue-700 text-white w-full">
-                  免费试用
-                </Button>
-              </div>
-            </nav>
-          </div>
-        </div>
-      )}
+                
+                <Link to="/about" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={toggleMobileMenu}>
+                  <div className="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center mr-2">
+                    <span className="text-emerald-600 text-xs">关</span>
+                  </div>
+                  关于我们
+                </Link>
+                
+                <div className="pt-3 flex flex-col space-y-3">
+                  <motion.div whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      variant="outline" 
+                      className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium"
+                    >
+                      登录
+                    </Button>
+                  </motion.div>
+                  <motion.div whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      className="bg-[#015bfe] hover:bg-blue-700 text-white w-full font-medium"
+                    >
+                      免费试用
+                    </Button>
+                  </motion.div>
+                </div>
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

@@ -10,8 +10,15 @@ import { Input } from "@/components/ui/input";
 import { Search, FileText, Book, Code, HelpCircle, ChevronRight } from "lucide-react";
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const DocsPage = () => {
+  // 设置文档页面元数据
+  usePageMetadata({
+    title: '产品文档 - 使用指南与API文档 | 艺创AI',
+    description: '艺创AI产品文档中心，提供详细的使用指南、API文档和常见问题解答。包括数字分身、企业知识库、聊天绘画、论文创作等产品的完整文档。',
+    keywords: '产品文档,使用指南,API文档,常见问题,技术支持,开发文档,SDK下载,艺创AI'
+  });
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("guides");
 

@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Check, Database } from "lucide-react";
 import { Link } from 'react-router-dom';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const KnowledgeBasePage = () => {
+  // 设置知识库页面元数据
+  usePageMetadata({
+    title: '企业知识库 - 智能知识管理系统 | 艺创AI',
+    description: '智能整合企业各类文档资料，构建结构化知识体系，提供精准搜索和智能问答功能。支持多格式文档、权限管理、知识图谱等功能。',
+    keywords: '企业知识库,知识管理系统,智能检索,知识图谱,文档管理,智能问答,艺创AI'
+  });
   const features = [
     {
       title: "智能检索",

@@ -30,7 +30,7 @@ const Advantages = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#f7f9f0]" id="advantages">
+    <section className="py-20 bg-white" id="advantages">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">我们的优势</h2>

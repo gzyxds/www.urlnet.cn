@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Check, FileText } from "lucide-react";
 import { Link } from 'react-router-dom';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const PaperWritingPage = () => {
+  // 设置论文写作页面元数据
+  usePageMetadata({
+    title: '论文创作 - AI学术写作助手 | 艺创AI',
+    description: '辅助学术研究人员进行文献综述、数据分析和论文撰写。支持文献分析、智能写作、格式规范、查重检测等功能，提高研究效率和质量。',
+    keywords: '论文创作,学术写作,AI写作助手,文献分析,查重检测,学术论文,研究报告,艺创AI'
+  });
   const features = [
     {
       title: "文献分析",

@@ -1,23 +1,14 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Check, Brain, CheckCircle, Users, Bot, Play, Zap, Shield, BarChart3, Video, Mic, Tv, PenTool } from "lucide-react";
-import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const DigitalTwinPage = () => {
   // 添加状态来跟踪当前选中的场景标签
   const [activeScenario, setActiveScenario] = useState('virtualIP');
-  
-  // 设置页面元数据
-  usePageMetadata({
-    title: '虚拟数字人 - AI数字孪生技术解决方案 | 艺创AI',
-    description: '基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。',
-    keywords: '数字孪生,虚拟数字人,AI数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播'
-  });
   
   const features = [
     {
@@ -72,11 +63,6 @@ const DigitalTwinPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Helmet>
-        <title>虚拟数字人 - AI数字孪生技术解决方案 | 艺创AI</title>
-        <meta name="description" content="基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。" />
-        <meta name="keywords" content="数字孪生,虚拟数字人,AI数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播" />
-      </Helmet>
       {/* 头部横幅 - 参考火山引擎风格 */}
       <section className="pt-20 pb-16 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
         <div className="container mx-auto px-4 relative">

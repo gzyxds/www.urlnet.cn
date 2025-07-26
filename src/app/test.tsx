@@ -1,6 +1,13 @@
 import React from 'react';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const TestPage = () => {
+  // 设置测试页面元数据
+  usePageMetadata({
+    title: '测试页面 | 艺创AI',
+    description: '艺创AI测试页面，用于验证系统功能和页面渲染。',
+    keywords: '测试页面,系统测试,艺创AI'
+  });
   return (
     <div className="p-10">
       <h1 className="text-3xl font-bold text-blue-600">测试页面</h1>

@@ -12,8 +12,15 @@ import { ArrowRight, Clock, Users, Zap, Download, FileText, Code } from "lucide-
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Link } from 'react-router-dom';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const SupportPage = () => {
+  // 设置支持页面元数据
+  usePageMetadata({
+    title: '支持与服务 - 技术支持与合作伙伴 | 艺创AI',
+    description: '艺创AI支持中心，提供产品更新日志、API集成文档、合作伙伴计划、APP下载和全方位技术支持服务。帮助您充分利用AI产品和解决方案。',
+    keywords: '技术支持,产品更新,API集成,合作伙伴,APP下载,在线客服,知识库,艺创AI'
+  });
   const [activeTab, setActiveTab] = useState("updates");
 
   const updates = [
@@ -269,7 +276,7 @@ const SupportPage = () => {
                             className="text-[#015bfe] border-[#015bfe] hover:bg-[#015bfe] hover:text-white"
                             asChild
                           >
-                            <Link href={integration.link}>
+                            <Link to={integration.link}>
                               了解更多
                               <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>

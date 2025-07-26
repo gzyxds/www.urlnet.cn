@@ -63,7 +63,7 @@ const Cases = () => {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative w-full">
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"

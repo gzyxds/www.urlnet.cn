@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Check, MessageSquare } from "lucide-react";
 import { Link } from 'react-router-dom';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const ChatDrawingPage = () => {
+  // 设置聊天绘画页面元数据
+  usePageMetadata({
+    title: '聊天绘画 - AI图像生成系统 | 艺创AI',
+    description: '结合NLP和计算机视觉技术，通过自然语言描述生成专业级图像。支持多风格、高清导出、批量处理等功能，激发创意表达。',
+    keywords: '聊天绘画,AI绘画,文本生成图像,AI图像生成,创意设计,营销素材,概念设计,艺创AI'
+  });
   const features = [
     {
       title: "文本生成图像",

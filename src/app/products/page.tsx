@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Brain, Database, MessageSquare, FileText } from "lucide-react";
 import { Link } from 'react-router-dom';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const ProductsPage = () => {
+  // 设置产品页面元数据
+  usePageMetadata({
+    title: '产品中心 - AI系统解决方案 | 艺创AI',
+    description: 'AI科技提供全面的人工智能解决方案，包括数字分身、企业知识库、聊天绘画、论文创作等产品，帮助企业实现数字化转型和智能化升级。',
+    keywords: '产品中心,AI解决方案,数字分身,企业知识库,聊天绘画,论文创作,人工智能产品,艺创AI'
+  });
   const products = [
     {
       icon: <Brain className="h-12 w-12 text-[#015bfe]" />,
