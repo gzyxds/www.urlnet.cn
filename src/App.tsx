@@ -12,6 +12,7 @@ import PaperWritingPage from './app/products/paper-writing/page';
 import DemoPage from './app/demo/page';
 import DocsPage from './app/docs/page';
 import SupportPage from './app/support/page';
+import ServicePage from './app/service/page';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/products/paper-writing" element={<PaperWritingPage />} />
           <Route path="/demo" element={<DemoPage />} />
           <Route path="/docs" element={<DocsPage />} />
+          <Route path="/service" element={<ServicePage />} />
           <Route path="/support" element={<SupportPage />} />
         </Routes>
       </main>

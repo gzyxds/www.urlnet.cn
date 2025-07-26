@@ -148,3 +148,13 @@ npm run preview
 - 网站：[www.aitech.com](https://www.aitech.com)
 - 邮箱：contact@aitech.com
 - 电话：400-888-8888
+
+
+
+问题原因：
+路由缺失：src/App.tsx 中没有配置 /service 路由
+导航缺失：Header 组件中没有指向 /service 页面的导航链接
+解决步骤：
+✅ 添加路由：在 App.tsx 中导入 ServicePage 组件并添加 /service 路由
+✅ 添加导航链接：在 Header 组件的"支持与服务"下拉菜单中添加"服务支持"链接
+✅ 移动端适配：同时在移动端菜单中也添加了相应的链接

@@ -1,82 +1,28 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Check, Brain, CheckCircle, Users, Bot, Play, Zap, Shield, BarChart3, Video, Mic, Tv, PenTool } from "lucide-react";
+import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const DigitalTwinPage = () => {
-  // 添加状态来跟踪当前选中的场景标签
   const [activeScenario, setActiveScenario] = useState('virtualIP');
   
-  // 设置页面元数据
   usePageMetadata({
     title: '虚拟数字人 - AI数字孪生技术解决方案 | 艺创AI',
     description: '基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。',
     keywords: '数字孪生,虚拟数字人,AI数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播'
   });
-  
-  const features = [
-    {
-      icon: <Video className="h-5 w-5" />,
-      title: "数字分身",
-      description: "创建逼真的数字人形象，支持个性化定制，满足不同场景需求。"
-    },
-    {
-      icon: <Mic className="h-5 w-5" />,
-      title: "声音克隆",
-      description: "基于先进的语音合成技术，可以克隆指定声音，实现自然流畅的语音交互。"
-    },
-    {
-      icon: <Zap className="h-5 w-5" />,
-      title: "非免安装",
-      description: "无需复杂安装过程，开箱即用，快速部署到您的系统中。"
-    },
-    {
-      icon: <BarChart3 className="h-5 w-5" />,
-      title: "预设文案模板",
-      description: "内置多种行业文案模板，快速生成专业内容，提高工作效率。"
-    },
-    {
-      icon: <Users className="h-5 w-5" />,
-      title: "分销中心",
-      description: "完善的分销系统，支持多级分销，帮助合作伙伴共同成长。"
-    },
-    {
-      icon: <Shield className="h-5 w-5" />,
-      title: "实时热点",
-      description: "自动抓取热门话题，生成相关内容，保持信息的时效性和吸引力。"
-    }
-  ];
 
-  const scenarios = [
-    {
-      icon: <Users className="h-6 w-6 text-blue-500" />,
-      title: "零售场景",
-      description: "为线上线下零售提供智能客服和销售顾问，提升用户体验和转化率，减少人工成本。"
-    },
-    {
-      icon: <Bot className="h-6 w-6 text-purple-500" />,
-      title: "虚拟数字人",
-      description: "创建企业专属虚拟形象，作为品牌代言人与用户互动，提升品牌亲和力和影响力。"
-    },
-    {
-      icon: <CheckCircle className="h-6 w-6 text-green-500" />,
-      title: "智能客服",
-      description: "提供全天候智能客服服务，快速响应用户咨询，解决常见问题，提高客户满意度。"
-    }
-  ];
+  // 常用样式常量
+  const buttonPrimary = "bg-blue-600 hover:bg-blue-700 text-white";
+  const buttonSecondary = "border-blue-600 text-blue-600 hover:bg-blue-50";
+  const iconContainer = "w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center";
+  const sectionPadding = "py-20";
+  const containerBase = "container mx-auto px-4";
 
   return (
     <div className="min-h-screen bg-white">
-      <Helmet>
-        <title>虚拟数字人 - AI数字孪生技术解决方案 | 艺创AI</title>
-        <meta name="description" content="基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。" />
-        <meta name="keywords" content="数字孪生,虚拟数字人,AI数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播" />
-      </Helmet>
       {/* 头部横幅 - 参考火山引擎风格 */}
       <section className="pt-20 pb-16 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
         <div className="container mx-auto px-4 relative">

@@ -662,7 +662,6 @@ const DemoPage = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 };

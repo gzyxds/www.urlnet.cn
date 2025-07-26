@@ -27,7 +27,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-[#015bfe]/10 rounded-xl blur-lg -z-10"></div>
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/16109cf69762df98_1637162865915.png" 
                 alt="AI科技团队" 
                 className="rounded-lg shadow-xl"
               />

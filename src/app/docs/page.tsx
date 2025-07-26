@@ -351,7 +351,7 @@ const DocsPage = () => {
           </div>
         </section>
       </main>
-      <Footer />
+      
     </>
   );
 };

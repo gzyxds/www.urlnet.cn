@@ -161,6 +161,14 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="center" className="w-52 p-2 rounded-md border border-gray-100 shadow-md">
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2">
+                    <Link to="/service" className="w-full flex items-center">
+                      <div className="w-7 h-7 rounded-md bg-blue-100 flex items-center justify-center mr-2">
+                        <span className="text-blue-600 text-xs">服务</span>
+                      </div>
+                      <span>服务支持</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
                     <Link to="/support#updates" className="w-full flex items-center">
                       <div className="w-7 h-7 rounded-md bg-cyan-100 flex items-center justify-center mr-2">
                         <span className="text-cyan-600 text-xs">更新</span>
@@ -367,6 +375,12 @@ const Header = () => {
                         className="overflow-hidden"
                       >
                         <div className="pl-9 flex flex-col space-y-3 py-2">
+                          <Link to="/service" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                            <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                              <span className="text-blue-600 text-xs">服</span>
+                            </div>
+                            服务支持
+                          </Link>
                           <Link to="/support#updates" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
                             <div className="w-6 h-6 rounded-full bg-cyan-50 flex items-center justify-center mr-2">
                               <span className="text-cyan-600 text-xs">更</span>
