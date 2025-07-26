@@ -1,32 +1,19 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Check, Brain, CheckCircle, Users, Bot, Play, Zap, Shield, BarChart3, Video, Mic, Tv, PenTool } from "lucide-react";
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { Check } from "lucide-react";
 
-const DigitalTwinPage = () => {
-  // 添加状态来跟踪当前选中的场景标签
-  const [activeScenario, setActiveScenario] = useState('virtualIP');
-  
-  // 设置页面元数据
-  usePageMetadata({
-    title: '支持与服务 - AI数字孪生技术解决方案 | 艺创AI',
-    description: '基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。',
-    keywords: '数字孪生,虚拟数字人,AI数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播'
-  });
-
+const ServicePage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>支持与服务 - AI数字孪生技术解决方案 | 艺创AI</title>
-        <meta name="description" content="火山引擎提供专业的售前及售后服务，助力您轻松开启上云之旅。" />
-        <meta name="keywords" content="支持与服务,火山引擎,售前服务,售后服务,技术支持,客服支持" />
+        <title>支持与服务 - 火山引擎云服务 | 艺创AI</title>
+        <meta name="description" content="火山引擎提供专业的售前及售后服务，助力您轻松开启上云之旅。提供24/7技术支持、在线客服、电话支持等多种服务方式。" />
+        <meta name="keywords" content="支持与服务,火山引擎,云服务,技术支持,在线客服,售前咨询,售后服务" />
       </Helmet>
-      
+
       {/* 支持与服务横幅 */}
       <section className="pt-16 pb-12 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden relative">
         <div className="container mx-auto px-4 relative">
@@ -167,40 +154,166 @@ const DigitalTwinPage = () => {
         </div>
       </section>
 
-      {/* 服务优势 */}
+      {/* 售前咨询 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">服务优势</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">专业的技术团队，完善的服务体系，为您提供全方位支持</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">售前咨询</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">多种售前咨询方式，满足您多场景需求</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* 服务卡片1 - 专业团队 */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-blue-600" />
+            {/* 在线咨询 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="relative p-4">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/7ca0080e43fbff5b_1637162855791.png" 
+                  alt="在线咨询" 
+                  className="w-full h-56 object-cover rounded-lg"
+                />
+                <div className="absolute top-8 left-8 bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded-full">01</div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">专业团队</h3>
-              <p className="text-gray-600">拥有丰富经验的技术专家团队，为您提供专业的技术咨询和解决方案</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">在线咨询</h3>
+                <p className="text-gray-600 mb-4">获取产品顾问的帮助，快速解答您的产品疑惑</p>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    即时响应
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* 服务卡片2 - 快速响应 */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-8 w-8 text-green-600" />
+            {/* 售前电话 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="relative p-4">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/3a7872d8f76ea6c9_1637162625533.png" 
+                  alt="售前电话" 
+                  className="w-full h-56 object-cover rounded-lg"
+                />
+                <div className="absolute top-8 left-8 bg-green-600 text-white text-sm font-medium py-1 px-3 rounded-full">02</div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">快速响应</h3>
-              <p className="text-gray-600">7×24小时在线支持，平均响应时间30秒，确保您的问题得到及时解决</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">售前电话</h3>
+                <p className="text-gray-600 mb-4">400-850-0030转1，获取产品咨询的帮助，快速解答您的产品疑惑</p>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    7×24小时服务
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* 服务卡片3 - 安全保障 */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-purple-600" />
+            {/* 咨询工单 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="relative p-4">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/3cdca3a315ee275d_1637162663805.png" 
+                  alt="咨询工单" 
+                  className="w-full h-56 object-cover rounded-lg"
+                />
+                <div className="absolute top-8 left-8 bg-purple-600 text-white text-sm font-medium py-1 px-3 rounded-full">03</div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">安全保障</h3>
-              <p className="text-gray-600">企业级安全标准，数据加密传输，确保您的信息安全和隐私保护</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">咨询工单</h3>
+                <p className="text-gray-600 mb-4">提交您的疑问，我们专业团队会尽快为您解答</p>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    全程跟踪服务进度
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 售后服务 */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">售后服务</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">极速的售后服务支持，因为出场晚，所以服务更用心</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* 在线咨询 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="h-56 relative p-3">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/7ca0080e43fbff5b_1637162855791.png" 
+                  alt="在线咨询" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">在线咨询</h3>
+                <p className="text-gray-600 text-sm">秒级解答，为您匹配合适的人工服务，提供最佳解决方案</p>
+              </div>
+            </div>
+
+            {/* 售后工单 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="h-56 relative p-3">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/16109cf69762df98_1637162865915.png" 
+                  alt="售后工单" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">售后工单</h3>
+                <p className="text-gray-600 text-sm">工单支持：7×24小时工单支持，提供产品使用咨询及基础技术支援</p>
+              </div>
+            </div>
+
+            {/* 售后电话 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="h-56 relative p-3">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/e6b94abc619cbc69_1637162873769.png" 
+                  alt="售后电话" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">售后电话</h3>
+                <div className="text-gray-600 text-sm">
+                  <p className="mb-2">售后电话：7×12小时热线服务，为您提供专业的售后支持</p>
+                  <p className="mb-1">售后咨询：400-850-0030</p>
+                  <p>备案咨询：400-850-0030 转 6</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 建议与投诉 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="h-56 relative p-3">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/8d460c0a2c958d4c_1637162882349.png" 
+                  alt="建议与投诉" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">建议与投诉</h3>
+                <div className="text-gray-600 text-sm">
+                  <p className="mb-3">聆听您对火山引擎产品与服务的建议和投诉</p>
+                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white w-full">
+                    意见建议
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -209,88 +322,66 @@ const DigitalTwinPage = () => {
       {/* 联系我们 */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">联系我们</h2>
-              <p className="text-gray-600 text-lg">有任何问题或需求，请随时联系我们的专业团队</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">联系我们</h2>
+            <p className="text-gray-500 text-lg">多种联系方式，随时为您提供帮助</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* 在线客服 */}
+            <div className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold mb-2">在线客服</h3>
+              <p className="text-gray-600 text-sm mb-3">24小时在线服务</p>
+              <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                立即咨询
+              </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* 联系方式 */}
-              <div className="bg-white rounded-xl p-8 shadow-lg">
-                <h3 className="text-xl font-semibold mb-6">联系方式</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-medium">客服热线</p>
-                      <p className="text-gray-600">400-123-4567</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-medium">邮箱支持</p>
-                      <p className="text-gray-600">support@example.com</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-medium">在线客服</p>
-                      <p className="text-gray-600">7×24小时在线</p>
-                    </div>
-                  </div>
-                </div>
+            {/* 电话支持 */}
+            <div className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
               </div>
+              <h3 className="font-semibold mb-2">电话支持</h3>
+              <p className="text-gray-600 text-sm mb-3">400-888-8888</p>
+              <Button size="sm" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                拨打电话
+              </Button>
+            </div>
 
-              {/* 快速咨询表单 */}
-              <div className="bg-white rounded-xl p-8 shadow-lg">
-                <h3 className="text-xl font-semibold mb-6">快速咨询</h3>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">姓名</label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="请输入您的姓名"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">联系方式</label>
-                    <input 
-                      type="text" 
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="请输入手机号或邮箱"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">咨询内容</label>
-                    <textarea 
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="请描述您的问题或需求"
-                    ></textarea>
-                  </div>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3">
-                    提交咨询
-                  </Button>
-                </form>
+            {/* 邮件支持 */}
+            <div className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
               </div>
+              <h3 className="font-semibold mb-2">邮件支持</h3>
+              <p className="text-gray-600 text-sm mb-3">support@example.com</p>
+              <Button size="sm" variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-50">
+                发送邮件
+              </Button>
+            </div>
+
+            {/* 工单系统 */}
+            <div className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold mb-2">工单系统</h3>
+              <p className="text-gray-600 text-sm mb-3">提交技术工单</p>
+              <Button size="sm" variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">
+                提交工单
+              </Button>
             </div>
           </div>
         </div>
@@ -299,4 +390,4 @@ const DigitalTwinPage = () => {
   );
 };
 
-export default DigitalTwinPage;
+export default ServicePage;

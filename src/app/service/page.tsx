@@ -154,46 +154,166 @@ const ServicePage = () => {
         </div>
       </section>
 
-      {/* 服务优势 */}
+      {/* 售前咨询 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">服务优势</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">多维度服务优势，为您提供全方位技术支持</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">售前咨询</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">多种售前咨询方式，满足您多场景需求</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* 专业团队 */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+            {/* 在线咨询 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="relative p-4">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/7ca0080e43fbff5b_1637162855791.png" 
+                  alt="在线咨询" 
+                  className="w-full h-56 object-cover rounded-lg"
+                />
+                <div className="absolute top-8 left-8 bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded-full">01</div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">专业团队</h3>
-              <p className="text-gray-600">拥有资深技术专家团队，提供专业的技术咨询和解决方案</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">在线咨询</h3>
+                <p className="text-gray-600 mb-4">获取产品顾问的帮助，快速解答您的产品疑惑</p>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    即时响应
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* 快速响应 */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+            {/* 售前电话 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="relative p-4">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/3a7872d8f76ea6c9_1637162625533.png" 
+                  alt="售前电话" 
+                  className="w-full h-56 object-cover rounded-lg"
+                />
+                <div className="absolute top-8 left-8 bg-green-600 text-white text-sm font-medium py-1 px-3 rounded-full">02</div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">快速响应</h3>
-              <p className="text-gray-600">7×24小时在线服务，平均响应时间30秒，快速解决您的问题</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">售前电话</h3>
+                <p className="text-gray-600 mb-4">400-850-0030转1，获取产品咨询的帮助，快速解答您的产品疑惑</p>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    7×24小时服务
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* 全程跟踪 */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            {/* 咨询工单 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="relative p-4">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/3cdca3a315ee275d_1637162663805.png" 
+                  alt="咨询工单" 
+                  className="w-full h-56 object-cover rounded-lg"
+                />
+                <div className="absolute top-8 left-8 bg-purple-600 text-white text-sm font-medium py-1 px-3 rounded-full">03</div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">全程跟踪</h3>
-              <p className="text-gray-600">从售前咨询到售后服务，全程跟踪服务进度，确保问题得到解决</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">咨询工单</h3>
+                <p className="text-gray-600 mb-4">提交您的疑问，我们专业团队会尽快为您解答</p>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    全程跟踪服务进度
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 售后服务 */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">售后服务</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">极速的售后服务支持，因为出场晚，所以服务更用心</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* 在线咨询 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="h-56 relative p-3">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/7ca0080e43fbff5b_1637162855791.png" 
+                  alt="在线咨询" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">在线咨询</h3>
+                <p className="text-gray-600 text-sm">秒级解答，为您匹配合适的人工服务，提供最佳解决方案</p>
+              </div>
+            </div>
+
+            {/* 售后工单 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="h-56 relative p-3">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/16109cf69762df98_1637162865915.png" 
+                  alt="售后工单" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">售后工单</h3>
+                <p className="text-gray-600 text-sm">工单支持：7×24小时工单支持，提供产品使用咨询及基础技术支援</p>
+              </div>
+            </div>
+
+            {/* 售后电话 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="h-56 relative p-3">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/e6b94abc619cbc69_1637162873769.png" 
+                  alt="售后电话" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">售后电话</h3>
+                <div className="text-gray-600 text-sm">
+                  <p className="mb-2">售后电话：7×12小时热线服务，为您提供专业的售后支持</p>
+                  <p className="mb-1">售后咨询：400-850-0030</p>
+                  <p>备案咨询：400-850-0030 转 6</p>
+                </div>
+              </div>
+            </div>
+
+            {/* 建议与投诉 */}
+            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="h-56 relative p-3">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/8d460c0a2c958d4c_1637162882349.png" 
+                  alt="建议与投诉" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">建议与投诉</h3>
+                <div className="text-gray-600 text-sm">
+                  <p className="mb-3">聆听您对火山引擎产品与服务的建议和投诉</p>
+                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white w-full">
+                    意见建议
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
