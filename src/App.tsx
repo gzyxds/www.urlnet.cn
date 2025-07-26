@@ -13,6 +13,7 @@ import DemoPage from './app/demo/page';
 import DocsPage from './app/docs/page';
 import SupportPage from './app/support/page';
 import ServicePage from './app/service/page';
+import AboutPage from './app/about/page';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/docs" element={<DocsPage />} />
           <Route path="/service" element={<ServicePage />} />
           <Route path="/support" element={<SupportPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
       <Footer />
