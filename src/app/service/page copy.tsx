@@ -57,20 +57,20 @@ const ServicePage = () => {
             </div>
             
             {/* 右侧现代化服务展示 */}
-            <div className="w-full lg:w-1/2 relative flex justify-center items-center min-h-[400px]">
-              <div className="relative max-w-sm w-full">
+            <div className="w-full lg:w-1/2 relative flex justify-center items-center min-h-[450px]">
+              <div className="relative max-w-md w-full">
                 {/* 主要服务卡片组 */}
-                <div className="grid grid-cols-2 gap-3 w-full">
+                <div className="grid grid-cols-2 gap-4 w-full">
                   {/* 在线客服卡片 */}
-                  <div className="bg-white rounded-xl shadow-lg p-3 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                         </svg>
                       </div>
-                      <h3 className="font-semibold text-gray-900 text-xs mb-1">在线客服</h3>
-                      <p className="text-xs text-green-500 mb-1">● 24/7在线</p>
+                      <h3 className="font-semibold text-gray-900 text-sm mb-2">在线客服</h3>
+                      <p className="text-sm text-green-500 mb-2">● 24/7在线</p>
                       <div className="w-full bg-gray-100 rounded-full h-1.5 mb-1">
                         <div className="bg-blue-500 h-1.5 rounded-full w-4/5"></div>
                       </div>
@@ -79,16 +79,16 @@ const ServicePage = () => {
                   </div>
 
                   {/* 技术支持卡片 */}
-                  <div className="bg-white rounded-xl shadow-lg p-3 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                       </div>
-                      <h3 className="font-semibold text-gray-900 text-xs mb-1">技术支持</h3>
-                      <p className="text-xs text-blue-500 mb-1">● 专业团队</p>
+                      <h3 className="font-semibold text-gray-900 text-sm mb-2">技术支持</h3>
+                      <p className="text-sm text-blue-500 mb-2">● 专业团队</p>
                       <div className="w-full bg-gray-100 rounded-full h-1.5 mb-1">
                         <div className="bg-green-500 h-1.5 rounded-full w-full"></div>
                       </div>
@@ -97,15 +97,15 @@ const ServicePage = () => {
                   </div>
 
                   {/* 电话支持卡片 */}
-                  <div className="bg-white rounded-xl shadow-lg p-3 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
-                      <h3 className="font-semibold text-gray-900 text-xs mb-1">电话支持</h3>
-                      <p className="text-xs text-purple-500 mb-1">● 即时响应</p>
+                      <h3 className="font-semibold text-gray-900 text-sm mb-2">电话支持</h3>
+                      <p className="text-sm text-purple-500 mb-2">● 即时响应</p>
                       <div className="w-full bg-gray-100 rounded-full h-1.5 mb-1">
                         <div className="bg-purple-500 h-1.5 rounded-full w-3/4"></div>
                       </div>
@@ -114,15 +114,15 @@ const ServicePage = () => {
                   </div>
 
                   {/* 邮件支持卡片 */}
-                  <div className="bg-white rounded-xl shadow-lg p-3 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
-                      <h3 className="font-semibold text-gray-900 text-xs mb-1">邮件支持</h3>
-                      <p className="text-xs text-orange-500 mb-1">● 详细解答</p>
+                      <h3 className="font-semibold text-gray-900 text-sm mb-2">邮件支持</h3>
+                      <p className="text-sm text-orange-500 mb-2">● 详细解答</p>
                       <div className="w-full bg-gray-100 rounded-full h-1.5 mb-1">
                         <div className="bg-orange-500 h-1.5 rounded-full w-5/6"></div>
                       </div>
@@ -133,14 +133,14 @@ const ServicePage = () => {
 
                 {/* 中心连接线装饰 */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                  <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-3 h-3 bg-white rounded-full"></div>
                   </div>
                   {/* 连接线 */}
-                  <div className="absolute top-1/2 left-1/2 w-24 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-3 rotate-45"></div>
-                  <div className="absolute top-1/2 left-1/2 w-24 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-3 -rotate-45"></div>
-                  <div className="absolute top-1/2 left-1/2 w-24 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-3 rotate-135"></div>
-                  <div className="absolute top-1/2 left-1/2 w-24 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-3 -rotate-135"></div>
+                  <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-4 rotate-45"></div>
+                  <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-4 -rotate-45"></div>
+                  <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-4 rotate-135"></div>
+                  <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-4 -rotate-135"></div>
                 </div>
 
                 {/* 浮动装饰元素 */}
