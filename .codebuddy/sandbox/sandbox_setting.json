@@ -1,12 +1,12 @@
 {
   "path": "e:\\Github\\ai-enterprise-website\\dist",
-  "desc": "这是一个AI企业官网项目，包含数字分身、企业知识库、聊天绘画、论文创作等AI产品展示。采用React + TypeScript + Vite + TailwindCSS技术栈开发，具有响应式设计和现代化UI界面。",
+  "desc": "这是一个基于 React 和 React Router 构建的 AI 企业网站，包含多个产品页面和功能展示，以及\"返回顶部\"按钮等交互元素。",
   "id": "ae4b46d408534c94923a5e3f129af81f",
   "data": {
     "spaceKey": "ae4b46d408534c94923a5e3f129af81f",
     "connections": {
       "webIDE": "https://ae4b46d408534c94923a5e3f129af81f.ap-singapore.cloudstudio.club",
-      "preview": "https://ae4b46d408534c94923a5e3f129af81f--{port}.ap-singapore.cloudstudio.club",
+      "preview": "",
       "api": "https://ae4b46d408534c94923a5e3f129af81f--api.ap-singapore.cloudstudio.club",
       "pty": "https://ae4b46d408534c94923a5e3f129af81f--pty.ap-singapore.cloudstudio.club"
     }
