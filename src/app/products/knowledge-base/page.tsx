@@ -102,7 +102,7 @@ const KnowledgeBasePage = () => {
                   <img 
                     src="https://server.mddai.cn/uploads/images/202507171606157f25a1805.png" 
                     alt="AI知识库系统界面展示" 
-                    className="w-full h-auto transform scale-110" /* 增加图片尺寸，使其看起来更大 */
+                   className="w-full h-auto transform scale-110" /* 增加图片尺寸，使其看起来更大 */
                   />
                   
                   {/* 悬浮标签 - 简约风格 */}
