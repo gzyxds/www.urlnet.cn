@@ -5,7 +5,7 @@ import Products from '@/components/products';
 import Advantages from '@/components/advantages';
 import Terminal from '@/components/terminal';
 import Cases from '@/components/cases';
-import LatestNews from '@/components/latest-news';
+import Scenario from '@/components/scenario';
 import Contact from '@/components/contact';
 import FAQ from '@/components/fqa';
 import FunctionBlueprint from '@/components/function';
@@ -30,7 +30,7 @@ const Home = () => {
       <Terminal />
       <Advantages />
       <Cases />
-      <LatestNews />
+      <Scenario />
       <FAQ />
       <Contact />
     </>

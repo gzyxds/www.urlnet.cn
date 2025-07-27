@@ -3,6 +3,7 @@ import './app/globals.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/header';
 import Footer from './components/footer';
+import BackToTop from './components/back-to-top';
 import Home from './app/page';
 import ProductsPage from './app/products/page';
 import DigitalTwinPage from './app/products/digital-twin/page';
@@ -35,6 +36,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

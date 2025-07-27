@@ -3,23 +3,45 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, ChevronUp, Github, Bell, CircleUser } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp, Github, Bell } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
 import { useMobile } from "@/hooks/use-mobile";
 import { motion, AnimatePresence } from "framer-motion";
 
+/**
+ * 网站头部导航组件
+ * 包含桌面和移动端两种布局
+ * 实现了响应式设计、下拉菜单和动画效果
+ */
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const isMobile = useMobile();
 
-  // 关闭移动菜单当窗口调整大小
+  /**
+   * 页面导航处理函数
+   * 实现点击链接时滚动到页面顶部
+   * @param event 点击事件
+   */
+  const handleNavigation = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    // 关闭移动菜单
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+    
+    // 滚动到页面顶部
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // 窗口大小变化时关闭移动菜单
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && mobileMenuOpen) {
@@ -33,7 +55,7 @@ const Header = () => {
     };
   }, [mobileMenuOpen]);
 
-  // 当点击页面其他区域时关闭移动菜单
+  // 点击页面其他区域时关闭移动菜单
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const header = document.getElementById('main-header');
@@ -51,10 +73,17 @@ const Header = () => {
     };
   }, [mobileMenuOpen]);
 
+  /**
+   * 切换移动端菜单显示状态
+   */
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  /**
+   * 切换移动端下拉菜单显示状态
+   * @param name 下拉菜单名称
+   */
   const toggleMobileDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
   };
@@ -68,7 +97,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <div className="flex items-center space-x-8">
-            <Link to="/" className="flex items-center group">
+            <Link to="/" className="flex items-center group" onClick={handleNavigation}>
               <motion.span 
                 className="text-xl font-bold text-[#015bfe] transition-colors relative flex items-center"
                 whileHover={{ scale: 1.05 }}
@@ -97,7 +126,7 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="center" className="w-52 p-2 rounded-md border border-gray-100 shadow-md">
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2">
-                    <Link to="/products/digital-twin" className="w-full flex items-center">
+              <Link to="/products/digital-twin" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-blue-100 flex items-center justify-center mr-2">
                         <span className="text-blue-600 text-xs">数字</span>
                       </div>
@@ -105,7 +134,7 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
-                    <Link to="/products/knowledge-base" className="w-full flex items-center">
+              <Link to="/products/knowledge-base" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-green-100 flex items-center justify-center mr-2">
                         <span className="text-green-600 text-xs">知识</span>
                       </div>
@@ -113,7 +142,7 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
-                    <Link to="/products/chat-drawing" className="w-full flex items-center">
+              <Link to="/products/chat-drawing" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-purple-100 flex items-center justify-center mr-2">
                         <span className="text-purple-600 text-xs">绘画</span>
                       </div>
@@ -121,7 +150,7 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
-                    <Link to="/products/paper-writing" className="w-full flex items-center">
+              <Link to="/products/paper-writing" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-amber-100 flex items-center justify-center mr-2">
                         <span className="text-amber-600 text-xs">论文</span>
                       </div>
@@ -131,7 +160,7 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link to="/demo">
+              <Link to="/demo" onClick={handleNavigation}>
                 <Button 
                   variant="ghost" 
                   className="px-2 text-sm font-medium text-gray-600 hover:text-[#015bfe]"
@@ -140,7 +169,7 @@ const Header = () => {
                 </Button>
               </Link>
 
-              <Link to="/docs">
+              <Link to="/docs" onClick={handleNavigation}>
                 <Button 
                   variant="ghost" 
                   className="px-2 text-sm font-medium text-gray-600 hover:text-[#015bfe]"
@@ -161,7 +190,7 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="center" className="w-52 p-2 rounded-md border border-gray-100 shadow-md">
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2">
-                    <Link to="/service" className="w-full flex items-center">
+              <Link to="/service" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-blue-100 flex items-center justify-center mr-2">
                         <span className="text-blue-600 text-xs">服务</span>
                       </div>
@@ -169,7 +198,7 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
-                    <Link to="/support#updates" className="w-full flex items-center">
+              <Link to="/support#updates" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-cyan-100 flex items-center justify-center mr-2">
                         <span className="text-cyan-600 text-xs">更新</span>
                       </div>
@@ -177,7 +206,7 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
-                    <Link to="/support#integrations" className="w-full flex items-center">
+              <Link to="/support#integrations" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-indigo-100 flex items-center justify-center mr-2">
                         <span className="text-indigo-600 text-xs">API</span>
                       </div>
@@ -185,7 +214,7 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
-                    <Link to="/support#partnerships" className="w-full flex items-center">
+              <Link to="/support#partnerships" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-rose-100 flex items-center justify-center mr-2">
                         <span className="text-rose-600 text-xs">合作</span>
                       </div>
@@ -193,7 +222,7 @@ const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="rounded-md hover:bg-blue-50 focus:bg-blue-50 py-2 mt-1">
-                    <Link to="/support#downloads" className="w-full flex items-center">
+              <Link to="/support#downloads" className="w-full flex items-center" onClick={handleNavigation}>
                       <div className="w-7 h-7 rounded-md bg-emerald-100 flex items-center justify-center mr-2">
                         <span className="text-emerald-600 text-xs">APP</span>
                       </div>
@@ -203,7 +232,7 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link to="/about">
+              <Link to="/about" onClick={handleNavigation}>
                 <Button 
                   variant="ghost" 
                   className="px-2 text-sm font-medium text-gray-600 hover:text-[#015bfe]"
@@ -304,25 +333,25 @@ const Header = () => {
                         className="overflow-hidden"
                       >
                         <div className="pl-9 flex flex-col space-y-3 py-2">
-                          <Link to="/products/digital-twin" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/products/digital-twin" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center mr-2">
                               <span className="text-blue-600 text-xs">数</span>
                             </div>
                             数字分身
                           </Link>
-                          <Link to="/products/knowledge-base" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/products/knowledge-base" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-green-50 flex items-center justify-center mr-2">
                               <span className="text-green-600 text-xs">知</span>
                             </div>
                             企业知识库
                           </Link>
-                          <Link to="/products/chat-drawing" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/products/chat-drawing" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-purple-50 flex items-center justify-center mr-2">
                               <span className="text-purple-600 text-xs">绘</span>
                             </div>
                             聊天绘画
                           </Link>
-                          <Link to="/products/paper-writing" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/products/paper-writing" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center mr-2">
                               <span className="text-amber-600 text-xs">论</span>
                             </div>
@@ -334,14 +363,14 @@ const Header = () => {
                   </AnimatePresence>
                 </div>
                 
-                <Link to="/demo" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={toggleMobileMenu}>
+                <Link to="/demo" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={handleNavigation}>
                   <div className="w-7 h-7 rounded-full bg-cyan-100 flex items-center justify-center mr-2">
                     <span className="text-cyan-600 text-xs">演</span>
                   </div>
                   产品演示
                 </Link>
                 
-                <Link to="/docs" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={toggleMobileMenu}>
+                <Link to="/docs" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={handleNavigation}>
                   <div className="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
                     <span className="text-indigo-600 text-xs">文</span>
                   </div>
@@ -375,31 +404,31 @@ const Header = () => {
                         className="overflow-hidden"
                       >
                         <div className="pl-9 flex flex-col space-y-3 py-2">
-                          <Link to="/service" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/service" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center mr-2">
                               <span className="text-blue-600 text-xs">服</span>
                             </div>
                             服务支持
                           </Link>
-                          <Link to="/support#updates" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/support#updates" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-cyan-50 flex items-center justify-center mr-2">
                               <span className="text-cyan-600 text-xs">更</span>
                             </div>
                             更新日志
                           </Link>
-                          <Link to="/support#integrations" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/support#integrations" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-indigo-50 flex items-center justify-center mr-2">
                               <span className="text-indigo-600 text-xs">集</span>
                             </div>
                             集成与API
                           </Link>
-                          <Link to="/support#partnerships" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/support#partnerships" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center mr-2">
                               <span className="text-rose-600 text-xs">渠</span>
                             </div>
                             渠道合作
                           </Link>
-                          <Link to="/support#downloads" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={toggleMobileMenu}>
+                          <Link to="/support#downloads" className="text-gray-600 hover:text-[#015bfe] flex items-center" onClick={handleNavigation}>
                             <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center mr-2">
                               <span className="text-emerald-600 text-xs">A</span>
                             </div>
@@ -411,7 +440,7 @@ const Header = () => {
                   </AnimatePresence>
                 </div>
                 
-                <Link to="/about" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={toggleMobileMenu}>
+                <Link to="/about" className="text-gray-700 hover:text-[#015bfe] py-2 flex items-center" onClick={handleNavigation}>
                   <div className="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center mr-2">
                     <span className="text-emerald-600 text-xs">关</span>
                   </div>

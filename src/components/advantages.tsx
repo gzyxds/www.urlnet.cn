@@ -8,24 +8,24 @@ import { Zap, Shield, Clock, Users } from "lucide-react";
 const Advantages = () => {
   const advantages = [
     {
-      icon: <Zap className="h-12 w-12 text-[#015bfe]" />,
-      title: "先进技术",
-      description: "采用最新的深度学习和大语言模型技术，持续创新，保持技术领先优势。"
+      icon: <Zap className="h-10 w-10 text-[#015bfe]" />,
+      title: "丰富模型API",
+      description: "提供文本、文本图、文本视频多种模型API，包括DeepSeek-R1-052B、Qwen3-235B、ERNIE4.5、StepTX、Flux kontext、Flux DEV等。"
     },
     {
-      icon: <Shield className="h-12 w-12 text-[#015bfe]" />,
-      title: "安全可靠",
-      description: "严格的数据安全保障和隐私保护措施，确保客户数据安全和业务连续性。"
+      icon: <Shield className="h-10 w-10 text-[#015bfe]" />,
+      title: "高效部署管理",
+      description: "一站式自动化平台，开箱即用，全面覆盖从模型训练到应用上线的全流程，轻松实现业务模型的快速验证与适配。"
     },
     {
-      icon: <Clock className="h-12 w-12 text-[#015bfe]" />,
-      title: "高效便捷",
-      description: "简化复杂流程，提供直观易用的界面和API，帮助客户快速实现业务价值。"
+      icon: <Clock className="h-10 w-10 text-[#015bfe]" />,
+      title: "强大算法支持",
+      description: "聚焦行业优先的预训练模型和垂直领域的专业模型，支持多种业务场景，帮助企业迅速实现业务创新。"
     },
     {
-      icon: <Users className="h-12 w-12 text-[#015bfe]" />,
-      title: "专业服务",
-      description: "专业的技术团队和客户服务，提供全方位的实施、培训和技术支持。"
+      icon: <Users className="h-10 w-10 text-[#015bfe]" />,
+      title: "灵活算力购买",
+      description: "API按需付费，根据用户实际用量计费，结合错峰优化引擎，提供经济实惠的文本、文生图服务，实现高效的成本控制。"
     }
   ];
 
@@ -33,7 +33,7 @@ const Advantages = () => {
     <section className="py-20 bg-white" id="advantages">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">我们的优势</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">产品优势</h2>
           <div className="w-24 h-1 bg-[#015bfe] mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
             凭借先进的技术、专业的团队和丰富的行业经验，我们为客户提供全方位的AI解决方案和服务支持。
@@ -49,13 +49,13 @@ const Advantages = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full border-none shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-8 text-center">
-                  <div className="w-20 h-20 bg-[#015bfe]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Card className="h-full border-none shadow-md hover:shadow-lg transition-shadow duration-300 bg-white">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-[#f0f4ff] rounded-lg flex items-center justify-center mx-auto mb-4">
                     {advantage.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{advantage.title}</h3>
-                  <p className="text-gray-600">{advantage.description}</p>
+                  <h3 className="text-lg font-bold mb-3 text-gray-800">{advantage.title}</h3>
+                  <p className="text-gray-600 text-sm">{advantage.description}</p>
                 </CardContent>
               </Card>
             </motion.div>

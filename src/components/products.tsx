@@ -4,54 +4,65 @@ import React from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Brain, Database, MessageSquare, FileText } from "lucide-react";
+import { ArrowRight, ShoppingCart, Play } from "lucide-react";
 import { Link } from 'react-router-dom';
 
 const Products = () => {
   const products = [
     {
-      icon: <Brain className="h-10 w-10 text-[#015bfe]" />,
-      title: "数字分身",
-      description: "基于大语言模型的智能对话系统，可以模拟特定角色或专业人士，提供自然流畅的对话体验。",
-      features: ["多轮对话理解", "情感识别", "个性化定制", "多渠道部署"],
-      link: "/products/digital-twin"
+      image: "https://artaigc.cn/assets/saas.svg",
+      title: "艺创超级IP数字人SaaS系统",
+      subtitle: "[PHP源码版]",
+      description: "为企业主、个人博主打造短视频IP的数字人聊天系统，支持真人音+形象定制...",
+      features: ["声音克隆", "形象定制", "视频生成", "AI交谈", "热点话题"],
+      price: 4999,
+      originalPrice: 6800,
+      link: "/products/digital-human"
     },
     {
-      icon: <Database className="h-10 w-10 text-[#015bfe]" />,
-      title: "企业知识库",
-      description: "智能整合企业各类文档资料，构建结构化知识体系，提供精准搜索和智能问答功能。",
-      features: ["智能检索", "自动分类", "权限管理", "知识图谱"],
+      image: "https://artaigc.cn/assets/work.svg",
+      title: "艺创全能AI知识库系统",
+      subtitle: "[PHP源码版]",
+      description: "全能AI知识库系统(Java版，基于前后端分离架构)以及Vue3、uni-app...",
+      features: ["多模式输入", "向量检索", "智能问答", "多端支持"],
+      price: 6600,
+      originalPrice: 9800,
       link: "/products/knowledge-base"
     },
     {
-      icon: <MessageSquare className="h-10 w-10 text-[#015bfe]" />,
-      title: "聊天绘画",
-      description: "结合NLP和计算机视觉技术，通过自然语言描述生成专业级图像，激发创意表达。",
-      features: ["文本生成图像", "多风格支持", "高清导出", "批量处理"],
+      image: "https://artaigc.cn/assets/ai.svg",
+      title: "艺创AI聊天绘画系统",
+      subtitle: "[PHP源码版]",
+      description: "实现了AI对话+AI绘画的融合使用，系统功能特色：AI画图对话、AI创作模型...",
+      features: ["AI绘画", "智能聊天", "场景定制", "一键部署"],
+      price: 2999,
+      originalPrice: 3800,
       link: "/products/chat-drawing"
     },
     {
-      icon: <FileText className="h-10 w-10 text-[#015bfe]" />,
-      title: "论文创作",
-      description: "辅助学术研究人员进行文献综述、数据分析和论文撰写，提高研究效率和质量。",
-      features: ["文献分析", "智能写作", "格式规范", "查重检测"],
+      image: "https://artaigc.cn/assets/lw.svg",
+      title: "艺创AI论文写作系统",
+      subtitle: "[PHP源码版]",
+      description: "10分钟可生成几万字长文的系统，只需要输入主题关键词，AI即可快速为您生...",
+      features: ["快速生成文稿", "一键生成论文", "可下载资料", "走改订通知"],
+      price: 3200,
+      originalPrice: 4695,
       link: "/products/paper-writing"
     }
   ];
 
   return (
-    <section className="py-20 bg-white" id="products">
+    <section className="py-16 bg-gray-50" id="products">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">我们的产品</h2>
-          <div className="w-24 h-1 bg-[#015bfe] mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            我们提供全面的AI解决方案，帮助企业和个人提升效率、激发创意、创造价值。
-            从智能对话到创意生成，我们的产品覆盖多种AI应用场景。
+          <h2 className="text-4xl font-bold mb-2">我们的产品</h2>
+          <div className="w-24 h-1 bg-blue-500 mx-auto mb-4"></div>
+          <p className="text-gray-600 max-w-3xl mx-auto mb-8">
+            探索我们的创新产品系列，为您的业务提供最佳解决方案
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product, index) => (
             <motion.div
               key={index}
@@ -59,46 +70,71 @@ const Products = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="flex flex-col bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
             >
-              <Card className="h-full hover:border-[#015bfe] hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="mb-4">{product.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{product.title}</h3>
-                  <p className="text-gray-600 mb-4">{product.description}</p>
-                  <ul className="mb-6 space-y-2">
-                    {product.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <div className="w-2 h-2 rounded-full bg-[#015bfe] mr-2 mt-2"></div>
-                        <span className="text-gray-600">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    variant="outline" 
-                    className="w-full text-[#015bfe] border-[#015bfe] hover:bg-[#015bfe] hover:text-white"
-                    asChild
-                  >
-                    <Link to={product.link}>
-                      了解更多
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
+              {/* 产品图片 */}
+              <div className="relative bg-blue-50">
+                <img 
+                  src={product.image} 
+                  alt={product.title} 
+                  className="w-full h-52 object-cover"
+                />
+                <div className="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">热销</div>
+              </div>
+              
+              {/* 产品内容 */}
+              <div className="p-4 flex-grow">
+                <div className="text-center">
+                  <h3 className="text-lg font-bold text-blue-600">{product.title}</h3>
+                  <p className="text-sm font-medium text-gray-700 mb-2">{product.subtitle}</p>
+                </div>
+                
+                <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                  {product.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {product.features.map((feature, idx) => (
+                    <span key={idx} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* 价格和按钮 */}
+              <div className="p-3 border-t border-gray-100">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-baseline">
+                    <span className="text-blue-600 text-lg font-bold">¥{product.price}</span>
+                    <span className="text-gray-400 text-xs line-through ml-2">¥{product.originalPrice}</span>
+                  </div>
+                  <div className="flex space-x-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white"
+                    >
+                      <ShoppingCart className="h-3 w-3 mr-1" />
+                      购买
+                    </Button>
+                    
+                    <Button 
+                      variant="default"
+                      size="sm" 
+                      className="bg-blue-600 hover:bg-blue-700"
+                      asChild
+                    >
+                      <Link to={product.link} className="flex items-center">
+                        <Play className="h-3 w-3 mr-1" />
+                        演示
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Button 
-            className="bg-[#015bfe] hover:bg-blue-700"
-            asChild
-          >
-            <Link to="/products">
-              查看所有产品
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>
