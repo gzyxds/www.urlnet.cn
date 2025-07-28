@@ -28,6 +28,7 @@ import AgencyPage from './app/agency/page';
 import AboutPage from './app/about/page';
 import ApiPage from './app/api/page';
 import DownloadPage from './app/download/page';
+import ClientLogoWallExample from './components/clients/ClientLogoWallExample';
 
 /**
  * 应用程序主组件
@@ -65,6 +66,7 @@ function App(): JSX.Element {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/api" element={<ApiPage />} />
           <Route path="/download" element={<DownloadPage />} />
+          <Route path="/test-client-logo" element={<ClientLogoWallExample />} />
         </Routes>
       </main>
       

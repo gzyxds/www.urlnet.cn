@@ -12,6 +12,8 @@ import FAQ from '@/components/fqa';
 import FunctionBlueprint from '@/components/function';
 import BackToTop from '@/components/back-to-top';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import ClientLogoWall from '@/components/clients/ClientLogoWall';
+import clients from '@/components/clients/clients';
 
 const Home = () => {
   // 设置首页元数据
@@ -28,6 +30,7 @@ const Home = () => {
       <HotProducts />
       <About />
       <Products />
+      <ClientLogoWall clients={clients} marquee />
       <FunctionBlueprint />
       <Terminal />
       <Advantages />

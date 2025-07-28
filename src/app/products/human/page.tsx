@@ -9,9 +9,9 @@ const HumanPage = () => {
   const [activeScenario, setActiveScenario] = useState('virtualIP');
   
   usePageMetadata({
-    title: '虚拟数字人 - AI数字孪生技术解决方案 | 艺创AI',
-    description: '基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。',
-    keywords: '数字孪生,虚拟数字人,AI数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播'
+    title: 'AIGC数字人系统源码_AI数字人SaaS系统源码',
+    description: 'AIGC系统源码,是专注提供AI系统源代码解决方案的技术团队，目前已开源「AI数字人SaaS系统」「超级全能AI变现系统」「企业AI知识库」「AI聊天绘画系统」「论文写作系统」拥有PHP和JAVA两种语言版本，技术实力强，系统体验好支持私有部署，专业团队、售后无忧',
+    keywords: 'AIGC数字人系统源码,AI数字人SaaS系统,数字人开源源码'
   });
 
   return (
@@ -357,7 +357,7 @@ const HumanPage = () => {
                 </Button>
               </div>
             </div>
-            
+             
             {/* 右侧内容 - 优化移动端显示 */}
             <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2">
               <div className="relative w-full max-w-md lg:max-w-none">

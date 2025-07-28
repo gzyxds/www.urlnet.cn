@@ -4,7 +4,7 @@ import React from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
-import ProductShowcase from './components/ProductShowcase';
+import DemoShowcase from './components/demo';
 
 /**
  * 产品演示页面
@@ -69,7 +69,7 @@ const DemoPage = () => {
         </section>
 
         {/* 产品展示区域 */}
-        <ProductShowcase />
+        <DemoShowcase />
       </main>
     </div>
   );

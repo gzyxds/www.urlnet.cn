@@ -1,103 +1,198 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, Star } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Star, ShoppingCart, Users, Globe, Store, GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // 定义产品数据类型
 interface Product {
   title: string;
-  features: string[];
+  subtitle: string;
   description: string;
-  image: string;
-  originalPrice: string; // 原价
-  currentPrice: string; // 原价
-  sourceCodeLink: string; // 添加源码购买链接
+  features: string[];
+  originalPrice: string;
+  currentPrice: string;
+  sourceCodeLink: string;
+  badge?: string;
+  icon?: React.ReactNode;
+  iconColor: string;
+  tags: string[];
 }
 
-// 产品数据
+// 产品数据 - AI企业级解决方案
 const products: Product[] = [
   {
-    title: "艺创-全能AI知识库系统",
+    title: "AI智能对话系统",
+    subtitle: "AI Chat System",
+    description: "基于大语言模型的企业级智能对话系统，支持多轮对话、知识库集成、情感分析等功能，助力企业构建智能客服和知识问答平台。",
     features: [
-      "AI智能对话",
-      "知识库应用",
-      "机器人广场",
-      "知识库训练",
-      "发布网页/js/api",
+      "智能对话",
+      "知识库集成",
+      "多轮对话",
+      "情感分析",
+      "API接口"
     ],
-    description: "基于大型语言模型的企业级知识库解决方案。支持多种文档格式，实现智能问答和语义搜索，帮助企业构建专属的知识中心，提升信息检索效率。",
-    image: "https://artaigc.cn/assets/saas.svg",
     originalPrice: "¥12800.00",
     currentPrice: "¥9800.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/"
+    sourceCodeLink: "https://shop.maddodo.com/product/",
+    badge: "AI对话",
+    icon: <ShoppingCart className="h-5 w-5" />,
+    iconColor: "bg-blue-500",
+    tags: ["AI对话"]
   },
   {
-    title: "艺创-AI数字人SaaS系统 2.0版",
+    title: "AI数字人系统",
+    subtitle: "AI Digital Human",
+    description: "企业级AI数字人解决方案，支持声音克隆、形象生成、视频制作等功能，适用于品牌宣传、在线教育、虚拟客服等场景。",
     features: [
       "声音克隆",
-      "数字形象",
-      "视频创作",
-      "多平台适用",
-      "营销中心",
+      "形象生成",
+      "视频制作",
+      "多平台部署",
+      "实时渲染"
     ],
-    description: "专为企业和个人打造的数字人解决方案。通过AI技术，实现声音、形象的克隆，快速生成高质量视频内容，适用于品牌宣传、在线教育、虚拟客服等多种场景。",
-    image: "https://artaigc.cn/assets/work.svg",
     originalPrice: "¥16800.00",
     currentPrice: "¥12800.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/digitaltwin"
+    sourceCodeLink: "https://shop.maddodo.com/product/multi-merchant",
+    badge: "AI数字人",
+    icon: <Users className="h-5 w-5" />,
+    iconColor: "bg-orange-500",
+    tags: ["AI数字人"]
   },
   {
-    title: "艺创-智能聊天绘画系统",
+    title: "AI绘画创作系统",
+    subtitle: "AI Art Creation",
+    description: "基于深度学习的AI绘画创作平台，支持多种艺术风格、批量生成、智能编辑等功能，为设计师和创作者提供强大的AI辅助工具。",
     features: [
-      "AI绘画",
-      "智能聊天",
-      "多模型支持",
-      "商业级应用",
-      "主题模板切换",
+      "多种风格",
+      "批量生成",
+      "智能编辑",
+      "高清输出",
+      "云端部署"
     ],
-    description: "集成了先进的AI绘画和聊天功能。用户可以通过自然语言与AI进行对话，并生成高质量的艺术作品。支持多种绘画风格和模型，适用于创意设计、内容生成等领域。",
-    image: "https://artaigc.cn/assets/ai.svg",
-    originalPrice: "¥5800.00",
-    currentPrice: "¥3800.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/艺创"
+    originalPrice: "¥15800.00",
+    currentPrice: "¥11800.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/private-domain",
+    badge: "AI绘画",
+    icon: <Store className="h-5 w-5" />,
+    iconColor: "bg-purple-500",
+    tags: ["AI绘画"]
   },
   {
-    title: "艺创-长文写作系统",
+    title: "AI知识库系统",
+    subtitle: "AI Knowledge Base",
+    description: "企业级AI知识库管理平台，支持文档智能解析、语义搜索、知识图谱构建等功能，帮助企业构建智能化的知识管理体系。",
     features: [
-      "快速生成大纲",
-      "一键生成全文",
-      "海量文献支持",
-      "自定义学科领域",
-      "查重检测",
+      "文档解析",
+      "语义搜索",
+      "知识图谱",
+      "智能问答",
+      "多格式支持"
     ],
-    description: "专为学术研究者和学生设计的AI写作助手。能够根据主题快速生成论文大纲和初稿，提供海量文献参考，显著提高论文写作效率和质量。",
-    image: "https://artaigc.cn/assets/lw.svg",
-    originalPrice: "¥6998.00",
-    currentPrice: "¥4698.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/艺创"
+    originalPrice: "¥18800.00",
+    currentPrice: "¥14800.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/multi-store",
+    badge: "AI知识库",
+    icon: <Store className="h-5 w-5" />,
+    iconColor: "bg-purple-700",
+    tags: ["AI知识库"]
+  },
+  {
+    title: "AI写作助手系统",
+    subtitle: "AI Writing Assistant",
+    description: "智能AI写作助手，支持文章生成、内容优化、多语言翻译等功能，为内容创作者和企业提供高效的AI写作解决方案。",
+    features: [
+      "文章生成",
+      "内容优化",
+      "多语言翻译",
+      "SEO优化",
+      "批量处理"
+    ],
+    originalPrice: "¥15800.00",
+    currentPrice: "¥11800.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/java-standard",
+    badge: "AI写作",
+    icon: <ShoppingCart className="h-5 w-5" />,
+    iconColor: "bg-red-500",
+    tags: ["AI写作"]
+  },
+  {
+    title: "AI数据分析系统",
+    subtitle: "AI Data Analytics",
+    description: "企业级AI数据分析平台，支持数据挖掘、智能预测、可视化分析等功能，帮助企业实现数据驱动的智能决策。",
+    features: [
+      "数据挖掘",
+      "智能预测",
+      "可视化分析",
+      "实时监控",
+      "报表生成"
+    ],
+    originalPrice: "¥19800.00",
+    currentPrice: "¥15800.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/java-multi-merchant",
+    badge: "AI分析",
+    icon: <Users className="h-5 w-5" />,
+    iconColor: "bg-orange-500",
+    tags: ["AI分析"]
+  },
+  {
+    title: "AI营销自动化系统",
+    subtitle: "AI Marketing Automation",
+    description: "智能AI营销自动化平台，支持精准投放、用户画像、营销策略优化等功能，提升企业营销效率和转化率。",
+    features: [
+      "精准投放",
+      "用户画像",
+      "策略优化",
+      "效果分析",
+      "多渠道整合"
+    ],
+    originalPrice: "¥22800.00",
+    currentPrice: "¥18800.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/foreign-trade",
+    badge: "AI营销",
+    icon: <Globe className="h-5 w-5" />,
+    iconColor: "bg-purple-500",
+    tags: ["AI营销"]
+  },
+  {
+    title: "AI教育培训系统",
+    subtitle: "AI Education Platform",
+    description: "智能AI教育培训平台，支持个性化学习、智能推荐、学习效果评估等功能，为教育机构提供现代化的AI教学解决方案。",
+    features: [
+      "个性化学习",
+      "智能推荐",
+      "效果评估",
+      "课程管理",
+      "学习追踪"
+    ],
+    originalPrice: "¥12800.00",
+    currentPrice: "¥9800.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/knowledge-payment",
+    badge: "AI教育",
+    icon: <GraduationCap className="h-5 w-5" />,
+    iconColor: "bg-blue-500",
+    tags: ["AI教育"]
   },
 ];
 
 /**
- * 产品展示组件 - 现代化简约风格
- * 采用白、黑、蓝色调，简洁线条，清晰层次
- * 优化版本：现代化简约设计，提升视觉层次感
+ * 产品展示组件 - 参考图片样式重新设计
+ * 采用现代化简约风格，白、黑、蓝色调
+ * 优化数据展示区域排版，提升视觉层次感
  * @returns {JSX.Element} 组件
  */
 const ProductShowcase = () => {
-
-  // 动画变体 - 简化动画效果
+  // 动画变体
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
 
-  const itemVariants = {
+  const cardVariants = {
     hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
@@ -107,27 +202,26 @@ const ProductShowcase = () => {
   };
 
   return (
-    <div className="bg-white py-20 sm:py-28">
-      {/* 使用container类实现标准宽度设计 */}
+    <div className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 标题部分 - 简化设计 */}
+        {/* 标题区域 */}
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-16 lg:mb-20"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-bold text-black sm:text-4xl lg:text-5xl mb-6 tracking-tight">
-            企业级 AI 解决方案
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6 tracking-tight">
+            企业级AI解决方案
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-600 leading-relaxed">
-            为您的业务提供最先进的人工智能技术支持，提升效率，创造价值
+            为不同规模企业提供专业的AI系统解决方案，支持多种AI应用场景和技术架构
           </p>
         </motion.div>
 
-        {/* 产品列表 - 优化间距和布局 */}
+        {/* 产品网格 - 响应式布局 */}
         <motion.div 
-          className="space-y-16 lg:space-y-20"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -135,119 +229,91 @@ const ProductShowcase = () => {
           {products.map((product, index) => (
             <motion.div 
               key={product.title} 
-              className="relative"
-              variants={itemVariants}
+              className="group"
+              variants={cardVariants}
             >
-              <div className={`
-                bg-white 
-                border border-gray-200
-                rounded-xl
-                overflow-hidden 
-                flex flex-col lg:flex-row
-                h-auto lg:h-[520px]
-                transition-all 
-                duration-300
-                hover:shadow-md
-                hover:border-gray-300
-              `}>
-                {/* 产品图片区域 - 简化背景，优化布局 */}
-                <div className={`
-                  lg:w-1/2 
-                  overflow-hidden 
-                  bg-gray-50
-                  ${index % 2 === 1 ? 'lg:order-last' : ''}
-                `}>
-                  <div className="h-full relative">
-                    {/* 简化背景 */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-50"></div>
-                    
-                    {/* 产品图片 - 优化显示方式 */}
-                    <div className="relative h-80 lg:h-full w-full flex items-center justify-center p-8">
-                      <motion.img 
-                        src={product.image} 
-                        alt={`${product.title} 产品示意图`} 
-                        className="max-h-full max-w-full h-auto w-auto object-contain z-10"
-                        whileHover={{ scale: 1.01 }}
-                        transition={{ duration: 0.4 }}
-                      />
+              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-blue-300 transition-all duration-300 h-full flex flex-col">
+                {/* 产品头部 */}
+                <div className="relative p-4 sm:p-6 border-b border-gray-100">
+                  {/* 图标和徽章 */}
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 ${product.iconColor} rounded-lg text-white`}>
+                      {product.icon}
                     </div>
-                    
-                    {/* 简化装饰元素 */}
-                    <div className="absolute top-6 right-6 bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-md">
-                      热门
-                    </div>
+                    <span className="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-1 rounded-full">
+                      {product.badge}
+                    </span>
                   </div>
+                  
+                  {/* 标题 */}
+                  <h3 className="text-base sm:text-lg font-bold text-black mb-2 leading-tight">
+                    {product.title}
+                  </h3>
+                  
+                  {/* 副标题 */}
+                  <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">
+                    {product.subtitle}
+                  </p>
+                  
+                  {/* 描述 */}
+                  <p className="text-gray-600 leading-relaxed text-xs sm:text-sm">
+                    {product.description}
+                  </p>
                 </div>
 
-                {/* 产品信息区域 - 优化排版和间距 */}
-                <div className="lg:w-1/2 p-8 lg:p-10 flex flex-col justify-between">
-                  {/* 产品标题和描述 */}
-                  <div>
-                    {/* 简化标签设计 */}
-                    <div className="flex items-center mb-6">
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-medium bg-blue-100 text-blue-700 border border-blue-200">
-                        企业级解决方案
-                      </span>
-                      <div className="ml-4 flex items-center">
+                {/* 特性列表 */}
+                <div className="p-4 sm:p-6 flex-1">
+                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                    {product.features.map((feature) => (
+                      <div key={feature} className="flex items-center gap-2 sm:gap-3">
+                        <div className="flex-shrink-0 w-3 h-3 sm:w-4 sm:h-4 bg-blue-100 rounded-full flex items-center justify-center">
+                          <CheckCircle2 className="h-2 w-2 sm:h-2.5 sm:w-2.5 text-blue-600" />
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-gray-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* 价格区域 */}
+                  <div className="border-t border-gray-100 pt-3 sm:pt-4">
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-xs text-gray-500">原价</span>
+                          <span className="text-xs text-gray-400 line-through">{product.originalPrice}</span>
+                        </div>
+                        <div className="text-lg sm:text-xl font-bold text-blue-600">
+                          {product.currentPrice}
+                        </div>
+                      </div>
+                      
+                      {/* 评分 */}
+                      <div className="flex items-center gap-0.5">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                          <Star key={i} className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-yellow-400 fill-yellow-400" />
                         ))}
                       </div>
                     </div>
-                    
-                    {/* 标题 - 优化字体和间距 */}
-                    <h3 className="text-2xl font-bold text-black mb-4 leading-tight">
-                      {product.title}
-                    </h3>
-                    
-                    {/* 描述 - 优化行高和颜色 */}
-                    <p className="text-base leading-relaxed text-gray-600 mb-8">
-                      {product.description}
-                    </p>
-                    
-                    {/* 特性列表 - 优化网格布局 */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                      {product.features.map((feature) => (
-                        <div key={feature} className="flex items-center gap-x-3">
-                          <CheckCircle2 className="h-5 w-5 flex-none text-blue-600" aria-hidden="true" />
-                          <span className="text-sm font-medium text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* 价格和操作按钮 - 优化布局 */}
-                  <div className="mt-auto pt-8 border-t border-gray-200">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-                      <div>
-                        <div className="flex items-center gap-3 mb-2">
-                          <p className="text-sm text-gray-500 font-medium">原价</p>
-                          <p className="text-sm text-gray-400 line-through">{product.originalPrice}</p>
-                        </div>
-                        <p className="text-3xl font-bold text-blue-600">
-                          {product.currentPrice}
-                        </p>
-                      </div>
+
+                    {/* 操作按钮 */}
+                    <div className="flex flex-col gap-2">
+                      <Button 
+                        size="sm" 
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm"
+                      >
+                        免费试用
+                        <ArrowRight className="ml-2 h-3 w-3" />
+                      </Button>
                       
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <Button 
-                          size="lg" 
-                          className="bg-blue-600 hover:bg-blue-600/90 text-white font-medium rounded-lg px-6 py-3 group transition-all duration-300"
-                        >
+                      <Button 
+                        size="sm" 
+                        className="w-full border border-blue-600 bg-transparent hover:bg-blue-50 text-blue-600 font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm" 
+                        asChild
+                      >
+                        <a href={product.sourceCodeLink} target="_blank" rel="noopener noreferrer">
                           查看详情
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                        </Button>
-                        
-                        <Button 
-                          size="lg" 
-                          className="border-2 border-blue-600 bg-transparent hover:bg-blue-50/50 text-blue-600 font-medium rounded-lg px-6 py-3 transition-all duration-300" 
-                          asChild
-                        >
-                          <a href={product.sourceCodeLink} target="_blank" rel="noopener noreferrer">
-                            购买源码
-                          </a>
-                        </Button>
-                      </div>
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </div>
