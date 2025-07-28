@@ -13,9 +13,9 @@ import DemoShowcase from './components/demo';
 const DemoPage = () => {
   // 设置页面元数据，用于SEO优化
   usePageMetadata({
-    title: '产品演示 - 现代化AI解决方案 | 艺创AI',
-    description: '探索艺创AI的前沿产品。我们提供数字分身、企业知识库、AI绘画及论文创作等多种解决方案，体验AI如何赋能您的业务。',
-    keywords: '产品演示, AI解决方案, 数字分身, 企业知识库, AI绘画, 论文创作, 艺创AI'
+    title: '艺创AI_AI系统源码_AI数字人源码_AI数字人系统源码_产品演示',
+    description: '艺创AI提供全方位的AI解决方案，包括AI数字人SaaS系统、全能知识库、聊天绘画系统和论文写作系统。立即体验我们的产品特性，探索AI带来的无限可能',
+    keywords: '艺创AI,AI数字人,知识库,聊天绘画,论文写作,SaaS系统,PHP系统,Java系统,AI演示'
   });
 
   return (

@@ -13,9 +13,9 @@ import ProductShowcase from '@/app/demo/components/ProductShowcase';
 const DemoPage = () => {
   // 设置页面元数据，用于SEO优化
   usePageMetadata({
-    title: '产品中心 - 艺创AI',
-    description: '探索艺创AI的前沿产品。我们提供数字分身、企业知识库、AI绘画及论文创作等多种解决方案，体验AI如何赋能您的业务。',
-    keywords: '产品中心, AI解决方案, 数字分身, 企业知识库, AI绘画, 论文创作, 艺创AI'
+    title: '产品中心_艺创AI_AI系统源码_AI系统_AI系统源码下载_AI系统源码',
+    description: '艺创AI提供AI数字人源码、AI数字人系统源码、AI数字人SaaS系统源码等产品,支持私有化部署,提供数字人克隆、语音合成、视频生成等功能,是企业打造数字化转型的理想选择',
+    keywords: 'AI系统源码,AI数字人系统,聊天绘画系统,AI平台源码,AI创作系统,AI官网源码,AI变现系统,AI论文写作,AI解决方案'
   });
 
   return (

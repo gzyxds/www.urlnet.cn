@@ -9,9 +9,9 @@ const HumanPage = () => {
   const [activeScenario, setActiveScenario] = useState('virtualIP');
   
   usePageMetadata({
-    title: 'AIGC数字人系统源码_AI数字人SaaS系统源码',
+    title: '艺创AI_AI数字人系统源码_AI开源saas数字人系统_艺创AI数字人系统',
     description: 'AIGC系统源码,是专注提供AI系统源代码解决方案的技术团队，目前已开源「AI数字人SaaS系统」「超级全能AI变现系统」「企业AI知识库」「AI聊天绘画系统」「论文写作系统」拥有PHP和JAVA两种语言版本，技术实力强，系统体验好支持私有部署，专业团队、售后无忧',
-    keywords: 'AIGC数字人系统源码,AI数字人SaaS系统,数字人开源源码'
+    keywords: 'AI数字人系统,数字人源码,数字人saas系统,开源数字人系统,AI数字人平台,虚拟数字人系统'
   });
 
   return (

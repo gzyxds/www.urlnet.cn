@@ -12,8 +12,8 @@ const demoItems = [
       {
         name: "PC端后台",
         url: "https://ai.xxx.com/admin/login",
-        username: "admin",
-        password: "123456"
+        username: "demo",
+        password: "demo"
       },
       {
         name: "代理商后台",

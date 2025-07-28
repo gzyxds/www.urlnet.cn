@@ -10,9 +10,9 @@ const  PaperPage = () => {
   const [activeScenario, setActiveScenario] = useState('paper');
   
   usePageMetadata({
-    title: '论文写作 - AI数字孪生技术解决方案 | 艺创AI',
-    description: '基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。',
-    keywords: '论文写作,AI数字孪生,数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播,论文助手'       
+    title: '艺创AI_AI论文写作系统_AI论文生成器',
+    description: '艺创AI论文写作系统是一款基于人工智能的论文创作工具,支持期刊论文、科普文章、学生作业等多种写作场景,提供智能写作、参考文献引用、格式排版等功能,是学术写作的得力助手',
+    keywords: 'AI论文写作系统,AI论文生成器,论文写作工具,智能写作系统,AI写作助手'       
   });
 
   // 常用样式常量

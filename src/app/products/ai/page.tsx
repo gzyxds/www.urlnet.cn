@@ -8,9 +8,9 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const AiPage = () => {
   usePageMetadata({
-    title: '知识库 - AI数字孪生技术解决方案 | 艺创AI',
-    description: '基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。',
-    keywords: '知识库,AI数字孪生,数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播'
+    title: '艺创AI_全能AI知识库系统_全能AI知识库系统源码_AIGC系统',
+    description: '艺创AI全能AI知识库系统是一款基于PHP和Java双语言开发的AI知识库系统,支持私有化部署,提供知识库训练、智能问答、数字人等多种功能,是企业打造数字化转型的理想选择',
+    keywords: '全能AI知识库系统,全能AI知识库系统源码,全能AI知识库系统源码,AI知识库系统,AI知识库系统源码'
   });
 
   return (

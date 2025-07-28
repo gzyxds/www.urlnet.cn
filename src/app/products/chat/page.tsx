@@ -10,9 +10,9 @@ const ChatPage = () => {
   const [activeScenario, setActiveScenario] = useState('chat');
   
   usePageMetadata({
-    title: '智能绘图 - 艺创AI',
-    description: '基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。',
-    keywords: '智能绘图,AI数字孪生,数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播,智能绘图工具,数字艺术,AI绘图,数字图像,数字设计,数字创意'
+    title: '艺创AI_AI系统源码_AI智能聊天系统_AI绘画系统',
+    description: '艺创AI专注提供AI系统源代码解决方案的技术团队「AI数字人系统」「企业全能AI变现系统」「AI聊天绘画系统」「AI论文写作系统」拥有PHP和Java两种语言版本，技术实力强，系统体验好支持私有部署，专业团队、售后无忧',
+    keywords: 'AI系统源码,AI智能聊天系统,AI绘画系统,艺创AI'
   });
 
   // 常用样式常量
