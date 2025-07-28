@@ -636,16 +636,7 @@ const AboutPage: React.FC = () => {
         </motion.section>
       </div>
 
-      {/* 返回顶部按钮 - 简约设计 */}
-      <motion.button
-        className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg z-50 transition-colors duration-300"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: 1 }}
-        onClick={scrollToTop}
-      >
-        <ArrowRight className="h-5 w-5 transform -rotate-90" />
-      </motion.button>
+
 
       {/* 二维码模态框 */}
       <AnimatePresence>
