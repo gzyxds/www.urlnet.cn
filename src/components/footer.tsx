@@ -202,7 +202,7 @@ const Footer = () => {
               <div className="flex flex-col items-center group">
                 <div className="bg-white p-2 rounded-xl shadow-md mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                   <img 
-                    src="https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg" 
+                    src="/images/qrcode.png" 
                     alt="扫码加入社群" 
                     className="w-20 h-20 object-cover rounded-lg"
                   />
@@ -212,7 +212,7 @@ const Footer = () => {
               <div className="flex flex-col items-center group">
                 <div className="bg-white p-2 rounded-xl shadow-md mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                   <img 
-                    src="https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg" 
+                    src="/images/qrcode.png" 
                     alt="关注微信公众号" 
                     className="w-20 h-20 object-cover rounded-lg"
                   />
@@ -222,7 +222,7 @@ const Footer = () => {
               <div className="flex flex-col items-center group">
                 <div className="bg-white p-2 rounded-xl shadow-md mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                   <img 
-                    src="https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg" 
+                    src="/images/qrcode.png" 
                     alt="关注微信小程序" 
                     className="w-20 h-20 object-cover rounded-lg"
                   />
