@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 
-const DigitalTwinPage = () => {
+const HumanPage = () => {
   const [activeScenario, setActiveScenario] = useState('virtualIP');
   
   usePageMetadata({
@@ -24,7 +24,7 @@ const DigitalTwinPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* 头部横幅 - 参考火山引擎风格 */}
-      <section className="pt-20 pb-16 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
+      <section className="pt-24 pb-20 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
         <div className="container mx-auto px-4 relative">
           {/* 背景装饰 */}
           <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-blue-200/20 to-indigo-200/20 rounded-full blur-3xl -z-10"></div>
@@ -72,7 +72,7 @@ const DigitalTwinPage = () => {
             
             {/* 右侧图形 */}
             <div className="w-full lg:w-1/2 relative">
-              <div className="relative">
+              <div className="relative mt-8 lg:mt-0">
                 {/* 主图 */}
                 <div className="relative mx-auto">
                   <img 
@@ -81,10 +81,10 @@ const DigitalTwinPage = () => {
                     className="w-full rounded-lg shadow-lg"
                   />
                   
-                  {/* 悬浮标签 */}
-                  <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-md p-4 flex items-center">
-                    <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mr-3">
-                      <Video className="h-5 w-5 text-blue-600" />
+                  {/* 悬浮标签 - 调整位置 */}
+                  <div className="absolute top-4 right-0 transform translate-x-1/4 -translate-y-1/4 bg-white rounded-xl shadow-md p-3 flex items-center">
+                    <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center mr-2">
+                      <Video className="h-4 w-4 text-blue-600" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-gray-900">视频生成</p>
@@ -92,9 +92,9 @@ const DigitalTwinPage = () => {
                     </div>
                   </div>
                   
-                  <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-md p-4 flex items-center">
-                    <div className="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center mr-3">
-                      <Mic className="h-5 w-5 text-purple-600" />
+                  <div className="absolute -bottom-4 left-0 transform -translate-x-1/4 translate-y-1/4 bg-white rounded-xl shadow-md p-3 flex items-center">
+                    <div className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center mr-2">
+                      <Mic className="h-4 w-4 text-purple-600" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-gray-900">声音克隆</p>
@@ -109,109 +109,145 @@ const DigitalTwinPage = () => {
       </section>
 
       {/* 产品优势 */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">产品优势</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">多维度产品优势，助力企业数字化升级</p>
+          {/* 标题区域 */}
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">产品优势</h2>
+            <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">多维度产品优势，助力企业数字化升级</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* 产品优势卡片网格 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* 产品卡片1 - 数字分身训练数据 */}
-            <div className="rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-              <div className="bg-blue-500 p-6 text-white">
-                <h3 className="text-lg font-medium mb-1">数字分身训练数据</h3>
-                <div className="text-4xl font-bold">5min</div>
+            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              {/* 数据展示区域 */}
+              <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-8 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-12 translate-x-12"></div>
+                <div className="relative z-10">
+                  <h3 className="text-lg font-semibold mb-3 opacity-90">数字分身训练数据</h3>
+                  <div className="flex items-baseline">
+                    <span className="text-5xl font-bold">5</span>
+                    <span className="text-xl font-medium ml-2">min</span>
+                  </div>
+                </div>
               </div>
-              <div className="bg-gray-50 p-6">
-                <p className="text-sm text-gray-700 font-medium mb-4">形象自然丰富</p>
-                <ul className="space-y-2 text-sm">
+              
+              {/* 内容区域 */}
+              <div className="p-8">
+                <h4 className="text-base font-semibold text-gray-900 mb-6">形象自然丰富</h4>
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">超短时间即可生成分身</span>
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">超短时间即可生成分身</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">口型自然，表情丰富，30+表情</span>
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">口型自然，表情丰富，30+表情</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">量产功能，批量生成和转换</span>
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">量产功能，批量生成和转换</span>
                   </li>
                 </ul>
               </div>
             </div>
             
             {/* 产品卡片2 - 声音复刻训练数据 */}
-            <div className="rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-              <div className="bg-cyan-500 p-6 text-white">
-                <h3 className="text-lg font-medium mb-1">声音复刻训练数据</h3>
-                <div className="text-4xl font-bold">10min</div>
+            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              {/* 数据展示区域 */}
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-12 translate-x-12"></div>
+                <div className="relative z-10">
+                  <h3 className="text-lg font-semibold mb-3 opacity-90">声音复刻训练数据</h3>
+                  <div className="flex items-baseline">
+                    <span className="text-5xl font-bold">10</span>
+                    <span className="text-xl font-medium ml-2">min</span>
+                  </div>
+                </div>
               </div>
-              <div className="bg-gray-50 p-6">
-                <p className="text-sm text-gray-700 font-medium mb-4">多元高质生成能力</p>
-                <ul className="space-y-2 text-sm">
+              
+              {/* 内容区域 */}
+              <div className="p-8">
+                <h4 className="text-base font-semibold text-gray-900 mb-6">多元高质生成能力</h4>
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-cyan-500 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">超短时高质量声音复刻</span>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">超短时高质量声音复刻</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-cyan-500 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">情绪转换和语音表达，保留个性</span>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">情绪转换和语音表达，保留个性</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-cyan-500 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">提供语音合成，多20+种语言</span>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">提供语音合成，多20+种语言</span>
                   </li>
                 </ul>
               </div>
             </div>
             
             {/* 产品卡片3 - 数字人整体效果达 */}
-            <div className="rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-              <div className="bg-blue-400 p-6 text-white">
-                <h3 className="text-lg font-medium mb-1">数字人整体效果达</h3>
-                <div className="text-4xl font-bold">MOS4.0</div>
+            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              {/* 数据展示区域 */}
+              <div className="bg-gradient-to-br from-blue-400 to-blue-500 p-8 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-12 translate-x-12"></div>
+                <div className="relative z-10">
+                  <h3 className="text-lg font-semibold mb-3 opacity-90">数字人整体效果达</h3>
+                  <div className="flex items-baseline">
+                    <span className="text-5xl font-bold">MOS</span>
+                    <span className="text-3xl font-bold ml-2">4.0</span>
+                  </div>
+                </div>
               </div>
-              <div className="bg-gray-50 p-6">
-                <p className="text-sm text-gray-700 font-medium mb-4">强大AI技术能力</p>
-                <ul className="space-y-2 text-sm">
+              
+              {/* 内容区域 */}
+              <div className="p-8">
+                <h4 className="text-base font-semibold text-gray-900 mb-6">强大AI技术能力</h4>
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-400 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">行业领先的研究模型支持技术</span>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">行业领先的研究模型支持技术</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-400 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">感知准确率达98.5%</span>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">感知准确率达98.5%</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-400 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">数字人响应时间仅需500ms</span>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">数字人响应时间仅需500ms</span>
                   </li>
                 </ul>
               </div>
             </div>
             
             {/* 产品卡片4 - 集成和接入方式 */}
-            <div className="rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
-              <div className="bg-blue-600 p-6 text-white">
-                <h3 className="text-lg font-medium mb-1">集成和接入方式</h3>
-                <div className="text-4xl font-bold">灵活</div>
+            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              {/* 数据展示区域 */}
+              <div className="bg-gradient-to-br from-blue-700 to-blue-800 p-8 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-12 translate-x-12"></div>
+                <div className="relative z-10">
+                  <h3 className="text-lg font-semibold mb-3 opacity-90">集成和接入方式</h3>
+                  <div className="text-4xl font-bold">灵活</div>
+                </div>
               </div>
-              <div className="bg-gray-50 p-6">
-                <p className="text-sm text-gray-700 font-medium mb-4">快速接入</p>
-                <ul className="space-y-2 text-sm">
+              
+              {/* 内容区域 */}
+              <div className="p-8">
+                <h4 className="text-base font-semibold text-gray-900 mb-6">快速接入</h4>
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">API、SDK多种接入方式</span>
+                    <div className="w-2 h-2 bg-blue-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">API、SDK多种接入方式</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">APP/Web/小程序全端支持</span>
+                    <div className="w-2 h-2 bg-blue-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">APP/Web/小程序全端支持</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">公有云、私有化部署选择</span>
+                    <div className="w-2 h-2 bg-blue-700 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-sm text-gray-600 leading-relaxed">公有云、私有化部署选择</span>
                   </li>
                 </ul>
               </div>
@@ -387,32 +423,62 @@ const DigitalTwinPage = () => {
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">丰富的应用场景和解决方案，满足多种业务需求</p>
           </div>
 
-          {/* 场景标签导航 */}
-          <div className="flex justify-center mb-12 border-b border-gray-200">
-            <button 
-              className={`px-6 py-3 font-medium ${activeScenario === 'virtualIP' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'}`}
-              onClick={() => setActiveScenario('virtualIP')}
-            >
-              虚拟IP
-            </button>
-            <button 
-              className={`px-6 py-3 font-medium ${activeScenario === 'digitalEmployee' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'}`}
-              onClick={() => setActiveScenario('digitalEmployee')}
-            >
-              数字员工
-            </button>
-            <button 
-              className={`px-6 py-3 font-medium ${activeScenario === 'contentCreation' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'}`}
-              onClick={() => setActiveScenario('contentCreation')}
-            >
-              内容创作
-            </button>
-            <button 
-              className={`px-6 py-3 font-medium ${activeScenario === 'virtualLive' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'}`}
-              onClick={() => setActiveScenario('virtualLive')}
-            >
-              虚拟直播
-            </button>
+          {/* 场景标签导航 - 新设计 */}
+          <div className="flex justify-center mb-16">
+            <div className="flex space-x-1 bg-white border border-gray-200 rounded-2xl p-1 shadow-sm">
+              <button 
+                className={`px-6 py-3 font-medium rounded-xl transition-all duration-300 relative ${
+                  activeScenario === 'virtualIP' 
+                    ? 'bg-blue-600 text-white shadow-md' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+                onClick={() => setActiveScenario('virtualIP')}
+              >
+                <span className="relative z-10">虚拟IP</span>
+                {activeScenario === 'virtualIP' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
+                )}
+              </button>
+              <button 
+                className={`px-6 py-3 font-medium rounded-xl transition-all duration-300 relative ${
+                  activeScenario === 'digitalEmployee' 
+                    ? 'bg-blue-600 text-white shadow-md' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+                onClick={() => setActiveScenario('digitalEmployee')}
+              >
+                <span className="relative z-10">数字员工</span>
+                {activeScenario === 'digitalEmployee' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
+                )}
+              </button>
+              <button 
+                className={`px-6 py-3 font-medium rounded-xl transition-all duration-300 relative ${
+                  activeScenario === 'contentCreation' 
+                    ? 'bg-blue-600 text-white shadow-md' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+                onClick={() => setActiveScenario('contentCreation')}
+              >
+                <span className="relative z-10">内容创作</span>
+                {activeScenario === 'contentCreation' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
+                )}
+              </button>
+              <button 
+                className={`px-6 py-3 font-medium rounded-xl transition-all duration-300 relative ${
+                  activeScenario === 'virtualLive' 
+                    ? 'bg-blue-600 text-white shadow-md' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+                onClick={() => setActiveScenario('virtualLive')}
+              >
+                <span className="relative z-10">虚拟直播</span>
+                {activeScenario === 'virtualLive' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
+                )}
+              </button>
+            </div>
           </div>
 
           {/* 虚拟IP场景 */}
@@ -594,24 +660,11 @@ const DigitalTwinPage = () => {
               
               {/* 右侧图片 */}
               <div className="w-full lg:w-1/2">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                    alt="内容创作应用场景" 
-                    className="w-full rounded-2xl"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                    <div className="flex items-center">
-                      <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
-                        <PenTool className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-white font-medium">内容创作解决方案</p>
-                        <p className="text-white/80 text-sm">高效智能的内容生产</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
+                  alt="内容创作应用场景" 
+                  className="w-full rounded-2xl shadow-lg"
+                />
               </div>
             </div>
           )}
@@ -661,100 +714,108 @@ const DigitalTwinPage = () => {
               
               {/* 右侧图片 */}
               <div className="w-full lg:w-1/2">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
-                    alt="虚拟直播应用场景" 
-                    className="w-full rounded-2xl"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                    <div className="flex items-center">
-                      <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
-                        <Tv className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-white font-medium">虚拟直播解决方案</p>
-                        <p className="text-white/80 text-sm">智能高效的直播助手</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
+                  alt="虚拟直播应用场景" 
+                  className="w-full rounded-2xl shadow-lg"
+                />
               </div>
             </div>
           )}
         </div>
       </section>
 
-      {/* 产品介绍 */}
+      {/* 产品核心功能 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">产品核心功能</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+          {/* 标题区域 */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full mb-6">
+              <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+              <span className="text-blue-700 text-sm font-medium">核心功能</span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">产品核心功能</h2>
+            <div className="w-20 h-0.5 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">强大的AI技术能力，为您提供全方位的数字人解决方案</p>
           </div>
 
           {/* 数字分身 */}
-          <div className="flex flex-col md:flex-row items-center mb-24 overflow-hidden">
-            <div className="w-full md:w-1/2 md:pr-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative">
-                <div className="absolute top-0 left-0 w-20 h-20 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                  <span className="text-blue-600 text-sm font-bold">核心功能</span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+            {/* 左侧内容 */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">核心功能</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">数字分身</h3>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">数字分身</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
                   轻松创建你的AI虚拟数字人！只需上传一段视频，即可高品质、批量克隆你的形象！
                 </p>
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+              </div>
+              
+              {/* 功能特性 */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
                     </div>
-                    <span className="text-sm text-gray-500">高清还原 100%</span>
+                    <span className="font-medium text-gray-900">高清还原</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                    </div>
-                    <span className="text-sm text-gray-500">形象生成 100%</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                    </div>
-                    <span className="text-sm text-gray-500">定制形象</span>
-                  </div>
+                  <p className="text-sm text-gray-600">100%真实感官体验</p>
                 </div>
-                <div className="flex space-x-4">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    查看演示
-                  </Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                    购买授权
-                  </Button>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">形象生成</span>
+                  </div>
+                  <p className="text-sm text-gray-600">100%快速生成</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">定制形象</span>
+                  </div>
+                  <p className="text-sm text-gray-600">个性化定制服务</p>
                 </div>
               </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  查看演示
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  购买授权
+                </Button>
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -top-10 right-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
+            
+            {/* 右侧图片 */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
                   src="https://artaigc.cn/assets/img/human1.png" 
                   alt="数字人形象" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
+                  className="w-full rounded-2xl shadow-lg"
                 />
-                <div className="absolute top-1/4 right-0 transform translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gray-100 rounded-full overflow-hidden">
-                      <img 
-                        src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                        alt="头像" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium">数字分身形象</p>
-                      <p className="text-xs text-gray-500">已生成</p>
-                    </div>
+              </div>
+              {/* 悬浮标签 */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">数字分身</p>
+                    <p className="text-sm text-gray-500">高清形象生成</p>
                   </div>
                 </div>
               </div>
@@ -762,65 +823,81 @@ const DigitalTwinPage = () => {
           </div>
 
           {/* 声音克隆 */}
-          <div className="flex flex-col md:flex-row-reverse items-center mb-24 overflow-hidden">
-            <div className="w-full md:w-1/2 md:pl-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-white rounded-full translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                  <span className="text-blue-600 text-sm font-bold">热门功能</span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+            {/* 右侧内容 */}
+            <div className="lg:order-2 space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">热门功能</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">声音克隆</h3>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">声音克隆</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
                   有声胜过一个性格说，仅需1句话，快速克隆你的声色，配合文案即可生成专属声音口播内容！
                 </p>
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+              </div>
+              
+              {/* 功能特性 */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
                     </div>
-                    <span className="text-sm text-gray-500">声音还原 100%</span>
+                    <span className="font-medium text-gray-900">声音还原</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                    </div>
-                    <span className="text-sm text-gray-500">语音转换 100%</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                    </div>
-                    <span className="text-sm text-gray-500">超逼真 100%</span>
-                  </div>
+                  <p className="text-sm text-gray-600">100%真实还原</p>
                 </div>
-                <div className="flex space-x-4">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    查看演示
-                  </Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                    购买授权
-                  </Button>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">语音转换</span>
+                  </div>
+                  <p className="text-sm text-gray-600">100%智能转换</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">超逼真</span>
+                  </div>
+                  <p className="text-sm text-gray-600">100%自然效果</p>
                 </div>
               </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  查看演示
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  购买授权
+                </Button>
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -bottom-10 left-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
+            {/* 左侧图片 */}
+            <div className="lg:order-1 relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
                   src="https://artaigc.cn/assets/img/human2.png" 
                   alt="声音克隆界面" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
+                  className="w-full rounded-2xl shadow-lg"
                 />
-                <div className="absolute top-1/3 left-0 transform -translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+              {/* 悬浮标签 */}
+              <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <div>
-                      <p className="text-xs font-medium">声音克隆</p>
-                      <p className="text-xs text-gray-500">已完成</p>
-                    </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">声音克隆</p>
+                    <p className="text-sm text-gray-500">已完成</p>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -828,66 +905,88 @@ const DigitalTwinPage = () => {
           </div>
 
           {/* 用户管理 */}
-          <div className="flex flex-col md:flex-row items-center overflow-hidden">
-            <div className="w-full md:w-1/2 md:pr-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative">
-                <div className="absolute top-0 left-0 w-20 h-20 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                  <span className="text-blue-600 text-sm font-bold">实用功能</span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* 左侧内容 */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">实用功能</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">用户管理</h3>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">用户管理</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
                   基于可定制的多层分站，输入用户相关信息系统后，即可创建新分站与管理账号。
                 </p>
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+              </div>
+              
+              {/* 功能特性 */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
                     </div>
-                    <span className="text-sm text-gray-500">多级分站</span>
+                    <span className="font-medium text-gray-900">多级分站</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                    </div>
-                    <span className="text-sm text-gray-500">账户管理</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                    </div>
-                    <span className="text-sm text-gray-500">权限管理</span>
-                  </div>
+                  <p className="text-sm text-gray-600">灵活的分站管理</p>
                 </div>
-                <div className="flex space-x-4">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    查看演示
-                  </Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                    购买授权
-                  </Button>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">账户管理</span>
+                  </div>
+                  <p className="text-sm text-gray-600">完善的账户体系</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">权限管理</span>
+                  </div>
+                  <p className="text-sm text-gray-600">精细的权限控制</p>
                 </div>
               </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  查看演示
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  购买授权
+                </Button>
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -top-10 right-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
+            
+            {/* 右侧图片 */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
                   src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
                   alt="用户管理界面" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
+                  className="w-full rounded-2xl shadow-lg"
                 />
-                <div className="absolute bottom-10 right-0 transform translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
-                    alt="用户管理小图" 
-                    className="w-24 h-16 object-cover rounded-lg"
-                  />
+              </div>
+              {/* 悬浮标签 */}
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">用户管理</p>
+                    <p className="text-sm text-gray-500">多级权限控制</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* 应用场景 */}
+ {/* 产品核心功能 */}
          
 
           {/* 准备好开启您的AI数字人之旅了吗？ */}
@@ -1035,4 +1134,4 @@ const DigitalTwinPage = () => {
   );
 };
 
-export default DigitalTwinPage;
+export default HumanPage;

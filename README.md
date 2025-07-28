@@ -88,7 +88,7 @@ ai-enterprise-website/
 │   │   ├── service/     # 服务页面
 │   │   ├── demo/        # 演示页面
 │   │   ├── docs/        # 文档页面
-│   │   ├── support/     # 支持页面
+│   │   ├── agency/      # 代理页面
 │   │   ├── globals.css  # 全局样式
 │   │   └── page.tsx     # 首页
 │   ├── components/      # 可复用组件
@@ -401,6 +401,88 @@ function App() {
 1. 使用`use-mobile`自定义Hook检测设备类型
 2. 为不同设备提供不同的UI布局
 3. 测试各种屏幕尺寸下的显示效果
+
+
+
+1. 颜色系统
+项目使用了HSL颜色模式，通过CSS变量定义了完整的颜色系统：
+
+主色调：蓝色系列，主要使用 #015bfe（亮蓝色）作为品牌主色
+暗色模式：项目支持亮色/暗色主题切换，通过 .dark 类应用不同的颜色变量
+功能性颜色：
+背景色：--background
+前景色：--foreground
+卡片色：--card 和 --card-foreground
+主色：--primary 和 --primary-foreground
+次要色：--secondary 和 --secondary-foreground
+强调色：--accent 和 --accent-foreground
+边框色：--border
+图表色：--chart-1 到 --chart-5
+侧边栏色：多个 --sidebar-* 变量
+
+2. 字体和排版
+基础字体：Arial, Helvetica, sans-serif
+标题字体：使用 Inter 字体（从Google Fonts导入）
+文本平衡：使用 text-balance 工具类
+
+3. 圆角和间距
+圆角：通过 --radius 变量定义（默认为0.5rem）
+边框：使用 --border 变量定义颜色
+
+4. 动画效果
+项目使用了 framer-motion 库实现丰富的动画效果
+自定义动画：
+fadeIn 淡入效果
+blob 气泡动画
+accordion-down 和 accordion-up 手风琴效果
+
+5. 自定义样式
+滚动条样式：自定义了宽度、颜色和悬停效果
+渐变文本：.text-gradient 类实现文本渐变效果
+渐变背景：.bg-gradient 类实现背景渐变效果
+文本截断：.line-clamp-2 和 .line-clamp-3 类实现多行文本截断
+
+默认宽度设置
+1. 容器宽度
+项目使用 Tailwind CSS 的容器系统，主要通过 container 类来控制内容宽度：
+
+基本用法：<div className="container mx-auto px-4">
+这种模式在所有组件中一致使用（header、hero、about等）
+
+2. 响应式断点
+Tailwind CSS 默认的响应式断点：
+
+sm: 640px
+md: 768px
+lg: 1024px
+xl: 1280px
+2xl: 1536px
+
+3. 特殊宽度设置
+侧边栏宽度：通过CSS变量控制
+
+--sidebar-width
+--sidebar-width-icon
+--sidebar-width-mobile
+最大宽度限制：
+
+内容区域：max-w-2xl、max-w-3xl、max-w-4xl 等
+弹出菜单：max-w-sm、max-w-lg 等
+移动端菜单：w-3/4
+响应式布局：
+
+使用 Tailwind 的网格系统：grid grid-cols-1 lg:grid-cols-2
+使用 Flexbox：flex flex-col lg:flex-row
+
+4. 布局结构
+页面结构采用组件化设计，每个部分都是独立的组件
+所有组件都使用 container 类来控制内容宽度
+页面内容通常使用 section 标签包裹，并设置适当的内边距（如 py-16、py-20）
+总结
+主题系统：项目使用 Tailwind CSS 和 CSS 变量构建了完整的主题系统，支持亮色/暗色模式切换
+默认宽度：使用 container 类和 mx-auto 实现居中布局，通过 px-4 提供边距
+响应式设计：采用移动优先的设计理念，使用 Tailwind 的响应式前缀（sm:, md:, lg:, xl:）适配不同屏幕尺寸
+组件化结构：每个页面部分都是独立组件，保持了一致的布局结构和样式应用方式
 
 ## 贡献指南
 

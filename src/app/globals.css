@@ -162,3 +162,20 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* 隐藏滚动条样式 - 用于移动端导航 */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+}

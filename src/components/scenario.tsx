@@ -143,26 +143,29 @@ const Scenario = () => {
   const currentScenario = scenarios.find(s => s.id === activeScenario) || scenarios[0];
 
   return (
-    <section className="py-20 bg-gray-50" id="scenarios">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">应用场景</h2>
-          <div className="w-24 h-1 bg-[#015bfe] mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+    <section className="py-24 bg-white" id="scenarios">
+      <div className="container mx-auto px-6">
+        {/* 标题区域 */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 tracking-tight">
+            应用场景
+          </h2>
+          <div className="w-20 h-1 bg-[#015bfe] mx-auto mb-8"></div>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
             我们的AI解决方案广泛应用于各行各业，为不同领域带来智能化转型和效率提升
           </p>
         </div>
 
         {/* 场景选择标签 */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {scenarios.map((scenario) => (
             <Button
               key={scenario.id}
               variant={activeScenario === scenario.id ? "default" : "outline"}
-              className={`rounded-full px-6 py-2 transition-all duration-300 ${
+              className={`rounded-full px-8 py-3 text-sm font-medium transition-all duration-300 border-2 ${
                 activeScenario === scenario.id 
-                  ? "bg-[#015bfe] text-white shadow-md shadow-blue-200" 
-                  : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#015bfe] border-gray-200"
+                  ? "bg-[#015bfe] text-white shadow-lg shadow-blue-100 border-[#015bfe]" 
+                  : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#015bfe] hover:border-[#015bfe] border-gray-200"
               }`}
               onClick={() => setActiveScenario(scenario.id)}
             >
@@ -175,60 +178,78 @@ const Scenario = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeScenario}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
               {/* 左侧内容 */}
-              <div className="p-8 lg:p-12">
-                <h3 className="text-2xl font-bold mb-4">{currentScenario.title}</h3>
-                <p className="text-gray-600 mb-8">
-                  {currentScenario.description}
-                </p>
+              <div className="p-10 lg:p-16 flex flex-col justify-center">
+                <div className="mb-8">
+                  <h3 className="text-3xl font-bold text-black mb-6 tracking-tight">
+                    {currentScenario.title}
+                  </h3>
+                  <div className="w-16 h-0.5 bg-[#015bfe] mb-6"></div>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {currentScenario.description}
+                  </p>
+                </div>
                 
                 {/* 特点列表 */}
-                <div className="space-y-6">
+                <div className="space-y-8">
                   {currentScenario.features.map((feature, index) => (
-                    <div key={index} className="flex">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#015bfe]/10 text-[#015bfe]">
-                          <Check className="w-4 h-4" />
+                    <motion.div 
+                      key={index} 
+                      className="flex items-start"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <div className="flex-shrink-0 mt-1 mr-5">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#015bfe]/10 border border-[#015bfe]/20">
+                          <Check className="w-4 h-4 text-[#015bfe]" />
                         </div>
                       </div>
-                      <div className="ml-4">
-                        <h4 className="text-lg font-semibold text-[#015bfe]">{feature.title}</h4>
-                        <p className="text-gray-600">{feature.description}</p>
+                      <div className="flex-1">
+                        <h4 className="text-xl font-semibold text-black mb-2">
+                          {feature.title}
+                        </h4>
+                        <p className="text-gray-600 leading-relaxed">
+                          {feature.description}
+                        </p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
               
               {/* 右侧图片 */}
-              <div className="relative h-[300px] lg:h-auto overflow-hidden p-4">
-                <div className="absolute inset-4 bg-gradient-to-r from-black/30 to-transparent z-10 rounded-xl"></div>
+              <div className="relative h-[400px] lg:h-auto overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent z-10"></div>
                 <img
                   src={currentScenario.image}
                   alt={`${currentScenario.title}场景`}
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-cover"
                 />
+                {/* 装饰性几何元素 */}
+                <div className="absolute top-6 right-6 w-16 h-16 border-2 border-white/30 rounded-lg"></div>
+                <div className="absolute bottom-6 left-6 w-8 h-8 bg-[#015bfe]/20 rounded-full"></div>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
         {/* 了解更多按钮 */}
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <Button 
-            className="bg-[#015bfe] hover:bg-blue-700"
+            className="bg-[#015bfe] hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-full shadow-lg shadow-blue-100 transition-all duration-300 hover:shadow-xl"
             asChild
           >
-            <Link to="/products">
+            <Link to="/products" className="flex items-center">
               了解更多解决方案
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-3 h-5 w-5" />
             </Link>
           </Button>
         </div>

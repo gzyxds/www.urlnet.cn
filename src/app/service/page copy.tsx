@@ -9,379 +9,1135 @@ const ServicePage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>支持与服务 - 火山引擎云服务 | 艺创AI</title>
-        <meta name="description" content="火山引擎提供专业的售前及售后服务，助力您轻松开启上云之旅。提供24/7技术支持、在线客服、电话支持等多种服务方式。" />
-        <meta name="keywords" content="支持与服务,火山引擎,云服务,技术支持,在线客服,售前咨询,售后服务" />
+        <title>支持与服务 - 艺创云服务 | 艺创AI</title>
+        <meta name="description" content="艺创提供专业的售前及售后服务，助力您轻松开启上云之旅。提供24/7技术支持、在线客服、电话支持等多种服务方式。" />
+        <meta name="keywords" content="支持与服务,艺创,云服务,技术支持,在线客服,售前咨询,售后服务" />
       </Helmet>
 
-      {/* 支持与服务横幅 */}
-      <section className="pt-16 pb-12 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden relative">
+      {/* 支持与服务横幅 - 现代化简约设计 */}
+      <section className="pt-32 pb-24 bg-white relative overflow-hidden">
+        {/* 简约几何背景装饰 */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* 主要装饰元素 - 蓝色渐变圆形 */}
+          <div className="absolute top-20 right-16 w-80 h-80 bg-gradient-to-br from-blue-100/40 to-blue-200/20 rounded-full blur-3xl"></div>
+          {/* 次要装饰元素 - 深蓝色小圆 */}
+          <div className="absolute bottom-32 left-20 w-32 h-32 bg-blue-600/5 rounded-full"></div>
+          {/* 线条装饰 */}
+          <div className="absolute top-1/2 left-0 w-px h-32 bg-gradient-to-b from-transparent via-blue-200 to-transparent"></div>
+          <div className="absolute top-1/3 right-0 w-px h-24 bg-gradient-to-b from-transparent via-blue-200 to-transparent"></div>
+        </div>
+
         <div className="container mx-auto px-4 relative">
-          {/* 背景装饰云朵 */}
-          <div className="absolute top-16 right-24 w-48 h-32 bg-white/40 rounded-full blur-xl"></div>
-          <div className="absolute top-40 right-48 w-36 h-24 bg-white/30 rounded-full blur-lg"></div>
-          <div className="absolute bottom-24 right-16 w-56 h-36 bg-white/50 rounded-full blur-2xl"></div>
-          <div className="absolute top-20 right-80 w-28 h-20 bg-white/25 rounded-full blur-md"></div>
-          
-          <div className="flex flex-col lg:flex-row items-center justify-between">
-            {/* 左侧内容 */}
-            <div className="w-full lg:w-1/2 lg:pr-16 mb-12 lg:mb-0">
-              <h1 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-4">支持与服务</h1>
-              <p className="text-base text-gray-700 mb-3 font-medium">
-                火山引擎提供专业的售前及售后服务
-              </p>
-              <p className="text-sm text-gray-600 mb-6">
-                助力您轻松开启上云之旅
-              </p>
-              
-              {/* 服务特色 */}
-              <div className="flex flex-col space-y-2 mb-6">
-                <div className="flex items-center">
-                  <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center mr-2">
-                    <Check className="h-2.5 w-2.5 text-white" />
+          {/* 主要内容区域 */}
+          <div className="max-w-8xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* 左侧内容区域 - 简约排版 */}
+              <div className="space-y-8">
+                {/* 标题区域 */}
+                <div className="space-y-6">
+                  <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full border border-blue-100">
+                    <span className="text-sm font-medium text-blue-700">专业服务支持</span>
                   </div>
-                  <span className="text-sm text-gray-700">火山引擎提供专业的售前及售后服务</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center mr-2">
-                    <Check className="h-2.5 w-2.5 text-white" />
+                  <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                    支持与服务
+                  </h1>
+                  <div className="space-y-3">
+                    <p className="text-xl text-gray-700 font-medium">艺创提供专业的售前及售后服务</p>
+                    <p className="text-lg text-gray-600">助力您轻松开启上云之旅</p>
                   </div>
-                  <span className="text-sm text-gray-700">配备专业技术团队提供上云支持</span>
                 </div>
-              </div>
-              
-              {/* 按钮 */}
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 h-auto text-sm font-medium rounded-lg shadow-lg">
-                立即咨询
-              </Button>
-            </div>
-            
-            {/* 右侧现代化服务展示 */}
-            <div className="w-full lg:w-1/2 relative flex justify-center items-center min-h-[450px]">
-              <div className="relative max-w-md w-full">
-                {/* 主要服务卡片组 */}
-                <div className="grid grid-cols-2 gap-4 w-full">
-                  {/* 在线客服卡片 */}
-                  <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                      </div>
-                      <h3 className="font-semibold text-gray-900 text-sm mb-2">在线客服</h3>
-                      <p className="text-sm text-green-500 mb-2">● 24/7在线</p>
-                      <div className="w-full bg-gray-100 rounded-full h-1.5 mb-1">
-                        <div className="bg-blue-500 h-1.5 rounded-full w-4/5"></div>
-                      </div>
-                      <span className="text-xs text-gray-500">响应率 98%</span>
+                
+                {/* 服务特色 - 简洁列表 */}
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                      <Check className="h-3.5 w-3.5 text-white" />
                     </div>
+                    <span className="text-gray-700 font-medium">专业的售前及售后服务团队</span>
                   </div>
-
-                  {/* 技术支持卡片 */}
-                  <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                      </div>
-                      <h3 className="font-semibold text-gray-900 text-sm mb-2">技术支持</h3>
-                      <p className="text-sm text-blue-500 mb-2">● 专业团队</p>
-                      <div className="w-full bg-gray-100 rounded-full h-1.5 mb-1">
-                        <div className="bg-green-500 h-1.5 rounded-full w-full"></div>
-                      </div>
-                      <span className="text-xs text-gray-500">满意度 99%</span>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                      <Check className="h-3.5 w-3.5 text-white" />
                     </div>
+                    <span className="text-gray-700 font-medium">专业技术团队提供上云支持</span>
                   </div>
-
-                  {/* 电话支持卡片 */}
-                  <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                      </div>
-                      <h3 className="font-semibold text-gray-900 text-sm mb-2">电话支持</h3>
-                      <p className="text-sm text-purple-500 mb-2">● 即时响应</p>
-                      <div className="w-full bg-gray-100 rounded-full h-1.5 mb-1">
-                        <div className="bg-purple-500 h-1.5 rounded-full w-3/4"></div>
-                      </div>
-                      <span className="text-xs text-gray-500">平均 30s</span>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                      <Check className="h-3.5 w-3.5 text-white" />
                     </div>
-                  </div>
-
-                  {/* 邮件支持卡片 */}
-                  <div className="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <h3 className="font-semibold text-gray-900 text-sm mb-2">邮件支持</h3>
-                      <p className="text-sm text-orange-500 mb-2">● 详细解答</p>
-                      <div className="w-full bg-gray-100 rounded-full h-1.5 mb-1">
-                        <div className="bg-orange-500 h-1.5 rounded-full w-5/6"></div>
-                      </div>
-                      <span className="text-xs text-gray-500">2小时内</span>
-                    </div>
+                    <span className="text-gray-700 font-medium">7×24小时全天候技术保障</span>
                   </div>
                 </div>
-
-                {/* 中心连接线装饰 */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                    <div className="w-3 h-3 bg-white rounded-full"></div>
-                  </div>
-                  {/* 连接线 */}
-                  <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-4 rotate-45"></div>
-                  <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-4 -rotate-45"></div>
-                  <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-4 rotate-135"></div>
-                  <div className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform -translate-y-1/2 -translate-x-4 -rotate-135"></div>
-                </div>
-
-                {/* 浮动装饰元素 */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse delay-300"></div>
-                <div className="absolute top-12 left-8 w-1 h-1 bg-green-400 rounded-full animate-pulse delay-700"></div>
-                <div className="absolute bottom-12 right-12 w-2 h-2 bg-orange-400 rounded-full animate-pulse delay-500"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 售前咨询 */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">售前咨询</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">多种售前咨询方式，满足您多场景需求</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* 在线咨询 */}
-            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="relative p-4">
-                <img 
-                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/7ca0080e43fbff5b_1637162855791.png" 
-                  alt="在线咨询" 
-                  className="w-full h-56 object-cover rounded-lg"
-                />
-                <div className="absolute top-8 left-8 bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded-full">01</div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">在线咨询</h3>
-                <p className="text-gray-600 mb-4">获取产品顾问的帮助，快速解答您的产品疑惑</p>
-                <div className="flex items-center text-sm text-gray-500">
-                  <span className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    即时响应
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* 售前电话 */}
-            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="relative p-4">
-                <img 
-                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/3a7872d8f76ea6c9_1637162625533.png" 
-                  alt="售前电话" 
-                  className="w-full h-56 object-cover rounded-lg"
-                />
-                <div className="absolute top-8 left-8 bg-green-600 text-white text-sm font-medium py-1 px-3 rounded-full">02</div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">售前电话</h3>
-                <p className="text-gray-600 mb-4">400-850-0030转1，获取产品咨询的帮助，快速解答您的产品疑惑</p>
-                <div className="flex items-center text-sm text-gray-500">
-                  <span className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    7×24小时服务
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* 咨询工单 */}
-            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="relative p-4">
-                <img 
-                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/3cdca3a315ee275d_1637162663805.png" 
-                  alt="咨询工单" 
-                  className="w-full h-56 object-cover rounded-lg"
-                />
-                <div className="absolute top-8 left-8 bg-purple-600 text-white text-sm font-medium py-1 px-3 rounded-full">03</div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">咨询工单</h3>
-                <p className="text-gray-600 mb-4">提交您的疑问，我们专业团队会尽快为您解答</p>
-                <div className="flex items-center text-sm text-gray-500">
-                  <span className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    全程跟踪服务进度
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 售后服务 */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">售后服务</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">极速的售后服务支持，因为出场晚，所以服务更用心</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* 在线咨询 */}
-            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="h-56 relative p-3">
-                <img 
-                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/7ca0080e43fbff5b_1637162855791.png" 
-                  alt="在线咨询" 
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">在线咨询</h3>
-                <p className="text-gray-600 text-sm">秒级解答，为您匹配合适的人工服务，提供最佳解决方案</p>
-              </div>
-            </div>
-
-            {/* 售后工单 */}
-            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="h-56 relative p-3">
-                <img 
-                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/16109cf69762df98_1637162865915.png" 
-                  alt="售后工单" 
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">售后工单</h3>
-                <p className="text-gray-600 text-sm">工单支持：7×24小时工单支持，提供产品使用咨询及基础技术支援</p>
-              </div>
-            </div>
-
-            {/* 售后电话 */}
-            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="h-56 relative p-3">
-                <img 
-                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/e6b94abc619cbc69_1637162873769.png" 
-                  alt="售后电话" 
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">售后电话</h3>
-                <div className="text-gray-600 text-sm">
-                  <p className="mb-2">售后电话：7×12小时热线服务，为您提供专业的售后支持</p>
-                  <p className="mb-1">售后咨询：400-850-0030</p>
-                  <p>备案咨询：400-850-0030 转 6</p>
-                </div>
-              </div>
-            </div>
-
-            {/* 建议与投诉 */}
-            <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="h-56 relative p-3">
-                <img 
-                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/8d460c0a2c958d4c_1637162882349.png" 
-                  alt="建议与投诉" 
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">建议与投诉</h3>
-                <div className="text-gray-600 text-sm">
-                  <p className="mb-3">聆听您对火山引擎产品与服务的建议和投诉</p>
-                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white w-full">
-                    意见建议
+                
+                {/* 行动按钮 */}
+                <div className="pt-4">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-base font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    立即咨询
                   </Button>
                 </div>
               </div>
+              
+              {/* 右侧数据展示区域 - 现代化卡片设计 */}
+              <div className="lg:pl-8">
+                <div className="grid grid-cols-2 gap-6">
+                  {/* 在线客服卡片 - 蓝色主题 */}
+                  <div className="group bg-white rounded-2xl border border-gray-100 p-6 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+                    <div className="space-y-4">
+                      {/* 图标和标题 */}
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                          <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900">在线客服</h3>
+                          <p className="text-sm text-blue-600 font-medium">24/7全天候在线</p>
+                        </div>
+                      </div>
+                      
+                      {/* 数据指标 */}
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-gray-600">响应速度</span>
+                          <span className="text-lg font-bold text-gray-900">98%</span>
+                        </div>
+                        <div className="w-full bg-gray-100 rounded-full h-2">
+                          <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[98%]"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 技术支持卡片 - 绿色主题 */}
+                  <div className="group bg-white rounded-2xl border border-gray-100 p-6 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                          <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900">技术支持</h3>
+                          <p className="text-sm text-green-600 font-medium">专业技术团队</p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-gray-600">满意度</span>
+                          <span className="text-lg font-bold text-gray-900">99%</span>
+                        </div>
+                        <div className="w-full bg-gray-100 rounded-full h-2">
+                          <div className="bg-green-600 h-2 rounded-full transition-all duration-1000 w-[99%]"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 电话支持卡片 - 紫色主题 */}
+                  <div className="group bg-white rounded-2xl border border-gray-100 p-6 hover:border-purple-200 hover:shadow-lg transition-all duration-300">
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center group-hover:bg-purple-100 transition-colors">
+                          <svg className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900">电话支持</h3>
+                          <p className="text-sm text-purple-600 font-medium">即时响应服务</p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-gray-600">响应时间</span>
+                          <span className="text-lg font-bold text-gray-900">30秒</span>
+                        </div>
+                        <div className="w-full bg-gray-100 rounded-full h-2">
+                          <div className="bg-purple-600 h-2 rounded-full transition-all duration-1000 w-[85%]"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 邮件支持卡片 - 橙色主题 */}
+                  <div className="group bg-white rounded-2xl border border-gray-100 p-6 hover:border-orange-200 hover:shadow-lg transition-all duration-300">
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center group-hover:bg-orange-100 transition-colors">
+                          <svg className="h-6 w-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900">邮件支持</h3>
+                          <p className="text-sm text-orange-600 font-medium">详细问题解答</p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-gray-600">响应时间</span>
+                          <span className="text-lg font-bold text-gray-900">2小时</span>
+                        </div>
+                        <div className="w-full bg-gray-100 rounded-full h-2">
+                          <div className="bg-orange-600 h-2 rounded-full transition-all duration-1000 w-[90%]"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 联系我们 */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">联系我们</h2>
-            <p className="text-gray-500 text-lg">多种联系方式，随时为您提供帮助</p>
+      {/* 售前咨询 - 现代化简约设计 */}
+      <section className="py-32 bg-white relative overflow-hidden">
+        {/* 极简几何背景装饰 - 统一蓝色调 */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* 主要装饰元素 - 蓝色渐变 */}
+          <div className="absolute top-24 right-20 w-96 h-96 bg-gradient-to-br from-blue-50/60 to-blue-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 left-16 w-64 h-64 bg-blue-50/40 rounded-full blur-2xl"></div>
+          
+          {/* 简约线条装饰 */}
+          <div className="absolute top-1/3 left-0 w-px h-40 bg-gradient-to-b from-transparent via-blue-200/60 to-transparent"></div>
+          <div className="absolute top-1/2 right-0 w-px h-32 bg-gradient-to-b from-transparent via-blue-200/60 to-transparent"></div>
+          
+          {/* 微妙的几何形状 */}
+          <div className="absolute top-40 left-1/3 w-2 h-2 bg-blue-600/20 rounded-full"></div>
+          <div className="absolute bottom-40 right-1/3 w-1 h-1 bg-blue-600/30 rounded-full"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-8xl mx-auto">
+            {/* 标题区域 - 优化排版层次 */}
+            <div className="text-center mb-20 space-y-6">
+              {/* 标签优化 - 更简洁的设计 */}
+              <div className="inline-flex items-center px-5 py-2.5 bg-blue-50/80 rounded-full border border-blue-100/60 backdrop-blur-sm">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></div>
+                <span className="text-sm font-medium text-blue-700 tracking-wide">多渠道咨询服务</span>
+              </div>
+              
+              {/* 主标题 - 增强视觉层次 */}
+              <div className="space-y-4">
+                <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+                  售前咨询
+                </h2>
+                <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+              </div>
+              
+              {/* 副标题 - 优化间距和字体 */}
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+                多种售前咨询方式，满足您多场景需求，专业团队为您提供全方位服务支持
+              </p>
+            </div>
+            
+            {/* 数据展示区域 - 现代化简约4列布局 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* 在线咨询卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                {/* 顶部装饰线 - 极简设计 */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                {/* 图标区域 - 简约设计，增加留白 */}
+                <div className="relative h-40 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  {/* 简约背景装饰 */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  {/* 主图标 - 简洁设计 */}
+                  <div className="relative w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                  
+                  {/* 序号标签 - 简约设计 */}
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    01
+                  </div>
+                </div>
+                
+                {/* 内容区域 - 优化排版和间距 */}
+                <div className="p-6 space-y-5">
+                  {/* 标题区域 */}
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">在线咨询</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      获取产品顾问的专业帮助，快速解答您的产品疑惑
+                    </p>
+                  </div>
+                  
+                  {/* 特色标签 - 简约设计 */}
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">即时响应</span>
+                    </div>
+                  </div>
+                  
+                  {/* 数据指标区域 - 现代化简约设计 */}
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">响应时间</span>
+                      <span className="text-lg font-bold text-gray-900">&lt;30<span className="text-xs font-normal text-gray-600 ml-1">秒</span></span>
+                    </div>
+                    
+                    {/* 进度条 - 极简设计 */}
+                    <div className="relative">
+                      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-blue-600 h-1.5 rounded-full transition-all duration-1000 w-[95%]"></div>
+                      </div>
+                      <div className="flex justify-between text-xs text-gray-400 mt-1.5">
+                        <span>0秒</span>
+                        <span className="font-medium text-blue-600">95% 满意度</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 售前电话卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-40 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    02
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">售前电话</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      专业顾问一对一服务，深度解答产品疑问
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">7×24小时</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">服务热线</span>
+                      <span className="text-base font-bold text-gray-900">400-850-0030</span>
+                    </div>
+                    
+                    <div className="relative">
+                      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-blue-600 h-1.5 rounded-full transition-all duration-1000 w-[100%]"></div>
+                      </div>
+                      <div className="flex justify-between text-xs text-gray-400 mt-1.5">
+                        <span>全天候服务</span>
+                        <span className="font-medium text-blue-600">100% 覆盖</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 咨询工单卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-40 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    03
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">咨询工单</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      提交详细问题描述，专业技术团队提供完整解决方案
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">全程跟踪</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">处理时效</span>
+                      <span className="text-lg font-bold text-gray-900">24<span className="text-xs font-normal text-gray-600 ml-1">小时内</span></span>
+                    </div>
+                    
+                    <div className="relative">
+                      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-blue-600 h-1.5 rounded-full transition-all duration-1000 w-[92%]"></div>
+                      </div>
+                      <div className="flex justify-between text-xs text-gray-400 mt-1.5">
+                        <span>提交工单</span>
+                        <span className="font-medium text-blue-600">92% 按时完成</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 建议与投诉卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-40 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    04
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">建议与投诉</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      聆听您对艺创产品与服务的建议和投诉
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">持续改进</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">反馈渠道</span>
+                      <span className="text-base font-bold text-gray-900">多渠道</span>
+                    </div>
+                    
+                    <div className="relative">
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                        意见建议
+                      </Button>
+                      <div className="flex justify-between text-xs text-gray-400 mt-1.5">
+                        <span>在线反馈</span>
+                        <span className="font-medium text-blue-600">快速响应</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 底部行动区域 - 现代化简约设计 */}
+            <div className="text-center mt-20">
+              {/* 主要行动区域 - 简约卡片设计 */}
+              <div className="inline-flex items-center space-x-6 p-5 bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
+                {/* 在线状态指示 - 简化设计 */}
+                <div className="flex items-center space-x-2">
+                  <div className="relative">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div className="absolute inset-0 w-2 h-2 bg-blue-600 rounded-full animate-ping opacity-30"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">专业团队在线服务</span>
+                </div>
+                
+                {/* 分隔线 - 极简设计 */}
+                <div className="w-px h-4 bg-gray-200"></div>
+                
+                {/* 行动按钮 - 简约设计 */}
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                  立即开始咨询
+                </Button>
+              </div>
+              
+              {/* 补充信息 - 优化排版 */}
+              <div className="mt-6 space-y-3">
+                <p className="text-xs text-gray-400 font-light">
+                  平均响应时间 &lt; 30秒 · 专业团队 7×24 小时在线服务
+                </p>
+                
+                {/* 数据统计 - 简约数据展示 */}
+                <div className="flex items-center justify-center space-x-6">
+                  <div className="text-center">
+                    <div className="text-base font-bold text-gray-900">98%</div>
+                    <div className="text-xs text-gray-500">客户满意度</div>
+                  </div>
+                  <div className="w-px h-6 bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-base font-bold text-gray-900">24/7</div>
+                    <div className="text-xs text-gray-500">全天候服务</div>
+                  </div>
+                  <div className="w-px h-6 bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-base font-bold text-gray-900">&lt;30s</div>
+                    <div className="text-xs text-gray-500">平均响应</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* 在线客服 */}
-            <div className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
+      {/* 售后服务 - 现代化简约设计 */}
+      <section className="py-32 bg-white relative overflow-hidden">
+        {/* 简约几何背景装饰 */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* 主要装饰元素 - 蓝色渐变 */}
+          <div className="absolute top-20 right-16 w-80 h-80 bg-gradient-to-br from-blue-50/60 to-blue-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 left-20 w-64 h-64 bg-blue-50/40 rounded-full blur-2xl"></div>
+          
+          {/* 简约线条装饰 */}
+          <div className="absolute top-1/3 left-0 w-px h-40 bg-gradient-to-b from-transparent via-blue-200/60 to-transparent"></div>
+          <div className="absolute top-1/2 right-0 w-px h-32 bg-gradient-to-b from-transparent via-blue-200/60 to-transparent"></div>
+          
+          {/* 微妙的几何形状 */}
+          <div className="absolute top-40 left-1/3 w-2 h-2 bg-blue-600/20 rounded-full"></div>
+          <div className="absolute bottom-40 right-1/3 w-1 h-1 bg-blue-600/30 rounded-full"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-8xl mx-auto">
+            {/* 标题区域 - 现代化简约设计 */}
+            <div className="text-center mb-20 space-y-6">
+              {/* 标签 - 简约设计 */}
+              <div className="inline-flex items-center px-5 py-2.5 bg-blue-50/80 rounded-full border border-blue-100/60 backdrop-blur-sm">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></div>
+                <span className="text-sm font-medium text-blue-700 tracking-wide">专业售后保障</span>
               </div>
-              <h3 className="font-semibold mb-2">在线客服</h3>
-              <p className="text-gray-600 text-sm mb-3">24小时在线服务</p>
-              <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
-                立即咨询
-              </Button>
+              
+              {/* 主标题 - 增强视觉层次 */}
+              <div className="space-y-4">
+                <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+                  售后服务
+                </h2>
+                <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+              </div>
+              
+              {/* 副标题 - 优化间距和字体 */}
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+                极速的售后服务支持，因为出场晚，所以服务更用心
+              </p>
+            </div>
+            
+            {/* 服务卡片区域 - 现代化简约4列布局 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* 在线咨询卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                {/* 顶部装饰线 - 极简设计 */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                {/* 图标区域 - 简约设计，增加留白 */}
+                <div className="relative h-48 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  {/* 简约背景装饰 */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  {/* 主图标 - 简洁设计 */}
+                  <div className="relative w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                  
+                  {/* 序号标签 - 简约设计 */}
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    01
+                  </div>
+                </div>
+                
+                {/* 内容区域 - 优化排版和间距 */}
+                <div className="p-6 space-y-5">
+                  {/* 标题区域 */}
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">在线咨询</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      秒级解答，为您匹配合适的人工服务，提供最佳解决方案
+                    </p>
+                  </div>
+                  
+                  {/* 特色标签 - 简约设计 */}
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">即时响应</span>
+                    </div>
+                  </div>
+                  
+                  {/* 数据指标区域 - 现代化简约设计 */}
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">响应速度</span>
+                      <span className="text-lg font-bold text-gray-900">&lt;30<span className="text-xs font-normal text-gray-600 ml-1">秒</span></span>
+                    </div>
+                    
+                    {/* 进度条 - 极简设计 */}
+                    <div className="relative">
+                      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-blue-600 h-1.5 rounded-full transition-all duration-1000 w-[95%]"></div>
+                      </div>
+                      <div className="flex justify-between text-xs text-gray-400 mt-1.5">
+                        <span>0秒</span>
+                        <span className="font-medium text-blue-600">95% 满意度</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 售后工单卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-48 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    02
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">售后工单</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      7×24小时工单支持，提供产品使用咨询及基础技术支援
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">全天候服务</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">处理时效</span>
+                      <span className="text-lg font-bold text-gray-900">24<span className="text-xs font-normal text-gray-600 ml-1">小时内</span></span>
+                    </div>
+                    
+                    <div className="relative">
+                      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-blue-600 h-1.5 rounded-full transition-all duration-1000 w-[98%]"></div>
+                      </div>
+                      <div className="flex justify-between text-xs text-gray-400 mt-1.5">
+                        <span>提交工单</span>
+                        <span className="font-medium text-blue-600">98% 按时完成</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 售后电话卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-48 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    03
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">售后电话</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      7×12小时热线服务，为您提供专业的售后支持
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">专业团队</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">服务热线</span>
+                        <span className="text-base font-bold text-gray-900">400-850-0030</span>
+                      </div>
+                      <div className="text-xs text-gray-500 text-center">
+                        备案咨询：400-850-0030 转 6
+                      </div>
+                    </div>
+                    
+                    <div className="relative">
+                      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-blue-600 h-1.5 rounded-full transition-all duration-1000 w-[100%]"></div>
+                      </div>
+                      <div className="flex justify-between text-xs text-gray-400 mt-1.5">
+                        <span>7×12小时</span>
+                        <span className="font-medium text-blue-600">100% 覆盖</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 建议与投诉卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-48 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    04
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">建议与投诉</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      聆听您对艺创产品与服务的建议和投诉
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">持续改进</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">反馈渠道</span>
+                      <span className="text-base font-bold text-gray-900">多渠道</span>
+                    </div>
+                    
+                    <div className="relative">
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                        意见建议
+                      </Button>
+                      <div className="flex justify-between text-xs text-gray-400 mt-1.5">
+                        <span>在线反馈</span>
+                        <span className="font-medium text-blue-600">快速响应</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* 电话支持 */}
-            <div className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
+            {/* 底部行动区域 - 现代化简约设计 */}
+            <div className="text-center mt-20">
+              {/* 主要行动区域 - 简约卡片设计 */}
+              <div className="inline-flex items-center space-x-6 p-5 bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
+                {/* 在线状态指示 - 简化设计 */}
+                <div className="flex items-center space-x-2">
+                  <div className="relative">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div className="absolute inset-0 w-2 h-2 bg-blue-600 rounded-full animate-ping opacity-30"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">专业团队在线服务</span>
+                </div>
+                
+                {/* 分隔线 - 极简设计 */}
+                <div className="w-px h-4 bg-gray-200"></div>
+                
+                {/* 行动按钮 - 简约设计 */}
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                  立即开始咨询
+                </Button>
               </div>
-              <h3 className="font-semibold mb-2">电话支持</h3>
-              <p className="text-gray-600 text-sm mb-3">400-888-8888</p>
-              <Button size="sm" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
-                拨打电话
-              </Button>
+              
+              {/* 补充信息 - 优化排版 */}
+              <div className="mt-6 space-y-3">
+                <p className="text-xs text-gray-400 font-light">
+                  平均响应时间 &lt; 30秒 · 专业团队 7×24 小时在线服务
+                </p>
+                
+                {/* 数据统计 - 简约数据展示 */}
+                <div className="flex items-center justify-center space-x-6">
+                  <div className="text-center">
+                    <div className="text-base font-bold text-gray-900">98%</div>
+                    <div className="text-xs text-gray-500">客户满意度</div>
+                  </div>
+                  <div className="w-px h-6 bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-base font-bold text-gray-900">24/7</div>
+                    <div className="text-xs text-gray-500">全天候服务</div>
+                  </div>
+                  <div className="w-px h-6 bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-base font-bold text-gray-900">&lt;30s</div>
+                    <div className="text-xs text-gray-500">平均响应</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 联系我们 - 现代化简约设计 */}
+      <section className="py-32 bg-gray-50 relative overflow-hidden">
+        {/* 简约几何背景装饰 */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* 主要装饰元素 - 蓝色渐变 */}
+          <div className="absolute top-24 right-20 w-96 h-96 bg-gradient-to-br from-blue-50/60 to-blue-100/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 left-16 w-64 h-64 bg-blue-50/40 rounded-full blur-2xl"></div>
+          
+          {/* 简约线条装饰 */}
+          <div className="absolute top-1/3 left-0 w-px h-40 bg-gradient-to-b from-transparent via-blue-200/60 to-transparent"></div>
+          <div className="absolute top-1/2 right-0 w-px h-32 bg-gradient-to-b from-transparent via-blue-200/60 to-transparent"></div>
+          
+          {/* 微妙的几何形状 */}
+          <div className="absolute top-40 left-1/3 w-2 h-2 bg-blue-600/20 rounded-full"></div>
+          <div className="absolute bottom-40 right-1/3 w-1 h-1 bg-blue-600/30 rounded-full"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-8xl mx-auto">
+            {/* 标题区域 - 现代化简约设计 */}
+            <div className="text-center mb-20 space-y-6">
+              {/* 标签 - 简约设计 */}
+              <div className="inline-flex items-center px-5 py-2.5 bg-blue-50/80 rounded-full border border-blue-100/60 backdrop-blur-sm">
+                <div className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></div>
+                <span className="text-sm font-medium text-blue-700 tracking-wide">多渠道联系</span>
+              </div>
+              
+              {/* 主标题 - 增强视觉层次 */}
+              <div className="space-y-4">
+                <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+                  联系我们
+                </h2>
+                <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+              </div>
+              
+              {/* 副标题 - 优化间距和字体 */}
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+                多种联系方式，随时为您提供帮助
+              </p>
             </div>
 
-            {/* 邮件支持 */}
-            <div className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+            {/* 联系方式卡片区域 - 现代化简约4列布局 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* 在线客服卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                {/* 顶部装饰线 - 极简设计 */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                {/* 图标区域 - 简约设计，增加留白 */}
+                <div className="relative h-40 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  {/* 简约背景装饰 */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  {/* 主图标 - 简洁设计 */}
+                  <div className="relative w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                  
+                  {/* 序号标签 - 简约设计 */}
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    01
+                  </div>
+                </div>
+                
+                {/* 内容区域 - 优化排版和间距 */}
+                <div className="p-6 space-y-5">
+                  {/* 标题区域 */}
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">在线客服</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      24小时在线服务，专业团队随时为您解答问题
+                    </p>
+                  </div>
+                  
+                  {/* 特色标签 - 简约设计 */}
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">24/7在线</span>
+                    </div>
+                  </div>
+                  
+                  {/* 行动按钮区域 - 现代化简约设计 */}
+                  <div className="pt-4 border-t border-gray-100">
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                      立即咨询
+                    </Button>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-semibold mb-2">邮件支持</h3>
-              <p className="text-gray-600 text-sm mb-3">support@example.com</p>
-              <Button size="sm" variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-50">
-                发送邮件
-              </Button>
+
+              {/* 电话支持卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-40 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    02
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">电话支持</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      专业客服团队，为您提供电话咨询服务
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">专业团队</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-gray-900">400-850-0030</div>
+                      <div className="text-xs text-gray-500 mt-1">服务热线</div>
+                    </div>
+                    
+                    <Button className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                      拨打电话
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* 邮件支持卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-40 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    03
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">邮件支持</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      详细问题描述，专业技术团队提供完整解决方案
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">详细解答</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="text-center">
+                      <div className="text-sm font-bold text-gray-900">support@yichuang.com</div>
+                      <div className="text-xs text-gray-500 mt-1">技术支持邮箱</div>
+                    </div>
+                    
+                    <Button className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                      发送邮件
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* 工单系统卡片 - 现代化简约设计 */}
+              <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                
+                <div className="relative h-40 bg-gradient-to-br from-blue-50/30 to-white flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-blue-100/40 rounded-full"></div>
+                  </div>
+                  
+                  <div className="relative w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gray-900 text-white text-xs font-bold rounded-lg flex items-center justify-center">
+                    04
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-bold text-gray-900">工单系统</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      提交技术工单，专业团队跟踪处理
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-blue-50 rounded-lg border border-blue-100">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span className="text-xs font-medium text-blue-700">全程跟踪</span>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-100 space-y-3">
+                    <div className="text-center">
+                      <div className="text-sm font-bold text-gray-900">技术工单</div>
+                      <div className="text-xs text-gray-500 mt-1">专业处理</div>
+                    </div>
+                    
+                    <Button className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                      提交工单
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* 工单系统 */}
-            <div className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+            {/* 底部联系信息区域 - 现代化简约设计 */}
+            <div className="text-center mt-20">
+              {/* 主要联系信息 - 简约卡片设计 */}
+              <div className="inline-flex items-center space-x-8 p-6 bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
+                {/* 在线状态指示 - 简化设计 */}
+                <div className="flex items-center space-x-3">
+                  <div className="relative">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                    <div className="absolute inset-0 w-3 h-3 bg-blue-600 rounded-full animate-ping opacity-30"></div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">专业团队在线服务</span>
+                </div>
+                
+                {/* 分隔线 - 极简设计 */}
+                <div className="w-px h-6 bg-gray-200"></div>
+                
+                {/* 联系时间 - 简约设计 */}
+                <div className="text-sm text-gray-600">
+                  服务时间：7×24小时
+                </div>
+                
+                {/* 分隔线 - 极简设计 */}
+                <div className="w-px h-6 bg-gray-200"></div>
+                
+                {/* 行动按钮 - 简约设计 */}
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                  立即联系
+                </Button>
               </div>
-              <h3 className="font-semibold mb-2">工单系统</h3>
-              <p className="text-gray-600 text-sm mb-3">提交技术工单</p>
-              <Button size="sm" variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">
-                提交工单
-              </Button>
+              
+              {/* 补充信息 - 优化排版 */}
+              <div className="mt-8 space-y-4">
+                <p className="text-sm text-gray-500 font-light">
+                  多种联系方式，专业团队随时为您提供帮助
+                </p>
+                
+                {/* 数据统计 - 简约数据展示 */}
+                <div className="flex items-center justify-center space-x-8">
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-gray-900">24/7</div>
+                    <div className="text-xs text-gray-500">全天候服务</div>
+                  </div>
+                  <div className="w-px h-8 bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-gray-900">&lt;30s</div>
+                    <div className="text-xs text-gray-500">平均响应</div>
+                  </div>
+                  <div className="w-px h-8 bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-gray-900">99%</div>
+                    <div className="text-xs text-gray-500">客户满意度</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

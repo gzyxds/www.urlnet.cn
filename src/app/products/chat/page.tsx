@@ -6,13 +6,13 @@ import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
-const  PaperWritingPage = () => {
-  const [activeScenario, setActiveScenario] = useState('paperWriting');
+const ChatPage = () => {
+  const [activeScenario, setActiveScenario] = useState('chat');
   
   usePageMetadata({
-    title: '论文写作 - AI数字孪生技术解决方案 | 艺创AI',
+    title: '智能绘图 - 艺创AI',
     description: '基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型。包括数字分身、声音克隆、虚拟IP等多种功能。',
-    keywords: '论文写作,AI数字孪生,数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播,论文助手'       
+    keywords: '智能绘图,AI数字孪生,数字人,声音克隆,数字分身,虚拟IP,数字员工,内容创作,虚拟直播,智能绘图工具,数字艺术,AI绘图,数字图像,数字设计,数字创意'
   });
 
   // 常用样式常量
@@ -44,15 +44,15 @@ const  PaperWritingPage = () => {
             <div className="w-full lg:w-1/2 lg:pr-12 mb-10 lg:mb-0 text-center lg:text-left">
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 <span className="inline-block relative">
-                  全能
+                  艺创
                   <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500"></span>
                 </span>
-                <span className="text-blue-600"> 论文写作</span>
-                <span className="block mt-2">智能管理系统</span>
+                <span className="text-blue-600"> AI</span>
+                <span className="block mt-2">聊天绘画系统</span>
               </h1>
               
               <p className="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0">
-                基于先进的AI技术，提供高度拟真的数字人解决方案，赋能企业知识管理与数字化转型
+               AI智能对话、AI创作模型、AI绘画、分销推广、会员套餐、充值套餐、卡密兑换、模型计费、会员回流优惠券等丰富的营销功能
               </p>
               
               {/* 数据指标 - 简约风格 */}
@@ -62,7 +62,7 @@ const  PaperWritingPage = () => {
                     <span className="text-3xl font-bold text-gray-900 flex items-baseline">
                       98.5<span className="text-base font-normal text-blue-600 ml-1">万+</span>
                     </span>
-                    <span className="text-sm text-gray-500 mt-1">日活跃用户</span>
+                    <span className="text-sm text-gray-500 mt-1">智能问答</span>
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm transform transition-all hover:shadow-md">
@@ -100,7 +100,7 @@ const  PaperWritingPage = () => {
                 {/* 主图 - 简约风格 */}
                 <div className="relative mx-auto">
                   <img 
-                    src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
+                    src="https://chat.chatmoney.cn/uploads/images/20240404/20240404125437c60bf6618.png" 
                     alt="AI知识库系统界面展示" 
                     className="w-full h-auto transform scale-110" /* 增加图片尺寸，使其看起来更大 */
                   />
@@ -1307,4 +1307,4 @@ const  PaperWritingPage = () => {
   );
 };
 
-export default PaperWritingPage;
+export default ChatPage;

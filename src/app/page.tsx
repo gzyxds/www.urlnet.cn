@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '@/components/hero';
+import HotProducts from '@/components/hot-products';
 import About from '@/components/about';
 import Products from '@/components/products';
 import Advantages from '@/components/advantages';
@@ -24,6 +25,7 @@ const Home = () => {
     <>
       <BackToTop />
       <Hero />
+      <HotProducts />
       <About />
       <Products />
       <FunctionBlueprint />
