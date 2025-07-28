@@ -114,7 +114,7 @@ const HumanPage = () => {
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">多维度产品优势，助力企业数字化升级</p>
           </div>
           
-          {/* 产品优势卡片网格 - 优化移动端布局 */}
+          {/* 企业智能客服卡片网格 - 优化移动端布局 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* 产品卡片1 - 数字分身训练数据 */}
             <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
@@ -289,16 +289,16 @@ const HumanPage = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">PC端后台</p>
-                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://ai.xxx.com/admin/login</p>
+                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://v.cnai.art</p>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-1 sm:mr-2">账号:</span>
-                        <span className="text-xs font-medium">admin</span>
+                        <span className="text-xs font-medium">自行注册</span>
                       </div>
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-1 sm:mr-2">密码:</span>
-                        <span className="text-xs font-medium">123456</span>
+                        <span className="text-xs font-medium">自行注册</span>
                       </div>
                       <Button variant="outline" size="sm" className="h-7 sm:h-8 text-xs border-blue-600 text-blue-600 hover:bg-blue-50 mt-2 sm:mt-0">
                         访问
@@ -309,16 +309,16 @@ const HumanPage = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">代理商后台</p>
-                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://ai.xxx.com/agent/login</p>
+                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://demo.cnai.art/admin</p>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-1 sm:mr-2">账号:</span>
-                        <span className="text-xs font-medium">admin</span>
+                        <span className="text-xs font-medium">demo</span>
                       </div>
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-1 sm:mr-2">密码:</span>
-                        <span className="text-xs font-medium">123456</span>
+                        <span className="text-xs font-medium">demo</span>
                       </div>
                       <Button variant="outline" size="sm" className="h-7 sm:h-8 text-xs border-blue-600 text-blue-600 hover:bg-blue-50 mt-2 sm:mt-0">
                         访问
@@ -328,17 +328,17 @@ const HumanPage = () => {
                   
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
-                      <p className="text-xs sm:text-sm font-medium text-gray-900">前端演示</p>
-                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://ai.xxx.com/index</p>
+                      <p className="text-xs sm:text-sm font-medium text-gray-900">SaaS平台端</p>
+                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://saas.cnai.art/platform</p>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-1 sm:mr-2">账号:</span>
-                        <span className="text-xs font-medium">admin</span>
+                        <span className="text-xs font-medium">占不提供</span>
                       </div>
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-1 sm:mr-2">密码:</span>
-                        <span className="text-xs font-medium">123456</span>
+                        <span className="text-xs font-medium">占不提供</span>
                       </div>
                       <Button variant="outline" size="sm" className="h-7 sm:h-8 text-xs border-blue-600 text-blue-600 hover:bg-blue-50 mt-2 sm:mt-0">
                         访问
@@ -386,7 +386,7 @@ const HumanPage = () => {
                 {/* 二维码 - 优化移动端位置 */}
                 <div className="absolute -bottom-3 sm:-bottom-6 -right-3 sm:-right-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg">
                   <img 
-                    src="https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg" 
+                    src="/images/wechat.png"
                     alt="演示二维码" 
                     className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-md"
                     loading="lazy"
@@ -434,7 +434,7 @@ const HumanPage = () => {
                 }`}
                 onClick={() => setActiveScenario('virtualIP')}
               >
-                <span className="relative z-10 text-sm sm:text-base">虚拟IP</span>
+                <span className="relative z-10 text-sm sm:text-base">带货视频</span>
                 {activeScenario === 'virtualIP' && (
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
                 )}
@@ -481,14 +481,14 @@ const HumanPage = () => {
             </div>
           </div>
 
-          {/* 虚拟IP场景 - 优化移动端布局 */}
+          {/* 带货视频场景 - 优化移动端布局 */}
           {activeScenario === 'virtualIP' && (
             <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
               {/* 左侧内容 */}
               <div className="w-full lg:w-1/2 lg:pr-6 sm:pr-8 order-2 lg:order-1">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">虚拟IP</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">带货视频</h3>
                 <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
-                  面向文化传播、影视内容等多个行业，帮助打造虚拟IP，赋能品牌营销，提升品牌心智。
+                  面向文化传播、影视内容等多个行业，帮助打造带货视频，赋能品牌营销，提升品牌心智。
                 </p>
                 <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   <li className="flex items-start">
@@ -529,7 +529,7 @@ const HumanPage = () => {
                 <div className="relative rounded-2xl overflow-hidden shadow-xl">
                   <img 
                     src="https://artaigc.cn/assets/img/human1.png" 
-                    alt="虚拟IP应用场景" 
+                    alt="带货视频应用场景" 
                     className="w-full rounded-2xl"
                     loading="lazy"
                   />
@@ -539,7 +539,7 @@ const HumanPage = () => {
                         <Users className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
                       </div>
                       <div>
-                        <p className="text-white font-medium text-sm sm:text-base">虚拟IP解决方案</p>
+                        <p className="text-white font-medium text-sm sm:text-base">带货视频解决方案</p>
                         <p className="text-white/80 text-xs sm:text-sm">打造专属品牌虚拟形象</p>
                       </div>
                     </div>

@@ -184,7 +184,7 @@ const AiPage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* 数字分身训练功能卡片 */}
+            {/* 企业智能客服功能卡片 */}
             <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
@@ -193,30 +193,32 @@ const AiPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">数字分身训练</h3>
+                  <h3 className="text-lg font-bold text-gray-900">企业智能客服</h3>
                   <div className="text-blue-600 font-medium">5分钟</div>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm">形象自然丰富，快速生成高质量数字分身</p>
+              <p className="text-gray-600 mb-4 text-sm">
+                企业可以上传产品资料、FAQ手册等信息，完成训练后，对外发布智能客服聊天窗口。通过AI客服可以提供24小时在线客服支持，节省人力物力。
+              </p>
               
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">超短时间即可生成分身</span>
+                  <span className="text-gray-700 text-sm">支持上传多种企业资料，快速训练专属客服</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">口型自然，表情丰富，30+表情</span>
+                  <span className="text-gray-700 text-sm">对外发布智能客服聊天窗口，灵活集成</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">量产功能，批量生成和转换</span>
+                  <span className="text-gray-700 text-sm">AI客服7x24小时在线，显著节省人力物力</span>
                 </li>
               </ul>
             </div>
             
-            {/* 声音复刻训练功能卡片 */}
+            {/* 企业智能文档功能卡片 */}
             <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
@@ -225,30 +227,32 @@ const AiPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">声音复刻训练</h3>
+                  <h3 className="text-lg font-bold text-gray-900">企业智能文档</h3>
                   <div className="text-blue-600 font-medium">10分钟</div>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm">多元高质生成能力，保留声音个性特征</p>
+              <p className="text-gray-600 mb-4 text-sm">
+                企业可以上传产品文档、合同内容等信息，完成训练后，仅限内部员工登录访问。通过AI助手，可以快速、准确地查询企业内部有关的信息文档，增强企业内部信息流动性。
+              </p>
               
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">超短时高质量声音复刻</span>
+                  <span className="text-gray-700 text-sm">支持上传多种企业文档，快速训练专属AI</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">情绪转换和语音表达，保留个性</span>
+                  <span className="text-gray-700 text-sm">仅限内部员工登录访问，保障数据安全</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">提供语音合成，多20+种语言</span>
+                  <span className="text-gray-700 text-sm">AI助手高效检索企业内部信息，提升办公效率</span>
                 </li>
               </ul>
             </div>
             
-            {/* 数字人整体效果功能卡片 */}
+            {/* 专家顾问助理功能卡片 */}
             <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
@@ -257,12 +261,14 @@ const AiPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">数字人整体效果</h3>
+                  <h3 className="text-lg font-bold text-gray-900">专家顾问助理</h3>
                   <div className="text-blue-600 font-medium">MOS4.0</div>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm">强大AI技术能力，行业领先水平</p>
+              <p className="text-gray-600 mb-4 text-sm">
+                企业可以上传产品资料、FAQ手册等信息，完成训练后，对外发布智能客服聊天窗口。通过AI客服可以提供24小时在线客服支持，节省人力物力。
+              </p>
               
               <ul className="space-y-3">
                 <li className="flex items-start">
@@ -280,7 +286,7 @@ const AiPage = () => {
               </ul>
             </div>
             
-            {/* 集成和接入方式功能卡片 */}
+            {/* 数据训练功能卡片 */}
             <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
@@ -289,25 +295,27 @@ const AiPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">集成和接入方式</h3>
+                  <h3 className="text-lg font-bold text-gray-900">数据训练</h3>
                   <div className="text-blue-600 font-medium">灵活</div>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm">快速接入，多种部署方式选择</p>
-              
+              <p className="text-gray-600 mb-4 text-sm">
+                独立训练机器人数据，支持问答型、文档型的知识库，知识库可共享。通过数据训练，用户可在前台以聊天对话模式快速查阅各类内部资料和文档
+              </p>
+
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">API、SDK多种接入方式</span>
+                  <span className="text-gray-700 text-sm">支持问答型、文档型知识库独立训练</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">APP/Web/小程序全端支持</span>
+                  <span className="text-gray-700 text-sm">知识库可共享，灵活配置权限</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">公有云、私有化部署选择</span>
+                  <span className="text-gray-700 text-sm">机器学习驱动，自动优化知识库内容</span>
                 </li>
               </ul>
             </div>
@@ -332,10 +340,10 @@ const AiPage = () => {
                 在线演示
               </div>
               
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">AI数字人SaaS系统2.0<br />演示中心</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">艺创AI-全能知识库PHP&Java<br />演示中心</h2>
               
               <p className="text-gray-600 mb-8 text-lg">
-                通过我们的在线演示系统，您可以亲身体验AI数字人的强大功能和直观界面，无需安装，即刻体验。
+                通过我们的在线演示系统，您可以亲身体验艺创AI-全能知识库PHP&Java的强大功能和直观界面，无需安装，即刻体验。
               </p>
               
               <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
@@ -349,17 +357,17 @@ const AiPage = () => {
                 <div className="space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
-                      <p className="text-sm font-medium text-gray-900">PC端后台</p>
-                      <p className="text-xs text-gray-500">https://ai.xxx.com/admin/login</p>
+                      <p className="text-sm font-medium text-gray-900">演示前台</p>
+                      <p className="text-xs text-gray-500">https://www.cnai.art</p>
                     </div>
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-2">账号:</span>
-                        <span className="text-xs font-medium">admin</span>
+                        <span className="text-xs font-medium">自行注册</span>
                       </div>
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-2">密码:</span>
-                        <span className="text-xs font-medium">123456</span>
+                        <span className="text-xs font-medium">自行注册</span>
                       </div>
                       <Button variant="outline" size="sm" className="h-8 text-xs border-blue-600 text-blue-600 hover:bg-blue-50">
                         访问
@@ -369,17 +377,17 @@ const AiPage = () => {
                   
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
-                      <p className="text-sm font-medium text-gray-900">代理商后台</p>
-                      <p className="text-xs text-gray-500">https://ai.xxx.com/agent/login</p>
+                      <p className="text-sm font-medium text-gray-900">体验后台</p>
+                      <p className="text-xs text-gray-500">https://www.cnai.art/admin</p>
                     </div>
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-2">账号:</span>
-                        <span className="text-xs font-medium">admin</span>
+                        <span className="text-xs font-medium">联系客服</span>
                       </div>
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-2">密码:</span>
-                        <span className="text-xs font-medium">123456</span>
+                        <span className="text-xs font-medium">联系客服</span>
                       </div>
                       <Button variant="outline" size="sm" className="h-8 text-xs border-blue-600 text-blue-600 hover:bg-blue-50">
                         访问
@@ -389,17 +397,17 @@ const AiPage = () => {
                   
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
-                      <p className="text-sm font-medium text-gray-900">前端演示</p>
-                      <p className="text-xs text-gray-500">https://ai.xxx.com/index</p>
+                      <p className="text-sm font-medium text-gray-900">移动端</p>
+                      <p className="text-xs text-gray-500">https://www.cnai.art/mobile</p>
                     </div>
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-2">账号:</span>
-                        <span className="text-xs font-medium">admin</span>
+                        <span className="text-xs font-medium">自行注册</span>
                       </div>
                       <div className="flex items-center">
                         <span className="text-xs text-gray-500 mr-2">密码:</span>
-                        <span className="text-xs font-medium">123456</span>
+                        <span className="text-xs font-medium">自行注册</span>
                       </div>
                       <Button variant="outline" size="sm" className="h-8 text-xs border-blue-600 text-blue-600 hover:bg-blue-50">
                         访问
@@ -425,15 +433,15 @@ const AiPage = () => {
                 {/* 演示界面主图 */}
                 <div className="bg-white p-6 rounded-xl shadow-lg">
                   <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
+                    src="https://artaigc.cn/assets/work.svg" 
                     alt="AI数字人演示界面" 
                     className="w-full rounded-lg"
                   />
                   
                   <div className="mt-4 flex items-center justify-between">
                     <div>
-                      <h4 className="text-sm font-medium text-gray-900">数字人管理平台</h4>
-                      <p className="text-xs text-gray-500">一站式管理您的所有数字人资产</p>
+                      <h4 className="text-sm font-medium text-gray-900">艺创AI-全能知识库PHP&Java</h4>
+                      <p className="text-xs text-gray-500">一站式管理您的所有知识库资产</p>
                     </div>
                     <div className="flex space-x-2">
                       <div className="w-2 h-2 rounded-full bg-red-500"></div>
@@ -483,20 +491,20 @@ const AiPage = () => {
 
           <Tabs defaultValue="virtualIP" className="w-full">
             <TabsList className="flex w-full mb-12 p-1 bg-gray-50 rounded-full max-w-3xl mx-auto">
-              <TabsTrigger value="virtualIP" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">虚拟IP</TabsTrigger>
-              <TabsTrigger value="digitalEmployee" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">数字员工</TabsTrigger>
+              <TabsTrigger value="virtualIP" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">数据训练</TabsTrigger>
+              <TabsTrigger value="digitalEmployee" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">知识库应用</TabsTrigger>
               <TabsTrigger value="contentCreation" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">内容创作</TabsTrigger>
               <TabsTrigger value="virtualLive" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">虚拟直播</TabsTrigger>
             </TabsList>
 
-            {/* 虚拟IP应用场景 */}
+            {/* 数据训练应用场景 */}
             <TabsContent value="virtualIP">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 {/* 场景介绍左侧内容 */}
                 <div className="w-full lg:w-1/2 lg:pr-8">
-                  <h3 className="text-2xl font-bold mb-4">虚拟IP</h3>
+                  <h3 className="text-2xl font-bold mb-4">数据训练</h3>
                   <p className="text-gray-600 mb-6">
-                    面向文化传播、影视内容等多个行业，帮助打造虚拟IP，赋能品牌营销，提升品牌心智。
+                    面向文化传播、影视内容等多个行业，帮助打造数据训练，赋能品牌营销，提升品牌心智。
                   </p>
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start">
@@ -537,7 +545,7 @@ const AiPage = () => {
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
                       src="https://artaigc.cn/assets/img/human1.png" 
-                      alt="虚拟IP应用场景" 
+                      alt="数据训练应用场景" 
                       className="w-full rounded-2xl"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
@@ -546,7 +554,7 @@ const AiPage = () => {
                           <Users className="h-5 w-5 text-blue-600" />
                         </div>
                         <div>
-                          <p className="text-white font-medium">虚拟IP解决方案</p>
+                          <p className="text-white font-medium">数据训练解决方案</p>
                           <p className="text-white/80 text-sm">打造专属品牌虚拟形象</p>
                         </div>
                       </div>
@@ -556,14 +564,14 @@ const AiPage = () => {
               </div>
             </TabsContent>
 
-            {/* 数字员工应用场景 */}
+            {/* 知识库应用应用场景 */}
             <TabsContent value="digitalEmployee">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 {/* 左侧内容 */}
                 <div className="w-full lg:w-1/2 lg:pr-8">
-                  <h3 className="text-2xl font-bold mb-4">数字员工</h3>
+                  <h3 className="text-2xl font-bold mb-4">知识库应用</h3>
                   <p className="text-gray-600 mb-6">
-                    为企业提供智能数字员工解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
+                    为企业提供智能知识库应用解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
                   </p>
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start">
@@ -604,7 +612,7 @@ const AiPage = () => {
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
                       src="https://artaigc.cn/assets/img/human2.png" 
-                      alt="数字员工应用场景" 
+                      alt="知识库应用应用场景" 
                       className="w-full rounded-2xl"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
@@ -613,7 +621,7 @@ const AiPage = () => {
                           <Bot className="h-5 w-5 text-blue-600" />
                         </div>
                         <div>
-                          <p className="text-white font-medium">数字员工解决方案</p>
+                          <p className="text-white font-medium">知识库应用解决方案</p>
                           <p className="text-white/80 text-sm">智能高效的业务助手</p>
                         </div>
                       </div>
@@ -768,25 +776,25 @@ const AiPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">功能特色</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              提供智能助手、内容创作、虚拟直播、虚拟IP等多维度的功能，满足不同行业的业务需求。
+              提供智能助手、内容创作、虚拟直播、数据训练等多维度的功能，满足不同行业的业务需求。
             </p>
           </div>
 
           {/* 场景卡片网格 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* 虚拟IP场景卡片 */}
+            {/* 数据训练场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
               <div className="w-full h-48 overflow-hidden">
                 <img 
                   src="https://artaigc.cn/assets/img/human1.png" 
-                  alt="虚拟IP应用场景" 
+                  alt="数据训练应用场景" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">虚拟IP</h3>
+                <h3 className="text-xl font-bold mb-2">数据训练</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  面向文化传播、影视内容等多个行业，帮助打造虚拟IP，赋能品牌营销，提升品牌心智。
+                  面向文化传播、影视内容等多个行业，帮助打造数据训练，赋能品牌营销，提升品牌心智。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
@@ -814,19 +822,19 @@ const AiPage = () => {
               </div>
             </div>
 
-            {/* 数字员工场景卡片 */}
+            {/* 知识库应用场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
               <div className="w-full h-48 overflow-hidden">
                 <img 
                   src="https://artaigc.cn/assets/img/human2.png" 
-                  alt="数字员工应用场景" 
+                  alt="知识库应用应用场景" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">数字员工</h3>
+                <h3 className="text-xl font-bold mb-2">知识库应用</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  为企业提供智能数字员工解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
+                  为企业提供智能知识库应用解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
@@ -954,15 +962,17 @@ const AiPage = () => {
                 <div className="absolute top-4 left-4">
                   <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                    核心功能
+                    机器人管理
                   </div>
                 </div>
                 
                 <div className="mt-8">
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">数字分身</h3>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900">机器人管理</h3>
                   <div className="w-12 h-1 bg-blue-600 mb-4"></div>
                   <p className="text-gray-600 mb-6 leading-relaxed">
-                    轻松创建你的AI虚拟数字人！只需上传一段视频，即可高品质、批量克隆你的形象！
+                    支持创建/发布机器人，打造企业专属应用。<br />
+                    1、创建机器人：可单独创建和设置私有机器人<br />
+                    2、发布机器人：支持发布多种渠道，如网页、JS嵌入、API接口、微信公众号等等
                   </p>
                   
                   <div className="grid grid-cols-3 gap-3 mb-6">
@@ -970,19 +980,19 @@ const AiPage = () => {
                       <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
                         <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                       </div>
-                      <span className="text-sm text-gray-700 font-medium">高清还原 100%</span>
+                      <span className="text-sm text-gray-700 font-medium">多渠道发布</span>
                     </div>
                     <div className="bg-blue-50 rounded-lg p-3 flex items-center">
                       <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
                         <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                       </div>
-                      <span className="text-sm text-gray-700 font-medium">形象生成 100%</span>
+                      <span className="text-sm text-gray-700 font-medium">私有部署</span>
                     </div>
                     <div className="bg-blue-50 rounded-lg p-3 flex items-center">
                       <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
                         <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                       </div>
-                      <span className="text-sm text-gray-700 font-medium">定制形象</span>
+                      <span className="text-sm text-gray-700 font-medium">API集成</span>
                     </div>
                   </div>
                   
