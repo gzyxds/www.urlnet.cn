@@ -570,15 +570,15 @@ const Header = () => {
                               >
                                 <Link 
                                   to={subItem.path} 
-                                  className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                                  className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
                                   onClick={handleNavigation}
                                 >
-                                  <div className={`w-8 h-8 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                    {React.cloneElement(subItem.icon, { className: "h-4 w-4" })}
+                                  <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                    {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
                                   </div>
-                                  <div className="flex flex-col items-start">
-                                    <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{subItem.name}</span>
-                                    <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                  <div className="flex flex-col items-center text-center">
+                                    <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
                                   </div>
                                 </Link>
                               </motion.div>
@@ -671,15 +671,15 @@ const Header = () => {
                               >
                                 <Link 
                                   to={subItem.path} 
-                                  className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                                  className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
                                   onClick={handleNavigation}
                                 >
-                                  <div className={`w-8 h-8 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                    {React.cloneElement(subItem.icon, { className: "h-4 w-4" })}
+                                  <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                    {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
                                   </div>
-                                  <div className="flex flex-col items-start">
-                                    <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{subItem.name}</span>
-                                    <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                  <div className="flex flex-col items-center text-center">
+                                    <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
                                   </div>
                                 </Link>
                               </motion.div>
@@ -744,33 +744,33 @@ const Header = () => {
                               >
                                 {subItem.external ? (
                                   <div 
-                                    className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 cursor-pointer border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                                    className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 cursor-pointer border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700 relative" 
                                     onClick={() => {
                                       window.open(subItem.url, '_blank');
                                       handleNavigation();
                                     }}
                                   >
-                                    <div className={`w-8 h-8 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                      {React.cloneElement(subItem.icon, { className: "h-4 w-4" })}
+                                    <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                      {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
                                     </div>
-                                    <div className="flex flex-col items-start flex-1">
-                                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{subItem.name}</span>
-                                      <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                    <div className="flex flex-col items-center text-center">
+                                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
+                                      <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
                                     </div>
                                     <ExternalLink className="h-3 w-3 text-gray-400 absolute top-2 right-2 dark:text-gray-500" />
                                   </div>
                                 ) : (
                                   <Link 
                                     to={subItem.path} 
-                                    className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                                    className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
                                     onClick={handleNavigation}
                                   >
-                                    <div className={`w-8 h-8 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                      {React.cloneElement(subItem.icon, { className: "h-4 w-4" })}
+                                    <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                      {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
                                     </div>
-                                    <div className="flex flex-col items-start">
-                                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{subItem.name}</span>
-                                      <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                    <div className="flex flex-col items-center text-center">
+                                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
+                                      <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
                                     </div>
                                   </Link>
                                 )}
