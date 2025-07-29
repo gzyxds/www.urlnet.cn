@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Menu, X, ChevronDown, ChevronUp, Github, Bell, 
   Moon, Sun, User, Settings, LogOut, HelpCircle, 
-  BookOpen, Code, Zap, Layers, ExternalLink, Cloud, Gift
+  BookOpen, Code, Zap, Layers, ExternalLink, Cloud, Gift, Download
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -132,11 +132,12 @@ const Header = () => {
       name: "产品与服务",
       dropdown: true,
       items: [
-        { name: "产品中心", path: "/products", icon: <Layers className="h-5 w-5" />, color: "blue", description: "艺创AI产品中心" },
+        { name: "产品中心", path: "/products", icon: <Layers className="h-5 w-5" />, color: "indigo", description: "艺创AI产品中心" },
         { name: "数字分身", path: "/products/human", icon: <User className="h-5 w-5" />, color: "indigo", description: "创建您的AI数字分身" },
-        { name: "企业知识库", path: "/products/ai", icon: <BookOpen className="h-5 w-5" />, color: "green", description: "构建企业专属知识库" },
+        { name: "企业知识库", path: "/products/ai", icon: <BookOpen className="h-5 w-5" />, color: "indigo", description: "构建企业专属知识库" },
         { name: "聊天绘画", path: "/products/chat", icon: <Gift className="h-5 w-5" />, color: "purple", description: "AI辅助创意设计" },
-        { name: "论文创作", path: "/products/paper", icon: <Code className="h-5 w-5" />, color: "amber", description: "智能学术写作助手" }
+        { name: "论文创作", path: "/products/paper", icon: <Code className="h-5 w-5" />, color: "amber", description: "智能学术写作助手" },
+        { name: "源码下载", path: "/code", icon: <Download className="h-5 w-5" />, color: "teal", description: "获取开源代码和资源" }
       ]
     },
     { name: "产品演示", path: "/demo" },
@@ -145,7 +146,7 @@ const Header = () => {
       name: "支持与服务",
       dropdown: true,
       items: [
-        { name: "服务支持", path: "/service", icon: <HelpCircle className="h-5 w-5" />, color: "blue", description: "获取专业技术支持" },
+        { name: "服务支持", path: "/service", icon: <HelpCircle className="h-5 w-5" />, color: "indigo", description: "获取专业技术支持" },
         { name: "代理合作", path: "/agency", icon: <Zap className="h-5 w-5" />, color: "cyan", description: "成为合作伙伴" },
         { name: "渠道合作", path: "/api", icon: <ExternalLink className="h-5 w-5" />, color: "rose", description: "成为我们的合作伙伴" },
         { name: "APP下载", path: "/download", icon: <Cloud className="h-5 w-5" />, color: "emerald", description: "移动端应用下载" },

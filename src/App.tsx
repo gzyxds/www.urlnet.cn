@@ -23,6 +23,7 @@ import PaperWritingPage from './app/products/paper/page';
 // 功能页面
 import DemoPage from './app/demo/page';
 import DocsPage from './app/docs/page';
+import CodeDownloadPage from './app/code/page';
 import ServicePage from './app/service/page';
 import AgencyPage from './app/agency/page';
 import AboutPage from './app/about/page';
@@ -61,6 +62,7 @@ function App(): JSX.Element {
           {/* 功能页面路由 */}
           <Route path="/demo" element={<DemoPage />} />
           <Route path="/docs" element={<DocsPage />} />
+          <Route path="/code" element={<CodeDownloadPage />} />
           <Route path="/service" element={<ServicePage />} />
           <Route path="/agency" element={<AgencyPage />} />
           <Route path="/about" element={<AboutPage />} />
