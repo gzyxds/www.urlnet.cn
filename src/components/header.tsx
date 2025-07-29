@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { 
   Menu, X, ChevronDown, ChevronUp, Github, Bell, 
   Moon, Sun, User, Settings, LogOut, HelpCircle, 
-  BookOpen, Code, Zap, Layers, ExternalLink, Cloud, Gift, Download, Sparkles
+  BookOpen, Code, Zap, Layers, ExternalLink, Cloud, Gift, Download, Sparkles,
+  FileText, Archive
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -136,8 +137,8 @@ const Header = () => {
         { name: "数字分身", path: "/products/human", icon: <User className="h-5 w-5" />, color: "indigo", description: "创建您的AI数字分身" },
         { name: "企业知识库", path: "/products/ai", icon: <BookOpen className="h-5 w-5" />, color: "indigo", description: "构建企业专属知识库" },
         { name: "聊天绘画", path: "/products/chat", icon: <Gift className="h-5 w-5" />, color: "purple", description: "AI辅助创意设计" },
-        { name: "论文创作", path: "/products/paper", icon: <Code className="h-5 w-5" />, color: "amber", description: "智能学术写作助手" },
-        { name: "源码下载", path: "/code", icon: <Download className="h-5 w-5" />, color: "teal", description: "获取开源代码和资源" }
+        { name: "论文创作", path: "/products/paper", icon: <FileText className="h-5 w-5" />, color: "amber", description: "智能学术写作助手" },
+        { name: "源码下载", path: "/code", icon: <Archive className="h-5 w-5" />, color: "teal", description: "获取开源代码" }
       ]
     },
     { name: "产品演示", path: "/demo" },
@@ -433,7 +434,7 @@ const Header = () => {
 
             {/* 移动端菜单按钮 */}
             <motion.button 
-              className="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#015bfe] hover:bg-blue-50/70 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 transition-colors duration-200"
+              className="md:hidden p-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-600 hover:text-[#015bfe] hover:bg-blue-50/70 hover:border-blue-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 dark:hover:border-blue-700 transition-all duration-200 flex items-center justify-start min-w-[48px] shadow-sm"
               onClick={toggleMobileMenu}
               aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
               whileTap={{ scale: 0.95 }}
@@ -446,8 +447,9 @@ const Header = () => {
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
+                  className="flex items-center justify-start"
                 >
-                  {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </motion.div>
               </AnimatePresence>
             </motion.button>
@@ -551,31 +553,37 @@ const Header = () => {
                         animate={{ height: "auto", opacity: 1, y: 0 }} 
                         exit={{ height: 0, opacity: 0, y: -10 }} 
                         transition={{ duration: 0.3, ease: "easeOut" }} 
-                        className="overflow-hidden mt-3"
+                        className="overflow-hidden mt-4"
                       >
-                        <div className="grid grid-cols-1 gap-2 p-2 bg-white/50 rounded-lg dark:bg-gray-900/50">
-                          {navItems[0].items?.map((subItem, index) => (
-                            <motion.div
-                              key={index}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05 }}
-                            >
-                              <Link 
-                                to={subItem.path} 
-                                className="flex items-center p-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50" 
-                                onClick={handleNavigation}
+                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
+                          <div className="mb-3">
+                            <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 px-1">产品与服务</h4>
+                            <div className="h-px bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                          </div>
+                          <div className="grid grid-cols-2 gap-3">
+                            {navItems[0].items?.map((subItem, index) => (
+                              <motion.div
+                                key={index}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: index * 0.05, duration: 0.2 }}
                               >
-                                <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                  {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-                                </div>
-                                <div className="flex flex-col">
-                                  <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-                                  <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
-                                </div>
-                              </Link>
-                            </motion.div>
-                          ))}
+                                <Link 
+                                  to={subItem.path} 
+                                  className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                                  onClick={handleNavigation}
+                                >
+                                  <div className={`w-8 h-8 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                    {React.cloneElement(subItem.icon, { className: "h-4 w-4" })}
+                                  </div>
+                                  <div className="flex flex-col items-start">
+                                    <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{subItem.name}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                  </div>
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </div>
                         </div>
                       </motion.div>
                     )}
@@ -646,31 +654,37 @@ const Header = () => {
                         animate={{ height: "auto", opacity: 1, y: 0 }} 
                         exit={{ height: 0, opacity: 0, y: -10 }} 
                         transition={{ duration: 0.3, ease: "easeOut" }} 
-                        className="overflow-hidden mt-3"
+                        className="overflow-hidden mt-4"
                       >
-                        <div className="grid grid-cols-1 gap-2 p-2 bg-white/50 rounded-lg dark:bg-gray-900/50">
-                          {navItems[3].items?.map((subItem, index) => (
-                            <motion.div
-                              key={index}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05 }}
-                            >
-                              <Link 
-                                to={subItem.path} 
-                                className="flex items-center p-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50" 
-                                onClick={handleNavigation}
+                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
+                          <div className="mb-3">
+                            <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 px-1">支持与服务</h4>
+                            <div className="h-px bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                          </div>
+                          <div className="grid grid-cols-2 gap-3">
+                            {navItems[3].items?.map((subItem, index) => (
+                              <motion.div
+                                key={index}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: index * 0.05, duration: 0.2 }}
                               >
-                                <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                  {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-                                </div>
-                                <div className="flex flex-col">
-                                  <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-                                  <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
-                                </div>
-                              </Link>
-                            </motion.div>
-                          ))}
+                                <Link 
+                                  to={subItem.path} 
+                                  className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                                  onClick={handleNavigation}
+                                >
+                                  <div className={`w-8 h-8 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                    {React.cloneElement(subItem.icon, { className: "h-4 w-4" })}
+                                  </div>
+                                  <div className="flex flex-col items-start">
+                                    <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{subItem.name}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                  </div>
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </div>
                         </div>
                       </motion.div>
                     )}
@@ -713,50 +727,56 @@ const Header = () => {
                         animate={{ height: "auto", opacity: 1, y: 0 }} 
                         exit={{ height: 0, opacity: 0, y: -10 }} 
                         transition={{ duration: 0.3, ease: "easeOut" }} 
-                        className="overflow-hidden mt-3"
+                        className="overflow-hidden mt-4"
                       >
-                        <div className="grid grid-cols-1 gap-2 p-2 bg-white/50 rounded-lg dark:bg-gray-900/50">
-                          {navItems[4].items?.map((subItem, index) => (
-                            <motion.div
-                              key={index}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05 }}
-                            >
-                              {subItem.external ? (
-                                <div 
-                                  className="flex items-center p-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 cursor-pointer dark:hover:bg-blue-950/50" 
-                                  onClick={() => {
-                                    window.open(subItem.url, '_blank');
-                                    handleNavigation();
-                                  }}
-                                >
-                                  <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                    {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
+                          <div className="mb-3">
+                            <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 px-1">产品体验</h4>
+                            <div className="h-px bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                          </div>
+                          <div className="grid grid-cols-2 gap-3">
+                            {navItems[4].items?.map((subItem, index) => (
+                              <motion.div
+                                key={index}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: index * 0.05, duration: 0.2 }}
+                              >
+                                {subItem.external ? (
+                                  <div 
+                                    className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 cursor-pointer border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                                    onClick={() => {
+                                      window.open(subItem.url, '_blank');
+                                      handleNavigation();
+                                    }}
+                                  >
+                                    <div className={`w-8 h-8 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                      {React.cloneElement(subItem.icon, { className: "h-4 w-4" })}
+                                    </div>
+                                    <div className="flex flex-col items-start flex-1">
+                                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{subItem.name}</span>
+                                      <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                    </div>
+                                    <ExternalLink className="h-3 w-3 text-gray-400 absolute top-2 right-2 dark:text-gray-500" />
                                   </div>
-                                  <div className="flex flex-col">
-                                    <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-                                    <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
-                                  </div>
-                                  <ExternalLink className="h-4 w-4 text-gray-400 ml-auto dark:text-gray-500" />
-                                </div>
-                              ) : (
-                                <Link 
-                                  to={subItem.path} 
-                                  className="flex items-center p-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50" 
-                                  onClick={handleNavigation}
-                                >
-                                  <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                    {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-                                  </div>
-                                  <div className="flex flex-col">
-                                    <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-                                    <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
-                                  </div>
-                                </Link>
-                              )}
-                            </motion.div>
-                          ))}
+                                ) : (
+                                  <Link 
+                                    to={subItem.path} 
+                                    className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                                    onClick={handleNavigation}
+                                  >
+                                    <div className={`w-8 h-8 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                      {React.cloneElement(subItem.icon, { className: "h-4 w-4" })}
+                                    </div>
+                                    <div className="flex flex-col items-start">
+                                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{subItem.name}</span>
+                                      <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                    </div>
+                                  </Link>
+                                )}
+                              </motion.div>
+                            ))}
+                          </div>
                         </div>
                       </motion.div>
                     )}
