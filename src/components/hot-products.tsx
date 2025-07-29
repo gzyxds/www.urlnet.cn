@@ -26,7 +26,7 @@ const scenarioConfig = {
     cardSubtitle: '打造专属品牌虚拟形象'
   },
   digitalEmployee: {
-    title: '全能AI',
+    title: '全能知识库',
     subtitle: '数字员工解决方案',
     description: '为企业提供智能数字员工解决方案，提高工作效率，降低人力成本，实现业务流程自动化。',
     icon: Bot,

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Menu, X, ChevronDown, ChevronUp, Github, Bell, 
   Moon, Sun, User, Settings, LogOut, HelpCircle, 
-  BookOpen, Code, Zap, Layers, ExternalLink, Cloud, Gift, Download
+  BookOpen, Code, Zap, Layers, ExternalLink, Cloud, Gift, Download, Sparkles
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -147,6 +147,7 @@ const Header = () => {
       dropdown: true,
       items: [
         { name: "服务支持", path: "/service", icon: <HelpCircle className="h-5 w-5" />, color: "indigo", description: "获取专业技术支持" },
+        { name: "AI提示词", path: "/tips", icon: <Sparkles className="h-5 w-5" />, color: "purple", description: "精选AI提示词模板库" },
         { name: "代理合作", path: "/agency", icon: <Zap className="h-5 w-5" />, color: "cyan", description: "成为合作伙伴" },
         { name: "渠道合作", path: "/api", icon: <ExternalLink className="h-5 w-5" />, color: "rose", description: "成为我们的合作伙伴" },
         { name: "APP下载", path: "/download", icon: <Cloud className="h-5 w-5" />, color: "emerald", description: "移动端应用下载" },
@@ -157,8 +158,8 @@ const Header = () => {
       name: "产品体验",
       dropdown: true,
       items: [
-        { name: "艺创知识库", path: "/products/ai", icon: <BookOpen className="h-5 w-5" />, color: "green", description: "智能知识库体验", external: true, url: "https://www.cnai.art" },
-        { name: "艺创数字人", path: "/products/human", icon: <User className="h-5 w-5" />, color: "blue", description: "数字人互动体验", external: true, url: "https://www.cnai.art" },
+        { name: "艺创知识库", path: "/products/ai", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "智能知识库体验", external: true, url: "https://www.cnai.art" },
+        { name: "艺创数字人", path: "/products/human", icon: <User className="h-5 w-5" />, color: "amber", description: "数字人互动体验", external: true, url: "https://www.cnai.art" },
         { name: "聊天绘画", path: "/products/chat", icon: <Layers className="h-5 w-5" />, color: "purple", description: "AI绘画创作体验", external: true, url: "https://www.cnai.art" },
         { name: "论文创作", path: "/products/paper", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "智能写作体验", external: true, url: "https://www.cnai.art" },
         { name: "云计算", path: "/demo", icon: <Cloud className="h-5 w-5" />, color: "sky", description: "云端计算服务", external: true, url: "https://www.cnai.art" },
@@ -432,12 +433,23 @@ const Header = () => {
 
             {/* 移动端菜单按钮 */}
             <motion.button 
-              className="md:hidden p-1.5 rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800"
+              className="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#015bfe] hover:bg-blue-50/70 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 transition-colors duration-200"
               onClick={toggleMobileMenu}
               aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
               whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
             >
-              {mobileMenuOpen ? <X className="h-5 w-5 text-gray-700 dark:text-gray-300" /> : <Menu className="h-5 w-5 text-gray-700 dark:text-gray-300" />}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={mobileMenuOpen ? "close" : "open"}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </motion.div>
+              </AnimatePresence>
             </motion.button>
           </div>
         </div>
@@ -447,74 +459,122 @@ const Header = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
-            className="md:hidden bg-white shadow-lg overflow-hidden dark:bg-gray-900"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            className="md:hidden bg-white/95 backdrop-blur-sm shadow-xl border-t border-gray-100 overflow-hidden dark:bg-gray-900/95 dark:border-gray-800"
+            initial={{ height: 0, opacity: 0, y: -10 }}
+            animate={{ height: "auto", opacity: 1, y: 0 }}
+            exit={{ height: 0, opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
           >
-            <div className="container mx-auto px-4 py-4">
-              {/* 移动端暗黑模式切换 */}
-              <div className="mb-4 flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">主题设置</span>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50" 
-                  onClick={toggleDarkMode}
-                >
-                  {isDarkMode ? (
-                    <>
-                      <Sun className="h-4 w-4 mr-2" />
-                      亮色模式
-                    </>
-                  ) : (
-                    <>
-                      <Moon className="h-4 w-4 mr-2" />
-                      暗黑模式
-                    </>
-                  )}
-                </Button>
+            <div className="container mx-auto px-4 py-6 max-h-[80vh] overflow-y-auto">
+              {/* 移动端工具栏 */}
+              <div className="mb-6 flex justify-between items-center p-3 bg-gray-50/50 rounded-xl dark:bg-gray-800/50">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center dark:bg-blue-900/50">
+                    <Settings className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">工具栏</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  {/* 通知按钮 */}
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 relative dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
+                  >
+                    <Bell className="h-4 w-4" />
+                    <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                  </Button>
+                  {/* GitHub按钮 */}
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
+                  >
+                    <Github className="h-4 w-4" />
+                  </Button>
+                  {/* 暗黑模式切换 */}
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50" 
+                    onClick={toggleDarkMode}
+                  >
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.div
+                        key={isDarkMode ? "dark" : "light"}
+                        initial={{ rotate: -180, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 180, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                      </motion.div>
+                    </AnimatePresence>
+                  </Button>
+                </div>
               </div>
               
-              <nav className="flex flex-col space-y-4">
-                {/* 产品菜单 */}
-                <motion.div className="border-b pb-3 dark:border-gray-700" initial="hidden" animate="visible" custom={0} variants={menuItemVariants}>
-                  <button onClick={() => toggleMobileDropdown('products')} className="flex items-center justify-between w-full py-2.5 rounded-lg hover:bg-blue-50/70 px-2 dark:hover:bg-blue-950/50">
+              <nav className="flex flex-col space-y-2">
+                {/* 产品与服务菜单 */}
+                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={0} variants={menuItemVariants}>
+                  <button 
+                    onClick={() => toggleMobileDropdown('products')} 
+                    className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
+                  >
                     <div className="font-medium text-gray-800 flex items-center dark:text-gray-200">
-                      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 dark:bg-blue-900/50">
-                        <span className="text-blue-600 text-xs dark:text-blue-400">产</span>
+                      <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center mr-3 dark:bg-indigo-900/50">
+                        <Layers className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
                       </div>
-                      <span className="relative flex items-center">
-                        <span>产品与服</span>
-                        <span className="relative inline-block">
-                          <span>务</span>
-                          <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                      <div className="flex flex-col items-start">
+                        <span className="relative flex items-center">
+                          <span>产品与服</span>
+                          <span className="relative inline-block">
+                            <span>务</span>
+                            <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                          </span>
                         </span>
-                      </span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">产品中心与核心服务</span>
+                      </div>
                     </div>
-                    {activeDropdown === 'products' ? <ChevronUp className="h-5 w-5 text-gray-500 dark:text-gray-400" /> : <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />}
+                    <motion.div
+                      animate={{ rotate: activeDropdown === 'products' ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    </motion.div>
                   </button>
                   
                   <AnimatePresence>
                     {activeDropdown === 'products' && (
                       <motion.div 
-                        initial={{ height: 0, opacity: 0 }} 
-                        animate={{ height: "auto", opacity: 1 }} 
-                        exit={{ height: 0, opacity: 0 }} 
+                        initial={{ height: 0, opacity: 0, y: -10 }} 
+                        animate={{ height: "auto", opacity: 1, y: 0 }} 
+                        exit={{ height: 0, opacity: 0, y: -10 }} 
                         transition={{ duration: 0.3, ease: "easeOut" }} 
-                        className="overflow-hidden">
-                        <div className="pl-12 flex flex-col space-y-3 py-2">
+                        className="overflow-hidden mt-3"
+                      >
+                        <div className="grid grid-cols-1 gap-2 p-2 bg-white/50 rounded-lg dark:bg-gray-900/50">
                           {navItems[0].items?.map((subItem, index) => (
-                            <Link key={index} to={subItem.path} className="text-gray-600 hover:text-[#015bfe] flex items-center dark:text-gray-400 dark:hover:text-blue-400" onClick={handleNavigation}>
-                              <div className={`w-7 h-7 rounded-full bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                {subItem.icon}
-                              </div>
-                              <div className="flex flex-col">
-                                <span>{subItem.name}</span>
-                                <span className="text-xs text-gray-500 dark:text-gray-500">{subItem.description}</span>
-                              </div>
-                            </Link>
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.05 }}
+                            >
+                              <Link 
+                                to={subItem.path} 
+                                className="flex items-center p-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50" 
+                                onClick={handleNavigation}
+                              >
+                                <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                  {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
+                                  <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                </div>
+                              </Link>
+                            </motion.div>
                           ))}
                         </div>
                       </motion.div>
@@ -524,55 +584,92 @@ const Header = () => {
                 
                 {/* 产品演示 */}
                 <motion.div initial="hidden" animate="visible" custom={1} variants={menuItemVariants}>
-                  <Link to="/demo" className="text-gray-700 hover:text-[#015bfe] py-2.5 flex items-center rounded-lg hover:bg-blue-50/70 px-2 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50" onClick={handleNavigation}>
-                    <div className="w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center mr-3 dark:bg-cyan-900/50">
-                      <span className="text-cyan-600 text-xs dark:text-cyan-400">演</span>
+                  <Link 
+                    to="/demo" 
+                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
+                    onClick={handleNavigation}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center mr-3 dark:bg-cyan-900/50">
+                      <Zap className="h-5 w-5 text-cyan-600 dark:text-cyan-400" />
                     </div>
-                    <span>产品演示</span>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-gray-800 dark:text-gray-200">产品演示</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">在线体验产品功能</span>
+                    </div>
                   </Link>
                 </motion.div>
                 
                 {/* 产品文档 */}
                 <motion.div initial="hidden" animate="visible" custom={2} variants={menuItemVariants}>
-                  <Link to="/docs" className="text-gray-700 hover:text-[#015bfe] py-2.5 flex items-center rounded-lg hover:bg-blue-50/70 px-2 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50" onClick={handleNavigation}>
-                    <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 dark:bg-indigo-900/50">
-                      <span className="text-indigo-600 text-xs dark:text-indigo-400">文</span>
+                  <Link 
+                    to="/docs" 
+                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
+                    onClick={handleNavigation}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center mr-3 dark:bg-indigo-900/50">
+                      <BookOpen className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
                     </div>
-                    <span>产品文档</span>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-gray-800 dark:text-gray-200">产品文档</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">详细的使用指南</span>
+                    </div>
                   </Link>
                 </motion.div>
                 
                 {/* 支持与服务菜单 */}
-                <motion.div className="border-b pb-3 dark:border-gray-700" initial="hidden" animate="visible" custom={3} variants={menuItemVariants}>
-                  <button onClick={() => toggleMobileDropdown('agency')} className="flex items-center justify-between w-full py-2.5 rounded-lg hover:bg-blue-50/70 px-2 dark:hover:bg-blue-950/50">
+                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={3} variants={menuItemVariants}>
+                  <button 
+                    onClick={() => toggleMobileDropdown('agency')} 
+                    className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
+                  >
                     <div className="font-medium text-gray-800 flex items-center dark:text-gray-200">
-                      <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center mr-3 dark:bg-rose-900/50">
-                        <span className="text-rose-600 text-xs dark:text-rose-400">支</span>
+                      <div className="w-10 h-10 rounded-lg bg-rose-100 flex items-center justify-center mr-3 dark:bg-rose-900/50">
+                        <HelpCircle className="h-5 w-5 text-rose-600 dark:text-rose-400" />
                       </div>
-                      支持与服务
+                      <div className="flex flex-col items-start">
+                        <span>支持与服务</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">技术支持与合作服务</span>
+                      </div>
                     </div>
-                    {activeDropdown === 'agency' ? <ChevronUp className="h-5 w-5 text-gray-500 dark:text-gray-400" /> : <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />}
+                    <motion.div
+                      animate={{ rotate: activeDropdown === 'agency' ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    </motion.div>
                   </button>
                   
                   <AnimatePresence>
                     {activeDropdown === 'agency' && (
                       <motion.div 
-                        initial={{ height: 0, opacity: 0 }} 
-                        animate={{ height: "auto", opacity: 1 }} 
-                        exit={{ height: 0, opacity: 0 }} 
+                        initial={{ height: 0, opacity: 0, y: -10 }} 
+                        animate={{ height: "auto", opacity: 1, y: 0 }} 
+                        exit={{ height: 0, opacity: 0, y: -10 }} 
                         transition={{ duration: 0.3, ease: "easeOut" }} 
-                        className="overflow-hidden">
-                        <div className="pl-12 flex flex-col space-y-3 py-2">
+                        className="overflow-hidden mt-3"
+                      >
+                        <div className="grid grid-cols-1 gap-2 p-2 bg-white/50 rounded-lg dark:bg-gray-900/50">
                           {navItems[3].items?.map((subItem, index) => (
-                            <Link key={index} to={subItem.path} className="text-gray-600 hover:text-[#015bfe] flex items-center dark:text-gray-400 dark:hover:text-blue-400" onClick={handleNavigation}>
-                              <div className={`w-7 h-7 rounded-full bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                {subItem.icon}
-                              </div>
-                              <div className="flex flex-col">
-                                <span>{subItem.name}</span>
-                                <span className="text-xs text-gray-500 dark:text-gray-500">{subItem.description}</span>
-                              </div>
-                            </Link>
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.05 }}
+                            >
+                              <Link 
+                                to={subItem.path} 
+                                className="flex items-center p-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50" 
+                                onClick={handleNavigation}
+                              >
+                                <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                  {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
+                                  <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                </div>
+                              </Link>
+                            </motion.div>
                           ))}
                         </div>
                       </motion.div>
@@ -581,61 +678,84 @@ const Header = () => {
                 </motion.div>
                 
                 {/* 产品体验菜单 */}
-                <motion.div className="border-b pb-3 dark:border-gray-700" initial="hidden" animate="visible" custom={4} variants={menuItemVariants}>
-                  <button onClick={() => toggleMobileDropdown('experience')} className="flex items-center justify-between w-full py-2.5 rounded-lg hover:bg-blue-50/70 px-2 dark:hover:bg-blue-950/50 relative">
-                    <div className="font-medium text-gray-800 flex items-center dark:text-gray-200 relative">
-                      <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center mr-3 dark:bg-orange-900/50 relative">
-                        <span className="text-orange-600 text-xs dark:text-orange-400">体</span>
+                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={4} variants={menuItemVariants}>
+                  <button 
+                    onClick={() => toggleMobileDropdown('experience')} 
+                    className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
+                  >
+                    <div className="font-medium text-gray-800 flex items-center dark:text-gray-200">
+                      <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center mr-3 dark:bg-orange-900/50">
+                        <Sparkles className="h-5 w-5 text-orange-600 dark:text-orange-400" />
                       </div>
-                      <span className="relative flex items-center">
-                        <span>产品体</span>
-                        <span className="relative inline-block">
-                          <span>验</span>
-                          <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                      <div className="flex flex-col items-start">
+                        <span className="relative flex items-center">
+                          <span>产品体</span>
+                          <span className="relative inline-block">
+                            <span>验</span>
+                            <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                          </span>
                         </span>
-                      </span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">在线体验产品功能</span>
+                      </div>
                     </div>
-                    {activeDropdown === 'experience' ? <ChevronUp className="h-5 w-5 text-gray-500 dark:text-gray-400" /> : <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />}
+                    <motion.div
+                      animate={{ rotate: activeDropdown === 'experience' ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    </motion.div>
                   </button>
                   
                   <AnimatePresence>
                     {activeDropdown === 'experience' && (
                       <motion.div 
-                        initial={{ height: 0, opacity: 0 }} 
-                        animate={{ height: "auto", opacity: 1 }} 
-                        exit={{ height: 0, opacity: 0 }} 
+                        initial={{ height: 0, opacity: 0, y: -10 }} 
+                        animate={{ height: "auto", opacity: 1, y: 0 }} 
+                        exit={{ height: 0, opacity: 0, y: -10 }} 
                         transition={{ duration: 0.3, ease: "easeOut" }} 
-                        className="overflow-hidden">
-                        <div className="pl-12 flex flex-col space-y-3 py-2">
+                        className="overflow-hidden mt-3"
+                      >
+                        <div className="grid grid-cols-1 gap-2 p-2 bg-white/50 rounded-lg dark:bg-gray-900/50">
                           {navItems[4].items?.map((subItem, index) => (
-                            subItem.external ? (
-                              <div 
-                                key={index} 
-                                className="text-gray-600 hover:text-[#015bfe] flex items-center cursor-pointer dark:text-gray-400 dark:hover:text-blue-400" 
-                                onClick={() => {
-                                  window.open(subItem.url, '_blank');
-                                  handleNavigation();
-                                }}
-                              >
-                                <div className={`w-7 h-7 rounded-full bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                  {subItem.icon}
+                            <motion.div
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.05 }}
+                            >
+                              {subItem.external ? (
+                                <div 
+                                  className="flex items-center p-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 cursor-pointer dark:hover:bg-blue-950/50" 
+                                  onClick={() => {
+                                    window.open(subItem.url, '_blank');
+                                    handleNavigation();
+                                  }}
+                                >
+                                  <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                    {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                                  </div>
+                                  <div className="flex flex-col">
+                                    <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                  </div>
+                                  <ExternalLink className="h-4 w-4 text-gray-400 ml-auto dark:text-gray-500" />
                                 </div>
-                                <div className="flex flex-col">
-                                  <span>{subItem.name}</span>
-                                  <span className="text-xs text-gray-500 dark:text-gray-500">{subItem.description}</span>
-                                </div>
-                              </div>
-                            ) : (
-                              <Link key={index} to={subItem.path} className="text-gray-600 hover:text-[#015bfe] flex items-center dark:text-gray-400 dark:hover:text-blue-400" onClick={handleNavigation}>
-                                <div className={`w-7 h-7 rounded-full bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                  {subItem.icon}
-                                </div>
-                                <div className="flex flex-col">
-                                  <span>{subItem.name}</span>
-                                  <span className="text-xs text-gray-500 dark:text-gray-500">{subItem.description}</span>
-                                </div>
-                              </Link>
-                            )
+                              ) : (
+                                <Link 
+                                  to={subItem.path} 
+                                  className="flex items-center p-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50" 
+                                  onClick={handleNavigation}
+                                >
+                                  <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
+                                    {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                                  </div>
+                                  <div className="flex flex-col">
+                                    <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">{subItem.description}</span>
+                                  </div>
+                                </Link>
+                              )}
+                            </motion.div>
                           ))}
                         </div>
                       </motion.div>
@@ -645,30 +765,52 @@ const Header = () => {
                 
                 {/* 关于我们 */}
                 <motion.div initial="hidden" animate="visible" custom={5} variants={menuItemVariants}>
-                  <Link to="/about" className="text-gray-700 hover:text-[#015bfe] py-2.5 flex items-center rounded-lg hover:bg-blue-50/70 px-2 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50" onClick={handleNavigation}>
-                    <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-3 dark:bg-emerald-900/50">
-                      <span className="text-emerald-600 text-xs dark:text-emerald-400">关</span>
+                  <Link 
+                    to="/about" 
+                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
+                    onClick={handleNavigation}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mr-3 dark:bg-emerald-900/50">
+                      <User className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                     </div>
-                    <span>关于我们</span>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-gray-800 dark:text-gray-200">关于我们</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">了解艺创AI团队</span>
+                    </div>
                   </Link>
                 </motion.div>
                 
-                {/* 登录和试用按钮 */}
-                <motion.div className="pt-3 flex flex-col space-y-3" initial="hidden" animate="visible" custom={6} variants={menuItemVariants}>
-                  <motion.div whileTap={{ scale: 0.98 }}>
-                    <Button 
-                      variant="outline" 
-                      className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900"
-                      onClick={() => window.open('https://auth.cnai.art', '_blank')}
-                    >
-                      登录
-                    </Button>
-                  </motion.div>
-                  <motion.div whileTap={{ scale: 0.98 }}>
-                    <Button className="bg-[#015bfe] hover:bg-blue-700 text-white w-full font-medium rounded-lg shadow-sm shadow-blue-200 dark:shadow-blue-900/20">
-                      免费试用
-                    </Button>
-                  </motion.div>
+                {/* 登录和注册按钮 */}
+                <motion.div className="pt-6 space-y-3" initial="hidden" animate="visible" custom={6} variants={menuItemVariants}>
+                  <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 dark:from-blue-950/50 dark:to-indigo-950/50 dark:border-blue-800">
+                    <div className="flex items-center mb-3">
+                      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2 dark:bg-blue-900/50">
+                        <User className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">账户中心</span>
+                    </div>
+                    <div className="space-y-2">
+                      <motion.div whileTap={{ scale: 0.98 }}>
+                        <Button 
+                          variant="outline" 
+                          className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900"
+                          onClick={() => window.open('https://auth.cnai.art', '_blank')}
+                        >
+                          <User className="h-4 w-4 mr-2" />
+                          登录账户
+                        </Button>
+                      </motion.div>
+                      <motion.div whileTap={{ scale: 0.98 }}>
+                        <Button 
+                          className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg shadow-lg shadow-blue-200/50 transition-all duration-200 dark:shadow-blue-900/20"
+                          onClick={() => window.open('https://auth.cnai.art', '_blank')}
+                        >
+                          <Sparkles className="h-4 w-4 mr-2" />
+                          免费注册
+                        </Button>
+                      </motion.div>
+                    </div>
+                  </div>
                 </motion.div>
               </nav>
             </div>

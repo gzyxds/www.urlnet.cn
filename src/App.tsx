@@ -29,6 +29,7 @@ import AgencyPage from './app/agency/page';
 import AboutPage from './app/about/page';
 import ApiPage from './app/api/page';
 import DownloadPage from './app/download/page';
+import TipsPage from './app/tips/page';
 import ClientLogoWallExample from './components/clients/ClientLogoWallExample';
 
 /**
@@ -68,6 +69,7 @@ function App(): JSX.Element {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/api" element={<ApiPage />} />
           <Route path="/download" element={<DownloadPage />} />
+          <Route path="/tips" element={<TipsPage />} />
           <Route path="/test-client-logo" element={<ClientLogoWallExample />} />
         </Routes>
       </main>
