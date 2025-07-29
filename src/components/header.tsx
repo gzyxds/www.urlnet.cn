@@ -132,11 +132,11 @@ const Header = () => {
       name: "产品与服务",
       dropdown: true,
       items: [
-        { name: "产品中心", path: "/products", icon: <Layers className="h-4 w-4" />, color: "blue", description: "艺创AI产品中心" },
-        { name: "数字分身", path: "/products/human", icon: <User className="h-4 w-4" />, color: "blue", description: "创建您的AI数字分身" },
-        { name: "企业知识库", path: "/products/ai", icon: <BookOpen className="h-4 w-4" />, color: "green", description: "构建企业专属知识库" },
-        { name: "聊天绘画", path: "/products/chat", icon: <Layers className="h-4 w-4" />, color: "purple", description: "AI辅助创意设计" },
-        { name: "论文创作", path: "/products/paper", icon: <BookOpen className="h-4 w-4" />, color: "amber", description: "智能学术写作助手" }
+        { name: "产品中心", path: "/products", icon: <Layers className="h-5 w-5" />, color: "blue", description: "艺创AI产品中心" },
+        { name: "数字分身", path: "/products/human", icon: <User className="h-5 w-5" />, color: "indigo", description: "创建您的AI数字分身" },
+        { name: "企业知识库", path: "/products/ai", icon: <BookOpen className="h-5 w-5" />, color: "green", description: "构建企业专属知识库" },
+        { name: "聊天绘画", path: "/products/chat", icon: <Gift className="h-5 w-5" />, color: "purple", description: "AI辅助创意设计" },
+        { name: "论文创作", path: "/products/paper", icon: <Code className="h-5 w-5" />, color: "amber", description: "智能学术写作助手" }
       ]
     },
     { name: "产品演示", path: "/demo" },
@@ -145,23 +145,23 @@ const Header = () => {
       name: "支持与服务",
       dropdown: true,
       items: [
-        { name: "服务支持", path: "/service", icon: <HelpCircle className="h-4 w-4" />, color: "blue", description: "获取专业技术支持" },
-        { name: "代理合作", path: "/agency", icon: <Zap className="h-4 w-4" />, color: "cyan", description: "成为合作伙伴" },
-        { name: "渠道合作", path: "/api", icon: <ExternalLink className="h-4 w-4" />, color: "rose", description: "成为我们的合作伙伴" },
-        { name: "APP下载", path: "/download", icon: <Settings className="h-4 w-4" />, color: "emerald", description: "移动端应用下载" },
-        { name: "集成与API", path: "/api", icon: <Code className="h-4 w-4" />, color: "indigo", description: "系统集成开发文档" },
+        { name: "服务支持", path: "/service", icon: <HelpCircle className="h-5 w-5" />, color: "blue", description: "获取专业技术支持" },
+        { name: "代理合作", path: "/agency", icon: <Zap className="h-5 w-5" />, color: "cyan", description: "成为合作伙伴" },
+        { name: "渠道合作", path: "/api", icon: <ExternalLink className="h-5 w-5" />, color: "rose", description: "成为我们的合作伙伴" },
+        { name: "APP下载", path: "/download", icon: <Cloud className="h-5 w-5" />, color: "emerald", description: "移动端应用下载" },
+        { name: "集成与API", path: "/api", icon: <Code className="h-5 w-5" />, color: "indigo", description: "系统集成开发文档" },
       ]
     },
     {
       name: "产品体验",
       dropdown: true,
       items: [
-        { name: "艺创知识库", path: "/products/ai", icon: <BookOpen className="h-4 w-4" />, color: "green", description: "智能知识库体验", external: true, url: "https://www.cnai.art" },
-        { name: "艺创数字人", path: "/products/human", icon: <User className="h-4 w-4" />, color: "blue", description: "数字人互动体验", external: true, url: "https://www.cnai.art" },
-        { name: "聊天绘画", path: "/products/chat", icon: <Layers className="h-4 w-4" />, color: "purple", description: "AI绘画创作体验", external: true, url: "https://www.cnai.art" },
-        { name: "论文创作", path: "/products/paper", icon: <BookOpen className="h-4 w-4" />, color: "amber", description: "智能写作体验", external: true, url: "https://www.cnai.art" },
-        { name: "云计算", path: "/demo", icon: <Cloud className="h-4 w-4" />, color: "sky", description: "云端计算服务", external: true, url: "https://www.cnai.art" },
-        { name: "免费领卡", path: "/demo", icon: <Gift className="h-4 w-4" />, color: "pink", description: "免费体验卡领取", external: true, url: "https://www.cnai.art" }
+        { name: "艺创知识库", path: "/products/ai", icon: <BookOpen className="h-5 w-5" />, color: "green", description: "智能知识库体验", external: true, url: "https://www.cnai.art" },
+        { name: "艺创数字人", path: "/products/human", icon: <User className="h-5 w-5" />, color: "blue", description: "数字人互动体验", external: true, url: "https://www.cnai.art" },
+        { name: "聊天绘画", path: "/products/chat", icon: <Layers className="h-5 w-5" />, color: "purple", description: "AI绘画创作体验", external: true, url: "https://www.cnai.art" },
+        { name: "论文创作", path: "/products/paper", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "智能写作体验", external: true, url: "https://www.cnai.art" },
+        { name: "云计算", path: "/demo", icon: <Cloud className="h-5 w-5" />, color: "sky", description: "云端计算服务", external: true, url: "https://www.cnai.art" },
+        { name: "免费领卡", path: "/demo", icon: <Gift className="h-5 w-5" />, color: "pink", description: "免费体验卡领取", external: true, url: "https://www.cnai.art" }
       ]
     },
     { name: "关于我们", path: "/about" }
@@ -207,7 +207,7 @@ const Header = () => {
                 item.dropdown ? (
                   <DropdownMenu key={index}>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="flex items-center text-sm font-medium px-3 py-2 text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 relative">
+                      <Button variant="ghost" className="group flex items-center text-sm font-medium px-3 py-2 text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 relative">
                         {item.name === "产品体验" ? (
                           <span className="relative flex items-center">
                             <span>产品体</span>
@@ -227,41 +227,56 @@ const Header = () => {
                         ) : (
                           <span>{item.name}</span>
                         )}
-                        <ChevronDown className="ml-1 h-3.5 w-3.5 transition-transform duration-200" />
+                        <ChevronDown className="ml-1 h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="center" className="w-60 p-2 rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800 dark:border-gray-700">
-                      {item.items?.map((subItem, subIndex) => (
-                        <DropdownMenuItem key={subIndex} asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2.5 px-2 my-0.5 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                          {subItem.external ? (
-                            <div 
-                              className="w-full flex items-center cursor-pointer" 
-                              onClick={() => {
-                                window.open(subItem.url, '_blank');
-                                handleNavigation();
-                              }}
-                            >
-                              <div className={`w-9 h-9 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                {subItem.icon}
+                    <DropdownMenuContent align="center" className="w-[520px] p-5 rounded-xl border border-gray-100 shadow-lg bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 animate-in fade-in-50 zoom-in-95 duration-150">
+                      <div className="flex justify-between mb-3">
+                        <div className="px-2">
+                          <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
+                            {item.name === "产品与服务" ? "行业" : item.name === "支持与服务" ? "服务" : "体验"}
+                          </h4>
+                        </div>
+                        <div className="px-2">
+                          <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
+                            {item.name === "产品与服务" ? "使用场景" : item.name === "支持与服务" ? "支持" : "更多"}
+                          </h4>
+                        </div>
+                      </div>
+                      <div className="h-px bg-gray-100 dark:bg-gray-700 mb-3"></div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {item.items?.map((subItem, subIndex) => (
+                          <DropdownMenuItem key={subIndex} asChild className="rounded-lg bg-gray-50 hover:bg-blue-50/70 focus:bg-blue-50/70 py-3 px-3 cursor-pointer dark:bg-gray-800 dark:hover:bg-blue-950/30 dark:focus:bg-blue-950/30 transition-all duration-200">
+                            {subItem.external ? (
+                              <div 
+                                className="w-full flex items-center cursor-pointer" 
+                                onClick={() => {
+                                  window.open(subItem.url, '_blank');
+                                  handleNavigation();
+                                }}
+                              >
+                                <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
+                                  {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
+                                  <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
+                                </div>
                               </div>
-                              <div className="flex flex-col">
-                                <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-                                <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
-                              </div>
-                            </div>
-                          ) : (
-                            <Link to={subItem.path} className="w-full flex items-center" onClick={handleNavigation}>
-                              <div className={`w-9 h-9 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mr-3 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-                                {subItem.icon}
-                              </div>
-                              <div className="flex flex-col">
-                                <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-                                <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
-                              </div>
-                            </Link>
-                          )}
-                        </DropdownMenuItem>
-                      ))}
+                            ) : (
+                              <Link to={subItem.path} className="w-full flex items-center" onClick={handleNavigation}>
+                                <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
+                                  {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
+                                  <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
+                                </div>
+                              </Link>
+                            )}
+                          </DropdownMenuItem>
+                        ))}
+                      </div>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 ) : (
@@ -313,7 +328,7 @@ const Header = () => {
                     <span className="absolute top-1 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-80 p-2 rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800 dark:border-gray-700">
+                <DropdownMenuContent align="end" className="w-80 p-2 rounded-xl border border-gray-100 shadow-lg bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 animate-in fade-in-50 zoom-in-95 duration-150">
                   <DropdownMenuLabel className="font-medium text-sm px-2 flex justify-between items-center">
                     <span className="dark:text-gray-200">通知</span>
                     <Button variant="ghost" size="sm" className="text-xs text-blue-600 hover:text-blue-700 h-auto py-1 dark:text-blue-400 dark:hover:text-blue-300">
@@ -371,7 +386,7 @@ const Header = () => {
                     登录
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56 p-2 rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800 dark:border-gray-700">
+                <DropdownMenuContent align="end" className="w-56 p-2 rounded-xl border border-gray-100 shadow-lg bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 animate-in fade-in-50 zoom-in-95 duration-150">
                   <DropdownMenuLabel className="font-normal text-xs text-gray-500 px-2 dark:text-gray-400">账户</DropdownMenuLabel>
                   <DropdownMenuSeparator className="my-1 dark:bg-gray-700" />
                   <DropdownMenuGroup>
@@ -435,7 +450,7 @@ const Header = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="container mx-auto px-4 py-4">
               {/* 移动端暗黑模式切换 */}
@@ -482,7 +497,12 @@ const Header = () => {
                   
                   <AnimatePresence>
                     {activeDropdown === 'products' && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
+                      <motion.div 
+                        initial={{ height: 0, opacity: 0 }} 
+                        animate={{ height: "auto", opacity: 1 }} 
+                        exit={{ height: 0, opacity: 0 }} 
+                        transition={{ duration: 0.3, ease: "easeOut" }} 
+                        className="overflow-hidden">
                         <div className="pl-12 flex flex-col space-y-3 py-2">
                           {navItems[0].items?.map((subItem, index) => (
                             <Link key={index} to={subItem.path} className="text-gray-600 hover:text-[#015bfe] flex items-center dark:text-gray-400 dark:hover:text-blue-400" onClick={handleNavigation}>
@@ -535,7 +555,12 @@ const Header = () => {
                   
                   <AnimatePresence>
                     {activeDropdown === 'agency' && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
+                      <motion.div 
+                        initial={{ height: 0, opacity: 0 }} 
+                        animate={{ height: "auto", opacity: 1 }} 
+                        exit={{ height: 0, opacity: 0 }} 
+                        transition={{ duration: 0.3, ease: "easeOut" }} 
+                        className="overflow-hidden">
                         <div className="pl-12 flex flex-col space-y-3 py-2">
                           {navItems[3].items?.map((subItem, index) => (
                             <Link key={index} to={subItem.path} className="text-gray-600 hover:text-[#015bfe] flex items-center dark:text-gray-400 dark:hover:text-blue-400" onClick={handleNavigation}>
@@ -574,7 +599,12 @@ const Header = () => {
                   
                   <AnimatePresence>
                     {activeDropdown === 'experience' && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
+                      <motion.div 
+                        initial={{ height: 0, opacity: 0 }} 
+                        animate={{ height: "auto", opacity: 1 }} 
+                        exit={{ height: 0, opacity: 0 }} 
+                        transition={{ duration: 0.3, ease: "easeOut" }} 
+                        className="overflow-hidden">
                         <div className="pl-12 flex flex-col space-y-3 py-2">
                           {navItems[4].items?.map((subItem, index) => (
                             subItem.external ? (
