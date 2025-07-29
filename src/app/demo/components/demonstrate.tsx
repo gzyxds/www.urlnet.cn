@@ -18,7 +18,7 @@ const demoProducts = [
       {
         title: "PC演示前台",
         url: "https://v.cnai.art/",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
           password: "自行注册"
@@ -27,7 +27,7 @@ const demoProducts = [
       {
         title: "站点管理端",
         url: "https://demo.cnai.art/admin/",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "demo",
           password: "demo"
@@ -36,7 +36,7 @@ const demoProducts = [
       {
         title: "WAP演示",
         url: "https://v.cnai.art/mobile",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
           password: "自行注册"
@@ -54,7 +54,7 @@ const demoProducts = [
       {
         title: "演示前台",
         url: "https://www.cnai.art",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
           password: "自行注册"
@@ -63,7 +63,7 @@ const demoProducts = [
       {
         title: "后台演示",
         url: "https://ai-demo.chatmoney.cn/admin",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "admin",
           password: "123456"
@@ -81,7 +81,7 @@ const demoProducts = [
       {
         title: "创作平台",
         url: "https://cnai.art",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
           password: "自行注册"
@@ -90,7 +90,7 @@ const demoProducts = [
       {
         title: "管理后台",
         url: "https://chat-demo.chatmoney.cn/admin",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "admin",
           password: "123456"
@@ -108,7 +108,7 @@ const demoProducts = [
       {
         title: "写作平台",
         url: "https://cp.chatmoney.cn/generate/1",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
           password: "自行注册"
@@ -117,7 +117,7 @@ const demoProducts = [
       {
         title: "体验后台",
         url: "https://cp-demo.chatmoney.cn/admin",
-        qrcode: "/public/images/qrcode.png",
+        qrcode: "/images/qrcode.png",
         credentials: {
           username: "admin",
           password: "123456"
@@ -196,7 +196,7 @@ const Demonstrate: React.FC = () => {
               {/* 左侧产品导航菜单 */}
               <aside className="w-full lg:w-80 bg-slate-50 border-r border-slate-200">
                 <div className="p-6 border-b border-slate-200">
-                  <h2 className="text-lg font-semibold text-black">产品目录</h2>
+                  <h2 className="text-lg font-semibold text-black">艺创AI-产品演示</h2>
                   <p className="text-sm text-gray-600 mt-1">选择要查看的产品演示</p>
                 </div>
                 <nav className="p-4">
@@ -431,7 +431,7 @@ const Demonstrate: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg blur opacity-20"></div>
                     <div className="relative bg-white p-6 rounded-lg border-2 border-slate-200 shadow-lg">
                       <img 
-                        src="/public/images/qrcode.png" 
+                        src="/images/qrcode.png" 
                         alt={modalType === 'demo' ? '专属演示二维码' : '客服二维码'} 
                         className="w-48 h-48 object-contain rounded-md"
                       />
