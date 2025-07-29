@@ -5,73 +5,73 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const demoItems = [
   {
-    title: "AI数字人SaaS系统2.0",
+    title: "艺创AI-数字人SaaS系统PHP",
     subtitle: "演示中心",
     description: "通过我们的在线演示系统，您可以亲身体验AI数字人的强大功能和直观界面，无需安装，即刻体验。",
     accounts: [
       {
-        name: "PC端后台",
-        url: "https://ai.xxx.com/admin/login",
+        name: "PC演示前台",
+        url: "https://v.cnai.art/",
+        username: "自行注册",
+        password: "自行注册"
+      },
+      {
+        name: "站点管理端",
+        url: "https://demo.cnai.art/admin/",
         username: "demo",
         password: "demo"
       },
       {
-        name: "代理商后台",
-        url: "https://ai.xxx.com/agent/login",
-        username: "admin",
-        password: "123456"
-      },
-      {
-        name: "前端演示",
-        url: "https://ai.xxx.com/index",
-        username: "admin",
-        password: "123456"
+        name: "WAP演示",
+        url: "https://v.cnai.art/mobile",
+        username: "自行注册",
+        password: "自行注册"
       }
     ],
-    mainImage: "https://server.mddai.cn/uploads/images/20241128195611806125108.png",
-    qrImage: "https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg"
+    mainImage: "https://server.mddai.cn/uploads/images/20241128195610379379917.png",
+    qrImage: "/public/images/qrcode.png"
   },
   {
-    title: "艺创-全能AI知识库系统",
+    title: "艺创-全能AI知识库系统PHP",
     subtitle: "企业级智能知识管理平台",
     description: "基于大型语言模型的企业级知识库解决方案。支持多种文档格式，实现智能问答和语义搜索，帮助企业构建专属的知识中心，提升信息检索效率。",
     accounts: [
       {
-        name: "管理后台",
-        url: "https://ai.xxx.com/admin/login",
-        username: "admin",
-        password: "123456"
+        name: "演示前台",
+        url: "https://www.cnai.art",
+        username: "自行注册",
+        password: "自行注册"
       },
       {
-        name: "前端演示",
-        url: "https://ai.xxx.com/index",
-        username: "demo",
-        password: "demo123"
+        name: "后台演示",
+        url: "https://ai-demo.chatmoney.cn/admin",
+        username: "admin",
+        password: "123456"
       }
     ],
-    mainImage: "https://artaigc.cn/assets/saas.svg",
-    qrImage: "https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg"
+    mainImage: "https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/picture/work.svg",
+    qrImage: "/public/images/qrcode.png"
   },
   {
-    title: "艺创-智能聊天绘画系统",
+    title: "艺创AI-智能聊天绘画系统",
     subtitle: "AI创作与对话平台",
     description: "集成了先进的AI绘画和聊天功能。用户可以通过自然语言与AI进行对话，并生成高质量的艺术作品。支持多种绘画风格和模型，适用于创意设计、内容生成等领域。",
     accounts: [
       {
         name: "创作平台",
-        url: "https://ai.xxx.com/create",
-        username: "artist",
-        password: "create123"
+        url: "https://cnai.art",
+        username: "自行注册",
+        password: "自行注册"
       },
       {
-        name: "聊天演示",
-        url: "https://ai.xxx.com/chat",
-        username: "chat",
-        password: "chat123"
+        name: "管理后台",
+        url: "https://chat-demo.chatmoney.cn/admin",
+        username: "admin",
+        password: "123456"
       }
     ],
     mainImage: "https://artaigc.cn/assets/ai.svg",
-    qrImage: "https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg"
+    qrImage: "/public/images/qrcode.png"
   },
   {
     title: "艺创-长文写作系统",
@@ -80,19 +80,19 @@ const demoItems = [
     accounts: [
       {
         name: "写作平台",
-        url: "https://ai.xxx.com/write",
-        username: "writer",
-        password: "write123"
+        url: "https://cp.chatmoney.cn/generate/1",
+        username: "自行注册",
+        password: "自行注册"
       },
       {
-        name: "文献检索",
-        url: "https://ai.xxx.com/research",
-        username: "research",
-        password: "research123"
+        name: "体验后台",
+        url: "https://cp-demo.chatmoney.cn/admin",
+        username: "admin",
+        password: "123456"
       }
     ],
     mainImage: "https://artaigc.cn/assets/lw.svg",
-    qrImage: "https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg"
+    qrImage: "/public/images/qrcode.png"
   }
 ];
 
@@ -213,8 +213,8 @@ const DemoShowcase = () => {
                       />
                       <div className="mt-3 sm:mt-4 flex items-center justify-between">
                         <div>
-                          <h4 className="text-xs sm:text-sm font-medium text-gray-900">数字人管理平台</h4>
-                          <p className="text-xs text-gray-500">一站式管理您的所有数字人资产</p>
+                          <h4 className="text-xs sm:text-sm font-medium text-gray-900">艺创AI</h4>
+                          <p className="text-xs text-gray-500">一站式 ( 渐进式 ) AIGC 系统</p>
                         </div>
                         <div className="flex space-x-1 sm:space-x-2">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500"></div>

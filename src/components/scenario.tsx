@@ -242,14 +242,14 @@ const Scenario = () => {
         </AnimatePresence>
 
         {/* 了解更多按钮 */}
-        <div className="mt-16 text-center">
+        <div className="mt-20 text-center">
           <Button 
-            className="bg-[#015bfe] hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-full shadow-lg shadow-blue-100 transition-all duration-300 hover:shadow-xl"
+            className="group relative bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-base font-medium rounded-full transition-all duration-300"
             asChild
           >
             <Link to="/products" className="flex items-center">
-              了解更多解决方案
-              <ArrowRight className="ml-3 h-5 w-5" />
+              <span className="relative z-10 tracking-wider uppercase">探索更多解决方案</span>
+              <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </Button>
         </div>

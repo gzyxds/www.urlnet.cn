@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, Star, ShoppingCart, Users, Globe, Store, GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Contact from '@/components/contact';
 
 // 定义产品数据类型
 interface Product {
@@ -21,28 +22,9 @@ interface Product {
 // 产品数据 - AI企业级解决方案
 const products: Product[] = [
   {
-    title: "AI智能对话系统",
-    subtitle: "AI Chat System",
-    description: "基于大语言模型的企业级智能对话系统，支持多轮对话、知识库集成、情感分析等功能，助力企业构建智能客服和知识问答平台。",
-    features: [
-      "智能对话",
-      "知识库集成",
-      "多轮对话",
-      "情感分析",
-      "API接口"
-    ],
-    originalPrice: "¥12800.00",
-    currentPrice: "¥9800.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/",
-    badge: "AI对话",
-    icon: <ShoppingCart className="h-5 w-5" />,
-    iconColor: "bg-blue-500",
-    tags: ["AI对话"]
-  },
-  {
-    title: "AI数字人系统",
-    subtitle: "AI Digital Human",
-    description: "企业级AI数字人解决方案，支持声音克隆、形象生成、视频制作等功能，适用于品牌宣传、在线教育、虚拟客服等场景。",
+    title: "数字分身PHP版",
+    subtitle: "Digital Human PHP",
+    description: "基于PHP开发的数字分身系统，支持声音克隆、形象生成、视频制作等功能，适用于品牌宣传、在线教育、虚拟客服等场景。",
     features: [
       "声音克隆",
       "形象生成",
@@ -50,37 +32,18 @@ const products: Product[] = [
       "多平台部署",
       "实时渲染"
     ],
-    originalPrice: "¥16800.00",
-    currentPrice: "¥12800.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/multi-merchant",
-    badge: "AI数字人",
+    originalPrice: "¥6800.00",
+    currentPrice: "¥4999.00",
+    sourceCodeLink: "/products/human",
+    badge: "PHP版",
     icon: <Users className="h-5 w-5" />,
-    iconColor: "bg-orange-500",
-    tags: ["AI数字人"]
+    iconColor: "bg-blue-500",
+    tags: ["PHP"]
   },
   {
-    title: "AI绘画创作系统",
-    subtitle: "AI Art Creation",
-    description: "基于深度学习的AI绘画创作平台，支持多种艺术风格、批量生成、智能编辑等功能，为设计师和创作者提供强大的AI辅助工具。",
-    features: [
-      "多种风格",
-      "批量生成",
-      "智能编辑",
-      "高清输出",
-      "云端部署"
-    ],
-    originalPrice: "¥15800.00",
-    currentPrice: "¥11800.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/private-domain",
-    badge: "AI绘画",
-    icon: <Store className="h-5 w-5" />,
-    iconColor: "bg-purple-500",
-    tags: ["AI绘画"]
-  },
-  {
-    title: "AI知识库系统",
-    subtitle: "AI Knowledge Base",
-    description: "企业级AI知识库管理平台，支持文档智能解析、语义搜索、知识图谱构建等功能，帮助企业构建智能化的知识管理体系。",
+    title: "企业知识库PHP版",
+    subtitle: "Knowledge Base PHP",
+    description: "基于PHP开发的企业知识库系统，支持文档智能解析、语义搜索、知识图谱构建等功能，帮助企业构建智能化的知识管理体系。",
     features: [
       "文档解析",
       "语义搜索",
@@ -88,90 +51,166 @@ const products: Product[] = [
       "智能问答",
       "多格式支持"
     ],
-    originalPrice: "¥18800.00",
-    currentPrice: "¥14800.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/multi-store",
-    badge: "AI知识库",
+    originalPrice: "¥9800.00",
+    currentPrice: "¥6600.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/multi-merchant",
+    badge: "PHP版",
     icon: <Store className="h-5 w-5" />,
-    iconColor: "bg-purple-700",
-    tags: ["AI知识库"]
+    iconColor: "bg-orange-500",
+    tags: ["PHP"]
   },
   {
-    title: "AI写作助手系统",
-    subtitle: "AI Writing Assistant",
-    description: "智能AI写作助手，支持文章生成、内容优化、多语言翻译等功能，为内容创作者和企业提供高效的AI写作解决方案。",
+    title: "聊天绘画PHP版",
+    subtitle: "Chat & Draw PHP",
+    description: "基于PHP开发的AI聊天绘画系统，支持多种艺术风格、批量生成、智能编辑等功能，为设计师和创作者提供强大的AI辅助工具。",
+    features: [
+      "多种风格",
+      "批量生成",
+      "智能编辑",
+      "高清输出",
+      "云端部署"
+    ],
+    originalPrice: "¥3800.00",
+    currentPrice: "¥2999.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/private-domain",
+    badge: "PHP版",
+    icon: <Store className="h-5 w-5" />,
+    iconColor: "bg-purple-500",
+    tags: ["PHP"]
+  },
+  {
+    title: "论文创作PHP版",
+    subtitle: "Paper Writing PHP",
+    description: "基于PHP开发的论文创作系统，支持文章生成、内容优化、多语言翻译等功能，为学术研究提供高效的写作解决方案。",
     features: [
       "文章生成",
       "内容优化",
       "多语言翻译",
-      "SEO优化",
-      "批量处理"
+      "格式排版",
+      "参考文献"
     ],
-    originalPrice: "¥15800.00",
-    currentPrice: "¥11800.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/java-standard",
-    badge: "AI写作",
-    icon: <ShoppingCart className="h-5 w-5" />,
-    iconColor: "bg-red-500",
-    tags: ["AI写作"]
+    originalPrice: "¥4699.00",
+    currentPrice: "¥3999.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/multi-store",
+    badge: "PHP版",
+    icon: <GraduationCap className="h-5 w-5" />,
+    iconColor: "bg-purple-700",
+    tags: ["PHP"]
   },
   {
-    title: "AI数据分析系统",
-    subtitle: "AI Data Analytics",
-    description: "企业级AI数据分析平台，支持数据挖掘、智能预测、可视化分析等功能，帮助企业实现数据驱动的智能决策。",
+    title: "知识库Python版",
+    subtitle: "Knowledge Base Python",
+    description: "基于Python开发的知识库系统，支持深度学习、自然语言处理、知识图谱等技术，提供智能化的知识管理解决方案。",
     features: [
-      "数据挖掘",
-      "智能预测",
-      "可视化分析",
-      "实时监控",
-      "报表生成"
+      "深度学习",
+      "NLP处理",
+      "知识图谱",
+      "智能检索",
+      "自动分类"
     ],
-    originalPrice: "¥19800.00",
-    currentPrice: "¥15800.00",
+    originalPrice: "¥9800.00",
+    currentPrice: "¥6600.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/java-standard",
+    badge: "Python版",
+    icon: <Store className="h-5 w-5" />,
+    iconColor: "bg-red-500",
+    tags: ["Python"]
+  },
+  {
+    title: "数字分身2.0-pro",
+    subtitle: "Digital Human Java",
+    description: "基于Java开发的数字分身系统，采用微服务架构，支持高并发、分布式部署，提供企业级的数字人解决方案。",
+    features: [
+      "微服务架构",
+      "高并发支持",
+      "分布式部署",
+      "容器化",
+      "服务治理"
+    ],
+    originalPrice: "¥9800.00",
+    currentPrice: "¥6600.00",
     sourceCodeLink: "https://shop.maddodo.com/product/java-multi-merchant",
-    badge: "AI分析",
+    badge: "pro版",
     icon: <Users className="h-5 w-5" />,
     iconColor: "bg-orange-500",
-    tags: ["AI分析"]
+    tags: ["Java"]
   },
   {
-    title: "AI营销自动化系统",
-    subtitle: "AI Marketing Automation",
-    description: "智能AI营销自动化平台，支持精准投放、用户画像、营销策略优化等功能，提升企业营销效率和转化率。",
+    title: "企业知识库JAVA版",
+    subtitle: "Knowledge Base Java",
+    description: "基于Java开发的企业知识库系统，采用Spring Cloud框架，支持大规模数据处理和企业级应用部署。",
     features: [
-      "精准投放",
-      "用户画像",
-      "策略优化",
-      "效果分析",
-      "多渠道整合"
+      "Spring Cloud",
+      "分布式存储",
+      "集群部署",
+      "权限管理",
+      "数据安全"
     ],
-    originalPrice: "¥22800.00",
-    currentPrice: "¥18800.00",
+    originalPrice: "¥98800.00",
+    currentPrice: "¥6600.00",
     sourceCodeLink: "https://shop.maddodo.com/product/foreign-trade",
-    badge: "AI营销",
-    icon: <Globe className="h-5 w-5" />,
+    badge: "Java版",
+    icon: <Store className="h-5 w-5" />,
     iconColor: "bg-purple-500",
-    tags: ["AI营销"]
+    tags: ["Java"]
   },
   {
-    title: "AI教育培训系统",
-    subtitle: "AI Education Platform",
-    description: "智能AI教育培训平台，支持个性化学习、智能推荐、学习效果评估等功能，为教育机构提供现代化的AI教学解决方案。",
+    title: "聊天绘画JAVA版",
+    subtitle: "Chat & Draw Java",
+    description: "基于Java开发的聊天绘画系统，采用分布式架构，支持大规模并发访问和海量图片处理能力。",
     features: [
-      "个性化学习",
-      "智能推荐",
-      "效果评估",
-      "课程管理",
-      "学习追踪"
+      "分布式计算",
+      "图像处理",
+      "负载均衡",
+      "高可用性",
+      "监控告警"
     ],
-    originalPrice: "¥12800.00",
-    currentPrice: "¥9800.00",
+    originalPrice: "¥3800.00",
+    currentPrice: "¥2999.00",
     sourceCodeLink: "https://shop.maddodo.com/product/knowledge-payment",
-    badge: "AI教育",
-    icon: <GraduationCap className="h-5 w-5" />,
+    badge: "Java版",
+    icon: <Store className="h-5 w-5" />,
     iconColor: "bg-blue-500",
-    tags: ["AI教育"]
+    tags: ["Java"]
   },
+    {
+    title: "艺创开源Agent系统",
+    subtitle: "Modern Full-Stack Framework",
+    description: "基于NestJS和Nuxt3构建的现代全栈框架，支持插件化开发和AI原生集成，为企业级应用提供灵活可扩展的技术架构。",
+    features: [
+      "NestJS + PostgreSQL后端",
+      "Nuxt3 + Nuxt UI前端",
+      "运行时插件系统",
+      "AI原生协作能力",
+      "TypeScript全栈支持"
+    ],
+    originalPrice: "免费开源",
+    currentPrice: "免费开源",
+    sourceCodeLink: "https://shop.maddodo.com/product/knowledge-payment",
+    badge: "全栈版",
+    icon: <Store className="h-5 w-5" />,
+    iconColor: "bg-blue-500",
+    tags: ["TypeScript", "NestJS", "Nuxt"]
+  },
+  {
+    title: "论文创作JAVA版",
+    subtitle: "Paper Writing Java",
+    description: "基于Java开发的论文创作系统，采用微服务架构，支持多用户协同写作和大规模内容处理。",
+    features: [
+      "协同写作",
+      "版本控制",
+      "实时保存",
+      "格式转换",
+      "智能校对"
+    ],
+    originalPrice: "¥469800.00",
+    currentPrice: "¥3999.00",
+    sourceCodeLink: "https://shop.maddodo.com/product/knowledge-payment",
+    badge: "Java版",
+    icon: <GraduationCap className="h-5 w-5" />,
+    iconColor: "bg-blue-500", 
+    tags: ["Java"]
+  }
 ];
 
 /**
@@ -322,6 +361,9 @@ const ProductShowcase = () => {
           ))}
         </motion.div>
       </div>
+      
+      {/* 添加联系我们组件 */}
+      <Contact />
     </div>
   );
 };

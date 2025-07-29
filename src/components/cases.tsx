@@ -211,12 +211,12 @@ const Cases = () => {
           viewport={{ once: true }}
         >
           <Button 
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
+            className="group relative bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-base font-medium rounded-full transition-all duration-300"
             asChild
           >
             <Link to="/cases" className="flex items-center">
-              查看更多案例
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <span className="relative z-10 tracking-wider uppercase">探索更多案例</span>
+              <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </Button>
         </motion.div>

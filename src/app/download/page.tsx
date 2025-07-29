@@ -47,62 +47,62 @@ const DownloadPage = () => {
     {
       title: "企业智能客服",
       description: "24/7智能客服系统，提供专业、高效的服务支持",
-      icon: <MessageSquare className="h-6 w-6 text-blue-600" />
+      icon: <MessageSquare className="h-5 w-5 text-gray-600" />
     },
     {
-      title: "智能文档管理",
+      title: "智能文档管理", 
       description: "AI驱动的文档处理和管理，提升工作效率",
-      icon: <FileText className="h-6 w-6 text-green-600" />
+      icon: <FileText className="h-5 w-5 text-gray-600" />
     },
     {
       title: "专家顾问助理",
-      description: "专业AI顾问，为企业提供智能化决策支持",
-      icon: <Brain className="h-6 w-6 text-purple-600" />
+      description: "专业AI顾问，为企业提供智能化决策支持", 
+      icon: <Brain className="h-5 w-5 text-gray-600" />
     },
     {
       title: "机器人管理",
       description: "智能机器人管理系统，自动化业务流程",
-      icon: <Bot className="h-6 w-6 text-orange-600" />
+      icon: <Bot className="h-5 w-5 text-gray-600" />
     },
     {
       title: "知识库数据训练",
       description: "企业专属知识库构建和训练服务",
-      icon: <Database className="h-6 w-6 text-red-600" />
+      icon: <Database className="h-5 w-5 text-gray-600" />
     },
     {
       title: "AI数字人",
       description: "逼真的AI数字人技术，打造沉浸式体验",
-      icon: <Users className="h-6 w-6 text-pink-600" />
+      icon: <Users className="h-5 w-5 text-gray-600" />
     },
     {
       title: "智能问答",
       description: "基于知识库的智能问答系统",
-      icon: <BookOpen className="h-6 w-6 text-indigo-600" />
+      icon: <BookOpen className="h-5 w-5 text-gray-600" />
     },
     {
       title: "智能创作",
       description: "AI驱动的智能创作工具，激发无限创意",
-      icon: <Zap className="h-6 w-6 text-yellow-600" />
+      icon: <Zap className="h-5 w-5 text-gray-600" />
     },
     {
       title: "AI绘画",
       description: "专业级AI绘画工具，将创意转化为艺术作品",
-      icon: <Palette className="h-6 w-6 text-rose-600" />
+      icon: <Palette className="h-5 w-5 text-gray-600" />
     },
     {
       title: "AI视频",
       description: "AI视频生成和编辑，打造专业级内容",
-      icon: <Video className="h-6 w-6 text-cyan-600" />
+      icon: <Video className="h-5 w-5 text-gray-600" />
     },
     {
       title: "AI音乐",
       description: "AI音乐创作和编曲，释放音乐创作潜能",
-      icon: <Music className="h-6 w-6 text-emerald-600" />
+      icon: <Music className="h-5 w-5 text-gray-600" />
     },
     {
       title: "AIPPT",
       description: "智能PPT生成工具，快速创建专业演示文稿",
-      icon: <Package className="h-6 w-6 text-violet-600" />
+      icon: <Package className="h-5 w-5 text-gray-600" />
     }
   ];
 
@@ -253,52 +253,153 @@ const DownloadPage = () => {
     <>
       <Header />
       <main className="min-h-screen bg-white">
-        {/* 顶部横幅 */}
-        <section className="relative py-24 md:py-32 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
-          {/* 装饰背景 */}
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-            <div className="absolute top-0 right-0 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
-          </div>
-          
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-8xl mx-auto text-center">
-              <motion.div 
-                className="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full mb-8"
+        {/* 顶部横幅 - 现代简约设计（白、黑、蓝色调） */}
+        <section className="relative bg-white overflow-hidden border-b border-gray-100">
+          {/* 装饰图形元素 - 简洁几何形状 */}
+          <div className="absolute inset-0 overflow-hidden">
+            <svg className="absolute right-0 top-0 h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" fill="none">
+              <motion.path 
+                d="M1200,100 L1440,0 L1440,800 L1000,800 C1100,600 1300,300 1200,100Z" 
+                fill="rgba(59, 130, 246, 0.03)"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.5 }}
+              />
+              <motion.rect 
+                x="1100" 
+                y="100" 
+                width="200" 
+                height="200" 
+                rx="20"
+                fill="rgba(59, 130, 246, 0.05)"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Download className="h-10 w-10 text-white" />
-              </motion.div>
+                transition={{ duration: 1, delay: 0.2 }}
+              />
+              <motion.circle 
+                cx="1300" 
+                cy="400" 
+                r="80" 
+                fill="rgba(59, 130, 246, 0.07)"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1, delay: 0.4 }}
+              />
+            </svg>
+          </div>
+
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20 md:py-28">
+              {/* 左侧内容 */}
+              <div className="max-w-2xl">
+                <motion.div 
+                  className="inline-flex items-center px-4 py-2 rounded-md bg-blue-50 mb-6 border border-blue-100"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Download className="h-4 w-4 mr-2 text-blue-600" />
+                  <span className="text-sm font-medium text-blue-700">全平台支持</span>
+                </motion.div>
+                
+                <motion.h1 
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  艺创AI <br />
+                  <span className="text-blue-600">APP下载中心</span>
+                </motion.h1>
+                
+                <motion.p 
+                  className="text-lg text-gray-600 mb-8 leading-relaxed"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  艺创AI致力于打造企业级全能AIGC创作平台，提供全方位智能解决方案。涵盖企业智能客服、智能文档管理、专家顾问助理等核心功能，助力企业实现智能化转型。
+                </motion.p>
+                
+                <motion.div 
+                  className="flex flex-wrap gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2">
+                    <Download className="h-4 w-4 mr-2" />
+                    立即下载
+                  </Button>
+                  <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium px-4 py-2">
+                    <Globe className="h-4 w-4 mr-2" />
+                    了解更多
+                  </Button>
+                </motion.div>
+                
+                <motion.div 
+                  className="mt-8 flex flex-wrap items-center gap-2 text-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                >
+                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">Windows</Badge>
+                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">macOS</Badge>
+                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">Linux</Badge>
+                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">Android</Badge>
+                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">iOS</Badge>
+                </motion.div>
+              </div>
               
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                艺创AI APP下载
-              </motion.h1>
-              
+              {/* 右侧设备展示 - 简约动画效果 */}
               <motion.div 
-                className="w-20 h-0.5 bg-blue-600 mx-auto mb-8"
-                initial={{ width: 0 }}
-                animate={{ width: 80 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              ></motion.div>
-              
-              <motion.p 
-                className="text-lg md:text-xl text-gray-600 max-w-8xl mx-auto leading-relaxed font-light mb-12"
+                className="relative hidden lg:block ml-auto"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                transition={{ duration: 0.8 }}
               >
-                艺创AI致力于打造企业级全能AIGC创作平台，提供全方位智能解决方案。涵盖企业智能客服、智能文档管理、专家顾问助理、机器人管理、知识库数据训练等核心功能。通过AI数字人、智能问答、智能创作、数据训练、AI绘画、AI视频、AI音乐及AIPPT等创新技术，助力企业实现智能化转型，提升运营效率与创造力，开启智能未来。
-              </motion.p>
+                <div className="relative">
+                  {/* 简约风格的设备展示框 */}
+                  <motion.div 
+                    className="w-[480px] h-[320px] bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg overflow-hidden border border-blue-200"
+                    initial={{ y: 20 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    {/* 顶部状态栏 */}
+                    <div className="h-8 bg-white/80 border-b border-blue-100 flex items-center px-4">
+                      <div className="flex space-x-2">
+                        <div className="w-2.5 h-2.5 rounded-full bg-blue-400"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-blue-300"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-blue-200"></div>
+                      </div>
+                    </div>
+                    
+                    {/* 内容区域 */}
+                    <div className="p-6">
+                      {/* 标题栏 */}
+                      <div className="bg-white/60 w-full h-10 rounded-lg mb-6"></div>
+                      
+                      {/* 内容网格 */}
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="bg-white/60 h-16 rounded-lg"></div>
+                        <div className="bg-white/60 h-16 rounded-lg"></div>
+                        <div className="bg-white/60 h-16 rounded-lg"></div>
+                        <div className="bg-white/60 h-16 rounded-lg"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* 装饰元素 */}
+                  <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/5 rounded-full"></div>
+                  <div className="absolute -left-8 -top-8 w-32 h-32 bg-blue-600/5 rounded-full"></div>
+                </div>
+              </motion.div>
             </div>
           </div>
+          
+          {/* 简约分隔线 */}
+          <div className="absolute bottom-0 left-0 right-0 w-full h-16 bg-gradient-to-b from-transparent to-white"></div>
         </section>
 
         {/* 核心功能展示 */}

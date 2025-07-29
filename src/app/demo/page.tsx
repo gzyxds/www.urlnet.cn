@@ -1,11 +1,8 @@
 "use client";
-
 import React from 'react';
 import Header from '@/components/header';
-import Footer from '@/components/footer';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import DemoShowcase from './components/demo';
-
 /**
  * 产品演示页面
  * @returns {JSX.Element} 页面组件

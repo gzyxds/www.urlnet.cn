@@ -35,7 +35,7 @@ const scenarioConfig = {
       { title: '销售助手', description: '智能推荐产品，提高转化率和客户满意度' },
       { title: '培训讲师', description: '提供标准化培训内容，确保培训质量一致性' }
     ],
-    image: 'https://artaigc.cn/assets/img/human2.png',
+    image: 'https://aigc-1307986889.cos.ap-guangzhou.myqcloud.com/uploads/images/20250207/20250207190337cdb078503.png',
     imageAlt: '数字员工应用场景',
     cardTitle: '数字员工解决方案',
     cardSubtitle: '智能高效的业务助手'
@@ -50,7 +50,7 @@ const scenarioConfig = {
       { title: '营销文案', description: '生成吸引人的营销文案，提高转化率' },
       { title: '多语言翻译', description: '支持多语言内容创作和翻译，拓展全球市场' }
     ],
-    image: 'https://server.mddai.cn/uploads/images/202411281956113c42f8382.png',
+    image: 'https://aigc-1307986889.cos.ap-guangzhou.myqcloud.com/resource/image/decorate/home_fun_003.png',
     imageAlt: '内容创作应用场景',
     cardTitle: '内容创作解决方案',
     cardSubtitle: '高效智能的内容生产'
@@ -65,7 +65,7 @@ const scenarioConfig = {
       { title: '新闻播报', description: '实时生成新闻内容，提供专业播报服务' },
       { title: '活动主持', description: '为线上活动提供专业主持服务，增强互动体验' }
     ],
-    image: 'https://server.mddai.cn/uploads/images/20241128195610379379917.png',
+    image: 'https://aigc-1307986889.cos.ap-guangzhou.myqcloud.com/uploads/images/20250207/20250207190545b278d4242.png',
     imageAlt: '虚拟直播应用场景',
     cardTitle: '虚拟直播解决方案',
     cardSubtitle: '智能高效的直播助手'

@@ -175,130 +175,124 @@ const  PaperPage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* 产品卡片1 - 数字分身训练数据 */}
+            {/* 产品卡片1 - 期刊论文 */}
             <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                  <PenTool className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">数字分身训练</h3>
-                  <div className="text-blue-600 font-medium">5分钟</div>
+                  <h3 className="text-lg font-bold text-gray-900">期刊论文</h3>
+                  <div className="text-blue-600 font-medium">高效写作</div>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm">形象自然丰富，快速生成高质量数字分身</p>
+              <p className="text-gray-600 mb-4 text-sm">为研究人员提供智能论文写作辅助工具</p>
               
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">超短时间即可生成分身</span>
+                  <span className="text-gray-700 text-sm">快速生成论文初稿和补充材料</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">口型自然，表情丰富，30+表情</span>
+                  <span className="text-gray-700 text-sm">智能推荐相关研究文献</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">量产功能，批量生成和转换</span>
+                  <span className="text-gray-700 text-sm">自动格式化和参考文献引用</span>
                 </li>
               </ul>
             </div>
             
-            {/* 产品卡片2 - 声音复刻训练数据 */}
+            {/* 产品卡片2 - 科普文章 */}
             <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                  </svg>
+                  <Users className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">声音复刻训练</h3>
-                  <div className="text-blue-600 font-medium">10分钟</div>
+                  <h3 className="text-lg font-bold text-gray-900">科普文章</h3>
+                  <div className="text-blue-600 font-medium">通俗易懂</div>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm">多元高质生成能力，保留声音个性特征</p>
+              <p className="text-gray-600 mb-4 text-sm">帮助科普作家创作易于理解的科学文章</p>
               
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">超短时高质量声音复刻</span>
+                  <span className="text-gray-700 text-sm">复杂概念简单化表达</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">情绪转换和语音表达，保留个性</span>
+                  <span className="text-gray-700 text-sm">生动有趣的类比和示例</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">提供语音合成，多20+种语言</span>
+                  <span className="text-gray-700 text-sm">多媒体内容智能配图</span>
                 </li>
               </ul>
             </div>
             
-            {/* 产品卡片3 - 数字人整体效果达 */}
+            {/* 产品卡片3 - 学生作业 */}
             <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
+                  <Bot className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">数字人整体效果</h3>
-                  <div className="text-blue-600 font-medium">MOS4.0</div>
+                  <h3 className="text-lg font-bold text-gray-900">学生作业</h3>
+                  <div className="text-blue-600 font-medium">辅助学习</div>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm">强大AI技术能力，行业领先水平</p>
+              <p className="text-gray-600 mb-4 text-sm">为学生提供写作指导和学习建议</p>
               
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">行业领先的研究模型支持技术</span>
+                  <span className="text-gray-700 text-sm">智能写作建议和指导</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">感知准确率达98.5%</span>
+                  <span className="text-gray-700 text-sm">相关参考资料推荐</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">数字人响应时间仅需500ms</span>
+                  <span className="text-gray-700 text-sm">写作能力逐步提升</span>
                 </li>
               </ul>
             </div>
             
-            {/* 产品卡片4 - 集成和接入方式 */}
+            {/* 产品卡片4 - 商业报告 */}
             <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">集成和接入方式</h3>
-                  <div className="text-blue-600 font-medium">灵活</div>
+                  <h3 className="text-lg font-bold text-gray-900">商业报告</h3>
+                  <div className="text-blue-600 font-medium">专业分析</div>
                 </div>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm">快速接入，多种部署方式选择</p>
+              <p className="text-gray-600 mb-4 text-sm">为企业提供专业的商业文档写作服务</p>
               
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">API、SDK多种接入方式</span>
+                  <span className="text-gray-700 text-sm">市场调研报告生成</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">APP/Web/小程序全端支持</span>
+                  <span className="text-gray-700 text-sm">竞争分析报告撰写</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">公有云、私有化部署选择</span>
+                  <span className="text-gray-700 text-sm">数据可视化和图表生成</span>
                 </li>
               </ul>
             </div>
@@ -323,10 +317,10 @@ const  PaperPage = () => {
                 在线演示
               </div>
               
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">AI数字人SaaS系统2.0<br />演示中心</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">艺创AI论文创作系统<br />演示中心</h2>
               
               <p className="text-gray-600 mb-8 text-lg">
-                通过我们的在线演示系统，您可以亲身体验AI数字人的强大功能和直观界面，无需安装，即刻体验。
+                通过我们的在线演示系统，您可以亲身体验AI论文创作系统的强大的功能和直观的界面，无需安装，即刻体验。
               </p>
               
               <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
@@ -416,15 +410,15 @@ const  PaperPage = () => {
                 {/* 主要演示图 */}
                 <div className="bg-white p-6 rounded-xl shadow-lg">
                   <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
-                    alt="AI数字人演示界面" 
+                    src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
+                    alt="AI论文创作系统演示界面" 
                     className="w-full rounded-lg"
                   />
                   
                   <div className="mt-4 flex items-center justify-between">
                     <div>
-                      <h4 className="text-sm font-medium text-gray-900">数字人管理平台</h4>
-                      <p className="text-xs text-gray-500">一站式管理您的所有数字人资产</p>
+                      <h4 className="text-sm font-medium text-gray-900">AI论文创作系统</h4>
+                      <p className="text-xs text-gray-500">一站式管理您的所有论文创作任务</p>
                     </div>
                     <div className="flex space-x-2">
                       <div className="w-2 h-2 rounded-full bg-red-500"></div>
@@ -437,7 +431,7 @@ const  PaperPage = () => {
                 {/* 二维码 */}
                 <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
                   <img 
-                    src="https://server.mddai.cn/uploads/images/20250718115939d37a60656.jpg" 
+                    src="/images/qrcode.png" 
                     alt="演示二维码" 
                     className="w-24 h-24 bg-white rounded-md"
                   />
@@ -468,26 +462,26 @@ const  PaperPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">应用场景</h2>
+            <h2 className="text-3xl font-bold mb-4">论文创作应用场景</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">丰富的应用场景和解决方案，满足多种业务需求</p>
           </div>
 
           <Tabs defaultValue="virtualIP" className="w-full">
             <TabsList className="flex w-full mb-12 p-1 bg-gray-50 rounded-full max-w-3xl mx-auto">
-              <TabsTrigger value="virtualIP" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">虚拟IP</TabsTrigger>
-              <TabsTrigger value="digitalEmployee" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">数字员工</TabsTrigger>
-              <TabsTrigger value="contentCreation" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">内容创作</TabsTrigger>
-              <TabsTrigger value="virtualLive" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">虚拟直播</TabsTrigger>
+              <TabsTrigger value="virtualIP" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">期刊论文</TabsTrigger>
+              <TabsTrigger value="digitalEmployee" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">科普文章</TabsTrigger>
+              <TabsTrigger value="contentCreation" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">学生作业</TabsTrigger>
+              <TabsTrigger value="virtualLive" className="flex-1 text-center py-2.5 px-4 text-base font-medium rounded-full transition-all data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-100">商业报告</TabsTrigger>
             </TabsList>
 
-            {/* 虚拟IP场景 */}
+            {/* 期刊论文场景 */}
             <TabsContent value="virtualIP">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 {/* 左侧内容 */}
                 <div className="w-full lg:w-1/2 lg:pr-8">
-                  <h3 className="text-2xl font-bold mb-4">虚拟IP</h3>
+                  <h3 className="text-2xl font-bold mb-4">期刊论文</h3>
                   <p className="text-gray-600 mb-6">
-                    面向文化传播、影视内容等多个行业，帮助打造虚拟IP，赋能品牌营销，提升品牌心智。
+                    研究人员可以使用AI写作系统来生成论文的初稿或补充材料，可以更快地完成研究工作。
                   </p>
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start">
@@ -495,8 +489,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">品牌代言</h4>
-                        <p className="text-sm text-gray-600">创建专属品牌虚拟形象，提升品牌辨识度和亲和力</p>
+                        <h4 className="font-medium text-gray-900">快速生成</h4>
+                        <p className="text-sm text-gray-600">快速生成论文初稿和补充材料</p>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -504,8 +498,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">内容创作</h4>
-                        <p className="text-sm text-gray-600">为影视、游戏、动漫等行业提供高质量虚拟角色</p>
+                        <h4 className="font-medium text-gray-900">文献推荐</h4>
+                        <p className="text-sm text-gray-600">智能推荐相关研究文献</p>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -513,8 +507,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">社交互动</h4>
-                        <p className="text-sm text-gray-600">打造虚拟社交形象，增强用户互动体验</p>
+                        <h4 className="font-medium text-gray-900">格式规范</h4>
+                        <p className="text-sm text-gray-600">自动格式化和参考文献引用</p>
                       </div>
                     </li>
                   </ul>
@@ -527,8 +521,8 @@ const  PaperPage = () => {
                 <div className="w-full lg:w-1/2">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src="https://artaigc.cn/assets/img/human1.png" 
-                      alt="虚拟IP应用场景" 
+                      src="https://server.mddai.cn/uploads/images/20231227143956b2d246138.png" 
+                      alt="期刊论文应用场景" 
                       className="w-full rounded-2xl"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
@@ -537,8 +531,8 @@ const  PaperPage = () => {
                           <Users className="h-5 w-5 text-blue-600" />
                         </div>
                         <div>
-                          <p className="text-white font-medium">虚拟IP解决方案</p>
-                          <p className="text-white/80 text-sm">打造专属品牌虚拟形象</p>
+                          <p className="text-white font-medium">期刊论文解决方案</p>
+                          <p className="text-white/80 text-sm">智能高效的论文写作助手</p>
                         </div>
                       </div>
                     </div>
@@ -547,14 +541,14 @@ const  PaperPage = () => {
               </div>
             </TabsContent>
 
-            {/* 数字员工场景 */}
+            {/* 科普文章场景 */}
             <TabsContent value="digitalEmployee">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 {/* 左侧内容 */}
                 <div className="w-full lg:w-1/2 lg:pr-8">
-                  <h3 className="text-2xl font-bold mb-4">数字员工</h3>
+                  <h3 className="text-2xl font-bold mb-4">科普文章</h3>
                   <p className="text-gray-600 mb-6">
-                    为企业提供智能数字员工解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
+                    科普作家可以使用AI写作系统来生成易于理解的科学文章，以便向公众传播复杂的科学知识。
                   </p>
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start">
@@ -562,8 +556,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">智能客服</h4>
-                        <p className="text-sm text-gray-600">7×24小时在线服务，快速响应客户需求</p>
+                        <h4 className="font-medium text-gray-900">简化表达</h4>
+                        <p className="text-sm text-gray-600">复杂概念简单化表达</p>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -571,8 +565,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">销售助手</h4>
-                        <p className="text-sm text-gray-600">智能推荐产品，提高转化率和客户满意度</p>
+                        <h4 className="font-medium text-gray-900">生动示例</h4>
+                        <p className="text-sm text-gray-600">生动有趣的类比和示例</p>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -580,8 +574,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">培训讲师</h4>
-                        <p className="text-sm text-gray-600">提供标准化培训内容，确保培训质量一致性</p>
+                        <h4 className="font-medium text-gray-900">智能配图</h4>
+                        <p className="text-sm text-gray-600">多媒体内容智能配图</p>
                       </div>
                     </li>
                   </ul>
@@ -594,8 +588,8 @@ const  PaperPage = () => {
                 <div className="w-full lg:w-1/2">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src="https://artaigc.cn/assets/img/human2.png" 
-                      alt="数字员工应用场景" 
+                      src="https://server.mddai.cn/uploads/images/202312271439564e0a00449.png" 
+                      alt="科普文章应用场景" 
                       className="w-full rounded-2xl"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
@@ -604,8 +598,8 @@ const  PaperPage = () => {
                           <Bot className="h-5 w-5 text-blue-600" />
                         </div>
                         <div>
-                          <p className="text-white font-medium">数字员工解决方案</p>
-                          <p className="text-white/80 text-sm">智能高效的业务助手</p>
+                          <p className="text-white font-medium">科普文章解决方案</p>
+                          <p className="text-white/80 text-sm">让科学更易懂的写作助手</p>
                         </div>
                       </div>
                     </div>
@@ -614,14 +608,14 @@ const  PaperPage = () => {
               </div>
             </TabsContent>
 
-            {/* 内容创作场景 */}
+            {/* 学生作业场景 */}
             <TabsContent value="contentCreation">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 {/* 左侧内容 */}
                 <div className="w-full lg:w-1/2 lg:pr-8">
-                  <h3 className="text-2xl font-bold mb-4">内容创作</h3>
+                  <h3 className="text-2xl font-bold mb-4">学生作业</h3>
                   <p className="text-gray-600 mb-6">
-                    为媒体、自媒体、营销团队提供智能内容创作解决方案，提高内容生产效率和质量。
+                    学生可以利用AI写作系统来获得关于特定主题的论文建议、参考文献和写作指导，提高写作能力和学术水平。
                   </p>
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start">
@@ -629,8 +623,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">视频脚本</h4>
-                        <p className="text-sm text-gray-600">快速生成专业视频脚本，提高内容创作效率</p>
+                        <h4 className="font-medium text-gray-900">写作指导</h4>
+                        <p className="text-sm text-gray-600">智能写作建议和指导</p>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -638,8 +632,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">营销文案</h4>
-                        <p className="text-sm text-gray-600">生成吸引人的营销文案，提高转化率</p>
+                        <h4 className="font-medium text-gray-900">参考推荐</h4>
+                        <p className="text-sm text-gray-600">相关参考资料推荐</p>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -647,8 +641,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">多语言翻译</h4>
-                        <p className="text-sm text-gray-600">支持多语言内容创作和翻译，拓展全球市场</p>
+                        <h4 className="font-medium text-gray-900">能力提升</h4>
+                        <p className="text-sm text-gray-600">写作能力逐步提升</p>
                       </div>
                     </li>
                   </ul>
@@ -661,8 +655,8 @@ const  PaperPage = () => {
                 <div className="w-full lg:w-1/2">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                      alt="内容创作应用场景" 
+                      src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
+                      alt="学生作业应用场景" 
                       className="w-full rounded-2xl"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
@@ -671,8 +665,8 @@ const  PaperPage = () => {
                           <PenTool className="h-5 w-5 text-blue-600" />
                         </div>
                         <div>
-                          <p className="text-white font-medium">内容创作解决方案</p>
-                          <p className="text-white/80 text-sm">高效智能的内容生产</p>
+                          <p className="text-white font-medium">学生作业解决方案</p>
+                          <p className="text-white/80 text-sm">提升写作能力的智能助手</p>
                         </div>
                       </div>
                     </div>
@@ -681,14 +675,14 @@ const  PaperPage = () => {
               </div>
             </TabsContent>
 
-            {/* 虚拟直播场景 */}
+            {/* 商业报告场景 */}
             <TabsContent value="virtualLive">
               <div className="flex flex-col lg:flex-row items-center gap-12">
                 {/* 左侧内容 */}
                 <div className="w-full lg:w-1/2 lg:pr-8">
-                  <h3 className="text-2xl font-bold mb-4">虚拟直播</h3>
+                  <h3 className="text-2xl font-bold mb-4">商业报告</h3>
                   <p className="text-gray-600 mb-6">
-                    为直播行业提供虚拟主播解决方案，降低直播成本，提高直播效率和质量。
+                    企业可以利用AI写作系统来撰写市场调研报告、竞争分析报告等商业文档，提供决策支持和业务洞察。
                   </p>
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-start">
@@ -696,8 +690,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">电商直播</h4>
-                        <p className="text-sm text-gray-600">24小时不间断直播，提高商品曝光和销售</p>
+                        <h4 className="font-medium text-gray-900">市场调研</h4>
+                        <p className="text-sm text-gray-600">市场调研报告生成</p>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -705,8 +699,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">新闻播报</h4>
-                        <p className="text-sm text-gray-600">实时生成新闻内容，提供专业播报服务</p>
+                        <h4 className="font-medium text-gray-900">竞争分析</h4>
+                        <p className="text-sm text-gray-600">竞争分析报告撰写</p>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -714,8 +708,8 @@ const  PaperPage = () => {
                         <Check className="h-3 w-3 text-blue-600" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">活动主持</h4>
-                        <p className="text-sm text-gray-600">为线上活动提供专业主持服务，增强互动体验</p>
+                        <h4 className="font-medium text-gray-900">数据可视</h4>
+                        <p className="text-sm text-gray-600">数据可视化和图表生成</p>
                       </div>
                     </li>
                   </ul>
@@ -728,8 +722,8 @@ const  PaperPage = () => {
                 <div className="w-full lg:w-1/2">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
-                      alt="虚拟直播应用场景" 
+                      src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
+                      alt="商业报告应用场景" 
                       className="w-full rounded-2xl"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
@@ -738,8 +732,8 @@ const  PaperPage = () => {
                           <Tv className="h-5 w-5 text-blue-600" />
                         </div>
                         <div>
-                          <p className="text-white font-medium">虚拟直播解决方案</p>
-                          <p className="text-white/80 text-sm">智能高效的直播助手</p>
+                          <p className="text-white font-medium">商业报告解决方案</p>
+                          <p className="text-white/80 text-sm">专业的商业分析助手</p>
                         </div>
                       </div>
                     </div>
@@ -759,25 +753,25 @@ const  PaperPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">功能特色</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              提供智能助手、内容创作、虚拟直播、虚拟IP等多维度的功能，满足不同行业的业务需求。
+              提供智能助手、学生作业、商业报告、期刊论文等多维度的功能，满足不同行业的业务需求。
             </p>
           </div>
 
           {/* 场景卡片网格 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* 虚拟IP场景卡片 */}
+            {/* 期刊论文场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
               <div className="w-full h-48 overflow-hidden">
                 <img 
-                  src="https://artaigc.cn/assets/img/human1.png" 
-                  alt="虚拟IP应用场景" 
+                  src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
+                  alt="期刊论文应用场景" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">虚拟IP</h3>
+                <h3 className="text-xl font-bold mb-2">期刊论文</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  面向文化传播、影视内容等多个行业，帮助打造虚拟IP，赋能品牌营销，提升品牌心智。
+                  面向文化传播、影视内容等多个行业，帮助打造期刊论文，赋能品牌营销，提升品牌心智。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
@@ -805,19 +799,19 @@ const  PaperPage = () => {
               </div>
             </div>
 
-            {/* 数字员工场景卡片 */}
+            {/* 科普文章场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
               <div className="w-full h-48 overflow-hidden">
                 <img 
-                  src="https://artaigc.cn/assets/img/human2.png" 
-                  alt="数字员工应用场景" 
+                  src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
+                  alt="科普文章应用场景" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">数字员工</h3>
+                <h3 className="text-xl font-bold mb-2">科普文章</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  为企业提供智能数字员工解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
+                  为企业提供智能科普文章解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
@@ -845,26 +839,26 @@ const  PaperPage = () => {
               </div>
             </div>
 
-            {/* 内容创作场景卡片 */}
+            {/* 学生作业场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
               <div className="w-full h-48 overflow-hidden">
                 <img 
-                  src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                  alt="内容创作应用场景" 
+                  src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
+                  alt="学生作业应用场景" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">内容创作</h3>
+                <h3 className="text-xl font-bold mb-2">学生作业</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  为媒体、自媒体、营销团队提供智能内容创作解决方案，提高内容生产效率和质量。
+                  为媒体、自媒体、营销团队提供智能学生作业解决方案，提高内容生产效率和质量。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">快速生成专业视频脚本，提高内容创作效率</p>
+                    <p className="text-xs text-gray-600">快速生成专业视频脚本，提高学生作业效率</p>
                   </li>
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
@@ -876,7 +870,7 @@ const  PaperPage = () => {
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">支持多语言内容创作和翻译，拓展全球市场</p>
+                    <p className="text-xs text-gray-600">支持多语言学生作业和翻译，拓展全球市场</p>
                   </li>
                 </ul>
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
@@ -885,17 +879,17 @@ const  PaperPage = () => {
               </div>
             </div>
 
-            {/* 虚拟直播场景卡片 */}
+            {/* 商业报告场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
               <div className="w-full h-48 overflow-hidden">
                 <img 
-                  src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
-                  alt="虚拟直播应用场景" 
+                  src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
+                  alt="商业报告应用场景" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">虚拟直播</h3>
+                <h3 className="text-xl font-bold mb-2">商业报告</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
                   为直播行业提供虚拟主播解决方案，降低直播成本，提高直播效率和质量。
                 </p>
@@ -930,236 +924,290 @@ const  PaperPage = () => {
 
 
 
-      {/* 产品介绍卡片式 */}
+      {/* 产品核心功能 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">产品核心功能</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+          {/* 标题区域 */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full mb-6">
+              <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+              <span className="text-blue-700 text-sm font-medium">论文创作核心功能</span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">产品核心功能</h2>
+            <div className="w-20 h-0.5 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">强大的AI技术能力，为您提供论文创作的全流程解决方案</p>
           </div>
 
-          {/* 数字分身 */}
-          <div className="flex flex-col md:flex-row items-center mb-24 overflow-hidden">
-            <div className="w-full md:w-1/2 md:pr-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative bg-white">
-                <div className="absolute top-4 left-4">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                    核心功能
+          {/* 智能生成论文大纲 */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+            {/* 左侧内容 */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">核心功能</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">智能生成论文大纲</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  AI智能助手一键生成论文大纲！你只需要输入论文关键词，AI即可快速为您生成论文大纲，可修改章节内容，操作高效快捷！
+                </p>
+              </div>
+              
+              {/* 功能特性 */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">智能生成</span>
                   </div>
+                  <p className="text-sm text-gray-600">一键生成论文大纲</p>
                 </div>
                 
-                <div className="mt-8">
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">数字分身</h3>
-                  <div className="w-12 h-1 bg-blue-600 mb-4"></div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    轻松创建你的AI虚拟数字人！只需上传一段视频，即可高品质、批量克隆你的形象！
-                  </p>
-                  
-                  <div className="grid grid-cols-3 gap-3 mb-6">
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">高清还原 100%</span>
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
                     </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">形象生成 100%</span>
-                    </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">定制形象</span>
-                    </div>
+                    <span className="font-medium text-gray-900">快速高效</span>
                   </div>
-                  
-                  <div className="flex space-x-4">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
-                      查看演示
-                    </Button>
-                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                      购买授权
-                    </Button>
+                  <p className="text-sm text-gray-600">秒级生成大纲框架</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">灵活修改</span>
                   </div>
+                  <p className="text-sm text-gray-600">支持自定义调整</p>
                 </div>
               </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  立即体验
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  了解更多
+                </Button>
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -top-10 right-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
+            
+            {/* 右侧图片 */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
-                  src="https://artaigc.cn/assets/img/human1.png" 
-                  alt="数字人形象" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
+                  src="https://server.mddai.cn/uploads/images/20231227143956c871a0387.png" 
+                  alt="论文大纲生成演示" 
+                  className="w-full rounded-2xl shadow-lg"
                 />
-                <div className="absolute top-1/4 right-0 transform translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gray-100 rounded-full overflow-hidden">
-                      <img 
-                        src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                        alt="头像" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium">数字分身形象</p>
-                      <p className="text-xs text-gray-500">已生成</p>
-                    </div>
+              </div>
+              {/* 悬浮标签 */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">智能大纲</p>
+                    <p className="text-sm text-gray-500">一键快速生成</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 声音克隆 */}
-          <div className="flex flex-col md:flex-row-reverse items-center mb-24 overflow-hidden">
-            <div className="w-full md:w-1/2 md:pl-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative bg-white">
-                <div className="absolute top-4 right-4">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                    热门功能
+          {/* 论文生成 */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+            {/* 右侧内容 */}
+            <div className="lg:order-2 space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">热门功能</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">一键生成论文</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  只需几分钟，AI即可为您生成2万字长文，比传统写作更快捷高效，让论文写作不再困难！
+                </p>
+              </div>
+              
+              {/* 功能特性 */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">快速生成</span>
                   </div>
+                  <p className="text-sm text-gray-600">5分钟生成全文</p>
                 </div>
                 
-                <div className="mt-8">
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">声音克隆</h3>
-                  <div className="w-12 h-1 bg-blue-600 mb-4"></div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    有声胜过一个性格说，仅需1句话，快速克隆你的声色，配合文案即可生成专属声音口播内容！
-                  </p>
-                  
-                  <div className="grid grid-cols-3 gap-3 mb-6">
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">声音还原 100%</span>
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
                     </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">语音转换 100%</span>
-                    </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">超逼真 100%</span>
-                    </div>
+                    <span className="font-medium text-gray-900">智能创作</span>
                   </div>
-                  
-                  <div className="flex space-x-4">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
-                      查看演示
-                    </Button>
-                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                      购买授权
-                    </Button>
+                  <p className="text-sm text-gray-600">AI辅助写作</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">高质内容</span>
                   </div>
+                  <p className="text-sm text-gray-600">专业学术水准</p>
                 </div>
               </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  立即体验
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  了解更多
+                </Button>
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -bottom-10 left-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
+            {/* 左侧图片 */}
+            <div className="lg:order-1 relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
-                  src="https://artaigc.cn/assets/img/human2.png" 
-                  alt="声音克隆界面" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
+                  src="https://server.mddai.cn/uploads/images/20231227143956b2d246138.png" 
+                  alt="论文生成界面" 
+                  className="w-full rounded-2xl shadow-lg"
                 />
-                <div className="absolute top-1/3 left-0 transform -translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clipRule="evenodd" />
+              {/* 悬浮标签 */}
+              <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
                       </svg>
                     </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">论文生成</p>
+                    <p className="text-sm text-gray-500">智能创作中</p>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 走马灯通知 */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* 左侧内容 */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">最新动态</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">实时通知</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  重要信息实时推送，系统更新及时通知，让您不错过任何重要消息。
+                </p>
+              </div>
+              
+              {/* 通知列表 */}
+              <div className="overflow-hidden relative h-48 bg-white border border-gray-100 rounded-xl p-4">
+                <div className="animate-marquee space-y-4">
+                  <div className="flex items-center p-3 bg-blue-50 rounded-lg">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-ping"></div>
+                    </div>
                     <div>
-                      <p className="text-xs font-medium">声音克隆</p>
-                      <p className="text-xs text-gray-500">已完成</p>
+                      <p className="font-medium text-gray-900">系统更新通知</p>
+                      <p className="text-sm text-gray-600">V2.0版本已发布，新增多项功能</p>
                     </div>
+                  </div>
+                  
+                  <div className="flex items-center p-3 bg-green-50 rounded-lg">
+                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <div className="w-2 h-2 bg-green-600 rounded-full animate-ping"></div>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">用户成功案例</p>
+                      <p className="text-sm text-gray-600">某高校成功使用AI论文助手</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center p-3 bg-yellow-50 rounded-lg">
+                    <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                      <div className="w-2 h-2 bg-yellow-600 rounded-full animate-ping"></div>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">活动预告</p>
+                      <p className="text-sm text-gray-600">新用户专享优惠活动即将开始</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  查看全部
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  订阅通知
+                </Button>
+              </div>
+            </div>
+            
+            {/* 右侧展示 */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
+                <div className="bg-white rounded-2xl shadow-lg p-6 space-y-6">
+                  {/* 通知中心界面模拟 */}
+                  <div className="flex items-center justify-between mb-6">
+                    <h4 className="font-semibold text-lg">通知中心</h4>
+                    <div className="flex space-x-2">
+                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                  </div>
+                  
+                  {/* 通知列表模拟 */}
+                  <div className="space-y-4">
+                    {[1, 2, 3].map((item) => (
+                      <div key={item} className="flex items-center p-3 bg-gray-50 rounded-lg animate-pulse">
+                        <div className="w-10 h-2 bg-gray-200 rounded mr-3"></div>
+                        <div className="flex-1">
+                          <div className="w-3/4 h-2 bg-gray-200 rounded mb-2"></div>
+                          <div className="w-1/2 h-2 bg-gray-200 rounded"></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              {/* 悬浮标签 */}
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">消息提醒</p>
+                    <p className="text-sm text-gray-500">实时推送更新</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* 用户管理 */}
-          <div className="flex flex-col md:flex-row items-center overflow-hidden">
-            <div className="w-full md:w-1/2 md:pr-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative bg-white">
-                <div className="absolute top-4 left-4">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                    实用功能
-                  </div>
-                </div>
-                
-                <div className="mt-8">
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">用户管理</h3>
-                  <div className="w-12 h-1 bg-blue-600 mb-4"></div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    基于可定制的多层分站，输入用户相关信息系统后，即可创建新分站与管理账号。
-                  </p>
-                  
-                  <div className="grid grid-cols-3 gap-3 mb-6">
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">多级分站</span>
-                    </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">账户管理</span>
-                    </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">权限管理</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex space-x-4">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
-                      查看演示
-                    </Button>
-                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                      购买授权
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -top-10 right-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
-                <img 
-                  src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
-                  alt="用户管理界面" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
-                />
-                <div className="absolute bottom-10 right-0 transform translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
-                    alt="用户管理小图" 
-                    className="w-24 h-16 object-cover rounded-lg"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 应用场景 */}
+ {/* 产品核心功能 */}
          
 
           {/* 准备好开启您的AI数字人之旅了吗？ */}
@@ -1180,10 +1228,10 @@ const  PaperPage = () => {
                 <div className="md:col-span-3 p-8 md:p-12 relative z-10">
                   <div className="max-w-xl">
                     <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                      准备好开启您的<span className="text-blue-600">AI数字人之旅</span>了吗？
+                      准备好开启您的<span className="text-blue-600">AI论文创作服务</span>了吗？
                     </h3>
                     <p className="text-gray-600 mb-6 text-base">
-                      已有数百家企业和品牌通过我们的AI数字人解决方案，提升了客户体验和运营效率，助力您的业务发展飞跃。
+                      已有数百家企业和品牌通过我们的AI论文创作服务，提升了客户创作效率和运营效率，助力您的业务发展飞跃。
                     </p>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
@@ -1257,8 +1305,8 @@ const  PaperPage = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                               </svg>
                             </div>
-                            <h4 className="text-gray-900 font-medium text-lg">AI数字人</h4>
-                            <p className="text-gray-500 text-sm text-center mt-1">PHP/Java双版本支持</p>
+                            <h4 className="text-gray-900 font-medium text-lg">论文创作</h4>
+                            <p className="text-gray-500 text-sm text-center mt-1">专业的论文创作服务</p>
                           </div>
                           
                           {/* 私有部署 */}

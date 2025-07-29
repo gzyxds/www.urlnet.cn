@@ -34,8 +34,8 @@ const AiPage = () => {
             <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12 mb-8 lg:mb-0 text-center lg:text-left">
               {/* 
                 标题部分调整说明：
-                1. 第一排（“全能 AI知识库”）字体缩小，使用 text-xl~lg:3xl，避免过大。
-                2. 第二排（“智能管理系统”）与第一排增加更明显的垂直间距（mt-3 sm:mt-4）。
+                1. 第一排（"全能 AI知识库"）字体缩小，使用 text-xl~lg:3xl，避免过大。
+                2. 第二排（"智能管理系统"）与第一排增加更明显的垂直间距（mt-3 sm:mt-4）。
                 3. 结构分为两行，便于单独控制样式。
               */}
               <h1 className="font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
@@ -100,7 +100,7 @@ const AiPage = () => {
                 {/* 产品主图展示 */}
                 <div className="relative mx-auto px-4 sm:px-8 lg:px-0">
                   <img 
-                    src="https://chatwiki.com/assets/img/pic01-KflsRWAE.png" 
+                    src="https://www.lightai.com/_nuxt/overview.k0OW2K--.png" 
                     alt="AI知识库系统界面展示" 
                     className="w-full h-auto transform scale-105 sm:scale-110"
                   />
@@ -544,7 +544,7 @@ const AiPage = () => {
                 <div className="w-full lg:w-1/2">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src="https://artaigc.cn/assets/img/human1.png" 
+                      src="https://server.mddai.cn/uploads/images/202404301708507bb6c4908.png  " 
                       alt="数据训练应用场景" 
                       className="w-full rounded-2xl"
                     />
@@ -611,7 +611,7 @@ const AiPage = () => {
                 <div className="w-full lg:w-1/2">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src="https://artaigc.cn/assets/img/human2.png" 
+                      src="https://server.mddai.cn/uploads/images/2024043017093405e292244.png" 
                       alt="知识库应用应用场景" 
                       className="w-full rounded-2xl"
                     />
@@ -678,7 +678,7 @@ const AiPage = () => {
                 <div className="w-full lg:w-1/2">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
+                      src="https://server.mddai.cn/uploads/images/20240430170946fe6af4788.png" 
                       alt="内容创作应用场景" 
                       className="w-full rounded-2xl"
                     />
@@ -745,7 +745,7 @@ const AiPage = () => {
                 <div className="w-full lg:w-1/2">
                   <div className="relative rounded-2xl overflow-hidden shadow-xl">
                     <img 
-                      src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
+                      src="https://server.mddai.cn/uploads/images/2024043017080004b6e9791.png" 
                       alt="虚拟直播应用场景" 
                       className="w-full rounded-2xl"
                     />
@@ -776,44 +776,38 @@ const AiPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">功能特色</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              提供智能助手、内容创作、虚拟直播、数据训练等多维度的功能，满足不同行业的业务需求。
+              提供机器人管理、知识库数据训练、AI数字人、AI大语言模型等多维度核心功能，满足企业智能化转型需求。
             </p>
           </div>
 
           {/* 场景卡片网格 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* 数据训练场景卡片 */}
+            {/* 机器人管理 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
                 <img 
-                  src="https://artaigc.cn/assets/img/human1.png" 
-                  alt="数据训练应用场景" 
+                  src="https://server.mddai.cn/uploads/images/20240430170834b521c6017.png" 
+                  alt="机器人管理" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">数据训练</h3>
+                <h3 className="text-xl font-bold mb-2">机器人管理</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  面向文化传播、影视内容等多个行业，帮助打造数据训练，赋能品牌营销，提升品牌心智。
+                  创建机器人，可单独创建和设置私有机器人。发布机器人，支持发布多种渠道，如网页、JS嵌入、API接口、微信公众号等等。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">创建专属品牌虚拟形象，提升品牌辨识度和亲和力</p>
+                    <p className="text-xs text-gray-600">支持私有机器人独立配置</p>
                   </li>
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">为影视、游戏、动漫等行业提供高质量虚拟角色</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                      <Check className="h-2.5 w-2.5 text-blue-600" />
-                    </div>
-                    <p className="text-xs text-gray-600">打造虚拟社交形象，增强用户互动体验</p>
+                    <p className="text-xs text-gray-600">多渠道发布：网页、JS嵌入、API、公众号等</p>
                   </li>
                 </ul>
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
@@ -822,38 +816,32 @@ const AiPage = () => {
               </div>
             </div>
 
-            {/* 知识库应用场景卡片 */}
+            {/* 知识库数据训练 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
                 <img 
-                  src="https://artaigc.cn/assets/img/human2.png" 
-                  alt="知识库应用应用场景" 
+                  src="https://server.mddai.cn/uploads/images/202404301708507bb6c4908.png" 
+                  alt="知识库数据训练" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">知识库应用</h3>
+                <h3 className="text-xl font-bold mb-2">知识库数据训练</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  为企业提供智能知识库应用解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
+                  通过数据训练，用户在前台通过聊天对话模式快速查阅各种内部资料和文档。使用机器学习技术，让系统自动学习并优化知识库中的知识，提高知识库的准确性和智能性。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">7×24小时在线服务，快速响应客户需求</p>
+                    <p className="text-xs text-gray-600">对话式查阅企业内部资料</p>
                   </li>
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">智能推荐产品，提高转化率和客户满意度</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                      <Check className="h-2.5 w-2.5 text-blue-600" />
-                    </div>
-                    <p className="text-xs text-gray-600">提供标准化培训内容，确保培训质量一致性</p>
+                    <p className="text-xs text-gray-600">机器学习自动优化知识库</p>
                   </li>
                 </ul>
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
@@ -862,38 +850,32 @@ const AiPage = () => {
               </div>
             </div>
 
-            {/* 内容创作场景卡片 */}
+            {/* AI数字人 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
                 <img 
-                  src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                  alt="内容创作应用场景" 
+                  src="https://server.mddai.cn/uploads/images/2024043017080004b6e9791.png" 
+                  alt="AI数字人" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">内容创作</h3>
+                <h3 className="text-xl font-bold mb-2">AI数字人</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  为媒体、自媒体、营销团队提供智能内容创作解决方案，提高内容生产效率和质量。
+                  结合语音合成、语音识别、语义理解、图像处理、机器翻译、虚拟形象驱动等多项AI核心技术，实现信息播报、互动交流、业务咨询、服务导览等多项功能，满足新闻、政企、文旅、金融等多场景需求。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">快速生成专业视频脚本，提高内容创作效率</p>
+                    <p className="text-xs text-gray-600">多模态AI能力融合</p>
                   </li>
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">生成吸引人的营销文案，提高转化率</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                      <Check className="h-2.5 w-2.5 text-blue-600" />
-                    </div>
-                    <p className="text-xs text-gray-600">支持多语言内容创作和翻译，拓展全球市场</p>
+                    <p className="text-xs text-gray-600">适配多行业多场景应用</p>
                   </li>
                 </ul>
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
@@ -902,38 +884,32 @@ const AiPage = () => {
               </div>
             </div>
 
-            {/* 虚拟直播场景卡片 */}
+            {/* AI大语言模型 */}
             <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
                 <img 
-                  src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
-                  alt="虚拟直播应用场景" 
+                  src="https://server.mddai.cn/uploads/images/202404301708507bb6c4908.png" 
+                  alt="AI大语言模型" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-bold mb-2">虚拟直播</h3>
+                <h3 className="text-xl font-bold mb-2">AI大语言模型</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  为直播行业提供虚拟主播解决方案，降低直播成本，提高直播效率和质量。
+                  支持GPT3.5、GPT4.0、api2d3.5、api2d4.0、ChatGLM（清华）等大语言模型，满足多样化智能对话和内容生成需求。
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">24小时不间断直播，提高商品曝光和销售</p>
+                    <p className="text-xs text-gray-600">多模型灵活接入</p>
                   </li>
                   <li className="flex items-start">
                     <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <Check className="h-2.5 w-2.5 text-blue-600" />
                     </div>
-                    <p className="text-xs text-gray-600">实时生成新闻内容，提供专业播报服务</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                      <Check className="h-2.5 w-2.5 text-blue-600" />
-                    </div>
-                    <p className="text-xs text-gray-600">为线上活动提供专业主持服务，增强互动体验</p>
+                    <p className="text-xs text-gray-600">支持主流国产与国际大模型</p>
                   </li>
                 </ul>
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
@@ -944,244 +920,251 @@ const AiPage = () => {
           </div>
         </div>
       </section>
+      {/*功能特色*/}
 
 
 
-      {/* 产品介绍卡片式 */}
+{/* 产品核心功能 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">产品核心功能</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+          {/* 标题区域 */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full mb-6">
+              <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+              <span className="text-blue-700 text-sm font-medium">核心功能</span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">产品核心功能</h2>
+            <div className="w-20 h-0.5 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">强大的AI技术能力，为您提供全方位的数字人解决方案</p>
           </div>
 
-          {/* 数字分身 */}
-          <div className="flex flex-col md:flex-row items-center mb-24 overflow-hidden">
-            <div className="w-full md:w-1/2 md:pr-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative bg-white">
-                <div className="absolute top-4 left-4">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                    机器人管理
-                  </div>
+          {/* 机器人管理 */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+            {/* 左侧内容 */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">核心功能</span>
                 </div>
-                
-                <div className="mt-8">
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">机器人管理</h3>
-                  <div className="w-12 h-1 bg-blue-600 mb-4"></div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    支持创建/发布机器人，打造企业专属应用。<br />
-                    1、创建机器人：可单独创建和设置私有机器人<br />
-                    2、发布机器人：支持发布多种渠道，如网页、JS嵌入、API接口、微信公众号等等
-                  </p>
-                  
-                  <div className="grid grid-cols-3 gap-3 mb-6">
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">多渠道发布</span>
-                    </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">私有部署</span>
-                    </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">API集成</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex space-x-4">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
-                      查看演示
-                    </Button>
-                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                      购买授权
-                    </Button>
-                  </div>
-                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">机器人管理</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  支持创建/发布机器人，打造企业专属应用。
+                </p>
+                <ul className="list-disc pl-5 text-gray-600 text-base leading-relaxed space-y-1 mt-4">
+                  <li>
+                    <span className="font-medium text-gray-900">创建机器人：</span>
+                    可单独创建和设置私有机器人
+                  </li>
+                  <li>
+                    <span className="font-medium text-gray-900">发布机器人：</span>
+                    支持发布多种渠道，如网页、JS嵌入、API接口、微信公众号等等
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  查看演示
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  购买授权
+                </Button>
               </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -top-10 right-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
+            
+            {/* 右侧图片 */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
-                  src="https://artaigc.cn/assets/img/human1.png" 
+                  src="https://server.mddai.cn/uploads/images/20240430170834b521c6017.png" 
                   alt="数字人形象" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
+                  className="w-full rounded-2xl shadow-lg"
                 />
-                <div className="absolute top-1/4 right-0 transform translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gray-100 rounded-full overflow-hidden">
-                      <img 
-                        src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                        alt="头像" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium">数字分身形象</p>
-                      <p className="text-xs text-gray-500">已生成</p>
-                    </div>
+              </div>
+              {/* 悬浮标签 */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">数字分身</p>
+                    <p className="text-sm text-gray-500">高清形象生成</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 声音克隆 */}
-          <div className="flex flex-col md:flex-row-reverse items-center mb-24 overflow-hidden">
-            <div className="w-full md:w-1/2 md:pl-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative bg-white">
-                <div className="absolute top-4 right-4">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                    热门功能
+          {/* 知识库数据训练 */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+            {/* 右侧内容 */}
+            <div className="lg:order-2 space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">核心功能</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">知识库数据训练</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  独立训练机器人数据，支持问答型、文档型的知识库，知识库可共享。通过数据训练，用户可在前台通过聊天对话模式快速查阅各种内部资料和文档。系统采用机器学习技术，自动学习并优化知识库内容，不断提升知识库的准确性和智能性。
+                </p>
+              </div>
+              
+              {/* 功能特性 */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">独立训练</span>
                   </div>
+                  <p className="text-sm text-gray-600">机器人数据独立训练</p>
                 </div>
                 
-                <div className="mt-8">
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">声音克隆</h3>
-                  <div className="w-12 h-1 bg-blue-600 mb-4"></div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    有声胜过一个性格说，仅需1句话，快速克隆你的声色，配合文案即可生成专属声音口播内容！
-                  </p>
-                  
-                  <div className="grid grid-cols-3 gap-3 mb-6">
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">声音还原 100%</span>
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
                     </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">语音转换 100%</span>
-                    </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">超逼真 100%</span>
-                    </div>
+                    <span className="font-medium text-gray-900">多类型知识库</span>
                   </div>
-                  
-                  <div className="flex space-x-4">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
-                      查看演示
-                    </Button>
-                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                      购买授权
-                    </Button>
+                  <p className="text-sm text-gray-600">支持问答型、文档型</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">知识库共享</span>
                   </div>
+                  <p className="text-sm text-gray-600">多机器人知识库共享</p>
                 </div>
               </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  查看演示
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  购买授权
+                </Button>
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -bottom-10 left-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
+            {/* 左侧图片 */}
+            <div className="lg:order-1 relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
-                  src="https://artaigc.cn/assets/img/human2.png" 
-                  alt="声音克隆界面" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
+                  src="https://server.mddai.cn/uploads/images/202404301708507bb6c4908.png" 
+                  alt="知识库数据训练界面" 
+                  className="w-full rounded-2xl shadow-lg"
                 />
-                <div className="absolute top-1/3 left-0 transform -translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+              {/* 悬浮标签 */}
+              <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <div>
-                      <p className="text-xs font-medium">声音克隆</p>
-                      <p className="text-xs text-gray-500">已完成</p>
-                    </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">知识库训练</p>
+                    <p className="text-sm text-gray-500">持续优化</p>
+                  </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 用户管理 */}
-          <div className="flex flex-col md:flex-row items-center overflow-hidden">
-            <div className="w-full md:w-1/2 md:pr-12 mb-8 md:mb-0">
-              <div className="p-8 h-full relative bg-white">
-                <div className="absolute top-4 left-4">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                    实用功能
+          {/* AI数字人 */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* 左侧内容 */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">AI数字人</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">多形象对话</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  满足多用户需求，结合语音合成、语音识别、语义理解、图像处理、机器翻译、虚拟形象驱动等多项AI核心技术，实现了信息播报、互动交流、业务咨询、服务导览等多项功能，满足了新闻、政企、文旅、金融等多场景的需要。
+                </p>
+              </div>
+              
+              {/* 功能特性 */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">多形象对话</span>
                   </div>
+                  <p className="text-sm text-gray-600">支持多用户多形象互动</p>
                 </div>
                 
-                <div className="mt-8">
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">用户管理</h3>
-                  <div className="w-12 h-1 bg-blue-600 mb-4"></div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    基于可定制的多层分站，输入用户相关信息系统后，即可创建新分站与管理账号。
-                  </p>
-                  
-                  <div className="grid grid-cols-3 gap-3 mb-6">
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">多级分站</span>
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
                     </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">账户管理</span>
-                    </div>
-                    <div className="bg-blue-50 rounded-lg p-3 flex items-center">
-                      <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium">权限管理</span>
-                    </div>
+                    <span className="font-medium text-gray-900">多场景适配</span>
                   </div>
-                  
-                  <div className="flex space-x-4">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
-                      查看演示
-                    </Button>
-                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                      购买授权
-                    </Button>
+                  <p className="text-sm text-gray-600">满足新闻、政企、文旅、金融等多场景需求</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">AI核心技术</span>
                   </div>
+                  <p className="text-sm text-gray-600">语音合成/识别、语义理解、虚拟形象驱动</p>
                 </div>
               </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  查看演示
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  购买授权
+                </Button>
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative">
-                <div className="absolute -top-10 right-10 w-32 h-32 rounded-full opacity-50 blur-xl"></div>
+            
+            {/* 右侧图片 */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
-                  src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
-                  alt="用户管理界面" 
-                  className="rounded-2xl shadow-lg w-full relative z-10"
+                  src="https://server.mddai.cn/uploads/images/2024043017080004b6e9791.png" 
+                  alt="AI数字人界面" 
+                  className="w-full rounded-2xl shadow-lg"
                 />
-                <div className="absolute bottom-10 right-0 transform translate-x-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
-                    alt="用户管理小图" 
-                    className="w-24 h-16 object-cover rounded-lg"
-                  />
+              </div>
+              {/* 悬浮标签 */}
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">AI数字人</p>
+                    <p className="text-sm text-gray-500">多形象多场景</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+ {/* 产品核心功能 */}
 
-          {/* 应用场景 */}
-         
-
-          {/* 准备好开启您的AI数字人之旅了吗？ */}
+          {/* 准备好开启您的AI之旅了吗？ */}
           <div className="mt-24 container mx-auto px-4">
             <div className="bg-white rounded-3xl overflow-hidden relative border border-gray-200">
               {/* 装饰元素 */}
@@ -1199,10 +1182,10 @@ const AiPage = () => {
                 <div className="md:col-span-3 p-8 md:p-12 relative z-10">
                   <div className="max-w-xl">
                     <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                      准备好开启您的<span className="text-blue-600">AI数字人之旅</span>了吗？
+                      准备好开启您的<span className="text-blue-600">AI产品</span>了吗？
                     </h3>
                     <p className="text-gray-600 mb-6 text-base">
-                      已有数百家企业和品牌通过我们的AI数字人解决方案，提升了客户体验和运营效率，助力您的业务发展飞跃。
+                      已有数百家企业和品牌通过我们的AI产品获得成功，实现了高效解决方案，提升了客户体验和运营效率，助力您的业务发展飞跃。
                     </p>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
@@ -1276,7 +1259,7 @@ const AiPage = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                               </svg>
                             </div>
-                            <h4 className="text-gray-900 font-medium text-lg">AI数字人</h4>
+                            <h4 className="text-gray-900 font-medium text-lg">AI知识库</h4>
                             <p className="text-gray-500 text-sm text-center mt-1">PHP/Java双版本支持</p>
                           </div>
                           
