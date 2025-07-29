@@ -112,7 +112,7 @@ const Contact = () => {
                   className="w-full h-full object-cover rounded-lg"
                 />
               </div>
-              <p className="text-gray-900 font-medium mb-1">QQ：2366749035</p>
+              <p className="text-gray-900 font-medium mb-1">QQ：236749035</p>
               <p className="text-gray-500 text-xs">扫码获取演示</p>
             </div>
           </motion.div>
@@ -138,7 +138,7 @@ const Contact = () => {
                   className="w-full h-full object-cover rounded-lg"
                 />
               </div>
-              <p className="text-gray-900 font-medium mb-1">QQ：2366749035</p>
+              <p className="text-gray-900 font-medium mb-1">QQ：236749035</p>
               <p className="text-gray-500 text-xs">扫码添加QQ客服</p>
             </div>
           </motion.div>
