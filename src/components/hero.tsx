@@ -77,7 +77,7 @@ const useRotatingText = (texts: string[], speed: number = 3000) => {
 };
 
 const Hero = () => {
-  const firstLine = "艺创AI 面向 AI开发者 | 创业者";
+  const firstLine = "艺创AI 新一代AI系统 赋能企业";
   const rotatingTexts = [
     "它拥有完善的计费和收款能力",
     "它支持用户管理和权限管理", 

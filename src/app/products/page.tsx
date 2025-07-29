@@ -2,15 +2,14 @@
 
 import React from 'react';
 import Header from '@/components/header';
-import Footer from '@/components/footer';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
-import ProductShowcase from '@/app/demo/components/ProductShowcase';
+import ProductComponent from '@/components/Productcomponent';
 
 /**
  * 产品演示页面
  * @returns {JSX.Element} 页面组件
  */
-const DemoPage = () => {
+const ProductsPage = () => {
   // 设置页面元数据，用于SEO优化
   usePageMetadata({
     title: '产品中心_艺创AI_AI系统源码_AI系统_AI系统源码下载_AI系统源码',
@@ -69,10 +68,10 @@ const DemoPage = () => {
         </section>
 
         {/* 产品展示区域 */}
-        <ProductShowcase />
+        <ProductComponent />
       </main>
     </div>
   );
 };
 
-export default DemoPage;
+export default ProductsPage;
