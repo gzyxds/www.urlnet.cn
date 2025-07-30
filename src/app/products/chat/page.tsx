@@ -19,13 +19,14 @@ const ChatPage = () => {
   const buttonPrimary = "bg-blue-600 hover:bg-blue-700 text-white";
   const buttonSecondary = "border-blue-600 text-blue-600 hover:bg-blue-50";
   const iconContainer = "w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center";
-  const sectionPadding = "py-20";
+  const sectionPadding = "py-24";
   const containerBase = "container mx-auto px-4";
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pb-10">
       {/* 头部横幅 - 响应式现代化设计 */}
-      <section className="relative min-h-screen sm:min-h-[80vh] md:min-h-screen flex items-center overflow-hidden">
+      {/* 头部横幅 - 优化移动端高度 */}
+            <section className="relative min-h-screen sm:min-h-[80vh] flex items-center overflow-hidden">
         {/* 动态渐变背景 - 响应式优化 */}
         <div className="absolute inset-0 bg-white">
           {/* 动态光效 - 适配不同屏幕尺寸 */}
@@ -69,12 +70,14 @@ const ChatPage = () => {
             <div className="text-center lg:text-left">
               {/* 主标题 - 响应式字体大小 */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-black mb-6 sm:mb-8 leading-tight">
-                <span className="block">
-                  <span className="bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-clip-text text-transparent">
-                    艺创AI
+                <div className="pt-6"> {/* 为艺创AI span增加顶部间距 */}
+                  <span className="block">
+                    <span className="bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-clip-text text-transparent">
+                      艺创AI
+                    </span>
                   </span>
-                </span>
-                <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mt-2">
+                </div>
+                <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mt-4">
                   智能聊天绘画系统
                 </span>
               </h1>
@@ -137,11 +140,12 @@ const ChatPage = () => {
             </div>
 
             {/* 右侧展示区 - 响应式优化 */}
-            <div className="relative mt-8 lg:mt-0">
+            <div className="relative mt-8 lg:mt-0 mx-4 sm:mx-0">
               {/* 主展示容器 - 响应式尺寸 */}
               <div className="relative">
-                {/* 展示卡片 - 响应式内边距 */}
-                <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 border border-gray-100 shadow-2xl hover:shadow-blue-100/50 transition-all duration-500">
+                {/* 展示卡片 - 优化移动端高度 */}
+                                  {/* 展示卡片 - 优化移动端高度，增加平板断点 */}
+<div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 border border-gray-100 transition-all duration-300 min-h-[380px] sm:min-h-[460px] md:min-h-[500px]">
                   {/* 顶部状态栏 - 响应式布局 */}
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center gap-2 sm:gap-3">
@@ -160,72 +164,86 @@ const ChatPage = () => {
                     </div>
                   </div>
 
-                  {/* 对话展示区 - 响应式设计 */}
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl sm:rounded-2xl p-3 sm:p-5 mb-4 sm:mb-6">
-                    <div className="space-y-3 sm:space-y-4">
-                      <div className="flex gap-2 sm:gap-3">
-                        <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                          <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                  {/* 对话展示区 - 优化响应式设计 */}
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl sm:rounded-2xl p-3 sm:p-5 mb-4 sm:mb-6 min-h-[170px] sm:min-h-[220px] md:min-h-[250px] transition-all duration-300 hover:shadow-md">
+                    <div className="space-y-3 sm:space-y-5">
+                      {/* AI消息 */}
+                      <div className="flex gap-2 sm:gap-3 items-start animate-fade-in">
+                        <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm">
+                          <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-white" aria-hidden="true" />
+                          <span className="sr-only">AI助手</span>
                         </div>
-                        <div className="bg-white rounded-xl sm:rounded-2xl rounded-tl-none p-2 sm:p-3 shadow-sm max-w-xs">
-                          <p className="text-gray-800 text-xs sm:text-sm">您好！我可以帮您进行AI创作、图片生成等服务</p>
+<div className="bg-white rounded-xl sm:rounded-2xl rounded-tl-none p-2.5 sm:p-3.5 max-w-[calc(100%-3rem)] sm:max-w-xs">
+                          <p className="text-gray-800 text-xs sm:text-sm leading-relaxed">您好！我可以帮您进行AI创作、图片生成等服务</p>
                         </div>
                       </div>
                       
-                      <div className="flex gap-2 sm:gap-3 justify-end">
-                        <div className="bg-blue-600 rounded-xl sm:rounded-2xl rounded-tr-none p-2 sm:p-3 shadow-sm max-w-xs">
-                          <p className="text-white text-xs sm:text-sm">请帮我生成一张未来科技城市的图片</p>
+                      {/* 用户消息 */}
+                      <div className="flex gap-2 sm:gap-3 justify-end items-start animate-fade-in animation-delay-300">
+<div className="bg-blue-600 rounded-xl sm:rounded-2xl rounded-tr-none p-2.5 sm:p-3.5 max-w-[calc(100%-3rem)] sm:max-w-xs">
+                          <p className="text-white text-xs sm:text-sm leading-relaxed">请帮我生成一张未来科技城市的图片</p>
                         </div>
-                        <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-gray-600 rounded-lg flex items-center justify-center">
-                          <Users className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                        <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-gray-700 rounded-lg flex items-center justify-center shadow-sm">
+                          <Users className="w-3 h-3 sm:w-4 sm:h-4 text-white" aria-hidden="true" />
+                          <span className="sr-only">用户</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* 功能展示区 - 响应式网格 */}
-                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl p-2 sm:p-3 text-white">
-                      <PenTool className="w-4 h-4 sm:w-5 sm:h-5 mb-1 sm:mb-2" />
-                      <h4 className="font-medium mb-0.5 sm:mb-1 text-xs sm:text-sm">AI创作</h4>
-                      <p className="text-xs text-blue-100 hidden sm:block">智能文案生成</p>
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+                    {/* AI创作功能卡片 */}
+<div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 text-white transition-all duration-300 group">
+                      <PenTool className="w-4 h-4 sm:w-5 sm:h-5 mb-1.5 sm:mb-2.5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+                      <h4 className="font-medium mb-0.5 sm:mb-1.5 text-xs sm:text-sm">AI创作</h4>
+                      <p className="text-xs text-blue-100 hidden sm:block opacity-80">智能文案生成</p>
                     </div>
-                    <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg sm:rounded-xl p-2 sm:p-3 text-white">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 mb-1 sm:mb-2" fill="currentColor" viewBox="0 0 20 20">
+                    
+                    {/* AI绘画功能卡片 */}
+<div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 text-white transition-all duration-300 group">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 mb-1.5 sm:mb-2.5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                       </svg>
-                      <h4 className="font-medium mb-0.5 sm:mb-1 text-xs sm:text-sm">AI绘画</h4>
-                      <p className="text-xs text-indigo-100 hidden sm:block">图像智能生成</p>
+                      <h4 className="font-medium mb-0.5 sm:mb-1.5 text-xs sm:text-sm">AI绘画</h4>
+                      <p className="text-xs text-indigo-100 hidden sm:block opacity-80">图像智能生成</p>
                     </div>
-                    <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg sm:rounded-xl p-2 sm:p-3 text-white">
-                      <Mic className="w-4 h-4 sm:w-5 sm:h-5 mb-1 sm:mb-2" />
-                      <h4 className="font-medium mb-0.5 sm:mb-1 text-xs sm:text-sm">语音助手</h4>
-                      <p className="text-xs text-purple-100 hidden sm:block">智能语音交互</p>
+                    
+                    {/* 语音助手功能卡片 */}
+<div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 text-white transition-all duration-300 group">
+                      <Mic className="w-4 h-4 sm:w-5 sm:h-5 mb-1.5 sm:mb-2.5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+                      <h4 className="font-medium mb-0.5 sm:mb-1.5 text-xs sm:text-sm">语音助手</h4>
+                      <p className="text-xs text-purple-100 hidden sm:block opacity-80">智能语音交互</p>
                     </div>
                   </div>
                 </div>
-
-                {/* 装饰浮动元素 - 响应式位置和大小 */}
-                <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg animate-float">
-                  <div className="flex items-center gap-1 sm:gap-2">
+                {/* 装饰浮动元素 - 响应式位置和大小，增加平板断点 */}
+                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 md:-top-4 md:-right-4 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg animate-float transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                  <div className="flex items-center justify-center gap-1 sm:gap-2">
                     <Video className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
                     <span className="text-xs sm:text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                      AI数字人
+                      聊天对话
                     </span>
                   </div>
                 </div>
 
-                <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg animate-float animation-delay-2000">
-                  <div className="flex items-center gap-1 sm:gap-2">
+                <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 md:-bottom-4 md:-left-4 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg animate-float animation-delay-2000 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                  <div className="flex items-center justify-center gap-1 sm:gap-2">
                     <Tv className="w-3 h-3 sm:w-4 sm:h-4 text-indigo-600" />
-                    <span className="text-xs sm:text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                      4K超清
+                    <span className="text-[10px] xs:text-xs sm:text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">
+                     智能绘画
                     </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* 探索更多功能提示 */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-white animate-bounce">
+          <span className="text-sm">探索更多功能</span>
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
         </div>
 
         {/* 自定义CSS动画样式 */}
@@ -244,19 +262,29 @@ const ChatPage = () => {
              .animation-delay-4000 {
                animation-delay: 4s;
              }
+             .animation-delay-300 {
+               animation-delay: 0.3s;
+             }
              .rotate-3d {
                transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+             }
+             @keyframes fadeIn {
+               from { opacity: 0; transform: translateY(10px); }
+               to { opacity: 1; transform: translateY(0); }
+             }
+             .animate-fade-in {
+               animation: fadeIn 0.5s ease-out forwards;
              }
            `
          }} />
       </section>
 
-      {/* 底部滚动提示 - 移动到容器外部下方显示，增加底部间距 */}
-      <div className="relative flex justify-center py-8 pb-16 bg-white">
-        <div className="flex flex-col items-center text-gray-700">
-          <span className="text-xs sm:text-sm mb-1 sm:mb-2">探索更多功能</span>
-          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-blue-600 rounded-full flex justify-center">
-            <div className="w-0.5 sm:w-1 h-2 sm:h-3 bg-blue-600 rounded-full mt-1 sm:mt-2 animate-bounce"></div>
+      {/* 底部滚动提示 - 优化移动端显示 */}
+                  <div className="relative flex justify-center py-2 sm:py-4 pb-8 sm:pb-10 bg-white">
+        <div className="flex flex-col items-center text-gray-600">
+          <span className="text-xs mb-2">探索更多功能</span>
+          <div className="w-5 h-8 border border-blue-400 rounded-full flex justify-center items-start pt-1.5">
+            <div className="w-1 h-2 bg-blue-500 rounded-full animate-bounce"></div>
           </div>
         </div>
       </div>
@@ -439,7 +467,7 @@ const ChatPage = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">PC端后台</p>
-                      <p className="text-xs text-gray-500">https://ai.xxx.com/admin/login</p>
+                      <p className="text-xs text-blue-600">https://ai.xxx.com/admin/login</p>
                     </div>
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center">
@@ -459,7 +487,7 @@ const ChatPage = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">代理商后台</p>
-                      <p className="text-xs text-gray-500">https://ai.xxx.com/agent/login</p>
+                      <p className="text-xs text-blue-600">https://ai.xxx.com/agent/login</p>
                     </div>
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center">
@@ -479,7 +507,7 @@ const ChatPage = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">前端演示</p>
-                      <p className="text-xs text-gray-500">https://ai.xxx.com/index</p>
+                      <p className="text-xs text-blue-600">https://ai.xxx.com/index</p>
                     </div>
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center">
