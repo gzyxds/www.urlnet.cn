@@ -351,7 +351,7 @@ const ProductShowcase = () => {
                     <div className="flex flex-col gap-2">
                       <Button 
                         size="sm" 
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm"
+                        className="w-full bg-white hover:bg-gray-50 text-gray-900 font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm border border-gray-200"
                         onClick={handleShowQRCode}
                       >
                         免费试用
@@ -360,12 +360,10 @@ const ProductShowcase = () => {
                       
                       <Button 
                         size="sm" 
-                        className="w-full border border-blue-600 bg-transparent hover:bg-blue-50 text-blue-600 font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm" 
-                        asChild
+                        className="w-full border border-[#1d4ed8] bg-transparent hover:bg-[rgba(29,78,216,0.1)] text-[#1d4ed8] font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm"
+                        onClick={() => window.open(product.sourceCodeLink, '_blank', 'noopener,noreferrer')}
                       >
-                        <a href={product.sourceCodeLink} target="_blank" rel="noopener noreferrer">
-                          查看详情
-                        </a>
+                        联系客服
                       </Button>
                     </div>
                   </div>

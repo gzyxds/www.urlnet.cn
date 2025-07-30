@@ -44,7 +44,7 @@ const ProductsPage = () => {
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               {/* 主标题 */}
-              <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-700">
+              <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700">
                 每一款产品都用心打造
               </h1>
               {/* 副标题 */}
@@ -55,12 +55,15 @@ const ProductsPage = () => {
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
                   href="#"
-                  className="rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:from-blue-500 hover:to-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-300"
+                  className="inline-flex items-center justify-center rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6 py-2"
                 >
-                  开始使用
+                  联系客服
                 </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors duration-300">
-                  了解更多 <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                <a 
+                  href="#" 
+                  className="inline-flex items-center justify-center rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-6 py-2"
+                >
+                  下载源码 <span aria-hidden="true" className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </a>
               </div>
             </div>

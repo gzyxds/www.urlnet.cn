@@ -512,9 +512,14 @@ const  PaperPage = () => {
                       </div>
                     </li>
                   </ul>
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    查看详情
-                  </Button>
+                  <div className="flex gap-4">
+                    <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                      查看详情
+                    </Button>
+                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                      立即体验
+                    </Button>
+                  </div>
                 </div>
                 
                 {/* 右侧图片 */}
@@ -579,9 +584,14 @@ const  PaperPage = () => {
                       </div>
                     </li>
                   </ul>
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    查看详情
-                  </Button>
+                  <div className="flex gap-4">
+                    <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                      查看详情
+                    </Button>
+                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                      立即体验
+                    </Button>
+                  </div>
                 </div>
                 
                 {/* 右侧图片 */}
@@ -646,9 +656,14 @@ const  PaperPage = () => {
                       </div>
                     </li>
                   </ul>
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    查看详情
-                  </Button>
+                  <div className="flex gap-4">
+                    <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                      查看详情
+                    </Button>
+                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                      立即体验
+                    </Button>
+                  </div>
                 </div>
                 
                 {/* 右侧图片 */}
@@ -713,9 +728,14 @@ const  PaperPage = () => {
                       </div>
                     </li>
                   </ul>
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    查看详情
-                  </Button>
+                <div className="flex gap-4">
+                    <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                      查看详情
+                    </Button>
+                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                      立即体验
+                    </Button>
+                  </div>
                 </div>
                 
                 {/* 右侧图片 */}
