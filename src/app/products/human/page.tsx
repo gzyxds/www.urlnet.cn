@@ -293,7 +293,7 @@ const HumanPage = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">PC端后台</p>
-                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://v.cnai.art</p>
+                      <p className="text-xs text-blue-600 break-all sm:break-normal">https://v.cnai.art</p>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                       <div className="flex items-center">
@@ -313,7 +313,7 @@ const HumanPage = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">代理商后台</p>
-                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://demo.cnai.art/admin</p>
+                      <p className="text-xs text-blue-600 break-all sm:break-normal">https://demo.cnai.art/admin</p>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                       <div className="flex items-center">
@@ -333,7 +333,7 @@ const HumanPage = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">SaaS平台端</p>
-                      <p className="text-xs text-gray-500 break-all sm:break-normal">https://saas.cnai.art/platform</p>
+                      <p className="text-xs text-blue-600 break-all sm:break-normal">https://saas.cnai.art/platform</p>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                       <div className="flex items-center">
@@ -465,17 +465,26 @@ const HumanPage = () => {
                 </div>
                 
                 {/* 装饰元素 - 优化移动端显示 */}
-                <div className="absolute -top-3 sm:-top-6 -left-3 sm:-left-6 bg-blue-600 rounded-xl p-3 sm:p-4 shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                <div className="absolute -top-3 sm:-top-6 -left-3 sm:-left-6 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-3 sm:p-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-white" 
+                        viewBox="0 0 20 20" 
+                        fill="currentColor"
+                      >
                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                        <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                        <path 
+                          fillRule="evenodd" 
+                          d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" 
+                          clipRule="evenodd" 
+                        />
                       </svg>
                     </div>
-                    <div>
-                      <p className="text-xs font-medium text-white">在线演示</p>
-                      <p className="text-xs text-blue-100">实时体验</p>
+                    <div className="flex flex-col">
+                      <p className="text-sm sm:text-base font-medium text-white tracking-wide">在线演示</p>
+                      <p className="text-xs sm:text-sm text-blue-100/90">实时体验</p>
                     </div>
                   </div>
                 </div>

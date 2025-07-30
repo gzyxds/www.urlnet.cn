@@ -185,13 +185,13 @@ const HotProducts = React.memo(() => {
 
         {/* 场景标签导航 - 响应式优化 */}
         <div className="mb-6 sm:mb-8 px-4">
-          {/* 桌面端：居中显示 */}
+          {/* 桌面端：全屏显示，文案均匀分布 */}
           <div className="hidden md:flex justify-center">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-2 inline-flex flex-wrap">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-2 flex w-full mx-auto justify-between">
               {scenarioKeys.map((scenario) => (
                 <button 
                   key={scenario}
-                  className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 text-sm whitespace-nowrap rounded-xl touch-manipulation ${
+                  className={`flex-1 px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 text-sm whitespace-nowrap rounded-xl touch-manipulation mx-1 ${
                     activeScenario === scenario 
                       ? 'bg-blue-600 text-white shadow-md' 
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 active:bg-gray-100'
@@ -369,4 +369,4 @@ const HotProducts = React.memo(() => {
   );
 });
 
-export default HotProducts; 
+export default HotProducts;
