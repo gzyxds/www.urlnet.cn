@@ -201,7 +201,7 @@ const Hero = () => {
           </div>
           {/* 行动按钮组 - 参考chat页面的按钮设计 */}
           <div className="flex flex-row gap-3 justify-center mb-8 sm:mb-12">
-            <Button className="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-600 hover:to-blue-600 text-white px-6 py-2 h-auto text-sm sm:text-base font-bold rounded-full transform hover:scale-105 transition-all duration-300">
+            <Button className="rounded-full px-6 py-2 h-auto text-sm sm:text-base font-medium">
              立即体验
             </Button>
             <Button 

@@ -46,7 +46,7 @@ const BackToTop = () => {
 
   return (
     <>
-      <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-32 right-11 z-50 flex flex-col gap-3">
         {/* 售前咨询按钮 - 蓝色渐变 */}
         <AnimatePresence>
           {isVisible && (
