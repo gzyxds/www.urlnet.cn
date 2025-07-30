@@ -67,7 +67,7 @@ const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* 简约英雄区域 */}
-      <section className="relative bg-white border-b border-gray-100">
+      <section className="relative bg-slate-100 border-b border-gray-100">
         <div className="container mx-auto px-6 py-24 lg:py-32">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div

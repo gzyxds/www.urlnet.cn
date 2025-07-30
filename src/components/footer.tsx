@@ -241,11 +241,9 @@ const Footer = () => {
               <p>© COPYRIGHT 2023-{new Date().getFullYear()} 艺创AI All Rights Reserved.</p>
             </div>
             <div className="flex flex-wrap justify-center gap-x-4">
-              <p>粤ICP备20230103583-1</p>
+              <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">赣ICP备2023002309号-8</a>
               <p>艺创AI</p>
-              <p>粤公网安备：44010402704093号</p>
-              <p>粤ICP备：44010450049601Z4001号</p>
-            </div>
+              </div>
           </div>
         </div>
       </div>

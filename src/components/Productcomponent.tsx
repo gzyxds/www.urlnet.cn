@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, Star, ShoppingCart, Users, Globe, Store, GraduationCap } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { CheckCircle2, ArrowRight, Star, ShoppingCart, Users, Globe, Store, GraduationCap, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Contact from '@/components/contact';
 
 // 定义产品数据类型
@@ -220,6 +220,19 @@ const products: Product[] = [
  * @returns {JSX.Element} 组件
  */
 const ProductShowcase = () => {
+  // 添加二维码弹窗状态
+  const [showQRCode, setShowQRCode] = useState<boolean>(false);
+  
+  // 处理显示二维码弹窗
+  const handleShowQRCode = () => {
+    setShowQRCode(true);
+  };
+  
+  // 处理关闭二维码弹窗
+  const handleCloseQRCode = () => {
+    setShowQRCode(false);
+  };
+
   // 动画变体
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -339,6 +352,7 @@ const ProductShowcase = () => {
                       <Button 
                         size="sm" 
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm"
+                        onClick={handleShowQRCode}
                       >
                         免费试用
                         <ArrowRight className="ml-2 h-3 w-3" />
@@ -364,6 +378,56 @@ const ProductShowcase = () => {
       
       {/* 添加联系我们组件 */}
       <Contact />
+      
+      {/* 二维码弹窗 */}
+      <AnimatePresence>
+        {showQRCode && (
+          <motion.div 
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={handleCloseQRCode}
+          >
+            <motion.div 
+              className="bg-white rounded-xl p-6 max-w-sm w-full relative shadow-2xl"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                onClick={handleCloseQRCode}
+                aria-label="关闭"
+              >
+                <X className="h-4 w-4 text-gray-600" />
+              </button>
+              
+              <div className="text-center">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">联系客服</h3>
+                <p className="text-sm text-gray-600 mb-6">扫描二维码添加客服微信，获取产品免费试用资格</p>
+                
+                {/* 二维码 */}
+                <div className="flex justify-center mb-4">
+                  <div className="relative">
+                    <img 
+                      src="/images/qrcode.png" 
+                      alt="客服二维码" 
+                      className="w-48 h-48 object-contain rounded-lg border border-gray-200 shadow-lg"
+                    />
+                  </div>
+                </div>
+                
+                {/* 提示文字 */}
+                <p className="text-xs text-gray-500">长按二维码保存到相册</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

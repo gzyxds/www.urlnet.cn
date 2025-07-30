@@ -254,7 +254,7 @@ const DownloadPage = () => {
       <Header />
       <main className="min-h-screen bg-white">
         {/* 顶部横幅 - 现代简约设计（白、黑、蓝色调） */}
-        <section className="relative bg-white overflow-hidden border-b border-gray-100">
+        <section className="relative bg-slate-100 overflow-hidden border-b border-gray-100">
           {/* 装饰图形元素 - 简洁几何形状 */}
           <div className="absolute inset-0 overflow-hidden">
             <svg className="absolute right-0 top-0 h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" fill="none">
@@ -289,7 +289,7 @@ const DownloadPage = () => {
           </div>
 
           <div className="container mx-auto px-6 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20 md:py-28">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12 md:py-24 lg:py-32">
               {/* 左侧内容 */}
               <div className="max-w-2xl">
                 <motion.div 
@@ -303,13 +303,13 @@ const DownloadPage = () => {
                 </motion.div>
                 
                 <motion.h1 
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-relaxed text-gray-900"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   艺创AI <br />
-                  <span className="text-blue-600">APP下载中心</span>
+                  <span className="inline-block mt-4 text-blue-600">产品终端下载中心</span>
                 </motion.h1>
                 
                 <motion.p 
@@ -338,7 +338,7 @@ const DownloadPage = () => {
                 </motion.div>
                 
                 <motion.div 
-                  className="mt-8 flex flex-wrap items-center gap-2 text-sm"
+                  className="mt-6 mb-2 flex flex-wrap items-center gap-2 text-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.7 }}
@@ -397,10 +397,7 @@ const DownloadPage = () => {
               </motion.div>
             </div>
           </div>
-          
-          {/* 简约分隔线 */}
-          <div className="absolute bottom-0 left-0 right-0 w-full h-16 bg-gradient-to-b from-transparent to-white"></div>
-        </section>
+   </section>
 
         {/* 核心功能展示 */}
         <section className="py-24 bg-white">
@@ -718,4 +715,4 @@ const DownloadPage = () => {
   );
 };
 
-export default DownloadPage; 
+export default DownloadPage;

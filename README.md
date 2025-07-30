@@ -1,6 +1,6 @@
-# AI科技企业网站
+# 艺创AI企业网站
 
-一个基于React和React Router的现代化AI科技企业网站，展示企业的产品、服务和解决方案。
+一个基于React和Vite构建的现代化AI科技企业网站，展示企业的产品、服务和解决方案。
 
 ## 目录
 
@@ -13,6 +13,11 @@
   - [产品页面](#产品页面)
   - [服务支持](#服务支持)
   - [其他页面](#其他页面)
+- [设计系统](#设计系统)
+  - [颜色系统](#颜色系统)
+  - [字体和排版](#字体和排版)
+  - [布局规范](#布局规范)
+  - [组件库](#组件库)
 - [安装与运行](#安装与运行)
   - [前提条件](#前提条件)
   - [安装依赖](#安装依赖)
@@ -35,12 +40,12 @@
 
 ## 项目概述
 
-本项目是一个完整的企业官网，专为展示AI科技企业的产品、服务和解决方案而设计。网站采用现代化的UI设计和交互体验，通过直观的界面向用户展示企业的核心竞争力和技术优势。
+本项目是艺创AI的企业官网，专为展示AI科技企业的产品、服务和解决方案而设计。网站采用现代化的UI设计和交互体验，通过直观的界面向用户展示企业的核心竞争力和技术优势。
 
 主要功能和页面包括：
 
 - **首页**：展示企业概况、产品介绍、优势亮点、客户案例和最新动态
-- **产品页面**：详细介绍企业的各类AI产品
+- **产品页面**：详细介绍企业的各类AI产品，包括AI数字人系统、企业知识库、AI聊天绘画系统、AI论文写作系统等
 - **服务支持**：提供专业的技术支持和服务内容
 - **产品演示**：提供各产品的在线演示功能
 - **文档中心**：提供产品文档和技术资料
@@ -56,43 +61,58 @@
 6. **交互式组件**：包含多种交互式组件，如轮播图、手风琴菜单、模态框等
 7. **性能优化**：采用代码分割、懒加载等技术提升网站性能
 8. **SEO友好**：合理的HTML结构和元数据，有利于搜索引擎优化
+9. **主题切换**：支持亮色/暗色主题切换
+10. **客户案例展示**：通过客户Logo墙展示合作伙伴
 
 ## 技术栈
 
-- **前端框架**：React 18
-- **路由管理**：React Router v6
-- **样式解决方案**：Tailwind CSS
-- **UI组件**：自定义组件库
+- **前端框架**： Next.js/React 18
+- **编程语言**: TypeScript
+- **构建工具**：Vite
+- **路由管理**：React Router v7
+- **样式解决方案**：Tailwind CSS 
+- **UI组件**：基于 https://www.radix-ui.com Radix UI的自定义组件库 
 - **动画效果**：Framer Motion
 - **图标库**：Lucide React
-- **构建工具**：Vite
+- **表单处理**：React Hook Form
 - **类型检查**：TypeScript
 - **代码规范**：ESLint + Prettier
+- **主题管理**：next-themes https://ui.shadcn.com/
+- **图表库**：Recharts
+- **轮播组件**：Embla Carousel
 
 ## 项目结构
 
 ```
-ai-enterprise-website/
+ai-website-urlnet.cn/
 ├── public/              # 静态资源
 │   ├── images/          # 图片资源
-│   ├── fonts/           # 字体资源
-│   └── favicon.ico      # 网站图标
+│   │   ├── scenarios/   # 场景相关图片
+│   │   ├── qrcode.png   # 二维码图片
+│   │   └── wechat.png   # 微信图片
+│   └── favicon.svg      # 网站图标
 ├── src/                 # 源代码
 │   ├── app/             # 页面组件
 │   │   ├── products/    # 产品相关页面
-│   │   │   ├── digital-twin/      # 数字分身产品
-│   │   │   ├── knowledge-base/    # 企业知识库产品
-│   │   │   ├── chat-drawing/      # 聊天绘画产品
-│   │   │   ├── paper-writing/     # 论文创作产品
-│   │   │   └── page.tsx           # 产品总览页面
+│   │   │   ├── ai/      # AI数字人产品
+│   │   │   ├── chat/    # 聊天绘画产品
+│   │   │   ├── human/   # 人工服务产品
+│   │   │   ├── paper/   # 论文创作产品
+│   │   │   └── page.tsx # 产品总览页面
 │   │   ├── service/     # 服务页面
 │   │   ├── demo/        # 演示页面
 │   │   ├── docs/        # 文档页面
 │   │   ├── agency/      # 代理页面
+│   │   ├── about/       # 关于我们页面
+│   │   ├── api/         # API页面
+│   │   ├── code/        # 代码页面
+│   │   ├── download/    # 下载页面
+│   │   ├── tips/        # 提示页面
 │   │   ├── globals.css  # 全局样式
 │   │   └── page.tsx     # 首页
 │   ├── components/      # 可复用组件
 │   │   ├── ui/          # UI基础组件
+│   │   ├── clients/     # 客户相关组件
 │   │   ├── header.tsx   # 页头组件
 │   │   ├── footer.tsx   # 页脚组件
 │   │   ├── hero.tsx     # 首页英雄区组件
@@ -108,6 +128,7 @@ ai-enterprise-website/
 │   ├── lib/             # 工具函数和库
 │   │   └── utils.ts     # 通用工具函数
 │   ├── App.tsx          # 应用入口
+│   ├── layout.tsx       # 布局组件
 │   └── main.tsx         # 渲染入口
 ├── index.html           # HTML模板
 ├── package.json         # 项目依赖
@@ -124,20 +145,26 @@ ai-enterprise-website/
 首页是网站的门户，包含以下主要区块：
 
 - **英雄区(Hero)**：展示企业核心价值主张和品牌形象
-- **产品介绍**：简要展示企业主要产品线
-- **优势亮点**：突出企业的技术优势和特色
-- **客户案例**：展示成功的客户合作案例
-- **最新动态**：展示企业新闻和行业资讯
-- **联系方式**：提供联系企业的方式
+- **热门产品(HotProducts)**：突出展示企业的明星产品
+- **关于我们(About)**：介绍企业背景和发展历程
+- **产品介绍(Products)**：简要展示企业主要产品线
+- **客户案例(ClientLogoWall)**：展示合作伙伴和客户
+- **功能蓝图(FunctionBlueprint)**：展示产品功能架构
+- **终端展示(Terminal)**：模拟终端界面展示技术实力
+- **优势亮点(Advantages)**：突出企业的技术优势和特色
+- **案例展示(Cases)**：展示成功的客户合作案例
+- **应用场景(Scenario)**：展示产品的应用场景
+- **常见问题(FAQ)**：解答用户常见疑问
+- **联系方式(Contact)**：提供联系企业的方式
 
 ### 产品页面
 
 产品页面详细介绍企业的AI产品系列，包括：
 
-- **数字分身**：虚拟人物和数字孪生技术
+- **AI数字人系统**：虚拟人物和数字孪生技术
 - **企业知识库**：智能知识管理和检索系统
-- **聊天绘画**：AI辅助创作和设计工具
-- **论文创作**：学术研究和论文写作辅助工具
+- **AI聊天绘画系统**：AI辅助创作和设计工具
+- **AI论文写作系统**：学术研究和论文写作辅助工具
 
 每个产品页面包含：
 - 产品概述
@@ -160,9 +187,79 @@ ai-enterprise-website/
 
 ### 其他页面
 
-- **产品演示**：提供产品功能的在线体验
-- **文档中心**：提供产品使用文档、API文档和技术白皮书
-- **支持页面**：提供常见问题解答、联系方式和技术支持渠道
+- **产品演示(Demo)**：提供产品功能的在线体验
+- **文档中心(Docs)**：提供产品使用文档、API文档和技术白皮书
+- **代理合作(Agency)**：提供代理合作信息
+- **关于我们(About)**：介绍公司背景和团队
+- **API接口(API)**：提供API接口文档
+- **源码下载(Download)**：提供源码下载渠道
+- **使用技巧(Tips)**：提供产品使用技巧和最佳实践
+
+## 设计系统
+
+### 颜色系统
+
+项目使用了HSL颜色模式，通过CSS变量定义了完整的颜色系统：
+
+- **主色调**：蓝色系列，主要使用 #015bfe（亮蓝色）作为品牌主色
+- **暗色模式**：项目支持亮色/暗色主题切换，通过 .dark 类应用不同的颜色变量
+- **功能性颜色**：
+  - 背景色：--background
+  - 前景色：--foreground
+  - 卡片色：--card 和 --card-foreground
+  - 主色：--primary 和 --primary-foreground
+  - 次要色：--secondary 和 --secondary-foreground
+  - 强调色：--accent 和 --accent-foreground
+  - 边框色：--border
+  - 图表色：--chart-1 到 --chart-5
+  - 侧边栏色：多个 --sidebar-* 变量
+
+### 字体和排版
+
+- **基础字体**：Arial, Helvetica, sans-serif
+- **标题字体**：使用 Inter 字体（从Google Fonts导入）
+- **文本平衡**：使用 text-balance 工具类
+- **文本渐变**：.text-gradient 类实现文本渐变效果
+- **文本截断**：.line-clamp-2 和 .line-clamp-3 类实现多行文本截断
+
+### 布局规范
+
+#### 容器宽度
+项目使用 Tailwind CSS 的容器系统，主要通过 container 类来控制内容宽度：
+- 基本用法：`<div className="container mx-auto px-4">`
+- 这种模式在所有组件中一致使用（header、hero、about等）
+
+#### 响应式断点
+Tailwind CSS 默认的响应式断点：
+- sm: 640px
+- md: 768px
+- lg: 1024px
+- xl: 1280px
+- 2xl: 1536px
+
+#### 特殊宽度设置
+- **侧边栏宽度**：通过CSS变量控制
+  - --sidebar-width
+  - --sidebar-width-icon
+  - --sidebar-width-mobile
+- **最大宽度限制**：
+  - 内容区域：max-w-2xl、max-w-3xl、max-w-4xl 等
+  - 弹出菜单：max-w-sm、max-w-lg 等
+  - 移动端菜单：w-3/4
+- **响应式布局**：
+  - 使用 Tailwind 的网格系统：grid grid-cols-1 lg:grid-cols-2
+  - 使用 Flexbox：flex flex-col lg:flex-row
+
+### 组件库
+
+项目使用了基于Radix UI构建的自定义组件库，位于`src/components/ui/`目录下，包括：
+
+- **基础组件**：按钮、输入框、选择器、复选框等
+- **布局组件**：卡片、分隔线、网格等
+- **导航组件**：导航菜单、面包屑、标签页等
+- **反馈组件**：警告框、进度条、提示框等
+- **数据展示**：表格、图表、头像等
+- **弹出组件**：对话框、抽屉、下拉菜单等
 
 ## 安装与运行
 
@@ -175,7 +272,7 @@ ai-enterprise-website/
 
 ```bash
 # 进入项目目录
-cd ai-enterprise-website
+cd ai-website-urlnet.cn
 
 # 使用npm安装依赖
 npm install
@@ -265,8 +362,16 @@ yarn preview
    ```tsx
    // src/app/new-page/page.tsx
    import React from 'react';
+   import { usePageMetadata } from '@/hooks/usePageMetadata';
    
    export default function NewPage() {
+     // 设置页面元数据
+     usePageMetadata({
+       title: '新页面标题 - 艺创AI',
+       description: '新页面的描述内容',
+       keywords: '关键词1,关键词2,关键词3'
+     });
+     
      return (
        <div className="container mx-auto py-12">
          <h1 className="text-3xl font-bold">新页面标题</h1>
@@ -295,8 +400,8 @@ yarn preview
     theme: {
       extend: {
         colors: {
-          'brand': '#3B82F6',
-          'brand-dark': '#2563EB',
+          'brand': '#015bfe',
+          'brand-dark': '#0147c5',
         },
         // 其他自定义配置
       }
@@ -321,10 +426,10 @@ interface FeatureCardProps {
 
 export function FeatureCard({ title, description, icon }: FeatureCardProps) {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
       <div className="text-brand mb-4">{icon}</div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <p className="text-gray-600 dark:text-gray-300">{description}</p>
     </div>
   );
 }
@@ -333,7 +438,7 @@ export function FeatureCard({ title, description, icon }: FeatureCardProps) {
 然后在需要的地方导入使用：
 
 ```tsx
-import { FeatureCard } from '../components/FeatureCard';
+import { FeatureCard } from '@/components/FeatureCard';
 import { Lightbulb } from 'lucide-react';
 
 // 在组件中使用
@@ -346,27 +451,31 @@ import { Lightbulb } from 'lucide-react';
 
 ### 路由配置
 
-路由配置在`src/App.tsx`中管理，使用React Router v6的声明式路由：
+路由配置在`src/App.tsx`中管理，使用React Router v7的声明式路由：
 
 ```tsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './app/page';
 import ProductsPage from './app/products/page';
 import ServicePage from './app/service/page';
 // 其他页面导入...
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "products", element: <ProductsPage /> },
+      { path: "products/ai", element: <AIProductPage /> },
+      { path: "service", element: <ServicePage /> },
+      // 其他路由...
+    ]
+  }
+]);
+
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/products/digital-twin" element={<DigitalTwinPage />} />
-        <Route path="/service" element={<ServicePage />} />
-        {/* 其他路由... */}
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 ```
 
@@ -386,7 +495,7 @@ function App() {
    ```tsx
    import ServicePage from './app/service/page';
    // 在路由配置中添加
-   <Route path="/service" element={<ServicePage />} />
+   { path: "service", element: <ServicePage /> }
    ```
 2. 在Header组件中添加导航链接：
    ```tsx
@@ -402,87 +511,48 @@ function App() {
 2. 为不同设备提供不同的UI布局
 3. 测试各种屏幕尺寸下的显示效果
 
+```tsx
+// 使用示例
+import { useMobile } from '@/hooks/use-mobile';
 
+function ResponsiveComponent() {
+  const isMobile = useMobile();
+  
+  return (
+    <div>
+      {isMobile ? (
+        <MobileLayout />
+      ) : (
+        <DesktopLayout />
+      )}
+    </div>
+  );
+}
+```
 
-1. 颜色系统
-项目使用了HSL颜色模式，通过CSS变量定义了完整的颜色系统：
+### 主题切换问题
 
-主色调：蓝色系列，主要使用 #015bfe（亮蓝色）作为品牌主色
-暗色模式：项目支持亮色/暗色主题切换，通过 .dark 类应用不同的颜色变量
-功能性颜色：
-背景色：--background
-前景色：--foreground
-卡片色：--card 和 --card-foreground
-主色：--primary 和 --primary-foreground
-次要色：--secondary 和 --secondary-foreground
-强调色：--accent 和 --accent-foreground
-边框色：--border
-图表色：--chart-1 到 --chart-5
-侧边栏色：多个 --sidebar-* 变量
+**问题**：主题切换不生效或样式异常
 
-2. 字体和排版
-基础字体：Arial, Helvetica, sans-serif
-标题字体：使用 Inter 字体（从Google Fonts导入）
-文本平衡：使用 text-balance 工具类
+**解决方案**：
+1. 确保正确配置了`theme-provider.tsx`
+2. 检查暗色模式的CSS变量是否正确定义
+3. 使用`useTheme`钩子获取和设置当前主题
 
-3. 圆角和间距
-圆角：通过 --radius 变量定义（默认为0.5rem）
-边框：使用 --border 变量定义颜色
+```tsx
+// 使用示例
+import { useTheme } from 'next-themes';
 
-4. 动画效果
-项目使用了 framer-motion 库实现丰富的动画效果
-自定义动画：
-fadeIn 淡入效果
-blob 气泡动画
-accordion-down 和 accordion-up 手风琴效果
-
-5. 自定义样式
-滚动条样式：自定义了宽度、颜色和悬停效果
-渐变文本：.text-gradient 类实现文本渐变效果
-渐变背景：.bg-gradient 类实现背景渐变效果
-文本截断：.line-clamp-2 和 .line-clamp-3 类实现多行文本截断
-
-默认宽度设置
-1. 容器宽度
-项目使用 Tailwind CSS 的容器系统，主要通过 container 类来控制内容宽度：
-
-基本用法：<div className="container mx-auto px-4">
-这种模式在所有组件中一致使用（header、hero、about等）
-
-2. 响应式断点
-Tailwind CSS 默认的响应式断点：
-
-sm: 640px
-md: 768px
-lg: 1024px
-xl: 1280px
-2xl: 1536px
-
-3. 特殊宽度设置
-侧边栏宽度：通过CSS变量控制
-
---sidebar-width
---sidebar-width-icon
---sidebar-width-mobile
-最大宽度限制：
-
-内容区域：max-w-2xl、max-w-3xl、max-w-4xl 等
-弹出菜单：max-w-sm、max-w-lg 等
-移动端菜单：w-3/4
-响应式布局：
-
-使用 Tailwind 的网格系统：grid grid-cols-1 lg:grid-cols-2
-使用 Flexbox：flex flex-col lg:flex-row
-
-4. 布局结构
-页面结构采用组件化设计，每个部分都是独立的组件
-所有组件都使用 container 类来控制内容宽度
-页面内容通常使用 section 标签包裹，并设置适当的内边距（如 py-16、py-20）
-总结
-主题系统：项目使用 Tailwind CSS 和 CSS 变量构建了完整的主题系统，支持亮色/暗色模式切换
-默认宽度：使用 container 类和 mx-auto 实现居中布局，通过 px-4 提供边距
-响应式设计：采用移动优先的设计理念，使用 Tailwind 的响应式前缀（sm:, md:, lg:, xl:）适配不同屏幕尺寸
-组件化结构：每个页面部分都是独立组件，保持了一致的布局结构和样式应用方式
+function ThemeSwitcher() {
+  const { theme, setTheme } = useTheme();
+  
+  return (
+    <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+      切换主题
+    </button>
+  );
+}
+```
 
 ## 贡献指南
 
@@ -506,11 +576,10 @@ xl: 1280px
 
 ## 联系方式
 
-- **官方网站**：[www.aitech.com](https://www.aitech.com)
-- **电子邮箱**：contact@aitech.com
+- **官方网站**：[www.urlnet.cn](https://www.urlnet.cn)
+- **电子邮箱**：contact@urlnet.cn
 - **客服电话**：400-888-8888
 - **公司地址**：北京市海淀区科技园区88号
 - **社交媒体**：
-  - 微信公众号：AITech科技
-  - 知乎：AITech官方账号
-  - LinkedIn：AITech Inc.
+  - 微信公众号：艺创AI
+  - 知乎：艺创AI官方账号

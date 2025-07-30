@@ -23,7 +23,7 @@ const DemoPage = () => {
         {/* 英雄区域，展示核心标语 */}
         <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-32">
           {/* 背景装饰 - 渐变背景 */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50 opacity-70"></div>
+          <div className="absolute inset-0 bg-slate-100 opacity-80"></div>
           
           {/* 背景装饰 - 几何图形 */}
           <div className="absolute top-24 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>

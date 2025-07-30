@@ -2,11 +2,15 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool } from "lucide-react";
+import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool, X } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import BackToTop from '@/components/back-to-top';
+import { motion, AnimatePresence } from "framer-motion";
 
 const HumanPage = () => {
   const [activeScenario, setActiveScenario] = useState('virtualIP');
+  // 添加二维码弹窗状态
+  const [showQRCode, setShowQRCode] = useState(false);
   
   usePageMetadata({
     title: '艺创AI_AI数字人系统源码_AI开源saas数字人系统_艺创AI数字人系统',
@@ -56,10 +60,10 @@ const HumanPage = () => {
               
               {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-lg shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-full shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]">
                   立即试用
                 </Button>
-                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]">
+                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-full min-h-[44px] sm:min-h-[48px]">
                   了解更多
                 </Button>
               </div>
@@ -349,25 +353,91 @@ const HumanPage = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]">
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]"
+                  onClick={() => setShowQRCode(true)}
+                >
                   申请专属演示
                 </Button>
-                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]">
+                <Button 
+                  variant="outline" 
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]"
+                  onClick={() => setShowQRCode(true)}
+                >
                   联系客服
                 </Button>
               </div>
             </div>
+            
+            {/* 二维码弹窗 */}
+            <AnimatePresence>
+              {showQRCode && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="fixed inset-0 z-[60] flex items-center justify-center"
+                  onClick={() => setShowQRCode(false)}
+                >
+                  {/* 背景遮罩 */}
+                  <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                  
+                  {/* 模态框内容 */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, y: 20 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative bg-white rounded-2xl shadow-2xl max-w-sm w-full mx-4 overflow-hidden"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {/* 关闭按钮 */}
+                    <button
+                      onClick={() => setShowQRCode(false)}
+                      className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
+                      aria-label="关闭"
+                    >
+                      <X className="w-4 h-4 text-gray-600" />
+                    </button>
+                    
+                    {/* 内容区域 */}
+                    <div className="p-8 text-center">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">联系客服</h3>
+                      <p className="text-sm text-gray-600 mb-6">扫描二维码添加客服微信</p>
+                      
+                      {/* 二维码 */}
+                      <div className="flex justify-center mb-4">
+                        <div className="relative">
+                          <img 
+                            src="/images/qrcode.png" 
+                            alt="客服二维码" 
+                            className="w-48 h-48 object-contain rounded-lg border border-gray-200 shadow-lg"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* 提示文字 */}
+                      <p className="text-xs text-gray-500">长按二维码保存到相册</p>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
              
             {/* 右侧内容 - 优化移动端显示 */}
             <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2">
               <div className="relative w-full max-w-md lg:max-w-none">
-                {/* 主要演示图 */}
+                {/* 主要演示视频 */}
                 <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
-                    alt="AI数字人演示界面" 
+                  <video
+                    src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/virtual-digit.ed88f4c6.mp4"
                     className="w-full rounded-lg"
-                    loading="lazy"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls={false}
                   />
                   
                   <div className="mt-3 sm:mt-4 flex items-center justify-between">
@@ -415,133 +485,155 @@ const HumanPage = () => {
         </div>
       </section>
 
-      {/* 应用场景 - 优化响应式标签布局 */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">应用场景</h2>
-            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto px-4">丰富的应用场景和解决方案，满足多种业务需求</p>
+      {/* 应用场景 - 现代化简约风格 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          {/* 标题区域 */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full mb-6">
+              <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+              <span className="text-blue-700 text-sm font-medium">场景应用</span>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">应用场景</h2>
+            <div className="w-20 h-0.5 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">丰富的应用场景和解决方案，满足多种业务需求</p>
           </div>
 
-          {/* 场景标签导航 - 优化移动端滚动 */}
-          <div className="flex justify-center mb-12 sm:mb-16">
-            <div className="flex space-x-1 bg-white border border-gray-200 rounded-2xl p-1 shadow-sm overflow-x-auto max-w-full">
+          {/* 场景标签导航 - 现代化简约风格 */}
+          <div className="flex justify-center mb-16">
+            <div className="inline-flex bg-gray-50 rounded-full p-1.5 shadow-sm overflow-x-auto max-w-full">
               <button 
-                className={`px-4 sm:px-6 py-2.5 sm:py-3 font-medium rounded-xl transition-all duration-300 relative whitespace-nowrap min-w-[80px] sm:min-w-[100px] ${
+                className={`px-6 py-3 font-medium rounded-full transition-all duration-300 relative whitespace-nowrap min-w-[120px] ${
                   activeScenario === 'virtualIP' 
                     ? 'bg-blue-600 text-white shadow-md' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('virtualIP')}
               >
-                <span className="relative z-10 text-sm sm:text-base">带货视频</span>
+                <span className="relative z-10 text-base">带货视频</span>
                 {activeScenario === 'virtualIP' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"></div>
                 )}
               </button>
               <button 
-                className={`px-4 sm:px-6 py-2.5 sm:py-3 font-medium rounded-xl transition-all duration-300 relative whitespace-nowrap min-w-[80px] sm:min-w-[100px] ${
+                className={`px-6 py-3 font-medium rounded-full transition-all duration-300 relative whitespace-nowrap min-w-[120px] ${
                   activeScenario === 'digitalEmployee' 
                     ? 'bg-blue-600 text-white shadow-md' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('digitalEmployee')}
               >
-                <span className="relative z-10 text-sm sm:text-base">数字员工</span>
+                <span className="relative z-10 text-base">数字员工</span>
                 {activeScenario === 'digitalEmployee' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"></div>
                 )}
               </button>
               <button 
-                className={`px-4 sm:px-6 py-2.5 sm:py-3 font-medium rounded-xl transition-all duration-300 relative whitespace-nowrap min-w-[80px] sm:min-w-[100px] ${
+                className={`px-6 py-3 font-medium rounded-full transition-all duration-300 relative whitespace-nowrap min-w-[120px] ${
                   activeScenario === 'contentCreation' 
                     ? 'bg-blue-600 text-white shadow-md' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('contentCreation')}
               >
-                <span className="relative z-10 text-sm sm:text-base">内容创作</span>
+                <span className="relative z-10 text-base">内容创作</span>
                 {activeScenario === 'contentCreation' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"></div>
                 )}
               </button>
               <button 
-                className={`px-4 sm:px-6 py-2.5 sm:py-3 font-medium rounded-xl transition-all duration-300 relative whitespace-nowrap min-w-[80px] sm:min-w-[100px] ${
+                className={`px-6 py-3 font-medium rounded-full transition-all duration-300 relative whitespace-nowrap min-w-[120px] ${
                   activeScenario === 'virtualLive' 
                     ? 'bg-blue-600 text-white shadow-md' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('virtualLive')}
               >
-                <span className="relative z-10 text-sm sm:text-base">虚拟直播</span>
+                <span className="relative z-10 text-base">虚拟直播</span>
                 {activeScenario === 'virtualLive' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"></div>
                 )}
               </button>
             </div>
           </div>
 
-          {/* 带货视频场景 - 优化移动端布局 */}
+          {/* 带货视频场景 - 现代化简约风格 */}
           {activeScenario === 'virtualIP' && (
-            <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* 左侧内容 */}
-              <div className="w-full lg:w-1/2 lg:pr-6 sm:pr-8 order-2 lg:order-1">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">带货视频</h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
-                  面向文化传播、影视内容等多个行业，帮助打造带货视频，赋能品牌营销，提升品牌心智。
-                </p>
-                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
+              <div className="space-y-8">
+                <div>
+                  <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                    <span className="text-blue-600 text-xs font-medium">热门场景</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">带货视频</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    面向文化传播、影视内容等多个行业，帮助打造带货视频，赋能品牌营销，提升品牌心智。
+                  </p>
+                </div>
+                
+                {/* 功能特性 */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">品牌代言</span>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">品牌代言</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">创建专属品牌虚拟形象，提升品牌辨识度和亲和力</p>
+                    <p className="text-sm text-gray-600">提升品牌辨识度</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">内容创作</span>
                     </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
+                    <p className="text-sm text-gray-600">高质量虚拟角色</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">社交互动</span>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">内容创作</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">为影视、游戏、动漫等行业提供高质量虚拟角色</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">社交互动</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">打造虚拟社交形象，增强用户互动体验</p>
-                    </div>
-                  </li>
-                </ul>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]">
-                  查看详情
-                </Button>
+                    <p className="text-sm text-gray-600">增强用户体验</p>
+                  </div>
+                </div>
+                
+                <div className="flex space-x-4">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                    查看详情
+                  </Button>
+                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                    联系我们
+                  </Button>
+                </div>
               </div>
               
               {/* 右侧图片 */}
-              <div className="w-full lg:w-1/2 order-1 lg:order-2">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                   <img 
                     src="https://artaigc.cn/assets/img/human1.png" 
                     alt="带货视频应用场景" 
-                    className="w-full rounded-2xl"
+                    className="w-full rounded-2xl shadow-lg"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 sm:p-6">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                        <Users className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-white font-medium text-sm sm:text-base">带货视频解决方案</p>
-                        <p className="text-white/80 text-xs sm:text-sm">打造专属品牌虚拟形象</p>
-                      </div>
+                </div>
+                {/* 悬浮标签 */}
+                <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                      <Users className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">带货视频</p>
+                      <p className="text-sm text-gray-500">品牌营销解决方案</p>
                     </div>
                   </div>
                 </div>
@@ -549,67 +641,83 @@ const HumanPage = () => {
             </div>
           )}
 
-          {/* 数字员工场景 - 优化移动端布局 */}
+          {/* 数字员工场景 - 现代化简约风格 */}
           {activeScenario === 'digitalEmployee' && (
-            <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* 左侧内容 */}
-              <div className="w-full lg:w-1/2 lg:pr-6 sm:pr-8 order-2 lg:order-1">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">数字员工</h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
-                  为企业提供智能数字员工解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
-                </p>
-                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
+              <div className="order-2 lg:order-1 space-y-8">
+                <div>
+                  <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                    <span className="text-blue-600 text-xs font-medium">企业应用</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">数字员工</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    为企业提供智能数字员工解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
+                  </p>
+                </div>
+                
+                {/* 功能特性 */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">智能客服</span>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">智能客服</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">7×24小时在线服务，快速响应客户需求</p>
+                    <p className="text-sm text-gray-600">7×24小时在线服务</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">销售助手</span>
                     </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
+                    <p className="text-sm text-gray-600">提高转化率</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">培训讲师</span>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">销售助手</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">智能推荐产品，提高转化率和客户满意度</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">培训讲师</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">提供标准化培训内容，确保培训质量一致性</p>
-                    </div>
-                  </li>
-                </ul>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]">
-                  查看详情
-                </Button>
+                    <p className="text-sm text-gray-600">标准化培训内容</p>
+                  </div>
+                </div>
+                
+                <div className="flex space-x-4">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                    查看详情
+                  </Button>
+                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                    联系我们
+                  </Button>
+                </div>
               </div>
               
               {/* 右侧图片 */}
-              <div className="w-full lg:w-1/2 order-1 lg:order-2">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl">
+              <div className="order-1 lg:order-2 relative">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                   <img 
                     src="https://artaigc.cn/assets/img/human2.png" 
                     alt="数字员工应用场景" 
-                    className="w-full rounded-2xl"
+                    className="w-full rounded-2xl shadow-lg"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 sm:p-6">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                        <Bot className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-white font-medium text-sm sm:text-base">数字员工解决方案</p>
-                        <p className="text-white/80 text-xs sm:text-sm">智能高效的业务助手</p>
-                      </div>
+                </div>
+                {/* 悬浮标签 */}
+                <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                      <Bot className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">数字员工</p>
+                      <p className="text-sm text-gray-500">智能业务助手</p>
                     </div>
                   </div>
                 </div>
@@ -617,112 +725,174 @@ const HumanPage = () => {
             </div>
           )}
 
-          {/* 内容创作场景 - 优化移动端布局 */}
+          {/* 内容创作场景 - 现代化简约风格 */}
           {activeScenario === 'contentCreation' && (
-            <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* 左侧内容 */}
-              <div className="w-full lg:w-1/2 lg:pr-6 sm:pr-8 order-2 lg:order-1">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">内容创作</h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
-                  为媒体、自媒体、营销团队提供智能内容创作解决方案，提高内容生产效率和质量。
-                </p>
-                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
+              <div className="space-y-8">
+                <div>
+                  <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                    <span className="text-blue-600 text-xs font-medium">创意应用</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">内容创作</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    为媒体、自媒体、营销团队提供智能内容创作解决方案，提高内容生产效率和质量。
+                  </p>
+                </div>
+                
+                {/* 功能特性 */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">视频脚本</span>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">视频脚本</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">快速生成专业视频脚本，提高内容创作效率</p>
+                    <p className="text-sm text-gray-600">专业视频脚本</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">营销文案</span>
                     </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
+                    <p className="text-sm text-gray-600">提高转化率</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">多语言翻译</span>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">营销文案</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">生成吸引人的营销文案，提高转化率</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">多语言翻译</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">支持多语言内容创作和翻译，拓展全球市场</p>
-                    </div>
-                  </li>
-                </ul>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]">
-                  查看详情
-                </Button>
+                    <p className="text-sm text-gray-600">拓展全球市场</p>
+                  </div>
+                </div>
+                
+                <div className="flex space-x-4">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                    查看详情
+                  </Button>
+                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                    联系我们
+                  </Button>
+                </div>
               </div>
               
               {/* 右侧图片 */}
-              <div className="w-full lg:w-1/2 order-1 lg:order-2">
-                <img 
-                  src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                  alt="内容创作应用场景" 
-                  className="w-full rounded-2xl shadow-lg"
-                  loading="lazy"
-                />
+              <div className="relative">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
+                  <img 
+                    src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
+                    alt="内容创作应用场景" 
+                    className="w-full rounded-2xl shadow-lg"
+                    loading="lazy"
+                  />
+                </div>
+                {/* 悬浮标签 */}
+                <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">内容创作</p>
+                      <p className="text-sm text-gray-500">智能创作解决方案</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
 
-          {/* 虚拟直播场景 - 优化移动端布局 */}
+          {/* 虚拟直播场景 - 现代化简约风格 */}
           {activeScenario === 'virtualLive' && (
-            <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* 左侧内容 */}
-              <div className="w-full lg:w-1/2 lg:pr-6 sm:pr-8 order-2 lg:order-1">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">虚拟直播</h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
-                  为直播行业提供虚拟主播解决方案，降低直播成本，提高直播效率和质量。
-                </p>
-                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
+              <div className="space-y-8">
+                <div>
+                  <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                    <span className="text-blue-600 text-xs font-medium">直播应用</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">虚拟直播</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    为直播行业提供虚拟主播解决方案，降低直播成本，提高直播效率和质量。
+                  </p>
+                </div>
+                
+                {/* 功能特性 */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">电商直播</span>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">电商直播</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">24小时不间断直播，提高商品曝光和销售</p>
+                    <p className="text-sm text-gray-600">24小时不间断直播</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">新闻播报</span>
                     </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
+                    <p className="text-sm text-gray-600">专业播报服务</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <span className="font-medium text-gray-900">活动主持</span>
                     </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">新闻播报</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">实时生成新闻内容，提供专业播报服务</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3 mt-0.5 flex-shrink-0">
-                      <Check className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-sm sm:text-base">活动主持</h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">为线上活动提供专业主持服务，增强互动体验</p>
-                    </div>
-                  </li>
-                </ul>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]">
-                  查看详情
-                </Button>
+                    <p className="text-sm text-gray-600">增强互动体验</p>
+                  </div>
+                </div>
+                
+                <div className="flex space-x-4">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                    查看详情
+                  </Button>
+                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                    联系我们
+                  </Button>
+                </div>
               </div>
               
               {/* 右侧图片 */}
-              <div className="w-full lg:w-1/2 order-1 lg:order-2">
-                <img 
-                  src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
-                  alt="虚拟直播应用场景" 
-                  className="w-full rounded-2xl shadow-lg"
-                  loading="lazy"
-                />
+              <div className="relative">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
+                  <img 
+                    src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
+                    alt="虚拟直播应用场景" 
+                    className="w-full rounded-2xl shadow-lg"
+                    loading="lazy"
+                  />
+                </div>
+                {/* 悬浮标签 */}
+                <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">虚拟直播</p>
+                      <p className="text-sm text-gray-500">智能直播解决方案</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
@@ -907,7 +1077,6 @@ const HumanPage = () => {
               </div>
             </div>
           </div>
-
           {/* 用户管理 */}
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* 左侧内容 */}
@@ -990,7 +1159,95 @@ const HumanPage = () => {
               </div>
             </div>
           </div>
- {/* 产品核心功能 */}
+
+          {/* 视频生成 */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mt-24">
+            {/* 右侧视频 */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
+                <video
+                  src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/ai-video.a4cd977a.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full rounded-2xl shadow-lg"
+                >
+                  <source type="video/mp4" />
+                  您的浏览器不支持视频播放
+                </video>
+              </div>
+              {/* 悬浮标签 */}
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl overflow-hidden flex items-center justify-center">
+                    <Video className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">视频生成</p>
+                    <p className="text-sm text-gray-500">AI智能创作</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 左侧内容 */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
+                  <span className="text-blue-600 text-xs font-medium">AI视频</span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">AI一键自动生成视频</h3>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  从容应对内容创作和营销需求，助力商家和创作者提升视频生成的效率，更好的在公私域做好内容营销，助力GMV提升。
+                </p>
+              </div>
+              
+              {/* 功能特性 */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">一键生成</span>
+                  </div>
+                  <p className="text-sm text-gray-600">智能快速生成视频</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">场景丰富</span>
+                  </div>
+                  <p className="text-sm text-gray-600">多样化视频模板</p>
+                </div>
+                
+                <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
+                      <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    </div>
+                    <span className="font-medium text-gray-900">高效营销</span>
+                  </div>
+                  <p className="text-sm text-gray-600">提升内容转化率</p>
+                </div>
+              </div>
+              
+              <div className="flex space-x-4">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  立即体验
+                </Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  了解更多
+                </Button>
+              </div>
+            </div>
+          </div>
+          
+          {/* 产品核心功能 */}
          
 
           {/* 准备好开启您的AI数字人之旅了吗？ */}

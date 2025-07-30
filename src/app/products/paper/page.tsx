@@ -85,10 +85,10 @@ const  PaperPage = () => {
               
               {/* 按钮组 - 简约风格 */}
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-lg shadow-sm">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-full shadow-sm">
                   立即试用
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-lg">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-full">
                   了解更多
                 </Button>
               </div>
