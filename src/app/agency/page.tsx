@@ -266,14 +266,13 @@ const AgencyPage = () => {
                           </div>
                         ))}
                       </div>
-
                       <Button 
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white h-12 text-base font-medium"
+                        className="w-full bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 h-12 text-base font-medium rounded-lg transition-all duration-300"
                         asChild
                       >
-                        <Link to={type.link}>
-                          了解更多
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                        <Link to={type.link} className="flex items-center justify-center">
+                          <span>了解更多</span>
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300" />
                         </Link>
                       </Button>
                     </CardContent>
