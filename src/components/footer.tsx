@@ -147,7 +147,7 @@ const Footer = () => {
           {/* 服务与支持 - 占3列 */}
           <div className="md:col-span-3">
             <h4 className="font-bold text-gray-900 text-lg mb-6 flex items-center">
-              <span className="w-1 h-6 bg-green-500 rounded-full mr-3"></span>
+              <span className="w-1 h-6 bg-blue-500 rounded-full mr-3"></span>
               服务与支持
             </h4>
             <div className="grid grid-cols-1 gap-y-3">
@@ -177,7 +177,7 @@ const Footer = () => {
           {/* 关于 - 占2列 */}
           <div className="md:col-span-2">
             <h4 className="font-bold text-gray-900 text-lg mb-6 flex items-center">
-              <span className="w-1 h-6 bg-purple-500 rounded-full mr-3"></span>
+              <span className="w-1 h-6 bg-blue-500 rounded-full mr-3"></span>
               关于
             </h4>
             <div className="grid grid-cols-1 gap-y-3">
@@ -189,13 +189,21 @@ const Footer = () => {
                 <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
                 用户协议
               </Link>
+              <Link to="/contact" className="text-gray-600 hover:text-blue-600 text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center">
+                <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
+                联系我们
+              </Link>
+              <Link to="/about-us" className="text-gray-600 hover:text-blue-600 text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center">
+                <span className="w-1 h-1 bg-gray-400 rounded-full mr-2"></span>
+                关于我们
+              </Link>
             </div>
           </div>
           
           {/* 二维码 - 占3列 */}
           <div className="md:col-span-3">
             <h4 className="font-bold text-gray-900 text-lg mb-6 flex items-center">
-              <span className="w-1 h-6 bg-yellow-500 rounded-full mr-3"></span>
+             <span className="w-1 h-6 bg-blue-500 rounded-full mr-3"></span>
               关注我们
             </h4>
             <div className="grid grid-cols-3 gap-4">

@@ -791,12 +791,35 @@ const AiPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* 机器人管理 */}
             <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
-              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
-                <img 
-                  src="/images/scenarios/Data.png" 
-                  alt="机器人管理" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50">
+                {/* 模拟机器人管理界面 */}
+                <div className="w-full h-full p-4 relative">
+                  {/* 顶部导航栏 */}
+                  <div className="h-8 bg-white rounded-lg shadow-sm flex items-center px-3 mb-3">
+                    <div className="w-3 h-3 rounded-full bg-red-400 mr-2"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400 mr-2"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  {/* 主内容区 */}
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-white p-2 rounded-lg shadow-sm">
+                      <div className="w-full h-2 bg-gray-200 rounded mb-2"></div>
+                      <div className="w-2/3 h-2 bg-gray-200 rounded"></div>
+                    </div>
+                    <div className="bg-white p-2 rounded-lg shadow-sm">
+                      <div className="w-full h-2 bg-gray-200 rounded mb-2"></div>
+                      <div className="w-2/3 h-2 bg-gray-200 rounded"></div>
+                    </div>
+                    <div className="bg-white p-2 rounded-lg shadow-sm">
+                      <div className="w-full h-2 bg-gray-200 rounded mb-2"></div>
+                      <div className="w-2/3 h-2 bg-gray-200 rounded"></div>
+                    </div>
+                    <div className="bg-white p-2 rounded-lg shadow-sm">
+                      <div className="w-full h-2 bg-gray-200 rounded mb-2"></div>
+                      <div className="w-2/3 h-2 bg-gray-200 rounded"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2">机器人管理</h3>
@@ -826,11 +849,43 @@ const AiPage = () => {
             {/* 知识库数据训练 */}
             <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
               <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
-                <img
-                  src="/images/scenarios/Data.png" 
-                  alt="知识库数据训练" 
-                  className="w-full h-full object-cover"
-                />
+                {/* 模拟知识库训练界面 */}
+                <div className="w-full h-full p-4 bg-white">
+                  {/* 顶部进度条 */}
+                  <div className="h-2 bg-gray-100 rounded-full mb-4">
+                    <div className="h-full w-3/4 bg-blue-600 rounded-full animate-pulse"></div>
+                  </div>
+                  {/* 模拟文档列表 */}
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center mr-3">
+                        <PenTool className="w-4 h-4 text-blue-600" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="h-2 bg-gray-200 rounded w-3/4"></div>
+                        <div className="h-2 bg-gray-100 rounded w-1/2 mt-2"></div>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center mr-3">
+                        <PenTool className="w-4 h-4 text-blue-600" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="h-2 bg-gray-200 rounded w-2/3"></div>
+                        <div className="h-2 bg-gray-100 rounded w-1/3 mt-2"></div>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center mr-3">
+                        <PenTool className="w-4 h-4 text-blue-600" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="h-2 bg-gray-200 rounded w-1/2"></div>
+                        <div className="h-2 bg-gray-100 rounded w-1/4 mt-2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2">知识库数据训练</h3>
@@ -851,7 +906,7 @@ const AiPage = () => {
                     <p className="text-xs text-gray-600">机器学习自动优化知识库</p>
                   </li>
                 </ul>
-                 <Button className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl py-2.5 font-medium hover:bg-white">
+                <Button className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl py-2.5 font-medium hover:bg-white">
                   了解更多
                 </Button>
               </div>
@@ -859,12 +914,21 @@ const AiPage = () => {
 
             {/* AI数字人 */}
             <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
-              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
-                <img 
-                  src="/images/scenarios/Data.png" 
-                  alt="AI数字人" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50">
+                {/* 模拟AI数字人界面 */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                  {/* 模拟数字人形象 */}
+                  <div className="absolute w-32 h-32 bg-blue-600 rounded-full opacity-20 animate-pulse"></div>
+                  <div className="relative z-10 flex flex-col items-center">
+                    <Users className="w-12 h-12 text-blue-600 mb-2" />
+                    <div className="text-sm font-medium text-blue-600">AI数字人演示</div>
+                  </div>
+                  {/* 装饰元素 */}
+                  <div className="absolute top-2 right-2 px-2 py-1 bg-white/80 rounded-full text-xs text-blue-600 flex items-center">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></div>
+                    在线演示中
+                  </div>
+                </div>
               </div>
               <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2">AI数字人</h3>
@@ -885,19 +949,47 @@ const AiPage = () => {
                     <p className="text-xs text-gray-600">适配多行业多场景应用</p>
                   </li>
                 </ul>
-                  <Button className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl py-2.5 font-medium hover:bg-white">
+                <Button className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl py-2.5 font-medium hover:bg-white">
                   了解更多
                 </Button>
               </div>
             </div>
+            
             {/* AI大语言模型 */}
             <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
-              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
-                <img 
-                  src="/images/scenarios/Data.png" 
-                  alt="AI大语言模型" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50">
+                {/* 模拟AI界面的示意图 */}
+                <div className="w-full h-full p-4 flex flex-col">
+                  {/* 模拟对话界面 */}
+                  <div className="flex-1 bg-white/80 rounded-xl p-4 backdrop-blur-sm">
+                    <div className="flex items-start space-x-3 mb-4">
+                      <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center flex-shrink-0">
+                        <Bot className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="bg-white rounded-xl p-3 shadow-sm max-w-[80%]">
+                        <p className="text-sm text-gray-800">您好！我是AI助手，可以为您提供智能对话服务。</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3 justify-end">
+                      <div className="bg-blue-600 rounded-xl p-3 shadow-sm max-w-[80%]">
+                        <p className="text-sm text-white">请帮我分析一下这段数据。</p>
+                      </div>
+                      <div className="w-8 h-8 rounded-lg bg-gray-700 flex items-center justify-center flex-shrink-0">
+                        <Users className="w-4 h-4 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                  {/* 模拟输入框 */}
+                  <div className="mt-3 bg-white/80 rounded-xl p-2 backdrop-blur-sm flex items-center">
+                    <div className="flex-1 h-8 bg-gray-100/50 rounded-lg"></div>
+                    <button className="ml-2 w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none">
+                        <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
               <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2">AI大语言模型</h3>
@@ -918,7 +1010,7 @@ const AiPage = () => {
                     <p className="text-xs text-gray-600">支持主流国产与国际大模型</p>
                   </li>
                 </ul>
-                  <Button className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl py-2.5 font-medium hover:bg-white">
+                <Button className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl py-2.5 font-medium hover:bg-white">
                   了解更多
                 </Button>
               </div>
