@@ -64,11 +64,11 @@ const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 bg-[#015bfe]/10 rounded-full flex items-center justify-center mr-3">
+                    <div className="w-8 h-8 bg-[#015bfe]/10 flex items-center justify-center mr-3">
                       {faq.icon}
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900">{faq.question}</h3>
@@ -84,7 +84,7 @@ const FAQ = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-16 bg-gray-50 rounded-xl p-8 shadow-sm"
+            className="mt-16 bg-gray-50 p-8 shadow-sm"
           >
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold mb-2">还有其他问题?</h3>
@@ -96,13 +96,13 @@ const FAQ = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a 
                 href="mailto:contact@aitech.com" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-[#015bfe] text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#015bfe] text-white hover:bg-blue-700 transition-colors"
               >
                 发送邮件咨询
               </a>
               <a 
                 href="tel:+8610012345678" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-white border border-[#015bfe] text-[#015bfe] rounded-lg hover:bg-[#015bfe]/5 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white border border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe]/5 transition-colors"
               >
                 电话联系我们
               </a>

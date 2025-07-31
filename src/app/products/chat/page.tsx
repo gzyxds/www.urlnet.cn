@@ -301,9 +301,9 @@ const ChatPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* 产品卡片1 - AI对话 */}
-            <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
+            <div className="bg-white rounded-none p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
+                <div className="w-12 h-12 bg-blue-50 rounded-none flex items-center justify-center mr-4 group-hover:bg-blue-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                   </svg>
@@ -331,11 +331,10 @@ const ChatPage = () => {
                 </li>
               </ul>
             </div>
-            
             {/* 产品卡片2 - AI创作 */}
-            <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
+            <div className="bg-white rounded-none p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
+                <div className="w-12 h-12 bg-blue-50 rounded-none flex items-center justify-center mr-4 group-hover:bg-blue-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                   </svg>
@@ -365,9 +364,9 @@ const ChatPage = () => {
             </div>
             
             {/* 产品卡片3 - AI技能 */}
-            <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
+            <div className="bg-white rounded-none p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
+                <div className="w-12 h-12 bg-blue-50 rounded-none flex items-center justify-center mr-4 group-hover:bg-blue-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
@@ -397,9 +396,9 @@ const ChatPage = () => {
             </div>
             
             {/* 产品卡片4 - VIP会员 */}
-            <div className="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
+            <div className="bg-white rounded-none p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-100">
+                <div className="w-12 h-12 bg-blue-50 rounded-none flex items-center justify-center mr-4 group-hover:bg-blue-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                   </svg>
@@ -457,14 +456,14 @@ const ChatPage = () => {
               {/* 演示账号信息 - 优化结构 */}
               <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mr-3">
+                  <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mr-3">
                     <Play className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="text-lg font-medium">演示账号信息</h3>
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-xl">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">PC端后台</p>
                       <p className="text-xs text-blue-600">https://ai.xxx.com/admin/login</p>
@@ -484,7 +483,7 @@ const ChatPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-xl">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">代理商后台</p>
                       <p className="text-xs text-blue-600">https://ai.xxx.com/agent/login</p>
@@ -504,7 +503,7 @@ const ChatPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-xl">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">前端演示</p>
                       <p className="text-xs text-blue-600">https://ai.xxx.com/index</p>
@@ -525,13 +524,12 @@ const ChatPage = () => {
                   </div>
                 </div>
               </div>
-              
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full">
-                  立即体验
-                </Button>
-                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 rounded-full">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-sm">
                   联系客服
+                </Button>
+                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 rounded-sm">
+                  购买授权
                 </Button>
               </div>
             </div>
@@ -540,11 +538,11 @@ const ChatPage = () => {
             <div className="w-full lg:w-1/2 flex justify-center">
               <div className="relative">
                 {/* 主要演示图 */}
-                <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="bg-white p-6 shadow-lg rounded-lg">
                   <img 
                     src="https://artaigc.cn/assets/ai.svg" 
                     alt="AI聊天绘画系统演示界面" 
-                    className="w-full rounded-lg"
+                    className="w-full rounded"
                   />
                   
                   <div className="mt-4 flex items-center justify-between">
@@ -553,27 +551,27 @@ const ChatPage = () => {
                       <p className="text-xs text-gray-500">一站式管理您的所有聊天绘画系统资产</p>
                     </div>
                     <div className="flex space-x-2">
-                      <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                      <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                      <div className="w-2 h-2 bg-red-500 rounded"></div>
+                      <div className="w-2 h-2 bg-yellow-500 rounded"></div>
+                      <div className="w-2 h-2 bg-green-500 rounded"></div>
                     </div>
                   </div>
                 </div>
                 
                 {/* 二维码 */}
-                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
                   <img 
                     src="/images/qrcode.png" 
                     alt="演示二维码" 
-                    className="w-24 h-24 bg-white rounded-md"
+                    className="w-24 h-24 bg-white rounded"
                   />
                   <p className="text-xs text-center mt-2 text-gray-600">扫码体验移动端</p>
                 </div>
                 
                 {/* 装饰元素 */}
-                <div className="absolute -top-6 -left-6 bg-blue-600 rounded-xl p-4 shadow-lg">
+                <div className="absolute -top-6 -left-6 bg-blue-600 rounded-lg p-4 shadow-lg">
                   <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                         <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
@@ -693,10 +691,12 @@ const ChatPage = () => {
                         </div>
                       </li>
                     </ul>
-
-                    <div className="pt-5">
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
-                        查看详情
+                    <div className="pt-5 flex gap-4">
+                      <Button className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
+                        立即体验
+                      </Button>
+                      <Button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
+                        下载源码
                       </Button>
                     </div>
                   </div>
@@ -780,9 +780,12 @@ const ChatPage = () => {
                       </li>
                     </ul>
 
-                    <div className="pt-5">
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
-                        查看详情
+                    <div className="pt-5 flex gap-4">
+                      <Button className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
+                        立即体验
+                      </Button>
+                      <Button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
+                        下载源码
                       </Button>
                     </div>
                   </div>
@@ -866,9 +869,12 @@ const ChatPage = () => {
                       </li>
                     </ul>
 
-                    <div className="pt-5">
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
-                        查看详情
+                    <div className="pt-5 flex gap-4">
+                      <Button className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
+                        立即体验
+                      </Button>
+                      <Button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
+                        下载源码
                       </Button>
                     </div>
                   </div>
@@ -952,9 +958,12 @@ const ChatPage = () => {
                       </li>
                     </ul>
 
-                    <div className="pt-5">
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
-                        查看详情
+                    <div className="pt-5 flex gap-4">
+                      <Button className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
+                        立即体验
+                      </Button>
+                      <Button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-base hover:scale-105">
+                        下载源码
                       </Button>
                     </div>
                   </div>
@@ -1006,9 +1015,9 @@ const ChatPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* AI智能对话 - 优化卡片结构 */}
             <article className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-48 overflow-hidden rounded-t-2xl">
                 <img 
-                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png" 
+                  src="https://lf3-starry.byteimg.com/obj/starry/image/w0f5dxttcvj_%E8%A7%86%E8%A7%89%E7%90%86%E8%A7%A3.png" 
                   alt="AI智能对话" 
                   className="w-full h-full object-cover"
                 />
@@ -1046,9 +1055,9 @@ const ChatPage = () => {
 
             {/* AI模型创作 - 优化卡片结构 */}
             <article className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-48 overflow-hidden rounded-t-2xl">
                 <img 
-                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png" 
+                  src="https://lf3-starry.byteimg.com/obj/starry/image/w0f5dxttcvj_%E8%A7%86%E8%A7%89%E7%90%86%E8%A7%A3.png" 
                   alt="AI模型创作" 
                   className="w-full h-full object-cover"
                 />
@@ -1086,9 +1095,9 @@ const ChatPage = () => {
 
             {/* AI绘画 - 优化卡片结构 */}
             <article className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-48 overflow-hidden rounded-t-2xl">
                 <img 
-                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png" 
+                  src="https://lf3-starry.byteimg.com/obj/starry/image/w0f5dxttcvj_%E8%A7%86%E8%A7%89%E7%90%86%E8%A7%A3.png" 
                   alt="AI绘画" 
                   className="w-full h-full object-cover"
                 />
@@ -1126,9 +1135,9 @@ const ChatPage = () => {
 
             {/* 丰富的营销功能 - 优化卡片结构 */}
             <article className="flex flex-col rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-48 overflow-hidden rounded-t-2xl">
                 <img 
-                  src="https://server.mddai.cn/uploads/images/2023083117485511ff85180.png" 
+                  src="https://lf3-starry.byteimg.com/obj/starry/image/w0f5dxttcvj_%E8%A7%86%E8%A7%89%E7%90%86%E8%A7%A3.png" 
                   alt="丰富的营销功能" 
                   className="w-full h-full object-cover"
                 />
@@ -1231,11 +1240,14 @@ const ChatPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-full shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-full">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   购买授权
+                </Button>
+                <Button variant="outline" className="border-black text-black hover:bg-gray-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                  联系客服
                 </Button>
               </div>
             </div>
@@ -1314,11 +1326,14 @@ const ChatPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-full shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-full">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   购买授权
+                </Button>
+                <Button variant="outline" className="border-black text-black hover:bg-gray-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                  联系客服
                 </Button>
               </div>
             </div>
@@ -1396,11 +1411,14 @@ const ChatPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-full shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-full">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   购买授权
+                </Button>
+                <Button variant="outline" className="border-black text-black hover:bg-gray-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                  联系客服
                 </Button>
               </div>
             </div>
@@ -1432,147 +1450,149 @@ const ChatPage = () => {
           </div>
  {/* 产品核心功能 */}
          
-
-          {/* 准备好开启您的AI之旅了吗？ - 优化结构 */}
-          <footer className="mt-24 container mx-auto px-4">
-            <div className="bg-white rounded-3xl overflow-hidden relative border border-gray-200">
-              {/* 装饰元素 - 简化结构 */}
-              <div className="absolute top-0 right-0 w-1/2 h-full">
-                <svg className="h-full w-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="100" cy="100" r="80" fill="black" fillOpacity="0.02" />
-                  <circle cx="300" cy="300" r="150" fill="black" fillOpacity="0.02" />
-                  <circle cx="250" cy="150" r="50" fill="black" fillOpacity="0.02" />
-                  <circle cx="150" cy="250" r="30" fill="black" fillOpacity="0.02" />
-                </svg>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
-                {/* 左侧内容 - 优化结构 */}
-                <div className="md:col-span-3 p-8 md:p-12 relative z-10">
-                  <div className="max-w-xl">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                      准备好开启您的<span className="text-blue-600">AI之旅</span>了吗？
-                    </h3>
-                    <p className="text-gray-600 mb-6 text-base">
-                      已有数百家企业和品牌通过我们的AI解决方案，提升了客户体验和运营效率，助力您的业务发展飞跃。
-                    </p>
-                    
-                    {/* 特性列表 - 改为语义化列表 */}
-                    <ul className="grid grid-cols-2 gap-4 mb-6">
-                      <li className="flex items-start">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-900 font-medium">高清还原</h4>
-                          <p className="text-gray-500 text-sm">100%真实感官体验</p>
-                        </div>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-900 font-medium">专业服务</h4>
-                          <p className="text-gray-500 text-sm">7×24小时技术支持</p>
-                        </div>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-900 font-medium">数据安全</h4>
-                          <p className="text-gray-500 text-sm">企业级安全保障</p>
-                        </div>
-                      </li>
-                      <li className="flex items-start">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h4 className="text-gray-900 font-medium">持续更新</h4>
-                          <p className="text-gray-500 text-sm">定期功能迭代升级</p>
-                        </div>
-                      </li>
-                    </ul>
-                    
-                    <div className="flex flex-wrap gap-3">
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-4 rounded-full shadow-lg">
-                        立即开始
-                      </Button>
-                      <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded-full">
-                        咨询价格
-                      </Button>
-                    </div>
-                  </div>
+          {/* 准备好开启您的AI之旅了吗？ - 优化结构，移除最大宽度限制和左右间距，保持上方间距 */}
+          <div className="w-full mx-auto">
+            <footer className="mt-24">
+              <div className="bg-white rounded-none overflow-hidden relative border border-gray-200">
+                {/* 装饰元素 - 简化结构 */}
+                <div className="absolute top-0 right-0 w-1/2 h-full">
+                  <svg className="h-full w-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="80" fill="black" fillOpacity="0.02" />
+                    <circle cx="300" cy="300" r="150" fill="black" fillOpacity="0.02" />
+                    <circle cx="250" cy="150" r="50" fill="black" fillOpacity="0.02" />
+                    <circle cx="150" cy="250" r="30" fill="black" fillOpacity="0.02" />
+                  </svg>
                 </div>
                 
-                {/* 右侧功能卡片 - 优化结构 */}
-                <aside className="md:col-span-2 relative hidden md:block">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-full h-full p-6 flex items-center">
-                      <div className="bg-gray-50 rounded-2xl w-full h-full p-4 shadow-lg">
-                        <div className="grid grid-cols-2 gap-4 h-full">
-                          {/* AI数字人 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                              </svg>
-                            </div>
-                            <h4 className="text-gray-900 font-medium text-lg">AI数字人</h4>
-                            <p className="text-gray-500 text-sm text-center mt-1">PHP/Java双版本支持</p>
+                {/* 移除内层网格容器的最大宽度限制，实现全屏布局 */}
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-0 w-full mx-auto">
+                  {/* 左侧内容 - 优化结构 */}
+                  <div className="md:col-span-3 p-8 md:p-12 relative z-10">
+                    <div className="max-w-xl">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                        准备好开启您的<span className="text-blue-600">AI之旅</span>了吗？
+                      </h3>
+                      <p className="text-gray-600 mb-6 text-base">
+                        已有数百家企业和品牌通过我们的AI解决方案，提升了客户体验和运营效率，助力您的业务发展飞跃。
+                      </p>
+                      
+                      {/* 特性列表 - 改为语义化列表 */}
+                      <ul className="grid grid-cols-2 gap-4 mb-6">
+                        <li className="flex items-start">
+                          <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
                           </div>
-                          
-                          {/* 私有部署 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                              </svg>
-                            </div>
-                            <h4 className="text-gray-900 font-medium text-lg">私有部署</h4>
-                            <p className="text-gray-500 text-sm text-center mt-1">安全可控的私有化部署</p>
+                          <div>
+                            <h4 className="text-gray-900 font-medium">高清还原</h4>
+                            <p className="text-gray-500 text-sm">100%真实感官体验</p>
                           </div>
-                          
-                          {/* 专业团队 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                              </svg>
-                            </div>
-                            <h4 className="text-gray-900 font-medium text-lg">专业团队</h4>
-                            <p className="text-gray-500 text-sm text-center mt-1">一对一技术支持</p>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
                           </div>
-                          
-                          {/* 开源方案 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                              </svg>
+                          <div>
+                            <h4 className="text-gray-900 font-medium">专业服务</h4>
+                            <p className="text-gray-500 text-sm">7×24小时技术支持</p>
+                          </div>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h4 className="text-gray-900 font-medium">数据安全</h4>
+                            <p className="text-gray-500 text-sm">企业级安全保障</p>
+                          </div>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h4 className="text-gray-900 font-medium">持续更新</h4>
+                            <p className="text-gray-500 text-sm">定期功能迭代升级</p>
+                          </div>
+                        </li>
+                      </ul>
+                      
+                      <div className="flex flex-wrap gap-3">
+                        <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-4 rounded shadow-lg">
+                          立即开始
+                        </Button>
+                        <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded">
+                          咨询价格
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* 右侧功能卡片 - 优化结构 */}
+                  <aside className="md:col-span-2 relative hidden md:block">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-full h-full p-6 flex items-center">
+                        <div className="bg-gray-50 w-full h-full p-4 shadow-lg">
+                          <div className="grid grid-cols-2 gap-4 h-full">
+                            {/* AI数字人 */}
+                            <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                              <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                              </div>
+                              <h4 className="text-gray-900 font-medium text-lg">AI数字人</h4>
+                              <p className="text-gray-500 text-sm text-center mt-1">PHP/Java双版本支持</p>
                             </div>
-                            <h4 className="text-gray-900 font-medium text-lg">开源方案</h4>
-                            <p className="text-gray-500 text-sm text-center mt-1">灵活定制，售后无忧</p>
+                            
+                            {/* 私有部署 */}
+                            <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                              <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                              </div>
+                              <h4 className="text-gray-900 font-medium text-lg">私有部署</h4>
+                              <p className="text-gray-500 text-sm text-center mt-1">安全可控的私有化部署</p>
+                            </div>
+                            
+                            {/* 专业团队 */}
+                            <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                              <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                              </div>
+                              <h4 className="text-gray-900 font-medium text-lg">专业团队</h4>
+                              <p className="text-gray-500 text-sm text-center mt-1">一对一技术支持</p>
+                            </div>
+                            
+                            {/* 开源方案 */}
+                            <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                              <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                                </svg>
+                              </div>
+                              <h4 className="text-gray-900 font-medium text-lg">开源方案</h4>
+                              <p className="text-gray-500 text-sm text-center mt-1">灵活定制，售后无忧</p>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </aside>
+                  </aside>
+                </div>
               </div>
-            </div>
-          </footer>
+            </footer>
+          </div>
         </div>
       </section>
     </div>

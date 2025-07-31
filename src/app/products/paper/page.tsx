@@ -1231,7 +1231,7 @@ const  PaperPage = () => {
          
 
           {/* 准备好开启您的AI数字人之旅了吗？ */}
-          <div className="mt-24 container mx-auto px-4">
+          <div className="mt-24 container mx-auto">
             <div className="bg-white rounded-3xl overflow-hidden relative border border-gray-200">
               {/* 装饰元素 */}
               <div className="absolute top-0 right-0 w-1/2 h-full">

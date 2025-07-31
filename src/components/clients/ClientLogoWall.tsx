@@ -58,11 +58,9 @@ const ClientLogoWall: React.FC<ClientLogoWallProps> = ({
 
   return (
     <section style={{background: '#fff', color: '#000', padding: 40, textAlign: 'center'}} className={className}>
-      <h2 style={{fontSize: 32, fontWeight: 'bold'}}>{title}</h2>
-      <div style={{margin: '16px 0', fontSize: 20}}>{subtitle}</div>
-      <div style={{marginBottom: 32}}>{description}</div>
+      {/* 客户logo展示区域 - 移到前面 */}
       {marquee ? (
-        <div style={{display: 'flex', flexDirection: 'column', gap: 24}}>
+        <div style={{display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 32}}>
           {rows.map((row, rowIdx) => {
             const marqueeRow = [...row, ...row];
             return (
@@ -73,7 +71,7 @@ const ClientLogoWall: React.FC<ClientLogoWallProps> = ({
                   animate="animate"
                 >
                   {marqueeRow.map((client, idx) => (
-                    <div key={client.id + '-' + idx} style={{width: 180, padding: 16, border: '1px solid #eee', borderRadius: 12, background: '#fafbfc', flex: '0 0 auto'}}>
+                    <div key={client.id + '-' + idx} style={{width: 180, padding: 16, border: '1px solid #eee', background: '#fafbfc', flex: '0 0 auto', borderRadius: 4}}>
                       <img src={client.logo} alt={client.name} style={{height: 48, margin: '0 auto 8px', display: 'block'}} />
                       <div style={{fontWeight: 'bold'}}>{client.name}</div>
                       <div style={{fontSize: 12, color: '#888'}}>{client.industry}</div>
@@ -85,9 +83,9 @@ const ClientLogoWall: React.FC<ClientLogoWallProps> = ({
           })}
         </div>
       ) : (
-        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 32}}>
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 32, marginBottom: 32}}>
           {clients.map(client => (
-            <div key={client.id} style={{width: 180, padding: 16, border: '1px solid #eee', borderRadius: 12, background: '#fafbfc'}}>
+            <div key={client.id} style={{width: 180, padding: 16, border: '1px solid #eee', background: '#fafbfc', borderRadius: 4}}>
               <img src={client.logo} alt={client.name} style={{height: 48, margin: '0 auto 8px', display: 'block'}} />
               <div style={{fontWeight: 'bold'}}>{client.name}</div>
               <div style={{fontSize: 12, color: '#888'}}>{client.industry}</div>
@@ -95,6 +93,13 @@ const ClientLogoWall: React.FC<ClientLogoWallProps> = ({
           ))}
         </div>
       )}
+      
+      {/* 标题区域 - 移到后面 */}
+      <div>
+        <h2 style={{fontSize: 32, fontWeight: 'bold'}}>{title}</h2>
+        <div style={{margin: '16px 0', fontSize: 20}}>{subtitle}</div>
+        <div>{description}</div>
+      </div>
     </section>
   );
 };

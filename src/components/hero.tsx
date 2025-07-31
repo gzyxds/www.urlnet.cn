@@ -128,7 +128,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="w-full px-4 py-20 relative z-10">
           {/* 版本标签 - 参考chat页面的状态标签设计 */}
           <div className="flex justify-center mb-8 sm:mb-12">
             <div className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-white/90 backdrop-blur-md border border-blue-200 text-black shadow-lg">
@@ -144,7 +144,7 @@ const Hero = () => {
           </div>
 
           {/* 主标题区域 */}
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          <div className="flex flex-col items-center text-center w-full mx-auto">
           {/* 主标题 - 参考chat页面的标题设计 */}
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-black mb-6 sm:mb-8 leading-tight">
@@ -162,7 +162,7 @@ const Hero = () => {
             </h1>
           </div>
           {/* 描述文字 - 参考chat页面的副标题设计 */}
-          <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-8 sm:mb-10 w-full mx-auto leading-relaxed">
            <span className="text-blue-600 font-semibold">一站式AIGC系统</span>，
             提供面向个人用户(ToC)、开发者(ToD)和企业(ToB)的全面AI解决方案
           </p>

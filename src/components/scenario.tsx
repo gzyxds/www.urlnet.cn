@@ -15,7 +15,7 @@ const Scenario = () => {
   // 定义所有应用场景数据
   const scenarios = [
     {
-      id: "ecommerce",
+      id: "ecommerce", 
       title: "电商",
       image: "/images/scenarios/gaming.png",
       description: "大规模智能化推荐系统，基于用户行为数据和市场变化，提供个性化、实时连接的商品推荐，不仅能够显著提升转化率，还能精准把握消费者需求，从而有效驱动销量增长。同时，通过自动化优化推荐算法，减少人工干预，显著降低运营成本，实现更加高效的资源配置和业务运营。",
@@ -25,7 +25,7 @@ const Scenario = () => {
           description: "提供个性化商品推荐，精准匹配用户需求，提高转化率"
         },
         {
-          title: "销售增长",
+          title: "销售增长", 
           description: "基于大数据分析，智能调整推荐算法，实现销量大幅提升"
         },
         {
@@ -37,7 +37,7 @@ const Scenario = () => {
     {
       id: "media",
       title: "新媒体",
-      image: "/images/scenarios/gaming.png",
+      image: "/images/scenarios/gaming.png", 
       description: "智能内容创作与分发平台，利用AI技术自动生成高质量文章、视频脚本和社交媒体内容，同时基于用户兴趣和行为数据，精准投放内容，提高用户参与度和内容转化率，大幅降低内容创作成本和时间，使新媒体运营更加高效和精准。",
       features: [
         {
@@ -162,7 +162,7 @@ const Scenario = () => {
             <Button
               key={scenario.id}
               variant={activeScenario === scenario.id ? "default" : "outline"}
-              className={`rounded-full px-8 py-3 text-sm font-medium transition-all duration-300 border-2 ${
+              className={`rounded-none px-8 py-3 text-sm font-medium transition-all duration-300 border-2 ${
                 activeScenario === scenario.id 
                   ? "bg-[#015bfe] text-white shadow-lg shadow-blue-100 border-[#015bfe]" 
                   : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#015bfe] hover:border-[#015bfe] border-gray-200"
@@ -182,23 +182,23 @@ const Scenario = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100"
+            className="bg-white rounded-none overflow-hidden border border-gray-100"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
               {/* 左侧内容 */}
-              <div className="p-10 lg:p-16 flex flex-col justify-center">
-                <div className="mb-8">
-                  <h3 className="text-3xl font-bold text-black mb-6 tracking-tight">
+              <div className="p-8 lg:p-12 flex flex-col justify-center">
+                <div className="mb-6">
+                  <h3 className="text-3xl font-bold text-black mb-4 tracking-tight">
                     {currentScenario.title}
                   </h3>
-                  <div className="w-16 h-0.5 bg-[#015bfe] mb-6"></div>
+                  <div className="w-16 h-0.5 bg-[#015bfe] mb-4"></div>
                   <p className="text-gray-600 text-lg leading-relaxed">
                     {currentScenario.description}
                   </p>
                 </div>
                 
                 {/* 特点列表 */}
-                <div className="space-y-8">
+                <div className="space-y-6">
                   {currentScenario.features.map((feature, index) => (
                     <motion.div 
                       key={index} 
@@ -208,7 +208,7 @@ const Scenario = () => {
                       transition={{ delay: index * 0.1 }}
                     >
                       <div className="flex-shrink-0 mt-1 mr-5">
-                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#015bfe]/10 border border-[#015bfe]/20">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-none bg-[#015bfe]/10 border border-[#015bfe]/20">
                           <Check className="w-4 h-4 text-[#015bfe]" />
                         </div>
                       </div>
@@ -226,7 +226,7 @@ const Scenario = () => {
               </div>
               
               {/* 右侧图片 */}
-              <div className="relative h-[400px] lg:h-auto overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+              <div className="relative h-[300px] lg:h-auto overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent z-10"></div>
                 <img
                   src={currentScenario.image}
@@ -234,17 +234,17 @@ const Scenario = () => {
                   className="w-full h-full object-cover"
                 />
                 {/* 装饰性几何元素 */}
-                <div className="absolute top-6 right-6 w-16 h-16 border-2 border-white/30 rounded-lg"></div>
-                <div className="absolute bottom-6 left-6 w-8 h-8 bg-[#015bfe]/20 rounded-full"></div>
+                <div className="absolute top-6 right-6 w-16 h-16 border-2 border-white/30 rounded-none"></div>
+                <div className="absolute bottom-6 left-6 w-8 h-8 bg-[#015bfe]/20 rounded-none"></div>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
         {/* 了解更多按钮 */}
-        <div className="mt-20 text-center">
+        <div className="mt-16 text-center">
           <Button 
-            className="group relative bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-base font-medium rounded-full transition-all duration-300"
+            className="group relative bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-base font-medium rounded-none transition-all duration-300"
             asChild
           >
             <Link to="/products" className="flex items-center">
@@ -257,5 +257,4 @@ const Scenario = () => {
     </section>
   );
 };
-
 export default Scenario;

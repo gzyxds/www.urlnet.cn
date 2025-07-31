@@ -32,7 +32,7 @@ const HumanPage = () => {
             <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12 order-2 lg:order-1">
               <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                数字孪生技术
+                数字分身
               </div>
               
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
@@ -60,11 +60,11 @@ const HumanPage = () => {
               
               {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-full shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]">
                   立即试用
                 </Button>
-                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-full min-h-[44px] sm:min-h-[48px]">
-                  了解更多
+                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]">
+                 购买授权
                 </Button>
               </div>
             </div>
@@ -119,12 +119,12 @@ const HumanPage = () => {
           </div>
           
           {/* 企业智能客服卡片网格 - 优化移动端布局 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-0">
             {/* 产品卡片1 - 数字分身训练数据 */}
-            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+            <div className="group bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
               {/* 数据展示区域 */}
               <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-6 sm:p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24 bg-white/10 rounded-full -translate-y-8 sm:-translate-y-12 translate-x-8 sm:translate-x-12"></div>
+                <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24 bg-white/10 -translate-y-8 sm:-translate-y-12 translate-x-8 sm:translate-x-12"></div>
                 <div className="relative z-10">
                   <h3 className="text-sm sm:text-lg font-semibold mb-2 sm:mb-3 opacity-90">数字分身训练数据</h3>
                   <div className="flex items-baseline">
@@ -139,15 +139,15 @@ const HumanPage = () => {
                 <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-4 sm:mb-6">形象自然丰富</h4>
                 <ul className="space-y-3 sm:space-y-4">
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-600 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-600 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">超短时间即可生成分身</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-600 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-600 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">口型自然，表情丰富，30+表情</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-600 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-600 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">量产功能，批量生成和转换</span>
                   </li>
                 </ul>
@@ -155,10 +155,10 @@ const HumanPage = () => {
             </div>
             
             {/* 产品卡片2 - 声音复刻训练数据 */}
-            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+            <div className="group bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
               {/* 数据展示区域 */}
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-6 sm:p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24 bg-white/10 rounded-full -translate-y-8 sm:-translate-y-12 translate-x-8 sm:translate-x-12"></div>
+                <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24 bg-white/10 -translate-y-8 sm:-translate-y-12 translate-x-8 sm:translate-x-12"></div>
                 <div className="relative z-10">
                   <h3 className="text-sm sm:text-lg font-semibold mb-2 sm:mb-3 opacity-90">声音复刻训练数据</h3>
                   <div className="flex items-baseline">
@@ -173,15 +173,15 @@ const HumanPage = () => {
                 <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-4 sm:mb-6">多元高质生成能力</h4>
                 <ul className="space-y-3 sm:space-y-4">
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-500 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-500 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">超短时高质量声音复刻</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-500 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-500 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">情绪转换和语音表达，保留个性</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-500 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-500 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">提供语音合成，多20+种语言</span>
                   </li>
                 </ul>
@@ -189,10 +189,10 @@ const HumanPage = () => {
             </div>
             
             {/* 产品卡片3 - 数字人整体效果达 */}
-            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+            <div className="group bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
               {/* 数据展示区域 */}
               <div className="bg-gradient-to-br from-blue-400 to-blue-500 p-6 sm:p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24 bg-white/10 rounded-full -translate-y-8 sm:-translate-y-12 translate-x-8 sm:translate-x-12"></div>
+                <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24 bg-white/10 -translate-y-8 sm:-translate-y-12 translate-x-8 sm:translate-x-12"></div>
                 <div className="relative z-10">
                   <h3 className="text-sm sm:text-lg font-semibold mb-2 sm:mb-3 opacity-90">数字人整体效果达</h3>
                   <div className="flex items-baseline">
@@ -207,15 +207,15 @@ const HumanPage = () => {
                 <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-4 sm:mb-6">强大AI技术能力</h4>
                 <ul className="space-y-3 sm:space-y-4">
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">行业领先的研究模型支持技术</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">感知准确率达98.5%</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">数字人响应时间仅需500ms</span>
                   </li>
                 </ul>
@@ -223,10 +223,10 @@ const HumanPage = () => {
             </div>
             
             {/* 产品卡片4 - 集成和接入方式 */}
-            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+            <div className="group bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
               {/* 数据展示区域 */}
               <div className="bg-gradient-to-br from-blue-700 to-blue-800 p-6 sm:p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24 bg-white/10 rounded-full -translate-y-8 sm:-translate-y-12 translate-x-8 sm:translate-x-12"></div>
+                <div className="absolute top-0 right-0 w-16 sm:w-24 h-16 sm:h-24 bg-white/10 -translate-y-8 sm:-translate-y-12 translate-x-8 sm:translate-x-12"></div>
                 <div className="relative z-10">
                   <h3 className="text-sm sm:text-lg font-semibold mb-2 sm:mb-3 opacity-90">集成和接入方式</h3>
                   <div className="text-2xl sm:text-4xl font-bold">灵活</div>
@@ -238,15 +238,15 @@ const HumanPage = () => {
                 <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-4 sm:mb-6">快速接入</h4>
                 <ul className="space-y-3 sm:space-y-4">
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-700 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-700 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">API、SDK多种接入方式</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-700 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-700 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">APP/Web/小程序全端支持</span>
                   </li>
                   <li className="flex items-start">
-                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-700 rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-700 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
                     <span className="text-xs sm:text-sm text-gray-600 leading-relaxed">公有云、私有化部署选择</span>
                   </li>
                 </ul>
@@ -260,16 +260,16 @@ const HumanPage = () => {
       <section className="py-16 sm:py-20 bg-gray-50 relative overflow-hidden">
         {/* 背景装饰元素 - 优化移动端显示 */}
         <div className="absolute top-0 left-0 w-full h-full opacity-20 sm:opacity-30 pointer-events-none">
-          <div className="absolute top-10 left-10 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-blue-100 blur-2xl sm:blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-indigo-100 blur-2xl sm:blur-3xl"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 sm:w-40 sm:h-40 bg-blue-100 blur-2xl sm:blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-48 h-48 sm:w-60 sm:h-60 bg-indigo-100 blur-2xl sm:blur-3xl"></div>
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
             {/* 左侧内容 - 优化移动端布局 */}
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
-              <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
+              <div className="inline-flex items-center px-3 py-1.5 bg-blue-100 text-blue-700 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+                <span className="w-1.5 h-1.5 bg-blue-600 mr-2"></span>
                 在线演示
               </div>
               
@@ -281,16 +281,16 @@ const HumanPage = () => {
                 通过我们的在线演示系统，您可以亲身体验AI数字人的强大功能和直观界面，无需安装，即刻体验。
               </p>
               
-              <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
+              <div className="bg-white shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
                 <div className="flex items-center mb-3 sm:mb-4">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-50 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-50 flex items-center justify-center mr-2 sm:mr-3">
                     <Play className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
                   </div>
                   <h3 className="text-base sm:text-lg font-medium">演示账号信息</h3>
                 </div>
                 
                 <div className="space-y-3 sm:space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">PC端后台</p>
                       <p className="text-xs text-blue-600 break-all sm:break-normal">https://v.cnai.art</p>
@@ -310,7 +310,7 @@ const HumanPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">代理商后台</p>
                       <p className="text-xs text-blue-600 break-all sm:break-normal">https://demo.cnai.art/admin</p>
@@ -330,7 +330,7 @@ const HumanPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">SaaS平台端</p>
                       <p className="text-xs text-blue-600 break-all sm:break-normal">https://saas.cnai.art/platform</p>
@@ -354,14 +354,14 @@ const HumanPage = () => {
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
                   onClick={() => setShowQRCode(true)}
                 >
                   申请专属演示
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
                   onClick={() => setShowQRCode(true)}
                 >
                   联系客服
@@ -429,10 +429,12 @@ const HumanPage = () => {
             <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2">
               <div className="relative w-full max-w-md lg:max-w-none">
                 {/* 主要演示视频 */}
-                <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
-                  <video
-                    src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/virtual-digit.ed88f4c6.mp4"
-                    className="w-full rounded-lg"
+                <div className="bg-white p-4 sm:p-6 shadow-lg">
+                <video
+                  src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/virtual-digit.ed88f4c6.mp4"
+                  className="w-full h-auto"
+                  preload="metadata"
+                    className="w-full"
                     autoPlay
                     loop
                     muted
@@ -446,28 +448,28 @@ const HumanPage = () => {
                       <p className="text-xs text-gray-500">一站式管理您的所有数字人资产</p>
                     </div>
                     <div className="flex space-x-1 sm:space-x-2">
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500"></div>
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-yellow-500"></div>
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500"></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500"></div>
                     </div>
                   </div>
                 </div>
                 
                 {/* 二维码 - 优化移动端位置 */}
-                <div className="absolute -bottom-3 sm:-bottom-6 -right-3 sm:-right-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg">
+                <div className="absolute -bottom-3 sm:-bottom-6 -right-3 sm:-right-6 bg-white p-3 sm:p-4 shadow-lg">
                   <img 
                     src="/images/wechat.png"
                     alt="演示二维码" 
-                    className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-md"
+                    className="w-20 h-20 sm:w-24 sm:h-24 bg-white"
                     loading="lazy"
                   />
                   <p className="text-xs text-center mt-1 sm:mt-2 text-gray-600">扫码体验移动端</p>
                 </div>
                 
                 {/* 装饰元素 - 优化移动端显示 */}
-                <div className="absolute -top-3 sm:-top-6 -left-3 sm:-left-6 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-3 sm:p-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <div className="absolute -top-3 sm:-top-6 -left-3 sm:-left-6 bg-gradient-to-br from-blue-600 to-blue-700 p-3 sm:p-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 flex items-center justify-center backdrop-blur-sm">
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         className="h-4 w-4 sm:h-5 sm:w-5 text-white" 
@@ -493,7 +495,6 @@ const HumanPage = () => {
           </div>
         </div>
       </section>
-
       {/* 应用场景 - 现代化简约风格 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -508,59 +509,71 @@ const HumanPage = () => {
             <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">丰富的应用场景和解决方案，满足多种业务需求</p>
           </div>
 
-          {/* 场景标签导航 - 现代化简约风格 */}
+          {/* 场景标签导航 - 现代化简约风格 - 优化移动端滚动 */}
           <div className="flex justify-center mb-16">
-            <div className="inline-flex bg-gray-50 rounded-full p-1.5 shadow-sm overflow-x-auto max-w-full">
+            <div className="inline-flex bg-gray-50 p-1.5 shadow-sm overflow-x-auto max-w-full scrollbar-hide">
               <button 
-                className={`px-6 py-3 font-medium rounded-full transition-all duration-300 relative whitespace-nowrap min-w-[120px] ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 relative whitespace-nowrap min-w-[100px] sm:min-w-[120px] ${
                   activeScenario === 'virtualIP' 
                     ? 'bg-blue-600 text-white shadow-md' 
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('virtualIP')}
               >
-                <span className="relative z-10 text-base">带货视频</span>
+                <span className="relative z-10 text-sm sm:text-base flex items-center justify-center">
+                  <Video className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                  带货视频
+                </span>
                 {activeScenario === 'virtualIP' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
                 )}
               </button>
               <button 
-                className={`px-6 py-3 font-medium rounded-full transition-all duration-300 relative whitespace-nowrap min-w-[120px] ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 relative whitespace-nowrap min-w-[100px] sm:min-w-[120px] ${
                   activeScenario === 'digitalEmployee' 
                     ? 'bg-blue-600 text-white shadow-md' 
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('digitalEmployee')}
               >
-                <span className="relative z-10 text-base">数字员工</span>
+                <span className="relative z-10 text-sm sm:text-base flex items-center justify-center">
+                  <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                  数字员工
+                </span>
                 {activeScenario === 'digitalEmployee' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
                 )}
               </button>
               <button 
-                className={`px-6 py-3 font-medium rounded-full transition-all duration-300 relative whitespace-nowrap min-w-[120px] ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 relative whitespace-nowrap min-w-[100px] sm:min-w-[120px] ${
                   activeScenario === 'contentCreation' 
                     ? 'bg-blue-600 text-white shadow-md' 
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('contentCreation')}
               >
-                <span className="relative z-10 text-base">内容创作</span>
+                <span className="relative z-10 text-sm sm:text-base flex items-center justify-center">
+                  <PenTool className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                  内容创作
+                </span>
                 {activeScenario === 'contentCreation' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
                 )}
               </button>
               <button 
-                className={`px-6 py-3 font-medium rounded-full transition-all duration-300 relative whitespace-nowrap min-w-[120px] ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 relative whitespace-nowrap min-w-[100px] sm:min-w-[120px] ${
                   activeScenario === 'virtualLive' 
                     ? 'bg-blue-600 text-white shadow-md' 
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('virtualLive')}
               >
-                <span className="relative z-10 text-base">虚拟直播</span>
+                <span className="relative z-10 text-sm sm:text-base flex items-center justify-center">
+                  <Tv className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                  虚拟直播
+                </span>
                 {activeScenario === 'virtualLive' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
                 )}
               </button>
             </div>
@@ -568,21 +581,21 @@ const HumanPage = () => {
 
           {/* 带货视频场景 - 现代化简约风格 */}
           {activeScenario === 'virtualIP' && (
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center px-4 sm:px-6 lg:px-8">
               {/* 左侧内容 */}
               <div className="space-y-8">
                 <div>
                   <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
                     <span className="text-blue-600 text-xs font-medium">热门场景</span>
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">带货视频</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">带货视频</h3>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                     面向文化传播、影视内容等多个行业，帮助打造带货视频，赋能品牌营销，提升品牌心智。
                   </p>
                 </div>
                 
                 {/* 功能特性 */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -615,24 +628,36 @@ const HumanPage = () => {
                 </div>
                 
                 <div className="flex space-x-4">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                     查看详情
                   </Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-100 px-8 py-3 h-auto text-base font-medium rounded-none">
+                    购买授权
+                  </Button>
+                   <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                     联系我们
                   </Button>
                 </div>
               </div>
               
-              {/* 右侧图片 */}
+              {/* 右侧视频 */}
               <div className="relative">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
-                  <img 
-                    src="https://artaigc.cn/assets/img/human1.png" 
-                    alt="带货视频应用场景" 
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl sm:rounded-3xl p-4 sm:p-8">
+                  <video
+                    src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/d7597b2e51444a40_1697534317820.mp4"
+                    className="w-full h-auto"
+                    preload="metadata"
+                    playsInline
                     className="w-full rounded-2xl shadow-lg"
-                    loading="lazy"
-                  />
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  >
+                    您的浏览器不支持 video 标签。
+                  </video>
                 </div>
                 {/* 悬浮标签 */}
                 <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
@@ -698,24 +723,32 @@ const HumanPage = () => {
                   </div>
                 </div>
                 
-                <div className="flex space-x-4">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+              <div className="flex space-x-4">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                     查看详情
                   </Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-100 px-8 py-3 h-auto text-base font-medium rounded-none">
+                    购买授权
+                  </Button>
+                   <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                     联系我们
                   </Button>
                 </div>
               </div>
-              
-              {/* 右侧图片 */}
+              {/* 右侧视频 */}
               <div className="order-1 lg:order-2 relative">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
-                  <img 
-                    src="https://artaigc.cn/assets/img/human2.png" 
-                    alt="数字员工应用场景" 
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl sm:rounded-3xl p-4 sm:p-8">
+                  <video
+                    src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/58de8e04fa71151b_1697611541810.mp4"
+                    className="w-full h-auto"
+                    preload="metadata"
+                    playsInline
                     className="w-full rounded-2xl shadow-lg"
-                    loading="lazy"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls={false}
                   />
                 </div>
                 {/* 悬浮标签 */}
@@ -783,24 +816,41 @@ const HumanPage = () => {
                 </div>
                 
                 <div className="flex space-x-4">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                     查看详情
                   </Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-100 px-8 py-3 h-auto text-base font-medium rounded-none">
+                    购买授权
+                  </Button>
+                   <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                     联系我们
                   </Button>
                 </div>
               </div>
-              
-              {/* 右侧图片 */}
+              {/* 右侧视频 */}
               <div className="relative">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png" 
-                    alt="内容创作应用场景" 
+                  <video
+                    src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/77eb68b8aabcb8aa_1697534305029.mp4"
+                    className="w-full h-auto"
+                    preload="metadata"
+                    playsInline
                     className="w-full rounded-2xl shadow-lg"
-                    loading="lazy"
-                  />
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  >
+                    {/* 视频不支持时显示的替代内容 */}
+                    <img 
+                      src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png"
+                      alt="内容创作应用场景"
+                      className="w-full rounded-2xl shadow-lg"
+                      loading="lazy"
+                    />
+                  </video>
                 </div>
                 {/* 悬浮标签 */}
                 <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
@@ -868,25 +918,36 @@ const HumanPage = () => {
                   </div>
                 </div>
                 
-                <div className="flex space-x-4">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                 <div className="flex space-x-4">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                     查看详情
                   </Button>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                  <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-100 px-8 py-3 h-auto text-base font-medium rounded-none">
+                    购买授权
+                  </Button>
+                   <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                     联系我们
                   </Button>
                 </div>
               </div>
-              
-              {/* 右侧图片 */}
+              {/* 右侧视频 */}
               <div className="relative">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
-                    alt="虚拟直播应用场景" 
+                  <video
+                    src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/84136783a28cddee_1697534229451.mp4"
+                    className="w-full h-auto"
+                    preload="metadata"
+                    playsInline
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full rounded-2xl shadow-lg"
                     loading="lazy"
-                  />
+                  >
+                    <source type="video/mp4" />
+                    您的浏览器不支持视频播放
+                  </video>
                 </div>
                 {/* 悬浮标签 */}
                 <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
@@ -968,13 +1029,15 @@ const HumanPage = () => {
                   <p className="text-sm text-gray-600">个性化定制服务</p>
                 </div>
               </div>
-              
-              <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+              <div className="flex flex-wrap gap-3">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-4 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none">
                   购买授权
+                </Button>
+                <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-50 px-4 sm:px-8 py-2 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none">
+                  联系我们
                 </Button>
               </div>
             </div>
@@ -1053,11 +1116,14 @@ const HumanPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   购买授权
+                </Button>
+                <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                  联系我们
                 </Button>
               </div>
             </div>
@@ -1065,7 +1131,7 @@ const HumanPage = () => {
             <div className="lg:order-1 relative">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                 <img 
-                  src="https://artaigc.cn/assets/img/human2.png" 
+                  src="https://lf3-starry.byteimg.com/obj/starry/image/r6j8q8i2q1_%E9%AB%98%E8%87%AA%E7%84%B6%E5%BA%A6.webp" 
                   alt="声音克隆界面" 
                   className="w-full rounded-2xl shadow-lg"
                 />
@@ -1134,24 +1200,75 @@ const HumanPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   购买授权
+                </Button>
+                <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                  联系我们
                 </Button>
               </div>
             </div>
-            
-            {/* 右侧图片 */}
+            {/* 右侧模拟界面 */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
-                <img 
-                  src="https://server.mddai.cn/uploads/images/20241128195611806125108.png" 
-                  alt="用户管理界面" 
-                  className="w-full rounded-2xl shadow-lg"
-                />
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-6">
+                {/* 模拟浏览器窗口 */}
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                  {/* 浏览器标题栏 */}
+                  <div className="bg-gray-100 px-3 py-1.5 flex items-center space-x-2">
+                    <div className="flex space-x-1">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="flex-1 text-center">
+                      <div className="bg-white rounded-md py-0.5 px-2 text-sm text-gray-600 max-w-xs mx-auto">
+                        艺创AI数字人管理系统
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* 模拟界面内容 */}
+                  <div className="p-4">
+                    <div className="grid grid-cols-3 gap-3 mb-4">
+                      <div className="bg-blue-50 rounded-lg p-3">
+                        <h3 className="text-xs font-medium text-gray-700">总用户数</h3>
+                        <p className="text-xl font-bold text-blue-600 mt-1">12,458</p>
+                      </div>
+                      <div className="bg-purple-50 rounded-lg p-3">
+                        <h3 className="text-xs font-medium text-gray-700">今日活跃</h3>
+                        <p className="text-xl font-bold text-purple-600 mt-1">2,845</p>
+                      </div>
+                      <div className="bg-green-50 rounded-lg p-3">
+                        <h3 className="text-xs font-medium text-gray-700">转化率</h3>
+                        <p className="text-xl font-bold text-green-600 mt-1">32.6%</p>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 rounded-lg p-3">
+                      <div className="flex justify-between items-center mb-3">
+                        <h3 className="font-medium text-gray-700 text-sm">最近访问</h3>
+                        <button className="text-xs text-blue-600">查看全部</button>
+                      </div>
+                      <div className="space-y-2">
+                        {[1,2,3].map((i) => (
+                          <div key={i} className="flex items-center bg-white p-2 rounded-md">
+                            <div className="w-6 h-6 bg-gray-200 rounded-full"></div>
+                            <div className="ml-2">
+                              <p className="text-xs font-medium text-gray-800">用户_{i}</p>
+                              <p className="text-xs text-gray-500">最近访问时间: 2024-01-{i}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              {/*右侧模拟界面 */}
+              
               {/* 悬浮标签 */}
               <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 border border-gray-100">
                 <div className="flex items-center space-x-3">
@@ -1177,6 +1294,9 @@ const HumanPage = () => {
                 <video
                   src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/ai-video.a4cd977a.mp4"
                   autoPlay
+                  className="w-full h-auto"
+                  preload="metadata"
+                  playsInline
                   loop
                   muted
                   playsInline
@@ -1206,8 +1326,8 @@ const HumanPage = () => {
                 <div className="inline-flex items-center px-3 py-1 bg-blue-50 rounded-full mb-4">
                   <span className="text-blue-600 text-xs font-medium">AI视频</span>
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">AI一键自动生成视频</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">AI一键自动生成视频</h3>
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                   从容应对内容创作和营销需求，助力商家和创作者提升视频生成的效率，更好的在公私域做好内容营销，助力GMV提升。
                 </p>
               </div>
@@ -1246,22 +1366,90 @@ const HumanPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-xl shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   立即体验
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-xl">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   了解更多
+                </Button>
+                <Button variant="outline" className="border-gray-900 text-gray-900 hover:bg-gray-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                  联系我们
                 </Button>
               </div>
             </div>
           </div>
-          
           {/* 产品核心功能 */}
-         
+
+          <section className="py-24 mt-12">
+            <div className="container mx-auto px-4 space-y-8">
+              {/* 标题区域 */}
+              <div className="text-center mb-12">
+                <h2 className="text-2xl font-bold mb-4">接入流程</h2>
+                <p className="text-gray-600 text-sm mb-3">为你提供快速、便捷的接入服务</p>
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium mt-4"
+                  onClick={() => window.open('https://v.cnai.art', '_blank')}
+                >
+                  立即接入
+                </Button>
+              </div>
+
+              {/* 流程步骤 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* 步骤1：需求沟通 */}
+                <div className="text-center">
+                  <div className="flex justify-center items-center mb-4">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                      <span className="text-blue-600 text-sm">01</span>
+                    </div>
+                  </div>
+                  <h3 className="text-base font-bold mb-2">需求沟通</h3>
+                  <div className="border-t border-gray-200 w-16 mx-auto my-3"></div>
+                  <p className="text-gray-600 text-xs">提供产品信息，沟通数字人类型、使用场景和交付形式</p>
+                </div>
+
+                {/* 步骤2：确认合作 */}
+                <div className="text-center">
+                  <div className="flex justify-center items-center mb-4">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                      <span className="text-blue-600 text-sm">02</span>
+                    </div>
+                  </div>
+                  <h3 className="text-base font-bold mb-2">确认合作</h3>
+                  <div className="border-t border-gray-200 w-16 mx-auto my-3"></div>
+                  <p className="text-gray-600 text-xs">通过控制台直接下单，或线下沟通商务合作</p>
+                </div>
+
+                {/* 步骤3：资产制作 */}
+                <div className="text-center">
+                  <div className="flex justify-center items-center mb-4">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                      <span className="text-blue-600 text-sm">03</span>
+                    </div>
+                  </div>
+                  <h3 className="text-base font-bold mb-2">资产制作</h3>
+                  <div className="border-t border-gray-200 w-16 mx-auto my-3"></div>
+                  <p className="text-gray-600 text-xs">采集数据，制作数字人形象和声音资产</p>
+                </div>
+
+                {/* 步骤4：正式上线 */}
+                <div className="text-center">
+                  <div className="flex justify-center items-center mb-4">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                      <span className="text-blue-600 text-sm">04</span>
+                    </div>
+                  </div>
+                  <h3 className="text-base font-bold mb-2">正式上线</h3>
+                  <div className="border-t border-gray-200 w-16 mx-auto my-3"></div>
+                  <p className="text-gray-600 text-xs">数字人上线，调用接口驱动或通过平台直接使用</p>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* 准备好开启您的AI数字人之旅了吗？ */}
-          <div className="mt-24 container mx-auto px-4">
-            <div className="bg-white rounded-3xl overflow-hidden relative border border-gray-200">
+          <div className="mt-24 py-8">
+            <div className="bg-white overflow-hidden relative border border-gray-200">
               {/* 装饰元素 */}
               <div className="absolute top-0 right-0 w-1/2 h-full">
                 <svg className="h-full w-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1285,7 +1473,7 @@ const HumanPage = () => {
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="flex items-start">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                        <div className="w-8 h-8 bg-blue-50 flex items-center justify-center mr-2">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
@@ -1296,7 +1484,7 @@ const HumanPage = () => {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                        <div className="w-8 h-8 bg-blue-50 flex items-center justify-center mr-2">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
@@ -1307,7 +1495,7 @@ const HumanPage = () => {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                        <div className="w-8 h-8 bg-blue-50 flex items-center justify-center mr-2">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
@@ -1318,7 +1506,7 @@ const HumanPage = () => {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
+                        <div className="w-8 h-8 bg-blue-50 flex items-center justify-center mr-2">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
@@ -1331,25 +1519,24 @@ const HumanPage = () => {
                     </div>
                     
                     <div className="flex flex-wrap gap-3">
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-4 rounded-lg shadow-lg">
+                      <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-4 rounded-none shadow-lg">
                         立即体验
                       </Button>
-                      <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded-lg">
+                      <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded-none">
                         咨询价格
                       </Button>
                     </div>
                   </div>
                 </div>
-                
                 {/* 右侧功能卡片 */}
                 <div className="md:col-span-2 relative hidden md:block">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-full h-full p-6 flex items-center">
-                      <div className="bg-gray-50 rounded-2xl w-full h-full p-4 shadow-lg">
+                      <div className="bg-gray-50 w-full h-full p-4 shadow-lg">
                         <div className="grid grid-cols-2 gap-4 h-full">
                           {/* AI数字人 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+                          <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                               </svg>
@@ -1359,8 +1546,8 @@ const HumanPage = () => {
                           </div>
                           
                           {/* 私有部署 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+                          <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                               </svg>
@@ -1370,8 +1557,8 @@ const HumanPage = () => {
                           </div>
                           
                           {/* 专业团队 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+                          <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>
@@ -1381,8 +1568,8 @@ const HumanPage = () => {
                           </div>
                           
                           {/* 开源方案 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+                          <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                               </svg>

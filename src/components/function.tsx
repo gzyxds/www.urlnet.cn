@@ -53,7 +53,7 @@ const FunctionBlueprint = () => {
           <h3 className="text-2xl md:text-3xl font-medium mb-8 text-blue-600 tracking-wide">
             In Minutes, Not Months. Really Fast!
           </h3>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8 rounded-full"></div>
+          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
           <p className="text-gray-700 text-lg max-w-4xl mx-auto leading-relaxed">
             这个是最简单的AI集成方式之一，只需点击，只需几分钟，只需几行代码，我们就可以帮助您实现AI能力方案。
           </p>
@@ -83,9 +83,9 @@ const FunctionBlueprint = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col items-center justify-center h-32 hover:border-blue-300 hover:shadow-sm transition-all duration-300">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3 group-hover:bg-blue-200 transition-colors">
-                    <div className="text-blue-600 group-hover:text-blue-700 transition-colors">
+                <div className="bg-white border border-gray-200 p-4 flex flex-col items-center justify-center h-32 hover:border-blue-300 hover:shadow-sm transition-all duration-300">
+                  <div className="w-12 h-12 bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-blue-200 transition-colors">
+                    <div className="text-black group-hover:text-gray-800 transition-colors">
                       {func.icon}
                     </div>
                   </div>

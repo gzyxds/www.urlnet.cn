@@ -423,8 +423,8 @@ const AiPage = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* 演示信息左侧内容 */}
             <div className="w-full lg:w-1/2">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
+              <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium mb-6">
+                <span className="w-1.5 h-1.5 bg-blue-600 mr-2"></span>
                 在线演示
               </div>
               
@@ -434,16 +434,16 @@ const AiPage = () => {
                 通过我们的在线演示系统，您可以亲身体验艺创AI-全能知识库PHP&Java的强大功能和直观界面，无需安装，即刻体验。
               </p>
               
-              <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+              <div className="bg-white shadow-lg p-6 mb-8">
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mr-3">
+                  <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mr-3">
                     <Play className="h-5 w-5 text-blue-600" />
                   </div>
                   <h3 className="text-lg font-medium">演示账号信息</h3>
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">演示前台</p>
                       <p className="text-xs text-blue-600">https://www.cnai.art</p>
@@ -463,7 +463,7 @@ const AiPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">体验后台</p>
                       <p className="text-xs text-blue-600">https://www.cnai.art/admin</p>
@@ -483,7 +483,7 @@ const AiPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">移动端</p>
                       <p className="text-xs text-blue-600">https://www.cnai.art/mobile</p>
@@ -506,10 +506,10 @@ const AiPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-none">
                   申请专属演示
                 </Button>
-                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 rounded-none">
                   联系客服
                 </Button>
               </div>
@@ -519,11 +519,11 @@ const AiPage = () => {
             <div className="w-full lg:w-1/2 flex justify-center">
               <div className="relative">
                 {/* 演示界面主图 */}
-                <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="bg-white p-6 shadow-lg">
                   <img 
                     src="https://artaigc.cn/assets/work.svg" 
                     alt="AI数字人演示界面" 
-                    className="w-full rounded-lg"
+                    className="w-full"
                   />
                   
                   <div className="mt-4 flex items-center justify-between">
@@ -532,27 +532,27 @@ const AiPage = () => {
                       <p className="text-xs text-gray-500">一站式管理您的所有知识库资产</p>
                     </div>
                     <div className="flex space-x-2">
-                      <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                      <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                      <div className="w-2 h-2 bg-red-500"></div>
+                      <div className="w-2 h-2 bg-yellow-500"></div>
+                      <div className="w-2 h-2 bg-green-500"></div>
                     </div>
                   </div>
                 </div>
                 
                 {/* 移动端二维码 */}
-                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-white p-4 shadow-lg rounded-xl">
                   <img 
                     src="/images/qrcode.png" 
                     alt="演示二维码" 
-                    className="w-24 h-24 bg-white rounded-md"
+                    className="w-24 h-24 bg-white rounded-lg"
                   />
                   <p className="text-xs text-center mt-2 text-gray-600">扫码体验移动端</p>
                 </div>
                 
                 {/* 在线演示装饰元素 */}
-                <div className="absolute -top-6 -left-6 bg-blue-600 rounded-xl p-4 shadow-lg">
+                <div className="absolute -top-6 -left-6 bg-blue-600 p-4 shadow-lg rounded-xl">
                   <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-white/20 flex items-center justify-center rounded-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                         <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
@@ -569,7 +569,6 @@ const AiPage = () => {
           </div>
         </div>
       </section>
-
 
     {/* 应用场景展示区域 */}
       <section className="py-24 bg-gradient-to-br from-white via-slate-50/50 to-blue-50/30 relative overflow-hidden">
@@ -595,12 +594,12 @@ const AiPage = () => {
           </div>
 
           {/* 场景卡片网格 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 [&>*]:rounded-none">
             {/* 数据训练卡片 */}
-            <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-slate-200/50">
+            <div className="relative bg-white/95 backdrop-blur-sm p-8 shadow-sm border border-slate-200/50 rounded-2xl">
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-6">
-                  <Users className="h-8 w-8 text-slate-800" />
+                <div className="w-16 h-16 bg-slate-100 rounded-xl flex items-center justify-center mb-6">
+                  <Users className="h-6 w-6 text-slate-800" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">数据训练</h3>
                 <p className="text-slate-600 text-sm mb-6 leading-relaxed">
@@ -620,7 +619,7 @@ const AiPage = () => {
                     社交互动体验
                   </div>
                 </div>
-                <Button className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl py-2.5 font-medium hover:bg-white">
+                <Button className="w-full bg-white text-gray-900 border border-gray-200 py-2.5 font-medium hover:bg-white">
                   了解更多
                 </Button>
               </div>
@@ -630,7 +629,7 @@ const AiPage = () => {
             <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-slate-200/50">
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-6">
-                  <Bot className="h-8 w-8 text-slate-800" />
+                  <Bot className="h-6 w-6 text-slate-800" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">知识库应用</h3>
                 <p className="text-slate-600 text-sm mb-6 leading-relaxed">
@@ -660,7 +659,7 @@ const AiPage = () => {
             <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-slate-200/50">
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-6">
-                  <PenTool className="h-8 w-8 text-slate-800" />
+                  <PenTool className="h-6 w-6 text-slate-800" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">内容创作</h3>
                 <p className="text-slate-600 text-sm mb-6 leading-relaxed">
@@ -690,7 +689,7 @@ const AiPage = () => {
             <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-slate-200/50">
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-6">
-                  <Tv className="h-8 w-8 text-slate-800" />
+                  <Tv className="h-6 w-6 text-slate-800" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">虚拟直播</h3>
                 <p className="text-slate-600 text-sm mb-6 leading-relaxed">
@@ -718,7 +717,7 @@ const AiPage = () => {
           </div>
 
           {/* 底部展示区域 */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-md border border-slate-200/50">
+          <div className="bg-white/95 backdrop-blur-sm p-8 md:p-12 shadow-md border border-slate-200/50">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* 左侧内容 */}
               <div>
@@ -748,10 +747,10 @@ const AiPage = () => {
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-slate-900 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-medium transition-all duration-300">
+                  <Button className="bg-slate-900 hover:bg-blue-600 text-white px-8 py-3 rounded-none font-medium transition-all duration-300">
                     立即体验
                   </Button>
-                  <Button variant="outline" className="border-2 border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-600 px-8 py-3 rounded-xl font-medium transition-all duration-300">
+                  <Button variant="outline" className="border-2 border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-600 px-8 py-3 rounded-none font-medium transition-all duration-300">
                     查看案例
                   </Button>
                 </div>
@@ -791,7 +790,7 @@ const AiPage = () => {
           {/* 场景卡片网格 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* 机器人管理 */}
-            <div className="flex flex-col rounded-2xl overflow-hidden shadow-md border border-gray-200">
+            <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
               <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
                 <img 
                   src="/images/scenarios/Data.png" 
@@ -825,9 +824,9 @@ const AiPage = () => {
             </div>
 
             {/* 知识库数据训练 */}
-            <div className="flex flex-col rounded-2xl overflow-hidden shadow-md border border-gray-200">
+            <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
               <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
-                <img 
+                <img
                   src="/images/scenarios/Data.png" 
                   alt="知识库数据训练" 
                   className="w-full h-full object-cover"
@@ -859,7 +858,7 @@ const AiPage = () => {
             </div>
 
             {/* AI数字人 */}
-            <div className="flex flex-col rounded-2xl overflow-hidden shadow-md border border-gray-200">
+            <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
               <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
                 <img 
                   src="/images/scenarios/Data.png" 
@@ -891,9 +890,8 @@ const AiPage = () => {
                 </Button>
               </div>
             </div>
-
             {/* AI大语言模型 */}
-            <div className="flex flex-col rounded-2xl overflow-hidden shadow-md border border-gray-200">
+            <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
               <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-blue-50">
                 <img 
                   src="/images/scenarios/Data.png" 
@@ -970,10 +968,10 @@ const AiPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-full shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-full">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   购买授权
                 </Button>
               </div>
@@ -1062,10 +1060,10 @@ const AiPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-full shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-full">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   购买授权
                 </Button>
               </div>
@@ -1143,10 +1141,10 @@ const AiPage = () => {
                 </div>
               </div>
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-full shadow-lg">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
                   查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-full">
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
                   购买授权
                 </Button>
               </div>
@@ -1269,11 +1267,11 @@ const AiPage = () => {
               </div>
               
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-full shadow-lg">
-                  立即体验
+                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
+                  查看演示
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-full">
-                  了解更多
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                  购买授权
                 </Button>
               </div>
             </div>
@@ -1281,8 +1279,8 @@ const AiPage = () => {
  {/* 产品核心功能 */}
 
           {/* 准备好开启您的AI之旅了吗？ */}
-          <div className="mt-24 container mx-auto px-4">
-            <div className="bg-white rounded-3xl overflow-hidden relative border border-gray-200">
+          <div className="py-20">
+            <div className="bg-white rounded-none overflow-hidden relative border border-gray-200">
               {/* 装饰元素 */}
               <div className="absolute top-0 right-0 w-1/2 h-full">
                 <svg className="h-full w-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1350,12 +1348,11 @@ const AiPage = () => {
                         </div>
                       </div>
                     </div>
-                    
                     <div className="flex flex-wrap gap-3">
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-4 rounded-lg shadow-lg">
+                      <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-4 rounded-none shadow-lg">
                         立即体验
                       </Button>
-                      <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded-lg">
+                      <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded-none">
                         咨询价格
                       </Button>
                     </div>
@@ -1366,11 +1363,11 @@ const AiPage = () => {
                 <div className="md:col-span-2 relative hidden md:block">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-full h-full p-6 flex items-center">
-                      <div className="bg-gray-50 rounded-2xl w-full h-full p-4 shadow-lg">
+                      <div className="bg-gray-50 w-full h-full p-4 shadow-lg">
                         <div className="grid grid-cols-2 gap-4 h-full">
                           {/* AI数字人 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+                          <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                               </svg>
@@ -1380,8 +1377,8 @@ const AiPage = () => {
                           </div>
                           
                           {/* 私有部署 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+                          <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                               </svg>
@@ -1391,8 +1388,8 @@ const AiPage = () => {
                           </div>
                           
                           {/* 专业团队 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+                          <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                               </svg>
@@ -1402,8 +1399,8 @@ const AiPage = () => {
                           </div>
                           
                           {/* 开源方案 */}
-                          <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm">
-                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+                          <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
+                            <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
                               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                               </svg>

@@ -71,9 +71,9 @@ const Advantages = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 bg-white group">
+              <Card className="h-full border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 bg-white group rounded-none">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 rounded-none">
                     {advantage.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-gray-900 leading-tight">{advantage.title}</h3>
@@ -86,7 +86,7 @@ const Advantages = () => {
 
         {/* Why Choose Us Section */}
         <motion.div 
-          className="bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-100 shadow-sm p-12"
+          className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 shadow-sm p-12 rounded-none"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -118,7 +118,7 @@ const Advantages = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-6 h-6 rounded-full bg-[#015bfe] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 bg-[#015bfe] flex items-center justify-center flex-shrink-0 mt-0.5 rounded-none">
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         width="14" 
@@ -142,11 +142,11 @@ const Advantages = () => {
             
             <div className="hidden lg:block">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#015bfe]/10 to-transparent rounded-2xl transform rotate-3" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#015bfe]/10 to-transparent transform rotate-3" />
                 <img 
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
                   alt="团队合作" 
-                  className="relative rounded-2xl shadow-lg object-cover w-full h-96"
+                  className="relative shadow-lg object-cover w-full h-96"
                 />
               </div>
             </div>

@@ -171,110 +171,120 @@ const HotProducts = React.memo(() => {
       transition={{ duration: 0.8, delay: 0.8 }}
       className="py-8 sm:py-12 lg:py-16"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-8xl">
         {/* 标题区域 */}
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
             热门产品
           </h2>
           <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
             丰富的应用场景和解决方案，满足多种业务需求
           </p>
         </div>
 
-        {/* 场景标签导航 - 响应式优化 */}
+        {/* 场景标签导航 - 简洁纯文本设计 */}
         <div className="mb-6 sm:mb-8 px-4">
-          {/* 桌面端：全屏显示，文案均匀分布 */}
-          <div className="hidden md:flex justify-center">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-2 flex w-full mx-auto justify-between">
-              {scenarioKeys.map((scenario) => (
-                <button 
-                  key={scenario}
-                  className={`flex-1 px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 text-sm whitespace-nowrap rounded-xl touch-manipulation mx-1 ${
-                    activeScenario === scenario 
-                      ? 'bg-blue-600 text-white shadow-md' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 active:bg-gray-100'
-                  }`}
-                  onClick={() => handleScenarioChange(scenario)}
-                  aria-label={`切换到${scenarioConfig[scenario].title}场景`}
-                >
-                  {scenarioConfig[scenario].title}
-                </button>
-              ))}
-            </div>
+          {/* 桌面端：简洁文本标签，无分隔线和按钮样式 */}
+          <div className="hidden md:flex justify-center space-x-16">
+            {scenarioKeys.map((scenario, index) => (
+              <div
+                key={scenario}
+                className={`px-6 py-3 cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide relative ${
+                  activeScenario === scenario 
+                    ? 'text-blue-600' 
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+                onClick={() => handleScenarioChange(scenario)}
+                aria-label={`切换到${scenarioConfig[scenario].title}场景`}
+              >
+                {scenarioConfig[scenario].title}
+                {/* 活跃状态下的底部指示线 */}
+                {activeScenario === scenario && (
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"></div>
+                )}
+              </div>
+            ))}
           </div>
 
-          {/* 移动端：可滚动导航 */}
+          {/* 移动端：简洁文本标签，无分隔线和按钮样式 */}
           <div className="md:hidden relative">
-            {/* 左侧箭头 */}
+            {/* 左侧箭头 - 简化样式 */}
             {showLeftArrow && (
-              <button
+              <div
                 onClick={() => scrollTo('left')}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 text-gray-400 hover:text-blue-600 transition-colors duration-300 cursor-pointer"
                 aria-label="向左滚动"
               >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
+                <ChevronLeft className="h-5 w-5" />
+              </div>
             )}
 
-            {/* 右侧箭头 */}
+            {/* 右侧箭头 - 简化样式 */}
             {showRightArrow && (
-              <button
+              <div
                 onClick={() => scrollTo('right')}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 text-gray-400 hover:text-blue-600 transition-colors duration-300 cursor-pointer"
                 aria-label="向右滚动"
               >
-                <ChevronRightIcon className="h-4 w-4" />
-              </button>
+                <ChevronRightIcon className="h-5 w-5" />
+              </div>
             )}
 
-            {/* 滚动容器 */}
+            {/* 滚动容器 - 去掉分隔线 */}
             <div 
               ref={scrollContainerRef}
-              className="flex gap-2 overflow-x-auto scrollbar-hide px-2 py-2"
+              className="flex gap-10 overflow-x-auto scrollbar-hide px-6 py-3"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {scenarioKeys.map((scenario) => (
-                <button 
+                <div
                   key={scenario}
-                  className={`flex-shrink-0 px-4 py-3 font-medium transition-all duration-300 text-sm whitespace-nowrap rounded-xl touch-manipulation min-w-fit ${
+                  className={`flex-shrink-0 px-5 py-3 cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide whitespace-nowrap relative ${
                     activeScenario === scenario 
-                      ? 'bg-blue-600 text-white shadow-md' 
-                      : 'bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 active:bg-gray-100 border border-gray-200'
+                      ? 'text-blue-600' 
+                      : 'text-gray-600 hover:text-gray-900'
                   }`}
                   onClick={() => handleScenarioChange(scenario)}
                   aria-label={`切换到${scenarioConfig[scenario].title}场景`}
                 >
                   {scenarioConfig[scenario].title}
-                </button>
+                  {/* 活跃状态下的底部指示线 */}
+                  {activeScenario === scenario && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"></div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
 
-          {/* 平板端：网格布局 */}
+          {/* 平板端：简洁文本标签，无分隔线和按钮样式 */}
           <div className="hidden sm:block md:hidden">
-            <div className="grid grid-cols-2 gap-2 max-w-md mx-auto">
+            <div className="flex flex-wrap justify-center gap-10">
               {scenarioKeys.map((scenario) => (
-                <button 
+                <div
                   key={scenario}
-                  className={`px-4 py-3 font-medium transition-all duration-300 text-sm rounded-xl touch-manipulation ${
+                  className={`px-5 py-3 cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide relative ${
                     activeScenario === scenario 
-                      ? 'bg-blue-600 text-white shadow-md' 
-                      : 'bg-white text-gray-600 hover:text-gray-900 hover:bg-gray-50 active:bg-gray-100 border border-gray-200'
+                      ? 'text-blue-600' 
+                      : 'text-gray-600 hover:text-gray-900'
                   }`}
                   onClick={() => handleScenarioChange(scenario)}
                   aria-label={`切换到${scenarioConfig[scenario].title}场景`}
                 >
                   {scenarioConfig[scenario].title}
-                </button>
+                  {/* 活跃状态下的底部指示线 */}
+                  {activeScenario === scenario && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"></div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
         </div>
 
         {/* 内容展示区域 */}
-        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden">
+        <div className="bg-white shadow-md border border-gray-100 overflow-hidden">
           <motion.div
             key={activeScenario}
             initial={{ opacity: 0, y: 20 }}
@@ -285,7 +295,7 @@ const HotProducts = React.memo(() => {
             {/* 左侧内容区域 */}
             <div className="w-full lg:w-1/2 p-3 sm:p-4 md:p-6 lg:p-8 flex flex-col justify-center">
               <div className="mb-4 sm:mb-6">
-                <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-medium mb-4 sm:mb-6">
+                <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-blue-50 text-blue-700 text-xs font-medium mb-4 sm:mb-6">
                   <IconComponent className="h-3 w-3 mr-2" />
                   {currentScenario.subtitle}
                 </div>
@@ -301,7 +311,7 @@ const HotProducts = React.memo(() => {
               <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 {currentScenario.features.map((feature, index) => (
                   <div key={index} className="flex items-start group">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-100 flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0 group-hover:bg-blue-200 transition-colors">
                       <ChevronRight className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-blue-600" />
                     </div>
                     <div className="flex-1">
@@ -314,7 +324,7 @@ const HotProducts = React.memo(() => {
               
               {/* 操作按钮 */}
               <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-fit touch-manipulation active:scale-95"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium shadow-sm hover:shadow-md transition-all duration-300 w-fit touch-manipulation active:scale-95"
                 aria-label={`查看${currentScenario.title}的详细信息`}
               >
                 查看详情
@@ -325,8 +335,8 @@ const HotProducts = React.memo(() => {
             {/* 右侧图片区域 */}
             <div className="w-full lg:w-1/2 bg-gradient-to-br from-blue-50 to-indigo-50 p-2 sm:p-3 lg:p-4 flex items-center justify-center">
               <div className="relative w-full max-w-xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 rounded-3xl transform rotate-3"></div>
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 transform rotate-3"></div>
+                <div className="relative overflow-hidden shadow-sm">
                   <img 
                     src={currentScenario.image}
                     alt={currentScenario.imageAlt}
@@ -350,7 +360,7 @@ const HotProducts = React.memo(() => {
                   )}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 sm:p-6">
                     <div className="flex items-center">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white flex items-center justify-center mr-3 sm:mr-4 shadow-sm">
                         <IconComponent className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                       </div>
                       <div>

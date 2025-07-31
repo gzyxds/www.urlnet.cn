@@ -100,12 +100,12 @@ const Products = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-blue-200"
+              className="group bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-blue-200"
             >
               {/* 产品图片区域 */}
               <div className="relative bg-gradient-to-br from-blue-50 to-gray-50 p-6">
                 <div className="absolute top-4 right-4">
-                  <span className="bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full">
+                  <span className="bg-blue-600 text-white text-xs font-medium px-3 py-1">
                     热销
                   </span>
                 </div>
@@ -154,7 +154,7 @@ const Products = () => {
                   {product.features.slice(0, 3).map((feature, idx) => (
                     <span 
                       key={idx} 
-                      className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-medium"
+                      className="text-xs bg-gray-100 text-gray-700 px-3 py-1 font-medium"
                     >
                       {feature}
                     </span>
