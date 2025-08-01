@@ -1063,7 +1063,7 @@ const  PaperPage = () => {
                     <p className="text-xs text-gray-600">打造虚拟社交形象，增强用户互动体验</p>
                   </li>
                 </ul>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
+                <Button className="bg-white hover:bg-gray-50 text-gray-900 text-sm mt-auto border border-gray-200">
                   查看详情
                 </Button>
               </div>
@@ -1119,7 +1119,7 @@ const  PaperPage = () => {
                     <p className="text-xs text-gray-600">提供标准化培训内容，确保培训质量一致性</p>
                   </li>
                 </ul>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
+                <Button className="bg-white hover:bg-gray-50 text-gray-900 text-sm mt-auto border border-gray-200">
                   查看详情
                 </Button>
               </div>
@@ -1182,7 +1182,7 @@ const  PaperPage = () => {
                     <p className="text-xs text-gray-600">支持多语言学生作业和翻译，拓展全球市场</p>
                   </li>
                 </ul>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
+                 <Button className="bg-white hover:bg-gray-50 text-gray-900 text-sm mt-auto border border-gray-200">
                   查看详情
                 </Button>
               </div>
@@ -1252,7 +1252,7 @@ const  PaperPage = () => {
                     <p className="text-xs text-gray-600">为线上活动提供专业主持服务，增强互动体验</p>
                   </li>
                 </ul>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm mt-auto">
+                 <Button className="bg-white hover:bg-gray-50 text-gray-900 text-sm mt-auto border border-gray-200">
                   查看详情
                 </Button>
               </div>
