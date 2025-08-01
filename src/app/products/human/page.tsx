@@ -74,31 +74,50 @@ const HumanPage = () => {
               <div className="relative mt-0 lg:mt-0">
                 {/* 主图 */}
                 <div className="relative mx-auto max-w-md lg:max-w-none">
-                  <img 
-                    src="https://server.mddai.cn/uploads/images/20241128195610379379917.png" 
-                    alt="AI数字人界面展示" 
-                    className="w-full rounded-lg shadow-lg"
-                    loading="lazy"
-                  />
-                  
-                  {/* 悬浮标签 - 优化移动端位置和显示 */}
-                  <div className="absolute top-4 sm:top-6 right-2 sm:right-4 transform translate-x-0 -translate-y-0 bg-white rounded-xl shadow-lg p-3 sm:p-4 flex items-center max-w-[160px] sm:max-w-[180px] md:max-w-[200px] z-10">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-blue-50 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                      <Video className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
+                  {/* 模拟界面容器 */}
+                  <div className="w-full aspect-[16/9] bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg shadow-lg p-4">
+                    {/* 模拟顶部导航栏 */}
+                    <div className="h-6 bg-white rounded-md shadow-sm mb-3 flex items-center px-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-red-400 mr-2"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mr-2"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-sm sm:text-base font-medium text-gray-900 leading-tight">视频生成</p>
-                      <p className="text-xs sm:text-sm text-gray-500 leading-tight mt-0.5">高清视频合成</p>
+                    
+                    {/* 模拟主内容区域 */}
+                    <div className="grid grid-cols-3 gap-3 h-[calc(100%-2rem)]">
+                      {/* 左侧边栏 */}
+                      <div className="bg-white rounded-md shadow-sm p-2">
+                        <div className="w-full h-3 bg-gray-200 rounded mb-2"></div>
+                        <div className="w-3/4 h-3 bg-gray-200 rounded"></div>
+                      </div>
+                      
+                      {/* 中间内容区 */}
+                      <div className="col-span-2 bg-white rounded-md shadow-sm p-2">
+                        <div className="w-full h-full bg-blue-50 rounded-md flex items-center justify-center">
+                          <div className="w-12 h-12 bg-blue-100 rounded-full"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="absolute bottom-4 sm:bottom-6 left-2 sm:left-4 transform translate-x-0 translate-y-0 bg-white rounded-xl shadow-lg p-3 sm:p-4 flex items-center max-w-[160px] sm:max-w-[180px] md:max-w-[200px] z-10">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-purple-50 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                      <Mic className="h-4 w-4 sm:h-5 sm:w-5 text-purple-600" />
+                  {/* 悬浮标签 - 优化移动端位置和显示 */}
+                  <div className="absolute top-3 sm:top-4 right-2 sm:right-3 transform translate-x-0 -translate-y-0 bg-white rounded-xl shadow-lg p-2 sm:p-3 flex items-center max-w-[140px] sm:max-w-[160px] md:max-w-[180px] z-10">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 bg-blue-50 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                      <Video className="h-3 w-3 sm:h-4 sm:w-4 text-blue-600" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm sm:text-base font-medium text-gray-900 leading-tight">声音克隆</p>
-                      <p className="text-xs sm:text-sm text-gray-500 leading-tight mt-0.5">实时语音合成</p>
+                      <p className="text-xs sm:text-sm font-medium text-gray-900 leading-tight">视频生成</p>
+                      <p className="text-[10px] sm:text-xs text-gray-500 leading-tight mt-0.5">高清视频合成</p>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute bottom-3 sm:bottom-4 left-2 sm:left-3 transform translate-x-0 translate-y-0 bg-white rounded-xl shadow-lg p-2 sm:p-3 flex items-center max-w-[140px] sm:max-w-[160px] md:max-w-[180px] z-10">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 bg-purple-50 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                      <Mic className="h-3 w-3 sm:h-4 sm:w-4 text-purple-600" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs sm:text-sm font-medium text-gray-900 leading-tight">声音克隆</p>
+                      <p className="text-[10px] sm:text-xs text-gray-500 leading-tight mt-0.5">实时语音合成</p>
                     </div>
                   </div>
                 </div>
@@ -107,7 +126,6 @@ const HumanPage = () => {
           </div>
         </div>
       </section>
-
       {/* 产品优势 - 优化响应式布局 */}
       <section className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
