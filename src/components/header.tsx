@@ -441,47 +441,52 @@ const Header: React.FC = () => {
             <div className="hidden md:flex items-center space-x-1">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Link to="/login">
+                  <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer">
                     <Button 
                       variant="ghost" 
                       className="text-sm font-medium text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg px-2 py-1.5 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
-                      onClick={handleNavigation}
                     >
                       登录
                     </Button>
-                  </Link>
+                  </a>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56 p-2 rounded-xl border border-gray-100 shadow-lg bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 animate-in fade-in-50 zoom-in-95 duration-150">
                   <DropdownMenuLabel className="font-normal text-xs text-gray-500 px-2 dark:text-gray-400">账户</DropdownMenuLabel>
                   <DropdownMenuSeparator className="my-1 dark:bg-gray-700" />
                   <DropdownMenuGroup>
                     <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <Link to="/profile" onClick={handleNavigation}>
+                      <a href="https://auth.cnai.art" target="_blank" rel="noopener noreferrer" className="flex items-center">
                         <User className="mr-2 h-4 w-4" />
                         <span className="dark:text-gray-200">个人中心</span>
-                      </Link>
+                      </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <Link to="/settings" onClick={handleNavigation}>
+                      <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer" className="flex items-center">
                         <Settings className="mr-2 h-4 w-4" />
                         <span className="dark:text-gray-200">账户设置</span>
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
+                      <Link to="/docs" className="flex items-center">
+                        <HelpCircle className="mr-2 h-4 w-4" />
+                        <span className="dark:text-gray-200">文档中心</span>
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <Link to="/help" onClick={handleNavigation}>
-                        <HelpCircle className="mr-2 h-4 w-4" />
-                        <span className="dark:text-gray-200">帮助中心</span>
-                      </Link>
+                      <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        <span className="dark:text-gray-200">认证中心</span>
+                      </a>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              <Link to="/register" onClick={handleNavigation}>
+              <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer">
                 <Button className="text-sm font-medium bg-[#015bfe] hover:bg-blue-700 text-white rounded-lg shadow-sm shadow-blue-200 dark:shadow-blue-900/20 px-3 py-1.5">
                   注册
                 </Button>
-              </Link>
+              </a>
             </div>
 
             {/* 移动端菜单按钮 */}
@@ -770,7 +775,7 @@ const Header: React.FC = () => {
                     </div>
                     <div className="space-y-2">
                       <motion.div whileTap={{ scale: 0.98 }}>
-                        <Link to="/login" onClick={handleNavigation}>
+                        <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer">
                           <Button 
                             variant="outline" 
                             className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900"
@@ -778,15 +783,15 @@ const Header: React.FC = () => {
                             <User className="h-4 w-4 mr-2" />
                             登录账户
                           </Button>
-                        </Link>
+                        </a>
                       </motion.div>
                       <motion.div whileTap={{ scale: 0.98 }}>
-                        <Link to="/register" onClick={handleNavigation}>
+                        <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer">
                           <Button className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg shadow-lg shadow-blue-200/50 transition-all duration-200 dark:shadow-blue-900/20">
                             <Sparkles className="h-4 w-4 mr-2" />
                             免费注册
                           </Button>
-                        </Link>
+                        </a>
                       </motion.div>
                     </div>
                   </div>
