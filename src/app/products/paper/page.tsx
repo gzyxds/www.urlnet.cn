@@ -1017,12 +1017,26 @@ const  PaperPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* 期刊论文场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
-                <img 
-                  src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
-                  alt="期刊论文应用场景" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 relative">
+                {/* 模拟论文编辑界面 */}
+                <div className="absolute inset-4 bg-white rounded-lg shadow-sm p-3">
+                  {/* 模拟标题栏 */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                      <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                      <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="w-20 h-2 bg-gray-200 rounded-full"></div>
+                  </div>
+                  {/* 模拟内容区 */}
+                  <div className="space-y-2">
+                    <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+                    <div className="h-2 bg-gray-200 rounded w-full"></div>
+                    <div className="h-2 bg-gray-200 rounded w-5/6"></div>
+                    <div className="h-2 bg-gray-200 rounded w-4/6"></div>
+                  </div>
+                </div>
               </div>
               <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2">期刊论文</h3>
@@ -1057,12 +1071,28 @@ const  PaperPage = () => {
 
             {/* 科普文章场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
-                <img 
-                  src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
-                  alt="科普文章应用场景" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 p-6">
+                {/* 模拟科普文章编辑界面 */}
+                <div className="bg-white rounded-xl h-full p-4 shadow-sm">
+                  {/* 模拟工具栏 */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="flex space-x-2">
+                      <div className="w-6 h-2 bg-gray-200 rounded"></div>
+                      <div className="w-6 h-2 bg-gray-200 rounded"></div>
+                    </div>
+                  </div>
+                  {/* 模拟内容区 */}
+                  <div className="space-y-2">
+                    <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+                    <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+                    <div className="h-3 bg-gray-200 rounded w-5/6"></div>
+                  </div>
+                </div>
               </div>
               <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2">科普文章</h3>
@@ -1097,12 +1127,35 @@ const  PaperPage = () => {
 
             {/* 学生作业场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
-                <img 
-                  src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
-                  alt="学生作业应用场景" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
+                {/* 模拟学生作业界面 */}
+                <div className="w-full h-full bg-white rounded-xl p-4 shadow-sm">
+                  {/* 模拟标题栏 */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="w-24 h-2 bg-gray-200 rounded-full"></div>
+                  </div>
+                  
+                  {/* 模拟作业内容 */}
+                  <div className="space-y-3">
+                    <div className="h-4 bg-gray-100 rounded w-3/4"></div>
+                    <div className="h-2 bg-gray-100 rounded w-full"></div>
+                    <div className="h-2 bg-gray-100 rounded w-5/6"></div>
+                    <div className="h-2 bg-gray-100 rounded w-4/6"></div>
+                    <div className="grid grid-cols-2 gap-2 mt-4">
+                      <div className="h-16 bg-blue-50 rounded flex items-center justify-center">
+                        <div className="w-8 h-8 rounded bg-blue-100"></div>
+                      </div>
+                      <div className="h-16 bg-purple-50 rounded flex items-center justify-center">
+                        <div className="w-8 h-8 rounded bg-purple-100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2">学生作业</h3>
@@ -1137,13 +1190,43 @@ const  PaperPage = () => {
 
             {/* 商业报告场景卡片 */}
             <div className="flex flex-col rounded-2xl overflow-hidden border border-gray-200">
-              <div className="w-full h-48 overflow-hidden">
-                <img 
-                  src="https://server.mddai.cn/uploads/images/20231227143956204039080.png" 
-                  alt="商业报告应用场景" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full h-48 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 p-4">
+                {/* 模拟商业报告界面 */}
+                <div className="w-full h-full bg-white rounded-xl p-4 relative">
+                  {/* 模拟报告标题栏 */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+                        <PenTool className="w-3 h-3 text-blue-600" />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* 模拟报告内容 */}
+                  <div className="space-y-3">
+                    <div className="h-4 bg-gray-100 rounded w-3/4"></div>
+                    <div className="h-3 bg-gray-100 rounded w-full"></div>
+                    <div className="h-3 bg-gray-100 rounded w-5/6"></div>
+                    <div className="h-3 bg-gray-100 rounded w-4/6"></div>
+                  </div>
+                  
+                  {/* 模拟数据图表 */}
+                  <div className="absolute bottom-4 right-4 flex space-x-2">
+                    <div className="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center">
+                      <div className="w-8 h-8 bg-blue-200 rounded"></div>
+                    </div>
+                    <div className="w-16 h-16 bg-purple-50 rounded-lg flex items-center justify-center">
+                      <div className="w-8 h-8 bg-purple-200 rounded"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              
               <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold mb-2">商业报告</h3>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
