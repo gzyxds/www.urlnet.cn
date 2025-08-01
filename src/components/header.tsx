@@ -39,7 +39,6 @@ interface NavItem {
 }
 
 // 常量定义
-const EXTERNAL_AUTH_URL = 'https://auth.cnai.art';
 const SCROLL_THRESHOLD = 20;
 const MOBILE_BREAKPOINT = 768;
 
@@ -103,12 +102,12 @@ const Header: React.FC = () => {
       name: "产品体验",
       dropdown: true,
       items: [
-        { name: "艺创知识库", path: "/products/ai", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "智能知识库体验", external: true, url: EXTERNAL_AUTH_URL },
-        { name: "艺创数字人", path: "/products/human", icon: <User className="h-5 w-5" />, color: "amber", description: "数字人互动体验", external: true, url: EXTERNAL_AUTH_URL },
-        { name: "聊天绘画", path: "/products/chat", icon: <Layers className="h-5 w-5" />, color: "purple", description: "AI绘画创作体验", external: true, url: EXTERNAL_AUTH_URL },
-        { name: "论文创作", path: "/products/paper", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "智能写作体验", external: true, url: EXTERNAL_AUTH_URL },
-        { name: "云计算", path: "/demo", icon: <Cloud className="h-5 w-5" />, color: "sky", description: "云端计算服务", external: true, url: EXTERNAL_AUTH_URL },
-        { name: "免费领卡", path: "/demo", icon: <Gift className="h-5 w-5" />, color: "pink", description: "免费体验卡领取", external: true, url: EXTERNAL_AUTH_URL }
+        { name: "艺创知识库", path: "https://www.cnai.art", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "智能知识库体验", external: true, url: "https://www.cnai.art" },
+        { name: "艺创数字人", path: "https://v.cnai.ar", icon: <User className="h-5 w-5" />, color: "amber", description: "数字人互动体验", external: true, url: "https://v.cnai.art" },
+        { name: "聊天绘画", path: "https://cnai.ar", icon: <Layers className="h-5 w-5" />, color: "purple", description: "AI绘画创作体验", external: true, url: "https://cnai.art" },
+        { name: "论文创作", path: "https://www.cnai.ar", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "智能写作体验", external: true, url: "https://www.cnai.art" },
+        { name: "云计算", path: "https://www.cloudcvm.com", icon: <Cloud className="h-5 w-5" />, color: "sky", description: "云端计算服务", external: true, url: "https://www.cloudcvm.com" },
+        { name: "免费领卡", path: "https://h5.lot-ml.com/ProductEn/Index/1a654e0b341cadd2", icon: <Gift className="h-5 w-5" />, color: "pink", description: "免费体验卡领取", external: true, url: "https://h5.lot-ml.com/ProductEn/Index/1a654e0b341cadd2" }
       ]
     },
     { name: "关于我们", path: "/about" }
@@ -118,6 +117,11 @@ const Header: React.FC = () => {
   const handleNavigation = useCallback(() => {
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  // 处理外部链接在新窗口打开
+  const openExternalLink = useCallback((url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   }, []);
 
   const toggleMobileMenu = useCallback(() => {
@@ -138,10 +142,7 @@ const Header: React.FC = () => {
     setActiveDropdown(prev => prev === name ? null : name);
   }, []);
 
-  const openExternalLink = useCallback((url: string) => {
-    window.open(url, '_blank');
-    handleNavigation();
-  }, [handleNavigation]);
+
 
   // 初始化暗黑模式
   useEffect(() => {
@@ -231,6 +232,7 @@ const Header: React.FC = () => {
             <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
             <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
           </div>
+          <ExternalLink className="h-3 w-3 text-gray-400 ml-auto dark:text-gray-500" />
         </div>
       ) : (
         <Link to={subItem.path} className="w-full flex items-center" onClick={handleNavigation}>
@@ -439,49 +441,47 @@ const Header: React.FC = () => {
             <div className="hidden md:flex items-center space-x-1">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    className="text-sm font-medium text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg px-2 py-1.5 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
-                    onClick={() => openExternalLink(EXTERNAL_AUTH_URL)}
-                  >
-                    登录
-                  </Button>
+                  <Link to="/login">
+                    <Button 
+                      variant="ghost" 
+                      className="text-sm font-medium text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg px-2 py-1.5 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
+                      onClick={handleNavigation}
+                    >
+                      登录
+                    </Button>
+                  </Link>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56 p-2 rounded-xl border border-gray-100 shadow-lg bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 animate-in fade-in-50 zoom-in-95 duration-150">
                   <DropdownMenuLabel className="font-normal text-xs text-gray-500 px-2 dark:text-gray-400">账户</DropdownMenuLabel>
                   <DropdownMenuSeparator className="my-1 dark:bg-gray-700" />
                   <DropdownMenuGroup>
-                    <DropdownMenuItem 
-                      className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50"
-                      onClick={() => openExternalLink(EXTERNAL_AUTH_URL)}
-                    >
-                      <User className="mr-2 h-4 w-4" />
-                      <span className="dark:text-gray-200">个人中心</span>
+                    <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
+                      <Link to="/profile" onClick={handleNavigation}>
+                        <User className="mr-2 h-4 w-4" />
+                        <span className="dark:text-gray-200">个人中心</span>
+                      </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50"
-                      onClick={() => openExternalLink(EXTERNAL_AUTH_URL)}
-                    >
-                      <Settings className="mr-2 h-4 w-4" />
-                      <span className="dark:text-gray-200">账户设置</span>
+                    <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
+                      <Link to="/settings" onClick={handleNavigation}>
+                        <Settings className="mr-2 h-4 w-4" />
+                        <span className="dark:text-gray-200">账户设置</span>
+                      </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50"
-                      onClick={() => openExternalLink(EXTERNAL_AUTH_URL)}
-                    >
-                      <HelpCircle className="mr-2 h-4 w-4" />
-                      <span className="dark:text-gray-200">帮助中心</span>
+                    <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
+                      <Link to="/help" onClick={handleNavigation}>
+                        <HelpCircle className="mr-2 h-4 w-4" />
+                        <span className="dark:text-gray-200">帮助中心</span>
+                      </Link>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
               
-              <Button 
-                className="text-sm font-medium bg-[#015bfe] hover:bg-blue-700 text-white rounded-lg shadow-sm shadow-blue-200 dark:shadow-blue-900/20 px-3 py-1.5"
-                onClick={() => openExternalLink(EXTERNAL_AUTH_URL)}
-              >
-                注册
-              </Button>
+              <Link to="/register" onClick={handleNavigation}>
+                <Button className="text-sm font-medium bg-[#015bfe] hover:bg-blue-700 text-white rounded-lg shadow-sm shadow-blue-200 dark:shadow-blue-900/20 px-3 py-1.5">
+                  注册
+                </Button>
+              </Link>
             </div>
 
             {/* 移动端菜单按钮 */}
@@ -770,23 +770,23 @@ const Header: React.FC = () => {
                     </div>
                     <div className="space-y-2">
                       <motion.div whileTap={{ scale: 0.98 }}>
-                        <Button 
-                          variant="outline" 
-                          className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900"
-                          onClick={() => openExternalLink(EXTERNAL_AUTH_URL)}
-                        >
-                          <User className="h-4 w-4 mr-2" />
-                          登录账户
-                        </Button>
+                        <Link to="/login" onClick={handleNavigation}>
+                          <Button 
+                            variant="outline" 
+                            className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900"
+                          >
+                            <User className="h-4 w-4 mr-2" />
+                            登录账户
+                          </Button>
+                        </Link>
                       </motion.div>
                       <motion.div whileTap={{ scale: 0.98 }}>
-                        <Button 
-                          className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg shadow-lg shadow-blue-200/50 transition-all duration-200 dark:shadow-blue-900/20"
-                          onClick={() => openExternalLink(EXTERNAL_AUTH_URL)}
-                        >
-                          <Sparkles className="h-4 w-4 mr-2" />
-                          免费注册
-                        </Button>
+                        <Link to="/register" onClick={handleNavigation}>
+                          <Button className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg shadow-lg shadow-blue-200/50 transition-all duration-200 dark:shadow-blue-900/20">
+                            <Sparkles className="h-4 w-4 mr-2" />
+                            免费注册
+                          </Button>
+                        </Link>
                       </motion.div>
                     </div>
                   </div>
