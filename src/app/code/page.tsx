@@ -93,7 +93,7 @@ const CodeDownloadPage: React.FC = () => {
       releaseDate: "2025-03-11",
       downloads: 1250,
       stars: 89,
-      price: "免费",
+      price: "最新",
       category: "python",
       tags: ["艺创AI", "AI", "知识库", "Python"],
       status: "stable",
@@ -117,7 +117,7 @@ const CodeDownloadPage: React.FC = () => {
       releaseDate: "2025-07-04 11:45",
       downloads: 980,
       stars: 76,
-      price: "免费",
+      price: "最新",
       category: "php",
       tags: ["数字人", "企业级", "多渠道"],
       status: "stable",
@@ -141,7 +141,7 @@ const CodeDownloadPage: React.FC = () => {
       releaseDate: "2025-03-11 18:21",
       downloads: 2100,
       stars: 156,
-      price: "免费",
+      price: "最新",
       category: "php", 
       tags: ["最新版", "性能优化", "多语言"],
       status: "latest",
@@ -164,7 +164,7 @@ const CodeDownloadPage: React.FC = () => {
       releaseDate: "2025-07-11",
       downloads: 856,
       stars: 92,
-      price: "免费",
+      price: "最新",
       category: "php",
       tags: ["知识库", "AI模型", "数据分析"],
       status: "stable",
@@ -213,7 +213,7 @@ const CodeDownloadPage: React.FC = () => {
       releaseDate: "2025-05-15",
       downloads: 743,
       stars: 67,
-      price: "免费",
+      price: "最新",
       category: "php",
       tags: ["绘画AI", "聊天", "PHP"],
       status: "stable",
@@ -541,8 +541,8 @@ const CodeDownloadPage: React.FC = () => {
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                    <Code className="h-6 w-6 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <Code className="h-5 w-5 text-white" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors cursor-pointer">
