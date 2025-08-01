@@ -32,11 +32,11 @@ const HumanPage = () => {
             <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12 order-2 lg:order-1">
               <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                数字分身
+                虚拟数字人
               </div>
               
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-                虚拟数字人
+                数字分身
               </h1>
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-lg leading-relaxed">
                 基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型
@@ -61,17 +61,19 @@ const HumanPage = () => {
               {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 购买授权
+                  <Users className="w-4 h-4 mr-2" />
+                  购买授权
                 </Button>
               </div>
             </div>
@@ -654,23 +656,25 @@ const HumanPage = () => {
                   </div>
                 </div>
                 
-                 {/* 按钮组 - 优化移动端按钮大小 */}
+                {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 购买授权
+                  <Users className="w-4 h-4 mr-2" />
+                  购买授权
                 </Button>
-                  </div>
               </div>
+            </div>
               
               {/* 右侧视频 */}
               <div className="relative">
@@ -755,23 +759,26 @@ const HumanPage = () => {
                   </div>
                 </div>
                 
-               {/* 按钮组 - 优化移动端按钮大小 */}
+                {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 购买授权
+                  <Users className="w-4 h-4 mr-2" />
+                  购买授权
                 </Button>
-                  </div>
               </div>
+            </div>
+
               {/* 右侧视频 */}
               <div className="order-1 lg:order-2 relative">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl sm:rounded-3xl p-4 sm:p-8">
@@ -852,23 +859,26 @@ const HumanPage = () => {
                   </div>
                 </div>
                 
-                 {/* 按钮组 - 优化移动端按钮大小 */}
+                {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 购买授权
+                  <Users className="w-4 h-4 mr-2" />
+                  购买授权
                 </Button>
-                  </div>
               </div>
+            </div>
+
               {/* 右侧视频 */}
               <div className="relative">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
@@ -960,23 +970,26 @@ const HumanPage = () => {
                   </div>
                 </div>
                 
-                  {/* 按钮组 - 优化移动端按钮大小 */}
+                {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px]"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 购买授权
+                  <Users className="w-4 h-4 mr-2" />
+                  购买授权
                 </Button>
-                  </div>
               </div>
+            </div>
+            
               {/* 右侧视频 */}
               <div className="relative">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
@@ -1081,32 +1094,37 @@ const HumanPage = () => {
              {/* 按钮组 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即体验
                 </Button>
 
                <Button variant="outline" 
-               className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none"
+               className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                onClick={() => window.open('https://auth.cnai.art', '_blank')}
-               >购买授权
+               >
+                 <Check className="w-4 h-4 mr-2" />
+                 购买授权
                </Button>
 
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Bot className="w-4 h-4 mr-2" />
                   体验Demo
                 </Button>
                 
                  <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 联系客服
+                  <Users className="w-4 h-4 mr-2" />
+                  联系客服
                 </Button>
               </div>
             </div>
@@ -1187,35 +1205,41 @@ const HumanPage = () => {
               {/* 按钮组 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即体验
                 </Button>
 
                <Button variant="outline" 
-               className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none"
+               className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                onClick={() => window.open('https://auth.cnai.art', '_blank')}
-               >购买授权
+               >
+                 <Check className="w-4 h-4 mr-2" />
+                 购买授权
                </Button>
 
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Bot className="w-4 h-4 mr-2" />
                   体验Demo
                 </Button>
                 
                  <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 联系客服
+                  <Users className="w-4 h-4 mr-2" />
+                  联系客服
                 </Button>
               </div>
             </div>
+
             {/* 左侧图片 */}
             <div className="lg:order-1 relative mt-8 lg:mt-0">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
@@ -1291,35 +1315,41 @@ const HumanPage = () => {
              {/* 按钮组 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即体验
                 </Button>
 
                <Button variant="outline" 
-               className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none"
+               className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                onClick={() => window.open('https://auth.cnai.art', '_blank')}
-               >购买授权
+               >
+                 <Check className="w-4 h-4 mr-2" />
+                 购买授权
                </Button>
 
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Bot className="w-4 h-4 mr-2" />
                   体验Demo
                 </Button>
                 
                  <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 联系客服
+                  <Users className="w-4 h-4 mr-2" />
+                  联系客服
                 </Button>
               </div>
             </div>
+            
             {/* 右侧模拟界面 */}
             <div className="relative mt-8 lg:mt-0">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
@@ -1474,36 +1504,43 @@ const HumanPage = () => {
               {/* 按钮组 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
+                  <Play className="w-4 h-4 mr-2" />
                   立即体验
                 </Button>
 
                <Button variant="outline" 
-               className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none"
+               className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                onClick={() => window.open('https://auth.cnai.art', '_blank')}
-               >购买授权
+               >
+                 <Check className="w-4 h-4 mr-2" />
+                 购买授权
                </Button>
 
                 <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
+                  <Bot className="w-4 h-4 mr-2" />
                   体验Demo
                 </Button>
                 
                  <Button 
                   variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
-                 联系客服
+                  <Users className="w-4 h-4 mr-2" />
+                  联系客服
                 </Button>
               </div>
             </div>
           </div>
+
+
           {/* 产品核心功能 */}
 
           <section className="py-24 mt-12">

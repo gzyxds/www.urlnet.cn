@@ -1074,16 +1074,18 @@ const AiPage = () => {
               {/* 按钮 */}
               <div className="flex space-x-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg flex items-center"
                   onClick={() => window.location.href = "/demo"}
                 >
-                 立即体验
+                  <Play className="w-4 h-4 mr-2" />
+                  立即体验
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none flex items-center"
                   onClick={() => window.open("https://auth.cnai.art/", "_blank")}
                 >
+                  <Check className="w-4 h-4 mr-2" />
                   购买授权
                 </Button>
               </div>
@@ -1172,19 +1174,22 @@ const AiPage = () => {
                   <p className="text-sm text-gray-600">提升营销获客效果</p>
                 </div>
               </div>
+
              {/* 按钮 */}
               <div className="flex space-x-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg flex items-center"
                   onClick={() => window.location.href = "/demo"}
                 >
-                 立即体验
+                  <Play className="w-4 h-4 mr-2" />
+                  立即体验
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none flex items-center"
                   onClick={() => window.open("https://auth.cnai.art/", "_blank")}
                 >
+                  <Check className="w-4 h-4 mr-2" />
                   购买授权
                 </Button>
               </div>
@@ -1267,16 +1272,18 @@ const AiPage = () => {
               {/* 按钮 */}
               <div className="flex space-x-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg flex items-center"
                   onClick={() => window.location.href = "/demo"}
                 >
-                 立即体验
+                  <Play className="w-4 h-4 mr-2" />
+                  立即体验
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none flex items-center"
                   onClick={() => window.open("https://auth.cnai.art/", "_blank")}
                 >
+                  <Check className="w-4 h-4 mr-2" />
                   购买授权
                 </Button>
               </div>
@@ -1402,21 +1409,23 @@ const AiPage = () => {
               {/* 按钮 */}
               <div className="flex space-x-4">
                 <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg flex items-center"
                   onClick={() => window.location.href = "/demo"}
                 >
-                 立即体验
+                  <Play className="w-4 h-4 mr-2" />
+                  立即体验
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none"
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none flex items-center"
                   onClick={() => window.open("https://auth.cnai.art/", "_blank")}
                 >
+                  <Check className="w-4 h-4 mr-2" />
                   购买授权
                 </Button>
               </div>
             </div>
-          </div>
+           </div>
           {/* 按钮 */}
  {/* 产品核心功能 */}
 
