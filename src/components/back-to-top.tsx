@@ -21,9 +21,20 @@ const BackToTop = () => {
       }
     };
 
+    // 监听滚动事件
     window.addEventListener('scroll', toggleVisibility);
+    
+    // 监听自定义事件，用于从其他组件触发二维码弹窗
+    const handleShowQRCodeModal = () => {
+      setShowClickQRCode(true);
+    };
+    
+    window.addEventListener('showQRCodeModal', handleShowQRCodeModal);
 
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener('showQRCodeModal', handleShowQRCodeModal);
+    };
   }, []);
 
   // 点击按钮时滚动到顶部

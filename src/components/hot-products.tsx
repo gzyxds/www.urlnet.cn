@@ -324,8 +324,18 @@ const HotProducts = React.memo(() => {
               
               {/* 操作按钮 */}
               <Button 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium shadow-sm hover:shadow-md transition-all duration-300 w-fit touch-manipulation active:scale-95"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium shadow-sm hover:shadow-md transition-all duration-300 w-fit touch-manipulation active:scale-95 rounded-none"
                 aria-label={`查看${currentScenario.title}的详细信息`}
+                onClick={() => {
+                  // 根据当前场景类型跳转到对应的产品页面
+                  const productLinks = {
+                    virtualIP: '/products/human',
+                    digitalEmployee: '/products/ai',
+                    contentCreation: '/products/chat',
+                    virtualLive: '/products/paper'
+                  };
+                  window.location.href = productLinks[activeScenario];
+                }}
               >
                 查看详情
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />

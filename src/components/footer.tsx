@@ -40,10 +40,17 @@ const Footer = () => {
             {/* 右侧按钮和平台图标 */}
             <div className="flex flex-col items-center w-full md:w-auto">
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 w-full sm:w-auto">
-                <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-xl transition-all w-full sm:w-auto">
+                <Button 
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-xl transition-all w-full sm:w-auto"
+                  onClick={() => window.open('https://auth.cnai.art/', '_blank')}
+                >
                   免费使用
                 </Button>
-                <Button variant="outline" className="border-2 border-indigo-200 text-indigo-700 hover:bg-indigo-50 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-xl group-hover:border-indigo-300 transition-colors w-full sm:w-auto">
+                <Button 
+                  variant="outline" 
+                  className="border-2 border-indigo-200 text-indigo-700 hover:bg-indigo-50 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-xl group-hover:border-indigo-300 transition-colors w-full sm:w-auto"
+                  onClick={() => window.open('/download', '_blank')}
+                >
                   <span className="mr-2">客户端下载</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-bounce">
                     <path d="M12 5v14M19 12l-7 7-7-7"/>

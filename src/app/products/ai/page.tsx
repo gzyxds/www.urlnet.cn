@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import BackToTop from '@/components/back-to-top';
 import { Button } from "@/components/ui/button";
 import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
@@ -101,11 +102,22 @@ const AiPage = () => {
               
               {/* 行动按钮组 - 响应式按钮布局 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-12 px-4 sm:px-0">
-                <Button className="relative overflow-hidden bg-blue-600 text-white px-8 py-3 h-auto text-sm sm:text-base font-bold rounded-full group">
+                <Button 
+                  className="relative overflow-hidden bg-blue-600 text-white px-8 py-3 h-auto text-sm sm:text-base font-bold rounded-full group"
+                  onClick={() => window.location.href = "/demo"}
+                >
                   <span className="relative z-10">立即体验</span>
                   <div className="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-100 group-hover:bg-blue-500"></div>
                 </Button>
-                <Button variant="outline" className="relative overflow-hidden border-2 border-blue-600 text-blue-600 px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-full group">
+                <Button 
+                  variant="outline" 
+                  className="relative overflow-hidden border-2 border-blue-600 text-blue-600 px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-full group"
+                  onClick={() => {
+                    // 触发自定义事件来显示二维码弹窗
+                    const event = new CustomEvent('showQRCodeModal');
+                    window.dispatchEvent(event);
+                  }}
+                >
                   <span className="relative z-10 group-hover:text-white transition-colors duration-300">联系客服</span>
                   <div className="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-100 bg-blue-600"></div>
                 </Button>
@@ -1059,15 +1071,25 @@ const AiPage = () => {
                 </ul>
               </div>
               
+              {/* 按钮 */}
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
-                  查看演示
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg"
+                  onClick={() => window.location.href = "/demo"}
+                >
+                 立即体验
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                <Button 
+                  variant="outline" 
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none"
+                  onClick={() => window.open("https://auth.cnai.art/", "_blank")}
+                >
                   购买授权
                 </Button>
               </div>
             </div>
+             {/* 按钮 */}
+             
             {/* 右侧视频 */}
             <div className="relative">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
@@ -1150,16 +1172,25 @@ const AiPage = () => {
                   <p className="text-sm text-gray-600">提升营销获客效果</p>
                 </div>
               </div>
-              
+             {/* 按钮 */}
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
-                  查看演示
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg"
+                  onClick={() => window.location.href = "/demo"}
+                >
+                 立即体验
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                <Button 
+                  variant="outline" 
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none"
+                  onClick={() => window.open("https://auth.cnai.art/", "_blank")}
+                >
                   购买授权
                 </Button>
               </div>
             </div>
+             {/* 按钮 */}
+
             {/* 左侧图片 */}
             <div className="lg:order-1 relative">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
@@ -1232,15 +1263,25 @@ const AiPage = () => {
                   <p className="text-sm text-gray-600">全网热点分析，智能创意推荐</p>
                 </div>
               </div>
+              
+              {/* 按钮 */}
               <div className="flex space-x-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
-                  查看演示
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg"
+                  onClick={() => window.location.href = "/demo"}
+                >
+                 立即体验
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                <Button 
+                  variant="outline" 
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none"
+                  onClick={() => window.open("https://auth.cnai.art/", "_blank")}
+                >
                   购买授权
                 </Button>
               </div>
             </div>
+             {/* 按钮 */}
             
             {/* 右侧图片 */}
             <div className="relative">
@@ -1358,16 +1399,25 @@ const AiPage = () => {
                 </div>
               </div>
               
+              {/* 按钮 */}
               <div className="flex space-x-4">
-                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg">
-                  查看演示
+                <Button 
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg"
+                  onClick={() => window.location.href = "/demo"}
+                >
+                 立即体验
                 </Button>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none">
+                <Button 
+                  variant="outline" 
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none"
+                  onClick={() => window.open("https://auth.cnai.art/", "_blank")}
+                >
                   购买授权
                 </Button>
               </div>
             </div>
           </div>
+          {/* 按钮 */}
  {/* 产品核心功能 */}
 
           {/* 准备好开启您的AI之旅了吗？ */}

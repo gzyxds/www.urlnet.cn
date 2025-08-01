@@ -4,14 +4,14 @@ import React from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, ShoppingCart, Play, Star } from "lucide-react";
+import { ArrowRight, ShoppingCart, Play, Star, ExternalLink } from "lucide-react";
 import { Link } from 'react-router-dom';
 
 const Products = () => {
   const products = [
     {
       image: "https://artaigc.cn/assets/saas.svg",
-      title: "艺创超级IP数字人SaaS系统",
+      title: "数字分身IP数字人SaaS系统",
       subtitle: "[PHP源码版]",
       description: "为企业主、个人博主打造短视频IP的数字人聊天系统，支持真人音+形象定制...",
       features: ["声音克隆", "形象定制", "视频生成", "AI交谈", "热点话题"],
@@ -19,31 +19,86 @@ const Products = () => {
       originalPrice: 6800,
       link: "/products/digital-human",
       rating: 4.8,
-      sales: 156
+      sales: 156,
+      buyLink: "https://auth.cnai.art/"
     },
     {
       image: "https://artaigc.cn/assets/work.svg",
-      title: "艺创全能AI知识库系统",
+      title: "企业级全能AI知识库系统",
       subtitle: "[PHP源码版]",
-      description: "全能AI知识库系统(Java版，基于前后端分离架构)以及Vue3、uni-app...",
+      description: "全能AI知识库系统(PHP版，基于前后端分离架构)以及Vue3、uni-app...",
       features: ["多模式输入", "向量检索", "智能问答", "多端支持"],
       price: 6600,
       originalPrice: 9800,
       link: "/products/knowledge-base",
       rating: 4.9,
-      sales: 203
+      sales: 203,
+      buyLink: "https://auth.cnai.art/"
+    },
+    {
+      image: "https://artaigc.cn/assets/work.svg",
+      title: "艺创AI智能聊天绘画系统",
+      subtitle: "[PHP源码版]",
+      description: "基于前后端分离架构以及Vue3、uni-app、ThinkPHP6.x、PHP8.0技术栈开发...",
+      features: ["Python架构", "向量检索", "多源接入", "智能问答"],
+      price: 2999,
+      originalPrice: 3800.00,
+      link: "/products/knowledge-base-python",
+      rating: 4.9,
+      sales: 178,
+      buyLink: "https://auth.cnai.art/"
+    },
+    {
+      image: "https://artaigc.cn/assets/saas.svg",
+      title: "Paper-论文创作写作系统",
+      subtitle: "[全新升级]",
+      description: "你只需要输入论文关键词，AI即可快速为您生成论文大纲...",
+      features: ["期刊论文", "科普文章", "学生作业", "商业报告"],
+      price: 3200,
+      originalPrice: 4698,
+      link: "/products/digital-human-2",
+      rating: 4.8,
+      sales: 132,
+      buyLink: "https://auth.cnai.art/"
+    },
+    {
+      image: "https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/picture/Python.png",
+      title: "全能AI知识库系统Python源码版",
+      subtitle: "[Python源码版]",
+      description: "基于Java开发的企业级AI知识库系统，高性能、高并发，支持大规模部署...",
+      features: ["Java架构", "高并发", "企业级", "多端支持"],
+      price: 7200,
+      originalPrice: 10500,
+      link: "/products/knowledge-base-java",
+      rating: 4.9,
+      sales: 165,
+      buyLink: "https://auth.cnai.art/"
     },
     {
       image: "https://artaigc.cn/assets/ai.svg",
-      title: "艺创AI聊天绘画系统",
+      title: "艺创AI数字分身2.0-Pro版",
       subtitle: "[PHP源码版]",
+      description: "基于Java开发的AI聊天绘画系统，高性能架构，支持多种绘画模型和聊天场景...",
+      features: ["Java架构", "多模型支持", "高性能", "场景定制"],
+      price: 3999,
+      originalPrice: 5800,
+      link: "/products/chat-drawing-java",
+      rating: 4.8,
+      sales: 108,
+      buyLink: "https://auth.cnai.art/"
+    },
+    {
+      image: "https://artaigc.cn/assets/ai.svg",
+      title: "艺创AI聊天绘画系统Java",
+      subtitle: "[Java源码版]",
       description: "实现了AI对话+AI绘画的融合使用，系统功能特色：AI画图对话、AI创作模型...",
       features: ["AI绘画", "智能聊天", "场景定制", "一键部署"],
       price: 2999,
       originalPrice: 3800,
       link: "/products/chat-drawing",
       rating: 4.7,
-      sales: 89
+      sales: 89,
+      buyLink: "https://auth.cnai.art/"
     },
     {
       image: "https://artaigc.cn/assets/lw.svg",
@@ -55,7 +110,8 @@ const Products = () => {
       originalPrice: 4695,
       link: "/products/paper-writing",
       rating: 4.6,
-      sales: 134
+      sales: 134,
+      buyLink: "https://auth.cnai.art/"
     }
   ];
 
@@ -125,7 +181,7 @@ const Products = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
                     {product.title}
                   </h3>
-                  <p className="text-sm font-medium text-blue-600 mb-3">
+                  <p className="text-sm font-medium bg-blue-50 text-blue-700 px-2 py-1 rounded-md inline-block mb-3 border border-blue-100">
                     {product.subtitle}
                   </p>
                   <div className="flex items-center justify-between">
@@ -184,6 +240,7 @@ const Products = () => {
                     variant="outline" 
                     size="sm"
                     className="flex-1 text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
+                    onClick={() => window.open(product.buyLink, '_blank')}
                   >
                     <ShoppingCart className="h-4 w-4 mr-2" />
                     购买
