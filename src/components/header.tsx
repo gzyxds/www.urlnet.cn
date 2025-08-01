@@ -116,7 +116,10 @@ const Header: React.FC = () => {
   // 事件处理函数
   const handleNavigation = useCallback(() => {
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 确保页面滚动到顶部
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   }, []);
 
   // 处理外部链接在新窗口打开
@@ -235,7 +238,7 @@ const Header: React.FC = () => {
           <ExternalLink className="h-3 w-3 text-gray-400 ml-auto dark:text-gray-500" />
         </div>
       ) : (
-        <Link to={subItem.path} className="w-full flex items-center" onClick={handleNavigation}>
+        <Link to={subItem.path} className="w-full flex items-center" onClick={handleNavigation} scroll={true}>
           <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
             {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
           </div>
@@ -271,10 +274,11 @@ const Header: React.FC = () => {
           <ExternalLink className="h-3 w-3 text-gray-400 absolute top-2 right-2 dark:text-gray-500" />
         </div>
       ) : (
-        <Link 
-          to={subItem.path} 
-          className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
-          onClick={handleNavigation}
+                        <Link 
+                          to={subItem.path} 
+                          className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                          onClick={handleNavigation}
+                          scroll={true}
         >
           <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
             {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
@@ -301,7 +305,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-14">
           {/* Logo区域 */}
           <div className="flex items-center space-x-8">
-            <Link to="/" className="flex items-center group" onClick={handleNavigation}>
+            <Link to="/" className="flex items-center group" onClick={handleNavigation} scroll={true}>
               <motion.div 
                 className="flex items-center"
                 whileHover={{ scale: 1.05 }}
@@ -343,7 +347,7 @@ const Header: React.FC = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 ) : (
-                  <Link key={index} to={item.path || "/"} onClick={handleNavigation}>
+                  <Link key={index} to={item.path || "/"} onClick={handleNavigation} scroll={true}>
                     <Button variant="ghost" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50">
                       {item.name}
                     </Button>
@@ -467,7 +471,7 @@ const Header: React.FC = () => {
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <Link to="/docs" className="flex items-center">
+                        <Link to="/docs" className="flex items-center" onClick={handleNavigation} scroll={true}>
                         <HelpCircle className="mr-2 h-4 w-4" />
                         <span className="dark:text-gray-200">文档中心</span>
                       </Link>
@@ -625,6 +629,7 @@ const Header: React.FC = () => {
                     to="/demo" 
                     className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
                     onClick={handleNavigation}
+                    scroll={true}
                   >
                     <div className="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center mr-3 dark:bg-cyan-900/50">
                       <Zap className="h-5 w-5 text-cyan-600 dark:text-cyan-400" />
@@ -642,6 +647,7 @@ const Header: React.FC = () => {
                     to="/docs" 
                     className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
                     onClick={handleNavigation}
+                    scroll={true}
                   >
                     <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center mr-3 dark:bg-indigo-900/50">
                       <BookOpen className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
@@ -753,6 +759,7 @@ const Header: React.FC = () => {
                     to="/about" 
                     className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
                     onClick={handleNavigation}
+                    scroll={true}
                   >
                     <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mr-3 dark:bg-emerald-900/50">
                       <User className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
