@@ -419,7 +419,7 @@ export default function NewsDetailPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="prose prose-lg prose-gray max-w-none mb-16"
+          className="markdown-content max-w-none mb-16"
           dangerouslySetInnerHTML={{ __html: markdownContent }}
         />
 

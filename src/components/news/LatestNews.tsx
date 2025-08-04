@@ -13,7 +13,7 @@ interface LatestNewsProps {
 }
 
 const LatestNews: React.FC<LatestNewsProps> = ({
-  limit = 6,
+  limit = 4,
   showTitle = true,
   variant = 'grid',
   className = ''
@@ -50,7 +50,7 @@ const LatestNews: React.FC<LatestNewsProps> = ({
               <div className="h-4 bg-gray-200 rounded w-96 mx-auto animate-pulse"></div>
             </div>
           )}
-          <div className={variant === 'grid' ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-8' : 'space-y-6'}>
+          <div className={variant === 'grid' ? 'grid md:grid-cols-2 lg:grid-cols-4 gap-8' : 'space-y-6'}>
             {Array.from({ length: limit }).map((_, index) => (
               <div key={index} className="bg-gray-200 rounded-xl h-96 animate-pulse"></div>
             ))}
@@ -65,34 +65,33 @@ const LatestNews: React.FC<LatestNewsProps> = ({
   }
 
   return (
-    <section className={`py-16 bg-gradient-to-br from-gray-50 to-white ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`py-12 bg-gradient-to-br from-gray-50 to-white ${className}`}>
+      <div className="container mx-auto px-4">
         {showTitle && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <TrendingUp className="h-6 w-6 text-blue-600" />
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <div className="flex items-center justify-center gap-1.5 mb-3">
+              <TrendingUp className="h-4 w-4 text-blue-600" />
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                 最新资讯
               </h2>
             </div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base text-gray-600 max-w-2xl mx-auto">
               获取艺创AI最新动态、产品更新和行业洞察
             </p>
           </motion.div>
         )}
 
         {variant === 'grid' ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {news.map((item, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {news.map((item) => (
               <NewsCard
                 key={item.id}
                 {...item}
-                variant={index === 0 && item.featured ? 'featured' : 'default'}
               />
             ))}
           </div>
