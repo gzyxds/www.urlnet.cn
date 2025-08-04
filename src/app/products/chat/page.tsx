@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool, MessageCircle, Palette, Lightbulb, Zap } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
@@ -35,7 +35,6 @@ const customStyles = `
 const ChatPage = () => {
   // 功能特色标签导航状态管理
   const [activeFeature, setActiveFeature] = useState('chat');
-  const [activeScenario, setActiveScenario] = useState('chat');
   
   usePageMetadata({
     title: '艺创AI_AI系统源码_AI智能聊天系统_AI绘画系统',
@@ -45,7 +44,6 @@ const ChatPage = () => {
 
   // 常用样式常量 - 优化移动端适配
   const buttonPrimary = "bg-blue-600 hover:bg-blue-700 text-white";
-  const buttonSecondary = "border-blue-600 text-blue-600 hover:bg-blue-50";
   const iconContainer = "w-8 h-8 sm:w-10 sm:h-10 bg-blue-50 rounded-full flex items-center justify-center";
   const sectionPadding = "py-12 sm:py-16 md:py-20 lg:py-24";
   const containerBase = "container mx-auto px-4 sm:px-6 lg:px-8";
@@ -1705,7 +1703,7 @@ const ChatPage = () => {
                 </Button>
               </div>
               {/* 添加进度条动画样式 */}
-              <style jsx>{`
+              <style>{`
                 @keyframes progress {
                   0% { transform: translateX(-100%); }
                   50% { transform: translateX(0); }

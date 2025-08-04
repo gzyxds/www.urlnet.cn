@@ -461,13 +461,12 @@ const HumanPage = () => {
                   src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/virtual-digit.ed88f4c6.mp4"
                   className="w-full h-auto"
                   preload="metadata"
-                    className="w-full"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    controls={false}
-                  />
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls={false}
+                />
                   
                   <div className="mt-3 sm:mt-4 flex items-center justify-between">
                     <div>
@@ -681,16 +680,13 @@ const HumanPage = () => {
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl sm:rounded-3xl p-4 sm:p-8">
                   <video
                     src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/d7597b2e51444a40_1697534317820.mp4"
-                    className="w-full h-auto"
+                    className="w-full rounded-2xl shadow-lg"
                     preload="metadata"
                     playsInline
-                    className="w-full rounded-2xl shadow-lg"
                     controls
                     autoPlay
                     muted
                     loop
-                    playsInline
-                    preload="auto"
                   >
                     您的浏览器不支持 video 标签。
                   </video>
@@ -784,14 +780,12 @@ const HumanPage = () => {
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl sm:rounded-3xl p-4 sm:p-8">
                   <video
                     src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/58de8e04fa71151b_1697611541810.mp4"
-                    className="w-full h-auto"
+                    className="w-full rounded-2xl shadow-lg"
                     preload="metadata"
                     playsInline
-                    className="w-full rounded-2xl shadow-lg"
                     autoPlay
                     loop
                     muted
-                    playsInline
                     controls={false}
                   />
                 </div>
@@ -884,16 +878,13 @@ const HumanPage = () => {
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                   <video
                     src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/77eb68b8aabcb8aa_1697534305029.mp4"
-                    className="w-full h-auto"
+                    className="w-full rounded-2xl shadow-lg"
                     preload="metadata"
                     playsInline
-                    className="w-full rounded-2xl shadow-lg"
                     controls
                     autoPlay
                     muted
                     loop
-                    playsInline
-                    preload="auto"
                   >
                     {/* 视频不支持时显示的替代内容 */}
                     <img 
@@ -995,15 +986,12 @@ const HumanPage = () => {
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
                   <video
                     src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/84136783a28cddee_1697534229451.mp4"
-                    className="w-full h-auto"
+                    className="w-full rounded-2xl shadow-lg"
                     preload="metadata"
                     playsInline
                     autoPlay
                     loop
                     muted
-                    playsInline
-                    className="w-full rounded-2xl shadow-lg"
-                    loading="lazy"
                   >
                     <source type="video/mp4" />
                     您的浏览器不支持视频播放

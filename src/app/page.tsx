@@ -14,6 +14,7 @@ import BackToTop from '@/components/back-to-top';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import ClientLogoWall from '@/components/clients/ClientLogoWall';
 import clients from '@/components/clients/clients';
+import LatestNews from '@/components/news/LatestNews';
 
 const Home = () => {
   // 设置首页元数据
@@ -36,6 +37,7 @@ const Home = () => {
       <Advantages />
       <Cases />
       <Scenario />
+      <LatestNews limit={6} />
       <FAQ />
       <Contact />
     </>
