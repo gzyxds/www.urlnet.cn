@@ -21,7 +21,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     let html = text;
 
     // 代码块 (```)
-    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (_, lang, code) => {
       return `<pre class="bg-gray-100 rounded-lg p-4 overflow-x-auto my-4"><code class="text-sm ${lang ? `language-${lang}` : ''}">${escapeHtml(code.trim())}</code></pre>`;
     });
 
@@ -89,7 +89,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     // 目前使用简单的样式
     return html.replace(
       /<code class="language-(\w+)">([\s\S]*?)<\/code>/g,
-      (match, lang, code) => {
+      (_, lang, code) => {
         const langClass = getLanguageClass(lang);
         return `<code class="language-${lang} ${langClass}">${code}</code>`;
       }

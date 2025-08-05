@@ -365,7 +365,7 @@ const NewsDetailPage: React.FC = () => {
 
               {/* 相关新闻 */}
               <div id="related">
-                <RelatedNews newsId={news.id} />
+                <RelatedNews currentNewsId={news.id} />
               </div>
             </div>
           </div>

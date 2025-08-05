@@ -31,11 +31,8 @@ const RelatedNews: React.FC<RelatedNewsProps> = ({
   const loadRelatedNews = async () => {
     try {
       setLoading(true);
-      const related = await newsService.getRelatedNews(currentNewsId, {
-        category,
-        tags,
-        limit
-      });
+      // getRelatedNews 方法只接受 newsId 和 limit 参数
+      const related = await newsService.getRelatedNews(currentNewsId, limit);
       setRelatedNews(related);
     } catch (error) {
       console.error('Failed to load related news:', error);
@@ -51,11 +48,12 @@ const RelatedNews: React.FC<RelatedNewsProps> = ({
 
   /**
    * 格式化日期显示
+   * @param date Date对象或日期字符串
    */
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
+  const formatDate = (date: Date | string): string => {
+    const dateObj = date instanceof Date ? date : new Date(date);
     const now = new Date();
-    const diffTime = now.getTime() - date.getTime();
+    const diffTime = now.getTime() - dateObj.getTime();
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
     if (diffDays === 0) {
@@ -65,20 +63,14 @@ const RelatedNews: React.FC<RelatedNewsProps> = ({
     } else if (diffDays < 7) {
       return `${diffDays}天前`;
     } else {
-      return date.toLocaleDateString('zh-CN', {
+      return dateObj.toLocaleDateString('zh-CN', {
         month: 'short',
         day: 'numeric'
       });
     }
   };
 
-  /**
-   * 截断文本
-   */
-  const truncateText = (text: string, maxLength: number): string => {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
-  };
+
 
   if (loading) {
     return (
@@ -157,18 +149,18 @@ const RelatedNews: React.FC<RelatedNewsProps> = ({
                 <div className="flex items-center gap-2 text-xs text-slate-500 mb-2">
                   <span>{formatDate(news.publishDate)}</span>
                   <span>•</span>
-                  <span>{news.readTime}分钟</span>
+                  <span>{news.readingTime}分钟</span>
                 </div>
-                {(news.isSticky || news.isHot) && (
+                {(news.sticky || news.featured) && (
                   <div className="flex gap-1">
-                    {news.isSticky && (
+                    {news.sticky && (
                       <span className="px-1.5 py-0.5 bg-red-100 text-red-600 text-xs rounded font-medium">
                         置顶
                       </span>
                     )}
-                    {news.isHot && (
+                    {news.featured && (
                       <span className="px-1.5 py-0.5 bg-orange-100 text-orange-600 text-xs rounded font-medium">
-                        热门
+                        推荐
                       </span>
                     )}
                   </div>

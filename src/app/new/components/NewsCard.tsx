@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NewsItem, NewsCategoryLabels, NewsCategoryColors } from '../types';
+import { NewsItem, NewsCategoryLabels } from '../types';
 
 interface NewsCardProps {
   news: NewsItem;
   showCategory?: boolean;
-  showAuthor?: boolean;
   className?: string;
 }
 
@@ -16,7 +15,6 @@ interface NewsCardProps {
 const NewsCard: React.FC<NewsCardProps> = ({
   news,
   showCategory = true,
-  showAuthor = true,
   className = ''
 }) => {
 

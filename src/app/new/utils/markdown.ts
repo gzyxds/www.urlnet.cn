@@ -164,15 +164,14 @@ export function parseMarkdownFrontMatter(content: string): {
  */
 function getAvailablePictures(): string[] {
   try {
-    // 使用 import.meta.glob 获取所有图片文件
-    // eager: true 表示立即加载，query: '?url' 表示获取URL路径
+    // 使用 import.meta.glob 获取所有图片文件路径
     const pictureModules = import.meta.glob('../picture/*.{jpg,jpeg,png,webp,svg}', { 
       eager: true,
       query: '?url',
       import: 'default'
     });
     
-    // 提取实际的URL路径（使用模块的值而不是键）
+    // 提取实际的URL路径
     const pictures = Object.values(pictureModules) as string[];
     
     // 如果成功获取到图片文件，直接返回
