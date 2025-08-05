@@ -670,3 +670,37 @@ function ThemeSwitcher() {
 - **社交媒体**：
   - 微信公众号：艺创AI
   - 知乎：艺创AI官方账号
+
+
+
+
+
+
+
+
+          
+以下为项目主要技术栈及其官网（或官方文档）链接，便于您进一步了解与查阅：
+
+1. React – 前端 UI 库，负责组件化开发与页面渲染  
+   <mcurl name="React" url="https://react.dev"></mcurl>
+2. TypeScript – JavaScript 的类型化超集，提升代码可维护性与可读性  
+   <mcurl name="TypeScript" url="https://www.typescriptlang.org"></mcurl>
+3. Vite – 前端构建工具，提供极速的开发服务器与打包体验  
+   <mcurl name="Vite" url="https://vitejs.dev"></mcurl>
+4. Tailwind CSS – 原子化 CSS 框架，用于快速编写响应式样式  
+   <mcurl name="Tailwind CSS" url="https://tailwindcss.com"></mcurl>
+5. Radix UI – 无样式、可访问性友好的 React 组件库（如 DropdownMenu、Dialog 等）  
+   <mcurl name="Radix UI" url="https://www.radix-ui.com"></mcurl>
+6. Framer Motion – React 动画库，为组件提供流畅的过渡动画  
+   <mcurl name="Framer Motion" url="https://www.framer.com/motion"></mcurl>
+7. React Router DOM v7 – 前端路由管理，实现多页面导航  
+   <mcurl name="React Router" url="https://reactrouter.com"></mcurl>
+8. Lucide React – 开源图标库，为界面提供 SVG 图标  
+   <mcurl name="Lucide" url="https://lucide.dev"></mcurl>
+9. ESLint – 代码质量与风格检查工具  
+   <mcurl name="ESLint" url="https://eslint.org"></mcurl>
+10. PostCSS & Autoprefixer – CSS 处理与浏览器兼容前缀自动添加工具链  
+   <mcurl name="PostCSS" url="https://postcss.org"></mcurl>
+
+从依赖列表可看出，本项目定位于现代前端单页应用（SPA），采用 Vite + React + TypeScript 的主流组合，并使用 Tailwind CSS 做快速样式开发，Radix UI 作为无样式组件基础，配合 Framer Motion 提供动画效果，整体技术栈轻量而现代。
+        

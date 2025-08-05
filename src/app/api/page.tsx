@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { 
   Code, 
   Database, 
@@ -548,14 +548,14 @@ const ApiPage = () => {
                 </p>
               </div>
 
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="grid w-full grid-cols-3 mb-8">
-                  <TabsTrigger value="chat">智能对话</TabsTrigger>
-                  <TabsTrigger value="painting">AI绘画</TabsTrigger>
-                  <TabsTrigger value="video">AI视频</TabsTrigger>
-                </TabsList>
+              <div className="w-full">
+                <div className="grid w-full grid-cols-3 mb-8">
+                  <div className={`cursor-pointer p-2 text-center ${activeTab === 'chat' ? 'bg-blue-500 text-white' : ''}`} onClick={() => setActiveTab('chat')}>智能对话</div>
+                  <div className={`cursor-pointer p-2 text-center ${activeTab === 'painting' ? 'bg-blue-500 text-white' : ''}`} onClick={() => setActiveTab('painting')}>AI绘画</div>
+                  <div className={`cursor-pointer p-2 text-center ${activeTab === 'video' ? 'bg-blue-500 text-white' : ''}`} onClick={() => setActiveTab('video')}>AI视频</div>
+                </div>
                 
-                <TabsContent value="chat" className="space-y-6">
+                <div className={`space-y-6 ${activeTab === 'chat' ? 'block' : 'hidden'}`}>
                   <Card className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-bold text-gray-900">智能对话API示例</h3>
@@ -579,9 +579,9 @@ const ApiPage = () => {
                       <code>{codeExamples.chat}</code>
                     </pre>
                   </Card>
-                </TabsContent>
+                </div>
                 
-                <TabsContent value="painting" className="space-y-6">
+                <div className={`space-y-6 ${activeTab === 'painting' ? 'block' : 'hidden'}`}>
                   <Card className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-bold text-gray-900">AI绘画API示例</h3>
@@ -605,9 +605,9 @@ const ApiPage = () => {
                       <code>{codeExamples.painting}</code>
                     </pre>
                   </Card>
-                </TabsContent>
+                </div>
                 
-                <TabsContent value="video" className="space-y-6">
+                <div className={`space-y-6 ${activeTab === 'video' ? 'block' : 'hidden'}`}>
                   <Card className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-lg font-bold text-gray-900">AI视频API示例</h3>
@@ -631,8 +631,8 @@ const ApiPage = () => {
                       <code>{codeExamples.video}</code>
                     </pre>
                   </Card>
-                </TabsContent>
-              </Tabs>
+                </div>
+              </div>
             </div>
           </div>
         </section>

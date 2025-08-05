@@ -7,18 +7,19 @@ import {
   Menu, X, ChevronDown, Github, Bell, 
   Moon, Sun, User, Settings, HelpCircle, 
   BookOpen, Code, Zap, Layers, ExternalLink, Cloud, Gift, Sparkles,
-  FileText, Archive
+  FileText, Archive, Newspaper
 } from "lucide-react";
+
+import { motion, AnimatePresence } from "framer-motion";
 import {
   DropdownMenu,
+  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-  DropdownMenuGroup,
   DropdownMenuLabel,
-} from "@/components/ui/dropdown-menu";
-import { motion, AnimatePresence } from "framer-motion";
+  DropdownMenuSeparator,
+  DropdownMenuGroup
+} from "@radix-ui/react-dropdown-menu";
 
 // 类型定义
 interface NavSubItem {
@@ -88,7 +89,7 @@ const Header: React.FC = () => {
     },
     { name: "产品演示", path: "/demo" },
     { name: "产品文档", path: "/docs" },
-    { name: "新闻资讯", path: "/news" },
+    { name: "新闻资讯", path: "/new" },
     {
       name: "支持与服务",
       dropdown: true,
@@ -139,7 +140,9 @@ const Header: React.FC = () => {
       const newMode = !prev;
       const action = newMode ? 'add' : 'remove';
       document.documentElement.classList[action]('dark');
-      localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+        localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      }
       return newMode;
     });
   }, []);
@@ -183,6 +186,8 @@ const Header: React.FC = () => {
 
   // 初始化暗黑模式
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') return;
+    
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
@@ -314,6 +319,9 @@ const Header: React.FC = () => {
       } else if (menuName === "产品体验") {
         // 体验相关：前3个项目
         return items.slice(0, 3);
+      } else if (menuName === "新闻资讯") {
+        // 资讯相关：前3个项目
+        return items.slice(0, 3);
       }
       return items.slice(0, Math.ceil(items.length / 2));
     };
@@ -327,6 +335,9 @@ const Header: React.FC = () => {
         return items.slice(3);
       } else if (menuName === "产品体验") {
         // 更多：后3个项目
+        return items.slice(3);
+      } else if (menuName === "新闻资讯") {
+        // 动态相关：后3个项目
         return items.slice(3);
       }
       return items.slice(Math.ceil(items.length / 2));
@@ -416,12 +427,14 @@ const Header: React.FC = () => {
                           <div className="flex justify-between mb-3">
                             <div className="px-2">
                               <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
-                                {item.name === "产品与服务" ? "行业" : item.name === "支持与服务" ? "服务" : "体验"}
+                                {item.name === "产品与服务" ? "行业" : 
+                                 item.name === "支持与服务" ? "服务" : "体验"}
                               </h4>
                             </div>
                             <div className="px-2">
                               <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
-                                {item.name === "产品与服务" ? "使用场景" : item.name === "支持与服务" ? "支持" : "更多"}
+                                {item.name === "产品与服务" ? "使用场景" : 
+                                 item.name === "支持与服务" ? "支持" : "更多"}
                               </h4>
                             </div>
                           </div>
@@ -784,20 +797,20 @@ const Header: React.FC = () => {
                 {/* 新闻资讯 */}
                 <motion.div initial="hidden" animate="visible" custom={3} variants={MENU_ITEM_VARIANTS}>
                   <Link 
-                    to="/news" 
+                    to="/new" 
                     className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
                     onClick={handleNavigation}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center mr-3 dark:bg-amber-900/50">
-                      <FileText className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                    <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3 dark:bg-blue-900/50">
+                      <Newspaper className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div className="flex flex-col">
                       <span className="font-medium text-gray-800 dark:text-gray-200">新闻资讯</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">最新动态与资讯</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">最新动态与行业资讯</span>
                     </div>
                   </Link>
                 </motion.div>
-                
+
                 {/* 支持与服务菜单 */}
                 <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={4} variants={MENU_ITEM_VARIANTS}>
                   <button 

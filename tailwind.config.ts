@@ -13,6 +13,7 @@ const config: Config = {
   	extend: {
   		screens: {
   			'xs': '475px',
+  			'3xl': '1600px', // 添加超宽屏幕断点，用于支持更多列的网格布局
   		},
   		colors: {
   			background: 'hsl(var(--background))',

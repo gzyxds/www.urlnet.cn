@@ -1,9 +1,10 @@
 import path from "path"
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
-
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react()
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -17,9 +18,16 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+      }
+    }
   },
   server: {
     host: "0.0.0.0",
     allowedHosts: true
-  }
+  },
+  // 静态资源处理
+  assetsInclude: ['**/*.md']
 })

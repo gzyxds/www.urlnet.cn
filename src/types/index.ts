@@ -24,18 +24,6 @@ export interface Product extends BaseEntity {
   buyLink?: string;
 }
 
-// 新闻相关类型
-export interface NewsItem extends BaseEntity {
-  title: string;
-  content: string;
-  excerpt: string;
-  author: string;
-  publishDate: Date;
-  tags: string[];
-  coverImage?: string;
-  slug: string;
-}
-
 // 用户相关类型
 export interface User extends BaseEntity {
   name: string;

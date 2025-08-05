@@ -1,6 +1,4 @@
-/* 引入Markdown样式 */
-@import '../styles/markdown.css';
-
+/* Tailwind CSS 基础样式 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

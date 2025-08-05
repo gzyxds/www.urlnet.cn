@@ -29,8 +29,11 @@ import AboutPage from './app/about/page';
 import ApiPage from './app/api/page';
 import DownloadPage from './app/download/page';
 import TipsPage from './app/tips/page';
-import NewsPage from './app/news/page';
-import NewsDetailPage from './app/news/[id]/page';
+
+// 新闻相关页面
+import NewsListPage from './app/new/page';
+import NewsDetailPage from './app/new/[id]/page';
+
 import ClientLogoWallExample from './components/clients/ClientLogoWallExample';
 
 /**
@@ -71,8 +74,11 @@ function App(): JSX.Element {
           <Route path="/api" element={<ApiPage />} />
           <Route path="/download" element={<DownloadPage />} />
           <Route path="/tips" element={<TipsPage />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/news/:id" element={<NewsDetailPage />} />
+
+          {/* 新闻资讯路由 */}
+          <Route path="/new" element={<NewsListPage />} />
+          <Route path="/new/:id" element={<NewsDetailPage />} />
+
           <Route path="/test-client-logo" element={<ClientLogoWallExample />} />
         </Routes>
       </main>
