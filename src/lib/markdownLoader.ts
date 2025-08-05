@@ -117,20 +117,7 @@ export class MarkdownLoader {
 
   // 尝试从文件系统动态读取markdown文件
   private static async loadFromFileSystem(filename: string): Promise<string | null> {
-    try {
-      // 尝试通过fetch读取文件
-      const response = await fetch(`/src/content/news/${filename}.md`);
-      if (response.ok) {
-        const content = await response.text();
-        console.log(`成功动态读取文件: ${filename}.md`);
-        return content;
-      }
-    } catch (error) {
-      // 如果fetch失败，尝试其他方法
-      console.debug(`Fetch方式读取文件失败: ${filename}`, error);
-    }
-
-    // 尝试通过动态导入读取（如果文件被打包）
+    // 优先尝试通过动态导入读取（在开发环境中更可靠）
     try {
       const module = await import(`../content/news/${filename}.md?raw`);
       if (module.default) {
@@ -139,6 +126,19 @@ export class MarkdownLoader {
       }
     } catch (error) {
       console.debug(`动态导入方式读取文件失败: ${filename}`, error);
+    }
+
+    // 如果动态导入失败，再尝试通过fetch读取文件（主要用于生产环境）
+    try {
+      const response = await fetch(`/src/content/news/${filename}.md`);
+      if (response.ok) {
+        const content = await response.text();
+        console.log(`成功通过fetch读取文件: ${filename}.md`);
+        return content;
+      }
+    } catch (error) {
+      // 如果fetch失败，不输出错误信息，因为这在开发环境中是正常的
+      console.debug(`Fetch方式读取文件失败: ${filename}`, error);
     }
 
     return null;
