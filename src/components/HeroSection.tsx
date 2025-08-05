@@ -5,35 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 
-// 打字机效果 Hook
-const useTypewriter = (text: string, speed: number = 100, delay: number = 0) => {
-  const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isStarted, setIsStarted] = useState(false);
 
-  useEffect(() => {
-    const startTimer = setTimeout(() => {
-      setIsStarted(true);
-    }, delay);
-
-    return () => clearTimeout(startTimer);
-  }, [delay]);
-
-  useEffect(() => {
-    if (!isStarted) return;
-
-    const timer = setTimeout(() => {
-      if (currentIndex < text.length) {
-        setDisplayText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }
-    }, speed);
-
-    return () => clearTimeout(timer);
-  }, [currentIndex, text, speed, isStarted]);
-
-  return displayText;
-};
 
 // 循环文字效果 Hook
 const useRotatingText = (texts: string[], speed: number = 3000) => {
@@ -77,7 +49,6 @@ const useRotatingText = (texts: string[], speed: number = 3000) => {
 };
 
 const Hero = () => {
-  const firstLine = "艺创AI 新一代AI系统 赋能企业";
   const rotatingTexts = [
     "它拥有完善的计费和收款能力",
     "它支持用户管理和权限管理", 
@@ -87,7 +58,6 @@ const Hero = () => {
     "它技术过硬、私有部署、个性化定制、稳定使用"
   ];
   
-  useTypewriter(firstLine, 80, 0);
   const rotatingSecond = useRotatingText(rotatingTexts, 3000);
 
   // 新增：点击弹出的二维码状态

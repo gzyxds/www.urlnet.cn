@@ -187,7 +187,7 @@ const HotProducts = React.memo(() => {
         <div className="mb-6 sm:mb-8 px-4">
           {/* 桌面端：简洁文本标签，无分隔线和按钮样式 */}
           <div className="hidden md:flex justify-center space-x-16">
-            {scenarioKeys.map((scenario, index) => (
+            {scenarioKeys.map((scenario) => (
               <div
                 key={scenario}
                 className={`px-6 py-3 cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide relative ${

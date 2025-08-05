@@ -1,10 +1,8 @@
 "use client";
 
-import React from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, ShoppingCart, Play, Star, ExternalLink } from "lucide-react";
+import { ShoppingCart, Play, Star } from "lucide-react";
 import { Link } from 'react-router-dom';
 
 const Products = () => {
