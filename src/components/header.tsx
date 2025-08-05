@@ -292,6 +292,52 @@ const Header: React.FC = () => {
     </motion.div>
   );
 
+  // 渲染移动端分类菜单项
+  const renderMobileCategorizedMenu = (items: NavSubItem[], menuName: string) => {
+    // 根据菜单类型分组项目
+    const getLeftItems = () => {
+      if (menuName === "产品与服务") {
+        // 行业相关：前3个项目
+        return items.slice(0, 3);
+      } else if (menuName === "支持与服务") {
+        // 服务相关：前3个项目
+        return items.slice(0, 3);
+      } else if (menuName === "产品体验") {
+        // 体验相关：前3个项目
+        return items.slice(0, 3);
+      }
+      return items.slice(0, Math.ceil(items.length / 2));
+    };
+
+    const getRightItems = () => {
+      if (menuName === "产品与服务") {
+        // 使用场景：后3个项目
+        return items.slice(3);
+      } else if (menuName === "支持与服务") {
+        // 支持相关：后3个项目
+        return items.slice(3);
+      } else if (menuName === "产品体验") {
+        // 更多：后3个项目
+        return items.slice(3);
+      }
+      return items.slice(Math.ceil(items.length / 2));
+    };
+
+    const leftItems = getLeftItems();
+    const rightItems = getRightItems();
+
+    return (
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-3">
+          {leftItems.map((item, index) => renderMobileMenuItem(item, index))}
+        </div>
+        <div className="space-y-3">
+          {rightItems.map((item, index) => renderMobileMenuItem(item, index + leftItems.length))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <header 
       ref={headerRef}
@@ -610,13 +656,16 @@ const Header: React.FC = () => {
                         className="overflow-hidden mt-4"
                       >
                         <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
-                          <div className="mb-3">
-                            <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 px-1">产品与服务</h4>
-                            <div className="h-px bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                          <div className="flex justify-between mb-3">
+                            <div className="px-1">
+                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">行业</h4>
+                            </div>
+                            <div className="px-1">
+                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">使用场景</h4>
+                            </div>
                           </div>
-                          <div className="grid grid-cols-2 gap-3">
-                            {navItems[0].items?.map(renderMobileMenuItem)}
-                          </div>
+                          <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
+                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "产品与服务")?.items || [], "产品与服务")}
                         </div>
                       </motion.div>
                     )}
@@ -657,8 +706,25 @@ const Header: React.FC = () => {
                   </Link>
                 </motion.div>
                 
+                {/* 新闻资讯 */}
+                <motion.div initial="hidden" animate="visible" custom={3} variants={MENU_ITEM_VARIANTS}>
+                  <Link 
+                    to="/news" 
+                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
+                    onClick={handleNavigation}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center mr-3 dark:bg-amber-900/50">
+                      <FileText className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-gray-800 dark:text-gray-200">新闻资讯</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">最新动态与资讯</span>
+                    </div>
+                  </Link>
+                </motion.div>
+                
                 {/* 支持与服务菜单 */}
-                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={3} variants={MENU_ITEM_VARIANTS}>
+                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={4} variants={MENU_ITEM_VARIANTS}>
                   <button 
                     onClick={() => toggleMobileDropdown('agency')} 
                     className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
@@ -691,13 +757,16 @@ const Header: React.FC = () => {
                         className="overflow-hidden mt-4"
                       >
                         <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
-                          <div className="mb-3">
-                            <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 px-1">支持与服务</h4>
-                            <div className="h-px bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                          <div className="flex justify-between mb-3">
+                            <div className="px-1">
+                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">服务</h4>
+                            </div>
+                            <div className="px-1">
+                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">支持</h4>
+                            </div>
                           </div>
-                          <div className="grid grid-cols-2 gap-3">
-                            {navItems[3].items?.map(renderMobileMenuItem)}
-                          </div>
+                          <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
+                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "支持与服务")?.items || [], "支持与服务")}
                         </div>
                       </motion.div>
                     )}
@@ -705,7 +774,7 @@ const Header: React.FC = () => {
                 </motion.div>
                 
                 {/* 产品体验菜单 */}
-                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={4} variants={MENU_ITEM_VARIANTS}>
+                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={5} variants={MENU_ITEM_VARIANTS}>
                   <button 
                     onClick={() => toggleMobileDropdown('experience')} 
                     className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
@@ -738,13 +807,16 @@ const Header: React.FC = () => {
                         className="overflow-hidden mt-4"
                       >
                         <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
-                          <div className="mb-3">
-                            <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 px-1">产品体验</h4>
-                            <div className="h-px bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                          <div className="flex justify-between mb-3">
+                            <div className="px-1">
+                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">体验</h4>
+                            </div>
+                            <div className="px-1">
+                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">更多</h4>
+                            </div>
                           </div>
-                          <div className="grid grid-cols-2 gap-3">
-                            {navItems[4].items?.map(renderMobileMenuItem)}
-                          </div>
+                          <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
+                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "产品体验")?.items || [], "产品体验")}
                         </div>
                       </motion.div>
                     )}
@@ -752,7 +824,7 @@ const Header: React.FC = () => {
                 </motion.div>
                 
                 {/* 关于我们 */}
-                <motion.div initial="hidden" animate="visible" custom={5} variants={MENU_ITEM_VARIANTS}>
+                <motion.div initial="hidden" animate="visible" custom={6} variants={MENU_ITEM_VARIANTS}>
                   <Link 
                     to="/about" 
                     className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
@@ -769,7 +841,7 @@ const Header: React.FC = () => {
                 </motion.div>
                 
                 {/* 登录和注册按钮 */}
-                <motion.div className="pt-6 space-y-3" initial="hidden" animate="visible" custom={6} variants={MENU_ITEM_VARIANTS}>
+                <motion.div className="pt-6 space-y-3" initial="hidden" animate="visible" custom={7} variants={MENU_ITEM_VARIANTS}>
                   <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 dark:from-blue-950/50 dark:to-indigo-950/50 dark:border-blue-800">
                     <div className="flex items-center mb-3">
                       <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2 dark:bg-blue-900/50">
