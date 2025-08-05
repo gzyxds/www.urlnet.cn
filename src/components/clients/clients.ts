@@ -93,7 +93,7 @@ const clients = [
   {
     id: "llama3",
     name: "Llama 3",
-    logo: "https://static.xx.fbcdn.net/rsrc.php/y9/r/tL_v571NdZ0.svg",
+    logo: "https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/llama.svg",
     website: "#",
     industry: "Llama 3"
   },
