@@ -50,9 +50,6 @@ const AboutPage: React.FC = () => {
   };
 
   // 滚动到顶部函数
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   // 处理二维码弹出
   const handleShowQRCode = () => {

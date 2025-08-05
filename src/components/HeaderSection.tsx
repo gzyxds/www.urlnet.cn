@@ -68,7 +68,9 @@ const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // 导航菜单配置
   const navItems: NavItem[] = useMemo(() => [
@@ -146,6 +148,37 @@ const Header: React.FC = () => {
     setActiveDropdown(prev => prev === name ? null : name);
   }, []);
 
+  // 鼠标悬停菜单处理函数
+  const handleMenuMouseEnter = useCallback((menuName: string) => {
+    // 清除之前的延迟关闭定时器
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    // 立即显示菜单
+    setHoveredMenu(menuName);
+  }, []);
+
+  const handleMenuMouseLeave = useCallback(() => {
+    // 设置延迟关闭，给用户时间移动到子菜单
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredMenu(null);
+    }, 150); // 150ms延迟，提供良好的用户体验
+  }, []);
+
+  const handleDropdownMouseEnter = useCallback(() => {
+    // 鼠标进入下拉菜单时，清除关闭定时器
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+  }, []);
+
+  const handleDropdownMouseLeave = useCallback(() => {
+    // 鼠标离开下拉菜单时，立即关闭
+    setHoveredMenu(null);
+  }, []);
+
 
 
   // 初始化暗黑模式
@@ -190,6 +223,15 @@ const Header: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [mobileMenuOpen]);
 
+  // 清理悬停定时器
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
+
   // 渲染特殊菜单项名称（带动画点）
   const renderMenuItemName = (itemName: string) => {
     if (itemName === "产品体验") {
@@ -217,40 +259,7 @@ const Header: React.FC = () => {
     return <span>{itemName}</span>;
   };
 
-  // 渲染下拉菜单项
-  const renderDropdownItem = (subItem: NavSubItem, subIndex: number) => (
-    <DropdownMenuItem 
-      key={subIndex} 
-      asChild 
-      className="rounded-lg bg-gray-50 hover:bg-blue-50/70 focus:bg-blue-50/70 py-3 px-3 cursor-pointer dark:bg-gray-800 dark:hover:bg-blue-950/30 dark:focus:bg-blue-950/30 transition-all duration-200"
-    >
-      {subItem.external ? (
-        <div 
-          className="w-full flex items-center cursor-pointer" 
-          onClick={() => openExternalLink(subItem.url!)}
-        >
-          <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
-            {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-          </div>
-          <div className="flex flex-col">
-            <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-            <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
-          </div>
-          <ExternalLink className="h-3 w-3 text-gray-400 ml-auto dark:text-gray-500" />
-        </div>
-      ) : (
-        <Link to={subItem.path} className="w-full flex items-center" onClick={handleNavigation}>
-          <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
-            {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-          </div>
-          <div className="flex flex-col">
-            <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-            <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
-          </div>
-        </Link>
-      )}
-    </DropdownMenuItem>
-  );
+
 
   // 渲染移动端菜单项
   const renderMobileMenuItem = (subItem: NavSubItem, index: number) => (
@@ -366,32 +375,98 @@ const Header: React.FC = () => {
             <nav className="hidden md:flex items-center space-x-2">
               {navItems.map((item, index) => (
                 item.dropdown ? (
-                  <DropdownMenu key={index}>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="group flex items-center text-sm font-medium px-3 py-2 text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 relative">
-                        {renderMenuItemName(item.name)}
-                        <ChevronDown className="ml-1 h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="center" className="w-[520px] p-5 rounded-xl border border-gray-100 shadow-lg bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 animate-in fade-in-50 zoom-in-95 duration-150">
-                      <div className="flex justify-between mb-3">
-                        <div className="px-2">
-                          <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
-                            {item.name === "产品与服务" ? "行业" : item.name === "支持与服务" ? "服务" : "体验"}
-                          </h4>
-                        </div>
-                        <div className="px-2">
-                          <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
-                            {item.name === "产品与服务" ? "使用场景" : item.name === "支持与服务" ? "支持" : "更多"}
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="h-px bg-gray-100 dark:bg-gray-700 mb-3"></div>
-                      <div className="grid grid-cols-2 gap-3">
-                        {item.items?.map(renderDropdownItem)}
-                      </div>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                  <div 
+                    key={index}
+                    className="relative"
+                    onMouseEnter={() => handleMenuMouseEnter(item.name)}
+                    onMouseLeave={handleMenuMouseLeave}
+                  >
+                    <Button 
+                      variant="ghost" 
+                      className={`group flex items-center text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 ${
+                        hoveredMenu === item.name 
+                          ? "text-[#015bfe] bg-blue-50/70 dark:text-blue-400 dark:bg-blue-950/50" 
+                          : "text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
+                      }`}
+                    >
+                      {renderMenuItemName(item.name)}
+                      <ChevronDown className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
+                        hoveredMenu === item.name ? "rotate-180" : ""
+                      }`} />
+                    </Button>
+                    
+                    {/* 悬停展开的下拉菜单 */}
+                    <AnimatePresence>
+                      {hoveredMenu === item.name && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ 
+                            duration: 0.2, 
+                            ease: [0.4, 0, 0.2, 1],
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 30
+                          }}
+                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[520px] p-5 rounded-xl border border-gray-100 shadow-xl bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 z-50"
+                          onMouseEnter={handleDropdownMouseEnter}
+                          onMouseLeave={handleDropdownMouseLeave}
+                        >
+                          <div className="flex justify-between mb-3">
+                            <div className="px-2">
+                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
+                                {item.name === "产品与服务" ? "行业" : item.name === "支持与服务" ? "服务" : "体验"}
+                              </h4>
+                            </div>
+                            <div className="px-2">
+                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
+                                {item.name === "产品与服务" ? "使用场景" : item.name === "支持与服务" ? "支持" : "更多"}
+                              </h4>
+                            </div>
+                          </div>
+                          <div className="h-px bg-gray-100 dark:bg-gray-700 mb-3"></div>
+                          <div className="grid grid-cols-2 gap-3">
+                            {item.items?.map((subItem, subIndex) => (
+                              <motion.div
+                                key={subIndex}
+                                initial={{ opacity: 0, y: 5 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: subIndex * 0.05, duration: 0.2 }}
+                                className="rounded-lg bg-gray-50 hover:bg-blue-50/70 focus:bg-blue-50/70 py-3 px-3 cursor-pointer dark:bg-gray-800 dark:hover:bg-blue-950/30 dark:focus:bg-blue-950/30 transition-all duration-200"
+                              >
+                                {subItem.external ? (
+                                  <div 
+                                    className="w-full flex items-center cursor-pointer" 
+                                    onClick={() => openExternalLink(subItem.url!)}
+                                  >
+                                    <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
+                                      {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                                    </div>
+                                    <div className="flex flex-col">
+                                      <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
+                                      <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
+                                    </div>
+                                    <ExternalLink className="h-3 w-3 text-gray-400 ml-auto dark:text-gray-500" />
+                                  </div>
+                                ) : (
+                                  <Link to={subItem.path} className="w-full flex items-center" onClick={handleNavigation}>
+                                    <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
+                                      {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+                                    </div>
+                                    <div className="flex flex-col">
+                                      <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
+                                      <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
+                                    </div>
+                                  </Link>
+                                )}
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 ) : (
                   <Link key={index} to={item.path || "/"} onClick={handleNavigation}>
                     <Button variant="ghost" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50">

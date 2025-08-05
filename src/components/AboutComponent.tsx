@@ -1,9 +1,7 @@
 "use client";
 
-import React from 'react';
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Users, Award, Clock, Shield } from "lucide-react";
+import { CheckCircle, Users, Award, Clock, Shield } from "lucide-react";
 
 const About = () => {
   // 统计数据配置 - 现代化简约设计

@@ -7,9 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, FileText, Book, Code, HelpCircle, ArrowRight, Menu, X } from "lucide-react";
-import Header from '@/components/header';
-import Contact from '@/components/contact';
+import Header from '@/components/HeaderSection';
+import Contact from '@/components/ContactSection';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { DocItem, FAQItem, NavigationItem } from '@/types';
 
 const DocsPage = () => {
   // 设置文档页面元数据
@@ -30,7 +31,7 @@ const DocsPage = () => {
   };
 
   // 导航菜单数据
-  const navigationItems = [
+  const navigationItems: NavigationItem[] = [
     {
       id: "guides",
       title: "使用指南",
@@ -55,7 +56,7 @@ const DocsPage = () => {
   const DOCS_LINK = "https://rwm01l8tn3x.feishu.cn/wiki/VqNCwBO0KiqWIWkSfdHcDigGnZg?from=from_copylink";
 
   // 使用指南数据
-  const guides = [
+  const guides: DocItem[] = [
     {
       title: "快速入门",
       description: "了解如何开始使用我们的AI产品，包括账号设置、基本操作和常见问题解答。",
@@ -107,7 +108,7 @@ const DocsPage = () => {
   ];
 
   // API文档数据
-  const api = [
+  const api: DocItem[] = [
     {
       title: "API概述",
       description: "了解我们的API架构、认证方式和基本使用流程。",
@@ -159,7 +160,7 @@ const DocsPage = () => {
   ];
 
   // 常见问题数据
-  const faq = [
+  const faq: FAQItem[] = [
     {
       question: "如何开始使用AI科技的产品？",
       answer: "您可以通过注册账号，选择适合您的产品和套餐，完成付款后即可开始使用。我们提供14天免费试用，帮助您充分了解产品功能。",
@@ -205,7 +206,7 @@ const DocsPage = () => {
   ];
 
   // 根据当前分类获取数据
-  const getCurrentData = () => {
+  const getCurrentData = (): DocItem[] | FAQItem[] => {
     switch (activeCategory) {
       case "guides":
         return guides;
@@ -223,9 +224,10 @@ const DocsPage = () => {
     const currentData = getCurrentData();
     
     if (activeCategory === "faq") {
+      const faqData = currentData as FAQItem[];
       return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {currentData.map((item, index) => (
+          {faqData.map((item, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -263,9 +265,10 @@ const DocsPage = () => {
       );
     }
 
+    const docData = currentData as DocItem[];
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {currentData.map((item, index) => (
+        {docData.map((item, index) => (
           <motion.div 
             key={index}
             initial={{ opacity: 0, y: 20 }}

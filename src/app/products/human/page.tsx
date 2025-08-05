@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool, X } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
-import BackToTop from '@/components/back-to-top';
 import { motion, AnimatePresence } from "framer-motion";
 
 const HumanPage = () => {

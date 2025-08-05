@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play, Code, Zap, Sparkles, ChevronRight, X } from "lucide-react";
+import { X } from "lucide-react";
 
 // 打字机效果 Hook
 const useTypewriter = (text: string, speed: number = 100, delay: number = 0) => {
@@ -87,16 +87,12 @@ const Hero = () => {
     "它技术过硬、私有部署、个性化定制、稳定使用"
   ];
   
-  const typewriterFirst = useTypewriter(firstLine, 80, 0);
+  useTypewriter(firstLine, 80, 0);
   const rotatingSecond = useRotatingText(rotatingTexts, 3000);
 
   // 新增：点击弹出的二维码状态
   const [showQRCode, setShowQRCode] = useState(false);
 
-  // 新增：处理点击弹出二维码的函数
-  const handleClickQRCode = () => {
-    setShowQRCode(true);
-  };
 
   // 新增：关闭点击弹出的二维码
   const handleCloseQRCode = () => {

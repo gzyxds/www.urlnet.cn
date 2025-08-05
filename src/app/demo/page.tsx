@@ -1,6 +1,5 @@
 "use client";
-import React from 'react';
-import Header from '@/components/header';
+import Header from '@/components/HeaderSection';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import DemoShowcase from './components/demo';
 /**

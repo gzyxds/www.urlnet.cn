@@ -26,13 +26,23 @@ const NewsCard: React.FC<NewsCardProps> = ({
 }) => {
   const linkPath = slug ? `/news/${slug}` : `/news/${id}`;
 
+  const handleClick = (e: React.MouseEvent) => {
+    // 添加点击反馈效果
+    const target = e.currentTarget as HTMLElement;
+    target.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      target.style.transform = '';
+    }, 150);
+  };
+
   return (
     <motion.article
       whileHover={{ y: -5 }}
+      whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2 }}
-      className="bg-white border border-gray-200 overflow-hidden h-full flex flex-col group"
+      className="bg-white border border-gray-200 overflow-hidden h-full flex flex-col group cursor-pointer"
     >
-      <Link to={linkPath} className="h-full flex flex-col">
+      <Link to={linkPath} className="h-full flex flex-col" onClick={handleClick}>
         {/* 图片区域 */}
         <div className="aspect-video bg-gray-100 relative overflow-hidden">
           {imageUrl ? (

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { 
   Search, 
   Loader2,
@@ -14,6 +13,24 @@ export default function NewsPage() {
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('全部');
   const [sortBy, setSortBy] = useState<'latest' | 'popular'>('latest');
+
+  // 保存和恢复滚动位置
+  useEffect(() => {
+    const savedScrollPosition = sessionStorage.getItem('newsPageScrollPosition');
+    if (savedScrollPosition) {
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScrollPosition));
+        sessionStorage.removeItem('newsPageScrollPosition');
+      }, 100);
+    }
+
+    const handleScroll = () => {
+      sessionStorage.setItem('newsPageScrollPosition', window.scrollY.toString());
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const categories = ['全部', '产品发布', '案例分析', '行业洞察', '技术分享', '公司动态'];
 

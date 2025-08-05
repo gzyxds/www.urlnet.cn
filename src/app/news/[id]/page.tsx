@@ -50,6 +50,7 @@ export default function NewsDetailPage() {
   const [activeSection, setActiveSection] = useState<string>('')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
+  const articleHeaderRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const loadNewsDetail = async () => {
@@ -113,6 +114,29 @@ export default function NewsDetailPage() {
     
     loadNewsDetail()
   }, [id])
+
+  // 页面加载完成后自动滚动到文章标题区域
+  useEffect(() => {
+    if (!loading && news && articleHeaderRef.current) {
+      // 延迟一点时间确保页面完全渲染
+      const timer = setTimeout(() => {
+        if (articleHeaderRef.current) {
+          // 根据屏幕尺寸调整导航栏高度
+          const isMobile = window.innerWidth < 768
+          const headerHeight = isMobile ? 70 : 80 // 移动端导航栏稍微矮一些
+          const extraOffset = 20 // 额外的偏移量，让内容不贴边
+          const targetPosition = articleHeaderRef.current.offsetTop - headerHeight - extraOffset
+          
+          window.scrollTo({
+            top: Math.max(0, targetPosition), // 确保不会滚动到负数位置
+            behavior: 'smooth'
+          })
+        }
+      }, 150) // 稍微增加延迟，确保动画完成
+      
+      return () => clearTimeout(timer)
+    }
+  }, [loading, news])
 
   // 监听滚动，更新阅读进度和活跃章节
   useEffect(() => {
@@ -284,7 +308,11 @@ export default function NewsDetailPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
-                onClick={() => navigate('/news')}
+                onClick={() => {
+                  // 清除可能存在的滚动位置记录，让用户回到列表顶部
+                  sessionStorage.removeItem('newsPageScrollPosition');
+                  navigate('/news');
+                }}
                 className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -350,6 +378,7 @@ export default function NewsDetailPage() {
             <main ref={contentRef}>
               {/* 文章头部 */}
               <motion.div 
+                ref={articleHeaderRef}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}

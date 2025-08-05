@@ -1,9 +1,8 @@
 "use client";
 
-import React from 'react';
-import Header from '@/components/header';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
-import ProductComponent from '@/components/Productcomponent';
+import Header from '@/components/HeaderSection';
+import ProductComponent from '@/components/ProductShowcase';
 
 /**
  * 产品演示页面

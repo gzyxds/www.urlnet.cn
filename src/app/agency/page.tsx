@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Users, Code, Handshake, Target, CheckCircle, Phone, MessageCircle, FileText, Settings } from "lucide-react";
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Header from '@/components/HeaderSection';
 import { Link } from 'react-router-dom';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 

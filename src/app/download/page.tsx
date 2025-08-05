@@ -1,20 +1,18 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Download, 
   Smartphone, 
   Monitor, 
   Laptop, 
-  Tablet, 
   QrCode,
   Copy,
   CheckCircle,
-  ExternalLink,
   FileText,
   Package,
   Globe,
@@ -29,7 +27,7 @@ import {
   Bot,
   BookOpen
 } from "lucide-react";
-import Header from '@/components/header';
+import Header from '@/components/HeaderSection';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { toast } from '@/hooks/use-toast';
 

@@ -29,7 +29,7 @@ import {
   Check,
   Download
 } from "lucide-react";
-import Header from '@/components/header';
+import Header from '@/components/HeaderSection';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { toast } from '@/hooks/use-toast';
 

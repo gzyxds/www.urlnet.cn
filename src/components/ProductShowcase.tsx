@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, Star, ShoppingCart, Users, Globe, Store, GraduationCap, X } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Star, Users, Store, GraduationCap, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Contact from '@/components/contact';
+import Contact from '@/components/ContactSection';
 
 // 定义产品数据类型
 interface Product {
@@ -278,7 +278,7 @@ const ProductShowcase = () => {
           initial="hidden"
           animate="visible"
         >
-          {products.map((product, index) => (
+          {products.map((product) => (
             <motion.div 
               key={product.title} 
               className="group"

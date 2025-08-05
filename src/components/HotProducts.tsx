@@ -80,7 +80,7 @@ const HotProducts = React.memo(() => {
   const [showRightArrow, setShowRightArrow] = useState<boolean>(false);
   
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [, setIsMobile] = useState<boolean>(false);
 
   const currentScenario = scenarioConfig[activeScenario];
   const IconComponent = currentScenario.icon;

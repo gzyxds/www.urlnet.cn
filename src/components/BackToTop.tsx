@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronUp, MessageCircle, Headphones, Gift, User, X } from "lucide-react";
+import { ChevronUp, Headphones, Gift, User, X } from "lucide-react";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);

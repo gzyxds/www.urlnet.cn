@@ -1,14 +1,7 @@
 "use client";
 
-import React from 'react';
 import { motion } from "framer-motion";
-import { CircleHelp, CircleCheck, Zap, Shield, Laptop, GraduationCap } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { CircleHelp, Zap, Shield, Laptop, GraduationCap } from "lucide-react";
 
 const FAQ = () => {
   const faqs = [

@@ -1,6 +1,4 @@
 "use client";
-
-import React from 'react';
 import { motion } from "framer-motion";
 import { 
   Bot, FileText, Download, Cpu, Database, BarChart3, 

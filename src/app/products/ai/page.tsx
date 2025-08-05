@@ -1,11 +1,8 @@
 "use client";
 
-import React from 'react';
-import BackToTop from '@/components/back-to-top';
 import { Button } from "@/components/ui/button";
 import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const AiPage = () => {
   usePageMetadata({

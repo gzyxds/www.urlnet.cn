@@ -1,6 +1,4 @@
 "use client";
-
-import React from 'react';
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Zap, Shield, Clock, Users } from "lucide-react";

@@ -150,8 +150,20 @@ const ClientLogoWallExample: React.FC = () => {
         <h3 style={{fontSize: 18, fontWeight: 'bold', marginBottom: 12}}>简化版用法</h3>
         <ClientLogoWall title="合作伙伴" clients={clients} />
       </div>
+
+      {/* 精选客户用法 */}
+      <div style={{marginBottom: 40}}>
+        <h3 style={{fontSize: 18, fontWeight: 'bold', marginBottom: 12}}>精选客户用法</h3>
+        <ClientLogoWall
+          title="精选客户案例"
+          subtitle="成功案例展示"
+          description="与知名企业深度合作，提供定制化AI解决方案"
+          clients={featuredClients}
+          marquee
+        />
+      </div>
     </div>
   );
 };
 
-export default ClientLogoWallExample; 
+export default ClientLogoWallExample;

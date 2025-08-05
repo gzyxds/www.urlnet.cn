@@ -23,8 +23,8 @@ import {
   X,
   QrCode
 } from "lucide-react";
-import Header from '@/components/header';
-import Contact from '@/components/contact';
+import Header from '@/components/HeaderSection';
+import Contact from '@/components/ContactSection';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 /**

@@ -5,9 +5,9 @@ import { Routes, Route } from 'react-router-dom';
 import './app/globals.css';
 
 // 布局组件导入
-import Header from './components/header';
-import Footer from './components/footer';
-import BackToTop from './components/back-to-top';
+import Header from './components/HeaderSection';
+import Footer from './components/FooterSection';
+import BackToTop from './components/BackToTop';
 
 // 页面组件导入 - 按功能模块分组
 // 主页

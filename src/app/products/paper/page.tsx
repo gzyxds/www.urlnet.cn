@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool } from "lucide-react";
+import { Check, Users, Bot, Play, Tv, PenTool } from "lucide-react";
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const  PaperPage = () => {
@@ -15,11 +15,6 @@ const  PaperPage = () => {
   });
 
   // 常用样式常量
-  const buttonPrimary = "bg-blue-600 hover:bg-blue-700 text-white";
-  const buttonSecondary = "border-blue-600 text-blue-600 hover:bg-blue-50";
-  const iconContainer = "w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center";
-  const sectionPadding = "py-20";
-  const containerBase = "container mx-auto px-4";
 
   return (
     <div className="min-h-screen bg-white">

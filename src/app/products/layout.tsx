@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Header from '@/components/HeaderSection';
+import Footer from '@/components/FooterSection';
 
 export default function ProductsLayout({
   children,
