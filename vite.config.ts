@@ -1,9 +1,41 @@
 import path from "path"
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
+import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'fs'
+
+// 自定义插件：复制图片文件到dist目录
+function copyPicturesPlugin() {
+  return {
+    name: 'copy-pictures',
+    writeBundle() {
+      const srcDir = path.resolve(__dirname, 'src/app/new/picture')
+      const destDir = path.resolve(__dirname, 'dist/picture')
+      
+      // 确保目标目录存在
+      if (!existsSync(destDir)) {
+        mkdirSync(destDir, { recursive: true })
+      }
+      
+      // 复制所有图片文件
+      if (existsSync(srcDir)) {
+        const files = readdirSync(srcDir)
+        files.forEach(file => {
+          if (file.match(/\.(jpg|jpeg|png|webp|svg)$/i)) {
+            const srcFile = path.join(srcDir, file)
+            const destFile = path.join(destDir, file)
+            copyFileSync(srcFile, destFile)
+            console.log(`✅ 复制图片文件: ${file} -> /picture/${file}`)
+          }
+        })
+      }
+    }
+  }
+}
+
 export default defineConfig({
   plugins: [
-    react()
+    react(),
+    copyPicturesPlugin()
   ],
   resolve: {
     alias: {

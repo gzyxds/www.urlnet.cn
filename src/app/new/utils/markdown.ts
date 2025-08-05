@@ -163,37 +163,39 @@ export function parseMarkdownFrontMatter(content: string): {
  * @returns 图片路径数组
  */
 function getAvailablePictures(): string[] {
-  // 使用 import.meta.glob 获取所有图片文件
-  const pictureModules = import.meta.glob('../picture/*.{jpg,jpeg,png,webp,svg}', { 
-    eager: true,
-    query: '?url',
-    import: 'default'
-  });
-  
-  // 提取文件路径并转换为可访问的URL
-  const pictures = Object.keys(pictureModules).map(path => {
-    // 将相对路径转换为绝对路径
-    // ../picture/xxx.jpg -> /src/app/new/picture/xxx.jpg
-    return path.replace('../picture/', '/src/app/new/picture/');
-  });
-  
-  // 如果没有找到图片文件，使用默认图片列表
-  if (pictures.length === 0) {
-    console.warn('未找到图片文件，使用默认图片列表');
-    return [
-      '/src/app/new/picture/picture.jpg',
-      '/src/app/new/picture/picture1.jpg',
-      '/src/app/new/picture/picture2.jpg',
-      '/src/app/new/picture/picture3.jpg',
-      '/src/app/new/picture/picture4.jpg',
-      '/src/app/new/picture/picture5.jpg',
-      '/src/app/new/picture/picture6.jpg',
-      '/src/app/new/picture/picture7.jpg'
-    ];
+  try {
+    // 使用 import.meta.glob 获取所有图片文件
+    // eager: true 表示立即加载，query: '?url' 表示获取URL路径
+    const pictureModules = import.meta.glob('../picture/*.{jpg,jpeg,png,webp,svg}', { 
+      eager: true,
+      query: '?url',
+      import: 'default'
+    });
+    
+    // 提取实际的URL路径（使用模块的值而不是键）
+    const pictures = Object.values(pictureModules) as string[];
+    
+    // 如果成功获取到图片文件，直接返回
+    if (pictures.length > 0) {
+      console.log('检测到的图片文件:', pictures);
+      return pictures;
+    }
+  } catch (error) {
+    console.warn('使用 import.meta.glob 获取图片失败:', error);
   }
   
-  console.log('检测到的图片文件:', pictures);
-  return pictures;
+  // 如果没有找到图片文件或出现错误，使用默认图片列表
+  console.warn('未找到图片文件，使用默认图片列表');
+  return [
+    '/picture/picture.jpg',
+    '/picture/picture1.jpg',
+    '/picture/picture2.jpg',
+    '/picture/picture3.jpg',
+    '/picture/picture4.jpg',
+    '/picture/picture5.jpg',
+    '/picture/picture6.jpg',
+    '/picture/picture7.jpg'
+  ];
 }
 
 /**
