@@ -275,25 +275,32 @@ class NewsService {
   public async getStats(): Promise<NewsStats> {
     await this.initialize();
 
-    const categories = Object.values(NewsCategory).map(category => ({
-      category,
-      count: this.newsData.filter(news => news.category === category).length
-    }));
+    // 生成分类统计 - 使用正确的属性名 categoryCounts
+    const categoryCounts = Object.values(NewsCategory).reduce((acc, category) => {
+      acc[category] = this.newsData.filter(news => news.category === category).length;
+      return acc;
+    }, {} as Record<NewsCategory, number>);
 
+    // 生成标签统计
     const allTags = this.newsData.flatMap(news => news.tags);
     const tagCounts = allTags.reduce((acc, tag) => {
       acc[tag] = (acc[tag] || 0) + 1;
       return acc;
     }, {} as Record<string, number>);
 
-    const tags = Object.entries(tagCounts)
+    // 生成热门标签列表 - 使用正确的属性名 popularTags
+    const popularTags = Object.entries(tagCounts)
       .map(([tag, count]) => ({ tag, count }))
       .sort((a, b) => b.count - a.count);
 
+    // 计算总浏览量
+    const totalViews = this.newsData.reduce((total, news) => total + news.viewCount, 0);
+
     return {
       totalNews: this.newsData.length,
-      categories,
-      tags
+      categoryCounts,
+      popularTags,
+      totalViews
     };
   }
 
