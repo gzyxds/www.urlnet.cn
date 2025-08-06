@@ -53,7 +53,7 @@ const products: Product[] = [
     ],
     originalPrice: "¥9800.00",
     currentPrice: "¥6600.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/multi-merchant",
+    sourceCodeLink: "/demo",
     badge: "PHP版",
     icon: <Store className="h-5 w-5" />,
     iconColor: "bg-orange-500",
@@ -72,7 +72,7 @@ const products: Product[] = [
     ],
     originalPrice: "¥3800.00",
     currentPrice: "¥2999.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/private-domain",
+    sourceCodeLink: "/demo",
     badge: "PHP版",
     icon: <Store className="h-5 w-5" />,
     iconColor: "bg-purple-500",
@@ -91,7 +91,7 @@ const products: Product[] = [
     ],
     originalPrice: "¥4699.00",
     currentPrice: "¥3999.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/multi-store",
+    sourceCodeLink: "/demo",
     badge: "PHP版",
     icon: <GraduationCap className="h-5 w-5" />,
     iconColor: "bg-purple-700",
@@ -110,7 +110,7 @@ const products: Product[] = [
     ],
     originalPrice: "¥9800.00",
     currentPrice: "¥6600.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/java-standard",
+    sourceCodeLink: "/demo",
     badge: "Python版",
     icon: <Store className="h-5 w-5" />,
     iconColor: "bg-red-500",
@@ -129,7 +129,7 @@ const products: Product[] = [
     ],
     originalPrice: "¥9800.00",
     currentPrice: "¥6600.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/java-multi-merchant",
+    sourceCodeLink: "/demo",
     badge: "pro版",
     icon: <Users className="h-5 w-5" />,
     iconColor: "bg-orange-500",
@@ -148,7 +148,7 @@ const products: Product[] = [
     ],
     originalPrice: "¥98800.00",
     currentPrice: "¥6600.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/foreign-trade",
+    sourceCodeLink: "/demo",
     badge: "Java版",
     icon: <Store className="h-5 w-5" />,
     iconColor: "bg-purple-500",
@@ -167,7 +167,7 @@ const products: Product[] = [
     ],
     originalPrice: "¥3800.00",
     currentPrice: "¥2999.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/knowledge-payment",
+    sourceCodeLink: "/demo",
     badge: "Java版",
     icon: <Store className="h-5 w-5" />,
     iconColor: "bg-blue-500",
@@ -186,7 +186,7 @@ const products: Product[] = [
     ],
     originalPrice: "免费开源",
     currentPrice: "免费开源",
-    sourceCodeLink: "https://shop.maddodo.com/product/knowledge-payment",
+    sourceCodeLink: "/demo",
     badge: "全栈版",
     icon: <Store className="h-5 w-5" />,
     iconColor: "bg-blue-500",
@@ -205,7 +205,7 @@ const products: Product[] = [
     ],
     originalPrice: "¥469800.00",
     currentPrice: "¥3999.00",
-    sourceCodeLink: "https://shop.maddodo.com/product/knowledge-payment",
+    sourceCodeLink: "/demo",
     badge: "Java版",
     icon: <GraduationCap className="h-5 w-5" />,
     iconColor: "bg-blue-500", 
@@ -354,7 +354,7 @@ const ProductShowcase = () => {
                         className="w-full bg-white hover:bg-gray-50 text-gray-900 font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm border border-gray-200"
                         onClick={handleShowQRCode}
                       >
-                        免费试用
+                        联系客服
                         <ArrowRight className="ml-2 h-3 w-3" />
                       </Button>
                       
@@ -363,7 +363,7 @@ const ProductShowcase = () => {
                         className="w-full border border-[#1d4ed8] bg-transparent hover:bg-[rgba(29,78,216,0.1)] text-[#1d4ed8] font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm"
                         onClick={() => window.open(product.sourceCodeLink, '_blank', 'noopener,noreferrer')}
                       >
-                        联系客服
+                        免费试用
                       </Button>
                     </div>
                   </div>
