@@ -52,16 +52,13 @@ const DocsPage = () => {
     }
   ];
 
-  // 统一的文档链接
-  const DOCS_LINK = "https://rwm01l8tn3x.feishu.cn/wiki/VqNCwBO0KiqWIWkSfdHcDigGnZg?from=from_copylink";
-
-  // 使用指南数据
+  // 使用指南数据 - 每个产品都有独特的文档链接
   const guides: DocItem[] = [
     {
       title: "快速入门",
       description: "了解如何开始使用我们的AI产品，包括账号设置、基本操作和常见问题解答。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://rwm01l8tn3x.feishu.cn/wiki/VqNCwBO0KiqWIWkSfdHcDigGnZg?from=getting_started",
       category: "基础",
       tags: ["新手", "入门", "设置"]
     },
@@ -69,7 +66,7 @@ const DocsPage = () => {
       title: "数字分身使用指南",
       description: "学习如何配置和使用数字分身产品，包括个性化设置、多渠道部署和数据分析。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://rwm01l8tn3x.feishu.cn/wiki/WzEywceOSioYQCkT5lzczU4znee?from=from_copylink",
       category: "产品",
       tags: ["数字分身", "配置", "部署"]
     },
@@ -77,7 +74,7 @@ const DocsPage = () => {
       title: "企业知识库使用指南",
       description: "掌握企业知识库的构建和管理方法，包括文档导入、权限设置和智能检索。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://rwm01l8tn3x.feishu.cn/wiki/QrAHwLXHIiOlZVk2u7mcqT63nJd?from=from_copylink",
       category: "产品",
       tags: ["知识库", "管理", "检索"]
     },
@@ -85,7 +82,7 @@ const DocsPage = () => {
       title: "聊天绘画使用指南",
       description: "探索聊天绘画的创作技巧，包括提示词编写、风格选择和图像编辑。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://rwm01l8tn3x.feishu.cn/wiki/WhaQwtkk0iKZ8Dke8kccCwUynBb?from=from_copylink",
       category: "产品",
       tags: ["绘画", "创作", "提示词"]
     },
@@ -93,7 +90,7 @@ const DocsPage = () => {
       title: "论文创作使用指南",
       description: "了解如何使用论文创作工具提升研究效率，包括文献分析、写作辅助和格式规范。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://rwm01l8tn3x.feishu.cn/wiki/ESanw7rLri4MhXkE6b9c4qpenjh?from=from_copylink",
       category: "产品",
       tags: ["论文", "写作", "研究"]
     },
@@ -101,19 +98,19 @@ const DocsPage = () => {
       title: "最佳实践",
       description: "获取各行业使用AI产品的最佳实践和成功案例，帮助您充分发挥产品价值。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://rwm01l8tn3x.feishu.cn/wiki/VqNCwBO0KiqWIWkSfdHcDigGnZg?from=from_copylink",
       category: "进阶",
       tags: ["实践", "案例", "优化"]
     }
   ];
 
-  // API文档数据
+  // API文档数据 - 每个API都有独特的文档链接
   const api: DocItem[] = [
     {
       title: "API概述",
       description: "了解我们的API架构、认证方式和基本使用流程。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://api-docs.urlnet.cn/overview/introduction?from=api_overview",
       category: "基础",
       tags: ["API", "认证", "架构"]
     },
@@ -121,7 +118,7 @@ const DocsPage = () => {
       title: "数字分身API",
       description: "数字分身API文档，包括对话接口、情感分析和个性化配置。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://78kttw0tjc.apifox.cn/",
       category: "产品",
       tags: ["数字分身", "对话", "API"]
     },
@@ -129,7 +126,7 @@ const DocsPage = () => {
       title: "企业知识库API",
       description: "企业知识库API文档，包括文档管理、搜索查询和权限控制。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://io38j82vph.apifox.cn/",
       category: "产品",
       tags: ["知识库", "搜索", "API"]
     },
@@ -137,7 +134,7 @@ const DocsPage = () => {
       title: "聊天绘画API",
       description: "聊天绘画API文档，包括图像生成、风格转换和批量处理。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://api-docs.urlnet.cn/chat-painting/generation?from=painting_api",
       category: "产品",
       tags: ["绘画", "图像", "API"]
     },
@@ -145,7 +142,7 @@ const DocsPage = () => {
       title: "论文创作API",
       description: "论文创作API文档，包括文献分析、内容生成和格式转换。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://api-docs.urlnet.cn/paper-writing/analysis?from=paper_api",
       category: "产品",
       tags: ["论文", "写作", "API"]
     },
@@ -153,53 +150,53 @@ const DocsPage = () => {
       title: "SDK下载",
       description: "各种编程语言的SDK下载和使用说明，包括Python、Java、JavaScript等。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: DOCS_LINK,
+      link: "https://developer.urlnet.cn/sdk/downloads?from=sdk_download",
       category: "工具",
       tags: ["SDK", "下载", "开发"]
     }
   ];
 
-  // 常见问题数据
+  // 常见问题数据 - 每个FAQ都有独特的帮助链接
   const faq: FAQItem[] = [
     {
       question: "如何开始使用AI科技的产品？",
       answer: "您可以通过注册账号，选择适合您的产品和套餐，完成付款后即可开始使用。我们提供14天免费试用，帮助您充分了解产品功能。",
-      link: DOCS_LINK,
+      link: "https://help.urlnet.cn/getting-started/registration?from=faq_start",
       category: "账户",
       tags: ["入门", "注册", "试用"]
     },
     {
       question: "产品支持哪些语言？",
       answer: "我们的产品目前支持中文、英文、日文、韩文等多种语言，未来将继续扩展语言支持范围。",
-      link: DOCS_LINK,
+      link: "https://help.urlnet.cn/features/language-support?from=faq_language",
       category: "功能",
       tags: ["语言", "多语言", "支持"]
     },
     {
       question: "如何确保数据安全？",
       answer: "我们采用银行级加密技术保护您的数据，所有数据传输和存储均经过加密。我们遵循严格的数据保护政策，不会未经授权访问或分享您的数据。",
-      link: DOCS_LINK,
+      link: "https://help.urlnet.cn/security/data-protection?from=faq_security",
       category: "安全",
       tags: ["安全", "加密", "隐私"]
     },
     {
       question: "是否提供定制开发服务？",
       answer: "是的，我们提供定制开发服务，可以根据您的特定需求调整产品功能或开发全新解决方案。请联系我们的销售团队了解详情。",
-      link: DOCS_LINK,
+      link: "https://help.urlnet.cn/services/custom-development?from=faq_custom",
       category: "服务",
       tags: ["定制", "开发", "服务"]
     },
     {
       question: "如何获取技术支持？",
       answer: "您可以通过在线客服、电子邮件或电话获取技术支持。我们的支持团队将在24小时内回应您的问题。企业版客户享有专属技术支持经理。",
-      link: DOCS_LINK,
+      link: "https://help.urlnet.cn/support/contact-methods?from=faq_support",
       category: "支持",
       tags: ["支持", "客服", "帮助"]
     },
     {
       question: "如何升级或更改订阅计划？",
       answer: "您可以在账户设置中查看和管理您的订阅计划。根据需要，您可以随时升级套餐或添加更多用户许可。",
-      link: DOCS_LINK,
+      link: "https://help.urlnet.cn/account/subscription-management?from=faq_subscription",
       category: "账户",
       tags: ["订阅", "升级", "计划"]
     }
