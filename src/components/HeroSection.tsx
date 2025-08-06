@@ -104,7 +104,7 @@ const Hero = () => {
               </div>
               <div className="h-3 sm:h-4 w-px bg-blue-600 mx-2 sm:mx-3"></div>
               <span className="text-xs sm:text-sm bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent font-bold">
-                V3.0 全新发布
+                V4.0全新发布
               </span>
             </div>
           </div>
