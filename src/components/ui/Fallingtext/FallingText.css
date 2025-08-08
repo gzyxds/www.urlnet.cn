@@ -1,0 +1,39 @@
+.falling-text-container {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 2em;
+  /* 确保FallingText能够在FuzzyText上方正确显示 */
+  pointer-events: auto;
+}
+
+.falling-text-target {
+  display: inline-block;
+}
+
+.word {
+  display: inline-block;
+  margin: 0 2px;
+  user-select: none;
+  /* 添加透明度，让文字在FuzzyText上更加突出 */
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.highlighted {
+  color: #05f;
+  font-weight: bold;
+  /* 为高亮词汇添加视觉效果 */
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.falling-text-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}

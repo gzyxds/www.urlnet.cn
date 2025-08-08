@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import FallingComponent from './Falling';
 
 const Footer = () => {
   return (
@@ -250,6 +251,8 @@ const Footer = () => {
           </div>
         </div>
         
+
+        
         {/* 底部版权信息 */}
         <div className="mt-12 sm:mt-16">
           <Separator className="mb-4 sm:mb-6" />
@@ -265,8 +268,12 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+      <br />
+   {/* 引入Falling组件 - 全宽显示 */}
+      <FallingComponent />   
+  </footer>
   );
 };
 
 export default Footer;
+

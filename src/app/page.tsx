@@ -36,10 +36,9 @@ const Home = () => {
       <Advantages />
       <Cases />
       <Scenario />
-
       <FAQ />
       <Contact />
-    </>
+      </>
   );
 };
 
