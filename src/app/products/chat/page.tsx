@@ -925,7 +925,7 @@ const ChatPage = () => {
                 {/* 主要演示图 - 响应式优化 */}
                 <div className="bg-white p-4 sm:p-6 shadow-lg rounded-lg">
                   <img 
-                    src="https://artaigc.cn/assets/ai.svg" 
+                    src="/product/ai.svg" 
                     alt="AI聊天绘画系统演示界面" 
                     className="w-full h-auto rounded object-contain"
                     loading="lazy"

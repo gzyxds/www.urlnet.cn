@@ -43,7 +43,7 @@ const Contact = () => {
             <div className="flex flex-col items-center text-center">
               <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 border border-gray-100 group-hover:border-blue-100 transition-colors duration-300 flex-shrink-0">
                 <img 
-                  src="https://artaigc.cn/assets/wchatpay.png" 
+                  src="/product/wchatpay.png" 
                   alt="微信客服二维码" 
                   className="w-full h-full object-contain rounded"
                 />
@@ -69,7 +69,7 @@ const Contact = () => {
             <div className="flex flex-col items-center text-center">
               <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 border border-gray-100 group-hover:border-blue-100 transition-colors duration-300 flex-shrink-0">
                 <img 
-                  src="https://artaigc.cn/assets/wchatpay.png" 
+                  src="/product/wchatpay.png" 
                   alt="公众号二维码" 
                   className="w-full h-full object-contain rounded"
                 />
@@ -95,7 +95,7 @@ const Contact = () => {
             <div className="flex flex-col items-center text-center">
               <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 border border-gray-100 group-hover:border-blue-100 transition-colors duration-300 flex-shrink-0">
                 <img 
-                  src="https://artaigc.cn/assets/wchatpay.png" 
+                  src="/product/wchatpay.png" 
                   alt="演示二维码" 
                   className="w-full h-full object-contain rounded"
                 />
@@ -121,7 +121,7 @@ const Contact = () => {
             <div className="flex flex-col items-center text-center">
               <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 border border-gray-100 group-hover:border-blue-100 transition-colors duration-300 flex-shrink-0">
                 <img 
-                  src="https://artaigc.cn/assets/wchatpay.png" 
+                  src="/product/wchatpay.png" 
                   alt="QQ客服二维码" 
                   className="w-full h-full object-contain rounded"
                 />

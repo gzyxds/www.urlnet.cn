@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Products = () => {
   const products = [
     {
-      image: "https://artaigc.cn/assets/saas.svg",
+      image: "/product/saas.svg",
       title: "数字分身IP数字人SaaS系统",
       subtitle: "[PHP源码版]",
       description: "为企业主、个人博主打造短视频IP的数字人聊天系统，支持真人音+形象定制...",
@@ -21,7 +21,7 @@ const Products = () => {
       buyLink: "https://auth.cnai.art/"
     },
     {
-      image: "https://artaigc.cn/assets/work.svg",
+      image: "/product/work.svg",
       title: "企业级全能AI知识库系统",
       subtitle: "[PHP源码版]",
       description: "全能AI知识库系统(PHP版，基于前后端分离架构)以及Vue3、uni-app...",
@@ -34,7 +34,7 @@ const Products = () => {
       buyLink: "https://auth.cnai.art/"
     },
     {
-      image: "https://artaigc.cn/assets/work.svg",
+      image: "/product/work.svg",
       title: "艺创AI智能聊天绘画系统",
       subtitle: "[PHP源码版]",
       description: "基于前后端分离架构以及Vue3、uni-app、ThinkPHP6.x、PHP8.0技术栈开发...",
@@ -47,7 +47,7 @@ const Products = () => {
       buyLink: "https://auth.cnai.art/"
     },
     {
-      image: "https://artaigc.cn/assets/saas.svg",
+      image: "/product/saas.svg",
       title: "Paper-论文创作写作系统",
       subtitle: "[全新升级]",
       description: "你只需要输入论文关键词，AI即可快速为您生成论文大纲...",
@@ -73,7 +73,7 @@ const Products = () => {
       buyLink: "https://auth.cnai.art/"
     },
     {
-      image: "https://artaigc.cn/assets/ai.svg",
+      image: "/product/ai.svg",
       title: "艺创AI数字分身2.0-Pro版",
       subtitle: "[PHP源码版]",
       description: "基于Java开发的AI聊天绘画系统，高性能架构，支持多种绘画模型和聊天场景...",
@@ -86,7 +86,7 @@ const Products = () => {
       buyLink: "https://auth.cnai.art/"
     },
     {
-      image: "https://artaigc.cn/assets/ai.svg",
+      image: "/product/ai.svg",
       title: "艺创AI聊天绘画系统Java",
       subtitle: "[Java源码版]",
       description: "实现了AI对话+AI绘画的融合使用，系统功能特色：AI画图对话、AI创作模型...",
@@ -99,7 +99,7 @@ const Products = () => {
       buyLink: "https://auth.cnai.art/"
     },
     {
-      image: "https://artaigc.cn/assets/lw.svg",
+      image: "/product/lw.svg",
       title: "艺创AI论文写作系统",
       subtitle: "[PHP源码版]",
       description: "10分钟可生成几万字长文的系统，只需要输入主题关键词，AI即可快速为您生...",

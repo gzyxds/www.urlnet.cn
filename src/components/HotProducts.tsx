@@ -20,7 +20,7 @@ const scenarioConfig = {
       { title: '内容创作', description: '为影视、游戏、动漫等行业提供高质量虚拟角色' },
       { title: '社交互动', description: '打造虚拟社交形象，增强用户互动体验' }
     ],
-    image: 'https://artaigc.cn/assets/img/human1.png',
+    image: '/product/human1.png',
     imageAlt: '虚拟IP应用场景',
     cardTitle: '虚拟IP解决方案',
     cardSubtitle: '打造专属品牌虚拟形象'

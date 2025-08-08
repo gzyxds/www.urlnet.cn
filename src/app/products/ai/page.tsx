@@ -530,7 +530,7 @@ const AiPage = () => {
                 {/* 演示界面主图 */}
                 <div className="bg-white p-6 shadow-lg">
                   <img 
-                    src="https://artaigc.cn/assets/work.svg" 
+                    src="/product/work.svg" 
                     alt="AI数字人演示界面" 
                     className="w-full"
                   />

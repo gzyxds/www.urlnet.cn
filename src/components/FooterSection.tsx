@@ -19,7 +19,7 @@ const Footer = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full blur-xl"></div>
                 <div className="relative bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl transform group-hover:rotate-3 transition-transform duration-500">
                   <img 
-                    src="https://artaigc.cn/_astro/logo.gF7LHtOp.svg" 
+                    src="/product/logo.svg" 
                     alt="艺创AI" 
                     className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain"
                   />

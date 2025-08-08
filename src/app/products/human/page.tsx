@@ -1120,7 +1120,7 @@ const HumanPage = () => {
             <div className="relative mt-8 lg:mt-0">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
                 <img 
-                  src="https://artaigc.cn/assets/img/human1.png" 
+                  src="/product/human1.png" 
                   alt="数字人形象" 
                   className="w-full rounded-xl sm:rounded-2xl shadow-lg"
                 />
