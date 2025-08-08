@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-
+import FuzzyText from './ui/Fallingtext/Fuzzytext';
+import { useMobile } from '../hooks/use-mobile';
 
 
 // 循环文字效果 Hook
@@ -49,13 +50,14 @@ const useRotatingText = (texts: string[], speed: number = 3000) => {
 };
 
 const Hero = () => {
+  // 使用移动端检测hook
+  const isMobile = useMobile();
+  
   const rotatingTexts = [
-    "它拥有完善的计费和收款能力",
-    "它支持用户管理和权限管理", 
-    "它可以帮助你快速实现AI商业闭环",
-    "它正在成为AI场景落地首选方案",
-    "它一次购买、永久免费更新",
-    "它技术过硬、私有部署、个性化定制、稳定使用"
+    "艺创AI",
+    "AI落地首选方案",
+    "一次购买、永久免费更新",
+    "技术过硬、私有部署"
   ];
   
   const rotatingSecond = useRotatingText(rotatingTexts, 3000);
@@ -108,25 +110,29 @@ const Hero = () => {
               </span>
             </div>
           </div>
-
           {/* 主标题区域 */}
           <div className="flex flex-col items-center text-center w-full max-w-none mx-auto">
-          {/* 主标题 - 参考chat页面的标题设计 */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-black mb-6 sm:mb-8 leading-tight">
-              <div className="pt-6">
-                <span className="block">
-                  <span className="bg-gradient-to-r from-blue-600 via-blue-600 to-blue-600 bg-clip-text text-transparent">
-                    艺创AI
-                  </span>
-                </span>
-              </div>
-              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mt-4">
+          {/* FuzzyText作为背景层 */}
+          <div className="relative z-10 mb-8">
+            <FuzzyText
+              fontSize={isMobile ? "clamp(2rem, 10vw, 5rem)" : "clamp(2rem, 10vw, 12rem)"}
+              fontWeight={800}
+              color="#05f"
+              baseIntensity={isMobile ? 0.03 : 0.05}
+              hoverIntensity={isMobile ? 0.3 : 0.5}
+              enableHover={!isMobile} // 移动端禁用hover效果以提升性能
+            >
+              CNAI.ART
+            </FuzzyText>
+            {/* 动态文字显示在FuzzyText下方 */}
+            <div className="mt-4 sm:mt-6">
+              <span className="block text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
                 {rotatingSecond}
                 <span className="animate-pulse text-blue-600 drop-shadow-sm">|</span>
               </span>
-            </h1>
+            </div>
           </div>
+          
           {/* 描述文字 - 参考chat页面的副标题设计 */}
           <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed">
            <span className="text-blue-600 font-semibold">一站式AIGC系统</span>，
