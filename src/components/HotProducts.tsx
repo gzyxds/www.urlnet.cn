@@ -201,21 +201,21 @@ const HotProducts = React.memo(() => {
         {/* 场景标签导航 - 多端响应式适配 */}
         <div className="mb-4 sm:mb-6 md:mb-8 px-1 sm:px-2 md:px-4">
           {/* 桌面端标签 */}
-          <div className="hidden lg:flex justify-center space-x-6 xl:space-x-10 relative">
+          <div className="hidden lg:flex justify-center space-x-8 xl:space-x-12 relative">
             {scenarioKeys.map((scenario) => {
               const TabIcon = scenarioConfig[scenario].icon;
               return (
                 <motion.div
                   key={scenario}
-                  className={`px-3 py-2 xl:px-4 xl:py-3 cursor-pointer transition-all duration-300 text-sm xl:text-base font-medium tracking-wide relative flex items-center space-x-2 rounded-lg hover:bg-gray-50 ${
+                  className={`px-2 py-3 xl:px-3 xl:py-4 cursor-pointer transition-all duration-300 text-sm xl:text-base font-medium tracking-wide relative flex items-center space-x-2 ${
                     activeScenario === scenario 
-                      ? 'text-[#0055ff] bg-blue-50/50' 
+                      ? 'text-[#0055ff]' 
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                   onClick={() => handleScenarioChange(scenario)}
                   aria-label={`切换到${scenarioConfig[scenario].title}场景`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ y: 0 }}
                   data-monitor-click-id={`tab-${scenario}`}
                 >
                   {/* 场景图标 */}
@@ -241,32 +241,32 @@ const HotProducts = React.memo(() => {
 
           {/* 移动端标签 */}
           <div className="block md:hidden relative">
-            {/* 左侧箭头 */}
+            {/* 左侧箭头 - 增大按钮尺寸，提升多端体验 */}
             {showLeftArrow && (
               <div
                 onClick={() => scrollTo('left')}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2 text-gray-400 hover:text-[#0055ff] transition-colors duration-300 cursor-pointer bg-white/80 backdrop-blur-sm rounded-full shadow-sm"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 md:p-3 text-gray-400 hover:text-[#0055ff] transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
                 aria-label="向左滚动"
               >
-                <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+                <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />
               </div>
             )}
 
-            {/* 右侧箭头 */}
+            {/* 右侧箭头 - 增大按钮尺寸，提升多端体验 */}
             {showRightArrow && (
               <div
                 onClick={() => scrollTo('right')}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2 text-gray-400 hover:text-[#0055ff] transition-colors duration-300 cursor-pointer bg-white/80 backdrop-blur-sm rounded-full shadow-sm"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-2.5 md:p-3 text-gray-400 hover:text-[#0055ff] transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
                 aria-label="向右滚动"
               >
-                <ChevronRightIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+                <ChevronRightIcon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />
               </div>
             )}
 
             {/* 滚动容器 */}
             <div 
               ref={scrollContainerRef}
-              className="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide px-3 sm:px-4 py-2 sm:py-3"
+              className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide px-3 sm:px-4 py-2 sm:py-3"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {scenarioKeys.map((scenario) => {
@@ -274,15 +274,15 @@ const HotProducts = React.memo(() => {
                 return (
                   <motion.div
                     key={scenario}
-                    className={`flex-shrink-0 px-2.5 py-1.5 sm:px-3 sm:py-2 cursor-pointer transition-all duration-300 text-xs sm:text-sm font-medium tracking-wide whitespace-nowrap relative flex items-center space-x-1.5 rounded-lg ${
+                    className={`flex-shrink-0 px-2 py-2 sm:px-3 sm:py-3 cursor-pointer transition-all duration-300 text-xs sm:text-sm font-medium tracking-wide whitespace-nowrap relative flex items-center space-x-1.5 ${
                       activeScenario === scenario 
-                        ? 'text-[#0055ff] bg-blue-50/70 border border-blue-200/50' 
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        ? 'text-[#0055ff]' 
+                        : 'text-gray-600 hover:text-gray-900'
                     }`}
                     onClick={() => handleScenarioChange(scenario)}
                     aria-label={`切换到${scenarioConfig[scenario].title}场景`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={{ y: -1 }}
+                    whileTap={{ y: 0 }}
                     data-monitor-click-id={`mobile-tab-${scenario}`}
                   >
                     {/* 场景图标 */}
@@ -309,21 +309,21 @@ const HotProducts = React.memo(() => {
 
           {/* 平板端标签 */}
           <div className="hidden md:block lg:hidden">
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8">
               {scenarioKeys.map((scenario) => {
                 const TabIcon = scenarioConfig[scenario].icon;
                 return (
                   <motion.div
                     key={scenario}
-                    className={`px-4 py-2.5 md:px-5 md:py-3 cursor-pointer transition-all duration-300 text-sm md:text-base font-medium tracking-wide relative flex items-center space-x-2 rounded-lg hover:bg-gray-50 ${
+                    className={`px-3 py-3 md:px-4 md:py-4 cursor-pointer transition-all duration-300 text-sm md:text-base font-medium tracking-wide relative flex items-center space-x-2 ${
                       activeScenario === scenario 
-                        ? 'text-[#0055ff] bg-blue-50/50' 
+                        ? 'text-[#0055ff]' 
                         : 'text-gray-600 hover:text-gray-900'
                     }`}
                     onClick={() => handleScenarioChange(scenario)}
                     aria-label={`切换到${scenarioConfig[scenario].title}场景`}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: 0 }}
                     data-monitor-click-id={`tablet-tab-${scenario}`}
                   >
                     {/* 场景图标 */}
