@@ -53,6 +53,21 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
+      },
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('three')) {
+              return 'three';
+            }
+            if (id.includes('react-dom')) {
+              return 'react-dom';
+            }
+            if (id.includes('framer-motion')) {
+                return 'framer-motion';
+            }
+          }
+        }
       }
     }
   },
