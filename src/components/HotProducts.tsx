@@ -177,7 +177,7 @@ const HotProducts = React.memo(() => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.8 }}
-      className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden"
+      className="py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden"
       data-monitor-comp-id="c854860"
     >
       {/* 背景装饰 - 响应式大小 */}
@@ -186,30 +186,30 @@ const HotProducts = React.memo(() => {
         <div className="absolute -bottom-20 -left-20 sm:-bottom-40 sm:-left-40 w-40 h-40 sm:w-80 sm:h-80 bg-gradient-to-tr from-indigo-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
         {/* 标题区域 - 优化字体层次 */}
-        <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight text-gray-900">
+        <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 tracking-tight text-gray-900">
             热门产品
           </h2>
-          <div className="w-16 h-1 bg-[#0055ff] mx-auto mb-4"></div>
-          <p className="text-base sm:text-lg max-w-3xl mx-auto leading-relaxed px-4 text-gray-600">
+          <div className="w-12 sm:w-14 md:w-16 h-0.5 sm:h-0.5 md:h-1 bg-[#0055ff] mx-auto mb-3 sm:mb-4"></div>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-2 sm:px-4 text-gray-600">
             丰富的应用场景和解决方案，满足多种业务需求
           </p>
         </div>
 
         {/* 场景标签导航 - 多端响应式适配 */}
-        <div className="mb-6 px-2 sm:px-4">
+        <div className="mb-4 sm:mb-6 md:mb-8 px-1 sm:px-2 md:px-4">
           {/* 桌面端标签 */}
-          <div className="hidden md:flex justify-center space-x-8 lg:space-x-12 relative">
+          <div className="hidden lg:flex justify-center space-x-6 xl:space-x-10 relative">
             {scenarioKeys.map((scenario) => {
               const TabIcon = scenarioConfig[scenario].icon;
               return (
                 <motion.div
                   key={scenario}
-                  className={`px-3 py-2 lg:px-4 lg:py-2 cursor-pointer transition-all duration-300 text-sm lg:text-base font-medium tracking-wide relative flex items-center space-x-2 ${
+                  className={`px-3 py-2 xl:px-4 xl:py-3 cursor-pointer transition-all duration-300 text-sm xl:text-base font-medium tracking-wide relative flex items-center space-x-2 rounded-lg hover:bg-gray-50 ${
                     activeScenario === scenario 
-                      ? 'text-[#0055ff]' 
+                      ? 'text-[#0055ff] bg-blue-50/50' 
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                   onClick={() => handleScenarioChange(scenario)}
@@ -219,7 +219,7 @@ const HotProducts = React.memo(() => {
                   data-monitor-click-id={`tab-${scenario}`}
                 >
                   {/* 场景图标 */}
-                  <TabIcon className={`h-4 w-4 lg:h-5 lg:w-5 transition-colors duration-300 ${
+                  <TabIcon className={`h-4 w-4 xl:h-5 xl:w-5 transition-colors duration-300 ${
                     activeScenario === scenario ? 'text-[#0055ff]' : 'text-gray-500'
                   }`} />
                   {/* 场景标题 */}
@@ -240,15 +240,15 @@ const HotProducts = React.memo(() => {
           </div>
 
           {/* 移动端标签 */}
-          <div className="md:hidden relative">
+          <div className="block md:hidden relative">
             {/* 左侧箭头 */}
             {showLeftArrow && (
               <div
                 onClick={() => scrollTo('left')}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 text-gray-400 hover:text-[#0055ff] transition-colors duration-300 cursor-pointer"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2 text-gray-400 hover:text-[#0055ff] transition-colors duration-300 cursor-pointer bg-white/80 backdrop-blur-sm rounded-full shadow-sm"
                 aria-label="向左滚动"
               >
-                <ChevronLeft className="h-5 w-5" />
+                <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
             )}
 
@@ -256,17 +256,17 @@ const HotProducts = React.memo(() => {
             {showRightArrow && (
               <div
                 onClick={() => scrollTo('right')}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 text-gray-400 hover:text-[#0055ff] transition-colors duration-300 cursor-pointer"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2 text-gray-400 hover:text-[#0055ff] transition-colors duration-300 cursor-pointer bg-white/80 backdrop-blur-sm rounded-full shadow-sm"
                 aria-label="向右滚动"
               >
-                <ChevronRightIcon className="h-5 w-5" />
+                <ChevronRightIcon className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
             )}
 
             {/* 滚动容器 */}
             <div 
               ref={scrollContainerRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide px-4 py-2"
+              className="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide px-3 sm:px-4 py-2 sm:py-3"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {scenarioKeys.map((scenario) => {
@@ -274,10 +274,10 @@ const HotProducts = React.memo(() => {
                 return (
                   <motion.div
                     key={scenario}
-                    className={`flex-shrink-0 px-3 py-1.5 cursor-pointer transition-all duration-300 text-sm font-medium tracking-wide whitespace-nowrap relative flex items-center space-x-1.5 ${
+                    className={`flex-shrink-0 px-2.5 py-1.5 sm:px-3 sm:py-2 cursor-pointer transition-all duration-300 text-xs sm:text-sm font-medium tracking-wide whitespace-nowrap relative flex items-center space-x-1.5 rounded-lg ${
                       activeScenario === scenario 
-                        ? 'text-[#0055ff]' 
-                        : 'text-gray-600 hover:text-gray-900'
+                        ? 'text-[#0055ff] bg-blue-50/70 border border-blue-200/50' 
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                     }`}
                     onClick={() => handleScenarioChange(scenario)}
                     aria-label={`切换到${scenarioConfig[scenario].title}场景`}
@@ -286,7 +286,7 @@ const HotProducts = React.memo(() => {
                     data-monitor-click-id={`mobile-tab-${scenario}`}
                   >
                     {/* 场景图标 */}
-                    <TabIcon className={`h-4 w-4 transition-colors duration-300 ${
+                    <TabIcon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 transition-colors duration-300 ${
                       activeScenario === scenario ? 'text-[#0055ff]' : 'text-gray-500'
                     }`} />
                     {/* 场景标题 */}
@@ -308,26 +308,26 @@ const HotProducts = React.memo(() => {
           </div>
 
           {/* 平板端标签 */}
-          <div className="hidden sm:block md:hidden">
-            <div className="flex flex-wrap justify-center gap-10">
+          <div className="hidden md:block lg:hidden">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
               {scenarioKeys.map((scenario) => {
                 const TabIcon = scenarioConfig[scenario].icon;
                 return (
                   <motion.div
                     key={scenario}
-                    className={`px-5 py-3 cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide relative flex items-center space-x-2.5 ${
+                    className={`px-4 py-2.5 md:px-5 md:py-3 cursor-pointer transition-all duration-300 text-sm md:text-base font-medium tracking-wide relative flex items-center space-x-2 rounded-lg hover:bg-gray-50 ${
                       activeScenario === scenario 
-                        ? 'text-[#0055ff]' 
+                        ? 'text-[#0055ff] bg-blue-50/50' 
                         : 'text-gray-600 hover:text-gray-900'
                     }`}
                     onClick={() => handleScenarioChange(scenario)}
                     aria-label={`切换到${scenarioConfig[scenario].title}场景`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                     data-monitor-click-id={`tablet-tab-${scenario}`}
                   >
                     {/* 场景图标 */}
-                    <TabIcon className={`h-5 w-5 transition-colors duration-300 ${
+                    <TabIcon className={`h-4 w-4 md:h-5 md:w-5 transition-colors duration-300 ${
                       activeScenario === scenario ? 'text-[#0055ff]' : 'text-gray-500'
                     }`} />
                     {/* 场景标题 */}
@@ -349,17 +349,17 @@ const HotProducts = React.memo(() => {
           </div>
         </div>
 
-        {/* 简洁的产品卡片 - 多端适配优化，增加整体高度 */}
+        {/* 简洁的产品卡片 - 多端适配优化，智能高度适应 */}
         <div className="w-full">
           <motion.div
             key={activeScenario}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col lg:flex-row min-h-[518px]"
+            className="bg-white rounded-lg sm:rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col lg:flex-row"
           >
             {/* 左侧内容 - 多端响应式优化，确保50%宽度 */}
-            <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 xl:p-10 flex flex-col justify-between"
+            <div className="w-full lg:w-1/2 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-between min-h-[300px] sm:min-h-[350px]"
                  style={{ flex: '1 1 50%' }}>
               {/* 标题区域 - 多端字体适配 */}
               <div className="mb-4 sm:mb-6">
@@ -480,38 +480,36 @@ const HotProducts = React.memo(() => {
               </motion.div>
             </div>
 
-            {/* 右侧媒体区 - 响应式尺寸适配，确保50%宽度 */}
+            {/* 右侧媒体区 - 响应式尺寸适配，智能高度适应 */}
             <div 
-              className="w-full lg:w-1/2 relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 overflow-hidden"
+              className="w-full lg:w-1/2 relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 overflow-hidden flex items-center justify-center"
               style={{ 
-                 flex: '1 1 50%',
-                 minHeight: '518px',
-                 height: 'auto'
+                 flex: '1 1 50%'
                }}
             >
               {imageLoading && (
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-indigo-50/80 to-purple-100/80 animate-pulse flex items-center justify-center backdrop-blur-sm">
-                  <div className="text-blue-600 text-sm font-medium">加载中...</div>
+                  <div className="text-blue-600 text-xs sm:text-sm font-medium">加载中...</div>
                 </div>
               )}
               {imageError ? (
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 flex items-center justify-center">
                   <div className="text-center text-blue-600">
-                    <IconComponent className="h-8 w-8 sm:h-12 sm:w-12 mx-auto mb-2 opacity-60" />
+                    <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 mx-auto mb-2 opacity-60" />
                     <div className="text-xs sm:text-sm font-medium">图片加载失败</div>
                   </div>
                 </div>
               ) : (
-                <div className="w-full h-full flex items-center justify-center p-3 sm:p-4 lg:p-6 xl:p-8 min-h-[518px]">
+                <div className="w-full h-full p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8">
                   <img
                     src={currentScenario.image}
                     alt={currentScenario.imageAlt}
-                    className="max-w-full max-h-full object-contain drop-shadow-lg"
+                    className="w-full h-auto object-contain drop-shadow-lg"
                     onLoad={handleImageLoad}
                     onError={handleImageError}
                     loading="lazy"
                     style={{
-                      filter: 'drop-shadow(0 10px 25px rgba(59, 130, 246, 0.15))'
+                      filter: 'drop-shadow(0 4px 15px rgba(59, 130, 246, 0.1)) drop-shadow(0 10px 25px rgba(59, 130, 246, 0.15))'
                     }}
                   />
                 </div>
@@ -521,18 +519,18 @@ const HotProducts = React.memo(() => {
               <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-white/20 pointer-events-none"></div>
               
               {/* 右下角装饰点 - 响应式大小 */}
-              <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full opacity-60"></div>
-              <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 w-1 h-1 bg-purple-400 rounded-full opacity-40"></div>
+              <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-4 md:right-4 w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-blue-400 rounded-full opacity-60"></div>
+              <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 w-0.5 h-0.5 sm:w-1 sm:h-1 bg-purple-400 rounded-full opacity-40"></div>
             </div>
           </motion.div>
         </div>
         
         {/* 产品特色说明 - 多端响应式适配 */}
-        <div className="text-center mt-6 sm:mt-8">
-          <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 bg-white rounded-full text-xs sm:text-sm text-gray-600"
+        <div className="text-center mt-4 sm:mt-6 md:mt-8">
+          <div className="inline-flex items-center px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-white rounded-full text-xs sm:text-sm text-gray-600 shadow-sm"
                style={{ border: '1px solid rgba(221, 226, 233, 1)' }}>
-            <Star className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2 text-[#0055ff]" />
-            专业的AI解决方案，助力企业数字化转型
+            <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 mr-1 sm:mr-1.5 md:mr-2 text-[#0055ff]" />
+            <span className="whitespace-nowrap">专业的AI解决方案，助力企业数字化转型</span>
           </div>
         </div>
       </div>
