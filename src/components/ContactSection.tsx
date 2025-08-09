@@ -38,10 +38,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 hover:shadow-xl hover:shadow-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-2 min-h-[180px] xs:min-h-[200px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-[320px] flex flex-col justify-center w-full"
+            className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[140px] xs:min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:min-h-[220px] flex flex-col justify-center w-full"
           >
             <div className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 border border-gray-100 group-hover:border-blue-100 transition-colors duration-300 flex-shrink-0">
+              <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-2.5 mb-1.5 xs:mb-2 sm:mb-3 md:mb-3 lg:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
                 <img 
                   src="/product/wchatpay.png" 
                   alt="微信客服二维码" 
@@ -49,7 +49,7 @@ const Contact = () => {
                 />
               </div>
               <div className="flex-1 flex flex-col justify-center px-0.5 xs:px-1">
-                <p className="text-black font-semibold mb-0.5 xs:mb-1 sm:mb-2 text-xs xs:text-sm sm:text-base break-words text-center leading-tight">
+                <p className="text-black font-semibold mb-0.5 xs:mb-1 sm:mb-1.5 text-xs xs:text-sm sm:text-base break-words text-center leading-tight">
                   微信号：USERHLIC
                 </p>
                 <p className="text-gray-500 text-xs xs:text-xs sm:text-sm font-light leading-tight break-words text-center">
@@ -64,10 +64,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 hover:shadow-xl hover:shadow-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-2 min-h-[180px] xs:min-h-[200px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-[320px] flex flex-col justify-center w-full"
+            className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[140px] xs:min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:min-h-[220px] flex flex-col justify-center w-full"
           >
             <div className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 border border-gray-100 group-hover:border-blue-100 transition-colors duration-300 flex-shrink-0">
+              <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-2.5 mb-1.5 xs:mb-2 sm:mb-3 md:mb-3 lg:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
                 <img 
                   src="/product/wchatpay.png" 
                   alt="公众号二维码" 
@@ -75,7 +75,7 @@ const Contact = () => {
                 />
               </div>
               <div className="flex-1 flex flex-col justify-center px-0.5 xs:px-1">
-                <p className="text-black font-semibold mb-0.5 xs:mb-1 sm:mb-2 text-xs xs:text-sm sm:text-base break-words text-center leading-tight">
+                <p className="text-black font-semibold mb-0.5 xs:mb-1 sm:mb-1.5 text-xs xs:text-sm sm:text-base break-words text-center leading-tight">
                   官方公众号
                 </p>
                 <p className="text-gray-500 text-xs xs:text-xs sm:text-sm font-light leading-tight break-words text-center">
@@ -90,10 +90,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 hover:shadow-xl hover:shadow-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-2 min-h-[180px] xs:min-h-[200px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-[320px] flex flex-col justify-center w-full"
+            className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[140px] xs:min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:min-h-[220px] flex flex-col justify-center w-full"
           >
             <div className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 border border-gray-100 group-hover:border-blue-100 transition-colors duration-300 flex-shrink-0">
+              <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-2.5 mb-1.5 xs:mb-2 sm:mb-3 md:mb-3 lg:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
                 <img 
                   src="/product/wchatpay.png" 
                   alt="演示二维码" 
@@ -101,7 +101,7 @@ const Contact = () => {
                 />
               </div>
               <div className="flex-1 flex flex-col justify-center px-0.5 xs:px-1">
-                <p className="text-black font-semibold mb-0.5 xs:mb-1 sm:mb-2 text-xs xs:text-sm sm:text-base break-words text-center leading-tight">
+                <p className="text-black font-semibold mb-0.5 xs:mb-1 sm:mb-1.5 text-xs xs:text-sm sm:text-base break-words text-center leading-tight">
                   QQ：236749035
                 </p>
                 <p className="text-gray-500 text-xs xs:text-xs sm:text-sm font-light leading-tight break-words text-center">
@@ -116,10 +116,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 hover:shadow-xl hover:shadow-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-2 min-h-[180px] xs:min-h-[200px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-[320px] flex flex-col justify-center w-full"
+            className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[140px] xs:min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:min-h-[220px] flex flex-col justify-center w-full"
           >
             <div className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 border border-gray-100 group-hover:border-blue-100 transition-colors duration-300 flex-shrink-0">
+              <div className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-2.5 mb-1.5 xs:mb-2 sm:mb-3 md:mb-3 lg:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
                 <img 
                   src="/product/wchatpay.png" 
                   alt="QQ客服二维码" 
@@ -127,7 +127,7 @@ const Contact = () => {
                 />
               </div>
               <div className="flex-1 flex flex-col justify-center px-0.5 xs:px-1">
-                <p className="text-black font-semibold mb-0.5 xs:mb-1 sm:mb-2 text-xs xs:text-sm sm:text-base break-words text-center leading-tight">
+                <p className="text-black font-semibold mb-0.5 xs:mb-1 sm:mb-1.5 text-xs xs:text-sm sm:text-base break-words text-center leading-tight">
                   QQ：236749035
                 </p>
                 <p className="text-gray-500 text-xs xs:text-xs sm:text-sm font-light leading-tight break-words text-center">
@@ -145,26 +145,24 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="group bg-white border border-gray-100 rounded-lg p-3 xs:p-4 sm:p-6 lg:p-8 hover:shadow-xl hover:shadow-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-1 w-full"
+            className="group bg-white border border-gray-100 rounded-lg p-3 xs:p-4 sm:p-6 lg:p-8 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-1 w-full"
           >
-            <div className="flex flex-col xs:flex-row items-start">
-              <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-3 xs:mb-0 xs:mr-3 sm:mr-4 lg:mr-6 group-hover:bg-blue-100 transition-all duration-300 border border-blue-100 flex-shrink-0">
-                <FileText className="h-5 w-5 xs:h-6 xs:w-6 sm:h-7 sm:w-7 text-blue-600" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4 text-black tracking-tight break-words">
+            <div className="flex flex-col">
+              <div className="flex items-center mb-2 sm:mb-3 lg:mb-4">
+                <FileText className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 text-blue-600 mr-2 flex-shrink-0" />
+                <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold text-black tracking-tight break-words">
                   提交工单
                 </h3>
-                <p className="text-gray-600 mb-3 xs:mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words">
-                  若您有技术问题或需求，可通过工单系统与我们联系，我们将尽快处理
-                </p>
-                <Button 
-                  variant="outline"
-                  className="w-full xs:w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-3 xs:px-4 sm:px-5 lg:px-6 py-2.5 xs:py-3 sm:py-2.5 lg:py-3 font-medium text-xs xs:text-sm sm:text-base min-h-[40px] xs:min-h-[44px] touch-manipulation"
-                >
-                  提交工单
-                </Button>
               </div>
+              <p className="text-gray-600 mb-3 xs:mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words">
+                若您有技术问题或需求，可通过工单系统与我们联系，我们将尽快处理
+              </p>
+              <Button 
+                variant="outline"
+                className="w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 sm:py-2 font-medium text-xs xs:text-sm min-h-[32px] xs:min-h-[36px] touch-manipulation self-start"
+              >
+                提交工单
+              </Button>
             </div>
           </motion.div>
 
@@ -173,26 +171,24 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="group bg-white border border-gray-100 rounded-lg p-3 xs:p-4 sm:p-6 lg:p-8 hover:shadow-xl hover:shadow-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-1 w-full"
+            className="group bg-white border border-gray-100 rounded-lg p-3 xs:p-4 sm:p-6 lg:p-8 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-1 w-full"
           >
-            <div className="flex flex-col xs:flex-row items-start">
-              <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-3 xs:mb-0 xs:mr-3 sm:mr-4 lg:mr-6 group-hover:bg-blue-100 transition-all duration-300 border border-blue-100 flex-shrink-0">
-                <Mail className="h-5 w-5 xs:h-6 xs:w-6 sm:h-7 sm:w-7 text-blue-600" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4 text-black tracking-tight break-words">
+            <div className="flex flex-col">
+              <div className="flex items-center mb-2 sm:mb-3 lg:mb-4">
+                <Mail className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 text-blue-600 mr-2 flex-shrink-0" />
+                <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold text-black tracking-tight break-words">
                   电子邮件
                 </h3>
-                <p className="text-gray-600 mb-3 xs:mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words">
-                  发送邮件至我们的客服邮箱，我们会在工作时间尽快回复您的问题
-                </p>
-                <Button 
-                  variant="outline"
-                  className="w-full xs:w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-3 xs:px-4 sm:px-5 lg:px-6 py-2.5 xs:py-3 sm:py-2.5 lg:py-3 font-medium text-xs xs:text-sm sm:text-base min-h-[40px] xs:min-h-[44px] touch-manipulation"
-                >
-                  发送邮件
-                </Button>
               </div>
+              <p className="text-gray-600 mb-3 xs:mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words">
+                发送邮件至我们的客服邮箱，我们会在工作时间尽快回复您的问题
+              </p>
+              <Button 
+                variant="outline"
+                className="w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 sm:py-2 font-medium text-xs xs:text-sm min-h-[32px] xs:min-h-[36px] touch-manipulation self-start"
+              >
+                发送邮件
+              </Button>
             </div>
           </motion.div>
 
@@ -201,26 +197,24 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="group bg-white border border-gray-100 rounded-lg p-3 xs:p-4 sm:p-6 lg:p-8 hover:shadow-xl hover:shadow-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-1 w-full"
+            className="group bg-white border border-gray-100 rounded-lg p-3 xs:p-4 sm:p-6 lg:p-8 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-1 w-full"
           >
-            <div className="flex flex-col xs:flex-row items-start">
-              <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-3 xs:mb-0 xs:mr-3 sm:mr-4 lg:mr-6 group-hover:bg-blue-100 transition-all duration-300 border border-blue-100 flex-shrink-0">
-                <MessageCircle className="h-5 w-5 xs:h-6 xs:w-6 sm:h-7 sm:w-7 text-blue-600" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4 text-black tracking-tight break-words">
+            <div className="flex flex-col">
+              <div className="flex items-center mb-2 sm:mb-3 lg:mb-4">
+                <MessageCircle className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 text-blue-600 mr-2 flex-shrink-0" />
+                <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold text-black tracking-tight break-words">
                   在线客服
                 </h3>
-                <p className="text-gray-600 mb-3 xs:mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words">
-                  我们的在线客服团队随时为您提供帮助，快速解答您的各类问题
-                </p>
-                <Button 
-                  variant="outline"
-                  className="w-full xs:w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-3 xs:px-4 sm:px-5 lg:px-6 py-2.5 xs:py-3 sm:py-2.5 lg:py-3 font-medium text-xs xs:text-sm sm:text-base min-h-[40px] xs:min-h-[44px] touch-manipulation"
-                >
-                  在线咨询
-                </Button>
               </div>
+              <p className="text-gray-600 mb-3 xs:mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words">
+                我们的在线客服团队随时为您提供帮助，快速解答您的各类问题
+              </p>
+              <Button 
+                variant="outline"
+                className="w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 sm:py-2 font-medium text-xs xs:text-sm min-h-[32px] xs:min-h-[36px] touch-manipulation self-start"
+              >
+                在线咨询
+              </Button>
             </div>
           </motion.div>
 
@@ -229,26 +223,24 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="group bg-white border border-gray-100 rounded-lg p-3 xs:p-4 sm:p-6 lg:p-8 hover:shadow-xl hover:shadow-blue-50 transition-all duration-500 hover:border-blue-200 hover:-translate-y-1 w-full"
+            className="group bg-white border border-gray-100 rounded-lg p-3 xs:p-4 sm:p-6 lg:p-8 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-1 w-full"
           >
-            <div className="flex flex-col xs:flex-row items-start">
-              <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-3 xs:mb-0 xs:mr-3 sm:mr-4 lg:mr-6 group-hover:bg-blue-100 transition-all duration-300 border border-blue-100 flex-shrink-0">
-                <Phone className="h-5 w-5 xs:h-6 xs:w-6 sm:h-7 sm:w-7 text-blue-600" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4 text-black tracking-tight break-words">
+            <div className="flex flex-col">
+              <div className="flex items-center mb-2 sm:mb-3 lg:mb-4">
+                <Phone className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 text-blue-600 mr-2 flex-shrink-0" />
+                <h3 className="text-base xs:text-lg sm:text-xl lg:text-2xl font-bold text-black tracking-tight break-words">
                   电话咨询
                 </h3>
-                <p className="text-gray-600 mb-3 xs:mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words">
-                  工作时间内，您可以直接拨打我们的客服热线获取即时支持
-                </p>
-                <Button 
-                  variant="outline"
-                  className="w-full xs:w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-3 xs:px-4 sm:px-5 lg:px-6 py-2.5 xs:py-3 sm:py-2.5 lg:py-3 font-medium text-xs xs:text-sm sm:text-base min-h-[40px] xs:min-h-[44px] touch-manipulation"
-                >
-                  拨打电话
-                </Button>
               </div>
+              <p className="text-gray-600 mb-3 xs:mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words">
+                工作时间内，您可以直接拨打我们的客服热线获取即时支持
+              </p>
+              <Button 
+                variant="outline"
+                className="w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 sm:py-2 font-medium text-xs xs:text-sm min-h-[32px] xs:min-h-[36px] touch-manipulation self-start"
+              >
+                拨打电话
+              </Button>
             </div>
           </motion.div>
         </div>
