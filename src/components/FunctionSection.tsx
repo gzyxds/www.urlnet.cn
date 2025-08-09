@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 
 const FunctionBlueprint = () => {
+  // 功能列表数据
   const functions = [
     { icon: <Bot className="h-5 w-5" />, name: "AI助理" },
     { icon: <Download className="h-5 w-5" />, name: "本地部署" },
@@ -34,6 +35,35 @@ const FunctionBlueprint = () => {
     { icon: <Globe className="h-5 w-5" />, name: "网页分析" }
   ];
 
+  // 每行显示的功能卡片数量
+  const FUNCTIONS_PER_ROW = 8;
+
+  // 将功能列表分组为多行
+  const rows: typeof functions[] = [];
+  for (let i = 0; i < functions.length; i += FUNCTIONS_PER_ROW) {
+    rows.push(functions.slice(i, i + FUNCTIONS_PER_ROW));
+  }
+
+  // 跑马灯动画参数配置
+  const getMarqueeVariants = (rowIdx: number, rowLen: number) => {
+    const distance = rowLen * 160; // 每个功能卡片宽度约160px（含间距）
+    const duration = 25 + rowLen * 2; // 动画持续时间，根据行长度调整
+    return {
+      animate: {
+        // 奇数行从左到右，偶数行从右到左
+        x: rowIdx % 2 === 0 ? [0, -distance] : [-distance, 0],
+        transition: {
+          x: {
+            repeat: Infinity,
+            repeatType: 'loop' as const,
+            duration,
+            ease: 'linear' as const,
+          },
+        },
+      },
+    };
+  };
+
   return (
     <section className="py-24 bg-white" id="functions">
       <div className="container mx-auto px-4">
@@ -57,40 +87,47 @@ const FunctionBlueprint = () => {
           </p>
         </motion.div>
 
+        {/* 跑马灯功能展示区域 */}
         <div className="container mx-auto">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 md:gap-4 overflow-hidden">
-            {functions.map((func, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ 
-                  x: [-5, 5, -5],
-                  transition: { 
-                    duration: 0.6, 
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }
-                }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: index * 0.05,
-                  ease: "easeOut"
-                }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="bg-white border border-gray-200 p-4 flex flex-col items-center justify-center h-32 hover:border-blue-300 hover:shadow-sm transition-all duration-300">
-                  <div className="w-12 h-12 bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-blue-200 transition-colors">
-                    <div className="text-black group-hover:text-gray-800 transition-colors">
-                      {func.icon}
-                    </div>
-                  </div>
-                  <span className="text-sm text-gray-700 text-center">{func.name}</span>
+          <div className="flex flex-col gap-6 overflow-hidden">
+            {rows.map((row, rowIdx) => {
+              // 复制一份数据用于无缝循环
+              const marqueeRow = [...row, ...row];
+              return (
+                <div key={rowIdx} className="overflow-hidden w-full">
+                  <motion.div
+                    className="flex gap-4 items-center"
+                    variants={getMarqueeVariants(rowIdx, row.length)}
+                    animate="animate"
+                  >
+                    {marqueeRow.map((func, idx) => (
+                      <motion.div
+                        key={`${rowIdx}-${idx}`}
+                        whileHover={{ 
+                          scale: 1.05,
+                          y: -5,
+                          transition: { 
+                            duration: 0.3, 
+                            ease: "easeOut"
+                          }
+                        }}
+                        className="group flex-shrink-0"
+                        style={{ width: '150px' }} // 固定宽度确保一致性
+                      >
+                        <div className="bg-white border border-gray-200 rounded p-4 flex flex-col items-center justify-center h-32 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                          <div className="w-12 h-12 bg-blue-100 rounded flex items-center justify-center mb-3 group-hover:bg-blue-200 transition-colors">
+                            <div className="text-black group-hover:text-gray-800 transition-colors">
+                              {func.icon}
+                            </div>
+                          </div>
+                          <span className="text-sm text-gray-700 text-center font-medium">{func.name}</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

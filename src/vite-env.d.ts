@@ -1,5 +1,19 @@
 /// <reference types="vite/client" />
 
+// 扩展Window接口以支持百度统计
+declare global {
+  interface Window {
+    /**
+     * 百度统计的全局变量
+     * 用于推送统计事件到百度统计
+     */
+    _hmt?: Array<any[]>;
+  }
+}
+
+// 确保模块声明生效
+export {};
+
 // 扩展ImportMeta接口以支持Vite特有的功能
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string

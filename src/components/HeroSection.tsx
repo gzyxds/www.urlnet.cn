@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import FuzzyText from './ui/Fallingtext/Fuzzytext';
 import { useMobile } from '../hooks/use-mobile';
 
 
@@ -54,8 +53,8 @@ const Hero = () => {
   const isMobile = useMobile();
   
   const rotatingTexts = [
-    "艺创AI",
-    "AI落地首选方案",
+    "艺创AI落地首选方案",
+    "通过工智能发挥作用并为你创造收益",
     "一次购买、永久免费更新",
     "技术过硬、私有部署"
   ];
@@ -112,26 +111,18 @@ const Hero = () => {
           </div>
           {/* 主标题区域 */}
           <div className="flex flex-col items-center text-center w-full max-w-none mx-auto">
-          {/* FuzzyText作为背景层 */}
-          <div className="relative z-10 mb-8">
-            <FuzzyText
-              fontSize={isMobile ? "clamp(2rem, 10vw, 5rem)" : "clamp(2rem, 10vw, 12rem)"}
-              fontWeight={800}
-              color="#05f"
-              baseIntensity={isMobile ? 0.03 : 0.05}
-              hoverIntensity={isMobile ? 0.3 : 0.5}
-              enableHover={!isMobile} // 移动端禁用hover效果以提升性能
-            >
-              CNAI.ART
-            </FuzzyText>
-            {/* 动态文字显示在FuzzyText下方 */}
-            <div className="mt-4 sm:mt-6">
-              <span className="block text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
-                {rotatingSecond}
-                <span className="animate-pulse text-blue-600 drop-shadow-sm">|</span>
-              </span>
+            <div className="relative z-10 mb-8">
+              <h1 className={`text-[#05f] font-black ${isMobile ? "text-[3rem]" : "text-[8rem]"}`}>
+                艺创AI
+              </h1>
+              {/* 动态文字显示在主标题下方 */}
+              <div className="mt-4 sm:mt-6">
+                <span className="block text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
+                  {rotatingSecond}
+                  <span className="animate-pulse text-blue-600 drop-shadow-sm">|</span>
+                </span>
+              </div>
             </div>
-          </div>
           
           {/* 描述文字 - 参考chat页面的副标题设计 */}
           <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed">

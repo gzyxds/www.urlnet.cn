@@ -1,189 +1,260 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, Users, Award, Clock, Shield } from "lucide-react";
+import { CheckCircle, Users, Award, Clock, Shield, ArrowRight } from "lucide-react";
 
 const About = () => {
-  // 统计数据配置 - 现代化简约设计
+  // 统计数据配置 - 按照技术规范设计
   const stats = [
     { 
       value: "5+", 
       label: "年行业经验",
       icon: Clock,
-      description: "深耕AI领域"
+      description: "深耕AI领域，积累丰富的技术经验和行业洞察"
     },
     { 
       value: "1000+", 
       label: "企业客户",
       icon: Users,
-      description: "服务各行业"
+      description: "服务各行业头部企业，覆盖金融、制造、教育等领域"
     },
     { 
       value: "50+", 
       label: "AI专家团队",
       icon: Award,
-      description: "技术实力雄厚"
+      description: "技术实力雄厚，拥有博士、硕士等高学历人才"
     },
     { 
       value: "99.9%", 
       label: "服务可用性",
       icon: Shield,
-      description: "稳定可靠"
+      description: "稳定可靠的技术架构，7x24小时不间断服务"
+    }
+  ];
+
+  // 核心优势配置 - 简化卡片设计（无图片）
+  const advantages = [
+    {
+      title: "技术创新",
+      description: "持续投入研发，保持技术领先优势，拥有多项核心专利技术"
+    },
+    {
+      title: "专业团队", 
+      description: "汇聚行业顶尖人才，提供专业服务，团队成员来自知名科技企业"
+    },
+    {
+      title: "客户至上",
+      description: "以客户需求为导向，提供定制化解决方案，确保项目成功落地"
+    },
+    {
+      title: "行业领先",
+      description: "在AI技术应用方面处于行业领先地位，获得多项权威认证"
     }
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-white overflow-hidden" id="about">
-      <div className="container mx-auto px-4">
+    <section 
+      className="py-16 md:py-24 lg:py-32" 
+      style={{ backgroundColor: 'rgba(247,248,251, 1)' }}
+      id="about"
+      data-monitor-comp-id="c854860"
+    >
+      <div className="container mx-auto px-4 sm:px-6">
         
-        {/* 页面标题 - 简约设计 */}
+        {/* 页面标题 - H2加粗居中 */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16 lg:mb-24"
+          className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-black mb-4 sm:mb-6 tracking-tight px-2">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
             关于我们
           </h2>
-          <div className="w-12 sm:w-16 h-0.5 bg-blue-600 mx-auto"></div>
+          <div className="w-16 h-1 bg-[#0055ff] mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto" style={{ lineHeight: '1.6' }}>
+            专业的AI技术服务商，致力于为企业提供高效智能的解决方案
+          </p>
         </motion.div>
 
-        {/* 主要内容区域 - 现代化布局 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center overflow-hidden">
+        {/* 主要内容区域 - 响应式双列/单列布局 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
           
-          {/* 左侧图片区域 - 简约设计 */}
+          {/* 左侧图片卡片 - 纯白背景+1px边框 */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="order-2 lg:order-1"
+            className="cursor-pointer group"
+            data-monitor-click-id="about-image-card"
           >
-            {/* 外层容器 - 确保不溢出 */}
-            <div className="relative w-full max-w-lg mx-auto lg:max-w-none overflow-hidden">
-              {/* 内层容器 - 为卡片预留空间 */}
-              <div className="relative pb-8 sm:pb-12 pr-4 sm:pr-8">
+            <div 
+              className="bg-white p-6 lg:p-8 transition-all duration-300 hover:shadow-lg rounded-lg"
+              style={{ border: '1px solid rgba(221, 226, 233, 1)' }}
+            >
+              {/* 主图片容器 - 416px高度 */}
+              <div className="relative mb-6">
+                <img 
+                  src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/16109cf69762df98_1637162865915.png" 
+                  alt="AI科技团队" 
+                  className="w-full object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                  style={{ height: '416px' }}
+                />
                 
-                {/* 简约几何背景装饰 - 移动端隐藏，桌面端显示 */}
-                <div className="hidden lg:block absolute -top-8 -left-8 w-32 h-32 border border-blue-100 rounded-full opacity-30"></div>
-                <div className="hidden lg:block absolute -bottom-6 -right-6 w-24 h-24 bg-blue-50 rounded-lg opacity-40"></div>
-                
-                {/* 主图片容器 - 简约边框 */}
-                <div className="relative bg-white border border-gray-100 overflow-hidden aspect-[4/3] group rounded-lg lg:rounded-none">
-                  <img 
-                    src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/16109cf69762df98_1637162865915.png" 
-                    alt="AI科技团队" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  
-                  {/* 简约状态指示器 - 响应式调整 */}
-                  <div className="absolute top-3 sm:top-6 right-3 sm:right-6 bg-white/95 backdrop-blur-sm px-2 sm:px-4 py-1 sm:py-2 border border-gray-100 rounded">
-                    <div className="flex items-center space-x-1 sm:space-x-2">
-                      <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-600 rounded-full"></div>
-                      <span className="text-xs sm:text-sm font-medium text-black whitespace-nowrap">AI技术领先</span>
-                    </div>
+                {/* 状态指示器 */}
+                <div 
+                  className="absolute top-4 right-4 bg-white px-3 py-2 rounded-md"
+                  style={{ border: '1px solid rgba(221, 226, 233, 1)' }}
+                >
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-[#0055ff] rounded-full"></div>
+                    <span className="text-sm font-medium text-gray-900">AI技术领先</span>
                   </div>
                 </div>
+              </div>
 
-                {/* 客户满意度卡片 - 重新设计，确保不溢出 */}
-                <div className="absolute bottom-0 right-0 bg-white border border-gray-200 shadow-lg rounded-lg w-32 sm:w-40 lg:w-48">
-                  <div className="p-2 sm:p-3 lg:p-4">
-                    <div className="flex items-center space-x-2 sm:space-x-3">
-                      <div className="w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 bg-blue-600 rounded flex items-center justify-center flex-shrink-0">
-                        <CheckCircle className="h-3 sm:h-4 lg:h-5 w-3 sm:w-4 lg:w-5 text-white" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="text-[8px] sm:text-[10px] lg:text-xs font-medium text-gray-600 uppercase tracking-wide leading-tight">满意度</div>
-                        <div className="text-sm sm:text-lg lg:text-xl font-light text-black leading-tight">98%</div>
-                      </div>
-                    </div>
+              {/* 满意度数据卡片 - 自适应内容区 */}
+              <div 
+                className="bg-gray-50 p-4 rounded-lg"
+                style={{ border: '1px solid rgba(221, 226, 233, 1)' }}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-[#0055ff] flex items-center justify-center rounded-lg">
+                    <CheckCircle className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">客户满意度</div>
+                    <div className="text-2xl font-semibold text-gray-900">98%</div>
                   </div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* 右侧内容区域 - 现代化排版 */}
+          {/* 右侧企业简介卡片（包含核心数据） */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="order-1 lg:order-2 space-y-8 sm:space-y-10 lg:space-y-12"
+            className="cursor-pointer group"
+            data-monitor-click-id="about-intro-card"
           >
-            
-            {/* 描述文字 - 简约排版 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="space-y-4 sm:space-y-6 lg:space-y-8"
+            <div 
+              className="bg-white p-6 lg:p-8 h-full transition-all duration-300 hover:shadow-lg rounded-lg flex flex-col"
+              style={{ border: '1px solid rgba(221, 226, 233, 1)' }}
             >
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
-                艺创AI科技是一家专注于人工智能技术研发和应用的高新技术企业，致力于为各行业提供先进的AI解决方案。
-                我们拥有一支由顶尖AI专家、工程师和行业顾问组成的专业团队。
-              </p>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
-                公司成立以来，我们始终坚持"技术创新、质量为本、客户至上"的理念，
-                不断推动AI技术在各行业的落地应用，帮助企业实现数字化转型和智能化升级。
-              </p>
-            </motion.div>
+              {/* 企业简介内容 */}
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">企业简介</h3>
+                <div className="space-y-4 mb-8">
+                  <p className="text-base text-gray-700" style={{ lineHeight: '1.6' }}>
+                    艺创AI科技是一家专注于人工智能技术研发和应用的高新技术企业，致力于为各行业提供先进的AI解决方案。
+                    我们拥有一支由顶尖AI专家、工程师和行业顾问组成的专业团队。
+                  </p>
+                  <p className="text-base text-gray-700" style={{ lineHeight: '1.6' }}>
+                    公司成立以来，我们始终坚持"技术创新、质量为本、客户至上"的理念，
+                    不断推动AI技术在各行业的落地应用，帮助企业实现数字化转型和智能化升级。
+                  </p>
+                </div>
+                
+                {/* 按钮使用主色调强调 */}
+                <button 
+                  className="inline-flex items-center px-6 py-3 bg-[#0055ff] text-white transition-all duration-300 hover:bg-[#0044cc] group rounded-md"
+                  style={{ fontWeight: '500' }}
+                  data-monitor-click-id="about-learn-more"
+                >
+                  了解更多
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </div>
 
-            {/* 统计数据展示区域 - 优化高度协调性 */}
-             <motion.div
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.6, delay: 0.4 }}
-               viewport={{ once: true }}
-               className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-4 xl:gap-6"
-             >
-               {stats.map((stat, index) => {
-                 const IconComponent = stat.icon;
-                 return (
-                   <motion.div
-                     key={index}
-                     initial={{ opacity: 0, y: 20 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                     viewport={{ once: true }}
-                     className="group w-full"
-                   >
-                     {/* 简约数据卡片 - 响应式尺寸，防溢出 */}
-                      <div className="bg-white border border-gray-100 p-2 sm:p-3 lg:p-4 xl:p-5 transition-all duration-300 hover:border-blue-200 hover:shadow-sm h-full rounded-lg lg:rounded-none touch-manipulation w-full overflow-hidden">
-                        
-                        {/* 图标区域 - 响应式设计 */}
-                        <div className="mb-1 sm:mb-2 lg:mb-3">
-                          <div className="w-5 sm:w-6 lg:w-8 h-5 sm:h-6 lg:h-8 bg-blue-600 rounded flex items-center justify-center transition-colors duration-300 group-hover:bg-blue-700">
-                            <IconComponent className="h-2.5 sm:h-3 lg:h-4 w-2.5 sm:w-3 lg:w-4 text-white" />
-                          </div>
-                        </div>
-                        
-                        {/* 数据展示 - 响应式字体，防溢出 */}
-                        <div className="space-y-0.5 sm:space-y-1 w-full">
-                          <div className="text-sm sm:text-base lg:text-lg xl:text-xl font-light text-black leading-tight truncate">{stat.value}</div>
-                          <div className="text-[8px] sm:text-[10px] lg:text-xs font-medium text-black uppercase tracking-wide leading-tight break-words hyphens-auto">{stat.label}</div>
-                          <div className="text-[8px] sm:text-[10px] lg:text-xs text-gray-500 font-light leading-tight break-words hyphens-auto">{stat.description}</div>
-                        </div>
-                      </div>
-                   </motion.div>
-                 );
-               })}
-             </motion.div>
+              {/* 核心数据展示区域 - 简化设计 */}
+               <div className="border-t pt-6 mt-8" style={{ borderColor: 'rgba(221, 226, 233, 1)' }}>
 
-            {/* 按钮区域 - 简约设计 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-            >
-           
-            </motion.div>
+                 <div className="grid grid-cols-2 gap-6">
+                   {stats.map((stat, index) => (
+                     <div
+                       key={index}
+                       className="text-center group cursor-pointer"
+                       data-monitor-click-id={`stat-card-${index}`}
+                     >
+                       {/* 简化的数据展示 - 去掉图标，突出数字 */}
+                       <div className="text-2xl font-bold text-[#0055ff] mb-1 group-hover:scale-105 transition-transform duration-200">
+                         {stat.value}
+                       </div>
+                       <div className="text-sm font-medium text-gray-900 mb-1">
+                         {stat.label}
+                       </div>
+                       <div 
+                         className="text-xs text-gray-500"
+                         style={{ lineHeight: '1.3' }}
+                       >
+                         {stat.description}
+                       </div>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+            </div>
           </motion.div>
         </div>
+
+        {/* 核心优势功能卡片 - 响应式四列布局 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {advantages.map((advantage, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                viewport={{ once: true }}
+                className="cursor-pointer group"
+                data-monitor-click-id={`advantage-card-${index}`}
+              >
+                {/* 功能卡片采用简化设计 - 纯文字卡片 */}
+                <div 
+                  className="bg-white transition-all duration-300 hover:shadow-lg rounded-lg p-6 h-full flex flex-col"
+                  style={{ border: '1px solid rgba(221, 226, 233, 1)' }}
+                >
+                  {/* 标题区域 */}
+                  <div className="mb-4">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-3">{advantage.title}</h4>
+                    <div className="w-8 h-1 bg-[#0055ff] rounded-full"></div>
+                  </div>
+                  
+                  {/* 描述内容 - 占据剩余空间 */}
+                  <div className="flex-1 mb-6">
+                    <p className="text-base text-gray-700" style={{ lineHeight: '1.6' }}>
+                      {advantage.description}
+                    </p>
+                  </div>
+                  
+                  {/* 按钮区域 - 固定在底部 */}
+                  <div>
+                    <button 
+                      className="inline-flex items-center px-4 py-2 bg-[#0055ff] text-white transition-all duration-300 hover:bg-[#0044cc] group rounded-md text-sm"
+                      style={{ fontWeight: '500' }}
+                      data-monitor-click-id={`advantage-btn-${index}`}
+                    >
+                      查看详情
+                      <ArrowRight className="ml-2 h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
