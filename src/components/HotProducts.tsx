@@ -202,33 +202,41 @@ const HotProducts = React.memo(() => {
         <div className="mb-6 px-2 sm:px-4">
           {/* 桌面端标签 */}
           <div className="hidden md:flex justify-center space-x-8 lg:space-x-12 relative">
-            {scenarioKeys.map((scenario) => (
-              <motion.div
-                key={scenario}
-                className={`px-3 py-2 lg:px-4 lg:py-2 cursor-pointer transition-all duration-300 text-sm lg:text-base font-medium tracking-wide relative ${
-                  activeScenario === scenario 
-                    ? 'text-[#0055ff]' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-                onClick={() => handleScenarioChange(scenario)}
-                aria-label={`切换到${scenarioConfig[scenario].title}场景`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                data-monitor-click-id={`tab-${scenario}`}
-              >
-                {scenarioConfig[scenario].title}
-                {/* 活跃状态下的底部指示线 - 添加动画 */}
-                {activeScenario === scenario && (
-                  <motion.div 
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0055ff] rounded-full"
-                    layoutId="activeTab"
-                    initial={{ opacity: 0, scaleX: 0 }}
-                    animate={{ opacity: 1, scaleX: 1 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  />
-                )}
-              </motion.div>
-            ))}
+            {scenarioKeys.map((scenario) => {
+              const TabIcon = scenarioConfig[scenario].icon;
+              return (
+                <motion.div
+                  key={scenario}
+                  className={`px-3 py-2 lg:px-4 lg:py-2 cursor-pointer transition-all duration-300 text-sm lg:text-base font-medium tracking-wide relative flex items-center space-x-2 ${
+                    activeScenario === scenario 
+                      ? 'text-[#0055ff]' 
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                  onClick={() => handleScenarioChange(scenario)}
+                  aria-label={`切换到${scenarioConfig[scenario].title}场景`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  data-monitor-click-id={`tab-${scenario}`}
+                >
+                  {/* 场景图标 */}
+                  <TabIcon className={`h-4 w-4 lg:h-5 lg:w-5 transition-colors duration-300 ${
+                    activeScenario === scenario ? 'text-[#0055ff]' : 'text-gray-500'
+                  }`} />
+                  {/* 场景标题 */}
+                  <span>{scenarioConfig[scenario].title}</span>
+                  {/* 活跃状态下的底部指示线 - 添加动画 */}
+                  {activeScenario === scenario && (
+                    <motion.div 
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0055ff] rounded-full"
+                      layoutId="activeTab"
+                      initial={{ opacity: 0, scaleX: 0 }}
+                      animate={{ opacity: 1, scaleX: 1 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* 移动端标签 */}
@@ -261,81 +269,98 @@ const HotProducts = React.memo(() => {
               className="flex gap-6 overflow-x-auto scrollbar-hide px-4 py-2"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              {scenarioKeys.map((scenario) => (
-                <motion.div
-                  key={scenario}
-                  className={`flex-shrink-0 px-3 py-1.5 cursor-pointer transition-all duration-300 text-sm font-medium tracking-wide whitespace-nowrap relative ${
-                    activeScenario === scenario 
-                      ? 'text-[#0055ff]' 
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
-                  onClick={() => handleScenarioChange(scenario)}
-                  aria-label={`切换到${scenarioConfig[scenario].title}场景`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  data-monitor-click-id={`mobile-tab-${scenario}`}
-                >
-                  {scenarioConfig[scenario].title}
-                  {/* 活跃状态下的底部指示线 - 添加动画 */}
-                  {activeScenario === scenario && (
-                    <motion.div 
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0055ff] rounded-full"
-                      layoutId="activeMobileTab"
-                      initial={{ opacity: 0, scaleX: 0 }}
-                      animate={{ opacity: 1, scaleX: 1 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                    />
-                  )}
-                </motion.div>
-              ))}
+              {scenarioKeys.map((scenario) => {
+                const TabIcon = scenarioConfig[scenario].icon;
+                return (
+                  <motion.div
+                    key={scenario}
+                    className={`flex-shrink-0 px-3 py-1.5 cursor-pointer transition-all duration-300 text-sm font-medium tracking-wide whitespace-nowrap relative flex items-center space-x-1.5 ${
+                      activeScenario === scenario 
+                        ? 'text-[#0055ff]' 
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                    onClick={() => handleScenarioChange(scenario)}
+                    aria-label={`切换到${scenarioConfig[scenario].title}场景`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    data-monitor-click-id={`mobile-tab-${scenario}`}
+                  >
+                    {/* 场景图标 */}
+                    <TabIcon className={`h-4 w-4 transition-colors duration-300 ${
+                      activeScenario === scenario ? 'text-[#0055ff]' : 'text-gray-500'
+                    }`} />
+                    {/* 场景标题 */}
+                    <span>{scenarioConfig[scenario].title}</span>
+                    {/* 活跃状态下的底部指示线 - 添加动画 */}
+                    {activeScenario === scenario && (
+                      <motion.div 
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0055ff] rounded-full"
+                        layoutId="activeMobileTab"
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        animate={{ opacity: 1, scaleX: 1 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      />
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
           {/* 平板端标签 */}
           <div className="hidden sm:block md:hidden">
             <div className="flex flex-wrap justify-center gap-10">
-              {scenarioKeys.map((scenario) => (
-                <motion.div
-                  key={scenario}
-                  className={`px-5 py-3 cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide relative ${
-                    activeScenario === scenario 
-                      ? 'text-[#0055ff]' 
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
-                  onClick={() => handleScenarioChange(scenario)}
-                  aria-label={`切换到${scenarioConfig[scenario].title}场景`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  data-monitor-click-id={`tablet-tab-${scenario}`}
-                >
-                  {scenarioConfig[scenario].title}
-                  {/* 活跃状态下的底部指示线 - 添加动画 */}
-                  {activeScenario === scenario && (
-                    <motion.div 
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0055ff] rounded-full"
-                      layoutId="activeTabletTab"
-                      initial={{ opacity: 0, scaleX: 0 }}
-                      animate={{ opacity: 1, scaleX: 1 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                    />
-                  )}
-                </motion.div>
-              ))}
+              {scenarioKeys.map((scenario) => {
+                const TabIcon = scenarioConfig[scenario].icon;
+                return (
+                  <motion.div
+                    key={scenario}
+                    className={`px-5 py-3 cursor-pointer transition-all duration-300 text-lg font-medium tracking-wide relative flex items-center space-x-2.5 ${
+                      activeScenario === scenario 
+                        ? 'text-[#0055ff]' 
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                    onClick={() => handleScenarioChange(scenario)}
+                    aria-label={`切换到${scenarioConfig[scenario].title}场景`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    data-monitor-click-id={`tablet-tab-${scenario}`}
+                  >
+                    {/* 场景图标 */}
+                    <TabIcon className={`h-5 w-5 transition-colors duration-300 ${
+                      activeScenario === scenario ? 'text-[#0055ff]' : 'text-gray-500'
+                    }`} />
+                    {/* 场景标题 */}
+                    <span>{scenarioConfig[scenario].title}</span>
+                    {/* 活跃状态下的底部指示线 - 添加动画 */}
+                    {activeScenario === scenario && (
+                      <motion.div 
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0055ff] rounded-full"
+                        layoutId="activeTabletTab"
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        animate={{ opacity: 1, scaleX: 1 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      />
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* 简洁的产品卡片 - 多端适配优化 */}
+        {/* 简洁的产品卡片 - 多端适配优化，增加整体高度 */}
         <div className="w-full">
           <motion.div
             key={activeScenario}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col lg:flex-row"
+            className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden flex flex-col lg:flex-row min-h-[518px]"
           >
-            {/* 左侧内容 - 多端响应式优化 */}
-            <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
+            {/* 左侧内容 - 多端响应式优化，确保50%宽度 */}
+            <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 xl:p-10 flex flex-col justify-between"
+                 style={{ flex: '1 1 50%' }}>
               {/* 标题区域 - 多端字体适配 */}
               <div className="mb-4 sm:mb-6">
                 {/* 产品标签 - 响应式设计 */}
@@ -455,13 +480,14 @@ const HotProducts = React.memo(() => {
               </motion.div>
             </div>
 
-            {/* 右侧媒体区 - 响应式尺寸适配 */}
+            {/* 右侧媒体区 - 响应式尺寸适配，确保50%宽度 */}
             <div 
               className="w-full lg:w-1/2 relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 overflow-hidden"
               style={{ 
-                minHeight: '280px',
-                height: 'auto'
-              }}
+                 flex: '1 1 50%',
+                 minHeight: '518px',
+                 height: 'auto'
+               }}
             >
               {imageLoading && (
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-indigo-50/80 to-purple-100/80 animate-pulse flex items-center justify-center backdrop-blur-sm">
@@ -476,7 +502,7 @@ const HotProducts = React.memo(() => {
                   </div>
                 </div>
               ) : (
-                <div className="w-full h-full flex items-center justify-center p-3 sm:p-4 min-h-[280px] sm:min-h-[320px] lg:min-h-[400px]">
+                <div className="w-full h-full flex items-center justify-center p-3 sm:p-4 lg:p-6 xl:p-8 min-h-[518px]">
                   <img
                     src={currentScenario.image}
                     alt={currentScenario.imageAlt}
