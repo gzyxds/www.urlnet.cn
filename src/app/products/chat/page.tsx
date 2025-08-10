@@ -77,8 +77,8 @@ const ChatPage = () => {
           </div>
         </div>
 
-        {/* 响应式容器 - 优化不同设备的内边距和最大宽度 */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* 响应式容器 - 优化不同设备的内边距和最大宽度，使用适中的宽屏设计 */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* 顶部状态标签 - 响应式设计 */}
           <div className="flex justify-center mb-8 sm:mb-12">
             <div className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-white/90 backdrop-blur-md border border-blue-200 text-black shadow-lg">
@@ -172,7 +172,7 @@ const ChatPage = () => {
               {/* 主展示容器 - 响应式尺寸 */}
               <div className="relative">
                 {/* 展示卡片 - 优化移动端高度 */}
-                                  {/* 展示卡片 - 优化移动端高度，增加平板断点 */}
+                  {/* 展示卡片 - 优化移动端高度，增加平板断点 */}
 <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 border border-gray-100 transition-all duration-300 min-h-[380px] sm:min-h-[460px] md:min-h-[500px]">
                   {/* 顶部状态栏 - 响应式布局 */}
                   <div className="flex items-center justify-between mb-4 sm:mb-6">

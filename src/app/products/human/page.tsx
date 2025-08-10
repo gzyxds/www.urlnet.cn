@@ -20,7 +20,7 @@ const HumanPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* 头部横幅 - 优化响应式设计 */}
-      <section className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
+      <section className="pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* 背景装饰 - 优化移动端显示 */}
           <div className="absolute top-0 right-0 w-1/2 sm:w-1/3 h-1/2 sm:h-1/3 bg-gradient-to-r from-blue-200/20 to-indigo-200/20 rounded-full blur-2xl sm:blur-3xl -z-10"></div>
@@ -134,6 +134,8 @@ const HumanPage = () => {
           </div>
         </div>
       </section>
+
+      
       {/* 产品优势 - 优化响应式布局 */}
       <section className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

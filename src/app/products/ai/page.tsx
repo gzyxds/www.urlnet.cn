@@ -14,7 +14,7 @@ const AiPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* 头部横幅区域 - 现代化简约设计，白黑蓝配色方案 */}
-      <section className="relative min-h-screen sm:min-h-[80vh] flex items-center overflow-hidden">
+      <section className="relative min-h-screen sm:min-h-[80vh] flex items-center overflow-hidden pt-8 sm:pt-12 lg:pt-16">
         {/* 简约几何背景装饰 */}
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50/30 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
@@ -286,6 +286,8 @@ const AiPage = () => {
           `
         }} />
  </section>
+{/*  英雄区块结束 */}
+
 
       {/* 产品优势展示区域 */}
       <section className="py-20 bg-white">

@@ -252,7 +252,7 @@ const DownloadPage = () => {
       <Header />
       <main className="min-h-screen bg-white">
         {/* 顶部横幅 - 现代简约设计（白、黑、蓝色调） */}
-        <section className="relative bg-slate-100 overflow-hidden border-b border-gray-100">
+        <section className="relative bg-slate-100 overflow-hidden border-b border-gray-100 pt-8 sm:pt-12 lg:pt-16">
           {/* 装饰图形元素 - 简洁几何形状 */}
           <div className="absolute inset-0 overflow-hidden">
             <svg className="absolute right-0 top-0 h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" fill="none">
