@@ -1565,7 +1565,9 @@ const  PaperPage = () => {
                       准备好开启您的<span className="text-blue-600">AI论文创作服务</span>了吗？
                     </h3>
                     <p className="text-gray-600 mb-6 text-base">
-                      已有数百家企业和品牌通过我们的AI论文创作服务，提升了客户创作效率和运营效率，助力您的业务发展飞跃。
+                    这是一款智能写作辅助系统，只需输入关键词即可快速生成文章大纲和内容。系统操作简单，
+                    能够在短时间内生成高质量的文章。适用于论文写作、科普创作、学生作业等多种场景，
+                    帮助您节省写作时间，提高创作效率。
                     </p>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">

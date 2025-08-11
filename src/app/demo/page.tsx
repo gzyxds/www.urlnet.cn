@@ -39,7 +39,7 @@ const DemoPage = () => {
               </h1>
               
               <p className="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed max-w-2xl mx-auto">
-                立即体验我们的产品，探索AI带来的无限可能
+              基于前后端分离架构以及Vue3、uni-app、ThinkPHP6.x、PHP8.0技术栈开发，包含PC端、H5端、小程序端、APP端
               </p>
             </motion.div>
 

@@ -2079,7 +2079,8 @@ const ChatPage = () => {
                     准备好开启您的<span className="text-blue-600">AI之旅</span>了吗？
                   </h3>
                   <p className="text-gray-600 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
-                    已有数百家企业和品牌通过我们的AI解决方案，提升了客户体验和运营效率，助力您的业务发展飞跃。
+                    基于Vue3和ThinkPHP技术栈开发的全平台AI系统，支持PC端、H5端、小程序和APP。集成主流AI模型如GPT4.0、文心一言等,
+                    支持智能对话和AI绘画等功能。系统配备完整的会员体系和营销功能，让AI应用快速落地。
                   </p>
                   
                   {/* 特性列表 - 优化移动端网格布局 */}

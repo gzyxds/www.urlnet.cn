@@ -1449,7 +1449,8 @@ const AiPage = () => {
                       准备好开启您的<span className="text-blue-600">AI产品</span>了吗？
                     </h3>
                     <p className="text-gray-600 mb-6 text-base">
-                      已有数百家企业和品牌通过我们的AI产品获得成功，实现了高效解决方案，提升了客户体验和运营效率，助力您的业务发展飞跃。
+                    基于Vue3和ThinkPHP技术栈开发,支持PC端和H5端。系统支持多种文档格式导入,完成AI训练后可进行智能问答。
+                    提供网页窗口、API等多种接入方式,可快速对接第三方系统。适用于企业智能客服、智能文档、顾问助理等多种商用场景。
                     </p>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
