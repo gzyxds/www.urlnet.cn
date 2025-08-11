@@ -411,7 +411,7 @@ const AboutPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "胡龙春",
+                name: "MissHu",
                 title: "创始人 & CEO",
                 bio: "拥有10年以上软件开发经验，独立开发者，相信编程创造价值且热爱创业。试图转型为产品营销专家，业余时间学习如何带娃和游泳。喜欢玩LOL但不喜欢加班。",
                 expertise: ["机器学习", "深度学习", "产品战略"]

@@ -8,9 +8,9 @@ const ServicePage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>支持与服务 - 艺创云服务 | 艺创AI</title>
-        <meta name="description" content="艺创提供专业的售前及售后服务，助力您轻松开启上云之旅。提供24/7技术支持、在线客服、电话支持等多种服务方式。" />
-        <meta name="keywords" content="支持与服务,艺创,云服务,技术支持,在线客服,售前咨询,售后服务" />
+        <title>支持与服务 - AI系统源码 | 艺创AI</title>
+        <meta name="description" content="艺创AI提供专业的售前及售后服务，助力您轻松开启上云之旅。提供24/7技术支持、在线客服、电话支持等多种服务方式。" />
+        <meta name="keywords" content="支持与服务,AI系统源码,云服务,技术支持,在线客服,售前咨询,售后服务" />
       </Helmet>
 
       {/* 支持与服务横幅 - 现代化简约设计 */}
@@ -26,157 +26,160 @@ const ServicePage = () => {
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative">
-          {/* 主要内容区域 - 优化布局和间距 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[500px]">
-            {/* 左侧内容区域 - 增加留白和层次感 */}
-            <div className="flex flex-col justify-center space-y-10 text-center lg:text-left lg:mr-16">
+          {/* 主要内容区域 - 优化布局和间距，调整左右比例 */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-16 items-center min-h-[600px]">
+            {/* 左侧内容区域 - 占据5列，增加内容密度 */}
+            <div className="lg:col-span-5 flex flex-col justify-center space-y-8 text-center lg:text-left">
               {/* 标题区域 - 优化排版 */}
               <div className="space-y-6">
                 <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full border border-blue-100 mx-auto lg:mx-0">
                   <span className="text-sm font-medium text-blue-600">专业服务支持</span>
                 </div>
-                <h1 className="text-5xl lg:text-6xl font-bold text-black leading-tight tracking-tight">
+                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-black leading-tight tracking-tight">
                   支持与服务
                 </h1>
                 <div className="space-y-3">
-                  <p className="text-xl text-gray-700 font-medium leading-relaxed">艺创提供专业的售前及售后服务</p>
-                  <p className="text-lg text-gray-600 leading-relaxed">助力您轻松开启上云之旅</p>
+                  <p className="text-lg lg:text-xl text-gray-700 font-medium leading-relaxed">艺创提供专业的售前及售后服务</p>
+                  <p className="text-base lg:text-lg text-gray-600 leading-relaxed">助力您轻松开启上云之旅</p>
                 </div>
               </div>
               
-              {/* 服务特色 - 简洁列表，增加间距 */}
+              {/* 服务特色 - 简洁列表，优化间距 */}
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 justify-center lg:justify-start">
                   <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
                     <Check className="h-3 w-3 text-white" />
                   </div>
-                  <span className="text-gray-700 text-sm">专业的售前及售后服务团队</span>
+                  <span className="text-gray-700 text-sm lg:text-base">专业的售前及售后服务团队</span>
                 </div>
                 <div className="flex items-center space-x-3 justify-center lg:justify-start">
                   <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
                     <Check className="h-3 w-3 text-white" />
                   </div>
-                  <span className="text-gray-700 text-sm">专业技术团队提供上云支持</span>
+                  <span className="text-gray-700 text-sm lg:text-base">专业技术团队提供上云支持</span>
                 </div>
                 <div className="flex items-center space-x-3 justify-center lg:justify-start">
                   <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
                     <Check className="h-3 w-3 text-white" />
                   </div>
-                  <span className="text-gray-700 text-sm">7×24小时全天候技术保障</span>
+                  <span className="text-gray-700 text-sm lg:text-base">7×24小时全天候技术保障</span>
                 </div>
               </div>
               
               {/* 行动按钮 - 简化设计 */}
-              <div className="pt-2 flex justify-center lg:justify-start">
+              <div className="pt-4 flex justify-center lg:justify-start">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 text-base font-semibold rounded-full shadow-sm hover:shadow-md transition-all duration-200">
                   立即咨询
                 </Button>
               </div>
             </div>
             
-            {/* 右侧数据展示区域 - 重新设计为简约风格 */}
-            <div className="flex items-center justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-lg">
-                {/* 在线客服卡片 - 统一蓝色主题 */}
-                <div className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                        <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
+            {/* 右侧数据展示区域 - 占据7列，重新设计为更协调的布局 */}
+            <div className="lg:col-span-7 flex items-center justify-center lg:justify-end">
+              <div className="w-full max-w-2xl">
+                {/* 2x2网格布局，统一卡片尺寸 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+                  {/* 在线客服卡片 - 统一设计 */}
+                  <div className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="space-y-4 h-full flex flex-col">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                          <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-bold text-black text-base lg:text-lg truncate">在线客服</h3>
+                          <p className="text-sm text-blue-600 font-medium">24/7全天候在线</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-black text-lg">在线客服</h3>
-                        <p className="text-sm text-blue-600 font-medium">24/7全天候在线</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">响应速度</span>
-                        <span className="text-2xl font-bold text-black">98%</span>
-                      </div>
-                      <div className="w-full bg-gray-100 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[98%]"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* 技术支持卡片 - 统一蓝色主题 */}
-                <div className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                        <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-black text-base">技术支持</h3>
-                        <p className="text-sm text-blue-600 font-medium">专业技术团队</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">满意度</span>
-                        <span className="text-xl font-bold text-black">99%</span>
-                      </div>
-                      <div className="w-full bg-gray-100 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[99%]"></div>
+                      <div className="space-y-3 flex-1">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-gray-600">响应速度</span>
+                          <span className="text-xl lg:text-2xl font-bold text-black">98%</span>
+                        </div>
+                        <div className="w-full bg-gray-100 rounded-full h-2">
+                          <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[98%]"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                
-                {/* 电话支持卡片 - 统一蓝色主题 */}
-                <div className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                        <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
+                  
+                  {/* 技术支持卡片 - 统一设计 */}
+                  <div className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="space-y-4 h-full flex flex-col">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                          <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-bold text-black text-base lg:text-lg truncate">技术支持</h3>
+                          <p className="text-sm text-blue-600 font-medium">专业技术团队</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-black text-base">电话支持</h3>
-                        <p className="text-sm text-blue-600 font-medium">即时响应服务</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">响应时间</span>
-                        <span className="text-xl font-bold text-black">30秒</span>
-                      </div>
-                      <div className="w-full bg-gray-100 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[85%]"></div>
+                      <div className="space-y-3 flex-1">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-gray-600">满意度</span>
+                          <span className="text-xl lg:text-2xl font-bold text-black">99%</span>
+                        </div>
+                        <div className="w-full bg-gray-100 rounded-full h-2">
+                          <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[99%]"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                
-                {/* 邮件支持卡片 - 统一蓝色主题 */}
-                <div className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                        <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
+                  
+                  {/* 电话支持卡片 - 统一设计 */}
+                  <div className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="space-y-4 h-full flex flex-col">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                          <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-bold text-black text-base lg:text-lg truncate">电话支持</h3>
+                          <p className="text-sm text-blue-600 font-medium">即时响应服务</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-black text-base">邮件支持</h3>
-                        <p className="text-sm text-blue-600 font-medium">详细问题解答</p>
+                      <div className="space-y-3 flex-1">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-gray-600">响应时间</span>
+                          <span className="text-xl lg:text-2xl font-bold text-black">30秒</span>
+                        </div>
+                        <div className="w-full bg-gray-100 rounded-full h-2">
+                          <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[85%]"></div>
+                        </div>
                       </div>
                     </div>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">响应时间</span>
-                        <span className="text-xl font-bold text-black">2小时</span>
+                  </div>
+                  
+                  {/* 邮件支持卡片 - 统一设计 */}
+                  <div className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="space-y-4 h-full flex flex-col">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                          <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-bold text-black text-base lg:text-lg truncate">邮件支持</h3>
+                          <p className="text-sm text-blue-600 font-medium">详细问题解答</p>
+                        </div>
                       </div>
-                      <div className="w-full bg-gray-100 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[90%]"></div>
+                      <div className="space-y-3 flex-1">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-gray-600">响应时间</span>
+                          <span className="text-xl lg:text-2xl font-bold text-black">2小时</span>
+                        </div>
+                        <div className="w-full bg-gray-100 rounded-full h-2">
+                          <div className="bg-blue-600 h-2 rounded-full transition-all duration-1000 w-[90%]"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -263,7 +266,7 @@ const ServicePage = () => {
                     </div>
                     
                     <p className="text-gray-600 text-sm leading-relaxed pl-16">
-                      获取产品顾问的专业帮助，快速解答您的产品疑惑
+                      获取产品Advisor的专业帮助，快速解答您的产品疑惑
                     </p>
                   </div>
                   
@@ -824,7 +827,7 @@ const ServicePage = () => {
           </div>
         </div>
       </section>
-     </div>
+    </div>
   );
 };
 
