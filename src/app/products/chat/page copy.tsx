@@ -975,7 +975,7 @@ const ChatPage = () => {
         </div>
       </section>
 
-    {/* 功能特色区域左右布局 - 全面优化移动端响应式布局 */}
+    {/* 功能特色区域 - 全面优化移动端响应式布局 */}
       <section className={`${sectionPadding} bg-white`}>
         <div className={containerBase}>
           {/* 标题区域 - 响应式优化 */}
@@ -1240,37 +1240,12 @@ const ChatPage = () => {
               </div>
             </TabsContent>
 
-            {/* AI智能创作功能 - 全面优化移动端响应式布局 - 左图右文布局 */}
+            {/* AI智能创作功能 - 全面优化移动端响应式布局 */}
             <TabsContent value="digitalEmployee" className="animate-in fade-in-50 duration-500">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 border border-gray-100 shadow-sm">
                 <div className="flex flex-col xl:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
-                  {/* 左侧图片区域 - 优化移动端图片展示 */}
-                  <div className="w-full xl:w-1/2 xl:order-1">
-                    <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
-                      <img 
-                        src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/create.png" 
-                        alt="AI智能创作应用场景" 
-                        className="w-full h-auto object-cover"
-                        loading="lazy"
-                      />
-                      <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6">
-                        <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/20">
-                          <div className="flex items-center">
-                            <div className="w-8 h-8 sm:w-12 sm:h-12 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4">
-                              <Bot className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
-                            </div>
-                            <div>
-                              <p className="text-gray-900 font-semibold text-sm sm:text-base">AI智能创作解决方案</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">多模型驱动，深度内容创作</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* 右侧内容区域 - 优化移动端布局 */}
-                  <div className="w-full xl:w-1/2 space-y-4 sm:space-y-6 xl:order-2 mt-6 xl:mt-0">
+                  {/* 左侧内容区域 - 优化移动端布局 */}
+                  <div className="w-full xl:w-1/2 space-y-4 sm:space-y-6">
                     <div className="space-y-3 sm:space-y-4">
                       <span className="inline-flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100">
                         <Bot className="w-3 h-3 mr-1.5" />
@@ -1327,16 +1302,41 @@ const ChatPage = () => {
                       </Button>
                     </div>
                   </div>
+                  
+                  {/* 右侧图片区域 - 优化移动端图片展示 */}
+                  <div className="w-full xl:w-1/2 mt-6 xl:mt-0">
+                    <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
+                      <img 
+                        src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/create.png" 
+                        alt="AI智能创作应用场景" 
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6">
+                        <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/20">
+                          <div className="flex items-center">
+                            <div className="w-8 h-8 sm:w-12 sm:h-12 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                              <Bot className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
+                            </div>
+                            <div>
+                              <p className="text-gray-900 font-semibold text-sm sm:text-base">AI智能创作解决方案</p>
+                              <p className="text-gray-600 text-xs sm:text-sm">多模型驱动，深度内容创作</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </TabsContent>
 
-            {/* AI绘画功能 - 全面优化移动端响应式布局 - 左文右图布局 */}
+            {/* AI绘画功能 - 全面优化移动端响应式布局 */}
             <TabsContent value="contentCreation" className="animate-in fade-in-50 duration-500">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 border border-gray-100 shadow-sm">
                 <div className="flex flex-col xl:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
                   {/* 左侧内容区域 - 优化移动端布局 */}
-                  <div className="w-full xl:w-1/2 space-y-4 sm:space-y-6 xl:order-1">
+                  <div className="w-full xl:w-1/2 space-y-4 sm:space-y-6">
                     <div className="space-y-3 sm:space-y-4">
                       <span className="inline-flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100">
                         <PenTool className="w-3 h-3 mr-1.5" />
@@ -1395,7 +1395,7 @@ const ChatPage = () => {
                   </div>
                   
                   {/* 右侧图片区域 - 优化移动端图片展示 */}
-                  <div className="w-full xl:w-1/2 xl:order-2 mt-6 xl:mt-0">
+                  <div className="w-full xl:w-1/2 mt-6 xl:mt-0">
                     <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
                       <img 
                         src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png" 
@@ -1422,37 +1422,12 @@ const ChatPage = () => {
               </div>
             </TabsContent>
 
-            {/* AI技能功能 - 全面优化移动端响应式布局 - 左图右文布局 */}
+            {/* AI技能功能 - 全面优化移动端响应式布局 */}
             <TabsContent value="virtualLive" className="animate-in fade-in-50 duration-500">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 border border-gray-100 shadow-sm">
                 <div className="flex flex-col xl:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
-                  {/* 左侧图片区域 - 优化移动端图片展示 */}
-                  <div className="w-full xl:w-1/2 xl:order-1">
-                    <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
-                      <img 
-                        src="https://java-chat-front.chatmoney.cn/api/uploads/image/20240612/04197fe3-1ad8-40b0-8b79-a63249d1bc83.png" 
-                        alt="AI技能应用场景" 
-                        className="w-full h-auto object-cover"
-                        loading="lazy"
-                      />
-                      <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6">
-                        <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/20">
-                          <div className="flex items-center">
-                            <div className="w-8 h-8 sm:w-12 sm:h-12 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4">
-                              <Tv className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
-                            </div>
-                            <div>
-                              <p className="text-gray-900 font-semibold text-sm sm:text-base">AI技能解决方案</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">多技能模型，智能高效问答</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* 右侧内容区域 - 优化移动端布局 */}
-                  <div className="w-full xl:w-1/2 space-y-4 sm:space-y-6 xl:order-2 mt-6 xl:mt-0">
+                  {/* 左侧内容区域 - 优化移动端布局 */}
+                  <div className="w-full xl:w-1/2 space-y-4 sm:space-y-6">
                     <div className="space-y-3 sm:space-y-4">
                       <span className="inline-flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100">
                         <Tv className="w-3 h-3 mr-1.5" />
@@ -1509,13 +1484,38 @@ const ChatPage = () => {
                       </Button>
                     </div>
                   </div>
+                  
+                  {/* 右侧图片区域 - 优化移动端图片展示 */}
+                  <div className="w-full xl:w-1/2 mt-6 xl:mt-0">
+                    <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
+                      <img 
+                        src="https://java-chat-front.chatmoney.cn/api/uploads/image/20240612/04197fe3-1ad8-40b0-8b79-a63249d1bc83.png" 
+                        alt="AI技能应用场景" 
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6">
+                        <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/20">
+                          <div className="flex items-center">
+                            <div className="w-8 h-8 sm:w-12 sm:h-12 bg-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center mr-3 sm:mr-4">
+                              <Tv className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
+                            </div>
+                            <div>
+                              <p className="text-gray-900 font-semibold text-sm sm:text-base">AI技能解决方案</p>
+                              <p className="text-gray-600 text-xs sm:text-sm">多技能模型，智能高效问答</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </section>
-      {/* 功能特色区域左右布局 - 全面优化移动端响应式布局 */}
+ {/* 应用场景 */}
 
 
       {/* 功能特色 - 卡片式布局 - 全面优化移动端响应式设计 */}
@@ -2079,7 +2079,8 @@ const ChatPage = () => {
                     准备好开启您的<span className="text-blue-600">AI之旅</span>了吗？
                   </h3>
                   <p className="text-gray-600 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
-                    已有数百家企业和品牌通过我们的AI解决方案，提升了客户体验和运营效率，助力您的业务发展飞跃。
+                    基于Vue3和ThinkPHP技术栈开发的全平台AI系统，支持PC端、H5端、小程序和APP。集成主流AI模型如GPT4.0、文心一言等,
+                    支持智能对话和AI绘画等功能。系统配备完整的会员体系和营销功能，让AI应用快速落地。
                   </p>
                   
                   {/* 特性列表 - 优化移动端网格布局 */}
