@@ -20,7 +20,7 @@ const FallingComponent = () => {
               fontSize={isMobile ? "clamp(3rem, 15vw, 8rem)" : "clamp(6rem, 18vw, 25rem)"}
               fontWeight={900}
               color="#05f"
-              baseIntensity={isMobile ? 0.03 : 0.05}
+              baseIntensity={isMobile ? 0 : 0}
               hoverIntensity={isMobile ? 0.3 : 0.5}
               enableHover={!isMobile} // 移动端禁用hover效果以提升性能
             >
