@@ -17,6 +17,15 @@ const DemoPage = () => {
     keywords: '艺创AI,AI数字人,知识库,聊天绘画,论文写作,SaaS系统,PHP系统,Java系统,AI演示'
   });
 
+    /**
+   * 处理联系客服按钮点击事件
+   * 触发BackToTop组件中的二维码弹窗
+   */
+  const handleContactService = () => {
+    // 触发自定义事件，让BackToTop组件显示二维码弹窗
+    window.dispatchEvent(new CustomEvent('showQRCodeModal'));
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* 简约英雄区域 */}
@@ -52,14 +61,16 @@ const DemoPage = () => {
               <Button 
                 size="lg" 
                 className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3"
+                onClick={() => window.open('https://auth.cnai.art/', '_blank')}
               >
-                查看演示
+                立即购买
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium px-8 py-3"
+                onClick={handleContactService}
               >
                 联系我们
               </Button>

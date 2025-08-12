@@ -20,6 +20,15 @@ const ProductsPage = () => {
     keywords: 'AI系统源码,AI数字人系统,聊天绘画系统,AI平台源码,AI创作系统,AI官网源码,AI变现系统,AI论文写作,AI解决方案'
   });
 
+  /**
+   * 处理联系客服按钮点击事件
+   * 触发BackToTop组件中的二维码弹窗
+   */
+  const handleContactService = () => {
+    // 触发自定义事件，让BackToTop组件显示二维码弹窗
+    window.dispatchEvent(new CustomEvent('showQRCodeModal'));
+  };
+
   return (
     // 页面主容器，采用白色背景
     <div className="bg-white text-gray-800">
@@ -64,6 +73,7 @@ const ProductsPage = () => {
                   <Button 
                     size="lg" 
                     className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3"
+                    onClick={handleContactService}
                   >
                     联系客服
                     <ArrowRight className="ml-2 w-4 h-4" />
