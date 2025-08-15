@@ -7,10 +7,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, ArrowLeft, Quote, User, Building2, Stethoscope, Factory } from "lucide-react";
 import { Link } from 'react-router-dom';
 
+/**
+ * 客户案例展示组件 - 简洁现代设计
+ * 展示客户成功案例，支持滑动切换
+ */
 const Cases = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // 客户案例数据 - 优化数据结构，增加更多细节
+  // 客户案例数据
   const cases = [
     {
       image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
@@ -56,90 +60,89 @@ const Cases = () => {
     }
   ];
 
-  // 切换到下一个案例
+  /**
+   * 切换到下一个案例
+   */
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === cases.length - 1 ? 0 : prev + 1));
   };
 
-  // 切换到上一个案例
+  /**
+   * 切换到上一个案例
+   */
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? cases.length - 1 : prev - 1));
   };
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-white overflow-hidden" id="cases">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 max-w-[1600px]">
+    <section className="py-20 bg-white" id="cases">
+      <div className="container mx-auto px-6">
         
-        {/* 页面标题 - 优化移动端响应式设计 */}
+        {/* 页面标题 */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-24"
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-black mb-4 sm:mb-6 tracking-tight px-2">
+          <h2 className="text-4xl font-light text-black mb-6">
             客户案例
           </h2>
-          <div className="w-12 sm:w-16 h-0.5 bg-blue-600 mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light max-w-3xl mx-auto px-4 sm:px-6">
-            我们的AI解决方案已成功应用于金融、医疗、制造等多个行业，
-            帮助客户提升效率、降低成本、创造价值。
+          <div className="w-16 h-0.5 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            我们的AI解决方案已成功应用于金融、医疗、制造等多个行业，帮助客户提升效率、降低成本、创造价值。
           </p>
         </motion.div>
 
-        {/* 案例展示区域 - 优化移动端响应式设计 */}
+        {/* 案例展示区域 */}
         <div className="relative">
-          {/* 滑动容器 - 优化移动端触摸滑动 */}
-          <div className="overflow-hidden rounded-lg">
+          {/* 滑动容器 */}
+          <div className="overflow-hidden">
             <div 
-              className="flex transition-transform duration-1000 ease-out"
+              className="flex transition-transform duration-700 ease-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {cases.map((item, index) => (
-                <div key={index} className="w-full flex-shrink-0 px-2 sm:px-4 xl:px-6 2xl:px-8">
+                <div key={index} className="w-full flex-shrink-0">
                   <motion.div
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                    transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                   >
-                    <Card className="border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-500 bg-white overflow-hidden group">
+                    <Card className="border border-gray-200 bg-white overflow-hidden">
                       <CardContent className="p-0">
-                        {/* 移动端垂直布局，桌面端水平布局 */}
-                        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 xl:gap-12 2xl:gap-16 items-stretch lg:items-center min-h-[400px] sm:min-h-[500px] xl:min-h-[600px]">
+                        {/* 简洁的两栏布局 */}
+                        <div className="grid lg:grid-cols-2 gap-0 min-h-[500px]">
                           
-                          {/* 图片区域 - 优化移动端显示 */}
-                          <div className="relative order-1 lg:order-1 px-4 sm:px-6 lg:px-0 pt-4 sm:pt-6 lg:pt-0">
-                            {/* 简约几何背景装饰 - 移动端隐藏，避免溢出 */}
-                            <div className="hidden lg:block absolute -top-4 -left-4 w-16 h-16 border border-blue-100 opacity-30"></div>
-                            <div className="hidden lg:block absolute -bottom-3 -right-3 w-12 h-12 bg-blue-50 opacity-40"></div>
-                            
-                            {/* 主图片容器 - 响应式宽高比 */}
-                            <div className="relative bg-white border border-gray-100 overflow-hidden aspect-[16/10] sm:aspect-[4/3] group">
-                              <img 
-                                src={item.image} 
-                                alt={item.title} 
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          {/* 图片区域 */}
+                          <div className="relative bg-gray-50 p-8 flex items-center justify-center">
+                            {/* 主图片容器 */}
+                            <div className="relative w-full max-w-md">
+                              <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-full h-80 object-cover"
                                 loading="lazy"
                               />
-                              
-                              {/* 简约状态指示器 - 优化移动端尺寸 */}
-                              <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/95 backdrop-blur-sm px-2 sm:px-3 py-1 sm:py-2 border border-gray-100 rounded-sm">
-                                <div className="flex items-center space-x-1 sm:space-x-2">
-                                  <item.icon className="h-3 w-3 sm:h-4 sm:w-4 text-blue-600 flex-shrink-0" />
-                                  <span className="text-xs font-medium text-black truncate max-w-[80px] sm:max-w-none">{item.client}</span>
+
+                              {/* 客户标识 */}
+                              <div className="absolute top-4 right-4 bg-white px-3 py-2 border border-gray-300">
+                                <div className="flex items-center space-x-2">
+                                  <item.icon className="h-4 w-4 text-[#05f]" />
+                                  <span className="text-sm font-medium text-black">{item.client}</span>
                                 </div>
                               </div>
                             </div>
 
-                            {/* 数据指标卡片 - 移动端内联显示，避免溢出 */}
-                            <div className="mt-4 lg:absolute lg:-bottom-6 lg:-right-3 bg-white border border-gray-200 p-3 sm:p-4 shadow-lg lg:max-w-[200px]">
-                              <div className="grid grid-cols-2 gap-2 sm:gap-3 text-center">
+                            {/* 数据指标卡片 */}
+                            <div className="absolute bottom-4 right-4 bg-white border border-gray-300 p-4 min-w-[180px]">
+                              <div className="grid grid-cols-2 gap-4 text-center">
                                 {Object.entries(item.metrics || {}).slice(0, 2).map(([key, value], idx) => (
-                                  <div key={idx} className="min-w-0">
-                                    <div className="text-base sm:text-lg font-light text-blue-600 truncate">{value}</div>
-                                    <div className="text-xs text-gray-500 font-medium leading-tight">
+                                  <div key={idx}>
+                                    <div className="text-2xl font-bold text-[#05f]">{value}</div>
+                                    <div className="text-xs text-gray-600 font-medium mt-1">
                                       {key === 'efficiency' ? '效率提升' : 
                                        key === 'satisfaction' ? '满意度提升' :
                                        key === 'accuracy' ? '准确率' :
@@ -151,52 +154,40 @@ const Cases = () => {
                             </div>
                           </div>
                           
-                          {/* 内容区域 - 优化移动端排版 */}
-                          <div className="order-2 lg:order-2 p-4 sm:p-6 lg:p-8 xl:p-12 2xl:p-16 space-y-4 sm:space-y-6 lg:space-y-8">
+                          {/* 内容区域 */}
+                          <div className="p-10 space-y-8">
                             
-                            {/* 头部信息 - 响应式文本大小 */}
-                            <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.6, delay: 0.2 }}
-                              viewport={{ once: true }}
-                              className="space-y-3 sm:space-y-4"
-                            >
-                              <div className="text-xs sm:text-sm font-medium text-blue-600 uppercase tracking-wide">
+                            {/* 头部信息 */}
+                            <div className="space-y-4">
+                              <div className="text-sm font-bold text-[#05f] uppercase tracking-wider">
                                 {item.client}
                               </div>
-                              <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-black leading-tight break-words">
+                              <h3 className="text-3xl font-bold text-black leading-tight">
                                 {item.title}
                               </h3>
-                              <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed font-light break-words">
+                              <p className="text-lg text-gray-600 leading-relaxed">
                                 {item.description}
                               </p>
-                            </motion.div>
+                            </div>
 
-                            {/* 客户评价 - 优化移动端显示 */}
-                            <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.6, delay: 0.4 }}
-                              viewport={{ once: true }}
-                              className="pt-4 sm:pt-6 border-t border-gray-100"
-                            >
-                              <div className="relative">
-                                <Quote className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 mb-2 sm:mb-3 flex-shrink-0" />
-                                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light italic mb-3 sm:mb-4 break-words">
+                            {/* 客户评价 */}
+                            <div className="pt-8 border-t border-gray-200">
+                              <div className="bg-[#f9faff] p-6 border border-gray-300">
+                                <Quote className="h-6 w-6 text-[#05f] mb-4" />
+                                <p className="text-base text-gray-700 leading-relaxed mb-6">
                                   {item.testimonial}
                                 </p>
                                 <div className="flex items-center">
-                                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 flex items-center justify-center text-white mr-2 sm:mr-3 flex-shrink-0">
-                                    <User className="h-4 w-4 sm:h-5 sm:w-5" />
+                                  <div className="w-12 h-12 bg-[#05f] flex items-center justify-center text-white mr-4">
+                                    <User className="h-6 w-6" />
                                   </div>
-                                  <div className="min-w-0 flex-1">
-                                    <div className="font-medium text-black text-xs sm:text-sm truncate">{item.person}</div>
-                                    <div className="text-xs text-gray-500 truncate">{item.role}</div>
+                                  <div>
+                                    <div className="font-bold text-black">{item.person}</div>
+                                    <div className="text-sm text-gray-600">{item.role}</div>
                                   </div>
                                 </div>
                               </div>
-                            </motion.div>
+                            </div>
                           </div>
                         </div>
                       </CardContent>
@@ -207,31 +198,31 @@ const Cases = () => {
             </div>
           </div>
 
-          {/* 导航按钮 - 优化移动端触摸交互 */}
+          {/* 导航按钮 */}
           <button 
-            className="absolute top-1/2 left-1 sm:left-2 lg:left-4 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 backdrop-blur-sm border border-gray-200 hover:border-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center group z-10 rounded-full sm:rounded-none shadow-lg"
+            className="absolute top-1/2 left-4 transform -translate-y-1/2 w-12 h-12 bg-white border border-gray-300 hover:bg-[#05f] hover:text-white transition-all duration-300 flex items-center justify-center z-10"
             onClick={prevSlide}
             aria-label="上一个案例"
           >
-            <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+            <ArrowLeft className="h-5 w-5" />
           </button>
           <button 
-            className="absolute top-1/2 right-1 sm:right-2 lg:right-4 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 backdrop-blur-sm border border-gray-200 hover:border-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center group z-10 rounded-full sm:rounded-none shadow-lg"
+            className="absolute top-1/2 right-4 transform -translate-y-1/2 w-12 h-12 bg-white border border-gray-300 hover:bg-[#05f] hover:text-white transition-all duration-300 flex items-center justify-center z-10"
             onClick={nextSlide}
             aria-label="下一个案例"
           >
-            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+            <ArrowRight className="h-5 w-5" />
           </button>
 
-          {/* 指示器 - 优化移动端触摸交互 */}
-          <div className="flex justify-center mt-8 sm:mt-12 xl:mt-16 space-x-2 sm:space-x-4 xl:space-x-6 px-4">
+          {/* 指示器 */}
+          <div className="flex justify-center mt-12 space-x-4">
             {cases.map((_, index) => (
               <button
                 key={index}
-                className={`h-1 sm:h-0.5 transition-all duration-500 touch-manipulation ${
+                className={`h-0.5 transition-all duration-300 ${
                   currentSlide === index 
-                    ? "w-8 sm:w-12 xl:w-16 bg-blue-600" 
-                    : "w-4 sm:w-6 xl:w-8 bg-gray-300 hover:bg-gray-400"
+                    ? "w-12 bg-[#05f]" 
+                    : "w-6 bg-gray-300 hover:bg-gray-400"
                 }`}
                 onClick={() => setCurrentSlide(index)}
                 aria-label={`转到案例 ${index + 1}`}
@@ -240,21 +231,21 @@ const Cases = () => {
           </div>
         </div>
 
-        {/* 底部CTA - 优化移动端按钮设计 */}
+        {/* 底部CTA */}
         <motion.div 
-          className="mt-12 sm:mt-16 xl:mt-20 text-center px-4"
-          initial={{ opacity: 0, y: 30 }}
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <Button 
-            className="group relative bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 sm:px-8 sm:py-3 xl:px-12 xl:py-4 text-sm sm:text-base xl:text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 rounded-none w-full sm:w-auto max-w-xs sm:max-w-none touch-manipulation"
+            className="bg-[#05f] hover:bg-blue-700 text-white px-8 py-3 text-base font-medium transition-all duration-300"
             asChild
           >
-            <Link to="/cases" className="flex items-center justify-center">
+            <Link to="/cases" className="flex items-center">
               <span>探索更多案例</span>
-              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </motion.div>

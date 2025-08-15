@@ -32,7 +32,7 @@ const Advantages = () => {
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -41,14 +41,14 @@ const Advantages = () => {
           >
             产品优势
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="w-16 h-1 bg-[#015bfe] mx-auto mb-8"
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           />
-          <motion.p 
+          <motion.p
             className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ const Advantages = () => {
         </div>
 
         {/* Why Choose Us Section */}
-        <motion.div 
+        <motion.div
           className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 shadow-sm p-12 rounded-none"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ const Advantages = () => {
                   还能根据客户的特定需求提供定制化解决方案，帮助客户在数字化转型中获得竞争优势。
                 </p>
               </div>
-              
+
               <div className="space-y-4">
                 {[
                   "5年+行业经验，服务超过1000家企业客户",
@@ -108,7 +108,7 @@ const Advantages = () => {
                   "99.9%服务可用性，7x24小时技术支持",
                   "灵活的部署方案，支持云端和本地部署"
                 ].map((item, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="flex items-start space-x-4"
                     initial={{ opacity: 0, x: -20 }}
@@ -117,16 +117,16 @@ const Advantages = () => {
                     viewport={{ once: true }}
                   >
                     <div className="w-6 h-6 bg-[#015bfe] flex items-center justify-center flex-shrink-0 mt-0.5 rounded-none">
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        width="14" 
-                        height="14" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="3" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="text-white"
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
@@ -137,13 +137,13 @@ const Advantages = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="hidden lg:block">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#015bfe]/10 to-transparent transform rotate-3" />
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                  alt="团队合作" 
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="团队合作"
                   className="relative shadow-lg object-cover w-full h-96"
                 />
               </div>
