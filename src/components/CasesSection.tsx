@@ -1,23 +1,38 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, ArrowLeft, Building2, Stethoscope, Factory, TrendingUp, Award, CheckCircle } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Building2, Stethoscope, Factory, TrendingUp, Award, CheckCircle, ChevronLeft, ChevronRight, MessageCircle, FileText } from "lucide-react";
+import type { LucideIcon } from 'lucide-react';
 
-/**
- * 客户案例展示组件 - 左右布局设计
- * 左侧区域显示文本内容，右侧区域嵌入媒体（图片或视频）
- * 支持筛选和动画效果，展示客户成功案例
- */
-const Cases = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [currentCaseIndex, setCurrentCaseIndex] = useState(0);
+// 类型定义
+interface CaseMetrics {
+  [key: string]: string;
+}
 
-  // 客户案例数据 - 左右布局版本
-  const cases = [
+interface CaseData {
+  id: number;
+  category: string;
+  image: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  rating: number;
+  tags: string[];
+  metrics: CaseMetrics;
+  highlights: string[];
+  features: string[];
+}
+
+interface CategoryData {
+  id: string;
+  name: string;
+  icon: LucideIcon;
+}
+
+// 客户案例数据常量
+const CASES_DATA: CaseData[] = [
     {
       id: 1,
       category: 'finance',
@@ -116,8 +131,8 @@ const Cases = () => {
     }
   ];
 
-  // 分类选项
-  const categories = [
+// 分类选项常量
+const CATEGORIES_DATA: CategoryData[] = [
     { id: 'all', name: '全部案例', icon: Award },
     { id: 'finance', name: '金融科技', icon: Building2 },
     { id: 'healthcare', name: '医疗健康', icon: Stethoscope },
@@ -125,10 +140,25 @@ const Cases = () => {
     { id: 'retail', name: '零售电商', icon: TrendingUp }
   ];
 
-  // 筛选案例
-  const filteredCases = selectedCategory === 'all'
-    ? cases
-    : cases.filter(case_ => case_.category === selectedCategory);
+// 指标标签映射常量
+
+
+
+/**
+ * 客户案例展示组件 - 左右布局设计
+ * 左侧区域显示文本内容，右侧区域嵌入媒体（图片或视频）
+ * 支持筛选和动画效果，展示客户成功案例
+ */
+const Cases = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [currentCaseIndex, setCurrentCaseIndex] = useState(0);
+
+  // 使用 useMemo 优化筛选逻辑
+  const filteredCases = useMemo(() => {
+    return selectedCategory === 'all'
+      ? CASES_DATA
+      : CASES_DATA.filter(case_ => case_.category === selectedCategory);
+  }, [selectedCategory]);
 
   // 当前显示的案例
   const currentCase = filteredCases[currentCaseIndex] || filteredCases[0];
@@ -137,299 +167,371 @@ const Cases = () => {
    * 处理分类切换
    * @param categoryId - 分类ID
    */
-  const handleCategoryChange = (categoryId: string) => {
+  const handleCategoryChange = useCallback((categoryId: string) => {
     setSelectedCategory(categoryId);
     setCurrentCaseIndex(0); // 重置到第一个案例
-  };
+  }, []);
 
   /**
    * 切换到下一个案例
    */
-  const nextCase = () => {
+  const nextCase = useCallback(() => {
     setCurrentCaseIndex((prev) => (prev + 1) % filteredCases.length);
-  };
+  }, [filteredCases.length]);
 
   /**
    * 切换到上一个案例
    */
-  const prevCase = () => {
+  const prevCase = useCallback(() => {
     setCurrentCaseIndex((prev) => (prev - 1 + filteredCases.length) % filteredCases.length);
-  };
+  }, [filteredCases.length]);
+
+  /**
+   * 直接跳转到指定案例
+   * @param index - 案例索引
+   */
+  const goToCase = useCallback((index: number) => {
+    setCurrentCaseIndex(index);
+  }, []);
 
 
 
   // 自动轮播效果
   useEffect(() => {
+    if (filteredCases.length <= 1) return;
+
     const timer = setInterval(() => {
-      if (filteredCases.length > 1) {
-        nextCase();
-      }
+      nextCase();
     }, 8000); // 8秒自动切换
 
     return () => clearInterval(timer);
-  }, [filteredCases.length]);
-
-  /**
-   * 获取指标显示文本
-   * @param key - 指标键名
-   * @returns 指标的中文显示名称
-   */
-  const getMetricLabel = (key: string): string => {
-    const labels: Record<string, string> = {
-      efficiency: '效率提升',
-      satisfaction: '满意度提升',
-      accuracy: '准确率',
-      defectRate: '不良品率下降',
-      cost: '成本降低',
-      response: '响应时间',
-      time: '时间节省',
-      cases: '处理案例',
-      conversion: '转化率提升',
-      retention: '用户留存提升',
-      revenue: '营收增长',
-      ctr: '点击率',
-      speed: '处理速度'
-    };
-    return labels[key] || key;
-  };
+  }, [filteredCases.length, nextCase]);
 
   return (
     <section className="py-8 md:py-12 lg:py-16 bg-gray-50" id="cases">
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
 
-        {/* 页面标题 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-8 md:mb-12 lg:mb-16"
-        >
-          <div className="inline-flex items-center px-3 py-1 bg-gray-100 rounded-md mb-4">
-            <Award className="h-4 w-4 text-gray-600 mr-2" />
-            <span className="text-gray-600 text-sm font-medium">成功案例</span>
-          </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
-            客户成功案例
-          </h2>
-          <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-4">
-            我们的AI解决方案已成功应用于金融、医疗、制造、零售等多个行业，帮助客户实现数字化转型，提升效率、降低成本、创造价值。
-          </p>
-        </motion.div>
+        <SectionHeader />
 
-        {/* 分类筛选 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12 px-2"
-        >
-          {categories.map((category) => {
-            const IconComponent = category.icon;
-            return (
-              <button
-                key={category.id}
-                onClick={() => handleCategoryChange(category.id)}
-                className={`flex items-center px-3 md:px-4 py-2 rounded-md border transition-colors duration-200 text-xs md:text-sm ${
-                  selectedCategory === category.id
-                    ? 'bg-primary text-white border-primary'
-                    : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
-                } min-w-0 flex-shrink-0`}
-              >
-                <IconComponent className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
-                <span className="font-medium whitespace-nowrap">{category.name}</span>
-              </button>
-            );
-          })}
-        </motion.div>
+        <CategoryFilter
+          selectedCategory={selectedCategory}
+          onCategoryChange={handleCategoryChange}
+        />
 
-        {/* 主要案例展示 - 左右布局 */}
-        {currentCase && (
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${selectedCategory}-${currentCaseIndex}`}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.6 }}
-              className="mb-12"
-            >
-              <Card className="border border-gray-300 bg-white overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[280px] md:min-h-[320px] lg:min-h-[400px]">
+        <CaseDisplay
+          currentCase={currentCase}
+          selectedCategory={selectedCategory}
+          currentCaseIndex={currentCaseIndex}
+        />
 
-                    {/* 左侧文本内容区域 */}
-                    <div className="p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center space-y-4 md:space-y-6 lg:space-y-8 order-2 lg:order-1">
-
-                      {/* 主标题区域 */}
-                      <div className="space-y-3 md:space-y-4 lg:space-y-5">
-                        <div className="flex items-start md:items-center space-x-3">
-                          <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded-lg flex-shrink-0">
-                            <currentCase.icon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 leading-tight break-words">
-                              {currentCase.title}
-                            </h3>
-                          </div>
-                        </div>
-
-                        {/* 标签组 */}
-                        <div className="flex flex-wrap gap-1.5 md:gap-2">
-                          {currentCase.tags.map((tag, tagIndex) => (
-                            <span
-                              key={tagIndex}
-                              className="inline-flex items-center px-2 md:px-3 py-1 md:py-1.5 bg-gray-50 text-gray-700 text-xs md:text-sm rounded-md border border-gray-200 font-medium transition-colors hover:bg-gray-100 whitespace-nowrap"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* 项目描述 */}
-                      <div className="space-y-3">
-                        <p className="text-gray-700 leading-relaxed text-sm md:text-base font-medium break-words">
-                          {currentCase.description}
-                        </p>
-                      </div>
-
-                      {/* 核心功能特性 */}
-                      <div className="space-y-3 md:space-y-4">
-                        <div className="flex items-center space-x-2">
-                          <div className="w-1 h-4 md:h-6 bg-primary rounded-full"></div>
-                          <h4 className="text-base md:text-lg font-semibold text-gray-900">核心功能特性</h4>
-                        </div>
-                        <div className="grid grid-cols-1 gap-2 md:gap-3 pl-2 md:pl-3">
-                          {currentCase.features.map((feature, idx) => (
-                            <div key={idx} className="flex items-start space-x-2 md:space-x-3 group">
-                              <div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 bg-green-100 rounded-full flex-shrink-0 mt-0.5 group-hover:bg-green-200 transition-colors">
-                                <CheckCircle className="h-2.5 w-2.5 md:h-3 md:w-3 text-green-600" />
-                              </div>
-                              <span className="text-gray-700 text-xs md:text-sm leading-relaxed font-medium break-words">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* 关键成果展示 */}
-                       <div className="space-y-3">
-                         <div className="flex items-center space-x-2">
-                           <div className="w-1 h-4 md:h-6 bg-primary rounded-full"></div>
-                           <h4 className="text-base md:text-lg font-semibold text-gray-900">关键成果</h4>
-                         </div>
-                         <div className="flex flex-wrap gap-1.5 md:gap-2 pl-2 md:pl-3">
-                           {currentCase.highlights.map((highlight, index) => (
-                             <span key={index} className="inline-flex items-center px-2 md:px-3 py-1 text-xs font-medium text-primary bg-blue-50 rounded-md border border-blue-200 whitespace-nowrap">
-                               {highlight}
-                             </span>
-                           ))}
-                         </div>
-                       </div>
-
-
-                    </div>
-
-                    {/* 右侧媒体内容区域 */}
-                     <div className="bg-gray-100 flex items-center justify-center overflow-hidden order-1 lg:order-2 min-h-[200px] md:min-h-[250px] lg:min-h-full">
-                        <div className="w-full h-full">
-                          <img
-                            src={currentCase.image}
-                            alt={currentCase.title}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                        </div>
-                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </AnimatePresence>
-        )}
-
-        {/* 案例导航控制 */}
-        {filteredCases.length > 1 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center space-x-3 md:space-x-4 mb-8 md:mb-12"
-          >
-            <button
-              onClick={prevCase}
-              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white border border-gray-300 rounded hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 touch-manipulation"
-            >
-              <ArrowLeft className="h-3 w-3 md:h-4 md:w-4" />
-            </button>
-
-            <div className="flex space-x-1.5 md:space-x-2">
-              {filteredCases.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentCaseIndex(index)}
-                  className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full transition-colors duration-200 touch-manipulation ${
-                    index === currentCaseIndex
-                      ? 'bg-primary'
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={nextCase}
-              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white border border-gray-300 rounded hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 touch-manipulation"
-            >
-              <ArrowRight className="h-3 w-3 md:h-4 md:w-4" />
-            </button>
-          </motion.div>
-        )}
+        <NavigationControls
+          filteredCases={filteredCases}
+          currentCaseIndex={currentCaseIndex}
+          onPrevCase={prevCase}
+          onNextCase={nextCase}
+          onGoToCase={goToCase}
+        />
 
 
 
-        {/* 底部CTA */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-white border border-gray-200 rounded p-4 md:p-6 lg:p-8 mx-2 md:mx-0">
-            <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3 px-2">准备开始您的AI转型之旅？</h3>
-            <p className="text-gray-600 mb-4 md:mb-6 max-w-2xl mx-auto text-xs md:text-sm px-2">
-              加入我们的成功客户行列，让AI技术为您的业务创造更大价值
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center px-2">
-              <Button
-                className="bg-primary text-white hover:bg-primary/90 px-4 md:px-6 py-2 text-xs md:text-sm font-medium transition-colors duration-200 w-full sm:w-auto"
-                asChild
-              >
-                <Link to="/cases" className="flex items-center justify-center">
-                  <span>探索更多案例</span>
-                  <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                className="border-primary text-primary hover:bg-gray-50 px-4 md:px-6 py-2 text-xs md:text-sm font-medium transition-colors duration-200 w-full sm:w-auto"
-                asChild
-              >
-                <Link to="/contact" className="flex items-center justify-center">
-                  <span>免费咨询</span>
-                  <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </motion.div>
+        <CallToAction />
       </div>
     </section>
   );
 };
+
+// 子组件实现
+
+/**
+ * 页面标题组件
+ */
+const SectionHeader = () => (
+  <div className="text-center mb-8 md:mb-12 lg:mb-16">
+    <div className="inline-flex items-center px-3 py-1 bg-gray-100 rounded-md mb-4">
+      <Award className="h-4 w-4 text-gray-600 mr-2" />
+      <span className="text-gray-600 text-sm font-medium">成功案例</span>
+    </div>
+    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
+      客户成功案例
+    </h2>
+    <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-4">
+      我们的AI解决方案已成功应用于金融、医疗、制造、零售等多个行业，帮助客户实现数字化转型，提升效率、降低成本、创造价值。
+    </p>
+  </div>
+);
+
+/**
+ * 分类筛选组件
+ */
+interface CategoryFilterProps {
+  selectedCategory: string;
+  onCategoryChange: (categoryId: string) => void;
+}
+
+const CategoryFilter = ({ selectedCategory, onCategoryChange }: CategoryFilterProps) => (
+  <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12 px-2">
+    {CATEGORIES_DATA.map((category) => {
+      const IconComponent = category.icon;
+      return (
+        <button
+          key={category.id}
+          onClick={() => onCategoryChange(category.id)}
+          className={`flex items-center px-3 md:px-4 py-2 rounded-md border transition-colors duration-200 text-xs md:text-sm ${
+            selectedCategory === category.id
+              ? 'bg-primary text-white border-primary'
+              : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
+          } min-w-0 flex-shrink-0`}
+        >
+          <IconComponent className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+          <span className="font-medium whitespace-nowrap">{category.name}</span>
+        </button>
+      );
+    })}
+  </div>
+);
+
+/**
+ * 案例展示组件
+ */
+interface CaseDisplayProps {
+  currentCase: CaseData | undefined;
+  selectedCategory: string;
+  currentCaseIndex: number;
+}
+
+const CaseDisplay = ({ currentCase }: CaseDisplayProps) => {
+  if (!currentCase) return null;
+
+  return (
+    <div className="mb-12">
+      <Card className="border border-gray-300 bg-white overflow-hidden">
+        <CardContent className="p-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[280px] md:min-h-[320px] lg:min-h-[400px]">
+            {/* 左侧文本内容区域 */}
+            <CaseContent currentCase={currentCase} />
+            {/* 右侧媒体内容区域 */}
+            <CaseMedia currentCase={currentCase} />
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+/**
+ * 案例内容组件
+ */
+interface CaseContentProps {
+  currentCase: CaseData;
+}
+
+const CaseContent = ({ currentCase }: CaseContentProps) => (
+  <div className="p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center space-y-4 md:space-y-6 lg:space-y-8 order-2 lg:order-1">
+    {/* 主标题区域 */}
+    <div className="space-y-3 md:space-y-4 lg:space-y-5">
+      <div className="flex items-start md:items-center space-x-3">
+        <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded-lg flex-shrink-0">
+          <currentCase.icon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 leading-tight break-words">
+            {currentCase.title}
+          </h3>
+        </div>
+      </div>
+      {/* 标签组 */}
+      <TagList tags={currentCase.tags} />
+    </div>
+    {/* 项目描述 */}
+    <div className="space-y-3">
+      <p className="text-gray-700 leading-relaxed text-sm md:text-base font-medium break-words">
+        {currentCase.description}
+      </p>
+    </div>
+    {/* 核心功能特性 */}
+    <FeatureList features={currentCase.features} />
+    {/* 关键成果展示 */}
+    <HighlightList highlights={currentCase.highlights} />
+  </div>
+);
+
+/**
+ * 案例媒体组件
+ */
+interface CaseMediaProps {
+  currentCase: CaseData;
+}
+
+const CaseMedia = ({ currentCase }: CaseMediaProps) => (
+  <div className="bg-gray-100 flex items-center justify-center overflow-hidden order-1 lg:order-2 min-h-[200px] md:min-h-[250px] lg:min-h-full">
+    <div className="w-full h-full">
+      <img
+        src={currentCase.image}
+        alt={currentCase.title}
+        className="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+  </div>
+);
+
+/**
+ * 标签列表组件
+ */
+interface TagListProps {
+  tags: string[];
+}
+
+const TagList = ({ tags }: TagListProps) => (
+  <div className="flex flex-wrap gap-1.5 md:gap-2">
+    {tags.map((tag, index) => (
+      <span
+        key={index}
+        className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium"
+      >
+        {tag}
+      </span>
+    ))}
+  </div>
+);
+
+/**
+ * 功能特性列表组件
+ */
+interface FeatureListProps {
+  features: string[];
+}
+
+const FeatureList = ({ features }: FeatureListProps) => (
+  <div className="space-y-2">
+    <h4 className="text-sm md:text-base font-semibold text-gray-900">核心功能</h4>
+    <ul className="space-y-1.5">
+      {features.map((feature, index) => (
+        <li key={index} className="flex items-start space-x-2">
+          <CheckCircle className="h-3.5 w-3.5 md:h-4 md:w-4 text-green-500 mt-0.5 flex-shrink-0" />
+          <span className="text-gray-700 text-xs md:text-sm leading-relaxed break-words">
+            {feature}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+/**
+ * 亮点成果列表组件
+ */
+interface HighlightListProps {
+  highlights: string[];
+}
+
+const HighlightList = ({ highlights }: HighlightListProps) => (
+  <div className="space-y-2">
+    <h4 className="text-sm md:text-base font-semibold text-gray-900">关键成果</h4>
+    <ul className="space-y-1.5">
+      {highlights.map((highlight, index) => (
+        <li key={index} className="flex items-start space-x-2">
+          <TrendingUp className="h-3.5 w-3.5 md:h-4 md:w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+          <span className="text-gray-700 text-xs md:text-sm leading-relaxed break-words">
+            {highlight}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+/**
+ * 导航控制组件
+ */
+interface NavigationControlsProps {
+  filteredCases: CaseData[];
+  currentCaseIndex: number;
+  onPrevCase: () => void;
+  onNextCase: () => void;
+  onGoToCase: (index: number) => void;
+}
+
+const NavigationControls = ({
+  filteredCases,
+  currentCaseIndex,
+  onPrevCase,
+  onNextCase,
+  onGoToCase
+}: NavigationControlsProps) => (
+  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 md:mb-12">
+    {/* 左侧导航按钮 */}
+    <div className="flex items-center space-x-2">
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={onPrevCase}
+        disabled={filteredCases.length <= 1}
+        className="flex items-center space-x-1 px-3 py-2"
+      >
+        <ChevronLeft className="h-4 w-4" />
+        <span className="hidden sm:inline">上一个</span>
+      </Button>
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={onNextCase}
+        disabled={filteredCases.length <= 1}
+        className="flex items-center space-x-1 px-3 py-2"
+      >
+        <span className="hidden sm:inline">下一个</span>
+        <ChevronRight className="h-4 w-4" />
+      </Button>
+    </div>
+
+    {/* 中间指示器 */}
+    <div className="flex items-center space-x-2">
+      {filteredCases.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => onGoToCase(index)}
+          className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+            index === currentCaseIndex ? 'bg-primary' : 'bg-gray-300'
+          }`}
+          aria-label={`切换到案例 ${index + 1}`}
+        />
+      ))}
+    </div>
+
+    {/* 右侧案例计数 */}
+    <div className="text-sm text-gray-600">
+      {filteredCases.length > 0 && (
+        <span>
+          {currentCaseIndex + 1} / {filteredCases.length}
+        </span>
+      )}
+    </div>
+  </div>
+);
+
+/**
+ * 行动号召组件
+ */
+const CallToAction = () => (
+  <div className="text-center bg-gradient-to-r from-primary/5 to-blue-50 rounded-lg p-6 md:p-8">
+    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">
+      想了解更多成功案例？
+    </h3>
+    <p className="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">
+      我们的专业团队将为您提供定制化的AI解决方案咨询
+    </p>
+    <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-2">
+        <MessageCircle className="h-4 w-4 mr-2" />
+        联系我们
+      </Button>
+      <Button variant="outline" className="px-6 py-2">
+        <FileText className="h-4 w-4 mr-2" />
+        下载案例集
+      </Button>
+    </div>
+  </div>
+);
 
 export default Cases;

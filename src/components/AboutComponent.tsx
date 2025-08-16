@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 /**
  * 统计数据配置
@@ -261,13 +261,13 @@ const About = () => {
                   <h4 className="text-base sm:text-lg font-medium text-gray-900 mb-3 sm:mb-4 break-words">
                     {advantage.title}
                   </h4>
-                  
+
                   {/* 简约分割线 */}
-                  <div 
-                    className="w-10 sm:w-12 h-0.5 mx-auto mb-3 sm:mb-4 transition-all duration-300" 
+                  <div
+                    className="w-10 sm:w-12 h-0.5 mx-auto mb-3 sm:mb-4 transition-all duration-300"
                     style={{ backgroundColor: STYLES.primaryColor }}
                   />
-                  
+
                   {/* 简洁描述 */}
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed break-words flex-1">
                     {advantage.description}
