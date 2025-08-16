@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { 
   FileText, 
   Mail, 
@@ -13,13 +12,7 @@ const Contact = () => {
     <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white overflow-hidden" id="contact">
       <div className="container mx-auto px-4">
         {/* 标题区域 - 现代化简约设计，优化移动端间距 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
-        >
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <div className="inline-flex items-center justify-center mb-3 sm:mb-4 md:mb-6">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight px-2 break-words">
               联系我们
@@ -29,29 +22,17 @@ const Contact = () => {
           <p className="text-sm xs:text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-light px-2 xs:px-4 break-words">
             无论您有任何问题、建议或合作意向，我们都期待与您建立联系
           </p>
-        </motion.div>
+        </div>
 
         {/* 联系方式 - 左右布局，左侧二维码联系方式，右侧其他联系方式 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
           {/* 左侧：二维码联系方式 - 4列4排布局 */}
           <div className="w-full">
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6 text-center lg:text-left"
-            >
+            <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6 text-center lg:text-left">
               二维码联系方式
-            </motion.h3>
+            </h3>
             <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 xs:gap-3 sm:gap-4 w-full">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full"
-              >
+              <div className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full">
                 <div className="flex flex-col items-center text-center">
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
@@ -70,15 +51,9 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full"
-              >
+              <div className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full">
                 <div className="flex flex-col items-center text-center">
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
@@ -97,15 +72,9 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full"
-              >
+              <div className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full">
                 <div className="flex flex-col items-center text-center">
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
@@ -124,15 +93,9 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full"
-              >
+              <div className="group relative bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full">
                 <div className="flex flex-col items-center text-center">
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
@@ -151,29 +114,17 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
 
           {/* 右侧：其他联系方式 - 4列4排布局 */}
           <div className="w-full">
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6 text-center lg:text-left"
-            >
+            <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6 text-center lg:text-left">
               其他联系方式
-            </motion.h3>
+            </h3>
             <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 xs:gap-3 sm:gap-4 w-full">
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="group bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full"
-              >
+              <div className="group bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full">
                 <div className="flex flex-col">
                   <div className="flex items-center mb-2 sm:mb-3">
                     <FileText className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 text-blue-600 mr-2 flex-shrink-0" />
@@ -191,15 +142,9 @@ const Contact = () => {
                     提交工单
                   </Button>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="group bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full"
-              >
+              <div className="group bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full">
                 <div className="flex flex-col">
                   <div className="flex items-center mb-2 sm:mb-3">
                     <Mail className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 text-blue-600 mr-2 flex-shrink-0" />
@@ -217,15 +162,9 @@ const Contact = () => {
                     发送邮件
                   </Button>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="group bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full"
-              >
+              <div className="group bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full">
                 <div className="flex flex-col">
                   <div className="flex items-center mb-2 sm:mb-3">
                     <MessageCircle className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 text-blue-600 mr-2 flex-shrink-0" />
@@ -243,15 +182,9 @@ const Contact = () => {
                     在线咨询
                   </Button>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="group bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full"
-              >
+              <div className="group bg-white border border-gray-100 rounded-lg p-2 xs:p-3 sm:p-4 hover:shadow-xl hover:shadow-gray-50 transition-all duration-500 hover:border-gray-300 hover:-translate-y-2 min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px] flex flex-col justify-center w-full">
                 <div className="flex flex-col">
                   <div className="flex items-center mb-2 sm:mb-3">
                     <Phone className="h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 text-blue-600 mr-2 flex-shrink-0" />
@@ -269,7 +202,7 @@ const Contact = () => {
                     拨打电话
                   </Button>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
