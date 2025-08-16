@@ -19,23 +19,27 @@ const Footer = () => {
   const renderMenuContent = () => {
     const menuData = [
       {
-        id: "products",
-        title: "产品功能",
+        id: "ai-creation",
+        title: "AI创作工具",
         items: [
-          { to: "/ai-painting", label: "AI绘画" },
-          { to: "/image-tools", label: "图片工具" },
-          { to: "/text-generation", label: "文生图" },
-          { to: "/image-enhancement", label: "老照片修复" },
-          { to: "/image-generation", label: "图生图" },
-          { to: "/text-removal", label: "文字擦除" },
-          { to: "/ai-writing", label: "AI写画图" },
-          { to: "/art-creation", label: "艺术一键创" },
-          { to: "/ai-music", label: "AI音乐" },
-          { to: "/image-video", label: "图片视频" },
-          { to: "/ai-video", label: "AI视频" },
-          { to: "/text-video", label: "文字视频" },
-          { to: "/card-id", label: "卡通头像" },
-          { to: "/ai-products", label: "AI绘制作品" }
+          { to: "https://www.cnai.art/draw/doubao", label: "AI绘画" },
+          { to: "https://www.cnai.art/draw/doubao", label: "文生图" },
+          { to: "https://www.cnai.art/draw/doubao", label: "图生图" },
+          { to: "https://www.cnai.art/draw/doubao", label: "AI画图" },
+          { to: "https://www.cnai.art/draw/doubao", label: "AI音乐" },
+          { to: "https://www.cnai.art/draw/doubao", label: "卡通头像" }
+        ]
+      },
+      {
+        id: "media-tools",
+        title: "媒体处理",
+        items: [
+          { to: "https://www.cnai.art/draw/doubao", label: "图片工具" },
+          { to: "https://www.cnai.art/draw/doubao", label: "老照片修复" },
+          { to: "https://www.cnai.art/draw/doubao", label: "文字擦除" },
+          { to: "https://www.cnai.art/video", label: "图片视频" },
+          { to: "https://www.cnai.art/draw/doubao", label: "AI视频" },
+          { to: "https://www.cnai.art/draw/doubao", label: "文字视频" }
         ]
       },
       {
@@ -68,7 +72,7 @@ const Footer = () => {
           <Accordion type="multiple" className="w-full">
             {menuData.map((section) => (
               <AccordionItem key={section.id} value={section.id} className="border-gray-200">
-                <AccordionTrigger className="text-left font-bold text-gray-900 text-base hover:text-blue-600 transition-colors duration-200">
+                <AccordionTrigger className="text-left font-medium text-gray-900 text-base hover:text-blue-600 transition-colors duration-200">
                   <div className="flex items-center">
                     <span className="w-1 h-4 bg-blue-500 rounded-full mr-3"></span>
                     {section.title}
@@ -80,8 +84,10 @@ const Footer = () => {
                   }`}>
                     {section.items.map((item) => (
                       <Link
-                        key={item.to}
+                        key={`${section.id}-${item.label}`}
                         to={item.to}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-gray-600 hover:text-blue-600 text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
                       >
                         <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
@@ -96,7 +102,7 @@ const Footer = () => {
 
           {/* 移动端二维码区域 */}
           <div className="mt-6">
-            <h4 className="font-bold text-gray-900 text-base mb-4 flex items-center">
+            <h4 className="font-medium text-gray-900 text-base mb-4 flex items-center">
               <span className="w-1 h-4 bg-blue-500 rounded-full mr-3"></span>
               关注我们
             </h4>
@@ -140,17 +146,41 @@ const Footer = () => {
     // 桌面端使用原有的网格布局
     return (
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
-        {/* 产品功能 - 占4列 */}
-        <div className="lg:col-span-4">
-          <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
+        {/* AI创作工具 - 占2列 */}
+        <div className="lg:col-span-2">
+          <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
             <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
-            产品功能
+            AI创作工具
           </h4>
-          <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3">
+          <div className="grid grid-cols-1 gap-y-2 sm:gap-y-3">
             {menuData[0].items.map((item) => (
               <Link
-                key={item.to}
+                key={`ai-creation-${item.label}`}
                 to={item.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600 text-xs sm:text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
+              >
+                <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
+                <span className="truncate">{item.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* 媒体处理 - 占2列 */}
+        <div className="lg:col-span-2">
+          <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
+            <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
+            媒体处理
+          </h4>
+          <div className="grid grid-cols-1 gap-y-2 sm:gap-y-3">
+            {menuData[1].items.map((item) => (
+              <Link
+                key={`media-tools-${item.label}`}
+                to={item.to}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-600 hover:text-blue-600 text-xs sm:text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
               >
                 <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
@@ -164,15 +194,17 @@ const Footer = () => {
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:col-span-5">
           {/* 服务与支持 */}
           <div>
-            <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
+            <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
               <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
               服务与支持
             </h4>
             <div className="grid grid-cols-1 gap-y-2 sm:gap-y-3">
-              {menuData[1].items.map((item) => (
+              {menuData[2].items.map((item) => (
                 <Link
-                  key={item.to}
+                  key={`services-${item.label}`}
                   to={item.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-600 hover:text-blue-600 text-xs sm:text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
                 >
                   <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
@@ -184,15 +216,17 @@ const Footer = () => {
 
           {/* 关于 */}
           <div>
-            <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
+            <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
               <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
               关于
             </h4>
             <div className="grid grid-cols-1 gap-y-2 sm:gap-y-3">
-              {menuData[2].items.map((item) => (
+              {menuData[3].items.map((item) => (
                 <Link
-                  key={item.to}
+                  key={`about-${item.label}`}
                   to={item.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-600 hover:text-blue-600 text-xs sm:text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
                 >
                   <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
@@ -205,7 +239,7 @@ const Footer = () => {
 
         {/* 二维码 - 占3列 */}
         <div className="lg:col-span-3">
-          <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
+          <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
            <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
             关注我们
           </h4>
@@ -345,9 +379,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-   {/* 引入Falling组件 - 全宽显示 */}
-
   </footer>
   );
 };
