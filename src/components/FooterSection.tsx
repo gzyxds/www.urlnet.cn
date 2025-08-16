@@ -106,6 +106,11 @@ const Footer = () => {
               <span className="w-1 h-4 bg-blue-500 rounded-full mr-3"></span>
               关注我们
             </h4>
+            {/* 联系方式 */}
+            <div className="mb-4 text-left">
+              <p className="text-sm text-gray-600 mb-1">QQ: 236749035</p>
+              <p className="text-sm text-gray-600">微信: userhlc</p>
+            </div>
             <div className="grid grid-cols-3 gap-2">
               <div className="flex flex-col items-center group">
                 <div className="bg-white p-1.5 rounded-lg shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
@@ -243,6 +248,11 @@ const Footer = () => {
            <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
             关注我们
           </h4>
+          {/* 联系方式 */}
+          <div className="mb-4 sm:mb-6 text-left">
+            <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">QQ: 236749035</p>
+            <p className="text-sm sm:text-base text-gray-600">微信: userhlc</p>
+          </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-4">
             <div className="flex flex-col items-center group">
               <div className="bg-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
