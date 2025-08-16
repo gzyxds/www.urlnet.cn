@@ -1,8 +1,8 @@
 "use client";
-import { 
-  FileText, 
-  Mail, 
-  MessageCircle, 
+import {
+  FileText,
+  Mail,
+  MessageCircle,
   Phone
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -36,9 +36,9 @@ const Contact = () => {
                 <div className="flex flex-col items-center text-center">
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
-                    <img 
-                      src="/product/wchatpay.png" 
-                      alt="微信客服二维码" 
+                    <img
+                      src="/product/wchatpay.png"
+                      alt="微信客服二维码"
                       className="w-full h-full object-contain rounded"
                     />
                   </div>
@@ -57,9 +57,9 @@ const Contact = () => {
                 <div className="flex flex-col items-center text-center">
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
-                    <img 
-                      src="/product/wchatpay.png" 
-                      alt="公众号二维码" 
+                    <img
+                      src="/product/wchatpay.png"
+                      alt="公众号二维码"
                       className="w-full h-full object-contain rounded"
                     />
                   </div>
@@ -78,9 +78,9 @@ const Contact = () => {
                 <div className="flex flex-col items-center text-center">
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
-                    <img 
-                      src="/product/wchatpay.png" 
-                      alt="演示二维码" 
+                    <img
+                      src="/product/wchatpay.png"
+                      alt="演示二维码"
                       className="w-full h-full object-contain rounded"
                     />
                   </div>
@@ -99,9 +99,9 @@ const Contact = () => {
                 <div className="flex flex-col items-center text-center">
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
-                    <img 
-                      src="/product/wchatpay.png" 
-                      alt="QQ客服二维码" 
+                    <img
+                      src="/product/wchatpay.png"
+                      alt="QQ客服二维码"
                       className="w-full h-full object-contain rounded"
                     />
                   </div>
@@ -135,7 +135,7 @@ const Contact = () => {
                   <p className="text-gray-600 mb-2 xs:mb-3 sm:mb-4 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words flex-1">
                     若您有技术问题或需求，可通过工单系统与我们联系，我们将尽快处理
                   </p>
-                  <Button 
+                  <Button
                     variant="outline"
                     className="w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 font-medium text-xs xs:text-sm min-h-[32px] xs:min-h-[36px] touch-manipulation self-start"
                   >
@@ -155,7 +155,7 @@ const Contact = () => {
                   <p className="text-gray-600 mb-2 xs:mb-3 sm:mb-4 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words flex-1">
                     发送邮件至我们的客服邮箱，我们会在工作时间尽快回复您的问题
                   </p>
-                  <Button 
+                  <Button
                     variant="outline"
                     className="w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 font-medium text-xs xs:text-sm min-h-[32px] xs:min-h-[36px] touch-manipulation self-start"
                   >
@@ -175,7 +175,7 @@ const Contact = () => {
                   <p className="text-gray-600 mb-2 xs:mb-3 sm:mb-4 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words flex-1">
                     我们的在线客服团队随时为您提供帮助，快速解答您的各类问题
                   </p>
-                  <Button 
+                  <Button
                     variant="outline"
                     className="w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 font-medium text-xs xs:text-sm min-h-[32px] xs:min-h-[36px] touch-manipulation self-start"
                   >
@@ -195,7 +195,7 @@ const Contact = () => {
                   <p className="text-gray-600 mb-2 xs:mb-3 sm:mb-4 leading-relaxed font-light text-xs xs:text-sm sm:text-base break-words flex-1">
                     工作时间内，您可以直接拨打我们的客服热线获取即时支持
                   </p>
-                  <Button 
+                  <Button
                     variant="outline"
                     className="w-auto border-2 border-gray-200 text-black hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 font-medium text-xs xs:text-sm min-h-[32px] xs:min-h-[36px] touch-manipulation self-start"
                   >

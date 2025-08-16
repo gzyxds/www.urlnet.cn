@@ -194,9 +194,9 @@ const Cases = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50" id="cases">
+    <section className="py-8 md:py-12 lg:py-16 bg-gray-50" id="cases">
 
-      <div className="container mx-auto px-6 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
 
         {/* 页面标题 */}
         <motion.div
@@ -204,16 +204,16 @@ const Cases = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12 lg:mb-16"
         >
           <div className="inline-flex items-center px-3 py-1 bg-gray-100 rounded-md mb-4">
             <Award className="h-4 w-4 text-gray-600 mr-2" />
             <span className="text-gray-600 text-sm font-medium">成功案例</span>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 px-4">
             客户成功案例
           </h2>
-          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-4">
             我们的AI解决方案已成功应用于金融、医疗、制造、零售等多个行业，帮助客户实现数字化转型，提升效率、降低成本、创造价值。
           </p>
         </motion.div>
@@ -224,7 +224,7 @@ const Cases = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12 px-2"
         >
           {categories.map((category) => {
             const IconComponent = category.icon;
@@ -232,14 +232,14 @@ const Cases = () => {
               <button
                 key={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`flex items-center px-4 py-2 rounded-md border transition-colors duration-200 ${
+                className={`flex items-center px-3 md:px-4 py-2 rounded-md border transition-colors duration-200 text-xs md:text-sm ${
                   selectedCategory === category.id
                     ? 'bg-primary text-white border-primary'
                     : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
-                }`}
+                } min-w-0 flex-shrink-0`}
               >
-                <IconComponent className="h-4 w-4 mr-2" />
-                <span className="text-sm font-medium">{category.name}</span>
+                <IconComponent className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+                <span className="font-medium whitespace-nowrap">{category.name}</span>
               </button>
             );
           })}
@@ -258,30 +258,30 @@ const Cases = () => {
             >
               <Card className="border border-gray-300 bg-white overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[320px]">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[280px] md:min-h-[320px] lg:min-h-[400px]">
 
                     {/* 左侧文本内容区域 */}
-                    <div className="p-8 lg:p-10 flex flex-col justify-center space-y-8">
+                    <div className="p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center space-y-4 md:space-y-6 lg:space-y-8 order-2 lg:order-1">
 
                       {/* 主标题区域 */}
-                      <div className="space-y-5">
-                        <div className="flex items-center space-x-3">
-                          <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
-                            <currentCase.icon className="h-5 w-5 text-primary" />
+                      <div className="space-y-3 md:space-y-4 lg:space-y-5">
+                        <div className="flex items-start md:items-center space-x-3">
+                          <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-primary/10 rounded-lg flex-shrink-0">
+                            <currentCase.icon className="h-4 w-4 md:h-5 md:w-5 text-primary" />
                           </div>
-                          <div className="flex-1">
-                            <h3 className="text-2xl font-bold text-gray-900 leading-tight">
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 leading-tight break-words">
                               {currentCase.title}
                             </h3>
                           </div>
                         </div>
 
                         {/* 标签组 */}
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1.5 md:gap-2">
                           {currentCase.tags.map((tag, tagIndex) => (
                             <span
                               key={tagIndex}
-                              className="inline-flex items-center px-3 py-1.5 bg-gray-50 text-gray-700 text-sm rounded-md border border-gray-200 font-medium transition-colors hover:bg-gray-100"
+                              className="inline-flex items-center px-2 md:px-3 py-1 md:py-1.5 bg-gray-50 text-gray-700 text-xs md:text-sm rounded-md border border-gray-200 font-medium transition-colors hover:bg-gray-100 whitespace-nowrap"
                             >
                               {tag}
                             </span>
@@ -291,24 +291,24 @@ const Cases = () => {
 
                       {/* 项目描述 */}
                       <div className="space-y-3">
-                        <p className="text-gray-700 leading-relaxed text-base font-medium">
+                        <p className="text-gray-700 leading-relaxed text-sm md:text-base font-medium break-words">
                           {currentCase.description}
                         </p>
                       </div>
 
                       {/* 核心功能特性 */}
-                      <div className="space-y-4">
+                      <div className="space-y-3 md:space-y-4">
                         <div className="flex items-center space-x-2">
-                          <div className="w-1 h-6 bg-primary rounded-full"></div>
-                          <h4 className="text-lg font-semibold text-gray-900">核心功能特性</h4>
+                          <div className="w-1 h-4 md:h-6 bg-primary rounded-full"></div>
+                          <h4 className="text-base md:text-lg font-semibold text-gray-900">核心功能特性</h4>
                         </div>
-                        <div className="grid grid-cols-1 gap-3 pl-3">
+                        <div className="grid grid-cols-1 gap-2 md:gap-3 pl-2 md:pl-3">
                           {currentCase.features.map((feature, idx) => (
-                            <div key={idx} className="flex items-start space-x-3 group">
-                              <div className="flex items-center justify-center w-5 h-5 bg-green-100 rounded-full flex-shrink-0 mt-0.5 group-hover:bg-green-200 transition-colors">
-                                <CheckCircle className="h-3 w-3 text-green-600" />
+                            <div key={idx} className="flex items-start space-x-2 md:space-x-3 group">
+                              <div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 bg-green-100 rounded-full flex-shrink-0 mt-0.5 group-hover:bg-green-200 transition-colors">
+                                <CheckCircle className="h-2.5 w-2.5 md:h-3 md:w-3 text-green-600" />
                               </div>
-                              <span className="text-gray-700 text-sm leading-relaxed font-medium">{feature}</span>
+                              <span className="text-gray-700 text-xs md:text-sm leading-relaxed font-medium break-words">{feature}</span>
                             </div>
                           ))}
                         </div>
@@ -317,12 +317,12 @@ const Cases = () => {
                       {/* 关键成果展示 */}
                        <div className="space-y-3">
                          <div className="flex items-center space-x-2">
-                           <div className="w-1 h-6 bg-primary rounded-full"></div>
-                           <h4 className="text-lg font-semibold text-gray-900">关键成果</h4>
+                           <div className="w-1 h-4 md:h-6 bg-primary rounded-full"></div>
+                           <h4 className="text-base md:text-lg font-semibold text-gray-900">关键成果</h4>
                          </div>
-                         <div className="flex flex-wrap gap-2 pl-3">
+                         <div className="flex flex-wrap gap-1.5 md:gap-2 pl-2 md:pl-3">
                            {currentCase.highlights.map((highlight, index) => (
-                             <span key={index} className="inline-flex items-center px-3 py-1 text-xs font-medium text-primary bg-blue-50 rounded-md border border-blue-200">
+                             <span key={index} className="inline-flex items-center px-2 md:px-3 py-1 text-xs font-medium text-primary bg-blue-50 rounded-md border border-blue-200 whitespace-nowrap">
                                {highlight}
                              </span>
                            ))}
@@ -333,7 +333,7 @@ const Cases = () => {
                     </div>
 
                     {/* 右侧媒体内容区域 */}
-                     <div className="bg-gray-100 flex items-center justify-center overflow-hidden">
+                     <div className="bg-gray-100 flex items-center justify-center overflow-hidden order-1 lg:order-2 min-h-[200px] md:min-h-[250px] lg:min-h-full">
                         <div className="w-full h-full">
                           <img
                             src={currentCase.image}
@@ -357,21 +357,21 @@ const Cases = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center space-x-4 mb-12"
+            className="flex items-center justify-center space-x-3 md:space-x-4 mb-8 md:mb-12"
           >
             <button
               onClick={prevCase}
-              className="flex items-center justify-center w-8 h-8 bg-white border border-gray-300 rounded hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white border border-gray-300 rounded hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 touch-manipulation"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-3 w-3 md:h-4 md:w-4" />
             </button>
 
-            <div className="flex space-x-2">
+            <div className="flex space-x-1.5 md:space-x-2">
               {filteredCases.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentCaseIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                  className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full transition-colors duration-200 touch-manipulation ${
                     index === currentCaseIndex
                       ? 'bg-primary'
                       : 'bg-gray-300 hover:bg-gray-400'
@@ -382,9 +382,9 @@ const Cases = () => {
 
             <button
               onClick={nextCase}
-              className="flex items-center justify-center w-8 h-8 bg-white border border-gray-300 rounded hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white border border-gray-300 rounded hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 touch-manipulation"
             >
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-3 w-3 md:h-4 md:w-4" />
             </button>
           </motion.div>
         )}
@@ -399,29 +399,29 @@ const Cases = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="bg-white border border-gray-200 rounded p-8">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">准备开始您的AI转型之旅？</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto text-sm">
+          <div className="bg-white border border-gray-200 rounded p-4 md:p-6 lg:p-8 mx-2 md:mx-0">
+            <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3 px-2">准备开始您的AI转型之旅？</h3>
+            <p className="text-gray-600 mb-4 md:mb-6 max-w-2xl mx-auto text-xs md:text-sm px-2">
               加入我们的成功客户行列，让AI技术为您的业务创造更大价值
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center px-2">
               <Button
-                className="bg-primary text-white hover:bg-primary/90 px-6 py-2 text-sm font-medium transition-colors duration-200"
+                className="bg-primary text-white hover:bg-primary/90 px-4 md:px-6 py-2 text-xs md:text-sm font-medium transition-colors duration-200 w-full sm:w-auto"
                 asChild
               >
                 <Link to="/cases" className="flex items-center justify-center">
                   <span>探索更多案例</span>
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
                 </Link>
               </Button>
               <Button
                 variant="outline"
-                className="border-primary text-primary hover:bg-gray-50 px-6 py-2 text-sm font-medium transition-colors duration-200"
+                className="border-primary text-primary hover:bg-gray-50 px-4 md:px-6 py-2 text-xs md:text-sm font-medium transition-colors duration-200 w-full sm:w-auto"
                 asChild
               >
                 <Link to="/contact" className="flex items-center justify-center">
                   <span>免费咨询</span>
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
                 </Link>
               </Button>
             </div>

@@ -118,7 +118,7 @@ const Products = () => {
       <div className="container mx-auto px-4">
         {/* 标题区域 */}
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,14 +127,14 @@ const Products = () => {
           >
             我们的产品
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="w-20 h-1 bg-blue-600 mx-auto mb-8"
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           />
-          <motion.p 
+          <motion.p
             className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -164,14 +164,14 @@ const Products = () => {
                   </span>
                 </div>
                 <div className="flex items-center justify-center h-48">
-                  <img 
-                    src={product.image} 
-                    alt={product.title} 
+                  <img
+                    src={product.image}
+                    alt={product.title}
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
               </div>
-              
+
               {/* 产品内容区域 */}
               <div className="p-6">
                 {/* 标题和评分 */}
@@ -186,9 +186,9 @@ const Products = () => {
                     <div className="flex items-center">
                       <div className="flex items-center">
                         {[...Array(5)].map((_, i) => (
-                          <Star 
-                            key={i} 
-                            className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} 
+                          <Star
+                            key={i}
+                            className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                           />
                         ))}
                       </div>
@@ -197,17 +197,17 @@ const Products = () => {
                     <span className="text-xs text-gray-500">已售 {product.sales}</span>
                   </div>
                 </div>
-                
+
                 {/* 描述 */}
                 <p className="text-gray-600 text-sm mb-6 leading-relaxed line-clamp-3">
                   {product.description}
                 </p>
-                
+
                 {/* 功能标签 */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {product.features.slice(0, 3).map((feature, idx) => (
-                    <span 
-                      key={idx} 
+                    <span
+                      key={idx}
                       className="text-xs bg-gray-100 text-gray-700 px-3 py-1 font-medium"
                     >
                       {feature}
@@ -220,7 +220,7 @@ const Products = () => {
                   )}
                 </div>
               </div>
-              
+
               {/* 价格和操作区域 */}
               <div className="px-6 pb-6">
                 <div className="flex items-center justify-between mb-4">
@@ -232,10 +232,10 @@ const Products = () => {
                     {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
                   </div>
                 </div>
-                
+
                 <div className="flex gap-3">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     className="flex-1 text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
                     onClick={() => window.open(product.buyLink, '_blank')}
@@ -243,10 +243,10 @@ const Products = () => {
                     <ShoppingCart className="h-4 w-4 mr-2" />
                     购买
                   </Button>
-                  
-                  <Button 
+
+                  <Button
                     variant="default"
-                    size="sm" 
+                    size="sm"
                     className="flex-1 bg-blue-600 hover:bg-blue-700 transition-colors"
                     asChild
                   >
