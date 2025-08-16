@@ -78,7 +78,7 @@ const About = () => {
       id="about"
       data-monitor-comp-id="c854860"
     >
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 页面标题区域 */}
         <motion.div
@@ -88,15 +88,15 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 tracking-tight leading-tight break-words">
             关于我们
           </h2>
           <div
-            className="w-16 h-1 mx-auto mb-6 rounded-full"
+            className="w-12 sm:w-16 h-1 mx-auto mb-6 rounded-full"
             style={{ backgroundColor: STYLES.primaryColor }}
           />
           <p
-            className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2 sm:px-4"
+            className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2 sm:px-4 break-words"
             style={{ lineHeight: STYLES.lineHeight }}
           >
             专业的AI技术服务商，致力于为企业提供高效智能的解决方案
@@ -104,7 +104,7 @@ const About = () => {
         </motion.div>
 
         {/* 主要内容区域 - 响应式双列布局 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 mb-12 sm:mb-16">
 
           {/* 左侧图片展示卡片 */}
           <motion.div
@@ -116,47 +116,47 @@ const About = () => {
             data-monitor-click-id="about-image-card"
           >
             <div
-              className="bg-white p-4 sm:p-6 lg:p-8 transition-all duration-300 rounded-lg"
+              className="bg-white p-3 sm:p-4 md:p-6 lg:p-8 transition-all duration-300 rounded-lg"
               style={{ border: `1px solid ${STYLES.borderColor}` }}
             >
               {/* 主图片容器 */}
-              <div className="relative mb-6">
+              <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-lg">
                 <img
                   src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/16109cf69762df98_1637162865915.png"
                   alt="AI科技团队"
-                  className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                  className="w-full h-40 sm:h-48 md:h-64 lg:h-80 xl:h-96 object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg"
                 />
 
                 {/* 技术领先状态指示器 */}
                 <div
-                  className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white px-2 py-1 sm:px-3 sm:py-2 rounded-md shadow-sm"
+                  className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 bg-white px-2 py-1 sm:px-3 sm:py-2 rounded-md shadow-sm max-w-[120px] sm:max-w-none"
                   style={{ border: `1px solid ${STYLES.borderColor}` }}
                 >
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1 sm:space-x-2">
                     <div
-                      className="w-2 h-2 rounded-full"
+                      className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0"
                       style={{ backgroundColor: STYLES.primaryColor }}
                     />
-                    <span className="text-xs sm:text-sm font-medium text-gray-900">AI技术领先</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-900 truncate">AI技术领先</span>
                   </div>
                 </div>
               </div>
 
               {/* 客户满意度数据展示 */}
               <div
-                className="bg-gray-50 p-4 rounded-lg"
+                className="bg-gray-50 p-3 sm:p-4 rounded-lg"
                 style={{ border: `1px solid ${STYLES.borderColor}` }}
               >
-                <div className="flex items-center space-x-3 sm:space-x-4">
+                <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
                   <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-lg flex-shrink-0"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg flex-shrink-0"
                     style={{ backgroundColor: STYLES.primaryColor }}
                   >
-                    <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-xs sm:text-sm font-medium text-gray-600 uppercase tracking-wide">客户满意度</div>
-                    <div className="text-xl sm:text-2xl font-semibold text-gray-900">98%</div>
+                    <div className="text-xs sm:text-sm font-medium text-gray-600 uppercase tracking-wide break-words">客户满意度</div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900">98%</div>
                   </div>
                 </div>
               </div>
@@ -173,22 +173,22 @@ const About = () => {
             data-monitor-click-id="about-intro-card"
           >
             <div
-              className="bg-white p-4 sm:p-6 lg:p-8 h-full transition-all duration-300 rounded-lg flex flex-col"
+              className="bg-white p-3 sm:p-4 md:p-6 lg:p-8 h-full transition-all duration-300 rounded-lg flex flex-col"
               style={{ border: `1px solid ${STYLES.borderColor}` }}
             >
               {/* 企业简介内容区域 */}
               <div className="flex-1">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">企业简介</h3>
-                <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 md:mb-6 break-words">企业简介</h3>
+                <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-4 sm:mb-6 md:mb-8">
                   <p
-                    className="text-sm sm:text-base text-gray-700"
+                    className="text-xs sm:text-sm md:text-base text-gray-700 break-words"
                     style={{ lineHeight: STYLES.lineHeight }}
                   >
                     艺创AI科技是一家专注于人工智能技术研发和应用的高新技术企业，致力于为各行业提供先进的AI解决方案。
                     我们拥有一支由顶尖AI专家、工程师和行业顾问组成的专业团队。
                   </p>
                   <p
-                    className="text-base text-gray-700"
+                    className="text-xs sm:text-sm md:text-base text-gray-700 break-words"
                     style={{ lineHeight: STYLES.lineHeight }}
                   >
                     公司成立以来，我们始终坚持"技术创新、质量为本、客户至上"的理念，
@@ -201,30 +201,30 @@ const About = () => {
 
               {/* 核心数据展示区域 */}
               <div
-                className="border-t pt-4 sm:pt-6 mt-6 sm:mt-8"
+                className="border-t pt-3 sm:pt-4 md:pt-6 mt-4 sm:mt-6 md:mt-8"
                 style={{ borderColor: STYLES.borderColor }}
               >
-                <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
                   {STATS_DATA.map((stat, index) => (
                     <div
                       key={index}
-                      className="text-center group cursor-pointer p-1 sm:p-2"
+                      className="text-center group cursor-pointer p-1 sm:p-2 min-w-0"
                       data-monitor-click-id={`stat-card-${index}`}
                     >
                       {/* 数据值展示 */}
                       <div
-                        className="text-lg sm:text-xl md:text-2xl font-bold mb-1 group-hover:scale-105 transition-transform duration-200"
+                        className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 group-hover:scale-105 transition-transform duration-200 break-words"
                         style={{ color: STYLES.primaryColor }}
                       >
                         {stat.value}
                       </div>
                       {/* 数据标签 */}
-                      <div className="text-xs sm:text-sm font-medium text-gray-900 mb-1">
+                      <div className="text-xs sm:text-sm font-medium text-gray-900 mb-1 break-words">
                         {stat.label}
                       </div>
                       {/* 数据描述 */}
                       <div
-                        className="text-xs text-gray-500 leading-tight hidden sm:block"
+                        className="text-xs text-gray-500 leading-tight hidden sm:block break-words"
                         style={{ lineHeight: '1.3' }}
                       >
                         {stat.description}
@@ -244,7 +244,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {ADVANTAGES_DATA.map((advantage, index) => (
               <motion.div
                 key={index}
@@ -252,24 +252,24 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
+                className="group min-w-0"
                 data-monitor-click-id={`advantage-card-${index}`}
               >
                 {/* 简约优势卡片 */}
-                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 text-center transition-all duration-300 hover:shadow-md">
+                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-md h-full flex flex-col">
                   {/* 简洁标题 */}
-                  <h4 className="text-lg font-medium text-gray-900 mb-4">
+                  <h4 className="text-base sm:text-lg font-medium text-gray-900 mb-3 sm:mb-4 break-words">
                     {advantage.title}
                   </h4>
                   
                   {/* 简约分割线 */}
                   <div 
-                    className="w-12 h-0.5 mx-auto mb-4 transition-all duration-300" 
+                    className="w-10 sm:w-12 h-0.5 mx-auto mb-3 sm:mb-4 transition-all duration-300" 
                     style={{ backgroundColor: STYLES.primaryColor }}
                   />
                   
                   {/* 简洁描述 */}
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed break-words flex-1">
                     {advantage.description}
                   </p>
                 </div>
