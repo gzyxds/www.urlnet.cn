@@ -197,6 +197,9 @@ const NewsListPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50/30">
+      {/* 添加头部间距 */}
+      <div className="h-12 sm:h-16 lg:h-20"></div>
+      
       {/* 头部设计 - 参考图片风格的简洁居中布局 */}
       <div className="bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 sm:pb-20 md:pb-24 lg:pb-28">
