@@ -739,7 +739,7 @@ const CodeDownloadPage: React.FC = () => {
     <>
       <Header />
       <main className="min-h-screen bg-white">
-        <div className="h-6 sm:h-8 lg:h-10"></div>
+        <div className="h-12 sm:h-16 lg:h-20"></div>
         
         {renderHeader()}
 

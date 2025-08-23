@@ -326,7 +326,7 @@ const DocsPage = () => {
       <Header />
       <main className="min-h-screen bg-white">
         {/* 页面头部区域 - 简约设计 */}
-        <div className="h-6 sm:h-8 lg:h-10"></div>
+        <div className="h-12 sm:h-16 lg:h-20"></div>
         <section className="py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-blue-700">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-4xl mx-auto">
