@@ -57,7 +57,7 @@ const BackToTop = () => {
 
   return (
     <>
-      <div className="fixed bottom-32 right-11 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-20 sm:bottom-32 right-4 sm:right-11 z-50 flex flex-col gap-2 sm:gap-3">
         {/* 售前咨询按钮 - 蓝色渐变 */}
         <AnimatePresence>
           {isVisible && (
@@ -71,12 +71,12 @@ const BackToTop = () => {
               onMouseLeave={() => setShowQRCode(false)}
             >
               <button
-                className="w-12 h-28 rounded-full bg-gradient-to-b from-blue-500 to-blue-400 text-white shadow-lg flex flex-col items-center justify-center transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                className="w-10 h-20 sm:w-12 sm:h-28 bg-gradient-to-b from-blue-500 to-blue-400 text-white shadow-lg flex flex-col items-center justify-center transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
                 aria-label="售前咨询"
                 // 新增：添加点击事件
                 onClick={handleClickQRCode}
               >
-                <Headphones className="h-6 w-6 mb-2" />
+                <Headphones className="h-4 w-4 sm:h-6 sm:w-6 mb-1 sm:mb-2" />
                 <div className="text-xs font-medium leading-tight">
                   <div>售前</div>
                   <div>咨询</div>
@@ -91,19 +91,19 @@ const BackToTop = () => {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.8, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute bottom-0 right-full mr-3 bg-white rounded-lg shadow-2xl border border-gray-100 min-w-[200px] backdrop-blur-sm"
+                    className="absolute bottom-0 right-full mr-2 sm:mr-3 bg-white shadow-2xl border border-gray-100 min-w-[160px] sm:min-w-[200px] backdrop-blur-sm"
                     style={{
                       boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
                     }}
                   >
-                    <div className="p-5">
+                    <div className="p-3 sm:p-5">
                       <div className="text-center">
-                        <div className="text-sm text-gray-600 mb-4">扫码联系客服</div>
+                        <div className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">扫码联系客服</div>
                         <div className="flex justify-center">
                           <img 
                             src="/images/qrcode.png" 
                             alt="客服二维码" 
-                            className="w-36 h-36 object-contain rounded-lg border border-gray-200"
+                            className="w-28 h-28 sm:w-36 sm:h-36 object-contain border border-gray-200"
                           />
                         </div>
                       </div>
@@ -112,7 +112,7 @@ const BackToTop = () => {
                     {/* 小三角 */}
                     <div className="absolute top-5 left-full w-0 h-0 border-t-6 border-b-6 border-l-6 border-transparent border-l-white"></div>
                     {/* 装饰性边框 */}
-                    <div className="absolute inset-0 rounded-lg border border-gray-100/50 pointer-events-none"></div>
+                    <div className="absolute inset-0 border border-gray-100/50 pointer-events-none"></div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -132,16 +132,16 @@ const BackToTop = () => {
               onMouseEnter={() => setShowAfterSales(true)}
               onMouseLeave={() => setShowAfterSales(false)}
             >
-              <div className="w-12 h-28 rounded-full bg-white shadow-lg border border-gray-200/50 flex flex-col overflow-hidden">
+              <div className="w-10 h-20 sm:w-12 sm:h-28 bg-white shadow-lg border border-gray-200/50 flex flex-col overflow-hidden">
                 {/* 售后选项 */}
                 <button className="flex-1 flex flex-col items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                  <User className="h-4 w-4 mb-1" />
+                  <User className="h-3 w-3 sm:h-4 sm:w-4 mb-0.5 sm:mb-1" />
                   <span className="text-xs font-medium">售后</span>
                 </button>
                 
                 {/* 活动选项 */}
                 <button className="flex-1 flex flex-col items-center justify-center text-gray-700 hover:bg-gray-50 transition-colors">
-                  <Gift className="h-4 w-4 mb-1" />
+                  <Gift className="h-3 w-3 sm:h-4 sm:w-4 mb-0.5 sm:mb-1" />
                   <span className="text-xs font-medium">活动</span>
                 </button>
               </div>
@@ -154,11 +154,11 @@ const BackToTop = () => {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.8, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute bottom-0 right-full mr-3 bg-white rounded-lg shadow-2xl border border-gray-100 min-w-[180px] backdrop-blur-sm"
+                    className="absolute bottom-0 right-full mr-2 sm:mr-3 bg-white shadow-2xl border border-gray-100 min-w-[140px] sm:min-w-[180px] backdrop-blur-sm"
                   >
-                    <div className="p-5">
+                    <div className="p-3 sm:p-5">
                       <div className="text-center">
-                        <div className="text-sm text-gray-600 mb-3">售后服务</div>
+                        <div className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">售后服务</div>
                         <div className="text-xs text-gray-500">专业售后团队为您服务</div>
                       </div>
                     </div>
@@ -181,10 +181,10 @@ const BackToTop = () => {
               exit={{ opacity: 0, scale: 0.5 }}
               transition={{ duration: 0.3, delay: 0.2 }}
               onClick={scrollToTop}
-              className="w-12 h-12 rounded-full bg-white text-gray-700 shadow-lg flex items-center justify-center transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 border border-gray-200/50"
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-white text-gray-700 shadow-lg flex items-center justify-center transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 border border-gray-200/50"
               aria-label="返回顶部"
             >
-              <ChevronUp className="h-5 w-5" />
+              <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5" />
             </motion.button>
           )}
         </AnimatePresence>
@@ -210,30 +210,30 @@ const BackToTop = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="relative bg-white rounded-2xl shadow-2xl max-w-sm w-full mx-4 overflow-hidden"
+              className="relative bg-white shadow-2xl max-w-xs sm:max-w-sm w-full mx-4 overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* 关闭按钮 */}
               <button
                 onClick={handleCloseClickQRCode}
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 w-7 h-7 sm:w-8 sm:h-8 bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
                 aria-label="关闭"
               >
-                <X className="w-4 h-4 text-gray-600" />
+                <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-600" />
               </button>
               
               {/* 内容区域 */}
-              <div className="p-8 text-center">
+              <div className="p-6 sm:p-8 text-center">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">联系客服</h3>
-                <p className="text-sm text-gray-600 mb-6">扫描二维码添加客服微信</p>
+                <p className="text-sm text-gray-600 mb-4 sm:mb-6">扫描二维码添加客服微信</p>
                 
                 {/* 二维码 */}
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-3 sm:mb-4">
                   <div className="relative">
                     <img 
                       src="/images/qrcode.png" 
                       alt="客服二维码" 
-                      className="w-48 h-48 object-contain rounded-lg border border-gray-200 shadow-lg"
+                      className="w-40 h-40 sm:w-48 sm:h-48 object-contain border border-gray-200 shadow-lg"
                     />
                   </div>
                 </div>
