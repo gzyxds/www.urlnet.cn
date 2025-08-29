@@ -328,7 +328,7 @@ const Footer = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 w-full sm:w-auto">
                 <Button
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-xl transition-all w-full sm:w-auto"
-                  onClick={() => window.open('https://auth.cnai.art/', '_blank')}
+                  onClick={() => window.open('https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20', '_blank')}
                 >
                   免费使用
                 </Button>

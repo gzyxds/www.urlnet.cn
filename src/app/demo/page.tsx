@@ -42,11 +42,11 @@ const DemoPage = () => {
                 <Star className="w-4 h-4" />
                 用科技创造无限可能
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight">
                 产品体验
               </h1>
-              
+
               <p className="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed max-w-2xl mx-auto">
               基于前后端分离架构以及Vue3、uni-app、ThinkPHP6.x、PHP8.0技术栈开发，包含PC端、H5端、小程序端、APP端
               </p>
@@ -58,17 +58,17 @@ const DemoPage = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3"
-                onClick={() => window.open('https://auth.cnai.art/', '_blank')}
+                onClick={() => window.open('https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20', '_blank')}
               >
                 立即购买
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium px-8 py-3"
                 onClick={handleContactService}
               >

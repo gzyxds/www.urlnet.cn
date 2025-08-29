@@ -28,7 +28,7 @@ const AiPage = () => {
             <div className="absolute top-1/3 right-1/4 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
             <div className="absolute bottom-1/4 left-1/3 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"></div>
           </div>
-          
+
           {/* 网格背景 - 响应式网格大小 */}
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -96,18 +96,18 @@ const AiPage = () => {
                   <Mic className="w-3.5 h-3.5 mr-1" /> 语音合成
                 </span>
               </div>
-              
+
               {/* 行动按钮组 - 响应式按钮布局 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-12 px-4 sm:px-0">
-                <Button 
+                <Button
                   className="relative overflow-hidden bg-blue-600 text-white px-8 py-3 h-auto text-sm sm:text-base font-bold rounded-full group"
                   onClick={() => window.location.href = "/demo"}
                 >
                   <span className="relative z-10">立即体验</span>
                   <div className="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-100 group-hover:bg-blue-500"></div>
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="relative overflow-hidden border-2 border-blue-600 text-blue-600 px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-full group"
                   onClick={() => {
                     // 触发自定义事件来显示二维码弹窗
@@ -180,7 +180,7 @@ const AiPage = () => {
                           <p className="text-gray-800 text-xs sm:text-sm leading-relaxed">您好！我可以为您提供专业的知识问答和数字人服务</p>
                         </div>
                       </div>
-                      
+
                       {/* 用户消息 */}
                       <div className="flex gap-2 sm:gap-3 justify-end items-start animate-fade-in animation-delay-300">
                         <div className="bg-blue-600 rounded-xl sm:rounded-2xl rounded-tr-none p-2.5 sm:p-3.5 max-w-[calc(100%-3rem)] sm:max-w-xs">
@@ -202,14 +202,14 @@ const AiPage = () => {
                       <h4 className="font-medium mb-0.5 sm:mb-1.5 text-xs sm:text-sm">知识库</h4>
                       <p className="text-xs text-blue-100 hidden sm:block opacity-80">智能问答系统</p>
                     </div>
-                    
+
                     {/* 数字人功能卡片 */}
                     <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 text-white transition-all duration-300 group">
                       <Video className="w-4 h-4 sm:w-5 sm:h-5 mb-1.5 sm:mb-2.5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                       <h4 className="font-medium mb-0.5 sm:mb-1.5 text-xs sm:text-sm">数字人</h4>
                       <p className="text-xs text-indigo-100 hidden sm:block opacity-80">虚拟形象生成</p>
                     </div>
-                    
+
                     {/* 语音合成功能卡片 */}
                     <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 text-white transition-all duration-300 group">
                       <Mic className="w-4 h-4 sm:w-5 sm:h-5 mb-1.5 sm:mb-2.5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
@@ -218,7 +218,7 @@ const AiPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* 装饰浮动元素 - 响应式位置和大小，增加平板断点 */}
                 <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 md:-top-4 md:-right-4 bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 shadow-lg animate-float transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
                   <div className="flex items-center justify-center gap-1 sm:gap-2">
@@ -241,7 +241,7 @@ const AiPage = () => {
               </div>
             </div>
           </div>
-          
+
           {/* 技术标签展示 - 简约线条设计 */}
           <div className="flex justify-center mt-16 sm:mt-20">
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-4xl">
@@ -297,7 +297,7 @@ const AiPage = () => {
             <div className="w-16 h-1 bg-blue-600 mx-auto mb-4"></div>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">多维度产品优势，助力企业数字化升级</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* 企业智能客服功能卡片 */}
             <div className="bg-white p-6 hover:shadow-sm transition-shadow border-b-2 border-transparent hover:border-blue-500">
@@ -308,11 +308,11 @@ const AiPage = () => {
                 <h3 className="text-lg font-medium text-gray-900">企业智能客服</h3>
                 <div className="text-sm text-gray-500">快速部署</div>
               </div>
-              
+
               <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                 企业可以上传产品资料、FAQ手册等信息，完成训练后，对外发布智能客服聊天窗口。
               </p>
-              
+
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center">
                   <Check className="h-4 w-4 text-blue-500 mr-2" />
@@ -328,7 +328,7 @@ const AiPage = () => {
                 </li>
               </ul>
             </div>
-            
+
             {/* 企业知识库功能卡片 */}
             <div className="bg-white p-6 hover:shadow-sm transition-shadow border-b-2 border-transparent hover:border-blue-500">
               <div className="mb-4">
@@ -338,11 +338,11 @@ const AiPage = () => {
                 <h3 className="text-lg font-medium text-gray-900">企业知识库</h3>
                 <div className="text-sm text-gray-500">专属AI训练</div>
               </div>
-              
+
               <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                 企业可以上传产品文档、合同内容等信息，完成训练后，仅限内部员工访问使用。
               </p>
-              
+
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center">
                   <Check className="h-4 w-4 text-blue-500 mr-2" />
@@ -358,7 +358,7 @@ const AiPage = () => {
                 </li>
               </ul>
             </div>
-            
+
             {/* 专家顾问助理功能卡片 */}
             <div className="bg-white p-6 hover:shadow-sm transition-shadow border-b-2 border-transparent hover:border-blue-500">
               <div className="mb-4">
@@ -368,11 +368,11 @@ const AiPage = () => {
                 <h3 className="text-lg font-medium text-gray-900">专家顾问助理</h3>
                 <div className="text-sm text-gray-500">MOS4.0</div>
               </div>
-              
+
               <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                 基于先进AI模型，提供专业的顾问咨询服务，快速响应各类专业咨询需求。
               </p>
-              
+
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center">
                   <Check className="h-4 w-4 text-blue-500 mr-2" />
@@ -388,7 +388,7 @@ const AiPage = () => {
                 </li>
               </ul>
             </div>
-            
+
             {/* 数据训练功能卡片 */}
             <div className="bg-white p-6 hover:shadow-sm transition-shadow border-b-2 border-transparent hover:border-blue-500">
               <div className="mb-4">
@@ -398,7 +398,7 @@ const AiPage = () => {
                 <h3 className="text-lg font-medium text-gray-900">数据训练</h3>
                 <div className="text-sm text-gray-500">灵活配置</div>
               </div>
-              
+
               <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                 支持多种类型知识库训练，可灵活配置访问权限，实现知识共享与管理。
               </p>
@@ -429,7 +429,7 @@ const AiPage = () => {
           <div className="absolute top-10 left-10 w-40 h-40 rounded-full bg-blue-100 blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-indigo-100 blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* 演示信息左侧内容 */}
@@ -438,13 +438,13 @@ const AiPage = () => {
                 <span className="w-1.5 h-1.5 bg-blue-600 mr-2"></span>
                 在线演示
               </div>
-              
+
               <h2 className="text-3xl font-bold text-gray-900 mb-6">艺创AI-全能知识库PHP&Java<br />演示中心</h2>
-              
+
               <p className="text-gray-600 mb-8 text-lg">
                 通过我们的在线演示系统，您可以亲身体验艺创AI-全能知识库PHP&Java的强大功能和直观界面，无需安装，即刻体验。
               </p>
-              
+
               <div className="bg-white shadow-lg p-6 mb-8">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mr-3">
@@ -452,7 +452,7 @@ const AiPage = () => {
                   </div>
                   <h3 className="text-lg font-medium">演示账号信息</h3>
                 </div>
-                
+
                 <div className="space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
@@ -473,7 +473,7 @@ const AiPage = () => {
                       </Button>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">体验后台</p>
@@ -493,7 +493,7 @@ const AiPage = () => {
                       </Button>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-sm font-medium text-gray-900">移动端</p>
@@ -515,7 +515,7 @@ const AiPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex space-x-4">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-none">
                   申请专属演示
@@ -525,18 +525,18 @@ const AiPage = () => {
                 </Button>
               </div>
             </div>
-            
+
             {/* 演示界面右侧展示 */}
             <div className="w-full lg:w-1/2 flex justify-center">
               <div className="relative">
                 {/* 演示界面主图 */}
                 <div className="bg-white p-6 shadow-lg">
-                  <img 
-                    src="/product/work.svg" 
-                    alt="AI数字人演示界面" 
+                  <img
+                    src="/product/work.svg"
+                    alt="AI数字人演示界面"
                     className="w-full"
                   />
-                  
+
                   <div className="mt-4 flex items-center justify-between">
                     <div>
                       <h4 className="text-sm font-medium text-gray-900">艺创AI-全能知识库PHP&Java</h4>
@@ -549,17 +549,17 @@ const AiPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* 移动端二维码 */}
                 <div className="absolute -bottom-6 -right-6 bg-white p-4 shadow-lg rounded-xl">
-                  <img 
-                    src="/images/qrcode.png" 
-                    alt="演示二维码" 
+                  <img
+                    src="/images/qrcode.png"
+                    alt="演示二维码"
                     className="w-24 h-24 bg-white rounded-lg"
                   />
                   <p className="text-xs text-center mt-2 text-gray-600">扫码体验移动端</p>
                 </div>
-                
+
                 {/* 在线演示装饰元素 */}
                 <div className="absolute -top-6 -left-6 bg-blue-600 p-4 shadow-lg rounded-xl">
                   <div className="flex items-center space-x-2">
@@ -588,7 +588,7 @@ const AiPage = () => {
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100/10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-slate-100/20 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           {/* 标题区域 */}
           <div className="text-center mb-16">
@@ -770,9 +770,9 @@ const AiPage = () => {
               {/* 右侧图片展示 */}
               <div className="relative">
                 <div className="relative rounded-3xl overflow-hidden shadow-lg">
-                  <img 
-                    src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/industry-application.be882574.png" 
-                    alt="AI应用场景展示" 
+                  <img
+                    src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/industry-application.be882574.png"
+                    alt="AI应用场景展示"
                     className="w-full h-auto rounded-3xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl"></div>
@@ -965,7 +965,7 @@ const AiPage = () => {
                 </Button>
               </div>
             </div>
-            
+
             {/* AI大语言模型 */}
             <div className="flex flex-col rounded-none overflow-hidden shadow-md border border-gray-200">
               <div className="w-full h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -1069,20 +1069,20 @@ const AiPage = () => {
                   </li>
                 </ul>
               </div>
-              
+
               {/* 按钮 */}
               <div className="flex space-x-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg flex items-center"
                   onClick={() => window.location.href = "/demo"}
                 >
                   <Play className="w-4 h-4 mr-2" />
                   立即体验
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none flex items-center"
-                  onClick={() => window.open("https://auth.cnai.art/", "_blank")}
+                  onClick={() => window.open("https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20", "_blank")}
                 >
                   <Check className="w-4 h-4 mr-2" />
                   购买授权
@@ -1090,7 +1090,7 @@ const AiPage = () => {
               </div>
             </div>
              {/* 按钮 */}
-             
+
             {/* 右侧视频 */}
             <div className="relative">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
@@ -1103,9 +1103,9 @@ const AiPage = () => {
                   className="w-full rounded-2xl shadow-lg"
                 >
                   {/* 视频不支持时显示的替代内容 */}
-                  <img 
-                    src="https://res.qiyukf.net/operation/0a99dec9aafbb4c7c36749bc9bad3400" 
-                    alt="数字人形象" 
+                  <img
+                    src="https://res.qiyukf.net/operation/0a99dec9aafbb4c7c36749bc9bad3400"
+                    alt="数字人形象"
                     className="w-full rounded-2xl shadow-lg"
                   />
                 </video>
@@ -1140,7 +1140,7 @@ const AiPage = () => {
                   为短视频创作者及抖音经营者提供智能灵感挖掘、智能剧本创作、智能视频生成、智能客服回复等AI工具，增强曝光及品牌影响力，全面提升获客转化率。精准挖掘潜在客户，提供创意文案生成，提升营销效果。
                 </p>
               </div>
-              
+
               {/* 功能特性 */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
@@ -1152,7 +1152,7 @@ const AiPage = () => {
                   </div>
                   <p className="text-sm text-gray-600">灵感挖掘与剧本创作</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -1162,7 +1162,7 @@ const AiPage = () => {
                   </div>
                   <p className="text-sm text-gray-600">智能生成营销文案</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -1176,17 +1176,17 @@ const AiPage = () => {
 
              {/* 按钮 */}
               <div className="flex space-x-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg flex items-center"
                   onClick={() => window.location.href = "/demo"}
                 >
                   <Play className="w-4 h-4 mr-2" />
                   立即体验
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none flex items-center"
-                  onClick={() => window.open("https://auth.cnai.art/", "_blank")}
+                  onClick={() => window.open("https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20", "_blank")}
                 >
                   <Check className="w-4 h-4 mr-2" />
                   购买授权
@@ -1198,9 +1198,9 @@ const AiPage = () => {
             {/* 左侧图片 */}
             <div className="lg:order-1 relative">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
-                <img 
-                  src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/market-interaction.20054d0c.png" 
-                  alt="营销获客界面"  
+                <img
+                  src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/market-interaction.20054d0c.png"
+                  alt="营销获客界面"
                   className="w-full rounded-2xl shadow-lg"
                 />
               {/* 悬浮标签 */}
@@ -1234,7 +1234,7 @@ const AiPage = () => {
                   为内容创作者提供全网灵感洞察、智能文案生成服务，结合AI大语言模型和创意写作能力，一键生成爆款短视频剧本、直播话术和图文内容，让创作更轻松、更高效，助力打造爆款内容。
                 </p>
               </div>
-              
+
               {/* 功能特性 */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
@@ -1246,7 +1246,7 @@ const AiPage = () => {
                   </div>
                   <p className="text-sm text-gray-600">智能生成爆款视频文案和直播话术</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -1256,7 +1256,7 @@ const AiPage = () => {
                   </div>
                   <p className="text-sm text-gray-600">小红书/抖音等平台风格文案生成</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -1267,20 +1267,20 @@ const AiPage = () => {
                   <p className="text-sm text-gray-600">全网热点分析，智能创意推荐</p>
                 </div>
               </div>
-              
+
               {/* 按钮 */}
               <div className="flex space-x-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg flex items-center"
                   onClick={() => window.location.href = "/demo"}
                 >
                   <Play className="w-4 h-4 mr-2" />
                   立即体验
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none flex items-center"
-                  onClick={() => window.open("https://auth.cnai.art/", "_blank")}
+                  onClick={() => window.open("https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20", "_blank")}
                 >
                   <Check className="w-4 h-4 mr-2" />
                   购买授权
@@ -1288,7 +1288,7 @@ const AiPage = () => {
               </div>
             </div>
              {/* 按钮 */}
-            
+
             {/* 右侧图片 */}
             <div className="relative">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
@@ -1301,7 +1301,7 @@ const AiPage = () => {
                   className="w-full rounded-2xl shadow-lg"
                 >
                   {/* 视频不支持时显示的替代内容 */}
-                  <img 
+                  <img
                     src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/industry-application.be882574.png"
                     alt="AI数字人界面"
                     className="w-full rounded-2xl shadow-lg"
@@ -1339,7 +1339,7 @@ const AiPage = () => {
                   className="w-full rounded-2xl shadow-lg"
                 >
                   {/* 视频不支持时显示的替代内容 */}
-                  <img 
+                  <img
                     src="https://portal.volccdn.com/obj/volcfe-scm/wanyou/static/media/industry-application.be882574.png"
                     alt="AI视频生成界面"
                     className="w-full rounded-2xl shadow-lg"
@@ -1371,7 +1371,7 @@ const AiPage = () => {
                   从容应对内容创作和营销需求，助力商家和创作者提升视频生成的效率，更好的在公私域做好内容营销，助力GMV提升。
                 </p>
               </div>
-              
+
               {/* 功能特性 */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
@@ -1383,7 +1383,7 @@ const AiPage = () => {
                   </div>
                   <p className="text-sm text-gray-600">快速生成营销视频</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -1393,7 +1393,7 @@ const AiPage = () => {
                   </div>
                   <p className="text-sm text-gray-600">公私域内容营销场景</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -1404,20 +1404,20 @@ const AiPage = () => {
                   <p className="text-sm text-gray-600">显著提升内容创作效率</p>
                 </div>
               </div>
-              
+
               {/* 按钮 */}
               <div className="flex space-x-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 h-auto text-base font-medium rounded-none shadow-lg flex items-center"
                   onClick={() => window.location.href = "/demo"}
                 >
                   <Play className="w-4 h-4 mr-2" />
                   立即体验
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 h-auto text-base font-medium rounded-none flex items-center"
-                  onClick={() => window.open("https://auth.cnai.art/", "_blank")}
+                  onClick={() => window.open("https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20", "_blank")}
                 >
                   <Check className="w-4 h-4 mr-2" />
                   购买授权
@@ -1440,7 +1440,7 @@ const AiPage = () => {
                   <circle cx="150" cy="250" r="30" fill="black" fillOpacity="0.02" />
                 </svg>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
                 {/* 左侧内容 */}
                 <div className="md:col-span-3 p-8 md:p-12 relative z-10">
@@ -1452,7 +1452,7 @@ const AiPage = () => {
                     基于Vue3和ThinkPHP技术栈开发,支持PC端和H5端。系统支持多种文档格式导入,完成AI训练后可进行智能问答。
                     提供网页窗口、API等多种接入方式,可快速对接第三方系统。适用于企业智能客服、智能文档、顾问助理等多种商用场景。
                     </p>
-                    
+
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="flex items-start">
                         <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-2">
@@ -1509,7 +1509,7 @@ const AiPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* 右侧功能卡片 */}
                 <div className="md:col-span-2 relative hidden md:block">
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -1526,7 +1526,7 @@ const AiPage = () => {
                             <h4 className="text-gray-900 font-medium text-lg">AI知识库</h4>
                             <p className="text-gray-500 text-sm text-center mt-1">PHP/Java双版本支持</p>
                           </div>
-                          
+
                           {/* 私有部署 */}
                           <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
                             <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
@@ -1537,7 +1537,7 @@ const AiPage = () => {
                             <h4 className="text-gray-900 font-medium text-lg">私有部署</h4>
                             <p className="text-gray-500 text-sm text-center mt-1">安全可控的私有化部署</p>
                           </div>
-                          
+
                           {/* 专业团队 */}
                           <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
                             <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
@@ -1548,7 +1548,7 @@ const AiPage = () => {
                             <h4 className="text-gray-900 font-medium text-lg">专业团队</h4>
                             <p className="text-gray-500 text-sm text-center mt-1">一对一技术支持</p>
                           </div>
-                          
+
                           {/* 开源方案 */}
                           <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
                             <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">

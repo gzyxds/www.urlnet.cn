@@ -3,9 +3,9 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { 
-  Menu, X, ChevronDown, Github, Bell, 
-  Moon, Sun, User, Settings, HelpCircle, 
+import {
+  Menu, X, ChevronDown, Github, Bell,
+  Moon, Sun, User, Settings, HelpCircle,
   BookOpen, Code, Zap, Layers, ExternalLink, Cloud, Gift, Sparkles,
   FileText, Archive, Newspaper
 } from "lucide-react";
@@ -187,10 +187,10 @@ const Header: React.FC = () => {
   // 初始化暗黑模式
   useEffect(() => {
     if (typeof window === 'undefined' || typeof localStorage === 'undefined') return;
-    
+
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     const shouldUseDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
     setIsDarkMode(shouldUseDark);
     document.documentElement.classList.toggle('dark', shouldUseDark);
@@ -275,8 +275,8 @@ const Header: React.FC = () => {
       transition={{ delay: index * 0.05, duration: 0.2 }}
     >
       {subItem.external ? (
-        <div 
-          className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 cursor-pointer border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700 relative" 
+        <div
+          className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 cursor-pointer border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700 relative"
           onClick={() => openExternalLink(subItem.url!)}
         >
           <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
@@ -289,9 +289,9 @@ const Header: React.FC = () => {
           <ExternalLink className="h-3 w-3 text-gray-400 absolute top-2 right-2 dark:text-gray-500" />
         </div>
       ) : (
-                        <Link 
-                          to={subItem.path} 
-                          className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700" 
+                        <Link
+                          to={subItem.path}
+                          className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700"
                           onClick={handleNavigation}
         >
           <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
@@ -359,11 +359,11 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header 
+    <header
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-white/95 backdrop-blur-sm shadow-md py-2 dark:bg-gray-900/95" 
+        isScrolled
+          ? "bg-white/95 backdrop-blur-sm shadow-md py-2 dark:bg-gray-900/95"
           : "bg-white border-b border-gray-100 py-3 dark:bg-gray-900 dark:border-gray-800"
       }`}
     >
@@ -372,7 +372,7 @@ const Header: React.FC = () => {
           {/* Logo区域 */}
           <div className="flex items-center space-x-8">
             <Link to="/" className="flex items-center group" onClick={handleNavigation}>
-              <motion.div 
+              <motion.div
                 className="flex items-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -386,17 +386,17 @@ const Header: React.FC = () => {
             <nav className="hidden md:flex items-center space-x-2">
               {navItems.map((item, index) => (
                 item.dropdown ? (
-                  <div 
+                  <div
                     key={index}
                     className="relative"
                     onMouseEnter={() => handleMenuMouseEnter(item.name)}
                     onMouseLeave={handleMenuMouseLeave}
                   >
-                    <Button 
-                      variant="ghost" 
+                    <Button
+                      variant="ghost"
                       className={`group flex items-center text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 ${
-                        hoveredMenu === item.name 
-                          ? "text-[#015bfe] bg-blue-50/70 dark:text-blue-400 dark:bg-blue-950/50" 
+                        hoveredMenu === item.name
+                          ? "text-[#015bfe] bg-blue-50/70 dark:text-blue-400 dark:bg-blue-950/50"
                           : "text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
                       }`}
                     >
@@ -405,7 +405,7 @@ const Header: React.FC = () => {
                         hoveredMenu === item.name ? "rotate-180" : ""
                       }`} />
                     </Button>
-                    
+
                     {/* 悬停展开的下拉菜单 */}
                     <AnimatePresence>
                       {hoveredMenu === item.name && (
@@ -413,8 +413,8 @@ const Header: React.FC = () => {
                           initial={{ opacity: 0, y: 10, scale: 0.95 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{ 
-                            duration: 0.2, 
+                          transition={{
+                            duration: 0.2,
                             ease: [0.4, 0, 0.2, 1],
                             type: "spring",
                             stiffness: 300,
@@ -427,13 +427,13 @@ const Header: React.FC = () => {
                           <div className="flex justify-between mb-3">
                             <div className="px-2">
                               <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
-                                {item.name === "产品与服务" ? "行业" : 
+                                {item.name === "产品与服务" ? "行业" :
                                  item.name === "支持与服务" ? "服务" : "体验"}
                               </h4>
                             </div>
                             <div className="px-2">
                               <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
-                                {item.name === "产品与服务" ? "使用场景" : 
+                                {item.name === "产品与服务" ? "使用场景" :
                                  item.name === "支持与服务" ? "支持" : "更多"}
                               </h4>
                             </div>
@@ -449,8 +449,8 @@ const Header: React.FC = () => {
                                 className="rounded-lg bg-gray-50 hover:bg-blue-50/70 focus:bg-blue-50/70 py-3 px-3 cursor-pointer dark:bg-gray-800 dark:hover:bg-blue-950/30 dark:focus:bg-blue-950/30 transition-all duration-200"
                               >
                                 {subItem.external ? (
-                                  <div 
-                                    className="w-full flex items-center cursor-pointer" 
+                                  <div
+                                    className="w-full flex items-center cursor-pointer"
                                     onClick={() => openExternalLink(subItem.url!)}
                                   >
                                     <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
@@ -494,15 +494,15 @@ const Header: React.FC = () => {
           {/* 操作按钮区域 */}
           <div className="flex items-center space-x-1">
             {/* 暗黑模式切换按钮（桌面端） */}
-            <motion.div 
+            <motion.div
               className="hidden md:block"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-full h-8 w-8 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50" 
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-full h-8 w-8 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
                 onClick={toggleDarkMode}
                 aria-label={isDarkMode ? "切换到亮色模式" : "切换到暗黑模式"}
               >
@@ -569,19 +569,19 @@ const Header: React.FC = () => {
                   </Button>
                 </DropdownMenuContent>
               </DropdownMenu>
-              
+
               <Button variant="ghost" size="icon" className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-full h-8 w-8 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50">
                 <Github className="h-4 w-4" />
               </Button>
             </div>
-            
+
             {/* 用户菜单（桌面端） */}
             <div className="hidden md:flex items-center space-x-1">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer">
-                    <Button 
-                      variant="ghost" 
+                  <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="ghost"
                       className="text-sm font-medium text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg px-2 py-1.5 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
                     >
                       登录
@@ -599,7 +599,7 @@ const Header: React.FC = () => {
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer" className="flex items-center">
                         <Settings className="mr-2 h-4 w-4" />
                         <span className="dark:text-gray-200">账户设置</span>
                       </a>
@@ -611,7 +611,7 @@ const Header: React.FC = () => {
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer" className="flex items-center">
                         <ExternalLink className="mr-2 h-4 w-4" />
                         <span className="dark:text-gray-200">认证中心</span>
                       </a>
@@ -619,8 +619,8 @@ const Header: React.FC = () => {
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
-              
-              <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer">
+
+              <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
                 <Button className="text-sm font-medium bg-[#015bfe] hover:bg-blue-700 text-white rounded-lg shadow-sm shadow-blue-200 dark:shadow-blue-900/20 px-3 py-1.5">
                   注册
                 </Button>
@@ -628,7 +628,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* 移动端菜单按钮 */}
-            <motion.button 
+            <motion.button
               className="md:hidden p-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-600 hover:text-[#015bfe] hover:bg-blue-50/70 hover:border-blue-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 dark:hover:border-blue-700 transition-all duration-200 flex items-center justify-center min-w-[40px] w-10 h-10 shadow-sm"
               onClick={toggleMobileMenu}
               aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
@@ -655,7 +655,7 @@ const Header: React.FC = () => {
       {/* 移动端菜单 */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             className="md:hidden bg-white/95 backdrop-blur-sm shadow-xl border-t border-gray-100 overflow-hidden dark:bg-gray-900/95 dark:border-gray-800"
             variants={MOBILE_MENU_VARIANTS}
             initial="hidden"
@@ -673,25 +673,25 @@ const Header: React.FC = () => {
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">工具栏</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 relative dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
                   >
                     <Bell className="h-4 w-4" />
                     <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
                   </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
                   >
                     <Github className="h-4 w-4" />
                   </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
                     onClick={toggleDarkMode}
                   >
                     <AnimatePresence mode="wait" initial={false}>
@@ -708,12 +708,12 @@ const Header: React.FC = () => {
                   </Button>
                 </div>
               </div>
-              
+
               <nav className="flex flex-col space-y-2">
                 {/* 产品与服务菜单 */}
                 <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={0} variants={MENU_ITEM_VARIANTS}>
-                  <button 
-                    onClick={() => toggleMobileDropdown('products')} 
+                  <button
+                    onClick={() => toggleMobileDropdown('products')}
                     className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
                   >
                     <div className="font-medium text-gray-800 flex items-center dark:text-gray-200">
@@ -732,15 +732,15 @@ const Header: React.FC = () => {
                       <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
                     </motion.div>
                   </button>
-                  
+
                   <AnimatePresence>
                     {activeDropdown === 'products' && (
-                      <motion.div 
+                      <motion.div
                         variants={MOBILE_MENU_VARIANTS}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={{ duration: 0.3, ease: "easeOut" }} 
+                        transition={{ duration: 0.3, ease: "easeOut" }}
                         className="overflow-hidden mt-4"
                       >
                         <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
@@ -759,12 +759,12 @@ const Header: React.FC = () => {
                     )}
                   </AnimatePresence>
                 </motion.div>
-                
+
                 {/* 产品演示 */}
                 <motion.div initial="hidden" animate="visible" custom={1} variants={MENU_ITEM_VARIANTS}>
-                  <Link 
-                    to="/demo" 
-                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
+                  <Link
+                    to="/demo"
+                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50"
                     onClick={handleNavigation}
                   >
                     <div className="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center mr-3 dark:bg-cyan-900/50">
@@ -776,12 +776,12 @@ const Header: React.FC = () => {
                     </div>
                   </Link>
                 </motion.div>
-                
+
                 {/* 产品文档 */}
                 <motion.div initial="hidden" animate="visible" custom={2} variants={MENU_ITEM_VARIANTS}>
-                  <Link 
-                    to="/docs" 
-                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
+                  <Link
+                    to="/docs"
+                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50"
                     onClick={handleNavigation}
                   >
                     <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center mr-3 dark:bg-indigo-900/50">
@@ -793,12 +793,12 @@ const Header: React.FC = () => {
                     </div>
                   </Link>
                 </motion.div>
-                
+
                 {/* 新闻资讯 */}
                 <motion.div initial="hidden" animate="visible" custom={3} variants={MENU_ITEM_VARIANTS}>
-                  <Link 
-                    to="/new" 
-                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
+                  <Link
+                    to="/new"
+                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50"
                     onClick={handleNavigation}
                   >
                     <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3 dark:bg-blue-900/50">
@@ -813,8 +813,8 @@ const Header: React.FC = () => {
 
                 {/* 支持与服务菜单 */}
                 <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={4} variants={MENU_ITEM_VARIANTS}>
-                  <button 
-                    onClick={() => toggleMobileDropdown('agency')} 
+                  <button
+                    onClick={() => toggleMobileDropdown('agency')}
                     className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
                   >
                     <div className="font-medium text-gray-800 flex items-center dark:text-gray-200">
@@ -833,15 +833,15 @@ const Header: React.FC = () => {
                       <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
                     </motion.div>
                   </button>
-                  
+
                   <AnimatePresence>
                     {activeDropdown === 'agency' && (
-                      <motion.div 
+                      <motion.div
                         variants={MOBILE_MENU_VARIANTS}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={{ duration: 0.3, ease: "easeOut" }} 
+                        transition={{ duration: 0.3, ease: "easeOut" }}
                         className="overflow-hidden mt-4"
                       >
                         <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
@@ -860,11 +860,11 @@ const Header: React.FC = () => {
                     )}
                   </AnimatePresence>
                 </motion.div>
-                
+
                 {/* 产品体验菜单 */}
                 <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={5} variants={MENU_ITEM_VARIANTS}>
-                  <button 
-                    onClick={() => toggleMobileDropdown('experience')} 
+                  <button
+                    onClick={() => toggleMobileDropdown('experience')}
                     className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
                   >
                     <div className="font-medium text-gray-800 flex items-center dark:text-gray-200">
@@ -883,15 +883,15 @@ const Header: React.FC = () => {
                       <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
                     </motion.div>
                   </button>
-                  
+
                   <AnimatePresence>
                     {activeDropdown === 'experience' && (
-                      <motion.div 
+                      <motion.div
                         variants={MOBILE_MENU_VARIANTS}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={{ duration: 0.3, ease: "easeOut" }} 
+                        transition={{ duration: 0.3, ease: "easeOut" }}
                         className="overflow-hidden mt-4"
                       >
                         <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
@@ -910,12 +910,12 @@ const Header: React.FC = () => {
                     )}
                   </AnimatePresence>
                 </motion.div>
-                
+
                 {/* 关于我们 */}
                 <motion.div initial="hidden" animate="visible" custom={6} variants={MENU_ITEM_VARIANTS}>
-                  <Link 
-                    to="/about" 
-                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50" 
+                  <Link
+                    to="/about"
+                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50"
                     onClick={handleNavigation}
                   >
                     <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mr-3 dark:bg-emerald-900/50">
@@ -927,7 +927,7 @@ const Header: React.FC = () => {
                     </div>
                   </Link>
                 </motion.div>
-                
+
                 {/* 登录和注册按钮 */}
                 <motion.div className="pt-6 space-y-3" initial="hidden" animate="visible" custom={7} variants={MENU_ITEM_VARIANTS}>
                   <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 dark:from-blue-950/50 dark:to-indigo-950/50 dark:border-blue-800">
@@ -939,9 +939,9 @@ const Header: React.FC = () => {
                     </div>
                     <div className="space-y-2">
                       <motion.div whileTap={{ scale: 0.98 }}>
-                        <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer">
-                          <Button 
-                            variant="outline" 
+                        <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
+                          <Button
+                            variant="outline"
                             className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900"
                           >
                             <User className="h-4 w-4 mr-2" />
@@ -950,7 +950,7 @@ const Header: React.FC = () => {
                         </a>
                       </motion.div>
                       <motion.div whileTap={{ scale: 0.98 }}>
-                        <a href="https://auth.cnai.art/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
                           <Button className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg shadow-lg shadow-blue-200/50 transition-all duration-200 dark:shadow-blue-900/20">
                             <Sparkles className="h-4 w-4 mr-2" />
                             免费注册
