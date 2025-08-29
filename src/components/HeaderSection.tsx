@@ -593,7 +593,7 @@ const Header: React.FC = () => {
                   <DropdownMenuSeparator className="my-1 dark:bg-gray-700" />
                   <DropdownMenuGroup>
                     <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <a href="https://auth.cnai.art" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      <a href="https://console.cloudcvm.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
                         <User className="mr-2 h-4 w-4" />
                         <span className="dark:text-gray-200">个人中心</span>
                       </a>
