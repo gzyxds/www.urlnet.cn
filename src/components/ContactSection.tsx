@@ -37,7 +37,7 @@ const Contact = () => {
                   {/* 增大二维码尺寸，优化多端适配 */}
                   <div className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gray-50 rounded-lg p-1 xs:p-1.5 sm:p-2 mb-2 xs:mb-3 sm:mb-4 border border-gray-100 group-hover:border-gray-200 transition-colors duration-300 flex-shrink-0">
                     <img
-                      src="/product/wchatpay.png"
+                      src="/images/qrcode.png"
                       alt="微信客服二维码"
                       className="w-full h-full object-contain rounded"
                     />
