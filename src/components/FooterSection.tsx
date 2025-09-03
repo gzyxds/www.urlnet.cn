@@ -113,31 +113,31 @@ const Footer = () => {
             </div>
             <div className="grid grid-cols-3 gap-2">
               <div className="flex flex-col items-center group">
-                <div className="bg-white p-1.5 rounded-lg shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
+                <div className="bg-white p-1.5 shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                   <img
                     src="/images/qrcode.png"
                     alt="扫码加入社群"
-                    className="w-12 h-12 object-cover rounded-md"
+                    className="w-12 h-12 object-cover"
                   />
                 </div>
                 <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">扫码加入社群</p>
               </div>
               <div className="flex flex-col items-center group">
-                <div className="bg-white p-1.5 rounded-lg shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
+                <div className="bg-white p-1.5 shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                   <img
-                    src="/images/qrcode.png"
+                    src="/images/wechat.png"
                     alt="关注微信公众号"
-                    className="w-12 h-12 object-cover rounded-md"
+                    className="w-12 h-12 object-cover"
                   />
                 </div>
                 <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">关注微信公众号</p>
               </div>
               <div className="flex flex-col items-center group">
-                <div className="bg-white p-1.5 rounded-lg shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
+                <div className="bg-white p-1.5 shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                   <img
                     src="/images/qrcode.png"
                     alt="关注微信小程序"
-                    className="w-12 h-12 object-cover rounded-md"
+                    className="w-12 h-12 object-cover"
                   />
                 </div>
                 <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">关注微信小程序</p>
@@ -255,31 +255,31 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-4">
             <div className="flex flex-col items-center group">
-              <div className="bg-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <div className="bg-white p-1.5 sm:p-2 shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                 <img
                   src="/images/qrcode.png"
                   alt="扫码加入社群"
-                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover rounded-md sm:rounded-lg"
+                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover"
                 />
               </div>
               <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">扫码加入社群</p>
             </div>
             <div className="flex flex-col items-center group">
-              <div className="bg-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <div className="bg-white p-1.5 sm:p-2 shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                 <img
-                  src="/images/qrcode.png"
+                  src="/images/wechat.png"
                   alt="关注微信公众号"
-                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover rounded-md sm:rounded-lg"
+                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover"
                 />
               </div>
               <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">关注微信公众号</p>
             </div>
             <div className="flex flex-col items-center group">
-              <div className="bg-white p-1.5 sm:p-2 rounded-lg sm:rounded-xl shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <div className="bg-white p-1.5 sm:p-2 shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
                 <img
                   src="/images/qrcode.png"
                   alt="关注微信小程序"
-                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover rounded-md sm:rounded-lg"
+                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover"
                 />
               </div>
               <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">关注微信小程序</p>

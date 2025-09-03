@@ -34,7 +34,7 @@ const Products = () => {
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
-      image: "/product/work.svg",
+      image: "/product/ai.svg",
       title: "艺创AI智能聊天绘画系统",
       subtitle: "[PHP源码版]",
       description: "基于前后端分离架构以及Vue3、uni-app、ThinkPHP6.x、PHP8.0技术栈开发...",
@@ -47,7 +47,7 @@ const Products = () => {
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
-      image: "/product/saas.svg",
+      image: "/product/lw.svg",
       title: "Paper-论文创作写作系统",
       subtitle: "[全新升级]",
       description: "你只需要输入论文关键词，AI即可快速为您生成论文大纲...",
@@ -65,15 +65,15 @@ const Products = () => {
       subtitle: "[Python源码版]",
       description: "基于Java开发的企业级AI知识库系统，高性能、高并发，支持大规模部署...",
       features: ["Java架构", "高并发", "企业级", "多端支持"],
-      price: 0,
-      originalPrice: 0,
+      price: 6600,
+      originalPrice: 9800,
       link: "/demo",
       rating: 4.9,
       sales: 165,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
-      image: "/product/ai.svg",
+      image: "/product/saas.svg",
       title: "艺创AI数字分身2.0-Pro版",
       subtitle: "[PHP源码版]",
       description: "基于Java开发的AI聊天绘画系统，高性能架构，支持多种绘画模型和聊天场景...",
