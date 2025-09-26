@@ -666,7 +666,7 @@ const Carousel = memo(function Carousel({
                 <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-0">
                   {currentSlide.primaryButtonText && (
                     <a
-                      href={currentSlide.primaryButtonHref || '#'}
+                      href={currentSlide.primaryButtonHref ? (currentSlide.primaryButtonHref.startsWith('http') ? currentSlide.primaryButtonHref : `/${currentSlide.primaryButtonHref.replace(/^\//, '')}`) : '#'}
                       className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
                     >
                       <span className="text-xs sm:text-sm lg:text-base">{currentSlide.primaryButtonText}</span>
@@ -674,7 +674,7 @@ const Carousel = memo(function Carousel({
                   )}
                   {currentSlide.secondaryButtonText && (
                     <a
-                      href={currentSlide.secondaryButtonHref || '#'}
+                      href={currentSlide.secondaryButtonHref ? (currentSlide.secondaryButtonHref.startsWith('http') ? currentSlide.secondaryButtonHref : `/${currentSlide.secondaryButtonHref.replace(/^\//, '')}`) : '#'}
                       className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-white text-gray-600 font-medium hover:bg-gray-50 transition-colors duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
                     >
                       <span className="text-xs sm:text-sm lg:text-base">{currentSlide.secondaryButtonText}</span>
