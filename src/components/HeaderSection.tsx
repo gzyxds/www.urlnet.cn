@@ -237,6 +237,8 @@ const Header: React.FC = () => {
     };
   }, []);
 
+
+
   // 渲染特殊菜单项名称（带动画点）
   const renderMenuItemName = (itemName: string) => {
     if (itemName === "产品体验") {
@@ -420,7 +422,7 @@ const Header: React.FC = () => {
                             stiffness: 300,
                             damping: 30
                           }}
-                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[520px] p-5 rounded-xl border border-gray-100 shadow-xl bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 z-50"
+                          className="absolute top-full left-0 mt-3 w-[520px] max-w-[90vw] p-5 rounded-md border border-[#eeeeee] shadow-[0_3px_6px_-4px_rgba(0,0,0,0.12),_0_6px_16px_0_rgba(0,0,0,0.08),_0_9px_28px_8px_rgba(0,0,0,0.05)] bg-white dark:bg-gray-800 dark:border-gray-700 z-50 before:content-[''] before:absolute before:-top-2 before:left-[20%] before:w-4 before:h-4 before:bg-white before:border-l before:border-t before:border-[#eeeeee] before:rotate-45 dark:before:bg-gray-800 dark:before:border-gray-700"
                           onMouseEnter={handleDropdownMouseEnter}
                           onMouseLeave={handleDropdownMouseLeave}
                         >

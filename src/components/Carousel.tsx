@@ -658,7 +658,7 @@ const Carousel = memo(function Carousel({
                   </h2>
                 )}
 
-                <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-black font-semibold leading-relaxed max-w-2xl mb-7 sm:mb-8 md:mb-10">
+                <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-black font-light leading-relaxed max-w-2xl mb-7 sm:mb-8 md:mb-10">
                   {currentSlide.description}
                 </p>
 
