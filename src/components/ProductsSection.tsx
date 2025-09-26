@@ -154,7 +154,7 @@ const Products = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-blue-200"
+              className="group overflow-hidden transition-all duration-500 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8]"
             >
               {/* 产品图片区域 */}
               <div className="relative bg-gradient-to-br from-blue-50 to-gray-50 p-6">

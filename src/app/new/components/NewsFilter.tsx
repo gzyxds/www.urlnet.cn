@@ -85,7 +85,7 @@ const NewsFilter: React.FC<NewsFilterProps> = ({
               >
                 全部
               </button>
-              
+
               {/* 分类按钮 */}
               {Object.entries(NewsCategoryLabels).map(([cat, label]) => (
                 <button
@@ -116,7 +116,7 @@ const NewsFilter: React.FC<NewsFilterProps> = ({
             >
               全部
             </button>
-            
+
             {/* 分类按钮 */}
             {Object.entries(NewsCategoryLabels).map(([cat, label]) => (
               <button
@@ -140,16 +140,16 @@ const NewsFilter: React.FC<NewsFilterProps> = ({
             <button
               onClick={() => setSortDropdownOpen(!sortDropdownOpen)}
               className={`flex items-center justify-between w-full lg:w-auto space-x-2 px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 border border-gray-200 lg:border-0 ${
-                sortDropdownOpen 
-                  ? 'bg-blue-50 text-blue-700 border-blue-200 shadow-md' 
+                sortDropdownOpen
+                  ? 'bg-blue-50 text-blue-700 border-blue-200 shadow-md'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50 hover:border-gray-300'
               }`}
             >
               <span>{getCurrentSortLabel()}</span>
-              <svg 
-                className={`w-4 h-4 transition-transform duration-200 flex-shrink-0 ${sortDropdownOpen ? 'rotate-180' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 flex-shrink-0 ${sortDropdownOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

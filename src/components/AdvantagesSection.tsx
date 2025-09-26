@@ -69,9 +69,9 @@ const Advantages = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 bg-white group rounded-none">
+              <Card className="h-full overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8] group">
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 rounded-none">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 rounded-lg">
                     {advantage.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-gray-900 leading-tight">{advantage.title}</h3>
@@ -84,7 +84,7 @@ const Advantages = () => {
 
         {/* Why Choose Us Section */}
         <motion.div
-          className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 shadow-sm p-12 rounded-none"
+          className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8] p-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -116,7 +116,7 @@ const Advantages = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-6 h-6 bg-[#015bfe] flex items-center justify-center flex-shrink-0 mt-0.5 rounded-none">
+                    <div className="w-6 h-6 bg-[#015bfe] flex items-center justify-center flex-shrink-0 mt-0.5 rounded-full">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"

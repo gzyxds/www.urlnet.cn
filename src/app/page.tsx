@@ -1,4 +1,5 @@
 import Hero from '@/components/HeroSection';
+import Carousel from '@/components/Carousel';
 import HotProducts from '@/components/HotProducts';
 import About from '@/components/AboutComponent';
 import Products from '@/components/ProductsSection';
@@ -26,7 +27,8 @@ const Home = () => {
   return (
     <>
       <BackToTop />
-      <Hero />
+      <Carousel />
+
       <HotProducts />
       <About />
       <Products />

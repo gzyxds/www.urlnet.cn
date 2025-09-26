@@ -116,8 +116,7 @@ const About = () => {
             data-monitor-click-id="about-image-card"
           >
             <div
-              className="bg-white p-3 sm:p-4 md:p-6 lg:p-8 transition-all duration-300 rounded-lg"
-              style={{ border: `1px solid ${STYLES.borderColor}` }}
+              className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8] p-3 sm:p-4 md:p-6 lg:p-8"
             >
               {/* 主图片容器 */}
               <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-lg">
@@ -173,8 +172,7 @@ const About = () => {
             data-monitor-click-id="about-intro-card"
           >
             <div
-              className="bg-white p-3 sm:p-4 md:p-6 lg:p-8 h-full transition-all duration-300 rounded-lg flex flex-col"
-              style={{ border: `1px solid ${STYLES.borderColor}` }}
+              className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8] p-3 sm:p-4 md:p-6 lg:p-8 h-full flex flex-col"
             >
               {/* 企业简介内容区域 */}
               <div className="flex-1">
@@ -201,8 +199,7 @@ const About = () => {
 
               {/* 核心数据展示区域 */}
               <div
-                className="border-t pt-3 sm:pt-4 md:pt-6 mt-4 sm:mt-6 md:mt-8"
-                style={{ borderColor: STYLES.borderColor }}
+                className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8] p-3 sm:p-4 md:p-6 text-center mt-4 sm:mt-6 md:mt-8"
               >
                 <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
                   {STATS_DATA.map((stat, index) => (
@@ -256,7 +253,7 @@ const About = () => {
                 data-monitor-click-id={`advantage-card-${index}`}
               >
                 {/* 简约优势卡片 */}
-                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-md h-full flex flex-col">
+<div className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8] p-4 sm:p-6 text-center h-full flex flex-col">
                   {/* 简洁标题 */}
                   <h4 className="text-base sm:text-lg font-medium text-gray-900 mb-3 sm:mb-4 break-words">
                     {advantage.title}
