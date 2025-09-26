@@ -52,10 +52,10 @@ const defaultSlides: CarouselSlide[] = [
     description: 'AI企业解决方案·引领企业实现数字化、智能化转型技术过硬、私有部署、个性化定制、稳定使用',
     imagePath: '/images/scenarios/carousel5.webp',
     imageAlt: '技术过硬、私有部署、个性化定制、稳定使用',
-    primaryButtonText: '立即领取',
-    primaryButtonHref: '#',
+    primaryButtonText: '查看详情',
+    primaryButtonHref: '/demo',
     secondaryButtonText: '联系客服',
-    secondaryButtonHref: '#'
+    secondaryButtonHref: '/demo'
   },
   {
     id: 2,
@@ -65,10 +65,10 @@ const defaultSlides: CarouselSlide[] = [
     description: '基于先进的AI技术，提供高度拟真的数字人解决方案，赋能企业知识管理与数字化转型， 让智能服务触手可及',
     imagePath: '/images/scenarios/carousel2.webp',
     imageAlt: '抢先布局先入为主',
-    primaryButtonText: '立即咨询',
-    primaryButtonHref: '#',
+    primaryButtonText: '查看演示',
+    primaryButtonHref: '/demo',
     secondaryButtonText: '联系客服',
-    secondaryButtonHref: '#'
+    secondaryButtonHref: '/demo'
   },
   {
     id: 3,
@@ -78,10 +78,10 @@ const defaultSlides: CarouselSlide[] = [
     description: '专为企业主、个人博主打造短视频IP的数字人源码系统，支持真人声音+形象克隆，一键合成知识付费、课程、带货、形象宣传、行业干货等口播视频。基于SaaS多开模式的架构设计，支持无限OEM贴牌开通站点',
     imagePath: '/images/scenarios/carousel3.webp',
     imageAlt: '聚合支付平台',
-    primaryButtonText: '立即咨询',
-    primaryButtonHref: '#',
+    primaryButtonText: '查看演示',
+    primaryButtonHref: '/demo',
     secondaryButtonText: '联系客服',
-    secondaryButtonHref: '#'
+    secondaryButtonHref: '/demo'
   },
    {
     id: 4,
@@ -91,10 +91,10 @@ const defaultSlides: CarouselSlide[] = [
     description: '专为企业主、个人博主打造短视频IP的数字人源码系统，支持真人声音+形象克隆，一键合成知识付费、课程、带货、形象宣传、行业干货等口播视频。基于SaaS多开模式的架构设计，支持无限OEM贴牌开通站点',
     imagePath: '/images/scenarios/carousel3.webp',
     imageAlt: '聚合支付平台',
-    primaryButtonText: '立即咨询',
-    primaryButtonHref: '#',
+    primaryButtonText: '查看演示',
+    primaryButtonHref: '/demo',
     secondaryButtonText: '联系客服',
-    secondaryButtonHref: '#'
+    secondaryButtonHref: '/demo'
   },
   {
     id: 5,
@@ -104,10 +104,10 @@ const defaultSlides: CarouselSlide[] = [
     description: '基于先进的AI技术，提供智能化论文写作解决方案，助力学术研究与知识创新',
     imagePath: '/images/scenarios/carousel4.webp',
     imageAlt: '支持自主进件',
-    primaryButtonText: '立即领取',
-    primaryButtonHref: '#',
+    primaryButtonText: '查看演示',
+    primaryButtonHref: '/demo',
     secondaryButtonText: '联系客服',
-    secondaryButtonHref: '#'
+    secondaryButtonHref: '/demo'
   }
 ]
 
@@ -664,12 +664,22 @@ const Carousel = memo(function Carousel({
 
                 {/* 操作按钮组 */}
                 <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-0">
-                  <button className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5">
-                    <span className="text-xs sm:text-sm lg:text-base">查看演示</span>
-                  </button>
-                  <button className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-white text-gray-600 font-medium hover:bg-gray-50 transition-colors duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5">
-                    <span className="text-xs sm:text-sm lg:text-base">联系客服</span>
-                  </button>
+                  {currentSlide.primaryButtonText && (
+                    <a
+                      href={currentSlide.primaryButtonHref || '#'}
+                      className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+                    >
+                      <span className="text-xs sm:text-sm lg:text-base">{currentSlide.primaryButtonText}</span>
+                    </a>
+                  )}
+                  {currentSlide.secondaryButtonText && (
+                    <a
+                      href={currentSlide.secondaryButtonHref || '#'}
+                      className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-white text-gray-600 font-medium hover:bg-gray-50 transition-colors duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+                    >
+                      <span className="text-xs sm:text-sm lg:text-base">{currentSlide.secondaryButtonText}</span>
+                    </a>
+                  )}
                 </div>
 
                 {/* 移动端导航指示器 */}
