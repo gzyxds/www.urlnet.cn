@@ -733,7 +733,7 @@ const Carousel = memo(function Carousel({
       </div>
 
       {/* 底部悬浮卡片 - 多端适配优化 */}
-    <div className="absolute bottom-0 left-0 right-0 z-50 transform translate-y-1/2">
+    <div className="absolute bottom-0 left-0 right-0 z-20 transform translate-y-1/2">
       {/* PC端：水平排列的4个卡片 */}
       <div className="hidden lg:flex justify-center items-stretch gap-4 px-4 container mx-auto">
         {floatingCards.map((card) => (
