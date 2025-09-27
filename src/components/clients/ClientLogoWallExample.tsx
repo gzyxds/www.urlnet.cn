@@ -84,7 +84,7 @@ const clients = [
   {
     id: "moonshot",
     name: "Moonshot",
-    logo: "https://ark-auto-created-required-2100620678-cn-beijing.tos-cn-beijing.volces.com/model_card/1715090507842ySbtQAb9bz.PNG",
+    logo: "/product/logo.svg",
     website: "#",
     industry: "Moonshot"
   }

@@ -7,7 +7,6 @@ import Contact from '@/components/ContactSection';
 // 定义产品数据类型
 interface Product {
   title: string;
-  subtitle: string;
   description: string;
   features: string[];
   originalPrice: string;
@@ -23,7 +22,6 @@ interface Product {
 const products: Product[] = [
   {
     title: "数字分身PHP版",
-    subtitle: "Digital Human PHP",
     description: "基于PHP开发的数字分身系统，支持声音克隆、形象生成、视频制作等功能，适用于品牌宣传、在线教育、虚拟客服等场景。",
     features: [
       "声音克隆",
@@ -42,7 +40,6 @@ const products: Product[] = [
   },
   {
     title: "企业知识库PHP版",
-    subtitle: "Knowledge Base PHP",
     description: "基于PHP开发的企业知识库系统，支持文档智能解析、语义搜索、知识图谱构建等功能，帮助企业构建智能化的知识管理体系。",
     features: [
       "文档解析",
@@ -61,7 +58,6 @@ const products: Product[] = [
   },
   {
     title: "聊天绘画PHP版",
-    subtitle: "Chat & Draw PHP",
     description: "基于PHP开发的AI聊天绘画系统，支持多种艺术风格、批量生成、智能编辑等功能，为设计师和创作者提供强大的AI辅助工具。",
     features: [
       "多种风格",
@@ -80,7 +76,6 @@ const products: Product[] = [
   },
   {
     title: "论文创作PHP版",
-    subtitle: "Paper Writing PHP",
     description: "基于PHP开发的论文创作系统，支持文章生成、内容优化、多语言翻译等功能，为学术研究提供高效的写作解决方案。",
     features: [
       "文章生成",
@@ -99,7 +94,6 @@ const products: Product[] = [
   },
   {
     title: "知识库Python版",
-    subtitle: "Knowledge Base Python",
     description: "基于Python开发的知识库系统，支持深度学习、自然语言处理、知识图谱等技术，提供智能化的知识管理解决方案。",
     features: [
       "深度学习",
@@ -118,7 +112,6 @@ const products: Product[] = [
   },
   {
     title: "数字分身2.0-pro",
-    subtitle: "Digital Human Java",
     description: "基于Java开发的数字分身系统，采用微服务架构，支持高并发、分布式部署，提供企业级的数字人解决方案。",
     features: [
       "微服务架构",
@@ -137,7 +130,6 @@ const products: Product[] = [
   },
   {
     title: "企业知识库JAVA版",
-    subtitle: "Knowledge Base Java",
     description: "基于Java开发的企业知识库系统，采用Spring Cloud框架，支持大规模数据处理和企业级应用部署。",
     features: [
       "Spring Cloud",
@@ -156,7 +148,6 @@ const products: Product[] = [
   },
   {
     title: "聊天绘画JAVA版",
-    subtitle: "Chat & Draw Java",
     description: "基于Java开发的聊天绘画系统，采用分布式架构，支持大规模并发访问和海量图片处理能力。",
     features: [
       "分布式计算",
@@ -175,7 +166,6 @@ const products: Product[] = [
   },
     {
     title: "艺创开源Agent系统",
-    subtitle: "Modern Full-Stack Framework",
     description: "基于NestJS和Nuxt3构建的现代全栈框架，支持插件化开发和AI原生集成，为企业级应用提供灵活可扩展的技术架构。",
     features: [
       "NestJS + PostgreSQL后端",
@@ -194,7 +184,6 @@ const products: Product[] = [
   },
   {
     title: "论文创作JAVA版",
-    subtitle: "Paper Writing Java",
     description: "基于Java开发的论文创作系统，采用微服务架构，支持多用户协同写作和大规模内容处理。",
     features: [
       "协同写作",
@@ -284,28 +273,26 @@ const ProductShowcase = () => {
               className="group"
               variants={cardVariants}
             >
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-blue-300 transition-all duration-300 h-full flex flex-col">
+              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 {/* 产品头部 */}
                 <div className="relative p-4 sm:p-6 border-b border-gray-100">
-                  {/* 图标和徽章 */}
+                  {/* 图标、标题和徽章 */}
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 ${product.iconColor} rounded-lg text-white`}>
-                      {product.icon}
+                    <div className="flex items-center">
+                      <div className={`flex items-center justify-center w-8 h-8 ${product.iconColor} rounded-lg text-white mr-2`}>
+                        {React.cloneElement(product.icon as React.ReactElement, { className: "h-4 w-4" })}
+                      </div>
+                      {/* 标题 */}
+                      <h3 className="text-base sm:text-lg font-bold text-black leading-tight">
+                        {product.title}
+                      </h3>
                     </div>
                     <span className="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-1 rounded-full">
                       {product.badge}
                     </span>
                   </div>
 
-                  {/* 标题 */}
-                  <h3 className="text-base sm:text-lg font-bold text-black mb-2 leading-tight">
-                    {product.title}
-                  </h3>
 
-                  {/* 副标题 */}
-                  <p className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">
-                    {product.subtitle}
-                  </p>
 
                   {/* 描述 */}
                   <p className="text-gray-600 leading-relaxed text-xs sm:text-sm">
@@ -315,13 +302,13 @@ const ProductShowcase = () => {
 
                 {/* 特性列表 */}
                 <div className="p-4 sm:p-6 flex-1">
-                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                     {product.features.map((feature) => (
-                      <div key={feature} className="flex items-center gap-2 sm:gap-3">
-                        <div className="flex-shrink-0 w-3 h-3 sm:w-4 sm:h-4 bg-blue-100 rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="h-2 w-2 sm:h-2.5 sm:w-2.5 text-blue-600" />
+                      <div key={feature} className="flex items-center gap-1 bg-blue-50 px-2 py-1 rounded-md">
+                        <div className="flex-shrink-0 w-3 h-3 bg-blue-100 rounded-full flex items-center justify-center">
+                          <CheckCircle2 className="h-2 w-2 text-blue-600" />
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-gray-700">{feature}</span>
+                        <span className="text-xs font-medium text-gray-700">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -347,20 +334,20 @@ const ProductShowcase = () => {
                       </div>
                     </div>
 
-                    {/* 操作按钮 */}
-                    <div className="flex flex-col gap-2">
+                    {/* 操作按钮 - 并排显示 */}
+                    <div className="flex gap-2">
                       <Button
                         size="sm"
-                        className="w-full bg-white hover:bg-gray-50 text-gray-900 font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm border border-gray-200"
+                        className="flex-1 bg-white hover:bg-gray-50 text-gray-900 font-medium rounded-lg h-9 transition-all duration-200 text-xs border border-gray-200"
                         onClick={handleShowQRCode}
                       >
                         联系客服
-                        <ArrowRight className="ml-2 h-3 w-3" />
+                        <ArrowRight className="ml-1 h-3 w-3" />
                       </Button>
 
                       <Button
                         size="sm"
-                        className="w-full border border-[#1d4ed8] bg-transparent hover:bg-[rgba(29,78,216,0.1)] text-[#1d4ed8] font-medium rounded-lg h-9 sm:h-10 transition-all duration-200 text-xs sm:text-sm"
+                        className="flex-1 border border-[#1d4ed8] bg-transparent hover:bg-[rgba(29,78,216,0.1)] text-[#1d4ed8] font-medium rounded-lg h-9 transition-all duration-200 text-xs"
                         onClick={() => window.open(product.sourceCodeLink, '_blank', 'noopener,noreferrer')}
                       >
                         免费试用

@@ -422,61 +422,99 @@ const Header: React.FC = () => {
                             stiffness: 300,
                             damping: 30
                           }}
-                          className="absolute top-full left-0 mt-3 w-[520px] max-w-[90vw] p-5 rounded-md border border-[#eeeeee] shadow-[0_3px_6px_-4px_rgba(0,0,0,0.12),_0_6px_16px_0_rgba(0,0,0,0.08),_0_9px_28px_8px_rgba(0,0,0,0.05)] bg-white dark:bg-gray-800 dark:border-gray-700 z-50 before:content-[''] before:absolute before:-top-2 before:left-[20%] before:w-4 before:h-4 before:bg-white before:border-l before:border-t before:border-[#eeeeee] before:rotate-45 dark:before:bg-gray-800 dark:before:border-gray-700"
+                          className="absolute left-0 right-0 mx-auto top-full mt-3 w-[480px] bg-white dark:bg-gray-900 shadow-xl border border-gray-200/60 dark:border-gray-700/60 rounded-lg backdrop-blur-sm z-50"
+                          style={{ marginLeft: '-210px' }} // 使用固定偏移量使下拉菜单居中
                           onMouseEnter={handleDropdownMouseEnter}
                           onMouseLeave={handleDropdownMouseLeave}
                         >
-                          <div className="flex justify-between mb-3">
-                            <div className="px-2">
-                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
-                                {item.name === "产品与服务" ? "行业" :
-                                 item.name === "支持与服务" ? "服务" : "体验"}
-                              </h4>
-                            </div>
-                            <div className="px-2">
-                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">
-                                {item.name === "产品与服务" ? "使用场景" :
-                                 item.name === "支持与服务" ? "支持" : "更多"}
-                              </h4>
+                          {/* 箭头指示器 */}
+                          <div className="absolute -top-2 left-0 right-0 mx-auto" style={{ width: 'fit-content' }}>
+                            <div className="w-4 h-4 bg-white dark:bg-gray-900 border-l border-t border-gray-200/60 dark:border-gray-700/60 transform rotate-45"></div>
+                          </div>
+                          {/* 菜单标题区域 */}
+                          <div className="px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+                            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 tracking-wide">
+                              {item.name}
+                            </h3>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                              {item.name === "产品与服务" ? "探索我们的AI产品解决方案" :
+                               item.name === "支持与服务" ? "获取专业支持和服务" : "在线体验我们的产品"}
+                            </p>
+                          </div>
+                          {/* 菜单项网格 */}
+                          <div className="p-4">
+                            <div className="grid grid-cols-2 gap-2">
+                              {item.items?.map((subItem, subIndex) => (
+                                <motion.div
+                                  key={subIndex}
+                                  initial={{ opacity: 0, y: 5 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: subIndex * 0.05, duration: 0.2 }}
+                                >
+                                  {subItem.external ? (
+                                    <div
+                                      className="enterprise-menu-item group/item cursor-pointer"
+                                      onClick={() => openExternalLink(subItem.url!)}
+                                    >
+                                      <div className="flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-200 border border-transparent hover:border-gray-200 dark:hover:border-gray-700">
+                                        {/* 简约图标区域 */}
+                                        <div className="flex-shrink-0 mt-0.5">
+                                          <div className="w-8 h-8 rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center group-hover/item:bg-blue-50 dark:group-hover/item:bg-blue-900/30 transition-colors duration-200">
+                                            {React.cloneElement(subItem.icon, { className: "w-4 h-4 text-gray-600 dark:text-gray-400 group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors duration-200" })}
+                                          </div>
+                                        </div>
+                                        {/* 文本内容区域 */}
+                                        <div className="flex-1 min-w-0">
+                                          <div className="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors duration-200 leading-tight">
+                                            {subItem.name}
+                                          </div>
+                                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed line-clamp-2">
+                                            {subItem.description}
+                                          </div>
+                                        </div>
+                                        {/* 简约箭头指示器 */}
+                                        <div className="flex-shrink-0 mt-1">
+                                          <ExternalLink className="w-3.5 h-3.5 text-gray-300 dark:text-gray-600 opacity-0 group-hover/item:opacity-100 group-hover/item:text-blue-500 dark:group-hover/item:text-blue-400 transition-all duration-200" />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <Link
+                                      to={subItem.path}
+                                      className="enterprise-menu-item group/item"
+                                      onClick={handleNavigation}
+                                    >
+                                      <div className="flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-200 border border-transparent hover:border-gray-200 dark:hover:border-gray-700">
+                                        {/* 简约图标区域 */}
+                                        <div className="flex-shrink-0 mt-0.5">
+                                          <div className="w-8 h-8 rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center group-hover/item:bg-blue-50 dark:group-hover/item:bg-blue-900/30 transition-colors duration-200">
+                                            {React.cloneElement(subItem.icon, { className: "w-4 h-4 text-gray-600 dark:text-gray-400 group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors duration-200" })}
+                                          </div>
+                                        </div>
+                                        {/* 文本内容区域 */}
+                                        <div className="flex-1 min-w-0">
+                                          <div className="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors duration-200 leading-tight">
+                                            {subItem.name}
+                                          </div>
+                                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed line-clamp-2">
+                                            {subItem.description}
+                                          </div>
+                                        </div>
+                                        {/* 简约箭头指示器 */}
+                                        <div className="flex-shrink-0 mt-1">
+                                          <ChevronDown className="w-3.5 h-3.5 text-gray-300 dark:text-gray-600 opacity-0 group-hover/item:opacity-100 group-hover/item:text-blue-500 dark:group-hover/item:text-blue-400 transition-all duration-200 rotate-[-90deg]" />
+                                        </div>
+                                      </div>
+                                    </Link>
+                                  )}
+                                </motion.div>
+                              ))}
                             </div>
                           </div>
-                          <div className="h-px bg-gray-100 dark:bg-gray-700 mb-3"></div>
-                          <div className="grid grid-cols-2 gap-3">
-                            {item.items?.map((subItem, subIndex) => (
-                              <motion.div
-                                key={subIndex}
-                                initial={{ opacity: 0, y: 5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: subIndex * 0.05, duration: 0.2 }}
-                                className="rounded-lg bg-gray-50 hover:bg-blue-50/70 focus:bg-blue-50/70 py-3 px-3 cursor-pointer dark:bg-gray-800 dark:hover:bg-blue-950/30 dark:focus:bg-blue-950/30 transition-all duration-200"
-                              >
-                                {subItem.external ? (
-                                  <div
-                                    className="w-full flex items-center cursor-pointer"
-                                    onClick={() => openExternalLink(subItem.url!)}
-                                  >
-                                    <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
-                                      {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-                                    </div>
-                                    <div className="flex flex-col">
-                                      <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-                                      <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
-                                    </div>
-                                    <ExternalLink className="h-3 w-3 text-gray-400 ml-auto dark:text-gray-500" />
-                                  </div>
-                                ) : (
-                                  <Link to={subItem.path} className="w-full flex items-center" onClick={handleNavigation}>
-                                    <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-50 flex items-center justify-center mr-3 text-${subItem.color}-500 dark:bg-${subItem.color}-900/30 dark:text-${subItem.color}-400`}>
-                                      {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-                                    </div>
-                                    <div className="flex flex-col">
-                                      <span className="font-medium text-gray-800 dark:text-gray-200">{subItem.name}</span>
-                                      <span className="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{subItem.description}</span>
-                                    </div>
-                                  </Link>
-                                )}
-                              </motion.div>
-                            ))}
+
+                          {/* 底部灰色装饰线 */}
+                          <div className="px-4 pb-3">
+                            <div className="h-px bg-gray-200 dark:bg-gray-700 opacity-60"></div>
                           </div>
                         </motion.div>
                       )}

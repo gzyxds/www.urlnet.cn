@@ -48,7 +48,7 @@ const Products = () => {
     },
     {
       image: "/product/lw.svg",
-      title: "Paper-论文创作写作系统",
+      title: "论文创作写作系统",
       subtitle: "[全新升级]",
       description: "你只需要输入论文关键词，AI即可快速为您生成论文大纲...",
       features: ["期刊论文", "科普文章", "学生作业", "商业报告"],
@@ -74,7 +74,7 @@ const Products = () => {
     },
     {
       image: "/product/saas.svg",
-      title: "艺创AI数字分身2.0-Pro版",
+      title: "艺创AI数字分身2.0",
       subtitle: "[PHP源码版]",
       description: "基于Java开发的AI聊天绘画系统，高性能架构，支持多种绘画模型和聊天场景...",
       features: ["Java架构", "多模型支持", "高性能", "场景定制"],
@@ -157,29 +157,29 @@ const Products = () => {
               className="group overflow-hidden transition-all duration-500 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8]"
             >
               {/* 产品图片区域 */}
-              <div className="relative bg-gradient-to-br from-blue-50 to-gray-50 p-6">
-                <div className="absolute top-4 right-4">
-                  <span className="bg-blue-600 text-white text-xs font-medium px-3 py-1">
+              <div className="relative bg-gradient-to-br from-blue-50 to-gray-50 p-4">
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="bg-blue-600 text-white text-xs font-medium px-2 py-0.5">
                     热销
                   </span>
                 </div>
-                <div className="flex items-center justify-center h-48">
+                <div className="relative w-full pb-[56.25%]">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="max-w-full max-h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-contain"
                   />
                 </div>
               </div>
 
               {/* 产品内容区域 */}
-              <div className="p-6">
+              <div className="p-4">
                 {/* 标题和评分 */}
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
+                <div className="mb-3">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1.5 leading-tight">
                     {product.title}
                   </h3>
-                  <p className="text-sm font-medium bg-blue-50 text-blue-700 px-2 py-1 rounded-md inline-block mb-3 border border-blue-100">
+                  <p className="text-xs font-medium bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md inline-block mb-2 border border-blue-100">
                     {product.subtitle}
                   </p>
                   <div className="flex items-center justify-between">
@@ -188,27 +188,27 @@ const Products = () => {
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
-                            className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                            className={`h-3.5 w-3.5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                           />
                         ))}
                       </div>
-                      <span className="text-sm text-gray-600 ml-2">{product.rating}</span>
+                      <span className="text-xs text-gray-600 ml-1.5">{product.rating}</span>
                     </div>
                     <span className="text-xs text-gray-500">已售 {product.sales}</span>
                   </div>
                 </div>
 
                 {/* 描述 */}
-                <p className="text-gray-600 text-sm mb-6 leading-relaxed line-clamp-3">
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3">
                   {product.description}
                 </p>
 
                 {/* 功能标签 */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-1 mb-3">
                   {product.features.slice(0, 3).map((feature, idx) => (
                     <span
                       key={idx}
-                      className="text-xs bg-gray-100 text-gray-700 px-3 py-1 font-medium"
+                      className="text-xs bg-gray-100 text-gray-700 px-2 py-0.5 font-medium"
                     >
                       {feature}
                     </span>
@@ -222,36 +222,36 @@ const Products = () => {
               </div>
 
               {/* 价格和操作区域 */}
-              <div className="px-6 pb-6">
-                <div className="flex items-center justify-between mb-4">
+              <div className="px-4 pb-4">
+                <div className="flex items-center justify-between mb-2">
                   <div className="flex items-baseline">
-                    <span className="text-2xl font-bold text-blue-600">¥{product.price.toLocaleString()}</span>
-                    <span className="text-sm text-gray-400 line-through ml-3">¥{product.originalPrice.toLocaleString()}</span>
+                    <span className="text-xl font-bold text-blue-600">¥{product.price.toLocaleString()}</span>
+                    <span className="text-xs text-gray-400 line-through ml-2">¥{product.originalPrice.toLocaleString()}</span>
                   </div>
                   <div className="text-xs text-green-600 font-medium">
                     {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
                   </div>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-2">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
+                    className="flex-1 h-8 px-2 text-xs text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
                     onClick={() => window.open(product.buyLink, '_blank')}
                   >
-                    <ShoppingCart className="h-4 w-4 mr-2" />
+                    <ShoppingCart className="h-3.5 w-3.5 mr-1.5" />
                     购买
                   </Button>
 
                   <Button
                     variant="default"
                     size="sm"
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 transition-colors"
+                    className="flex-1 h-8 px-2 text-xs bg-blue-600 hover:bg-blue-700 transition-colors"
                     asChild
                   >
                     <Link to={product.link} className="flex items-center justify-center">
-                      <Play className="h-4 w-4 mr-2" />
+                      <Play className="h-3.5 w-3.5 mr-1.5" />
                       演示
                     </Link>
                   </Button>

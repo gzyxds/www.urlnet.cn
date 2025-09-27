@@ -1,370 +1,390 @@
-    --font-size-big-title: 20px;
-    --font-size-big-title-lineheight: 28px;
-    --font-size-big-text: 14px;
-    --font-size-big-text-lineheight: 22px;
-    --font-size-normal-title: 18px;
-    --font-size-normal-title-lineheight: 26px;
-    --font-size-normal-text: 14px;
-    --font-size-normal-text-lineheight: 22px;
-    --color-primary: #1664ff;
-    --color-primary-reverse: #fff;
-    --color-secondary-reverse: #fff;
-    --color-text-primary: #1d2129;
-    --color-text-primary-reverse: hsla(0,0%,100%,.9);
-    --color-text-secondary: #4e5969;
-    --color-text-secondary-reverse: hsla(0,0%,100%,.7);
-    --color-text-tertiary: #86909c;
-    --color-text-tertiary-reverse: hsla(0,0%,100%,.5);
-    --color-text-disabled: #e6e8eb;
-    --color-text-disabled-reverse: hsla(0,0%,100%,.3);
-    --color-text-white: #fff;
-    --color-error: #ff3a3c;
-    --color-dividing: #2f333a;
-    --color-dividing-reverse: #e5e6eb;
-    --color-placeholder: #c2c6cc;
-    --color-background-primary: #fff;
-    --color-background-secondary: #f7f8fa;
-    --color-background-actived: #fdfdfd;
-    --color-background-dark: #1d2129;
-    --color-border-reverse: var(--color-text-disabled-reverse);
-    --appbar-height: 60px;
-    --footer-background: #1d2129;
-    --spacing-1x: 4px;
-    --spacing-2x: 8px;
-    --spacing-4x: 16px;
-    --spacing-6x: 24px;
-    --spacing-8x: 32px;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 600;
-    --breakpoint-md: 960;
-    --breakpoint-lg: 1200;
-    --breakpoint-xl: 1920;
-    --font-size-h1: 56px;
-    --font-size-h2: 36px;
-    --font-size-h3: 32px;
-    --font-size-h4: 24px;
-    --font-size-h5: 20px;
-    --font-size-h6: 18px;
-    --font-size-body1: 16px;
-    --font-size-body2: 14px;
-    --font-size-caption: 12px;
-    --font-lineheight-h1: 64px;
-    --font-lineheight-h2: 44px;
-    --font-lineheight-h3: 40px;
-    --font-lineheight-h4: 32px;
-    --font-lineheight-h5: 28px;
-    --font-lineheight-h6: 26px;
-    --font-lineheight-body1: 24px;
-    --font-lineheight-body2: 22px;
-    --font-lineheight-caption: 20px;
-    --font-family: "PingFangSC-Regular","Helvetica Neue",arial,helvetica,"SF Pro Text","SF Pro Icons","Microsoft YaHei","Microsoft JhengHei","Source Han Sans CN","STHeiti","Hiragino Sans GB",sans-serif;
-    --font-family-100: "PingFangSC-Ultralight","Helvetica Neue",arial,helvetica,"SF Pro Text","SF Pro Icons","Microsoft YaHei","Microsoft JhengHei","Source Han Sans CN","STHeiti","Hiragino Sans GB",sans-serif;
-    --font-family-200: "PingFangSC-Thin","Helvetica Neue",arial,helvetica,"SF Pro Text","SF Pro Icons","Microsoft YaHei","Microsoft JhengHei","Source Han Sans CN","STHeiti","Hiragino Sans GB",sans-serif;
-    --font-family-300: "PingFangSC-Light","Helvetica Neue",arial,helvetica,"SF Pro Text","SF Pro Icons","Microsoft YaHei","Microsoft JhengHei","Source Han Sans CN","STHeiti","Hiragino Sans GB",sans-serif;
-    --font-family-400: "PingFangSC-Regular","Helvetica Neue",arial,helvetica,"SF Pro Text","SF Pro Icons","Microsoft YaHei","Microsoft JhengHei","Source Han Sans CN","STHeiti","Hiragino Sans GB",sans-serif;
-    --font-family-500: "PingFangSC-Medium","Helvetica Neue",arial,helvetica,"SF Pro Text","SF Pro Icons","Microsoft YaHei","Microsoft JhengHei","Source Han Sans CN","STHeiti","Hiragino Sans GB",sans-serif;
-    --font-family-900: "PingFangSC-Semibold","Helvetica Neue",arial,helvetica,"SF Pro Text","SF Pro Icons","Microsoft YaHei","Microsoft JhengHei","Source Han Sans CN","STHeiti","Hiragino Sans GB",sans-serif;
-    --font-family-DINAlternate: "DINAlternate-Bold","Helvetica Neue",arial,helvetica,"SF Pro Text","SF Pro Icons","PingFangSC-Regular","Microsoft YaHei","Microsoft JhengHei","Source Han Sans CN","STHeiti","Hiragino Sans GB",sans-serif;
-    --shadow-0: none;
-    --shadow-1: 0 2px 10px 0 rgba(0,0,0,.04);
-    --shadow-2: 0 2px 10px 0 rgba(0,0,0,.04);
-    --shadow-3: 0 2px 10px 0 rgba(0,0,0,.04);
-    --shadow-4: 0 2px 10px 0 rgba(0,0,0,.04);
-    --shadow-5: 0 2px 10px 0 rgba(0,0,0,.04);
-    --shadow-appbar: 0 2px 10px 0 rgba(0,0,0,.04);
-    --shadow-dropbox: 0 -1px 4px rgba(21,40,76,.06),0 20px 20px -16px rgba(21,40,76,.2),0 50px 100px -40px rgba(50,50,76,.14);
-    --appbar-z-index: 1100;
-    --primary-color: var(--color-primary);
-    --primary-color-hover: #4086ff;
-    --primary-color-focus: #ccdbff;
-    --success-color: #0fbf60;
-    --success-color-hover: #14ed78;
-    --info-color: var(--color-primary);
-    --info-color-hover: #6694ff;
-    --warning-color: #ff8b07;
-    --warning-color-hover: #ffa33a;
-    --danger-color: #ee4d38;
-    --danger-color-hover: #f27767;
-    --danger-color-focus: #facbc5;
-    --disabled-color: #f5f6f7;
-    --font-color: #1d2129;
-    --border-radius: 0;
-    --red-1: 255,236,232;
-    --red-2: 253,205,197;
-    --red-3: 251,172,163;
-    --red-4: 249,137,129;
-    --red-5: 247,101,96;
-    --red-6: 245,63,63;
-    --red-7: 203,39,45;
-    --red-8: 161,21,30;
-    --red-9: 119,8,19;
-    --red-10: 77,0,10;
-    --orangered-1: 255,243,232;
-    --orangered-2: 253,221,195;
-    --orangered-3: 252,197,159;
-    --orangered-4: 250,172,123;
-    --orangered-5: 249,144,87;
-    --orangered-6: 247,114,52;
-    --orangered-7: 204,81,32;
-    --orangered-8: 162,53,17;
-    --orangered-9: 119,31,6;
-    --orangered-10: 77,14,0;
-    --orange-1: 255,247,232;
-    --orange-2: 255,228,186;
-    --orange-3: 255,207,139;
-    --orange-4: 255,182,93;
-    --orange-5: 255,154,46;
-    --orange-6: 255,125,0;
-    --orange-7: 210,95,0;
-    --orange-8: 166,69,0;
-    --orange-9: 121,46,0;
-    --orange-10: 77,27,0;
-    --gold-1: 255,252,232;
-    --gold-2: 253,244,191;
-    --gold-3: 252,233,150;
-    --gold-4: 250,220,109;
-    --gold-5: 249,204,69;
-    --gold-6: 247,186,30;
-    --gold-7: 204,146,19;
-    --gold-8: 162,109,10;
-    --gold-9: 119,75,4;
-    --gold-10: 77,45,0;
-    --yellow-1: 254,255,232;
-    --yellow-2: 254,254,190;
-    --yellow-3: 253,250,148;
-    --yellow-4: 252,242,107;
-    --yellow-5: 251,232,66;
-    --yellow-6: 250,220,25;
-    --yellow-7: 207,175,15;
-    --yellow-8: 163,132,8;
-    --yellow-9: 120,93,3;
-    --yellow-10: 77,56,0;
-    --lime-1: 252,255,232;
-    --lime-2: 237,248,187;
-    --lime-3: 220,241,144;
-    --lime-4: 201,233,104;
-    --lime-5: 181,226,65;
-    --lime-6: 159,219,29;
-    --lime-7: 126,183,18;
-    --lime-8: 95,148,10;
-    --lime-9: 67,112,4;
-    --lime-10: 42,77,0;
-    --green-1: 232,255,234;
-    --green-2: 175,240,181;
-    --green-3: 123,225,136;
-    --green-4: 76,210,99;
-    --green-5: 35,195,67;
-    --green-6: 0,180,42;
-    --green-7: 0,154,41;
-    --green-8: 0,128,38;
-    --green-9: 0,102,34;
-    --green-10: 0,77,28;
-    --cyan-1: 232,255,251;
-    --cyan-2: 183,244,236;
-    --cyan-3: 137,233,224;
-    --cyan-4: 94,223,214;
-    --cyan-5: 55,212,207;
-    --cyan-6: 20,201,201;
-    --cyan-7: 13,165,170;
-    --cyan-8: 7,130,139;
-    --cyan-9: 3,97,108;
-    --cyan-10: 0,66,77;
-    --blue-1: 232,247,255;
-    --blue-2: 195,231,254;
-    --blue-3: 159,212,253;
-    --blue-4: 123,192,252;
-    --blue-5: 87,169,251;
-    --blue-6: 52,145,250;
-    --blue-7: 32,108,207;
-    --blue-8: 17,75,163;
-    --blue-9: 6,48,120;
-    --blue-10: 0,26,77;
-    --arcoblue-1: 232,243,255;
-    --arcoblue-2: 190,218,255;
-    --arcoblue-3: 148,191,255;
-    --arcoblue-4: 106,161,255;
-    --arcoblue-5: 64,128,255;
-    --arcoblue-6: 22,93,255;
-    --arcoblue-7: 14,66,210;
-    --arcoblue-8: 7,44,166;
-    --arcoblue-9: 3,26,121;
-    --arcoblue-10: 0,13,77;
-    --purple-1: 245,232,255;
-    --purple-2: 221,190,246;
-    --purple-3: 195,150,237;
-    --purple-4: 168,113,227;
-    --purple-5: 141,78,218;
-    --purple-6: 114,46,209;
-    --purple-7: 85,29,176;
-    --purple-8: 60,16,143;
-    --purple-9: 39,6,110;
-    --purple-10: 22,0,77;
-    --pinkpurple-1: 255,232,251;
-    --pinkpurple-2: 247,186,239;
-    --pinkpurple-3: 240,142,230;
-    --pinkpurple-4: 232,101,223;
-    --pinkpurple-5: 225,62,219;
-    --pinkpurple-6: 217,26,217;
-    --pinkpurple-7: 176,16,182;
-    --pinkpurple-8: 138,9,147;
-    --pinkpurple-9: 101,3,112;
-    --pinkpurple-10: 66,0,77;
-    --magenta-1: 255,232,241;
-    --magenta-2: 253,194,219;
-    --magenta-3: 251,157,199;
-    --magenta-4: 249,121,183;
-    --magenta-5: 247,84,168;
-    --magenta-6: 245,49,157;
-    --magenta-7: 203,30,131;
-    --magenta-8: 161,16,105;
-    --magenta-9: 119,6,79;
-    --magenta-10: 77,0,52;
-    --gray-1: 247,248,250;
-    --gray-2: 242,243,245;
-    --gray-3: 229,230,235;
-    --gray-4: 201,205,212;
-    --gray-5: 169,174,184;
-    --gray-6: 134,144,156;
-    --gray-7: 107,119,133;
-    --gray-8: 78,89,105;
-    --gray-9: 39,46,59;
-    --gray-10: 29,33,41;
-    --success-1: var(--green-1);
-    --success-2: var(--green-2);
-    --success-3: var(--green-3);
-    --success-4: var(--green-4);
-    --success-5: var(--green-5);
-    --success-6: var(--green-6);
-    --success-7: var(--green-7);
-    --success-8: var(--green-8);
-    --success-9: var(--green-9);
-    --success-10: var(--green-10);
-    --primary-1: var(--arcoblue-1);
-    --primary-2: var(--arcoblue-2);
-    --primary-3: var(--arcoblue-3);
-    --primary-4: var(--arcoblue-4);
-    --primary-5: var(--arcoblue-5);
-    --primary-6: var(--arcoblue-6);
-    --primary-7: var(--arcoblue-7);
-    --primary-8: var(--arcoblue-8);
-    --primary-9: var(--arcoblue-9);
-    --primary-10: var(--arcoblue-10);
-    --danger-1: var(--red-1);
-    --danger-2: var(--red-2);
-    --danger-3: var(--red-3);
-    --danger-4: var(--red-4);
-    --danger-5: var(--red-5);
-    --danger-6: var(--red-6);
-    --danger-7: var(--red-7);
-    --danger-8: var(--red-8);
-    --danger-9: var(--red-9);
-    --danger-10: var(--red-10);
-    --warning-1: var(--orange-1);
-    --warning-2: var(--orange-2);
-    --warning-3: var(--orange-3);
-    --warning-4: var(--orange-4);
-    --warning-5: var(--orange-5);
-    --warning-6: var(--orange-6);
-    --warning-7: var(--orange-7);
-    --warning-8: var(--orange-8);
-    --warning-9: var(--orange-9);
-    --warning-10: var(--orange-10);
-    --link-1: var(--arcoblue-1);
-    --link-2: var(--arcoblue-2);
-    --link-3: var(--arcoblue-3);
-    --link-4: var(--arcoblue-4);
-    --link-5: var(--arcoblue-5);
-    --link-6: var(--arcoblue-6);
-    --link-7: var(--arcoblue-7);
-    --link-8: var(--arcoblue-8);
-    --link-9: var(--arcoblue-9);
-    --link-10: var(--arcoblue-10);
-    --color-white: #fff;
-    --color-black: #000;
-    --color-border: rgb(var(--gray-3));
-    --color-bg-popup: var(--color-bg-5);
-    --color-bg-1: #fff;
-    --color-bg-2: #fff;
-    --color-bg-3: #fff;
-    --color-bg-4: #fff;
-    --color-bg-5: #fff;
-    --color-bg-white: #fff;
-    --color-neutral-1: rgb(var(--gray-1));
-    --color-neutral-2: rgb(var(--gray-2));
-    --color-neutral-3: rgb(var(--gray-3));
-    --color-neutral-4: rgb(var(--gray-4));
-    --color-neutral-5: rgb(var(--gray-5));
-    --color-neutral-6: rgb(var(--gray-6));
-    --color-neutral-7: rgb(var(--gray-7));
-    --color-neutral-8: rgb(var(--gray-8));
-    --color-neutral-9: rgb(var(--gray-9));
-    --color-neutral-10: rgb(var(--gray-10));
-    --color-text-1: var(--color-neutral-10);
-    --color-text-2: var(--color-neutral-8);
-    --color-text-3: var(--color-neutral-6);
-    --color-text-4: var(--color-neutral-4);
-    --color-border-1: var(--color-neutral-2);
-    --color-border-2: var(--color-neutral-3);
-    --color-border-3: var(--color-neutral-4);
-    --color-border-4: var(--color-neutral-6);
-    --color-fill-1: var(--color-neutral-1);
-    --color-fill-2: var(--color-neutral-2);
-    --color-fill-3: var(--color-neutral-3);
-    --color-fill-4: var(--color-neutral-4);
-    --color-primary-light-1: rgb(var(--primary-1));
-    --color-primary-light-2: rgb(var(--primary-2));
-    --color-primary-light-3: rgb(var(--primary-3));
-    --color-primary-light-4: rgb(var(--primary-4));
-    --color-secondary: var(--color-neutral-2);
-    --color-secondary-hover: var(--color-neutral-3);
-    --color-secondary-active: var(--color-neutral-4);
-    --color-secondary-disabled: var(--color-neutral-1);
-    --color-danger-light-1: rgb(var(--danger-1));
-    --color-danger-light-2: rgb(var(--danger-2));
-    --color-danger-light-3: rgb(var(--danger-3));
-    --color-danger-light-4: rgb(var(--danger-4));
-    --color-success-light-1: rgb(var(--success-1));
-    --color-success-light-2: rgb(var(--success-2));
-    --color-success-light-3: rgb(var(--success-3));
-    --color-success-light-4: rgb(var(--success-4));
-    --color-warning-light-1: rgb(var(--warning-1));
-    --color-warning-light-2: rgb(var(--warning-2));
-    --color-warning-light-3: rgb(var(--warning-3));
-    --color-warning-light-4: rgb(var(--warning-4));
-    --color-link-light-1: rgb(var(--link-1));
-    --color-link-light-2: rgb(var(--link-2));
-    --color-link-light-3: rgb(var(--link-3));
-    --color-link-light-4: rgb(var(--link-4));
-    --border-radius-none: 0;
-    --border-radius-small: 2px;
-    --border-radius-medium: 4px;
-    --border-radius-large: 8px;
-    --border-radius-circle: 50%;
-    --color-tooltip-bg: rgb(var(--gray-10));
-    --color-spin-layer-bg: hsla(0,0%,100%,.6);
-    --color-menu-dark-bg: #232324;
-    --color-menu-light-bg: #fff;
-    --color-menu-dark-hover: hsla(0,0%,100%,.04);
-    --color-mask-bg: rgba(29,33,41,.6);
-    line-height: 1.5;
-    -webkit-text-size-adjust: none;
-    --athena-view-height: 882px;
-    font-family: PingFang SC;
-    font-size: 0;
-    appearance: none;
-    outline: none;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: block;
-    height: 100%;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+---
+/**
+ * Header组件 - 优化版本
+ * 网站的顶部导航栏组件，提供网站的主要导航功能
+ * 优化内容：减少代码冗余，提升性能，简化数据结构
+ */
+
+import astroLogo from '../assets/logo.svg';
+
+/**
+ * 获取logo的URL - 处理Astro的SVG导入类型
+ */
+const logoUrl = typeof astroLogo === 'string' ? astroLogo : astroLogo.src;
+
+/**
+ * 优化的图标定义 - 使用更简洁的路径
+ */
+const icons = {
+  user: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z",
+  brain: "M12 2a3 3 0 0 0-3 3 3 3 0 0 0-3 3v1a3 3 0 0 0 3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0 3-3V8a3 3 0 0 0-3-3 3 3 0 0 0-3-3z",
+  chat: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
+  edit: "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z",
+  target: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4z",
+  monitor: "M2 3h20v14H2zM8 21h8M12 17v4",
+  lightbulb: "M9 21h6M12 17v4M12 3a6 6 0 0 1 6 6c0 3-2 5.5-2 8H8c0-2.5-2-5-2-8a6 6 0 0 1 6-6z",
+  shield: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+  chevron: "M19 9l-7 7-7-7",
+  arrow: "M9 5l7 7-7 7",
+  menu: "M4 6h16M4 12h16M4 18h16",
+  close: "M6 18L18 6M6 6l12 12",
+  sun: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z",
+  moon: "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+};
+
+/**
+ * 优化的菜单项接口 - 移除未使用的color字段
+ */
+interface MenuItem {
+  name: string;
+  url: string;
+  icon: keyof typeof icons;
+  desc: string;
+  target?: string;
+}
+
+/**
+ * 菜单数据 - 合并相似配置，减少重复
+ */
+const menuData = {
+  products: [
+    { name: "数字分身", url: "/human", icon: "user", desc: "智能数字人解决方案" },
+    { name: "全能知识库", url: "/ai", icon: "lightbulb", desc: "企业级全能AI平台" },
+    { name: "聊天绘画", url: "/chat", icon: "chat", desc: "智能对话与创作" },
+    { name: "论文创作", url: "/paper", icon: "edit", desc: "智能论文写作助手" },
+    { name: "产品中心", url: "/shop", icon: "target", desc: "全部产品导航" },
+    { name: "产品演示", url: "/demo", icon: "monitor", desc: "在线体验中心" },
+    { name: "AI提示词", url: "/tips", icon: "lightbulb", desc: "AI提示词大全" },
+    { name: "授权中心", url: "https://console.cloudcvm.com/home.htm", icon: "shield", desc: "授权管理与使用", target: "_blank" },
+  ],
+  docs: [
+    { name: "项目文档", url: "https://doc.artaigc.cn/", icon: "lightbulb", desc: "5分钟快速上手", target: "_blank" },
+    { name: "飞书文档", url: "https://rwm01l8tn3x.feishu.cn/wiki/VqNCwBO0KiqWIWkSfdHcDigGnZg?from=from_copylink", icon: "monitor", desc: "详细功能说明", target: "_blank" },
+    { name: "数字分身", url: "https://doc.artaigc.cn/human/", icon: "user", desc: "数字人部署文档", target: "_blank" },
+    { name: "全能知识库", url: "https://doc.artaigc.cn/work/deployment/demo.html", icon: "brain", desc: "企业知识库数文档", target: "_blank" },
+    { name: "聊天绘画", url: "https://doc.artaigc.cn/chat/", icon: "chat", desc: "聊天绘画企业知识库数文档", target: "_blank" },
+    { name: "论文创作", url: "https://doc.artaigc.cn/Paper/deployment/bt.html", icon: "edit", desc: "论文创作文档", target: "_blank" },
+  ],
+  support: [
+    { name: "更新日志", url: "/changelog", icon: "shield", desc: "获取最新更新" },
+    { name: "联系我们", url: "/contact", icon: "chat", desc: "获取专业支持服务" },
+    { name: "集成与API", url: "/integrations", icon: "monitor", desc: "连接您喜爱的工具" },
+    { name: "合作伙伴", url: "/cooperate", icon: "user", desc: "查看合作机会" },
+    { name: "渠道合作", url: "/channel", icon: "target", desc: "渠道合作与加盟" },
+    { name: "APP下载", url: "/app", icon: "lightbulb", desc: "多终端APP下载" },
+  ]
+} as const;
+
+/**
+ * 优化的图标组件 - 减少DOM节点
+ */
+const Icon = ({ name, className = "w-5 h-5" }: { name: keyof typeof icons; className?: string }) => (
+  `<svg class="${className}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="${icons[name]}"/></svg>`
+);
+---
+
+<!-- 主导航栏 -->
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 dark:bg-gray-900/80 dark:border-gray-700">
+  <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+    <div class="flex items-center h-16">
+      <!-- Logo区域 -->
+      <div class="flex items-center">
+        <a href="/" class="flex items-center space-x-2">
+          <img src={logoUrl} alt="艺创AI" class="h-8 w-8" />
+          <span class="text-xl font-bold text-gray-900 dark:text-white">艺创AI</span>
+        </a>
+      </div>
+
+      <!-- 桌面端导航菜单 -->
+      <nav class="hidden lg:flex items-center space-x-2 xl:space-x-4 2xl:space-x-6 ml-8 xl:ml-12">
+        <a href="/" class="nav-link">首页</a>
+
+        <!-- 企业级简约下拉菜单组件 -->
+        {Object.entries(menuData).map(([key, items]) => {
+          const menuName = key === 'products' ? '产品中心' : key === 'docs' ? '产品文档' : '支持与服务';
+          return (
+            <div class="relative group">
+              <button class="nav-link flex items-center whitespace-nowrap group/btn">
+                <span class="group-hover/btn:text-blue-600 dark:group-hover/btn:text-blue-400 transition-colors duration-200">
+                  {menuName}
+                </span>
+                <svg class="ml-2 h-3.5 w-3.5 transition-all duration-300 group-hover:rotate-180 text-gray-400 group-hover/btn:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={icons.chevron} />
+                </svg>
+              </button>
+
+              <!-- 企业级简约下拉容器 -->
+              <div class="absolute left-1/2 transform -translate-x-1/2 top-full mt-3 w-[480px] bg-white dark:bg-gray-900 shadow-xl border border-gray-200/60 dark:border-gray-700/60 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
+
+                <!-- 箭头指示器 -->
+                <div class="absolute -top-2 left-1/2 transform -translate-x-1/2">
+                  <div class="w-4 h-4 bg-white dark:bg-gray-900 border-l border-t border-gray-200/60 dark:border-gray-700/60 transform rotate-45"></div>
+                </div>
+
+                <!-- 菜单标题区域 -->
+                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-800">
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 tracking-wide">
+                    {menuName}
+                  </h3>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    {key === 'products' ? '探索我们的AI产品解决方案' :
+                     key === 'docs' ? '查看详细的产品文档和指南' :
+                     '获取专业支持和服务'}
+                  </p>
+                </div>
+
+                <!-- 菜单项网格 -->
+                <div class="p-4">
+                  <div class="grid grid-cols-2 gap-2">
+                    {items.map((item) => (
+                      <a href={item.url} target={(item as MenuItem).target || undefined} class="enterprise-menu-item group/item">
+                        <div class="flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-200 border border-transparent hover:border-gray-200 dark:hover:border-gray-700">
+
+                          <!-- 简约图标区域 -->
+                          <div class="flex-shrink-0 mt-0.5">
+                            <div class="w-8 h-8 rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center group-hover/item:bg-blue-50 dark:group-hover/item:bg-blue-900/30 transition-colors duration-200">
+                              <span class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors duration-200" set:html={Icon({ name: item.icon, className: "w-4 h-4" })}></span>
+                            </div>
+                          </div>
+
+                          <!-- 文本内容区域 -->
+                          <div class="flex-1 min-w-0">
+                            <div class="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors duration-200 leading-tight">
+                              {item.name}
+                            </div>
+                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed line-clamp-2">
+                              {item.desc}
+                            </div>
+                          </div>
+
+                          <!-- 简约箭头指示器 -->
+                          <div class="flex-shrink-0 mt-1">
+                            <svg class="w-3.5 h-3.5 text-gray-300 dark:text-gray-600 opacity-0 group-hover/item:opacity-100 group-hover/item:text-blue-500 dark:group-hover/item:text-blue-400 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- 底部灰色装饰线 - 位置向下调整，增加间距 -->
+                <div class="px-4 pb-3">
+                  <div class="h-px bg-gray-200 dark:bg-gray-700 opacity-60"></div>
+                </div>
+               </div>
+            </div>
+          );
+        })}
+
+        <a href="/pricing" class="nav-link">产品价格</a>
+        <a href="/company" class="nav-link">关于我们</a>
+        <a href="/contact" class="nav-link">联系我们</a>
+        <a href="/blog" class="nav-link">最新动态</a>
+      </nav>
+
+      <!-- 右侧操作区域 -->
+      <div class="flex items-center space-x-2 xl:space-x-3 ml-auto">
+        <!-- 暗黑模式切换按钮 -->
+        <button
+          x-on:click="darkMode = !darkMode"
+          class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+          aria-label="切换暗黑模式"
+        >
+          <svg x-show="!darkMode" class="h-5 w-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons.moon} />
+          </svg>
+          <svg x-show="darkMode" class="h-5 w-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons.sun} />
+          </svg>
+        </button>
+
+        <!-- 用户操作按钮 -->
+        <div class="hidden md:flex items-center space-x-2">
+          <a
+            href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-4 xl:px-6 py-2 xl:py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium xl:font-semibold text-sm xl:text-base shadow-lg hover:shadow-xl transition-all"
+          >
+            <span>立即购买</span>
+          </a>
+
+          <a
+            href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-4 xl:px-6 py-2 xl:py-2.5 bg-white dark:bg-gray-800 text-gray-800 dark:text-white font-medium xl:font-semibold text-sm xl:text-base shadow-lg hover:shadow-xl transition-all border border-gray-200 dark:border-gray-600"
+          >
+            <span>登录/注册</span>
+          </a>
+        </div>
+
+        <!-- 移动端菜单按钮 -->
+        <button
+          x-data="{open: false}"
+          x-on:click="open = !open; $dispatch('toggle-mobile-menu', {open})"
+          class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+          aria-label="切换菜单"
+        >
+          <svg x-bind:class="{'hidden': open, 'block': !open}" class="h-6 w-6 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons.menu} />
+          </svg>
+          <svg x-bind:class="{'block': open, 'hidden': !open}" class="h-6 w-6 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons.close} />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 优化的移动端菜单 -->
+  <div
+    x-data="{ open: false }"
+    x-on:toggle-mobile-menu.window="open = $event.detail.open"
+    x-show="open"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 -translate-y-4"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 -translate-y-4"
+    class="lg:hidden fixed inset-x-0 top-16 z-50 w-full overflow-hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800"
+    x-cloak
+  >
+    <nav class="relative max-h-[calc(100vh-4rem)] overflow-y-auto p-4 space-y-4">
+      <div class="space-y-4">
+        <a href="/" class="mobile-nav-item">首页</a>
+
+        <!-- 移动端菜单项 -->
+        {Object.entries(menuData).map(([key, items]) => {
+          const menuName = key === 'products' ? '产品中心' : key === 'docs' ? '产品文档' : '支持与服务';
+          return (
+            <div x-data="{expanded: false}" class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-sm">
+              <button
+                x-on:click="expanded = !expanded"
+                class="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 group"
+              >
+                <span class="font-semibold text-gray-900 dark:text-white" x-bind:class="{'text-blue-600 dark:text-blue-400': expanded}">{menuName}</span>
+                <svg
+                  x-bind:class="{'rotate-180 text-blue-600 dark:text-blue-400': expanded}"
+                  class="h-5 w-5 text-gray-500 dark:text-gray-400 transition-all duration-200 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons.chevron} />
+                </svg>
+              </button>
+
+              <div x-show="expanded" x-collapse x-cloak>
+                <div class="border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-750">
+                  <div class="p-4">
+                    <div class="grid grid-cols-2 gap-3">
+                      {items.map(item => (
+                        <a href={item.url} target={(item as MenuItem).target || undefined} class="group block p-3 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-all duration-200 border border-transparent hover:border-gray-200 dark:hover:border-gray-600 hover:shadow-sm">
+                          <div class="flex flex-col items-center text-center space-y-2">
+                            <div class="w-10 h-10 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex items-center justify-center group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors duration-200">
+                              <span class="w-5 h-5 text-blue-600 dark:text-blue-400" set:html={Icon({ name: item.icon, className: "w-5 h-5" })}></span>
+                            </div>
+                            <div class="space-y-1">
+                              <div class="font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 text-sm leading-tight">{item.name}</div>
+                              <div class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2">{item.desc}</div>
+                            </div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
+        <a href="/pricing" class="mobile-nav-item">产品价格</a>
+        <a href="/company" class="mobile-nav-item">关于我们</a>
+        <a href="/contact" class="mobile-nav-item">联系我们</a>
+        <a href="/blog" class="mobile-nav-item">最新动态</a>
+      </div>
+
+      <!-- 移动端用户操作 -->
+      <div class="pt-6">
+        <div class="flex space-x-3">
+          <a
+            href="https://auth.cnai.art/regist.htm"
+            class="flex-1 text-center px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium transition-colors duration-200"
+          >
+            会员中心
+          </a>
+          <a
+            href="https://auth.cnai.art/regist.htm"
+            class="flex-1 text-center px-4 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium transition-colors duration-200"
+          >
+            登录/注册
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-link {
+    @apply px-2 lg:px-3 xl:px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 relative overflow-hidden text-sm lg:text-sm xl:text-base whitespace-nowrap;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 transform scale-x-0 transition-transform duration-300 origin-left;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+
+  .menu-item {
+    @apply block w-full transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5;
+  }
+
+  .mobile-nav-item {
+    @apply flex items-center justify-between w-full px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 font-medium hover:translate-x-1;
+  }
+
+  .mobile-menu-item {
+    @apply flex items-center w-full px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 hover:translate-x-1;
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+</style>
+
+<script is:inline>
+  // 优化的滚动处理 - 使用requestAnimationFrame和防抖
+  let header, lastScrollY = 0, ticking = false;
+
+  function handleScroll() {
+    if (!header) header = document.querySelector('header');
+    if (!header) return;
+
+    const currentScrollY = window.scrollY;
+
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        header.classList.toggle('shadow-md', currentScrollY > 20);
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  // 使用passive监听器优化性能
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // 初始化
+  document.addEventListener('DOMContentLoaded', () => {
+    header = document.querySelector('header');
+    handleScroll();
+  });
+</script>

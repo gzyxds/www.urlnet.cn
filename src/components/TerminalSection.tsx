@@ -86,9 +86,9 @@ const Terminal = () => {
               whileHover={{ y: -5 }}
               className="group"
             >
-              <Card className="h-full border border-gray-100 bg-white hover:border-blue-200 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg rounded-none">
+              <Card className="h-full border border-gray-100 bg-white hover:border-blue-200 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg rounded-xl">
                 <CardContent className="p-6 flex flex-col items-center justify-center">
-                  <div className="w-20 h-20 bg-blue-50 flex items-center justify-center mb-4">
+                  <div className="w-20 h-20 bg-blue-50 flex items-center justify-center mb-4 rounded-lg">
                     {platform.icon}
                   </div>
                   <h3 className="text-base font-medium text-gray-800 text-center">{platform.title}</h3>

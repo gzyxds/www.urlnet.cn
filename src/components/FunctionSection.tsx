@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { 
-  Bot, FileText, Download, Cpu, Database, BarChart3, 
-  MessageSquare, Users, Globe, Smartphone, Headphones, 
+import {
+  Bot, FileText, Download, Cpu, Database, BarChart3,
+  MessageSquare, Users, Globe, Smartphone, Headphones,
   FileCode, Clock, Zap, Shield, Search, Mail, PenTool
 } from "lucide-react";
 
@@ -76,7 +76,7 @@ const FunctionBlueprint = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black tracking-tight">
-            Artai = Build AI Fast.
+            艺创AI Build AI Fast.
           </h2>
           <h3 className="text-2xl md:text-3xl font-medium mb-8 text-blue-600 tracking-wide">
             In Minutes, Not Months. Really Fast!
@@ -103,20 +103,12 @@ const FunctionBlueprint = () => {
                     {marqueeRow.map((func, idx) => (
                       <motion.div
                         key={`${rowIdx}-${idx}`}
-                        whileHover={{ 
-                          scale: 1.05,
-                          y: -5,
-                          transition: { 
-                            duration: 0.3, 
-                            ease: "easeOut"
-                          }
-                        }}
                         className="group flex-shrink-0"
                         style={{ width: '150px' }} // 固定宽度确保一致性
                       >
-                        <div className="bg-white border border-gray-200 rounded p-4 flex flex-col items-center justify-center h-32 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-                          <div className="w-12 h-12 bg-blue-100 rounded flex items-center justify-center mb-3 group-hover:bg-blue-200 transition-colors">
-                            <div className="text-black group-hover:text-gray-800 transition-colors">
+                        <div className="bg-white border border-gray-200 rounded-xl p-4 flex flex-col items-center justify-center h-32">
+                          <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                            <div className="text-black">
                               {func.icon}
                             </div>
                           </div>
