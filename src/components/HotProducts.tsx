@@ -414,7 +414,7 @@ const HotProducts: React.FC = memo(() => {
             <motion.div
               key={activeScenario}
               {...ANIMATION_CONFIG.card}
-              className="overflow-hidden outline-1 outline-gray-200 transition-all duration-200 hover:shadow-lg hover:outline-gray-300 bg-gradient-to-b from-gray-100 to-white border-2 border-white shadow-[0_6px_20px_#dce0e8] rounded-none flex flex-col lg:flex-row"
+              className="overflow-hidden outline-1 outline-gray-200 transition-all duration-200 hover:shadow-lg hover:outline-gray-300 bg-gradient-to-b from-gray-100 to-white border-2 border-white shadow-[0_6px_20px_#dce0e8] rounded-xl flex flex-col lg:flex-row"
             >
               {/* 左侧内容区域 */}
               <div className="w-full lg:w-1/2 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-between min-h-[300px] sm:min-h-[350px]">
@@ -467,12 +467,12 @@ const HotProducts: React.FC = memo(() => {
                       return (
                         <motion.div
                           key={index}
-                          className="flex items-start space-x-2 sm:space-x-2.5 p-2 sm:p-2.5 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 group border border-transparent hover:border-blue-100"
+                          className="flex items-start space-x-2 sm:space-x-2.5 p-2 sm:p-2.5 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 group border border-transparent hover:border-blue-100"
                           {...ANIMATION_CONFIG.feature}
                           transition={{ delay: 0.4 + index * 0.1 }}
                         >
                           <div className="flex-shrink-0 mt-0.5">
-                            <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center group-hover:from-blue-200 group-hover:to-indigo-200 transition-colors duration-300">
+                            <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center group-hover:from-blue-200 group-hover:to-indigo-200 transition-colors duration-300">
                               <FeatureIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-blue-600" />
                             </div>
                           </div>
@@ -498,7 +498,7 @@ const HotProducts: React.FC = memo(() => {
                   transition={{ duration: 0.4, delay: 0.9 }}
                 >
                   <motion.button
-                    className="flex-1 sm:flex-none bg-blue-600 text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center group shadow-sm"
+                    className="flex-1 sm:flex-none bg-blue-600 text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center group shadow-sm"
                     onClick={() => trackEvent('PrimaryAction', currentScenario.title)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -510,7 +510,7 @@ const HotProducts: React.FC = memo(() => {
                   </motion.button>
 
                   <motion.button
-                    className="flex-1 sm:flex-none bg-white border border-blue-600 text-blue-600 px-4 py-1.5 sm:px-5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center group shadow-sm"
+                    className="flex-1 sm:flex-none bg-white border border-blue-600 text-blue-600 px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center group shadow-sm"
                     onClick={() => trackEvent('SecondaryAction', currentScenario.title)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

@@ -982,17 +982,17 @@ const Header: React.FC = () => {
                         <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
                           <Button
                             variant="outline"
-                            className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900"
+                            className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900 text-sm md:text-base py-2 md:py-3 md:px-6"
                           >
-                            <User className="h-4 w-4 mr-2" />
+                            <User className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                             登录账户
                           </Button>
                         </a>
                       </motion.div>
                       <motion.div whileTap={{ scale: 0.98 }}>
                         <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
-                          <Button className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg shadow-lg shadow-blue-200/50 transition-all duration-200 dark:shadow-blue-900/20">
-                            <Sparkles className="h-4 w-4 mr-2" />
+                          <Button className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg shadow-lg shadow-blue-200/50 transition-all duration-200 dark:shadow-blue-900/20 text-sm md:text-base py-2 md:py-3 md:px-6">
+                            <Sparkles className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                             免费注册
                           </Button>
                         </a>

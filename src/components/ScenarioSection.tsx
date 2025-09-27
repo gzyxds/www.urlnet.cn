@@ -99,7 +99,7 @@ const Scenario = () => {
     },
     {
       id: "translation",
-      title: "创作创作",
+      title: "论文创作",
       icon: Lightbulb,
       image: "/product/lw.svg",
       description: "AI智能创作助手平台，集成文案写作、内容策划、创意设计等多种创作功能。通过深度学习技术理解用户需求，自动生成高质量的营销文案、产品描述、创意方案等内容，为创作者和营销人员提供灵感启发和效率提升，实现创作流程的智能化升级。",
@@ -151,10 +151,10 @@ const Scenario = () => {
                   <Button
                     key={scenario.id}
                     variant={activeScenario === scenario.id ? "default" : "outline"}
-                    className={`rounded-none px-6 py-3.5 text-sm font-medium transition-all duration-300 border-2 whitespace-nowrap flex-shrink-0 flex items-center gap-2 ${
+                    className={`rounded-md px-8 py-4 text-sm font-medium transition-all duration-200 whitespace-nowrap flex-shrink-0 flex items-center gap-2 ${
                       activeScenario === scenario.id
-                        ? "bg-[#015bfe] text-white shadow-lg shadow-blue-100 border-[#015bfe]"
-                        : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#015bfe] hover:border-[#015bfe] border-gray-200"
+                        ? "bg-blue-500 text-white border-transparent"
+                        : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-500 border border-gray-200"
                     }`}
                     onClick={() => setActiveScenario(scenario.id)}
                   >
@@ -165,7 +165,7 @@ const Scenario = () => {
               })}
             </div>
           </div>
-          
+
           {/* 桌面端多行布局 */}
           <div className="hidden lg:flex lg:flex-wrap lg:justify-center lg:gap-4">
             {scenarios.map((scenario) => {
@@ -174,10 +174,10 @@ const Scenario = () => {
                 <Button
                   key={scenario.id}
                   variant={activeScenario === scenario.id ? "default" : "outline"}
-                  className={`rounded-none px-12 py-6 text-base font-medium transition-all duration-300 border-2 flex items-center gap-3 ${
+                  className={`rounded-md px-12 py-6 text-base font-medium transition-all duration-200 flex items-center gap-3 ${
                     activeScenario === scenario.id
-                      ? "bg-[#015bfe] text-white shadow-lg shadow-blue-100 border-[#015bfe]"
-                      : "bg-white text-gray-700 hover:bg-gray-50 hover:text-[#015bfe] hover:border-[#015bfe] border-gray-200"
+                      ? "bg-blue-500 text-white border-transparent"
+                      : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-500 border border-gray-200"
                   }`}
                   onClick={() => setActiveScenario(scenario.id)}
                 >
@@ -197,7 +197,7 @@ const Scenario = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="overflow-hidden outline-1 outline-gray-200 transition-all duration-200 hover:shadow-lg hover:outline-gray-300 bg-gradient-to-b from-gray-100 to-white border-2 border-white shadow-[0_6px_20px_#dce0e8] rounded-none"
+            className="overflow-hidden outline-1 outline-gray-200 transition-all duration-200 hover:shadow-md hover:outline-gray-300 bg-gradient-to-b from-gray-100 to-white border-2 border-white shadow-[0_3px_10px_#dce0e8] rounded-xl"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* 左侧内容 */}
@@ -244,8 +244,8 @@ const Scenario = () => {
                   className="w-full h-full object-contain lg:object-cover"
                 />
                 {/* 装饰性几何元素 */}
-                <div className="absolute top-4 right-4 w-12 h-12 border-2 border-white/30 rounded-none"></div>
-                <div className="absolute bottom-4 left-4 w-6 h-6 bg-[#015bfe]/20 rounded-none"></div>
+                <div className="absolute top-4 right-4 w-12 h-12 border-2 border-white/30 rounded-xl"></div>
+                <div className="absolute bottom-4 left-4 w-6 h-6 bg-[#015bfe]/20 rounded-xl"></div>
               </div>
             </div>
           </motion.div>
@@ -254,7 +254,7 @@ const Scenario = () => {
         {/* 了解更多按钮 */}
         <div className="mt-16 text-center">
           <Button
-            className="group relative bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-base font-medium rounded-none transition-all duration-300"
+            className="group relative bg-blue-600 text-white hover:bg-blue-700 px-10 py-6 text-base font-medium rounded-md transition-all duration-300"
             asChild
           >
             <Link to="/products" className="flex items-center">

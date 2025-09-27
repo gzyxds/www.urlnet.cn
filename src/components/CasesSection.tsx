@@ -277,13 +277,13 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }: CategoryFilterPr
         <button
           key={category.id}
           onClick={() => onCategoryChange(category.id)}
-          className={`flex items-center px-3 md:px-4 py-2 rounded-md border transition-colors duration-200 text-xs md:text-sm ${
+          className={`flex items-center px-4 md:px-6 py-2.5 md:py-3 rounded-lg border transition-colors duration-200 text-sm md:text-base ${
             selectedCategory === category.id
               ? 'bg-primary text-white border-primary'
               : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
           } min-w-0 flex-shrink-0`}
         >
-          <IconComponent className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2 flex-shrink-0" />
+          <IconComponent className="h-4 w-4 md:h-5 md:w-5 mr-2 md:mr-3 flex-shrink-0" />
           <span className="font-medium whitespace-nowrap">{category.name}</span>
         </button>
       );
@@ -305,7 +305,7 @@ const CaseDisplay = ({ currentCase }: CaseDisplayProps) => {
 
   return (
     <div className="mb-12">
-      <Card className="border border-gray-300 bg-white overflow-hidden">
+      <Card className="border border-gray-300 bg-white overflow-hidden rounded-lg">
         <CardContent className="p-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[280px] md:min-h-[320px] lg:min-h-[400px]">
             {/* 左侧文本内容区域 */}
@@ -388,7 +388,7 @@ const TagList = ({ tags }: TagListProps) => (
     {tags.map((tag, index) => (
       <span
         key={index}
-        className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium"
+        className="px-2 py-1 bg-gray-100 text-gray-700 rounded-md text-xs font-medium"
       >
         {tag}
       </span>
@@ -468,7 +468,7 @@ const NavigationControls = ({
         size="sm"
         onClick={onPrevCase}
         disabled={filteredCases.length <= 1}
-        className="flex items-center space-x-1 px-3 py-2"
+        className="flex items-center space-x-1 px-3 py-2 rounded-xl"
       >
         <ChevronLeft className="h-4 w-4" />
         <span className="hidden sm:inline">上一个</span>
@@ -478,7 +478,7 @@ const NavigationControls = ({
         size="sm"
         onClick={onNextCase}
         disabled={filteredCases.length <= 1}
-        className="flex items-center space-x-1 px-3 py-2"
+        className="flex items-center space-x-1 px-3 py-2 rounded-xl"
       >
         <span className="hidden sm:inline">下一个</span>
         <ChevronRight className="h-4 w-4" />

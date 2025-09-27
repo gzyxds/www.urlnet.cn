@@ -57,16 +57,16 @@ const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-md"
               >
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 bg-[#015bfe]/10 flex items-center justify-center mr-3">
+                    <div className="w-8 h-8 bg-[#015bfe]/10 flex items-center justify-center mr-3 rounded-lg">
                       {faq.icon}
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900">{faq.question}</h3>
                   </div>
-                  <p className="text-gray-600 pl-11">{faq.answer}</p>
+                  <p className="text-gray-600 pl-0">{faq.answer}</p>
                 </div>
               </motion.div>
             ))}

@@ -76,7 +76,7 @@ const defaultSlides: CarouselSlide[] = [
     title: '数字分身',
     subtitle: '基于先进的AI技术，提供高度拟真的数字人解决方案',
     description: '专为企业主、个人博主打造短视频IP的数字人源码系统，支持真人声音+形象克隆，一键合成知识付费、课程、带货、形象宣传、行业干货等口播视频。基于SaaS多开模式的架构设计，支持无限OEM贴牌开通站点',
-    imagePath: '/images/scenarios/carousel3.webp',
+    imagePath: '/images/scenarios/carouseszr.webp',
     imageAlt: '聚合支付平台',
     primaryButtonText: '查看演示',
     primaryButtonHref: '/demo',
@@ -156,7 +156,7 @@ const useStyles = () => useMemo(() => ({
   section: 'relative w-full overflow-hidden touch-pan-y',
   imageContainer: 'absolute inset-0',
   image: 'object-cover will-change-transform',
-  titleButton: 'group relative text-left transition-all duration-300 cursor-pointer bg-gradient-to-b from-white to-gray-50 p-2 sm:p-3 lg:p-4 border-2 border-white shadow-[8px_8px_20px_0_rgba(55,99,170,0.1)] hover:shadow-[8px_8px_25px_0_rgba(55,99,170,0.15)] hover:-translate-y-1 max-w-[180px] sm:max-w-[200px] lg:max-w-[250px]',
+  titleButton: 'group relative text-left transition-all duration-300 cursor-pointer bg-gradient-to-b from-white to-gray-50 p-2 sm:p-3 lg:p-4 border-2 border-white rounded-md shadow-[8px_8px_20px_0_rgba(55,99,170,0.1)] hover:shadow-[8px_8px_25px_0_rgba(55,99,170,0.15)] hover:-translate-y-1 max-w-[180px] sm:max-w-[200px] lg:max-w-[250px]',
   titleButtonActive: 'bg-gradient-to-b from-white to-gray-50 border-white -translate-y-1 shadow-[8px_8px_25px_0_rgba(55,99,170,0.15)]',
   content: 'absolute inset-0 z-10 flex items-center'
 }), [])
@@ -281,10 +281,10 @@ const FloatingCard = memo(({ card }: { card: typeof floatingCards[0] }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        // 腾讯样式：渐变背景 + 白色边框 + 特殊阴影 + 直角设计
+        // 腾讯样式：渐变背景 + 白色边框 + 特殊阴影 + 微圆角设计
         "relative overflow-hidden cursor-pointer",
         "bg-gradient-to-b from-[#f3f5f8] to-white",
-        "border-2 border-white", // 移除圆角，使用直角设计
+        "border-2 border-white rounded-md", // 添加微圆角设计
         "shadow-[0_6px_20px_0_#dce0e8]",
         "hover:shadow-[0_8px_25px_0_#dce0e8]",
         "transition-all duration-300",

@@ -60,7 +60,7 @@ const Advantages = () => {
         </div>
 
         {/* Advantages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-20">
           {advantages.map((advantage, index) => (
             <motion.div
               key={index}
@@ -69,22 +69,22 @@ const Advantages = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8] group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 rounded-lg">
+              <Card className="h-full overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl shadow-[0_3px_10px_#dce0e8] hover:shadow-[0_4px_15px_#dce0e8] group">
+                <CardContent className="p-4 sm:p-6 md:p-8 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 rounded-xl">
                     {advantage.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900 leading-tight">{advantage.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{advantage.description}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4 text-gray-900 leading-tight">{advantage.title}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{advantage.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
 
-        {/* Why Choose Us Section */}
+        {/*为什么选择我们*/}
         <motion.div
-          className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-[2px] shadow-[0_6px_20px_#dce0e8] hover:shadow-[0_8px_25px_#dce0e8] p-12"
+          className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl shadow-[0_3px_10px_#dce0e8] hover:shadow-[0_4px_15px_#dce0e8] p-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
