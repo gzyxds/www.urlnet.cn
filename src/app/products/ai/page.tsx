@@ -42,21 +42,8 @@ const AiPage = () => {
           </div>
         </div>
 
-        {/* 响应式容器 - 优化不同设备的内边距 */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          {/* 顶部状态标签 - 响应式设计 */}
-          <div className="flex justify-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-white/90 backdrop-blur-md border border-blue-200 text-black shadow-lg">
-              <div className="flex items-center mr-2 sm:mr-3">
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-600 rounded-full animate-pulse mr-1 sm:mr-2"></div>
-                <span className="text-xs sm:text-sm font-medium">系统在线</span>
-              </div>
-              <div className="h-3 sm:h-4 w-px bg-blue-600 mx-2 sm:mx-3"></div>
-              <span className="text-xs sm:text-sm bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent font-bold">
-                V2.0 全新升级
-              </span>
-            </div>
-          </div>
+        {/* 主内容容器 - 进一步增加响应式间距 */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-8 md:pt-16 lg:pt-24 mb-12 sm:mb-20">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* 左侧内容区 - 响应式优化 */}
