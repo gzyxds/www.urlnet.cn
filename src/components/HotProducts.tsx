@@ -15,7 +15,6 @@ import {
   Star,
   Zap,
   Shield,
-  Smartphone,
   BarChart3,
   MessageSquare,
   Clock,
@@ -414,19 +413,22 @@ const HotProducts: React.FC = memo(() => {
             <motion.div
               key={activeScenario}
               {...ANIMATION_CONFIG.card}
-              className="overflow-hidden outline-1 outline-gray-200 transition-all duration-200 hover:shadow-lg hover:outline-gray-300 bg-gradient-to-b from-gray-100 to-white border-2 border-white shadow-[0_6px_20px_#dce0e8] rounded-xl flex flex-col lg:flex-row"
+              className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg flex flex-col lg:flex-row"
             >
+              {/* 装饰性背景元素 */}
+              <div className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 bg-gradient-to-br from-blue-100/60 via-blue-50/40 to-transparent dark:from-blue-800/40 dark:via-blue-900/20 dark:to-transparent rounded-bl-3xl"></div>
+
               {/* 左侧内容区域 */}
-              <div className="w-full lg:w-1/2 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-between min-h-[300px] sm:min-h-[350px]">
+              <div className="w-full lg:w-1/2 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-between min-h-[300px] sm:min-h-[350px] relative z-10">
                 {/* 产品标题区域 */}
                 <div className="mb-4 sm:mb-6">
                   <motion.span
-                    className="inline-flex items-center px-2 py-1 sm:px-3 sm:py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 text-xs sm:text-sm font-semibold rounded-full mb-3 sm:mb-4 border border-blue-100 shadow-sm"
+                    className="inline-flex items-center px-2 py-1 sm:px-3 sm:py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/40 dark:to-indigo-900/40 text-blue-700 dark:text-blue-300 text-xs sm:text-sm font-semibold rounded-full mb-3 sm:mb-4 border border-blue-100 dark:border-blue-800 shadow-sm"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <IconComponent className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-blue-600" />
+                    <IconComponent className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-blue-600 dark:text-blue-400" />
                     {currentScenario.subtitle}
                   </motion.span>
 
@@ -467,20 +469,23 @@ const HotProducts: React.FC = memo(() => {
                       return (
                         <motion.div
                           key={index}
-                          className="flex items-start space-x-2 sm:space-x-2.5 p-2 sm:p-2.5 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 group border border-transparent hover:border-blue-100"
+                          className="group relative flex items-start space-x-2 sm:space-x-2.5 p-2 sm:p-2.5 rounded-xl bg-white/60 dark:bg-gray-700/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 dark:hover:from-blue-900/30 dark:hover:to-indigo-900/30 transition-all duration-300 border border-gray-200/30 dark:border-gray-600/30 hover:border-blue-200/50 dark:hover:border-blue-700/50 shadow-sm hover:shadow-md"
                           {...ANIMATION_CONFIG.feature}
                           transition={{ delay: 0.4 + index * 0.1 }}
                         >
-                          <div className="flex-shrink-0 mt-0.5">
-                            <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center group-hover:from-blue-200 group-hover:to-indigo-200 transition-colors duration-300">
-                              <FeatureIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-blue-600" />
+                          {/* 装饰性背景元素 */}
+                          <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-blue-100/40 via-blue-50/20 to-transparent dark:from-blue-800/20 dark:via-blue-900/10 dark:to-transparent rounded-bl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                          <div className="flex-shrink-0 mt-0.5 relative z-10">
+                            <div className="w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-800/60 dark:to-indigo-800/60 rounded-xl flex items-center justify-center group-hover:from-blue-200 group-hover:to-indigo-200 dark:group-hover:from-blue-700/80 dark:group-hover:to-indigo-700/80 transition-colors duration-300 border border-blue-200/50 dark:border-blue-600/50 shadow-sm">
+                              <FeatureIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-blue-600 dark:text-blue-400" />
                             </div>
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <h5 className="text-xs sm:text-xs font-semibold text-gray-900 mb-0.5 group-hover:text-blue-900 transition-colors duration-300 leading-tight">
+                          <div className="flex-1 min-w-0 relative z-10">
+                            <h5 className="text-xs sm:text-xs font-semibold text-gray-900 dark:text-white mb-0.5 group-hover:text-blue-900 dark:group-hover:text-blue-100 transition-colors duration-300 leading-tight">
                               {feature.title}
                             </h5>
-                            <p className="text-xs text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-2">
+                            <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
                               {feature.description}
                             </p>
                           </div>
@@ -490,60 +495,62 @@ const HotProducts: React.FC = memo(() => {
                   </div>
                 </div>
 
-                {/* 操作按钮区域 */}
+                {/* 底部按钮 */}
                 <motion.div
                   className="flex flex-col sm:flex-row gap-2 sm:gap-3"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.9 }}
+                  transition={{ duration: 0.4, delay: 0.8 }}
                 >
-                  <motion.button
-                    className="flex-1 sm:flex-none bg-blue-600 text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center group shadow-sm"
-                    onClick={() => trackEvent('PrimaryAction', currentScenario.title)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  <button
+                    onClick={() => trackEvent('click_learn_more', activeScenario)}
+                    className="group relative inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 bg-[#0055ff] text-white font-medium rounded-xl overflow-hidden shadow-[0_6px_20px_rgba(0,85,255,0.25)] hover:shadow-[0_8px_25px_rgba(0,85,255,0.35)] transition-all duration-300 hover:bg-[#0044cc] border border-[#0055ff]/20 backdrop-blur-sm"
+                    data-monitor-click-id={`learn-more-${activeScenario}`}
                   >
-                    <span className="flex items-center">
-                      立即咨询
-                      <ArrowRight className="ml-1 sm:ml-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
+                    <span className="relative flex items-center text-sm sm:text-base">
+                      了解详情
+                      <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                  </motion.button>
+                  </button>
 
-                  <motion.button
-                    className="flex-1 sm:flex-none bg-white border border-blue-600 text-blue-600 px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center group shadow-sm"
-                    onClick={() => trackEvent('SecondaryAction', currentScenario.title)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  <button
+                    onClick={() => trackEvent('click_contact', activeScenario)}
+                    className="group relative inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 bg-white/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-200 font-medium rounded-xl overflow-hidden border border-gray-200/50 dark:border-gray-600/50 shadow-[0_6px_20px_rgba(156,163,175,0.15)] hover:shadow-[0_8px_25px_rgba(156,163,175,0.25)] transition-all duration-300 hover:border-gray-300/70 dark:hover:border-gray-500/70 hover:bg-white dark:hover:bg-gray-600/80 backdrop-blur-sm"
+                    data-monitor-click-id={`contact-${activeScenario}`}
                   >
-                    <span className="flex items-center">
-                      查看详情
-                      <ChevronRight className="ml-1 sm:ml-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
+                    <span className="relative flex items-center text-sm sm:text-base">
+                      联系咨询
+                      <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                  </motion.button>
+                  </button>
                 </motion.div>
               </div>
 
               {/* 右侧媒体展示区域 */}
-              <div className="w-full lg:w-1/2 relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 overflow-hidden flex items-center justify-center">
+              <div className="w-full lg:w-1/2 relative bg-gradient-to-br from-blue-50/80 via-indigo-50/80 to-purple-100/80 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 overflow-hidden flex items-center justify-center backdrop-blur-sm">
+                {/* 装饰性背景元素 */}
+                <div className="absolute top-0 left-0 w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-blue-200/30 via-indigo-200/20 to-transparent dark:from-blue-700/20 dark:via-indigo-700/10 dark:to-transparent rounded-br-3xl"></div>
+                <div className="absolute bottom-0 right-0 w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 bg-gradient-to-tl from-purple-200/30 via-pink-200/20 to-transparent dark:from-purple-700/20 dark:via-pink-700/10 dark:to-transparent rounded-tl-3xl"></div>
+
                 {imageLoading && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-indigo-50/80 to-purple-100/80 animate-pulse flex items-center justify-center backdrop-blur-sm">
-                    <div className="text-blue-600 text-xs sm:text-sm font-medium">加载中...</div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/90 via-indigo-50/90 to-purple-100/90 dark:from-blue-900/40 dark:via-indigo-900/40 dark:to-purple-900/40 animate-pulse flex items-center justify-center backdrop-blur-sm border-l border-gray-200/30 dark:border-gray-600/30">
+                    <div className="text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-medium">加载中...</div>
                   </div>
                 )}
 
                 {imageError ? (
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 flex items-center justify-center">
-                    <div className="text-center text-blue-600">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-indigo-50/80 to-purple-100/80 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 flex items-center justify-center border-l border-gray-200/30 dark:border-gray-600/30">
+                    <div className="text-center text-blue-600 dark:text-blue-400">
                       <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 mx-auto mb-2 opacity-60" />
                       <div className="text-xs sm:text-sm font-medium">图片加载失败</div>
                     </div>
                   </div>
                 ) : (
-                  <div className="w-full h-full p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8">
+                  <div className="w-full h-full p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 relative z-10 border-l border-gray-200/30 dark:border-gray-600/30">
                     <img
                       src={currentScenario.image}
                       alt={currentScenario.imageAlt}
-                      className="w-full h-auto object-contain drop-shadow-lg max-w-full max-h-full"
+                      className="w-full h-auto object-contain drop-shadow-lg max-w-full max-h-full rounded-lg"
                       onLoad={handleImageLoad}
                       onError={handleImageError}
                       loading="lazy"
@@ -554,9 +561,12 @@ const HotProducts: React.FC = memo(() => {
                   </div>
                 )}
 
-                <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-white/20 pointer-events-none"></div>
-                <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-4 md:right-4 w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-blue-400 rounded-full opacity-60"></div>
-                <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 w-0.5 h-0.5 sm:w-1 sm:h-1 bg-purple-400 rounded-full opacity-40"></div>
+                {/* 渐变覆盖层 */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-white/20 dark:from-gray-900/10 dark:via-transparent dark:to-gray-900/20 pointer-events-none"></div>
+
+                {/* 装饰性小点 */}
+                <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-4 md:right-4 w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-blue-400 dark:bg-blue-500 rounded-full opacity-60 shadow-sm"></div>
+                <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 w-0.5 h-0.5 sm:w-1 sm:h-1 bg-purple-400 dark:bg-purple-500 rounded-full opacity-40 shadow-sm"></div>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -564,7 +574,7 @@ const HotProducts: React.FC = memo(() => {
 
         {/* 产品特色说明 */}
         <div className="text-center mt-4 sm:mt-6 md:mt-8">
-          <div className="inline-flex items-center px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-white rounded-full text-xs sm:text-sm text-gray-600 shadow-sm border border-gray-200">
+          <div className="inline-flex items-center px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-xs sm:text-sm text-gray-600 dark:text-gray-300 shadow-sm border border-gray-200/50 dark:border-gray-600/50 hover:shadow-md transition-all duration-300">
             <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 mr-1 sm:mr-1.5 md:mr-2 text-[#0055ff]" />
             <span className="whitespace-nowrap">专业的AI解决方案，助力企业数字化转型</span>
           </div>

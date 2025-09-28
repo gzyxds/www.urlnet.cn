@@ -9,7 +9,9 @@ import {
   QrCode,
   Users,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Play,
+  MessageCircle
 } from 'lucide-react'
 
 /**
@@ -75,7 +77,7 @@ const defaultSlides: CarouselSlide[] = [
     order: 3,
     title: '数字分身',
     subtitle: '基于先进的AI技术，提供高度拟真的数字人解决方案',
-    description: '专为企业主、个人博主打造短视频IP的数字人源码系统，支持真人声音+形象克隆，一键合成知识付费、课程、带货、形象宣传、行业干货等口播视频。基于SaaS多开模式的架构设计，支持无限OEM贴牌开通站点',
+    description: '专为企业主、个人博主打造短视频IP的数字人系统，支持真人声音+形象克隆，一键合成知识付费、课程、带货、形象宣传、行业干货等口播视',
     imagePath: '/images/scenarios/carouseszr.webp',
     imageAlt: '聚合支付平台',
     primaryButtonText: '查看演示',
@@ -119,7 +121,7 @@ const floatingCards = [
     id: 1,
     type: 'feature' as const,
     title: 'AI企业赋能',
-    description: '技术过硬、私有部署、个性化定制',
+    description: '技术硬化、私有部署、个性化定制',
     icon: CreditCard,
     style: 'modern' as const
   },
@@ -667,37 +669,24 @@ const Carousel = memo(function Carousel({
                   {currentSlide.primaryButtonText && (
                     <a
                       href={currentSlide.primaryButtonHref ? (currentSlide.primaryButtonHref.startsWith('http') ? currentSlide.primaryButtonHref : `/${currentSlide.primaryButtonHref.replace(/^\//, '')}`) : '#'}
-                      className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+                      className="flex-1 sm:flex-none sm:w-auto inline-flex items-center justify-center gap-2 px-3 sm:px-4 lg:px-6 py-3 sm:py-2 lg:py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                     >
-                      <span className="text-xs sm:text-sm lg:text-base">{currentSlide.primaryButtonText}</span>
+                      <Play className="w-4 h-4 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+                      <span className="text-xs sm:text-sm lg:text-base font-semibold">{currentSlide.primaryButtonText}</span>
                     </a>
                   )}
                   {currentSlide.secondaryButtonText && (
                     <a
                       href={currentSlide.secondaryButtonHref ? (currentSlide.secondaryButtonHref.startsWith('http') ? currentSlide.secondaryButtonHref : `/${currentSlide.secondaryButtonHref.replace(/^\//, '')}`) : '#'}
-                      className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-white text-gray-600 font-medium hover:bg-gray-50 transition-colors duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+                      className="flex-1 sm:flex-none sm:w-auto inline-flex items-center justify-center gap-2 px-3 sm:px-4 lg:px-6 py-3 sm:py-2 lg:py-3 bg-white text-gray-700 font-medium rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                     >
-                      <span className="text-xs sm:text-sm lg:text-base">{currentSlide.secondaryButtonText}</span>
+                      <MessageCircle className="w-4 h-4 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+                      <span className="text-xs sm:text-sm lg:text-base font-semibold">{currentSlide.secondaryButtonText}</span>
                     </a>
                   )}
                 </div>
 
-                {/* 移动端导航指示器 */}
-                <div className="md:hidden flex justify-center space-x-2">
-                  {slides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleTitleClick(index)}
-                      className={cn(
-                        "w-3 h-3 rounded-full transition-all duration-300",
-                        index === active
-                          ? "bg-blue-600 scale-125"
-                          : "bg-white/50 hover:bg-white/70"
-                      )}
-                      aria-label={`切换到第 ${index + 1} 张图片`}
-                    />
-                  ))}
-                </div>
+
               </div>
             </div>
 

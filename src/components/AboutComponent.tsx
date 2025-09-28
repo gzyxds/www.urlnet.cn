@@ -116,14 +116,14 @@ const About = () => {
             data-monitor-click-id="about-image-card"
           >
             <div
-              className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl shadow-[0_3px_10px_#dce0e8] hover:shadow-[0_4px_15px_#dce0e8] p-3 sm:p-4 md:p-6 lg:p-8"
+              className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl p-3 sm:p-4 md:p-6 lg:p-8"
             >
               {/* 主图片容器 */}
               <div className="relative mb-4 sm:mb-6 overflow-hidden rounded-lg">
                 <img
                   src="https://lf6-cdn-tos.huoshanstatic.com/obj/inspirecloud-file/baas/tt502102w0zm96mm30/16109cf69762df98_1637162865915.png"
                   alt="AI科技团队"
-                  className="w-full h-40 sm:h-48 md:h-64 lg:h-80 xl:h-96 object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                  className="w-full h-40 sm:h-48 md:h-64 lg:h-80 xl:h-96 object-cover transition-transform duration-300 rounded-lg"
                 />
 
                 {/* 技术领先状态指示器 */}
@@ -172,7 +172,7 @@ const About = () => {
             data-monitor-click-id="about-intro-card"
           >
             <div
-              className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl shadow-[0_3px_10px_#dce0e8] hover:shadow-[0_4px_15px_#dce0e8] p-3 sm:p-4 md:p-6 lg:p-8 h-full flex flex-col"
+              className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 h-full flex flex-col"
             >
               {/* 企业简介内容区域 */}
               <div className="flex-1">
@@ -199,7 +199,7 @@ const About = () => {
 
               {/* 核心数据展示区域 */}
               <div
-                className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl shadow-[0_3px_10px_#dce0e8] hover:shadow-[0_4px_15px_#dce0e8] p-3 sm:p-4 md:p-6 text-center mt-4 sm:mt-6 md:mt-8"
+                className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl p-3 sm:p-4 md:p-6 text-center mt-4 sm:mt-6 md:mt-8"
               >
                 <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
                   {STATS_DATA.map((stat, index) => (
@@ -210,7 +210,7 @@ const About = () => {
                     >
                       {/* 数据值展示 */}
                       <div
-                        className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 group-hover:scale-105 transition-transform duration-200 break-words"
+                        className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 transition-transform duration-200 break-words"
                         style={{ color: STYLES.primaryColor }}
                       >
                         {stat.value}
@@ -253,7 +253,7 @@ const About = () => {
                 data-monitor-click-id={`advantage-card-${index}`}
               >
                 {/* 简约优势卡片 */}
-<div className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl shadow-[0_3px_10px_#dce0e8] hover:shadow-[0_4px_15px_#dce0e8] p-4 sm:p-6 text-center h-full flex flex-col">
+<div className="overflow-hidden transition-all duration-300 bg-gradient-to-b from-[#f3f5f8] to-white border-2 border-white rounded-xl p-4 sm:p-6 text-center h-full flex flex-col">
                   {/* 简洁标题 */}
                   <h4 className="text-base sm:text-lg font-medium text-gray-900 mb-3 sm:mb-4 break-words">
                     {advantage.title}
