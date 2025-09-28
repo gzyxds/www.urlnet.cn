@@ -7,6 +7,7 @@ import './app/globals.css';
 import Header from './components/HeaderSection';
 import Footer from './components/FooterSection';
 import BackToTop from './components/BackToTop';
+import MobileBottomConsult from './components/MobileBottomConsult';
 
 // 页面组件导入 - 按功能模块分组
 // 主页
@@ -88,6 +89,9 @@ function App(): JSX.Element {
       
       {/* 返回顶部功能组件 */}
       <BackToTop />
+      
+      {/* 移动端底部业务咨询组件 */}
+      <MobileBottomConsult />
     </div>
   );
 }
