@@ -29,3 +29,6 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# 参考设计文件（不上传到仓库）
+/参考设计
