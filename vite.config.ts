@@ -50,6 +50,7 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
+    chunkSizeWarningLimit: 1000, // 将警告限制调整为1000KB
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
@@ -66,6 +67,15 @@ export default defineConfig({
             if (id.includes('framer-motion')) {
                 return 'framer-motion';
             }
+            // 添加更多的chunk分割策略
+            if (id.includes('lucide-react')) {
+              return 'lucide-icons';
+            }
+            if (id.includes('@radix-ui')) {
+              return 'radix-ui';
+            }
+            // 将其他大型库分组到vendor chunk
+            return 'vendor';
           }
         }
       }
