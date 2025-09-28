@@ -15,6 +15,26 @@ import {
 } from 'lucide-react'
 
 /**
+ * 简单的移动端检测hook
+ */
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768) // md断点
+    }
+
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [])
+
+  return isMobile
+}
+
+/**
  * 轮播每一项的数据结构
  */
 export interface CarouselSlide {
@@ -25,6 +45,7 @@ export interface CarouselSlide {
   description: string
   imagePath: string
   imageAlt: string
+  mobileImagePath?: string // 移动端专用图片路径，如果未设置则使用imagePath
   primaryButtonText: string
   primaryButtonHref?: string
   secondaryButtonText?: string
@@ -53,6 +74,7 @@ const defaultSlides: CarouselSlide[] = [
     subtitle: '提供行业的AI解决方案',
     description: 'AI企业解决方案·引领企业实现数字化、智能化转型技术过硬、私有部署、个性化定制、稳定使用',
     imagePath: '/images/scenarios/carousel5.webp',
+
     imageAlt: '技术过硬、私有部署、个性化定制、稳定使用',
     primaryButtonText: '查看详情',
     primaryButtonHref: '/demo',
@@ -66,6 +88,7 @@ const defaultSlides: CarouselSlide[] = [
     subtitle: '赋能企业知识管理与数字化转型',
     description: '基于先进的AI技术，提供高度拟真的数字人解决方案，赋能企业知识管理与数字化转型， 让智能服务触手可及',
     imagePath: '/images/scenarios/carousel2.webp',
+
     imageAlt: '抢先布局先入为主',
     primaryButtonText: '查看演示',
     primaryButtonHref: '/demo',
@@ -77,8 +100,9 @@ const defaultSlides: CarouselSlide[] = [
     order: 3,
     title: '数字分身',
     subtitle: '基于先进的AI技术，提供高度拟真的数字人解决方案',
-    description: '专为企业主、个人博主打造短视频IP的数字人系统，支持真人声音+形象克隆，一键合成知识付费、课程、带货、形象宣传、行业干货等口播视',
+    description: '专为企业主、个人博主打造短视频IP系统，支持真人声音+形象克隆，一键合成课程、带货、形象宣传、行业干货等口播视',
     imagePath: '/images/scenarios/carouseszr.webp',
+    mobileImagePath: '/images/scenarios/Carouselszr.webp', // 移动端专用图片示例
     imageAlt: '聚合支付平台',
     primaryButtonText: '查看演示',
     primaryButtonHref: '/demo',
@@ -164,7 +188,7 @@ const useStyles = () => useMemo(() => ({
 }), [])
 
 /**
- * 轮播图片组件 - 使用memo优化性能，添加图片预加载
+ * 轮播图片组件 - 使用memo优化性能，添加图片预加载，支持移动端图片
  */
 const CarouselImage = memo(({ slide, isActive, index, active }: {
   slide: CarouselSlide
@@ -172,6 +196,10 @@ const CarouselImage = memo(({ slide, isActive, index, active }: {
   index: number
   active: number
 }) => {
+  const isMobile = useIsMobile()
+
+  // 根据移动端状态选择图片路径
+  const imagePath = isMobile && slide.mobileImagePath ? slide.mobileImagePath : slide.imagePath
 
   return (
     <div
@@ -179,7 +207,7 @@ const CarouselImage = memo(({ slide, isActive, index, active }: {
       style={{ display: Math.abs(index - active) > 1 ? 'none' : isActive ? 'block' : 'none' }}
     >
       <img
-        src={slide.imagePath}
+        src={imagePath}
         alt={slide.imageAlt}
         className="object-cover will-change-transform w-full h-full"
         loading={isActive ? 'eager' : 'lazy'}
