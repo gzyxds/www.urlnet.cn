@@ -672,7 +672,7 @@ const Carousel = memo(function Carousel({
                       className="flex-1 sm:flex-none sm:w-auto inline-flex items-center justify-center gap-2 px-3 sm:px-4 lg:px-6 py-3 sm:py-2 lg:py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                     >
                       <Play className="w-4 h-4 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
-                      <span className="text-xs sm:text-sm lg:text-base font-semibold">{currentSlide.primaryButtonText}</span>
+                      <span className="text-xs sm:text-sm lg:text-base font-normal">{currentSlide.primaryButtonText}</span>
                     </a>
                   )}
                   {currentSlide.secondaryButtonText && (
@@ -681,7 +681,7 @@ const Carousel = memo(function Carousel({
                       className="flex-1 sm:flex-none sm:w-auto inline-flex items-center justify-center gap-2 px-3 sm:px-4 lg:px-6 py-3 sm:py-2 lg:py-3 bg-white text-gray-700 font-medium rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                     >
                       <MessageCircle className="w-4 h-4 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
-                      <span className="text-xs sm:text-sm lg:text-base font-semibold">{currentSlide.secondaryButtonText}</span>
+                      <span className="text-xs sm:text-sm lg:text-base font-normal">{currentSlide.secondaryButtonText}</span>
                     </a>
                   )}
                 </div>
