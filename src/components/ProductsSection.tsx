@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Products = () => {
   const products = [
     {
-      image: "/product/saas.svg",
+      image: "/product/saas.webp",
       title: "数字分身IP数字人SaaS系统",
       subtitle: "[PHP源码版]",
       description: "为企业主、个人博主打造短视频IP的数字人聊天系统，支持真人音+形象定制...",
@@ -17,11 +17,11 @@ const Products = () => {
       originalPrice: 6800,
       link: "/demo",
       rating: 4.8,
-      sales: 156,
+      sales: 2156,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
-      image: "/product/work.svg",
+      image: "/product/work.webp",
       title: "企业级全能AI知识库系统",
       subtitle: "[PHP源码版]",
       description: "全能AI知识库系统(PHP版，基于前后端分离架构)以及Vue3、uni-app...",
@@ -30,11 +30,11 @@ const Products = () => {
       originalPrice: 9800,
       link: "/demo",
       rating: 4.9,
-      sales: 203,
+      sales: 5203,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
-      image: "/product/ai.svg",
+      image: "/product/ai.webp",
       title: "艺创AI智能聊天绘画系统",
       subtitle: "[PHP源码版]",
       description: "基于前后端分离架构以及Vue3、uni-app、ThinkPHP6.x、PHP8.0技术栈开发...",
@@ -43,7 +43,7 @@ const Products = () => {
       originalPrice: 3800.00,
       link: "/demo",
       rating: 4.9,
-      sales: 178,
+      sales: 3178,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
@@ -56,7 +56,7 @@ const Products = () => {
       originalPrice: 4698,
       link: "/demo",
       rating: 4.8,
-      sales: 132,
+      sales: 3132,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
@@ -69,7 +69,7 @@ const Products = () => {
       originalPrice: 9800,
       link: "/demo",
       rating: 4.9,
-      sales: 165,
+      sales: 1165,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
@@ -82,7 +82,7 @@ const Products = () => {
       originalPrice: 9800,
       link: "/demo",
       rating: 4.8,
-      sales: 108,
+      sales: 4108,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
@@ -95,7 +95,7 @@ const Products = () => {
       originalPrice: 3800,
       link: "/demo",
       rating: 4.7,
-      sales: 89,
+      sales: 2389,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     },
     {
@@ -108,7 +108,7 @@ const Products = () => {
       originalPrice: 4695,
       link: "/demo",
       rating: 4.6,
-      sales: 134,
+      sales: 3134,
       buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
     }
   ];
