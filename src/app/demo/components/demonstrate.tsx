@@ -290,7 +290,7 @@ const Demonstrate: React.FC = () => {
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              选择产品类型，体验我们的在线演示系统 注：PHP和Java功能略有不同
+              选择产品类型体验我们系统 【注】PHP和Java功能略有不同
             </p>
           </motion.div>
         </div>
