@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const demoProducts = [
   {
     id: "digital-human",
-    name: "数字人SaaS系统PHP版",
+    name: "数字分身SaaS PHP版",
     description: "通过我们的在线演示系统，您可以亲身体验AI数字人的强大功能和直观界面，无需安装，即刻体验。",
     icon: Monitor,
     color: "from-blue-500 to-blue-600",
@@ -27,7 +27,7 @@ const demoProducts = [
       {
         title: "站点管理端",
         url: "https://demo.cnai.art/admin/",
-        qrcode: "/images/qrcode.png",
+        qrcode: "/images/wechat.png",
         credentials: {
           username: "demo",
           password: "demo"
@@ -63,7 +63,7 @@ const demoProducts = [
       {
         title: "后台演示",
         url: "https://ai-demo.chatmoney.cn/admin",
-        qrcode: "/images/qrcode.png",
+        qrcode: "/images/wechat.png",
         credentials: {
           username: "admin",
           password: "123456"
@@ -90,7 +90,7 @@ const demoProducts = [
       {
         title: "管理后台",
         url: "https://chat-demo.chatmoney.cn/admin",
-        qrcode: "/images/qrcode.png",
+        qrcode: "/images/wechat.png",
         credentials: {
           username: "admin",
           password: "123456"
@@ -117,7 +117,7 @@ const demoProducts = [
       {
         title: "体验后台",
         url: "https://cp-demo.chatmoney.cn/admin",
-        qrcode: "/images/qrcode.png",
+        qrcode: "/images/wechat.png",
         credentials: {
           username: "admin",
           password: "123456"
@@ -144,7 +144,7 @@ const demoProducts = [
       {
         title: "移动端",
         url: "https://java.cnai.art/mobile",
-        qrcode: "/images/qrcode.png",
+        qrcode: "/images/wechat.png",
         credentials: {
           username: "自行注册",
           password: "自行注册"
@@ -161,7 +161,7 @@ const demoProducts = [
     demos: [
       {
         title: "Java版知识库前台",
-        url: "https://java-kb.cnai.art",
+        url: "联系客服获取",
         qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
@@ -170,8 +170,8 @@ const demoProducts = [
       },
       {
         title: "Java版知识库后台",
-        url: "https://java-kb-demo.chatmoney.cn/admin",
-        qrcode: "/images/qrcode.png",
+        url: "联系客服获取",
+        qrcode: "/images/wechat.png",
         credentials: {
           username: "java_kb_admin",
           password: "java_kb123"
@@ -198,7 +198,7 @@ const demoProducts = [
       {
         title: "绘画管理后台Java",
         url: "联系客服获取",
-        qrcode: "/images/qrcode.png",
+        qrcode: "/images/wechat.png",
         credentials: {
           username: "admin",
           password: "123456"
@@ -225,7 +225,7 @@ const demoProducts = [
       {
         title: "论文写作后台",
         url: "联系客服获取",
-        qrcode: "/images/qrcode.png",
+        qrcode: "/images/wechat.png",
         credentials: {
           username: "admin",
           password: "123456"
