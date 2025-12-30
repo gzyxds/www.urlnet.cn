@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Search, ArrowRight, CheckCircle as CheckBadgeIcon, Inbox, Star, ShoppingCart, Play, Sparkles, Zap, Code2, PenTool, Bot, FileText, Database } from 'lucide-react';
+import { Search, ArrowRight, CheckCircle as CheckBadgeIcon, Inbox, Star, ShoppingCart, Play, Sparkles, Zap, Code2, PenTool, Bot, FileText, Database, Puzzle, Video, Briefcase, LayoutGrid } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { productsData, type ProductItem } from "@/data/products";
 import { Link } from 'react-router-dom';
@@ -23,15 +23,16 @@ type AppData = {
   buyLink?: string;
 };
 
-const categories: Category[] = [
+const mainCategories: Category[] = [
   { id: 'all', name: '全部应用', icon: Zap },
-  { id: 'knowledge', name: '知识库', icon: Database },
-  { id: 'digital-human', name: 'AI数字人', icon: Bot },
-  { id: 'chat-draw', name: '聊天绘画', icon: PenTool },
-  { id: 'paper', name: '论文写作', icon: FileText },
-  { id: 'php', name: 'PHP源码', icon: Code2 },
-  { id: 'java', name: 'Java源码', icon: Code2 },
-  { id: 'python', name: 'Python源码', icon: Code2 },
+  { id: 'independent', name: '独立系统', icon: Database },
+];
+
+const pluginCategories: Category[] = [
+  { id: 'video', name: '图像视频', icon: Video },
+  { id: 'writing', name: '智能写作', icon: PenTool },
+  { id: 'enterprise', name: '企业工具', icon: Briefcase },
+  { id: 'efficiency', name: '效率工具', icon: LayoutGrid },
 ];
 
 /**
@@ -81,13 +82,17 @@ function filterApps(query: string, category: string, source: AppData[]): AppData
   };
   const byCategory = (app: AppData) => {
     if (category === 'all') return true;
-    if (category === 'knowledge') return /知识库/i.test(app.name + (app.description ?? '') + (app.subtitle ?? ''));
-    if (category === 'digital-human') return /数字分身|数字人/i.test(app.name + (app.description ?? '') + (app.subtitle ?? ''));
-    if (category === 'chat-draw') return /聊天绘画|AI绘画|聊天/i.test(app.name + (app.description ?? '') + (app.subtitle ?? ''));
-    if (category === 'paper') return /论文|写作/i.test(app.name + (app.description ?? '') + (app.subtitle ?? ''));
-    if (category === 'php') return /PHP/i.test(app.subtitle ?? '');
-    if (category === 'java') return /Java/i.test(app.subtitle ?? '');
-    if (category === 'python') return /Python/i.test(app.subtitle ?? '');
+
+    const sub = app.subtitle || '';
+
+    if (category === 'independent') {
+      return /独立系统|PHP源码版|Java源码版|Python源码版|全新升级/.test(sub);
+    }
+    if (category === 'video') return /图像视频/.test(sub);
+    if (category === 'writing') return /智能写作/.test(sub);
+    if (category === 'enterprise') return /企业工具/.test(sub);
+    if (category === 'efficiency') return /效率工具/.test(sub);
+
     return true;
   };
   return source.filter(app => bySearch(app) && byCategory(app));
@@ -108,6 +113,40 @@ const ProductShowcase: React.FC = () => {
 
   const apps = useMemo<AppData[]>(() => convertProductsToApps(productsData), []);
   const filteredApps = useMemo(() => filterApps(searchQuery, activeCategory, apps), [searchQuery, activeCategory, apps]);
+
+  const renderCategoryList = (list: Category[]) => (
+    <nav className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-hide">
+      {list.map((category) => {
+        const isActive = activeCategory === category.id;
+        const Icon = category.icon || Zap;
+        return (
+          <button
+            key={category.id}
+            onClick={() => setActiveCategory(category.id)}
+            className={cn(
+              "relative shrink-0 w-auto lg:w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 group overflow-hidden border",
+              isActive
+                ? "border-blue-500/30 dark:border-blue-400/30 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20"
+                : "border-transparent hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+            )}
+          >
+            {isActive && (
+              <motion.div
+                layoutId="activeCategory"
+                className="absolute inset-0 bg-blue-100/50 dark:bg-blue-900/20"
+                initial={false}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10 flex items-center gap-3">
+              <Icon className={cn("w-4 h-4", isActive ? "text-blue-500" : "text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300")} />
+              {category.name}
+            </span>
+          </button>
+        );
+      })}
+    </nav>
+  );
 
   return (
     <div className="min-h-screen bg-gray-50/50 dark:bg-gray-950/50 pt-24 pb-20 relative overflow-hidden">
@@ -139,37 +178,13 @@ const ProductShowcase: React.FC = () => {
               {/* 分类导航 */}
               <div className="space-y-3">
                 <h3 className="px-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">分类导航</h3>
-                <nav className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-hide">
-                  {categories.map((category) => {
-                    const isActive = activeCategory === category.id;
-                    const Icon = category.icon || Zap;
-                    return (
-                      <button
-                        key={category.id}
-                        onClick={() => setActiveCategory(category.id)}
-                        className={cn(
-                          "relative shrink-0 w-auto lg:w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 group overflow-hidden border",
-                          isActive
-                            ? "border-blue-500/30 dark:border-blue-400/30 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20"
-                            : "border-transparent hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
-                        )}
-                      >
-                        {isActive && (
-                          <motion.div
-                            layoutId="activeCategory"
-                            className="absolute inset-0 bg-blue-100/50 dark:bg-blue-900/20"
-                            initial={false}
-                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                          />
-                        )}
-                        <span className="relative z-10 flex items-center gap-3">
-                          <Icon className={cn("w-4 h-4", isActive ? "text-blue-500" : "text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300")} />
-                          {category.name}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </nav>
+                {renderCategoryList(mainCategories)}
+              </div>
+
+              {/* 插件应用 */}
+              <div className="space-y-3 pt-2">
+                <h3 className="px-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">插件应用</h3>
+                {renderCategoryList(pluginCategories)}
               </div>
             </div>
           </aside>
@@ -245,6 +260,12 @@ const ProductShowcase: React.FC = () => {
                               <span className="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded">
                                 {app.subtitle.replace(/[\[\]]/g, '')}
                               </span>
+                            )}
+                            {/* 应用插件标签 */}
+                            {!/独立系统|PHP源码版|Java源码版|Python源码版|全新升级/.test(app.subtitle || '') && (
+                               <span className="text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/30 px-1.5 py-0.5 rounded">
+                                 应用插件
+                               </span>
                             )}
                           </div>
                           <div className="flex flex-wrap gap-1 mb-2">

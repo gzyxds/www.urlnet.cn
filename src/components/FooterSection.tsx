@@ -3,395 +3,323 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { ArrowRight, Monitor, Apple, Terminal, Sparkles, Download } from "lucide-react";
 
 /**
  * Footer组件 - 网站底部区域
  * 包含客户端下载区域、产品功能菜单、服务支持、关于我们和二维码等内容
- * 在移动端使用手风琴模式展示菜单，桌面端使用网格布局
  */
 const Footer = () => {
   const isMobile = useMobile();
 
-  /**
-   * 渲染菜单内容 - 根据设备类型选择不同的布局方式
-   * @returns JSX.Element 菜单内容
-   */
-  const renderMenuContent = () => {
-    const menuData = [
-      {
-        id: "ai-creation",
-        title: "AI创作工具",
-        items: [
-          { to: "https://www.cnai.art/draw/doubao", label: "AI绘画" },
-          { to: "https://www.cnai.art/draw/doubao", label: "文生图" },
-          { to: "https://www.cnai.art/draw/doubao", label: "图生图" },
-          { to: "https://www.cnai.art/draw/doubao", label: "AI画图" },
-          { to: "https://www.cnai.art/draw/doubao", label: "AI音乐" },
-          { to: "https://www.cnai.art/draw/doubao", label: "卡通头像" }
-        ]
-      },
-      {
-        id: "media-tools",
-        title: "媒体处理",
-        items: [
-          { to: "https://www.cnai.art/draw/doubao", label: "图片工具" },
-          { to: "https://www.cnai.art/draw/doubao", label: "老照片修复" },
-          { to: "https://www.cnai.art/draw/doubao", label: "文字擦除" },
-          { to: "https://www.cnai.art/video", label: "图片视频" },
-          { to: "https://www.cnai.art/draw/doubao", label: "AI视频" },
-          { to: "https://www.cnai.art/draw/doubao", label: "文字视频" }
-        ]
-      },
-      {
-        id: "services",
-        title: "服务与支持",
-        items: [
-          { to: "/help-center", label: "帮助中心" },
-          { to: "/agent-cooperation", label: "招募计划" },
-          { to: "/new-guide", label: "新手密函" },
-          { to: "/third-party", label: "投诉通道" },
-          { to: "/free-trial", label: "免费声明" }
-        ]
-      },
-      {
-        id: "about",
-        title: "关于",
-        items: [
-          { to: "/privacy", label: "隐私政策" },
-          { to: "/user-agreement", label: "用户协议" },
-          { to: "/contact", label: "联系我们" },
-          { to: "/about-us", label: "关于我们" }
-        ]
-      }
-    ];
+  // 友情链接数据
+  const friendLinks = [
+    { text: "艺创AI", href: "https://www.cnai.art" },
+    { text: "必定AI", href: "https://buidai.com" },
+    { text: "企业知识库", href: "https://www.cnai.art" },
+    { text: "优刻云", href: "https://www.cloudcvm.com" },
+    { text: "AI数字人", href: "https://pro.cnai.art" },
+    { text: "AI绘画", href: "https://cnai.art" },
+    { text: "论文创作", href: "https://www.cnai.art" },
+    { text: "PaYphp", href: "https://www.payphp.cn" },
+    { text: "172号卡", href: "https://www.urlka.cn" },
+  ];
 
-    if (isMobile) {
-      // 移动端使用手风琴模式
+  // Footer 链接数据
+  const footerLinks = [
+    {
+      title: '产品中心',
+      links: [
+        { text: '功能特性', href: '#' },
+        { text: '解决方案', href: '#' },
+        { text: '价格方案', href: '#' },
+        { text: '更新日志', href: '#' }
+      ]
+    },
+    {
+      title: '应用市场',
+      links: [
+        { text: '独立应用', href: '#' },
+        { text: '扩展应用', href: '#' },
+        { text: '图像视频', href: '#' },
+        { text: '智能写作', href: '#' }
+      ]
+    },
+    {
+      title: '资源中心',
+      links: [
+        { text: '文档中心', href: '/docs' },
+        { text: 'API 参考', href: '#' },
+        { text: 'APP下载', href: '/download' },
+        { text: '博客文章', href: '/blog' }
+      ]
+    },
+    {
+      title: '公司介绍',
+      links: [
+        { text: '关于我们', to: '/about' },
+        { text: '加入我们', href: '#' },
+        { text: '联系方式', href: '/contact' },
+        { text: '隐私政策', href: '#' }
+      ]
+    },
+    {
+      title: '关注我们',
+      customContent: true,
+      links: [
+        { type: 'qq', text: '236749035' },
+        { type: 'social', text: 'userhlc' }
+      ]
+    }
+  ];
+
+  const renderSocialIcons = () => (
+    <div className="flex space-x-4">
+      <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">
+        <span className="sr-only">Twitter</span>
+        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+      </a>
+      <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">
+        <span className="sr-only">GitHub</span>
+        <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd"/></svg>
+      </a>
+    </div>
+  );
+
+  const renderGroupContent = (group: any) => {
+    if (group.customContent) {
       return (
-        <div className="space-y-4">
-          <Accordion type="multiple" className="w-full">
-            {menuData.map((section) => (
-              <AccordionItem key={section.id} value={section.id} className="border-gray-200">
-                <AccordionTrigger className="text-left font-medium text-gray-900 text-base hover:text-blue-600 transition-colors duration-200">
-                  <div className="flex items-center">
-                    <span className="w-1 h-4 bg-blue-500 rounded-full mr-3"></span>
-                    {section.title}
+        <div className="space-y-3">
+          {group.links.map((link: any, idx: number) => {
+            if (link.type === 'qq') {
+              return (
+                <div key={idx} className="flex items-center space-x-2 text-sm text-gray-500">
+                  <span className="font-medium">QQ:</span>
+                  <span>{link.text}</span>
+                </div>
+              );
+            }
+            if (link.type === 'social') {
+              return (
+                <div key={idx} className="flex flex-col space-y-2">
+                  <div className="flex items-center space-x-2 text-sm text-gray-500">
+                    <span className="font-medium">微信:</span>
+                    <span>{link.text}</span>
                   </div>
-                </AccordionTrigger>
-                <AccordionContent className="pt-2 pb-4">
-                  <div className={`grid gap-y-2 ${
-                    section.id === 'products' ? 'grid-cols-2 gap-x-4' : 'grid-cols-1'
-                  }`}>
-                    {section.items.map((item) => (
-                      <Link
-                        key={`${section.id}-${item.label}`}
-                        to={item.to}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-blue-600 text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
-                      >
-                        <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
-                        <span className="truncate">{item.label}</span>
-                      </Link>
-                    ))}
+                  <div className="flex flex-row flex-nowrap space-x-2 pt-2 overflow-x-auto">
+                    <div className="flex flex-col items-center space-y-1 shrink-0 group cursor-pointer">
+                      <div className="bg-gray-50 p-1 rounded border border-gray-100 group-hover:border-blue-200 transition-colors">
+                        <img src="/images/qrcode.png" alt="QQ QR Code" className="w-20 h-20 object-contain" />
+                      </div>
+                      <span className="text-xs text-gray-400 group-hover:text-blue-600 transition-colors">在线咨询</span>
+                    </div>
+                    <div className="flex flex-col items-center space-y-1 shrink-0 group cursor-pointer">
+                      <div className="bg-gray-50 p-1 rounded border border-gray-100 group-hover:border-blue-200 transition-colors">
+                        <img src="/images/wechat.png" alt="WeChat QR Code" className="w-20 h-20 object-contain" />
+                      </div>
+                      <span className="text-xs text-gray-400 group-hover:text-blue-600 transition-colors">关注我们</span>
+                    </div>
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-
-          {/* 移动端二维码区域 */}
-          <div className="mt-6">
-            <h4 className="font-medium text-gray-900 text-base mb-4 flex items-center">
-              <span className="w-1 h-4 bg-blue-500 rounded-full mr-3"></span>
-              关注我们
-            </h4>
-            {/* 联系方式 */}
-            <div className="mb-4 text-left">
-              <p className="text-sm text-gray-600 mb-1">QQ: 236749035</p>
-              <p className="text-sm text-gray-600">微信: userhlc</p>
-            </div>
-            <div className="grid grid-cols-3 gap-2">
-              <div className="flex flex-col items-center group">
-                <div className="bg-white p-1.5 shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
-                  <img
-                    src="/images/qrcode.png"
-                    alt="扫码加入社群"
-                    className="w-12 h-12 object-cover"
-                  />
                 </div>
-                <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">扫码加入社群</p>
-              </div>
-              <div className="flex flex-col items-center group">
-                <div className="bg-white p-1.5 shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
-                  <img
-                    src="/images/wechat.png"
-                    alt="关注微信公众号"
-                    className="w-12 h-12 object-cover"
-                  />
-                </div>
-                <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">关注微信公众号</p>
-              </div>
-              <div className="flex flex-col items-center group">
-                <div className="bg-white p-1.5 shadow-md mb-2 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
-                  <img
-                    src="/images/qrcode.png"
-                    alt="关注微信小程序"
-                    className="w-12 h-12 object-cover"
-                  />
-                </div>
-                <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">关注微信小程序</p>
-              </div>
-            </div>
-          </div>
+              );
+            }
+            return null;
+          })}
         </div>
       );
     }
 
-    // 桌面端使用原有的网格布局
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
-        {/* AI创作工具 - 占2列 */}
-        <div className="lg:col-span-2">
-          <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
-            <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
-            AI创作工具
-          </h4>
-          <div className="grid grid-cols-1 gap-y-2 sm:gap-y-3">
-            {menuData[0].items.map((item) => (
-              <Link
-                key={`ai-creation-${item.label}`}
-                to={item.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600 text-xs sm:text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
-              >
-                <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
-                <span className="truncate">{item.label}</span>
+      <ul className="space-y-3 text-sm text-gray-500">
+        {group.links.map((link: any, idx: number) => (
+          <li key={idx}>
+            {link.to ? (
+              <Link to={link.to} className="hover:text-blue-600 transition-colors block">
+                {link.text}
               </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* 媒体处理 - 占2列 */}
-        <div className="lg:col-span-2">
-          <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
-            <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
-            媒体处理
-          </h4>
-          <div className="grid grid-cols-1 gap-y-2 sm:gap-y-3">
-            {menuData[1].items.map((item) => (
-              <Link
-                key={`media-tools-${item.label}`}
-                to={item.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600 text-xs sm:text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
-              >
-                <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
-                <span className="truncate">{item.label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* 服务与支持和关于 - 并排显示 */}
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:col-span-5">
-          {/* 服务与支持 */}
-          <div>
-            <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
-              <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
-              服务与支持
-            </h4>
-            <div className="grid grid-cols-1 gap-y-2 sm:gap-y-3">
-              {menuData[2].items.map((item) => (
-                <Link
-                  key={`services-${item.label}`}
-                  to={item.to}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-600 text-xs sm:text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
-                >
-                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
-                  <span className="truncate">{item.label}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* 关于 */}
-          <div>
-            <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
-              <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
-              关于
-            </h4>
-            <div className="grid grid-cols-1 gap-y-2 sm:gap-y-3">
-              {menuData[3].items.map((item) => (
-                <Link
-                  key={`about-${item.label}`}
-                  to={item.to}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-600 text-xs sm:text-sm py-1 hover:translate-x-1 transition-transform duration-200 flex items-center"
-                >
-                  <span className="w-1 h-1 bg-gray-400 rounded-full mr-2 flex-shrink-0"></span>
-                  <span className="truncate">{item.label}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* 二维码 - 占3列 */}
-        <div className="lg:col-span-3">
-          <h4 className="font-medium text-gray-900 text-base sm:text-lg mb-4 sm:mb-6 flex items-center">
-           <span className="w-1 h-4 sm:h-6 bg-blue-500 rounded-full mr-3"></span>
-            关注我们
-          </h4>
-          {/* 联系方式 */}
-          <div className="mb-4 sm:mb-6 text-left">
-            <p className="text-sm sm:text-base text-gray-600 mb-1 sm:mb-2">QQ: 236749035</p>
-            <p className="text-sm sm:text-base text-gray-600">微信: userhlc</p>
-          </div>
-          <div className="grid grid-cols-3 gap-2 sm:gap-4">
-            <div className="flex flex-col items-center group">
-              <div className="bg-white p-1.5 sm:p-2 shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
-                <img
-                  src="/images/qrcode.png"
-                  alt="扫码加入社群"
-                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover"
-                />
-              </div>
-              <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">扫码加入社群</p>
-            </div>
-            <div className="flex flex-col items-center group">
-              <div className="bg-white p-1.5 sm:p-2 shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
-                <img
-                  src="/images/wechat.png"
-                  alt="关注微信公众号"
-                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover"
-                />
-              </div>
-              <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">关注微信公众号</p>
-            </div>
-            <div className="flex flex-col items-center group">
-              <div className="bg-white p-1.5 sm:p-2 shadow-md mb-2 sm:mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-100">
-                <img
-                  src="/images/qrcode.png"
-                  alt="关注微信小程序"
-                  className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 object-cover"
-                />
-              </div>
-              <p className="text-xs text-gray-500 text-center group-hover:text-blue-600 transition-colors duration-300 leading-tight">关注微信小程序</p>
-            </div>
-          </div>
-        </div>
-      </div>
+            ) : (
+              <a href={link.href || '#'} className="hover:text-blue-600 transition-colors block">
+                {link.text}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
     );
   };
 
-  return (
-    <footer className="bg-gradient-to-b from-[#f8f9fa] to-[#f0f2f5] text-gray-700 py-8 sm:py-12 lg:py-16">
-      <div className="container mx-auto px-4 sm:px-6">
-        {/* 顶部区域 - 下载客户端 */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 mb-8 sm:mb-12 lg:mb-16 relative overflow-hidden group">
-          {/* 背景装饰 - 移动端缩小 */}
-          <div className="absolute -right-10 sm:-right-20 -top-10 sm:-top-20 w-32 sm:w-64 h-32 sm:h-64 bg-blue-100 rounded-full opacity-30 group-hover:scale-110 transition-transform duration-700"></div>
-          <div className="absolute -left-8 sm:-left-16 -bottom-8 sm:-bottom-16 w-24 sm:w-48 h-24 sm:h-48 bg-indigo-100 rounded-full opacity-30 group-hover:scale-110 transition-transform duration-700"></div>
+  const renderMobileMenu = () => (
+    <div className="col-span-2 md:col-span-4 lg:col-span-4 xl:col-span-5">
+      <Accordion type="multiple" className="w-full space-y-2" defaultValue={['关注我们']}>
+        {footerLinks.map((group, index) => (
+          <AccordionItem key={index} value={group.title} className="border-b border-gray-100 last:border-0">
+            <AccordionTrigger className="text-gray-900 font-bold hover:no-underline py-4">
+              {group.title}
+            </AccordionTrigger>
+            <AccordionContent>
+              {renderGroupContent(group)}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  );
 
-          <div className="flex flex-col md:flex-row items-center justify-between relative z-10">
-            <div className="flex flex-col md:flex-row items-center mb-6 sm:mb-8 md:mb-0 w-full md:w-auto">
-              {/* 左侧LOGO和文字 */}
-              <div className="relative mb-4 sm:mb-6 md:mb-0 md:mr-8">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full blur-xl"></div>
-                <div className="relative bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl transform group-hover:rotate-3 transition-transform duration-500">
+  const renderDesktopMenu = () => (
+    <div className="col-span-2 md:col-span-4 lg:col-span-4 xl:col-span-5 grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-8 items-start">
+      {footerLinks.map((group, index) => (
+        <div key={index} className={group.customContent ? 'col-span-2 md:col-span-1' : ''}>
+          <h4 className="font-bold text-gray-900 mb-4">{group.title}</h4>
+          {renderGroupContent(group)}
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <footer className="bg-white text-gray-700">
+      {/* 顶部下载区域 - 保留现有设计 */}
+      <div className="container mx-auto px-4 sm:px-6 pt-12 pb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative rounded-[2.5rem] overflow-hidden bg-white border border-gray-100 p-8 md:p-12 mb-16 shadow-2xl shadow-blue-900/5"
+        >
+          {/* 动态背景光效 */}
+          <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-blue-100/50 rounded-full blur-[80px] opacity-60 animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-purple-100/50 rounded-full blur-[80px] opacity-60 animate-pulse delay-1000"></div>
+
+          {/* 网格纹理 (CSS模拟) */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.06)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]"></div>
+
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+            {/* 左侧内容 */}
+            <div className="flex flex-col md:flex-row items-center lg:items-start text-center md:text-left gap-6 md:gap-8 max-w-3xl">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-blue-500 rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="relative bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
                   <img
                     src="/product/logo.svg"
                     alt="艺创AI"
-                    className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain"
+                    className="w-16 h-16 object-contain"
                   />
                 </div>
               </div>
 
-              <div className="text-center md:text-left">
-                <div className="inline-flex items-center px-3 py-1 mb-2 sm:mb-3 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
-                  全新上线
+              <div className="space-y-4">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-medium">
+                  <Sparkles className="w-3 h-3 mr-1.5 text-blue-500" />
+                  <span className="relative flex h-2 w-2 mr-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                  </span>
+                  全新客户端上线
                 </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 bg-clip-text text-transparent mb-2">艺创AI客户端</h3>
-                <p className="text-gray-600 text-sm sm:text-base max-w-md px-2 sm:px-0">一键安装，畅享AI创作的无限可能，随时随地激发创意灵感</p>
+
+                <div className="space-y-2">
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+                    释放 AI 创作的<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">无限潜能</span>
+                  </h3>
+                  <p className="text-gray-500 text-base md:text-lg max-w-lg leading-relaxed">
+                    一键安装，畅享原生级 AI 创作体验。更稳定的连接，更流畅的交互，随时随地激发创意灵感。
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* 右侧按钮和平台图标 */}
-            <div className="flex flex-col items-center w-full md:w-auto">
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 w-full sm:w-auto">
+            {/* 右侧操作区 */}
+            <div className="flex flex-col items-center gap-6 w-full lg:w-auto">
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <Button
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-xl transition-all w-full sm:w-auto"
+                  className="h-12 px-8 bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 transition-all duration-300 rounded-xl font-semibold text-base shadow-lg shadow-blue-600/20"
                   onClick={() => window.open('https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20', '_blank')}
                 >
                   免费使用
+                  <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-2 border-indigo-200 text-indigo-700 hover:bg-indigo-50 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-xl group-hover:border-indigo-300 transition-colors w-full sm:w-auto"
+                  className="h-12 px-8 bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 rounded-xl text-base transition-all duration-300"
                   onClick={() => window.open('/download', '_blank')}
                 >
-                  <span className="mr-2">客户端下载</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-bounce">
-                    <path d="M12 5v14M19 12l-7 7-7-7"/>
-                  </svg>
+                  <Download className="mr-2 w-4 h-4" />
+                  客户端下载
                 </Button>
               </div>
 
-              {/* 平台图标 */}
-              <div className="flex justify-center space-x-3 sm:space-x-4">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4">
-                    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-8a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-                  </svg>
-                </div>
-                <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                    <line x1="8" y1="21" x2="16" y2="21"/>
-                    <line x1="12" y1="17" x2="12" y2="21"/>
-                  </svg>
-                </div>
-                <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-4 sm:h-4">
-                    <path d="M18 8a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V8z"/>
-                    <circle cx="12" cy="17" r="1"/>
-                  </svg>
+              {/* 平台支持 */}
+              <div className="flex items-center gap-4 text-gray-400 text-sm">
+                <span>支持平台:</span>
+                <div className="flex gap-3">
+                  <div className="p-2 rounded-full bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors text-gray-600" title="Windows">
+                    <Monitor className="w-4 h-4" />
+                  </div>
+                  <div className="p-2 rounded-full bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors text-gray-600" title="macOS">
+                    <Apple className="w-4 h-4" />
+                  </div>
+                  <div className="p-2 rounded-full bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors text-gray-600" title="Linux">
+                    <Terminal className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </motion.div>
+        {/* 分隔线 */}
+
+
+        {/* 核心链接区域 - 参考 Vue 设计 */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-8 mb-12">
+          {/* 左侧品牌区 */}
+          <div className="col-span-2 lg:col-span-2">
+            <Link to="/" className="flex items-center space-x-3 mb-6">
+              <img src="/product/logo.svg" alt="艺创AI" className="h-8 w-auto" />
+              <span className="font-bold text-xl text-gray-900">艺创AI</span>
+            </Link>
+            <p className="text-gray-500 text-sm leading-relaxed max-w-xs mb-6">
+              艺创AI 致力于降低企业 AI 应用开发门槛，赋能每一个团队构建智能未来。
+            </p>
+            {renderSocialIcons()}
+          </div>
+
+          {/* 右侧链接列表区 */}
+          {isMobile ? renderMobileMenu() : renderDesktopMenu()}
         </div>
 
-        {/* 主要内容区域 - 响应式菜单 */}
-        {renderMenuContent()}
+        {/* 友情链接 */}
+        <div className="mb-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400">
+          <span className="text-gray-300 select-none">友情链接:</span>
+          {friendLinks.map((link, index) => (
+            <a key={index} href={link.href} className="hover:text-blue-600 transition-colors">
+              {link.text}
+            </a>
+          ))}
+        </div>
 
+        {/* 底部版权 */}
+        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} 艺创AI BuidAI. All rights reserved.
+            </p>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" className="text-gray-400 text-sm hover:text-blue-600 transition-colors">
+              赣ICP备2023002309号-8
+            </a>
+          </div>
 
-
-        {/* 底部版权信息 */}
-        <div className="mt-12 sm:mt-16">
-          <Separator className="mb-4 sm:mb-6" />
-          <div className="flex flex-col sm:flex-row sm:justify-between items-center text-xs text-gray-500 gap-3 sm:gap-0">
-            <div className="text-center sm:text-left">
-              <p>© COPYRIGHT 2023-{new Date().getFullYear()} 艺创AI All Rights Reserved.</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-x-3 sm:gap-x-4">
-              <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">赣ICP备2023002309号-8</a>
-              <span className="text-gray-300 hidden sm:inline">|</span>
-              <p>艺创AI</p>
-            </div>
+          <div className="flex space-x-6 text-sm text-gray-400 hidden md:flex">
+            <a href="#" className="hover:text-blue-600 transition-colors">服务条款</a>
+            <a href="#" className="hover:text-blue-600 transition-colors">隐私政策</a>
+            <a href="#" className="hover:text-blue-600 transition-colors">Cookie 设置</a>
           </div>
         </div>
       </div>
-  </footer>
+    </footer>
   );
 };
 
 export default Footer;
-
