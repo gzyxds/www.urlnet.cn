@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Building2, 
-  Users, 
-  Award, 
-  Target, 
-  Heart, 
-  Lightbulb, 
-  Shield, 
+import {
+  Building2,
+  Users,
+  Award,
+  Target,
+  Heart,
+  Lightbulb,
+  Shield,
   Handshake,
   MapPin,
   Phone,
@@ -32,8 +32,8 @@ const AboutPage: React.FC = () => {
   // 简化的动画变体
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.5, ease: "easeOut" as const }
     }
@@ -49,41 +49,42 @@ const AboutPage: React.FC = () => {
     }
   };
 
-  // 滚动到顶部函数
-
   // 处理二维码弹出
-  const handleShowQRCode = () => {
-    setShowQRCode(true);
-  };
-
-  // 关闭二维码模态框
-  const handleCloseQRCode = () => {
-    setShowQRCode(false);
-  };
+  const handleShowQRCode = () => setShowQRCode(true);
+  const handleCloseQRCode = () => setShowQRCode(false);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* 简约英雄区域 */}
-      <section className="relative bg-slate-100 border-b border-gray-100">
-        <div className="container mx-auto px-6 py-24 lg:py-32">
+      {/* 1. Hero 区域（保持优化后的版本） */}
+      <section className="relative overflow-hidden bg-slate-50 border-b border-gray-100">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-50"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-100/50 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 opacity-50"></div>
+
+        <div className="container mx-auto px-6 py-24 lg:py-32 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-8"
+              className="mb-10"
             >
-              <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-8">
-                <Star className="w-4 h-4" />
+              <div className="inline-flex items-center gap-2 bg-white border border-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-8 shadow-sm">
+                <Star className="w-4 h-4 fill-current" />
                 领先的AI技术服务商
               </div>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-                关于艺创AI
+
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-8 leading-tight tracking-tight">
+                关于 <span className="text-blue-600 relative inline-block">
+                  艺创AI
+                  <svg className="absolute w-full h-3 -bottom-1 left-0 text-blue-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
+                  </svg>
+                </span>
               </h1>
-              
-              <p className="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed max-w-2xl mx-auto">
-                专注人工智能技术研发与应用，为企业提供智能化解决方案，推动数字化转型进程
+
+              <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-2xl mx-auto">
+                专注人工智能技术研发与应用，为企业提供智能化解决方案，推动数字化转型进程，共创智慧未来。
               </p>
             </motion.div>
 
@@ -93,17 +94,17 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button 
-                size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3"
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-6 rounded-xl shadow-lg shadow-blue-600/20 text-lg transition-all hover:scale-105"
               >
                 了解更多
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium px-8 py-3"
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-200 text-slate-700 hover:bg-white hover:text-blue-600 font-medium px-8 py-6 rounded-xl bg-white shadow-sm text-lg transition-all hover:scale-105"
                 onClick={handleShowQRCode}
               >
                 联系我们
@@ -114,8 +115,8 @@ const AboutPage: React.FC = () => {
       </section>
 
       <div className="container mx-auto px-6 py-16">
-        {/* 核心数据展示 - 简约设计 */}
-        <motion.section 
+        {/* 核心数据展示 - 恢复简约设计 */}
+        <motion.section
           className="mb-24"
           initial="hidden"
           whileInView="visible"
@@ -144,8 +145,8 @@ const AboutPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* 公司简介 - 简约布局 */}
-        <motion.section 
+        {/* 公司简介 - 恢复简约布局 */}
+        <motion.section
           className="mb-24"
           initial="hidden"
           whileInView="visible"
@@ -160,7 +161,7 @@ const AboutPage: React.FC = () => {
                 </h2>
                 <div className="w-12 h-1 bg-blue-600 mb-6"></div>
               </div>
-              
+
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p>
                   <strong className="text-black">艺创AI</strong> 成立于2018年，是一家专注于人工智能技术研发与应用的高新技术企业。我们总部位于北京，在上海、深圳、杭州设有分支机构。
@@ -184,15 +185,14 @@ const AboutPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* 发展历程 - 现代化简约设计 */}
-        <motion.section 
+        {/* 发展历程 - 恢复简约设计 */}
+        <motion.section
           className="mb-32"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
-          {/* 标题区域 - 增加留白和层次感 */}
           <motion.div variants={fadeInUp} className="text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Calendar className="w-4 h-4" />
@@ -206,12 +206,10 @@ const AboutPage: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* 时间线布局 - 现代化垂直设计 */}
           <div className="container mx-auto px-4">
             <div className="relative">
-              {/* 中央时间线 - 简约线条设计 */}
               <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-px bg-gradient-to-b from-blue-200 via-blue-300 to-blue-200 h-full"></div>
-              
+
               <div className="space-y-24">
                 {[
                   {
@@ -220,26 +218,23 @@ const AboutPage: React.FC = () => {
                     description: "艺创AI正式成立，获得天使轮融资1000万元。由一群充满激情的AI专家创立，致力于将前沿技术转化为实用产品。",
                     icon: Building2,
                     stats: "1000万元",
-                    label: "天使轮融资",
-                    color: "blue"
+                    label: "天使轮融资"
                   },
                   {
-                    year: "2019", 
+                    year: "2019",
                     title: "产品突破",
                     description: "推出首款AI产品，获得A轮融资5000万元。产品在市场上获得积极反响，为后续发展奠定了坚实基础。",
                     icon: Zap,
                     stats: "5000万元",
-                    label: "A轮融资",
-                    color: "blue"
+                    label: "A轮融资"
                   },
                   {
                     year: "2020",
-                    title: "市场拓展", 
+                    title: "市场拓展",
                     description: "客户数量突破100家，产品应用领域扩展。在疫情挑战下，我们的AI解决方案帮助企业实现数字化转型。",
                     icon: TrendingUp,
                     stats: "100+",
-                    label: "企业客户",
-                    color: "blue"
+                    label: "企业客户"
                   },
                   {
                     year: "2021",
@@ -247,8 +242,7 @@ const AboutPage: React.FC = () => {
                     description: "获得B轮融资2亿元，成立多个分公司。业务覆盖全国主要城市，团队规模快速增长。",
                     icon: Globe,
                     stats: "2亿元",
-                    label: "B轮融资",
-                    color: "blue"
+                    label: "B轮融资"
                   },
                   {
                     year: "2022",
@@ -256,8 +250,7 @@ const AboutPage: React.FC = () => {
                     description: "推出多款AI产品，客户数量突破300家。产品线日趋完善，覆盖多个行业应用场景。",
                     icon: Award,
                     stats: "300+",
-                    label: "企业客户",
-                    color: "blue"
+                    label: "企业客户"
                   },
                   {
                     year: "2023-至今",
@@ -265,8 +258,7 @@ const AboutPage: React.FC = () => {
                     description: "获得C轮融资5亿元，确立行业领先地位。持续创新，引领AI技术发展方向。",
                     icon: Star,
                     stats: "5亿元",
-                    label: "C轮融资",
-                    color: "blue"
+                    label: "C轮融资"
                   }
                 ].map((milestone, index) => (
                   <motion.div
@@ -274,7 +266,6 @@ const AboutPage: React.FC = () => {
                     variants={fadeInUp}
                     className="relative"
                   >
-                    {/* 时间节点圆圈 */}
                     <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2">
                       <div className="w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
                     </div>
@@ -282,10 +273,8 @@ const AboutPage: React.FC = () => {
                     <div className={`grid lg:grid-cols-2 gap-16 items-center ${
                       index % 2 === 0 ? '' : 'lg:grid-flow-col-dense'
                     }`}>
-                      {/* 内容卡片 */}
                       <div className={`${index % 2 === 0 ? 'lg:pr-16' : 'lg:pl-16 lg:col-start-2'}`}>
                         <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-blue-200">
-                          {/* 年份标签 - 简约设计 */}
                           <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-4">
                               <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
@@ -300,8 +289,7 @@ const AboutPage: React.FC = () => {
                                 </div>
                               </div>
                             </div>
-                            
-                            {/* 数据展示 - 突出显示 */}
+
                             <div className="text-right">
                               <div className="text-2xl font-bold text-blue-600">
                                 {milestone.stats}
@@ -312,7 +300,6 @@ const AboutPage: React.FC = () => {
                             </div>
                           </div>
 
-                          {/* 标题和描述 - 优化排版 */}
                           <div className="space-y-4">
                             <h3 className="text-xl font-bold text-black leading-tight">
                               {milestone.title}
@@ -322,33 +309,27 @@ const AboutPage: React.FC = () => {
                             </p>
                           </div>
 
-                          {/* 底部装饰线 */}
                           <div className="mt-6 pt-4 border-t border-gray-50">
                             <div className="w-8 h-1 bg-blue-600 rounded-full"></div>
                           </div>
                         </div>
                       </div>
 
-                      {/* 数据可视化区域 - 简约几何设计 */}
                       <div className={`${index % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16 lg:col-start-1'}`}>
                         <div className="relative">
-                          {/* 主要数据展示容器 */}
                           <div className="bg-gray-50 rounded-2xl p-12 text-center relative overflow-hidden">
-                            {/* 背景几何装饰 - 简约线条 */}
                             <div className="absolute inset-0">
                               <div className="absolute top-4 right-4 w-16 h-16 border-2 border-blue-100 rounded-full"></div>
                               <div className="absolute bottom-4 left-4 w-8 h-8 bg-blue-100 rounded-full"></div>
                               <div className="absolute top-1/2 left-4 w-px h-12 bg-blue-200"></div>
                               <div className="absolute top-4 right-1/2 w-12 h-px bg-blue-200"></div>
                             </div>
-                            
-                            {/* 年份大字 - 简约展示 */}
+
                             <div className="relative z-10">
                               <div className="text-5xl md:text-6xl font-bold text-black/5 mb-6 select-none">
                                 {milestone.year.split('-')[0]}
                               </div>
-                              
-                              {/* 核心数据 - 突出显示 */}
+
                               <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                                 <div className="text-3xl font-bold text-blue-600 mb-2">
                                   {milestone.stats}
@@ -368,8 +349,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          {/* 底部总结 - 简约设计 */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="mt-20 text-center"
           >
@@ -392,8 +372,8 @@ const AboutPage: React.FC = () => {
           </motion.div>
         </motion.section>
 
-        {/* 核心团队 - 简约卡片 */}
-        <motion.section 
+        {/* 核心团队 - 恢复简约设计 */}
+        <motion.section
           className="mb-24"
           initial="hidden"
           whileInView="visible"
@@ -417,14 +397,14 @@ const AboutPage: React.FC = () => {
                 expertise: ["机器学习", "深度学习", "产品战略"]
               },
               {
-                name: "赵六", 
+                name: "赵六",
                 title: "高级前端工程师",
                 bio: "前端技术专家，精通React和Vue框架，擅长构建高性能、易维护的企业级应用，曾主导多个大型项目的前端架构设计与优化",
                 expertise: ["自然语言处理", "机器学习", "技术架构"]
               },
               {
                 name: "王五",
-                title: "产品总监", 
+                title: "产品总监",
                 bio: "拥有丰富的产品设计和用户体验经验，曾在多家知名科技公司担任产品负责人。王五专注于打造直观易用的AI产品",
                 expertise: ["产品管理", "运营策略", "商业发展"]
               }
@@ -439,12 +419,12 @@ const AboutPage: React.FC = () => {
                       <h3 className="text-xl font-semibold text-black mb-1">{member.name}</h3>
                       <p className="text-blue-600 font-medium text-sm">{member.title}</p>
                     </div>
-                    
+
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.bio}</p>
-                    
+
                     <div className="flex flex-wrap gap-2">
                       {member.expertise.map((skill, skillIndex) => (
-                        <span 
+                        <span
                           key={skillIndex}
                           className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
                         >
@@ -459,8 +439,8 @@ const AboutPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* 企业价值观 - 简约网格布局 */}
-        <motion.section 
+        {/* 企业价值观 - 恢复简约设计 */}
+        <motion.section
           className="mb-24"
           initial="hidden"
           whileInView="visible"
@@ -486,7 +466,7 @@ const AboutPage: React.FC = () => {
                     </div>
                     <h3 className="text-xl font-semibold text-black">使命与愿景</h3>
                   </div>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-semibold text-black mb-2">我们的使命</h4>
@@ -494,7 +474,7 @@ const AboutPage: React.FC = () => {
                         让AI技术惠及每一个企业和个人，通过智能化解决方案提升工作效率，创造更美好的数字化未来。
                       </p>
                     </div>
-                    
+
                     <div>
                       <h4 className="font-semibold text-black mb-2">我们的愿景</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
@@ -516,7 +496,7 @@ const AboutPage: React.FC = () => {
                     </div>
                     <h3 className="text-xl font-semibold text-black">核心价值观</h3>
                   </div>
-                  
+
                   <div className="space-y-4">
                     {[
                       { icon: Lightbulb, title: "创新驱动", desc: "拥抱变化，勇于探索前沿技术" },
@@ -541,7 +521,7 @@ const AboutPage: React.FC = () => {
           </div>
         </motion.section>
 
-        {/* 联系我们 CTA - 简约设计 */}
+        {/* 联系我们 CTA - 恢复简约设计 */}
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -561,16 +541,16 @@ const AboutPage: React.FC = () => {
                 <p className="text-blue-100 mb-8 leading-relaxed">
                   联系我们的专家团队，获取个性化的AI解决方案咨询
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="bg-white text-blue-600 hover:bg-gray-50 font-medium px-8"
                   >
                     立即联系我们
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                  <Button 
+                  <Button
                     size="lg"
                     className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 font-medium px-8 flex items-center gap-2"
                   >
@@ -599,7 +579,7 @@ const AboutPage: React.FC = () => {
           </Card>
         </motion.section>
 
-        {/* 合作伙伴 - 简约展示 */}
+        {/* 合作伙伴 - 恢复简约展示 */}
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -633,8 +613,6 @@ const AboutPage: React.FC = () => {
         </motion.section>
       </div>
 
-
-
       {/* 二维码模态框 */}
       <AnimatePresence>
         {showQRCode && (
@@ -648,7 +626,7 @@ const AboutPage: React.FC = () => {
           >
             {/* 背景遮罩 */}
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-            
+
             {/* 模态框内容 */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -666,23 +644,23 @@ const AboutPage: React.FC = () => {
               >
                 <X className="w-4 h-4 text-gray-600" />
               </button>
-              
+
               {/* 内容区域 */}
               <div className="p-8 text-center">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">联系客服</h3>
                 <p className="text-sm text-gray-600 mb-6">扫描二维码添加客服微信</p>
-                
+
                 {/* 二维码 */}
                 <div className="flex justify-center mb-4">
                   <div className="relative">
-                    <img 
-                      src="/images/qrcode.png" 
-                      alt="客服二维码" 
+                    <img
+                      src="/images/qrcode.png"
+                      alt="客服二维码"
                       className="w-48 h-48 object-contain rounded-lg border border-gray-200 shadow-lg"
                     />
                   </div>
                 </div>
-                
+
                 {/* 提示文字 */}
                 <p className="text-xs text-gray-500">长按二维码保存到相册</p>
               </div>

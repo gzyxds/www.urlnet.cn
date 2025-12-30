@@ -18,7 +18,6 @@ import {
   Sparkles,
   Terminal,
   Layers,
-  Cpu,
   Database,
   Bot,
   PenTool,
@@ -30,7 +29,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import Header from '@/components/HeaderSection';
 import Contact from '@/components/ContactSection';
 
 import { usePageMetadata } from '@/hooks/use-page-metadata';
@@ -467,7 +465,6 @@ const CodeDownloadPage: React.FC = () => {
   // 4.5 主渲染入口 (Main Render)
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-slate-50/30">
         <div className="h-16 lg:h-20 bg-white"></div>
 

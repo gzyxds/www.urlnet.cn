@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-import { 
-  Code, 
-  Database, 
+import {
+  Code,
+  Database,
   Zap,
   Copy,
   CheckCircle,
@@ -29,7 +29,6 @@ import {
   Check,
   Download
 } from "lucide-react";
-import Header from '@/components/HeaderSection';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { toast } from '@/hooks/use-toast';
 
@@ -322,7 +321,6 @@ const ApiPage = () => {
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-white">
         {/* 顶部横幅 */}
         <section className="relative py-24 md:py-32 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
@@ -332,10 +330,10 @@ const ApiPage = () => {
             <div className="absolute top-0 right-0 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
             <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
           </div>
-          
+
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-8xl mx-auto text-center">
-              <motion.div 
+              <motion.div
                 className="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full mb-8"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -343,8 +341,8 @@ const ApiPage = () => {
               >
                 <Code className="h-10 w-10 text-white" />
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -352,15 +350,15 @@ const ApiPage = () => {
               >
                 API接口文档
               </motion.h1>
-              
-              <motion.div 
+
+              <motion.div
                 className="w-20 h-0.5 bg-blue-600 mx-auto mb-8"
                 initial={{ width: 0 }}
                 animate={{ width: 80 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               ></motion.div>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-lg md:text-xl text-gray-600 max-w-8xl mx-auto leading-relaxed font-light mb-12"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -384,10 +382,10 @@ const ApiPage = () => {
                   完整的API接口体系，支持多种智能服务
                 </p>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {apiCategories.map((category, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -438,10 +436,10 @@ const ApiPage = () => {
                       <div className="col-span-1 text-center">操作</div>
                     </div>
                   </div>
-                  
+
                   <div className="divide-y divide-gray-200">
                     {apiEndpoints.map((endpoint, index) => (
-                      <motion.div 
+                      <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -492,7 +490,7 @@ const ApiPage = () => {
                 {/* 移动端卡片布局 */}
                 <div className="lg:hidden">
                   {apiEndpoints.map((endpoint, index) => (
-                    <motion.div 
+                    <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -554,7 +552,7 @@ const ApiPage = () => {
                   <div className={`cursor-pointer p-2 text-center ${activeTab === 'painting' ? 'bg-blue-500 text-white' : ''}`} onClick={() => setActiveTab('painting')}>AI绘画</div>
                   <div className={`cursor-pointer p-2 text-center ${activeTab === 'video' ? 'bg-blue-500 text-white' : ''}`} onClick={() => setActiveTab('video')}>AI视频</div>
                 </div>
-                
+
                 <div className={`space-y-6 ${activeTab === 'chat' ? 'block' : 'hidden'}`}>
                   <Card className="p-6">
                     <div className="flex items-center justify-between mb-4">
@@ -580,7 +578,7 @@ const ApiPage = () => {
                     </pre>
                   </Card>
                 </div>
-                
+
                 <div className={`space-y-6 ${activeTab === 'painting' ? 'block' : 'hidden'}`}>
                   <Card className="p-6">
                     <div className="flex items-center justify-between mb-4">
@@ -606,7 +604,7 @@ const ApiPage = () => {
                     </pre>
                   </Card>
                 </div>
-                
+
                 <div className={`space-y-6 ${activeTab === 'video' ? 'block' : 'hidden'}`}>
                   <Card className="p-6">
                     <div className="flex items-center justify-between mb-4">
@@ -662,10 +660,10 @@ const ApiPage = () => {
                       <div className="col-span-3 text-center">下载操作</div>
                     </div>
                   </div>
-                  
+
                   <div className="divide-y divide-gray-200">
                     {sdkDownloads.map((sdk, index) => (
-                      <motion.div 
+                      <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -724,7 +722,7 @@ const ApiPage = () => {
                 {/* 移动端卡片布局 */}
                 <div className="lg:hidden">
                   {sdkDownloads.map((sdk, index) => (
-                    <motion.div 
+                    <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -781,7 +779,7 @@ const ApiPage = () => {
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6">
             <div className="max-w-8xl mx-auto">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -789,7 +787,7 @@ const ApiPage = () => {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight text-center">
                   API状态
                 </h2>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   <Card className="p-6 text-center">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -799,7 +797,7 @@ const ApiPage = () => {
                     <p className="text-green-600 font-semibold">正常运行</p>
                     <p className="text-sm text-gray-600 mt-2">99.9% 可用性</p>
                   </Card>
-                  
+
                   <Card className="p-6 text-center">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Activity className="h-6 w-6 text-blue-600" />
@@ -808,7 +806,7 @@ const ApiPage = () => {
                     <p className="text-blue-600 font-semibold">平均 120ms</p>
                     <p className="text-sm text-gray-600 mt-2">全球CDN加速</p>
                   </Card>
-                  
+
                   <Card className="p-6 text-center">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Shield className="h-6 w-6 text-purple-600" />
@@ -817,7 +815,7 @@ const ApiPage = () => {
                     <p className="text-purple-600 font-semibold">SSL/TLS加密</p>
                     <p className="text-sm text-gray-600 mt-2">企业级安全</p>
                   </Card>
-                  
+
                   <Card className="p-6 text-center">
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Clock className="h-6 w-6 text-orange-600" />
@@ -836,7 +834,7 @@ const ApiPage = () => {
         <section className="py-24 bg-gray-50/50">
           <div className="container mx-auto px-6">
             <div className="max-w-8xl mx-auto">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -844,7 +842,7 @@ const ApiPage = () => {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight text-center">
                   使用说明
                 </h2>
-                
+
                 <Card className="p-8">
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
@@ -858,7 +856,7 @@ const ApiPage = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start space-x-4">
                       <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                         <span className="text-blue-600 font-bold text-sm">2</span>
@@ -870,7 +868,7 @@ const ApiPage = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start space-x-4">
                       <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                         <span className="text-blue-600 font-bold text-sm">3</span>
@@ -882,7 +880,7 @@ const ApiPage = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start space-x-4">
                       <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                         <span className="text-blue-600 font-bold text-sm">4</span>

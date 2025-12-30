@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useMobile } from "@/hooks/use-mobile";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowRight, Monitor, Apple, Terminal, Sparkles, Download } from "lucide-react";
 
@@ -311,7 +309,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="flex space-x-6 text-sm text-gray-400 hidden md:flex">
+          <div className="hidden md:flex space-x-6 text-sm text-gray-400">
             <a href="#" className="hover:text-blue-600 transition-colors">服务条款</a>
             <a href="#" className="hover:text-blue-600 transition-colors">隐私政策</a>
             <a href="#" className="hover:text-blue-600 transition-colors">Cookie 设置</a>

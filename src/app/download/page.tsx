@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Download, 
-  Smartphone, 
-  Monitor, 
-  Laptop, 
+import {
+  Download,
+  Smartphone,
+  Monitor,
+  Laptop,
   QrCode,
   Copy,
   CheckCircle,
@@ -27,7 +27,6 @@ import {
   Bot,
   BookOpen
 } from "lucide-react";
-import Header from '@/components/HeaderSection';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { toast } from '@/hooks/use-toast';
 
@@ -48,13 +47,13 @@ const DownloadPage = () => {
       icon: <MessageSquare className="h-5 w-5 text-gray-600" />
     },
     {
-      title: "智能文档管理", 
+      title: "智能文档管理",
       description: "AI驱动的文档处理和管理，提升工作效率",
       icon: <FileText className="h-5 w-5 text-gray-600" />
     },
     {
       title: "专家顾问助理",
-      description: "专业AI顾问，为企业提供智能化决策支持", 
+      description: "专业AI顾问，为企业提供智能化决策支持",
       icon: <Brain className="h-5 w-5 text-gray-600" />
     },
     {
@@ -249,35 +248,34 @@ const DownloadPage = () => {
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-white">
         {/* 顶部横幅 - 现代简约设计（白、黑、蓝色调） */}
         <section className="relative bg-slate-100 overflow-hidden border-b border-gray-100 pt-8 sm:pt-12 lg:pt-16">
           {/* 装饰图形元素 - 简洁几何形状 */}
           <div className="absolute inset-0 overflow-hidden">
             <svg className="absolute right-0 top-0 h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" fill="none">
-              <motion.path 
-                d="M1200,100 L1440,0 L1440,800 L1000,800 C1100,600 1300,300 1200,100Z" 
+              <motion.path
+                d="M1200,100 L1440,0 L1440,800 L1000,800 C1100,600 1300,300 1200,100Z"
                 fill="rgba(59, 130, 246, 0.03)"
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1.5 }}
               />
-              <motion.rect 
-                x="1100" 
-                y="100" 
-                width="200" 
-                height="200" 
+              <motion.rect
+                x="1100"
+                y="100"
+                width="200"
+                height="200"
                 rx="20"
                 fill="rgba(59, 130, 246, 0.05)"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
               />
-              <motion.circle 
-                cx="1300" 
-                cy="400" 
-                r="80" 
+              <motion.circle
+                cx="1300"
+                cy="400"
+                r="80"
                 fill="rgba(59, 130, 246, 0.07)"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -290,7 +288,7 @@ const DownloadPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12 md:py-24 lg:py-32">
               {/* 左侧内容 */}
               <div className="max-w-2xl">
-                <motion.div 
+                <motion.div
                   className="inline-flex items-center px-4 py-2 rounded-md bg-blue-50 mb-6 border border-blue-100"
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -299,8 +297,8 @@ const DownloadPage = () => {
                   <Download className="h-4 w-4 mr-2 text-blue-600" />
                   <span className="text-sm font-medium text-blue-700">全平台支持</span>
                 </motion.div>
-                
-                <motion.h1 
+
+                <motion.h1
                   className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-relaxed text-gray-900"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -309,8 +307,8 @@ const DownloadPage = () => {
                   艺创AI <br />
                   <span className="inline-block mt-4 text-blue-600">产品终端下载中心</span>
                 </motion.h1>
-                
-                <motion.p 
+
+                <motion.p
                   className="text-lg text-gray-600 mb-8 leading-relaxed"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -318,8 +316,8 @@ const DownloadPage = () => {
                 >
                   艺创AI致力于打造企业级全能AIGC创作平台，提供全方位智能解决方案。涵盖企业智能客服、智能文档管理、专家顾问助理等核心功能，助力企业实现智能化转型。
                 </motion.p>
-                
-                <motion.div 
+
+                <motion.div
                   className="flex flex-wrap gap-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -334,8 +332,8 @@ const DownloadPage = () => {
                     了解更多
                   </Button>
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   className="mt-6 mb-2 flex flex-wrap items-center gap-2 text-sm"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -348,9 +346,9 @@ const DownloadPage = () => {
                   <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">iOS</Badge>
                 </motion.div>
               </div>
-              
+
               {/* 右侧设备展示 - 简约动画效果 */}
-              <motion.div 
+              <motion.div
                 className="relative hidden lg:block ml-auto"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -358,7 +356,7 @@ const DownloadPage = () => {
               >
                 <div className="relative">
                   {/* 简约风格的设备展示框 */}
-                  <motion.div 
+                  <motion.div
                     className="w-[480px] h-[320px] bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg overflow-hidden border border-blue-200"
                     initial={{ y: 20 }}
                     animate={{ y: 0 }}
@@ -372,12 +370,12 @@ const DownloadPage = () => {
                         <div className="w-2.5 h-2.5 rounded-full bg-blue-200"></div>
                       </div>
                     </div>
-                    
+
                     {/* 内容区域 */}
                     <div className="p-6">
                       {/* 标题栏 */}
                       <div className="bg-white/60 w-full h-10 rounded-lg mb-6"></div>
-                      
+
                       {/* 内容网格 */}
                       <div className="grid grid-cols-2 gap-4">
                         <div className="bg-white/60 h-16 rounded-lg"></div>
@@ -408,10 +406,10 @@ const DownloadPage = () => {
                 全方位智能解决方案，助力企业数字化转型
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-8xl mx-auto">
               {features.map((feature, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -461,10 +459,10 @@ const DownloadPage = () => {
                       <div className="col-span-3 text-center">下载操作</div>
                     </div>
                   </div>
-                  
+
                   <div className="divide-y divide-gray-200">
                     {downloadResources.map((resource, index) => (
-                      <motion.div 
+                      <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -529,7 +527,7 @@ const DownloadPage = () => {
                 {/* 移动端卡片布局 */}
                 <div className="lg:hidden">
                   {downloadResources.map((resource, index) => (
-                    <motion.div 
+                    <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -592,7 +590,7 @@ const DownloadPage = () => {
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6">
             <div className="max-w-8xl mx-auto text-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -603,7 +601,7 @@ const DownloadPage = () => {
                 <p className="text-xl text-gray-600 mb-12 max-w-6xl mx-auto font-light">
                   使用手机扫描二维码，快速下载移动端应用
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
                   <Card className="p-8 text-center">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -611,9 +609,9 @@ const DownloadPage = () => {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">Android版本</h3>
                     <div className="w-32 h-32 bg-white border border-gray-200 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <img 
-                        src="/images/qrcode.png" 
-                        alt="Android下载二维码" 
+                      <img
+                        src="/images/qrcode.png"
+                        alt="Android下载二维码"
                         className="w-28 h-28"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
@@ -625,16 +623,16 @@ const DownloadPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">Android 7.0+</p>
                   </Card>
-                  
+
                   <Card className="p-8 text-center">
                     <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
                       <Smartphone className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">iOS版本</h3>
                     <div className="w-32 h-32 bg-white border border-gray-200 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <img 
-                        src="/images/qrcode.png" 
-                        alt="iOS下载二维码" 
+                      <img
+                        src="/images/qrcode.png"
+                        alt="iOS下载二维码"
                         className="w-28 h-28"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
@@ -656,7 +654,7 @@ const DownloadPage = () => {
         <section className="py-24 bg-gray-50/50">
           <div className="container mx-auto px-6">
             <div className="max-w-8xl mx-auto">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -664,7 +662,7 @@ const DownloadPage = () => {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight text-center">
                   使用说明
                 </h2>
-                
+
                 <Card className="p-8">
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
@@ -678,7 +676,7 @@ const DownloadPage = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start space-x-4">
                       <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                         <span className="text-blue-600 font-bold text-sm">2</span>
@@ -690,7 +688,7 @@ const DownloadPage = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start space-x-4">
                       <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                         <span className="text-blue-600 font-bold text-sm">3</span>

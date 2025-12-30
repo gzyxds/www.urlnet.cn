@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, FileText, Book, Code, HelpCircle, ArrowRight, Menu, X } from "lucide-react";
-import Header from '@/components/HeaderSection';
 import Contact from '@/components/ContactSection';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { DocItem, FAQItem, NavigationItem } from '@/types';
@@ -19,7 +18,7 @@ const DocsPage = () => {
     description: '艺创AI产品文档中心，提供详细的使用指南、API文档和常见问题解答。包括数字分身、企业知识库、聊天绘画、论文创作等产品的完整文档。',
     keywords: '产品文档,使用指南,API文档,常见问题,技术支持,开发文档,SDK下载,艺创AI'
   });
-  
+
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("guides");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -219,13 +218,13 @@ const DocsPage = () => {
   // 渲染内容卡片
   const renderContentCards = () => {
     const currentData = getCurrentData();
-    
+
     if (activeCategory === "faq") {
       const faqData = currentData as FAQItem[];
       return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {faqData.map((item, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -245,7 +244,7 @@ const DocsPage = () => {
                   <p className="text-gray-600 mb-4 leading-relaxed text-sm">
                     {item.answer}
                   </p>
-                  <a 
+                  <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -266,7 +265,7 @@ const DocsPage = () => {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {docData.map((item, index) => (
-          <motion.div 
+          <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -295,7 +294,7 @@ const DocsPage = () => {
                 {item.tags && (
                   <div className="flex flex-wrap gap-1 mb-4">
                     {item.tags.slice(0, 3).map((tag, tagIndex) => (
-                      <span 
+                      <span
                         key={tagIndex}
                         className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-full"
                       >
@@ -304,7 +303,7 @@ const DocsPage = () => {
                     ))}
                   </div>
                 )}
-                <a 
+                <a
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -323,14 +322,13 @@ const DocsPage = () => {
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-white">
         {/* 页面头部区域 - 简约设计 */}
         <div className="h-12 sm:h-16 lg:h-20"></div>
         <section className="py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-blue-700">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-4xl mx-auto">
-              <motion.h1 
+              <motion.h1
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -338,7 +336,7 @@ const DocsPage = () => {
               >
                 产品文档
               </motion.h1>
-              <motion.p 
+              <motion.p
                 className="text-base sm:text-lg text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -346,24 +344,24 @@ const DocsPage = () => {
               >
                 全面的产品使用指南、API文档和常见问题解答
               </motion.p>
-              
+
               {/* 搜索框 - 简约设计 */}
-              <motion.div 
+              <motion.div
                 className="max-w-xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <form onSubmit={handleSearch} className="flex bg-white rounded-xl shadow-lg overflow-hidden">
-                  <Input 
+                  <Input
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="搜索文档内容..."
                     className="flex-1 border-0 text-gray-900 placeholder:text-gray-500 px-4 py-3 focus-visible:ring-0 focus-visible:ring-offset-0"
                     aria-label="搜索文档内容"
                   />
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-none border-0"
                     aria-label="搜索"
                   >
@@ -379,7 +377,7 @@ const DocsPage = () => {
         <section className="py-12 lg:py-16 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-              
+
               {/* 左侧导航栏 */}
               <div className="lg:w-80 flex-shrink-0">
                 {/* 移动端菜单按钮 */}
@@ -447,22 +445,22 @@ const DocsPage = () => {
                     </CardHeader>
                     <CardContent className="pt-0">
                       <div className="space-y-3">
-                        <Link 
-                          to="/support" 
+                        <Link
+                          to="/support"
                           className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors"
                         >
                           <ArrowRight className="h-4 w-4 mr-2" />
                           技术支持
                         </Link>
-                        <Link 
-                          to="/contact" 
+                        <Link
+                          to="/contact"
                           className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors"
                         >
                           <ArrowRight className="h-4 w-4 mr-2" />
                           联系我们
                         </Link>
-                        <Link 
-                          to="/changelog" 
+                        <Link
+                          to="/changelog"
                           className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors"
                         >
                           <ArrowRight className="h-4 w-4 mr-2" />

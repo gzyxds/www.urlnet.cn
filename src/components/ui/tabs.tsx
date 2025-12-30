@@ -1,54 +1,97 @@
-import { ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, HTMLAttributes, ButtonHTMLAttributes } from "react";
 
-/**
- * 这是一个极简的 Tabs 组件实现，用于替代已删除的 shadcn/ui Tabs，
- * 仅保证编译通过，不提供复杂交互。
- * 如需完整功能，可自行引入第三方组件库或完善此实现。
- */
+// 创建 Context 用于共享状态
+interface TabsContextValue {
+  value: string;
+  onValueChange: (value: string) => void;
+}
+const TabsContext = createContext<TabsContextValue | undefined>(undefined);
 
 // 容器组件
-interface TabsProps {
+interface TabsProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   defaultValue?: string;
+  value?: string;
+  onValueChange?: (value: string) => void;
 }
-export function Tabs({ children, className }: TabsProps) {
-  return <div className={className}>{children}</div>;
+
+export function Tabs({ children, className, defaultValue, value: controlledValue, onValueChange, ...props }: TabsProps) {
+  const [internalValue, setInternalValue] = useState(defaultValue || "");
+
+  const isControlled = controlledValue !== undefined;
+  const currentValue = isControlled ? controlledValue : internalValue;
+
+  const handleValueChange = (newValue: string) => {
+    if (!isControlled) {
+      setInternalValue(newValue);
+    }
+    onValueChange?.(newValue);
+  };
+
+  return (
+    <TabsContext.Provider value={{ value: currentValue, onValueChange: handleValueChange }}>
+      <div className={className} {...props}>
+        {children}
+      </div>
+    </TabsContext.Provider>
+  );
 }
 
 // 列表组件
-interface TabsListProps {
+interface TabsListProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
 }
-export function TabsList({ children, className }: TabsListProps) {
-  return <div className={className}>{children}</div>;
+export function TabsList({ children, className, ...props }: TabsListProps) {
+  return <div className={className} {...props}>{children}</div>;
 }
 
 // 触发组件
-interface TabsTriggerProps {
+interface TabsTriggerProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   className?: string;
-  value?: string;
-  onClick?: () => void;
+  value: string;
 }
-export function TabsTrigger({ children, className, onClick }: TabsTriggerProps) {
+export function TabsTrigger({ children, className, value, onClick, ...props }: TabsTriggerProps) {
+  const context = useContext(TabsContext);
+  if (!context) throw new Error("TabsTrigger must be used within Tabs");
+
+  const isActive = context.value === value;
+
   return (
-    <button type="button" className={className} onClick={onClick}>
+    <button
+      type="button"
+      className={className}
+      onClick={(e) => {
+        context.onValueChange(value);
+        onClick?.(e);
+      }}
+      data-state={isActive ? "active" : "inactive"}
+      {...props}
+    >
       {children}
     </button>
   );
 }
 
 // 内容组件
-interface TabsContentProps {
+interface TabsContentProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
-  value?: string;
+  value: string;
 }
-export function TabsContent({ children, className }: TabsContentProps) {
-  return <div className={className}>{children}</div>;
+export function TabsContent({ children, className, value, ...props }: TabsContentProps) {
+  const context = useContext(TabsContext);
+  if (!context) throw new Error("TabsContent must be used within Tabs");
+
+  if (context.value !== value) return null;
+
+  return (
+    <div className={className} data-state="active" {...props}>
+      {children}
+    </div>
+  );
 }
 
-// 默认导出保持与旧用法兼容
 export default Tabs;

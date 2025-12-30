@@ -5,6 +5,7 @@ import './app/globals.css';
 
 // 布局组件导入
 import Header from './components/HeaderSection';
+import Banners from '@/components/Banners';
 import Footer from './components/FooterSection';
 import BackToTop from './components/BackToTop';
 import MobileBottomConsult from './components/MobileBottomConsult';
@@ -39,7 +40,7 @@ import ClientLogoWallExample from './components/clients/ClientLogoWallExample';
 
 /**
  * 应用程序主组件
- * 
+ *
  * 功能说明：
  * - 提供应用的整体布局结构
  * - 配置路由系统，管理页面导航
@@ -49,22 +50,23 @@ import ClientLogoWallExample from './components/clients/ClientLogoWallExample';
 function App(): JSX.Element {
   return (
     <div className="min-h-screen bg-white">
+      <Banners />
       {/* 页面头部导航 */}
       <Header />
-      
+
       {/* 主要内容区域 - 路由渲染区 */}
       <main>
         <Routes>
           {/* 首页路由 */}
           <Route path="/" element={<Home />} />
-          
+
           {/* 产品展示相关路由 */}
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/human" element={<DigitalTwinPage />} />
           <Route path="/products/ai" element={<AiPage />} />
           <Route path="/products/chat" element={<ChatPage />} />
           <Route path="/products/paper" element={<PaperWritingPage />} />
-          
+
           {/* 功能页面路由 */}
           <Route path="/demo" element={<DemoPage />} />
           <Route path="/docs" element={<DocsPage />} />
@@ -83,13 +85,13 @@ function App(): JSX.Element {
           <Route path="/test-client-logo" element={<ClientLogoWallExample />} />
         </Routes>
       </main>
-      
+
       {/* 页面底部信息 */}
       <Footer />
-      
+
       {/* 返回顶部功能组件 */}
       <BackToTop />
-      
+
       {/* 移动端底部业务咨询组件 */}
       <MobileBottomConsult />
     </div>

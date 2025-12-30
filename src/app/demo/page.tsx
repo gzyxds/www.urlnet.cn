@@ -4,7 +4,6 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import DemoShowcase from './components/demo';
-import Header from '@/components/HeaderSection';
 import Contact from '@/components/ContactSection';
 
 /**
@@ -30,7 +29,6 @@ const DemoPage = () => {
 
   return (
     <>
-      <Header />
       <div className="min-h-screen bg-slate-50/30">
         <div className="h-16 lg:h-20 bg-white"></div>
 

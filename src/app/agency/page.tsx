@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Users, Code, Handshake, Target, CheckCircle, Phone, MessageCircle, FileText, Settings } from "lucide-react";
-import Header from '@/components/HeaderSection';
 import { Link } from 'react-router-dom';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 
@@ -127,7 +126,6 @@ const AgencyPage = () => {
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-white">
         {/* 顶部横幅 */}
         <section className="relative py-24 md:py-32 bg-[rgb(241,245,249)] overflow-hidden">
@@ -137,7 +135,7 @@ const AgencyPage = () => {
             <div className="absolute top-0 right-0 w-72 h-72 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-2000"></div>
             <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-50 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-4000"></div>
           </div>
-          
+
           {/* 点状装饰 */}
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-20 left-10 w-2 h-2 bg-blue-200 rounded-full"></div>
@@ -146,10 +144,10 @@ const AgencyPage = () => {
             <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-100 rounded-full"></div>
             <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-purple-100 rounded-full"></div>
           </div>
-          
+
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <motion.h1 
+              <motion.h1
                 className="text-4xl md:text-6xl font-bold text-[rgb(29,78,216)] mb-8 md:mb-10 tracking-tight mt-8 md:mt-12"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -157,13 +155,13 @@ const AgencyPage = () => {
               >
                 代理合作
               </motion.h1>
-              <motion.div 
+              <motion.div
                 className="w-20 h-0.5 bg-blue-600 mx-auto mb-8 md:mb-10"
                 initial={{ width: 0 }}
                 animate={{ width: 80 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               ></motion.div>
-              <motion.p 
+              <motion.p
                 className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -186,10 +184,10 @@ const AgencyPage = () => {
                 成为合作伙伴的优势
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-8xl mx-auto">
               {advantages.map((advantage, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -231,7 +229,7 @@ const AgencyPage = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-8xl mx-auto">
               {cooperationTypes.map((type, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -255,7 +253,7 @@ const AgencyPage = () => {
                           </p>
                         </div>
                       </div>
-                      
+
                       <div className="space-y-4 mb-8">
                         {type.features.map((feature, idx) => (
                           <div key={idx} className="flex items-center">
@@ -264,7 +262,7 @@ const AgencyPage = () => {
                           </div>
                         ))}
                       </div>
-                      <Button 
+                      <Button
                         className="w-full bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 h-12 text-base font-medium rounded-lg transition-all duration-300"
                         asChild
                       >
@@ -296,7 +294,7 @@ const AgencyPage = () => {
             <div className="max-w-8xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {processSteps.map((step, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -319,7 +317,7 @@ const AgencyPage = () => {
                         </p>
                       </CardContent>
                     </Card>
-                    
+
                     {/* 连接线 */}
                     {index < processSteps.length - 1 && (
                       <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-blue-200 transform -translate-y-1/2"></div>
@@ -335,7 +333,7 @@ const AgencyPage = () => {
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool, MessageCircle, Palette, Lightbulb, Zap } from "lucide-react";
 import { usePageMetadata } from '@/hooks/use-page-metadata';
@@ -33,9 +32,6 @@ const customStyles = `
 `;
 
 const ChatPage = () => {
-  // 功能特色标签导航状态管理
-  const [activeFeature, setActiveFeature] = useState('chat');
-
   usePageMetadata({
     title: '艺创AI_AI系统源码_AI智能聊天系统_AI绘画系统',
     description: '艺创AI专注提供AI系统源代码解决方案的技术团队「AI数字人系统」「企业全能AI变现系统」「AI聊天绘画系统」「AI论文写作系统」拥有PHP和Java两种语言版本，技术实力强，系统体验好支持私有部署，专业团队、售后无忧',
@@ -318,339 +314,181 @@ const ChatPage = () => {
       </div>
 
 
-      {/* 功能特色标签导航 - 全新交互式展示 */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      {/* 功能特色 - Bento Grid 布局 */}
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
         {/* 背景装饰 */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-blue-100 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-indigo-100 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 opacity-30 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-100 rounded-full blur-3xl mix-blend-multiply"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-100 rounded-full blur-3xl mix-blend-multiply"></div>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
           {/* 标题区域 */}
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-medium mb-6 border border-blue-100">
               <Zap className="w-4 h-4 mr-2" />
               核心功能特色
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
               四大核心功能
               <span className="block text-blue-600 mt-2">一站式AI解决方案</span>
             </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-              集成最新AI技术，为您提供全方位的智能化服务体验
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+              集成最新AI技术，为您提供全方位的智能化服务体验，助力企业降本增效
             </p>
           </div>
 
-          {/* 功能标签导航 - 优化移动端响应式设计 */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 sm:mb-16">
-            {[
-              { id: 'chat', label: 'AI对话', icon: MessageCircle, color: 'blue' },
-              { id: 'create', label: '智能创作', icon: PenTool, color: 'indigo' },
-              { id: 'paint', label: 'AI绘画', icon: Palette, color: 'purple' },
-              { id: 'skill', label: 'AI技能', icon: Lightbulb, color: 'emerald' }
-            ].map((feature) => {
-              const Icon = feature.icon;
-              const isActive = activeFeature === feature.id;
-              return (
-                <button
-                  key={feature.id}
-                  onClick={() => setActiveFeature(feature.id)}
-                  className={`
-                    flex items-center px-4 py-3 sm:px-6 sm:py-4 rounded font-medium text-sm sm:text-base
-                    transition-all duration-300 transform hover:scale-105 min-w-[120px] sm:min-w-[140px]
-                    ${isActive
-                      ? `bg-${feature.color}-600 text-white shadow-lg shadow-${feature.color}-200`
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-                    }
-                  `}
-                >
-                  <Icon className={`w-4 h-4 sm:w-5 sm:h-5 mr-2 ${isActive ? 'text-white' : `text-${feature.color}-600`}`} />
-                  {feature.label}
-                </button>
-              );
-            })}
-          </div>
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-6 lg:grid-rows-2">
 
-          {/* 功能内容展示区 - 响应式卡片布局 */}
-          <div className="bg-white rounded shadow-xl border border-gray-100 overflow-hidden">
-            {/* AI对话功能 */}
-            {activeFeature === 'chat' && (
-              <div className="p-6 sm:p-8 lg:p-12 animate-fade-in">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div>
-                    <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded flex items-center justify-center mr-4">
-                        <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">AI智能对话</h3>
-                        <p className="text-blue-600 font-medium">秒级响应 · 精准理解</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+            {/* Item 1: AI对话 (Span 4) */}
+            <div className="lg:col-span-4 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              <div className="h-full flex flex-col lg:flex-row">
+                <div className="p-8 lg:p-10 flex-1 flex flex-col justify-center">
+                   <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                      <MessageCircle className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                   </div>
+                   <h3 className="text-2xl font-bold text-gray-900 mb-2">AI智能对话</h3>
+                   <p className="text-blue-600 font-medium mb-4">秒级响应 · 精准理解</p>
+                   <p className="text-gray-600 leading-relaxed mb-6">
                       基于最新GPT模型，提供自然流畅的对话体验。支持多轮对话、上下文理解，让AI成为您最贴心的智能助手。
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {[
-                        { title: '秒级响应', desc: '毫秒级AI回复速度' },
-                        { title: '上下文理解', desc: '智能记忆对话内容' },
-                        { title: '多模型支持', desc: 'GPT-4/Claude等模型' },
-                        { title: '个性化定制', desc: '专属AI助手设定' }
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-start p-4 bg-blue-50 rounded">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900 text-sm">{item.title}</h4>
-                            <p className="text-gray-600 text-xs mt-1">{item.desc}</p>
-                          </div>
+                   </p>
+                   <div className="space-y-2">
+                      {['秒级响应速度', '多模型支持 (GPT-4/Claude)', '上下文智能记忆'].map((item, i) => (
+                        <div key={i} className="flex items-center text-sm text-gray-500">
+                          <Check className="w-4 h-4 text-blue-500 mr-2" />
+                          {item}
                         </div>
                       ))}
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded p-6 border border-blue-100">
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center flex-shrink-0">
-                            <Bot className="w-4 h-4 text-white" />
-                          </div>
-                          <div className="bg-white rounded rounded-tl-none p-3 max-w-xs">
-                            <p className="text-gray-800 text-sm">您好！我是艺创AI助手，有什么可以帮助您的吗？</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-3 justify-end">
-                          <div className="bg-blue-600 rounded rounded-tr-none p-3 max-w-xs">
-                            <p className="text-white text-sm">帮我写一份产品介绍文案</p>
-                          </div>
-                          <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center flex-shrink-0">
-                            <Users className="w-4 h-4 text-white" />
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center flex-shrink-0">
-                            <Bot className="w-4 h-4 text-white" />
-                          </div>
-                          <div className="bg-white rounded rounded-tl-none p-3 max-w-xs">
-                            <p className="text-gray-800 text-sm">好的！我来为您创作一份专业的产品介绍文案...</p>
-                            <div className="flex items-center mt-2">
-                              <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
-                                <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce animation-delay-200"></div>
-                                <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce animation-delay-400"></div>
-                              </div>
+                   </div>
+                </div>
+                {/* Visual/Demo Area */}
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 lg:w-2/5 p-6 flex items-center justify-center border-t lg:border-t-0 lg:border-l border-gray-100">
+                    <div className="w-full max-w-[280px] space-y-4">
+                        <div className="flex gap-3">
+                            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-200">
+                                <Bot className="w-4 h-4 text-white" />
                             </div>
-                          </div>
+                            <div className="bg-white p-3 rounded-2xl rounded-tl-none text-xs text-gray-700 shadow-sm">
+                                您好！我是艺创AI助手。
+                            </div>
                         </div>
-                      </div>
+                        <div className="flex gap-3 justify-end">
+                            <div className="bg-blue-600 p-3 rounded-2xl rounded-tr-none text-xs text-white shadow-md">
+                                帮我写一份文案
+                            </div>
+                            <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
+                                <Users className="w-4 h-4 text-white" />
+                            </div>
+                        </div>
+                         <div className="flex gap-3">
+                             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 opacity-50">
+                                <Bot className="w-4 h-4 text-white" />
+                            </div>
+                            <div className="bg-white px-4 py-3 rounded-2xl rounded-tl-none shadow-sm flex items-center gap-1">
+                                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce"></span>
+                                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce animation-delay-200"></span>
+                                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce animation-delay-400"></span>
+                            </div>
+                         </div>
                     </div>
-                  </div>
                 </div>
               </div>
-            )}
+            </div>
 
-            {/* 智能创作功能 */}
-            {activeFeature === 'create' && (
-              <div className="p-6 sm:p-8 lg:p-12 animate-fade-in">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div>
-                    <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-indigo-100 rounded flex items-center justify-center mr-4">
-                        <PenTool className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">智能创作</h3>
-                        <p className="text-indigo-600 font-medium">创意无限 · 高效产出</p>
-                      </div>
+            {/* Item 2: 智能创作 (Span 2) */}
+            <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col">
+              <div className="p-8 flex-1">
+                 <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 transition-colors duration-300">
+                    <PenTool className="w-6 h-6 text-indigo-600 group-hover:text-white transition-colors duration-300" />
+                 </div>
+                 <h3 className="text-xl font-bold text-gray-900 mb-2">智能创作</h3>
+                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                    文章、方案、代码一键生成，从构思到成稿，效率提升10倍以上。
+                 </p>
+                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                    <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs font-semibold text-gray-700">创作进度</span>
+                        <span className="text-[10px] text-green-600 bg-green-50 px-2 py-0.5 rounded-full">进行中</span>
                     </div>
-                    <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                      强大的AI创作引擎，支持文章、方案、代码等多种内容创作。从构思到成稿，AI助您高效完成各类创作任务。
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {[
-                        { title: '多类型创作', desc: '文章/方案/代码/诗歌' },
-                        { title: '风格定制', desc: '商务/学术/创意风格' },
-                        { title: '智能优化', desc: 'AI自动润色优化' },
-                        { title: '批量生成', desc: '一键生成多个版本' }
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-start p-4 bg-indigo-50 rounded">
-                          <div className="w-2 h-2 bg-indigo-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900 text-sm">{item.title}</h4>
-                            <p className="text-gray-600 text-xs mt-1">{item.desc}</p>
-                          </div>
+                    <div className="space-y-2">
+                        <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                            <div className="h-full bg-indigo-500 w-3/4 rounded-full animate-pulse"></div>
                         </div>
-                      ))}
+                        <div className="flex justify-between text-[10px] text-gray-400">
+                            <span>大纲生成</span>
+                            <span>内容填充</span>
+                            <span>润色</span>
+                        </div>
                     </div>
-                  </div>
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded p-6 border border-indigo-100">
-                      <div className="bg-white rounded p-4 shadow-sm">
-                        <div className="flex items-center justify-between mb-4">
-                          <h4 className="font-semibold text-gray-900">AI创作助手</h4>
-                          <div className="flex items-center text-green-600 text-sm">
-                            <div className="w-2 h-2 bg-green-600 rounded-full mr-2"></div>
-                            创作中...
-                          </div>
-                        </div>
-                        <div className="space-y-3">
-                          <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                            <div className="h-full bg-indigo-600 rounded-full w-3/4 animate-pulse"></div>
-                          </div>
-                          <div className="text-sm text-gray-600">
-                            <p className="mb-2">✓ 分析创作需求</p>
-                            <p className="mb-2">✓ 构建内容框架</p>
-                            <p className="text-indigo-600">→ 生成创作内容...</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                 </div>
               </div>
-            )}
+            </div>
 
-            {/* AI绘画功能 */}
-            {activeFeature === 'paint' && (
-              <div className="p-6 sm:p-8 lg:p-12 animate-fade-in">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div>
-                    <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded flex items-center justify-center mr-4">
-                        <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">AI智能绘画</h3>
-                        <p className="text-purple-600 font-medium">艺术创作 · 无限可能</p>
-                      </div>
+            {/* Item 3: AI绘画 (Span 2) */}
+            <div className="lg:col-span-2 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col">
+               <div className="p-8 flex-1">
+                 <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors duration-300">
+                    <Palette className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors duration-300" />
+                 </div>
+                 <h3 className="text-xl font-bold text-gray-900 mb-2">AI智能绘画</h3>
+                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                    集成顶级绘图模型，一句话生成精美图像，人人都是艺术家。
+                 </p>
+                 <div className="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-200/50 to-pink-200/50"></div>
+                     <div className="relative z-10 bg-white/40 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/50 flex items-center gap-2">
+                         <Palette className="w-4 h-4 text-purple-700" />
+                         <span className="text-xs font-medium text-purple-900">正在生成...</span>
                     </div>
-                    <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                      集成DALL-E、Midjourney等顶级AI绘画模型，从文字描述到精美图像，让每个人都能成为艺术创作者。
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {[
-                        { title: '多风格支持', desc: '写实/卡通/油画/水彩' },
-                        { title: '高清输出', desc: '4K超高清图像生成' },
-                        { title: '快速生成', desc: '30秒完成艺术创作' },
-                        { title: '批量处理', desc: '同时生成多张图片' }
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-start p-4 bg-purple-50 rounded">
-                          <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900 text-sm">{item.title}</h4>
-                            <p className="text-gray-600 text-xs mt-1">{item.desc}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded p-6 border border-purple-100">
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 bg-purple-600 rounded flex items-center justify-center flex-shrink-0">
-                            <Bot className="w-4 h-4 text-white" />
-                          </div>
-                          <div className="bg-white rounded rounded-tl-none p-3 max-w-xs">
-                            <p className="text-gray-800 text-sm">请描述您想要创作的画面</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-3 justify-end">
-                          <div className="bg-purple-600 rounded rounded-tr-none p-3 max-w-xs">
-                            <p className="text-white text-sm">一只可爱的小猫在花园里玩耍，水彩画风格</p>
-                          </div>
-                          <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center flex-shrink-0">
-                            <Users className="w-4 h-4 text-white" />
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 bg-purple-600 rounded flex items-center justify-center flex-shrink-0">
-                            <Bot className="w-4 h-4 text-white" />
-                          </div>
-                          <div className="bg-white rounded rounded-tl-none p-3 max-w-xs">
-                            <div className="aspect-square bg-gradient-to-br from-purple-200 to-pink-200 rounded mb-2 flex items-center justify-center">
-                              <Palette className="w-6 h-6 text-purple-600" />
-                            </div>
-                            <p className="text-gray-800 text-sm mb-2">正在为您生成水彩画作品...</p>
-                            <div className="flex items-center">
-                              <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-purple-600 rounded-full animate-bounce"></div>
-                                <div className="w-2 h-2 bg-purple-600 rounded-full animate-bounce animation-delay-200"></div>
-                                <div className="w-2 h-2 bg-purple-600 rounded-full animate-bounce animation-delay-400"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                 </div>
+               </div>
+            </div>
+
+            {/* Item 4: AI技能 (Span 4) */}
+            <div className="lg:col-span-4 bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+              <div className="h-full flex flex-col lg:flex-row-reverse">
+                <div className="p-8 lg:p-10 flex-1 flex flex-col justify-center">
+                   <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors duration-300">
+                      <Lightbulb className="w-6 h-6 text-emerald-600 group-hover:text-white transition-colors duration-300" />
+                   </div>
+                   <h3 className="text-2xl font-bold text-gray-900 mb-2">AI专业技能</h3>
+                   <p className="text-emerald-600 font-medium mb-4">专业领域 · 精准服务</p>
+                   <p className="text-gray-600 leading-relaxed mb-6">
+                      预设编程、设计、营销等多种专业技能模板，让AI化身各领域专家，为您提供专业级建议和方案。
+                   </p>
+                   <div className="flex flex-wrap gap-2">
+                       {['代码助手', 'UI设计顾问', '营销策划', '法律咨询'].map((tag, i) => (
+                           <span key={i} className="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-full border border-gray-100">
+                               {tag}
+                           </span>
+                       ))}
+                   </div>
                 </div>
-              </div>
-            )}
-
-            {/* AI技能功能 */}
-            {activeFeature === 'skill' && (
-              <div className="p-6 sm:p-8 lg:p-12 animate-fade-in">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div>
-                    <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-emerald-100 rounded flex items-center justify-center mr-4">
-                        <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">AI专业技能</h3>
-                        <p className="text-emerald-600 font-medium">专业领域 · 精准服务</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                      预设多种专业技能模板，涵盖编程、设计、营销、教育等领域。让AI在特定领域发挥专业水准。
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {[
-                        { title: '编程助手', desc: '代码生成/调试/优化' },
-                        { title: '设计顾问', desc: 'UI/UX设计建议' },
-                        { title: '营销专家', desc: '文案/策略/分析' },
-                        { title: '教育导师', desc: '知识讲解/答疑' }
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-start p-4 bg-emerald-50 rounded">
-                          <div className="w-2 h-2 bg-emerald-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900 text-sm">{item.title}</h4>
-                            <p className="text-gray-600 text-xs mt-1">{item.desc}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded p-6 border border-emerald-100">
-                      <div className="space-y-4">
+                {/* Visual/Demo Area */}
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 lg:w-2/5 p-6 flex items-center justify-center border-t lg:border-t-0 lg:border-r border-gray-100">
+                    <div className="w-full max-w-[260px] bg-white rounded-xl shadow-sm border border-emerald-100/50 overflow-hidden">
                         {[
                           { icon: '💻', title: '编程助手', status: '在线' },
-                          { icon: '🎨', title: '设计顾问', status: '在线' },
-                          { icon: '📈', title: '营销专家', status: '在线' },
-                          { icon: '📚', title: '教育导师', status: '在线' }
+                          { icon: '🎨', title: '设计顾问', status: '忙碌' },
+                          { icon: '📈', title: '营销专家', status: '在线' }
                         ].map((skill, index) => (
-                          <div key={index} className="flex items-center justify-between p-3 bg-white rounded shadow-sm">
-                            <div className="flex items-center">
-                              <span className="text-2xl mr-3">{skill.icon}</span>
-                              <div>
-                                <h4 className="font-medium text-gray-900 text-sm">{skill.title}</h4>
-                                <p className="text-xs text-gray-500">专业AI助手</p>
-                              </div>
+                          <div key={index} className="flex items-center justify-between p-3 border-b border-gray-50 last:border-0 hover:bg-emerald-50/30 transition-colors">
+                            <div className="flex items-center gap-3">
+                              <span className="text-lg">{skill.icon}</span>
+                              <span className="text-xs font-medium text-gray-700">{skill.title}</span>
                             </div>
-                            <div className="flex items-center text-emerald-600 text-xs">
-                              <div className="w-2 h-2 bg-emerald-600 rounded-full mr-2"></div>
-                              {skill.status}
+                            <div className="flex items-center gap-1.5">
+                                <div className={`w-1.5 h-1.5 rounded-full ${skill.status === '在线' ? 'bg-green-500' : 'bg-orange-400'}`}></div>
+                                <span className="text-[10px] text-gray-400">{skill.status}</span>
                             </div>
                           </div>
                         ))}
-                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
-            )}
+            </div>
+
           </div>
         </div>
       </section>
