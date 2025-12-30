@@ -240,45 +240,13 @@ const Carousel = () => {
             </div>
           </div>
 
-          {/* 右侧图片展示区 */}
-          <div className="relative w-full z-10 mt-12 lg:mt-0 lg:h-[650px] flex items-center justify-center">
+          {/* 右侧图片展示区 (Mobile Only) */}
+          <div className="relative w-full z-10 mt-12 lg:hidden flex items-center justify-center">
              {/* 背景光效 */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-blue-100/30 dark:bg-blue-900/10 blur-[100px] rounded-full -z-10"></div>
 
-            {/* Desktop: Vertical Marquee */}
-            <div className="hidden lg:grid grid-cols-2 gap-6 w-full h-full overflow-hidden">
-              <Marquee vertical duration={50} className="h-full py-4">
-                {marqueeImages.first.map((img, index) => (
-                  <Link to="/products" key={`col1-${index}`} className="block w-full mb-6">
-                    <div className="w-full rounded-2xl border-[4px] border-white dark:border-gray-800 bg-white dark:bg-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-black/50 overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-                      <img
-                        src={img}
-                        alt={`Product Preview ${index + 1}`}
-                        className="w-full h-auto bg-gray-50 dark:bg-gray-900"
-                        loading="lazy"
-                      />
-                    </div>
-                  </Link>
-                ))}
-              </Marquee>
-              <Marquee vertical reverse duration={60} className="h-full py-4">
-                {marqueeImages.second.map((img, index) => (
-                  <Link to="/products" key={`col2-${index}`} className="block w-full mb-6">
-                    <div className="w-full rounded-2xl border-[4px] border-white dark:border-gray-800 bg-white dark:bg-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-black/50 overflow-hidden hover:scale-[1.02] transition-transform duration-300">
-                      <img
-                        src={img}
-                        alt={`Product Preview ${index + 1}`}
-                        className="w-full h-auto bg-gray-50 dark:bg-gray-900"
-                        loading="lazy"
-                      />
-                    </div>
-                  </Link>
-                ))}
-              </Marquee>
-            </div>
-
             {/* Mobile: Horizontal Marquee */}
-            <div className="flex flex-col gap-5 lg:hidden w-screen -ml-[calc(50vw-50%)]">
+            <div className="flex flex-col gap-5 w-screen -ml-[calc(50vw-50%)]">
               <Marquee duration={30}>
                 {marqueeImages.first.map((img, index) => (
                   <Link to="/products" key={`row1-${index}`} className="block w-[260px] shrink-0 mx-3">
@@ -310,6 +278,48 @@ const Carousel = () => {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* 右侧图片展示区 (Desktop Only - Absolute Positioned) */}
+      <div className="hidden lg:flex absolute top-0 right-0 bottom-0 w-[50vw] z-10 items-center justify-center overflow-hidden pl-12">
+          {/* 背景光效 */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-blue-100/30 dark:bg-blue-900/10 blur-[100px] rounded-full -z-10"></div>
+
+        {/* Desktop: Vertical Marquee */}
+        <div className="grid grid-cols-2 gap-6 w-full h-[120%] -my-[10%] overflow-hidden relative">
+           {/* 遮罩层：顶部和底部渐变消失 */}
+           <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white dark:from-gray-900 to-transparent z-20 pointer-events-none"></div>
+           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white dark:from-gray-900 to-transparent z-20 pointer-events-none"></div>
+
+          <Marquee vertical duration={50} className="h-full py-4">
+            {marqueeImages.first.map((img, index) => (
+              <Link to="/products" key={`col1-${index}`} className="block w-full mb-6">
+                <div className="w-full rounded-2xl border-[4px] border-white dark:border-gray-800 bg-white dark:bg-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-black/50 overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+                  <img
+                    src={img}
+                    alt={`Product Preview ${index + 1}`}
+                    className="w-full h-auto bg-gray-50 dark:bg-gray-900"
+                    loading="lazy"
+                  />
+                </div>
+              </Link>
+            ))}
+          </Marquee>
+          <Marquee vertical reverse duration={60} className="h-full py-4">
+            {marqueeImages.second.map((img, index) => (
+              <Link to="/products" key={`col2-${index}`} className="block w-full mb-6">
+                <div className="w-full rounded-2xl border-[4px] border-white dark:border-gray-800 bg-white dark:bg-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-black/50 overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+                  <img
+                    src={img}
+                    alt={`Product Preview ${index + 1}`}
+                    className="w-full h-auto bg-gray-50 dark:bg-gray-900"
+                    loading="lazy"
+                  />
+                </div>
+              </Link>
+            ))}
+          </Marquee>
         </div>
       </div>
     </section>
