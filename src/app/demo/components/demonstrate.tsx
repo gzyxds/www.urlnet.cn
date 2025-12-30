@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { X, ExternalLink, Smartphone, Monitor, Globe, Palette, FileText } from 'lucide-react';
+import { X, ExternalLink, Monitor, Globe, Palette, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const demoProducts = [
   {
     id: "digital-human",
-    name: "数字分身SaaS PHP版",
+    name: "数字分身PHP版",
     description: "通过我们的在线演示系统，您可以亲身体验AI数字人的强大功能和直观界面，无需安装，即刻体验。",
     icon: Monitor,
     color: "bg-blue-500",
@@ -47,7 +47,7 @@ const demoProducts = [
   },
   {
     id: "knowledge-base",
-    name: "全能AI知识库PHP版",
+    name: "全能知识库PHP版",
     description: "基于大型语言模型的企业级知识库解决方案。支持多种文档格式，实现智能问答和语义搜索，帮助企业构建专属的知识中心。",
     icon: Globe,
     color: "bg-indigo-500",
@@ -128,7 +128,7 @@ const demoProducts = [
   },
   {
     id: "digital-human-java",
-    name: "数字人SaaS系统2.0版  ",
+    name: "数字人系统2.0版  ",
     description: "2.0版数字人SaaS系统，融合了最新的AI技术和数字人交互体验。通过我们的在线演示系统，您可以亲身体验升级版AI数字人的强大功能和直观界面，无需安装，即刻体验。",
     icon: Monitor,
     color: "bg-cyan-500",
@@ -155,7 +155,7 @@ const demoProducts = [
   },
   {
     id: "knowledge-base-java",
-    name: "全能AI知识库Java版",
+    name: "全能知识库Java版",
     description: "Java版全能AI知识库系统，基于大型语言模型的企业级知识库解决方案。支持多种文档格式，实现智能问答和语义搜索，帮助企业构建专属的知识中心，集成AVA智能助手功能。",
     icon: Globe,
     color: "bg-teal-500",
@@ -255,14 +255,19 @@ const Demonstrate: React.FC = () => {
   // 状态管理
   const [activeTab, setActiveTab] = useState(demoProducts[0].id); // 当前激活的产品标签
   const [showQRModal, setShowQRModal] = useState(false); // 控制二维码弹窗显示
-  const [modalType, setModalType] = useState<'demo' | 'service'>('demo'); // 弹窗类型：演示或客服
+  const [modalType, setModalType] = useState<'demo' | 'service' | 'preview'>('demo'); // 弹窗类型：演示或客服或预览
+  const [previewQRCode, setPreviewQRCode] = useState<string>(''); // 预览的二维码图片地址
 
   /**
    * 显示二维码弹窗
-   * @param type - 弹窗类型：'demo'(演示)或'service'(客服)
+   * @param type - 弹窗类型：'demo'(演示)或'service'(客服)或'preview'(预览)
+   * @param qrcodeUrl - 预览时显示的二维码图片地址
    */
-  const handleShowQRCode = (type: 'demo' | 'service') => {
+  const handleShowQRCode = (type: 'demo' | 'service' | 'preview', qrcodeUrl?: string) => {
     setModalType(type);
+    if (qrcodeUrl) {
+      setPreviewQRCode(qrcodeUrl);
+    }
     setShowQRModal(true);
   };
 
@@ -374,15 +379,15 @@ const Demonstrate: React.FC = () => {
                     <div className="p-5 flex-1 flex flex-col gap-5">
                       {/* 二维码展示区 */}
                       <div className="flex justify-center py-2">
-                        <div className="relative group/qr p-2 bg-white rounded-xl border border-slate-100 shadow-sm group-hover:shadow-md transition-all">
+                        <div
+                          className="relative group/qr p-2 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer"
+                          onClick={() => handleShowQRCode('preview', demo.qrcode)}
+                        >
                           <img
                             src={demo.qrcode}
                             alt={`${demo.title}二维码`}
                             className="w-32 h-32 object-contain rounded-lg"
                           />
-                          <div className="absolute inset-0 flex items-center justify-center bg-slate-900/5 backdrop-blur-[1px] opacity-0 group-hover/qr:opacity-100 transition-opacity rounded-xl pointer-events-none">
-                            <Smartphone className="w-6 h-6 text-slate-900" />
-                          </div>
                         </div>
                       </div>
 
@@ -468,15 +473,15 @@ const Demonstrate: React.FC = () => {
               </button>
 
               <h3 className="text-xl font-bold text-slate-900 mb-2">
-                {modalType === 'demo' ? '申请专属演示' : '联系客服'}
+                {modalType === 'demo' ? '申请专属演示' : modalType === 'service' ? '联系客服' : '扫码体验'}
               </h3>
               <p className="text-sm text-slate-500 mb-6">
-                {modalType === 'demo' ? '扫描二维码联系专属顾问开通' : '扫描二维码添加客服微信咨询'}
+                {modalType === 'demo' ? '扫描二维码联系专属顾问开通' : modalType === 'service' ? '扫描二维码添加客服微信咨询' : '请使用微信扫一扫体验'}
               </p>
 
               <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm inline-block mb-4">
                 <img
-                  src="/images/qrcode.png"
+                  src={modalType === 'preview' ? previewQRCode : "/images/qrcode.png"}
                   alt="二维码"
                   className="w-40 h-40 object-contain rounded-lg"
                 />

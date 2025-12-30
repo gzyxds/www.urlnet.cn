@@ -7,21 +7,21 @@ import { featuresData } from '@/data/features';
  * 渐变色配置
  */
 const gradients = [
-  'from-[#E0F2FE] to-[#BAE6FD]', // Sky Blue
-  'from-[#F3E8FF] to-[#E9D5FF]', // Purple
-  'from-[#FFE4E6] to-[#FECDD3]', // Rose
-  'from-[#FEF3C7] to-[#FDE68A]', // Amber
-  'from-[#D1FAE5] to-[#A7F3D0]', // Emerald
-  'from-[#E0E7FF] to-[#C7D2FE]', // Indigo
-  'from-[#FFEDD5] to-[#FED7AA]', // Orange
-  'from-[#CCFBF1] to-[#99F6E4]', // Teal
-  'from-[#FAE8FF] to-[#F5D0FE]', // Fuchsia
-  'from-[#ECFEFF] to-[#A5F3FC]', // Cyan
-  'from-[#FEF9C3] to-[#FDE047]', // Yellow
-  'from-[#FEE2E2] to-[#FECACA]', // Red
-  'from-[#EDE9FE] to-[#DDD6FE]', // Violet
-  'from-[#DBEAFE] to-[#BFDBFE]', // Blue
-  'from-[#ECFCCB] to-[#D9F99D]'  // Lime
+  'from-sky-500/15 to-sky-500/5', // Sky Blue
+  'from-purple-500/15 to-purple-500/5', // Purple
+  'from-rose-500/15 to-rose-500/5', // Rose
+  'from-amber-500/15 to-amber-500/5', // Amber
+  'from-emerald-500/15 to-emerald-500/5', // Emerald
+  'from-indigo-500/15 to-indigo-500/5', // Indigo
+  'from-orange-500/15 to-orange-500/5', // Orange
+  'from-teal-500/15 to-teal-500/5', // Teal
+  'from-fuchsia-500/15 to-fuchsia-500/5', // Fuchsia
+  'from-cyan-500/15 to-cyan-500/5', // Cyan
+  'from-yellow-500/15 to-yellow-500/5', // Yellow
+  'from-red-500/15 to-red-500/5', // Red
+  'from-violet-500/15 to-violet-500/5', // Violet
+  'from-blue-500/15 to-blue-500/5', // Blue
+  'from-lime-500/15 to-lime-500/5'  // Lime
 ];
 
 /**
@@ -303,7 +303,7 @@ const Scenes = () => {
               className="shrink-0 w-[85vw] sm:w-[320px] perspective-item will-change-transform"
             >
               <div
-                className={`group relative h-auto min-h-[220px] sm:min-h-[260px] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] bg-gradient-to-br ${card.gradient} border border-white/50`}
+                className={`group relative h-auto min-h-[220px] sm:min-h-[260px] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] bg-gradient-to-br ${card.gradient} backdrop-blur-md border border-white/60 shadow-lg`}
               >
                 {/* Content */}
                 <div className="p-6 sm:p-8 h-full flex flex-col justify-between relative z-10">

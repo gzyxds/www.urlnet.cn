@@ -22,8 +22,9 @@ export default function Banners() {
   const [isVisible, setIsVisible] = useState(true)
 
   return (
-    <AnimatePresence>
-      {isVisible && (
+    <>
+      <AnimatePresence>
+        {isVisible && (
         <motion.div
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
@@ -35,14 +36,14 @@ export default function Banners() {
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <p className="text-sm leading-6 text-white">
-              <a href="#" className="flex items-center gap-x-1">
-                <strong className="font-semibold">UrlNet 2025</strong>
+              <button onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))} className="flex items-center gap-x-1 hover:text-white/90 transition-colors text-left">
+                <strong className="font-semibold">NEW 2026</strong>
                 <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-2 inline h-0.5 w-0.5 fill-current">
                   <circle cx={1} cy={1} r={1} />
                 </svg>
-                BuidAI企业级开源智能体平台，官人认证的技术专家，部署搭建搭建服务，支持本地部署或服务器部署。
+                BuidAI企业级开源智能体平台，官人认证的技术专家，部署搭建服务，活动价仅需500￥点击立即咨询。
                 <span aria-hidden="true">&nbsp;&rarr;</span>
-              </a>
+              </button>
             </p>
           </div>
 
@@ -58,6 +59,7 @@ export default function Banners() {
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
+      </AnimatePresence>
+    </>
   )
 }
