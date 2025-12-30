@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool } from "lucide-react";
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 
 const AiPage = () => {
   usePageMetadata({

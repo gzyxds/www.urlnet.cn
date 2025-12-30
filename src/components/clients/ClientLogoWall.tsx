@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { cn } from "@/lib/utils";
 import { motion } from 'framer-motion';
 
 export interface Client {
@@ -57,48 +58,111 @@ const ClientLogoWall: React.FC<ClientLogoWallProps> = ({
   };
 
   return (
-    <section style={{background: '#fff', color: '#000', padding: 40, textAlign: 'center'}} className={className}>
-      {/* 客户logo展示区域 - 移到前面 */}
-      {marquee ? (
-        <div style={{display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 32}}>
-          {rows.map((row, rowIdx) => {
-            const marqueeRow = [...row, ...row];
-            return (
-              <div key={rowIdx} style={{overflow: 'hidden', width: '100%'}}>
-                <motion.div
-                  style={{display: 'flex', gap: 32, alignItems: 'center'}}
-                  variants={getMarqueeVariants(rowIdx, row.length)}
-                  animate="animate"
-                >
-                  {marqueeRow.map((client, idx) => (
-                    <div key={client.id + '-' + idx} style={{width: 180, padding: 16, border: '1px solid #eee', background: '#fafbfc', flex: '0 0 auto', borderRadius: 4}}>
-                      <img src={client.logo} alt={client.name} style={{height: 48, margin: '0 auto 8px', display: 'block'}} />
-                      <div style={{fontWeight: 'bold'}}>{client.name}</div>
-                      <div style={{fontSize: 12, color: '#888'}}>{client.industry}</div>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-            );
-          })}
+    <section className={cn("relative py-24 bg-background overflow-hidden", className)}>
+      {/* 装饰背景 */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[128px]" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[128px]" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* 标题区域 */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20"
+          >
+            {subtitle}
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl font-bold text-foreground mb-6"
+          >
+            {title}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-muted-foreground leading-relaxed"
+          >
+            {description}
+          </motion.p>
         </div>
-      ) : (
-        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 32, marginBottom: 32}}>
-          {clients.map(client => (
-            <div key={client.id} style={{width: 180, padding: 16, border: '1px solid #eee', background: '#fafbfc', borderRadius: 4}}>
-              <img src={client.logo} alt={client.name} style={{height: 48, margin: '0 auto 8px', display: 'block'}} />
-              <div style={{fontWeight: 'bold'}}>{client.name}</div>
-              <div style={{fontSize: 12, color: '#888'}}>{client.industry}</div>
+
+        {/* 客户logo展示区域 */}
+        {marquee ? (
+          <div className="relative">
+            {/* 渐变遮罩 */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
+
+            <div className="flex flex-col gap-8">
+              {rows.map((row, rowIdx) => {
+                const marqueeRow = [...row, ...row, ...row]; // 增加重复次数以确保平滑
+                return (
+                  <div key={rowIdx} className="overflow-hidden w-full select-none">
+                    <motion.div
+                      className="flex gap-6 items-center"
+                      variants={getMarqueeVariants(rowIdx, row.length)}
+                      animate="animate"
+                    >
+                      {marqueeRow.map((client, idx) => (
+                        <div
+                          key={`${client.id}-${idx}`}
+                          className="flex-shrink-0 w-48 p-6 bg-card border border-border/50 rounded-2xl hover:shadow-lg hover:border-primary/20 transition-all duration-300 group"
+                        >
+                          <div className="h-12 mb-4 flex items-center justify-center transition-all duration-500">
+                            <img
+                              src={client.logo}
+                              alt={client.name}
+                              className="max-h-full max-w-full object-contain transition-opacity"
+                            />
+                          </div>
+                          <div className="text-center">
+                            <div className="font-semibold text-foreground text-sm mb-1 line-clamp-1">{client.name}</div>
+                            <div className="text-xs text-muted-foreground line-clamp-1">{client.industry}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </motion.div>
+                  </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
-      )}
-      
-      {/* 标题区域 - 移到后面 */}
-      <div>
-        <h2 style={{fontSize: 32, fontWeight: 'bold'}}>{title}</h2>
-        <div style={{margin: '16px 0', fontSize: 20}}>{subtitle}</div>
-        <div>{description}</div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            {clients.map((client, idx) => (
+              <motion.div
+                key={client.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="flex flex-col items-center p-6 bg-card border border-border/50 rounded-2xl hover:shadow-lg hover:border-primary/20 transition-all duration-300 group"
+              >
+                <div className="h-12 mb-4 flex items-center justify-center w-full transition-all duration-500">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-h-full max-w-full object-contain transition-opacity"
+                  />
+                </div>
+                <div className="text-center w-full">
+                  <div className="font-semibold text-foreground text-sm mb-1 line-clamp-1">{client.name}</div>
+                  <div className="text-xs text-muted-foreground line-clamp-1">{client.industry}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

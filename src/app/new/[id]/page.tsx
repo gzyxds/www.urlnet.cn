@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { NewsItem } from '../types';
 import { newsService } from '../services/newsService';
 import MarkdownRenderer from '../components/MarkdownRenderer';
@@ -9,7 +9,7 @@ import Breadcrumb, { generateNewsBreadcrumb } from '../components/Breadcrumb';
 
 /**
  * 新闻详情页面组件
- * 
+ *
  * 功能说明：
  * - 展示单篇新闻的完整内容
  * - 提供面包屑导航和返回功能
@@ -21,7 +21,7 @@ import Breadcrumb, { generateNewsBreadcrumb } from '../components/Breadcrumb';
 const NewsDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  
+
   // 页面状态管理
   const [news, setNews] = useState<NewsItem | null>(null);
   const [loading, setLoading] = useState(true);
@@ -42,7 +42,7 @@ const NewsDetailPage: React.FC = () => {
       setError(null);
 
       const newsData = await newsService.getNewsById(id);
-      
+
       if (!newsData) {
         setError('新闻不存在或已被删除');
         setNews(null);
@@ -104,7 +104,7 @@ const NewsDetailPage: React.FC = () => {
           <div className="bg-white rounded-xl border border-slate-200/60 p-8 mb-8">
             <div className="h-8 bg-slate-200 rounded w-3/4 mb-4 animate-pulse"></div>
             <div className="h-4 bg-slate-200 rounded w-1/2 mb-6 animate-pulse"></div>
-            
+
             <div className="flex items-center space-x-6 mb-6">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-slate-200 rounded-full animate-pulse"></div>
@@ -151,7 +151,7 @@ const NewsDetailPage: React.FC = () => {
               {error || '新闻不存在'}
             </h3>
             <p className="text-slate-500 mb-6 text-sm">
-              {error === '新闻不存在或已被删除' 
+              {error === '新闻不存在或已被删除'
                 ? '您访问的新闻可能已被删除或链接有误'
                 : '加载新闻内容时出现问题，请稍后重试'
               }

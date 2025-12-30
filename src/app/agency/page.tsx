@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Users, Code, Handshake, Target, CheckCircle, Phone, MessageCircle, FileText, Settings } from "lucide-react";
 import Header from '@/components/HeaderSection';
 import { Link } from 'react-router-dom';
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 
 const AgencyPage = () => {
   // 设置代理页面元数据

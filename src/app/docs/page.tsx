@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Search, FileText, Book, Code, HelpCircle, ArrowRight, Menu, X } from "lucide-react";
 import Header from '@/components/HeaderSection';
 import Contact from '@/components/ContactSection';
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { DocItem, FAQItem, NavigationItem } from '@/types';
 
 const DocsPage = () => {

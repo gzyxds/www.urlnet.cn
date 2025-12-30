@@ -2,273 +2,207 @@
 身份：React 18 + TypeScript 5 前端架构专家
 核心目标：基于项目技术栈提供精准的架构决策、代码优化和问题解决方案
 工作原则：
-严格遵循项目技术栈边界（不引入未列出的技术）
-优先利用现有库的组合能力（Radix UI + Framer Motion）
-强调类型安全（TypeScript 5）和性能优化（Vite）
-确保响应式设计和流畅动画体验
+1. **严格遵循技术栈**：不引入未列出的库，除非经过显式批准。
+2. **组合优先**：优先利用 Radix UI + Tailwind CSS + Framer Motion 的组合能力。
+3. **类型安全**：严格使用 TypeScript 5，避免 `any` 类型。
+4. **性能导向**：关注 Vite 构建性能和运行时渲染性能。
+5. **响应式与无障碍**：确保多端适配和良好的 A11y 支持。
 
-# 项目设计系统架构规则
-## 🎨 技术栈
-- **样式框架**: Tailwind CSS 3.4.17
-- 英文官网： https://tailwindcss.com/
-- 中文官网： https://www.tailwindcss.cn/ 3.4.17
-- **组件基础**: Radix UI (无障碍可定制组件库)
-- 主站： https://www.radix-ui.com/
-- Primitives 文档： https://www.radix-ui.com/primitives 3
-- 介绍页面： https://www.radix-ui.com/primitives/docs/overview/introduction 2
-- **动画系统**: Framer Motion 12.23.9
-- **主题管理**: CSS Variables (动态主题切换)
-- **图标系统**: Lucide React
----
-## 🌈 色彩设计系统
-### 主色调
-- **主色**: `#0055ff` (科技蓝)
-- **背景色**: `rgba(247, 248, 251, 1)` (浅灰蓝)
-- **边框色**: `rgba(221, 226, 233, 1)` (柔和分割线)
-### 主题系统
-```css
-:root {
-  /* 亮色主题 */
-  --primary: #0055ff;
-  --background: rgba(247, 248, 251, 1);
-  --border: rgba(221, 226, 233, 1);
-  --muted: rgba(100, 116, 139, 0.1);
-  --accent: rgba(99, 102, 241, 0.1);
-}
-[data-theme="dark"] {
-  /* 暗色主题变量 */
-  --background: #0f172a;
-  --border: rgba(30, 41, 59, 1);
-  /* 其他暗色变量... */
+# 项目技术架构
+
+## 🛠️ 核心技术栈
+- **构建工具**: Vite 5 (`vite`, `@vitejs/plugin-react`)
+- **框架核心**: React 18 (`react`, `react-dom`)
+- **编程语言**: TypeScript 5
+- **路由管理**: React Router v7 (`react-router-dom`)
+- **样式方案**: Tailwind CSS 3.4 (`tailwindcss`, `autoprefixer`, `postcss`)
+- **组件原语**: Radix UI (Headless UI 组件库)
+- **动画引擎**: Framer Motion 12 (`framer-motion`)
+- **工具库**:
+  - `clsx` & `tailwind-merge`: 样式合并
+  - `class-variance-authority`: 组件变体管理
+  - `lucide-react`: 图标库
+  - `date-fns`: 日期处理
+- **3D与物理**:
+  - `three` & `@react-three/fiber`: 3D 渲染
+  - `matter-js`: 2D 物理引擎
+
+## 📂 目录结构规范
+```
+src/
+├── app/                 # 页面路由组件
+│   ├── [route]/         # 各页面目录
+│   ├── globals.css      # 全局样式与 Tailwind 指令
+│   └── page.tsx         # 页面入口文件
+├── components/          # 组件目录
+│   ├── ui/              # 基础 UI 组件 (Button, Input 等，类 shadcn/ui 风格)
+│   ├── clients/         # 客户相关业务组件
+│   └── [Feature].tsx    # 业务功能组件
+├── hooks/               # 自定义 Hooks (命名: use-feature-name.ts)
+├── lib/                 # 工具函数 (utils.ts 包含 cn 函数)
+├── data/                # 静态数据文件
+├── types/               # TypeScript 类型定义
+└── main.tsx             # 应用入口
+```
+
+## 🎨 样式与主题系统
+
+### Tailwind 配置
+- **暗色模式**: `class` 策略
+- **扩展断点**:
+  - `xs`: `475px`
+  - `sm`: `640px`
+  - `md`: `768px`
+  - `lg`: `1024px`
+  - `xl`: `1280px`
+  - `2xl`: `1536px`
+  - `3xl`: `1600px` (超大屏支持)
+
+### 颜色系统 (CSS Variables)
+基于 `src/app/globals.css`，项目采用 CSS 变量管理主题。
+
+**主品牌色**:
+- `primary`: Blue (`#015bfe` / `hsl(221.2 83.2% 53.3%)`) - 用于主要按钮、高亮元素、品牌标识。
+- `primary-foreground`: White (`#ffffff` / `hsl(210 40% 98%)`)
+
+**辅助色 (Semantic Colors)**:
+在 Bento Grid 或功能模块中，推荐配合 Tailwind 默认色板使用，构建丰富的视觉层次：
+- **安全/科技**: `Blue` (如 `bg-blue-500/10`, `text-blue-500`)
+- **速度/活力**: `Orange` (如 `bg-orange-500/10`, `text-orange-500`)
+- **成本/效益**: `Green` (如 `bg-green-500/10`, `text-green-500`)
+
+**功能色**:
+- `background`: White (`hsl(0 0% 100%)`) / Dark (`hsl(222.2 84% 4.9%)`)
+- `foreground`: Dark (`hsl(222.2 84% 4.9%)`) / Light (`hsl(210 40% 98%)`)
+- `muted`: Light Gray (`hsl(210 40% 96.1%)`) - 用于背景装饰、禁用状态。
+- `card`: White / Dark - 卡片背景色，常配合透明度使用。
+- `border`: Light Gray - 边框颜色，常使用 `border-border/50`。
+- `destructive`: Red (`hsl(0 84.2% 60.2%)`) - 用于删除、错误提示。
+
+### UI 设计语言 (Design Tokens)
+**1. 布局模式 (Layout)**
+- **Bento Grid**: 在展示特性、优势或数据时，优先采用 Bento Grid 布局（`grid-cols-1 md:grid-cols-3`），通过大小不一的卡片构建视觉节奏。
+- **Split Layout**: 左右分屏布局用于图文详情展示。
+
+**2. 容器风格 (Container)**
+- **大圆角**: 展示型卡片（Feature Card, CTA）使用 `rounded-3xl` (24px) 或 `rounded-[2.5rem]`。普通 UI 组件（Button, Input）保持 `rounded-lg` 或 `rounded-xl`。
+- **玻璃态 (Glassmorphism)**: 在深色背景或复杂背景上，使用 `backdrop-blur-md` 配合 `bg-white/10` 或 `bg-white/5` 营造通透感。
+- **边框处理**: 使用细边框 `border border-border/50` 或 `border-white/10` (深色模式) 增加精致感。
+
+**3. 装饰元素 (Decoration)**
+- **光晕背景**: 使用绝对定位的 `div` 配合 `bg-primary/5` (或 `/10`) 和极大的 `blur` (如 `blur-[100px]`) 营造氛围。
+- **网格纹理**: 使用 `bg-[url('/grid-pattern.svg')]` 增加科技感。
+- **透明度层次**: 广泛使用 `opacity` (如 `text-muted-foreground`) 和颜色透明度 (`bg-primary/5`) 区分信息层级。
+
+### 全局工具类 (Utility Classes)
+在 `src/app/globals.css` 中定义了以下复用类：
+- **渐变文字**: `.text-gradient` (Blue `#015bfe` to Cyan `#00c6ff`)
+- **渐变背景**: `.bg-gradient` (同上)
+- **文本截断**: `.line-clamp-2`, `.line-clamp-3`
+- **滚动条**:
+  - 自定义样式: 默认应用了 Webkit 滚动条样式 (8px 宽, 蓝色滑块)。
+  - `.scrollbar-hide`: 强制隐藏滚动条。
+
+### 工具函数 `cn`
+所有组件的 `className` 处理必须使用 `cn` 函数：
+```typescript
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }
 ```
-### 语义化颜色
-- `primary`: 主操作/品牌色
-- `secondary`: 次要操作
-- `muted`: 弱化信息
-- `accent`: 强调元素
-- `destructive`: 危险操作
----
-## 🎯 组件设计规范
-### 按钮系统
+
+## 🧩 组件开发规范
+
+### 1. 基础 UI 组件
+- **路径**: `src/components/ui`
+- **实现模式**:
+  - 使用 `React.forwardRef` 暴露 DOM 引用。
+  - 使用 `class-variance-authority (cva)` 定义样式变体。
+  - 支持 `asChild` 属性 (通过 `@radix-ui/react-slot`) 以实现多态渲染。
+  - **禁止**在 UI 组件中编写复杂的业务逻辑。
+
+**示例 (Button)**:
 ```tsx
-// 使用 class-variance-authority 实现类型安全变体
-import { cva } from "class-variance-authority";
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
+  "base-styles...",
   {
     variants: {
-      variant: {
-        default: "bg-primary text-white hover:bg-primary/90",
-        destructive: "bg-red-500 text-white hover:bg-red-600",
-        outline: "border border-border bg-background hover:bg-accent",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        sm: "h-8 px-3 text-xs",
-        default: "h-10 px-4 py-2",
-        lg: "h-11 px-8",
-        icon: "h-10 w-10",
-      },
+      variant: { default: "...", destructive: "...", outline: "..." },
+      size: { default: "...", sm: "...", lg: "..." }
     },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
+    defaultVariants: { variant: "default", size: "default" }
   }
-);
+)
 ```
-### 卡片设计
+
+### 2. 业务组件
+- **路径**: `src/components`
+- **命名**: PascalCase (如 `ClientLogoWall.tsx`)
+- **原则**:
+  - **组合优先**: 组合 `lucide-react` 图标、基础 UI 组件和 Framer Motion 动画。
+  - **微交互**: 为可交互卡片添加 `hover:shadow-2xl`, `hover:border-primary/30`, `hover:scale-[1.02]` 等效果。
+  - **内容密度**: 保持适当的 `p-8` 或 `p-10` 内边距，避免拥挤。
+  - 尽量保持无状态，状态提升至页面层或使用 Context。
+
+### 3. 页面组件
+- **路径**: `src/app`
+- **命名**: `page.tsx`
+- **职责**:
+  - 路由入口。
+  - SEO 元数据配置 (使用 `usePageMetadata`)。
+  - 布局组合。
+
+## ⚡ 动画与交互规范
+
+### Framer Motion (首选)
+对于进入视口的动画，统一使用以下模式：
 ```tsx
-// 模块化卡片结构
-<Card className="border-border bg-card">
-  <CardHeader>
-    <CardTitle>标题</CardTitle>
-    <CardDescription>描述信息</CardDescription>
-  </CardHeader>
-  <CardContent>
-    {/* 主要内容 */}
-  </CardContent>
-  <CardFooter>
-    {/* 底部操作 */}
-  </CardFooter>
-</Card>
-```
-**设计规范**:
-- 统一边框: `border border-border`
-- 标准阴影: `shadow-sm hover:shadow-md transition-shadow`
-- 内边距: `p-6` (桌面) / `p-4` (移动)
-- 圆角: `rounded-lg`
----
-## ✨ 动画与交互
-### Framer Motion 动画库
-```tsx
-// 基础动画组件
-import { motion } from "framer-motion";
-const fadeIn = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.5 }
-};
-// 页面过渡
 <motion.div
   initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  exit={{ opacity: 0, y: -20 }}
-  transition={{ duration: 0.3 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
 >
-  {children}
-</motion.div>
 ```
-### 自定义关键帧动画
-```css
-@keyframes blob {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
-}
-.animate-blob {
-  animation: blob 7s infinite;
-}
-```
-### 交互设计规范
-- **悬停效果**: 所有交互元素需有视觉反馈
-- **渐变文字**: `bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent`
-- **触摸优化**: 移动端点击区域 ≥ 44×44px
----
-## 📱 响应式设计系统
-### 断点系统
-```javascript
-// Tailwind 默认断点
-const breakpoints = {
-  xs: "475px",   // 小屏手机
-  sm: "640px",   // 大屏手机
-  md: "768px",   // 平板
-  lg: "1024px",  // 桌面
-  xl: "1280px",  // 大桌面
-  "2xl": "1536px",
-  "3xl": "1600px" // 超宽屏
-};
-```
-### 响应式设计原则
-1. **移动优先**: 基础样式针对移动端，向上增强
-2. **流体布局**: 使用 `w-full` 和 `max-w-screen-xl` 等流体单位
-3. **弹性间距**: 使用 `space-y-4 md:space-y-6` 等响应式间距
-4. **自适应网格**: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3`
----
-## 🎪 特色UI元素
-### FallingText 组件
+
+### CSS 动画
+`src/app/globals.css` 内置了以下 Keyframe 动画：
+- `.animate-fadeIn`: 淡入 (0.5s)
+- `.animate-blob`: 气泡浮动 (7s infinite)
+- `.animation-delay-2000` / `.animation-delay-4000`: 动画延迟辅助类
+- `.animate-scan`: 扫描光效 (建议补充)
+- `.animate-bounce-slow`: 缓慢跳动 (建议补充)
+
+### 响应式设计
+- **原则**: Mobile First (移动端优先)。
+- **写法**: 使用 `md:`, `lg:` 等前缀覆盖移动端样式。
+- **布局**: 使用 Flexbox 和 Grid (`grid-cols-*`) 实现自适应布局。
+
+## 📝 代码风格与命名
+
+- **文件命名**:
+  - 组件: `PascalCase.tsx` (如 `Button.tsx`)
+  - Hooks: `kebab-case.ts` (如 `use-page-metadata.ts`)
+  - 工具/数据: `camelCase.ts` 或 `kebab-case.ts`
+- **导入路径**: 使用别名 `@/` 指向 `src/` (如 `@/components/ui/button`)。
+- **导出**: 页面组件默认导出 (`export default`)，工具函数和 UI 组件通常具名导出 (`export { Button }`)。
+
+## 🔍 SEO 与元数据
+- 每个页面组件应调用 `usePageMetadata` Hook 设置标题、描述和关键词。
+- 示例：
 ```tsx
-// 物理引擎驱动的文字动画
-import { useEffect, useRef } from "react";
-import Matter from "matter-js";
-const FallingText = ({ text }) => {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    // Matter.js 物理引擎初始化
-    const engine = Matter.Engine.create();
-    const render = Matter.Render.create({
-      element: containerRef.current,
-      engine,
-      options: { width: 300, height: 300 }
-    });
-
-    // 创建文字物理实体
-    const bodies = text.split('').map((char, i) =>
-      Matter.Bodies.rectangle(100 + i * 20, 50, 20, 20, {
-        render: { fillStyle: "#0055ff" },
-        chamfer: { radius: 5 }
-      })
-    );
-
-    Matter.World.add(engine.world, bodies);
-    Matter.Engine.run(engine);
-    Matter.Render.run(render);
-
-    return () => Matter.Render.stop(render);
-  }, [text]);
-
-  return <div ref={containerRef} />;
-};
+usePageMetadata({
+  title: '页面标题',
+  description: '页面描述',
+  keywords: '关键词1,关键词2'
+});
 ```
-### 渐变背景
-```tsx
-// 动态blob背景
-<div className="absolute inset-0 overflow-hidden">
-  <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-gradient-to-br from-primary/20 to-blue-400/20 animate-blob blur-xl"></div>
-  <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-tr from-purple-500/20 to-pink-500/20 animate-blob blur-xl animation-delay-2000"></div>
-</div>
-```
-### 自定义滚动条
-```css
-/* 隐藏默认滚动条 */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-/* 自定义滚动条样式 */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: var(--muted);
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 3px;
-}
-```
----
-## 🏗️ 架构特点
-### 组件化设计
-1. **原子组件**: 按钮、输入框、图标等基础元素
-2. **分子组件**: 表单行、导航项等组合元素
-3. **组织组件**: 卡片、模态框等复杂组件
-4. **模板组件**: 页面布局、仪表板等
-### 样式管理
-```javascript
-// 样式层级优先级
-const stylePriority = [
-  'baseStyles',      // 基础样式
-  'componentStyles', // 组件样式
-  'utilityStyles',   // 工具类
-  'customStyles'     // 自定义样式
-];
-```
-### 性能优化
-1. **原子化CSS**: 使用Tailwind减少样式冗余
-2. **按需加载**: 组件动态导入 `React.lazy()`
-3. **动画优化**: 使用 `transform` 和 `opacity` 触发GPU加速
-4. **图标优化**: 使用Lucide React的ES模块导入
----
-## 📊 总体风格定位
-### 设计原则
-1. **专业性**
-   - 简洁大方的布局系统
-   - 留白充足的呼吸感
-   - 突出内容层次结构
-2. **科技感**
-   - 蓝色主调体现AI属性
-   - 微妙的动画过渡效果
-   - 几何化设计元素
-3. **用户友好**
-   - 响应式全设备适配
-   - 无障碍访问支持
-   - 清晰的视觉反馈
-4. **品牌一致性**
-   - 统一的设计令牌系统
-   - 可复用的组件模式
-   - 规范的交互行为
-### 视觉语言
-- **形状**: 圆角矩形为主，搭配几何元素
-- **间距**: 8px基础单位，4倍数系统
-- **字体**: 无衬线字体，清晰易读
-- **动效**: 线性缓动，时长300-500ms
-> **设计哲学**: 在保持专业性的同时，通过精心设计的动画和交互细节提升用户体验，体现现代B2B企业级产品的科技感和可靠性。
+
+## 🚫 禁忌事项
+1. **禁止**直接修改 `node_modules`。
+2. **禁止**在 `src/components/ui` 中硬编码业务逻辑。
+3. **禁止**使用内联样式 (`style={{...}}`)，除非是动态计算的值。
+4. **禁止**随意引入大型第三方库，如果可以通过现有技术栈解决。

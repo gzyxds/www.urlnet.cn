@@ -1,193 +1,208 @@
 "use client";
+
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Zap, Shield, Clock, Users } from "lucide-react";
+import { Zap, Shield, Clock, Users, Check, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Advantages = () => {
-  const advantages = [
-    {
-      icon: <Zap className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-[#015bfe]" />,
-      title: "丰富模型API",
-      description: "提供文本、文本图、文本视频多种模型API，包括DeepSeek-R1-052B、Qwen3-235B、ERNIE4.5、StepTX、Flux kontext、Flux DEV等。"
-    },
-    {
-      icon: <Shield className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-[#015bfe]" />,
-      title: "高效部署管理",
-      description: "一站式自动化平台，开箱即用，全面覆盖从模型训练到应用上线的全流程，轻松实现业务模型的快速验证与适配。"
-    },
-    {
-      icon: <Clock className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-[#015bfe]" />,
-      title: "强大算法支持",
-      description: "聚焦行业优先的预训练模型和垂直领域的专业模型，支持多种业务场景，帮助企业迅速实现业务创新。"
-    },
-    {
-      icon: <Users className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-[#015bfe]" />,
-      title: "灵活算力购买",
-      description: "API按需付费，根据用户实际用量计费，结合错峰优化引擎，提供经济实惠的文本、文生图服务，实现高效的成本控制。"
-    }
-  ];
-
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50/50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900/80 overflow-hidden" id="advantages">
-      {/* 背景装饰元素 */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#015bfe]/10 dark:bg-[#015bfe]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-100/20 dark:bg-blue-900/10 rounded-full blur-3xl"></div>
+    <section className="relative py-20 lg:py-32 bg-background overflow-hidden" id="advantages">
+      {/* 极光背景装饰 */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[100px]" />
       </div>
+
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20 xl:mb-24">
-          <motion.span
-            className="inline-block px-5 py-2.5 bg-gradient-to-r from-[#015bfe]/10 to-blue-50 dark:from-[#015bfe]/20 dark:to-blue-900/40 text-[#015bfe] dark:text-blue-300 text-sm font-semibold rounded-full mb-6 shadow-sm border border-[#015bfe]/20 dark:border-blue-800"
+        {/* 头部区域 */}
+        <div className="text-center mb-16 lg:mb-24">
+          <motion.div
+            className="inline-flex items-center px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6 border border-primary/20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            产品核心优势
-          </motion.span>
+            核心优势
+          </motion.div>
+
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 text-gray-900 dark:text-white leading-tight tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-foreground"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
           >
-            智能<span className="relative inline-block px-2">
-              <span className="relative z-10 bg-gradient-to-r from-[#015bfe] via-blue-500 to-blue-600 bg-clip-text text-transparent">优势</span>赋能
+            全方位<span className="text-primary mx-2 relative inline-block">
+              <span className="relative z-10">智能赋能</span>
+              <span className="absolute bottom-2 left-0 right-0 h-3 bg-primary/20 -rotate-1 z-0" />
             </span>
           </motion.h2>
+
           <motion.p
-            className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 font-medium"
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            融合前沿算法与工程化实践，打造企业级 AI 基础设施
+          </motion.p>
+        </div>
+
+        {/* Bento Grid 布局 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full mb-24">
+          {/* 主要特性卡片 - 占据较大空间 */}
+          <motion.div
+            className="md:col-span-2 relative group rounded-3xl bg-card border border-border/50 p-8 lg:p-10 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            凭借先进的技术、专业的团队和丰富的行业经验，我们为客户提供全方位的AI解决方案和服务支持
-          </motion.p>
-          <motion.div
-            className="w-32 h-1.5 bg-gradient-to-r from-[#015bfe] via-blue-500 to-blue-600 mx-auto rounded-full shadow-lg"
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          />
-        </div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors duration-500" />
 
-        {/* Advantages Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-5 xl:gap-6 2xl:gap-7 mb-12 sm:mb-16 lg:mb-20 xl:mb-24">
-          {advantages.map((advantage, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <Card className="h-full overflow-hidden transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-sm hover:-translate-y-1 border border-gray-200/50 dark:border-gray-700/50 group">
-                {/* 装饰性背景元素 */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#015bfe]/10 via-blue-50/40 to-transparent dark:from-[#015bfe]/20 dark:via-blue-900/20 dark:to-transparent rounded-bl-2xl"></div>
-                
-                <CardContent className="p-2 sm:p-4 lg:p-5 relative z-10">
-                  {/* 图标和标题并排显示 */}
-                  <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:mb-5">
-                    {/* 缩小后的图标容器 */}
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-[#015bfe]/10 dark:bg-[#015bfe]/20 flex items-center justify-center group-hover:scale-105 transition-all duration-300 rounded-lg shadow-sm border border-[#015bfe]/20 dark:border-blue-700/50 flex-shrink-0">
-                      {advantage.icon}
-                    </div>
-                    
-                    <h3 className="text-xs sm:text-sm lg:text-base xl:text-lg font-bold text-gray-900 dark:text-white group-hover:text-[#015bfe] dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight bg-gradient-to-r from-gray-50/80 to-blue-50/60 dark:from-gray-700/50 dark:to-blue-900/30 px-2 sm:px-3 py-1 sm:py-1.5 rounded-md backdrop-blur-sm border border-gray-200/30 dark:border-gray-600/30">
-                      {advantage.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed sm:leading-6 font-medium line-clamp-3 sm:line-clamp-none">{advantage.description}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {/*为什么选择我们*/}
-        <motion.div
-          className="relative overflow-hidden transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-xl shadow-sm hover:shadow-lg p-8 sm:p-10 lg:p-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          {/* 装饰性背景元素 */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#015bfe]/5 via-blue-50/20 to-transparent dark:from-[#015bfe]/10 dark:via-blue-900/10 dark:to-transparent rounded-bl-3xl"></div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div className="space-y-8">
-              <div>
-                <motion.span
-                  className="inline-block px-4 py-2 bg-gradient-to-r from-[#015bfe]/10 to-blue-50 dark:from-[#015bfe]/20 dark:to-blue-900/40 text-[#015bfe] dark:text-blue-300 text-sm font-semibold rounded-full mb-4 shadow-sm border border-[#015bfe]/20 dark:border-blue-800"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  核心竞争力
-                </motion.span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-                  为什么选择<span className="bg-gradient-to-r from-[#015bfe] via-blue-500 to-blue-600 bg-clip-text text-transparent">我们</span>？
-                </h3>
-                <div className="w-16 h-1.5 bg-gradient-to-r from-[#015bfe] via-blue-500 to-blue-600 mb-6 rounded-full shadow-sm" />
-                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-medium">
-                  AI科技拥有丰富的行业经验和技术积累，我们不仅提供标准化的AI产品，
-                  还能根据客户的特定需求提供定制化解决方案，帮助客户在数字化转型中获得竞争优势
-                </p>
+            <div className="relative z-10">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-500">
+                <Zap className="w-6 h-6" />
               </div>
+              <h3 className="text-2xl font-bold mb-4">丰富模型矩阵</h3>
+              <p className="text-muted-foreground mb-8 max-w-lg leading-relaxed">
+                集成 DeepSeek-R1、Qwen3、ERNIE4.5 等主流大模型，支持文本生成、多模态理解及视频创作，为不同业务场景提供最佳模型选型。
+              </p>
 
-              <div className="space-y-4">
-                {[
-                  "5年+行业经验，服务超过1000家企业客户",
-                  "50+AI专家团队，持续技术创新",
-                  "99.9%服务可用性，7x24小时技术支持",
-                  "灵活的部署方案，支持云端和本地部署"
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-start space-x-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="w-6 h-6 bg-gradient-to-br from-[#015bfe] to-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5 rounded-full shadow-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-white"
-                      >
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                    </div>
-                    <span className="text-gray-700 dark:text-gray-300 text-base leading-relaxed font-medium">{item}</span>
-                  </motion.div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {['DeepSeek', 'Qwen-Max', 'Flux.1', 'Claude 3.5', 'GPT-4o', 'Midjourney'].map((tag) => (
+                  <div key={tag} className="px-4 py-2 rounded-lg bg-muted/50 text-sm font-medium text-foreground/80 border border-border/50 text-center">
+                    {tag}
+                  </div>
                 ))}
               </div>
             </div>
+          </motion.div>
 
-            <div className="hidden lg:block">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#015bfe]/10 to-transparent transform rotate-3 rounded-xl" />
-                <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="团队合作"
-                  className="relative shadow-lg object-cover w-full h-96 rounded-xl"
-                />
+          {/* 右侧垂直卡片 */}
+          <motion.div
+            className="md:col-span-1 md:row-span-2 relative group rounded-3xl bg-gradient-to-b from-primary/5 to-card border border-border/50 p-8 flex flex-col hover:shadow-xl transition-all duration-500"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-500 group-hover:rotate-12 transition-transform duration-500">
+              <Shield className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold mb-3">企业级安全部署</h3>
+            <p className="text-muted-foreground mb-8 flex-grow">
+              提供私有化部署方案，确保数据主权。支持数据加密、访问控制及合规审计，满足金融级安全标准。
+            </p>
+            <div className="relative h-40 mt-auto rounded-xl bg-background/50 border border-border/50 overflow-hidden">
+              <div className="absolute inset-x-4 top-4 bottom-0 space-y-3 opacity-50">
+                <div className="h-2 w-3/4 bg-primary/20 rounded-full" />
+                <div className="h-2 w-1/2 bg-primary/20 rounded-full" />
+                <div className="h-2 w-full bg-primary/20 rounded-full" />
+                <div className="h-2 w-2/3 bg-primary/20 rounded-full" />
+              </div>
+              {/* 扫描动画效果 */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent h-full w-full animate-scan" />
+            </div>
+          </motion.div>
+
+          {/* 下方两个小卡片 */}
+          <motion.div
+            className="md:col-span-1 relative group rounded-3xl bg-card border border-border/50 p-8 hover:border-primary/30 transition-colors duration-500"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center mb-6 text-orange-500">
+              <Clock className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold mb-2">极速响应</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              全球边缘节点加速，Token 生成速度提升 300%，首字延迟低于 200ms。
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="md:col-span-1 relative group rounded-3xl bg-card border border-border/50 p-8 hover:border-primary/30 transition-colors duration-500"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 text-green-500">
+              <Users className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold mb-2">弹性成本</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              按需付费与预留实例结合，通过错峰调度引擎降低 40% 推理成本。
+            </p>
+          </motion.div>
+        </div>
+
+        {/* 底部 CTA 区域 */}
+        <motion.div
+          className="relative rounded-[2.5rem] overflow-hidden bg-primary text-primary-foreground shadow-2xl shadow-primary/20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
+          <div className="absolute -right-20 -top-20 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+
+          <div className="grid lg:grid-cols-2 gap-12 p-10 md:p-16 relative z-10 items-center">
+            <div>
+              <div className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
+                Why Choose Us
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6">
+                不仅是技术提供商<br/>更是您的<span className="text-white/80">增长合作伙伴</span>
+              </h3>
+              <div className="flex flex-wrap gap-4 mb-8">
+                {["5年+ 行业积淀", "99.9% SLA", "7x24h 专家支持"].map((item) => (
+                  <div key={item} className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
+                    <Check className="w-4 h-4" />
+                    <span className="text-sm font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <button className="group inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-xl font-semibold hover:bg-white/90 transition-colors">
+                立即咨询
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            <div className="hidden lg:block relative">
+              <div className="aspect-video rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md p-6 relative overflow-hidden">
+                {/* 模拟代码界面 */}
+                <div className="flex gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+                <div className="space-y-3 font-mono text-sm opacity-80">
+                  <div className="flex gap-4">
+                    <span className="text-blue-300">import</span>
+                    <span className="text-white">AI_SDK</span>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="text-purple-300">const</span>
+                    <span className="text-white">client = new AI_SDK.Client();</span>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="text-purple-300">await</span>
+                    <span className="text-white">client.generate({`{`}</span>
+                  </div>
+                  <div className="pl-8 text-green-300">model: "deepseek-r1",</div>
+                  <div className="pl-8 text-green-300">prompt: "Analyze Q3 data..."</div>
+                  <div className="text-white">{`});`}</div>
+                </div>
+
+                {/* 浮动卡片装饰 */}
+                <div className="absolute -bottom-4 -right-4 bg-white text-primary p-4 rounded-xl shadow-lg animate-bounce-slow">
+                  <div className="text-xs font-bold uppercase tracking-wider opacity-50 mb-1">Efficiency</div>
+                  <div className="text-2xl font-bold">+185%</div>
+                </div>
               </div>
             </div>
           </div>

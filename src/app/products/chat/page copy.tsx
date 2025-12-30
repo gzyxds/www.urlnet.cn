@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool, MessageCircle, Palette, Lightbulb, Zap } from "lucide-react";
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 // 自定义CSS动画样式
@@ -18,15 +18,15 @@ const customStyles = `
       transform: translateY(0);
     }
   }
-  
+
   .animate-fade-in {
     animation: fade-in 0.6s ease-out forwards;
   }
-  
+
   .animation-delay-200 {
     animation-delay: 0.2s;
   }
-  
+
   .animation-delay-400 {
     animation-delay: 0.4s;
   }
@@ -35,7 +35,7 @@ const customStyles = `
 const ChatPage = () => {
   // 功能特色标签导航状态管理
   const [activeFeature, setActiveFeature] = useState('chat');
-  
+
   usePageMetadata({
     title: '艺创AI_AI系统源码_AI智能聊天系统_AI绘画系统',
     description: '艺创AI专注提供AI系统源代码解决方案的技术团队「AI数字人系统」「企业全能AI变现系统」「AI聊天绘画系统」「AI论文写作系统」拥有PHP和Java两种语言版本，技术实力强，系统体验好支持私有部署，专业团队、售后无忧',
@@ -52,7 +52,7 @@ const ChatPage = () => {
     <div className="min-h-screen bg-white pb-10 overflow-x-hidden">
       {/* 自定义样式 */}
       <style dangerouslySetInnerHTML={{ __html: customStyles }} />
-      
+
       {/* 头部横幅 - 全面优化移动端响应式设计 */}
       <section className="relative min-h-[100vh] sm:min-h-[90vh] md:min-h-[85vh] lg:min-h-screen flex items-center overflow-hidden">
         {/* 动态渐变背景 - 响应式优化 */}
@@ -63,7 +63,7 @@ const ChatPage = () => {
             <div className="absolute top-1/3 right-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
             <div className="absolute bottom-1/4 left-1/3 w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"></div>
           </div>
-          
+
           {/* 网格背景 - 响应式网格大小 */}
           <div className="absolute inset-0 opacity-5 sm:opacity-10">
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -132,7 +132,7 @@ const ChatPage = () => {
                   💰 营销变现
                 </span>
               </div>
-              
+
               {/* 行动按钮组 - 响应式按钮布局 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-12 px-4 sm:px-0">
                 <Button className="bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-600 hover:to-blue-600 text-white px-6 py-2 h-auto text-sm sm:text-base font-bold rounded-full shadow-xl transform hover:scale-105 transition-all duration-300">
@@ -205,7 +205,7 @@ const ChatPage = () => {
                           <p className="text-gray-800 text-xs sm:text-sm leading-relaxed">您好！我可以帮您进行AI创作、图片生成等服务</p>
                         </div>
                       </div>
-                      
+
                       {/* 用户消息 */}
                       <div className="flex gap-2 sm:gap-3 justify-end items-start animate-fade-in animation-delay-300">
 <div className="bg-blue-600 rounded-xl sm:rounded-2xl rounded-tr-none p-2.5 sm:p-3.5 max-w-[calc(100%-3rem)] sm:max-w-xs">
@@ -227,7 +227,7 @@ const ChatPage = () => {
                       <h4 className="font-medium mb-0.5 sm:mb-1.5 text-xs sm:text-sm">AI创作</h4>
                       <p className="text-xs text-blue-100 hidden sm:block opacity-80">智能文案生成</p>
                     </div>
-                    
+
                     {/* AI绘画功能卡片 */}
 <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 text-white transition-all duration-300 group">
                       <svg className="w-4 h-4 sm:w-5 sm:h-5 mb-1.5 sm:mb-2.5 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -236,7 +236,7 @@ const ChatPage = () => {
                       <h4 className="font-medium mb-0.5 sm:mb-1.5 text-xs sm:text-sm">AI绘画</h4>
                       <p className="text-xs text-indigo-100 hidden sm:block opacity-80">图像智能生成</p>
                     </div>
-                    
+
                     {/* 语音助手功能卡片 */}
 <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg sm:rounded-xl p-2.5 sm:p-3.5 text-white transition-all duration-300 group">
                       <Mic className="w-4 h-4 sm:w-5 sm:h-5 mb-1.5 sm:mb-2.5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
@@ -317,7 +317,7 @@ const ChatPage = () => {
         </div>
       </div>
 
-      
+
       {/* 功能特色标签导航 - 全新交互式展示 */}
       <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
         {/* 背景装饰 */}
@@ -325,7 +325,7 @@ const ChatPage = () => {
           <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-blue-100 rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-indigo-100 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* 标题区域 */}
           <div className="text-center mb-12 sm:mb-16">
@@ -359,8 +359,8 @@ const ChatPage = () => {
                   className={`
                     flex items-center px-4 py-3 sm:px-6 sm:py-4 rounded font-medium text-sm sm:text-base
                     transition-all duration-300 transform hover:scale-105 min-w-[120px] sm:min-w-[140px]
-                    ${isActive 
-                      ? `bg-${feature.color}-600 text-white shadow-lg shadow-${feature.color}-200` 
+                    ${isActive
+                      ? `bg-${feature.color}-600 text-white shadow-lg shadow-${feature.color}-200`
                       : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
                     }
                   `}
@@ -663,7 +663,7 @@ const ChatPage = () => {
             <div className="w-16 h-1 bg-blue-600 mx-auto mb-4"></div>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">多维度产品优势，助力企业智能化升级</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* 产品卡片1 - AI对话 */}
             <div className="bg-white rounded-none p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
@@ -678,9 +678,9 @@ const ChatPage = () => {
                   <div className="text-blue-600 font-medium">智能对话</div>
                 </div>
               </div>
-              
+
               <p className="text-gray-600 mb-4 text-sm">对接ChatAI接口，AI秒回复，让您在工作中得心应手</p>
-              
+
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
@@ -709,9 +709,9 @@ const ChatPage = () => {
                   <div className="text-blue-600 font-medium">智能创作</div>
                 </div>
               </div>
-              
+
               <p className="text-gray-600 mb-4 text-sm">根据不同模型进行提问，AI会针对输入的问题进行深度创作</p>
-              
+
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
@@ -727,7 +727,7 @@ const ChatPage = () => {
                 </li>
               </ul>
             </div>
-            
+
             {/* 产品卡片3 - AI技能 */}
             <div className="bg-white rounded-none p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
@@ -741,9 +741,9 @@ const ChatPage = () => {
                   <div className="text-blue-600 font-medium">技能模型</div>
                 </div>
               </div>
-              
+
               <p className="text-gray-600 mb-4 text-sm">可定义不同的技能模型，技能分类得越细，AI回答得越准确</p>
-              
+
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
@@ -759,7 +759,7 @@ const ChatPage = () => {
                 </li>
               </ul>
             </div>
-            
+
             {/* 产品卡片4 - VIP会员 */}
             <div className="bg-white rounded-none p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-blue-100 group">
               <div className="flex items-center mb-6">
@@ -773,9 +773,9 @@ const ChatPage = () => {
                   <div className="text-blue-600 font-medium">无限使用</div>
                 </div>
               </div>
-              
+
               <p className="text-gray-600 mb-4 text-sm">会员期间不消耗次数，可无限使用，实现运营收益</p>
-              
+
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <Check className="h-4 w-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" />
@@ -802,7 +802,7 @@ const ChatPage = () => {
           <div className="absolute top-5 left-5 sm:top-10 sm:left-10 w-20 h-20 sm:w-40 sm:h-40 rounded-full bg-blue-100 blur-2xl sm:blur-3xl"></div>
           <div className="absolute bottom-5 right-5 sm:bottom-10 sm:right-10 w-30 h-30 sm:w-60 sm:h-60 rounded-full bg-indigo-100 blur-2xl sm:blur-3xl"></div>
         </div>
-        
+
         <div className={`${containerBase} relative z-10`}>
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             {/* 左侧内容 - 优化移动端布局 */}
@@ -811,16 +811,16 @@ const ChatPage = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
                 在线演示
               </div>
-              
+
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 艺创AI-聊天绘画系统<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>演示中心
               </h2>
-              
+
               <p className="text-gray-600 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
                 通过我们的在线演示系统，您可以亲身体验AI聊天绘画系统的强大功能和直观界面，无需安装，即刻体验。
               </p>
-              
+
               {/* 演示账号信息 - 全面优化移动端布局 */}
               <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
                 <div className="flex items-center mb-4">
@@ -829,7 +829,7 @@ const ChatPage = () => {
                   </div>
                   <h3 className="text-base sm:text-lg font-medium">演示账号信息</h3>
                 </div>
-                
+
                 <div className="space-y-3 sm:space-y-4">
                   {/* PC端后台 */}
                   <div className="p-3 bg-gray-50 rounded-xl">
@@ -855,7 +855,7 @@ const ChatPage = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* 代理商后台 */}
                   <div className="p-3 bg-gray-50 rounded-xl">
                     <div className="flex flex-col space-y-2">
@@ -880,7 +880,7 @@ const ChatPage = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* 前端演示 */}
                   <div className="p-3 bg-gray-50 rounded-xl">
                     <div className="flex flex-col space-y-2">
@@ -907,7 +907,7 @@ const ChatPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* 操作按钮 - 优化移动端布局 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button className={`${buttonPrimary} rounded-lg px-6 py-3 text-sm sm:text-base font-medium w-full sm:w-auto min-h-[48px]`}>
@@ -918,19 +918,19 @@ const ChatPage = () => {
                 </Button>
               </div>
             </div>
-            
+
             {/* 右侧内容 - 优化移动端图片展示 */}
             <div className="w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0">
               <div className="relative w-full max-w-md lg:max-w-none">
                 {/* 主要演示图 - 响应式优化 */}
                 <div className="bg-white p-4 sm:p-6 shadow-lg rounded-lg">
-                  <img 
-                    src="/product/ai.svg" 
-                    alt="AI聊天绘画系统演示界面" 
+                  <img
+                    src="/product/ai.svg"
+                    alt="AI聊天绘画系统演示界面"
                     className="w-full h-auto rounded object-contain"
                     loading="lazy"
                   />
-                  
+
                   <div className="mt-3 sm:mt-4 flex items-center justify-between">
                     <div>
                       <h4 className="text-sm font-medium text-gray-900">聊天绘画系统管理平台</h4>
@@ -943,17 +943,17 @@ const ChatPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* 二维码 */}
                 <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
-                  <img 
-                    src="/images/qrcode.png" 
-                    alt="演示二维码" 
+                  <img
+                    src="/images/qrcode.png"
+                    alt="演示二维码"
                     className="w-24 h-24 bg-white rounded"
                   />
                   <p className="text-xs text-center mt-2 text-gray-600">扫码体验移动端</p>
                 </div>
-                
+
                 {/* 装饰元素 */}
                 <div className="absolute -top-6 -left-6 bg-blue-600 rounded-lg p-4 shadow-lg">
                   <div className="flex items-center space-x-2">
@@ -994,8 +994,8 @@ const ChatPage = () => {
             <div className="mb-8 sm:mb-12 lg:mb-16 xl:mb-20 px-4">
               {/* 桌面端：纯文本样式，优化宽屏显示 */}
               <TabsList className="hidden md:flex justify-center space-x-8 lg:space-x-12 xl:space-x-16 2xl:space-x-20 bg-transparent border-none p-0 h-auto">
-                <TabsTrigger 
-                  value="virtualIP" 
+                <TabsTrigger
+                  value="virtualIP"
                   className="flex items-center gap-2 lg:gap-3 px-0 py-3 lg:py-4 cursor-pointer transition-all duration-300 text-base lg:text-lg xl:text-xl font-medium tracking-wide relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1006,8 +1006,8 @@ const ChatPage = () => {
                   <MessageCircle className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6" />
                   AI对话
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="digitalEmployee" 
+                <TabsTrigger
+                  value="digitalEmployee"
                   className="flex items-center gap-2 lg:gap-3 px-0 py-3 lg:py-4 cursor-pointer transition-all duration-300 text-base lg:text-lg xl:text-xl font-medium tracking-wide relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1018,8 +1018,8 @@ const ChatPage = () => {
                   <PenTool className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6" />
                   智能创作
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="contentCreation" 
+                <TabsTrigger
+                  value="contentCreation"
                   className="flex items-center gap-2 lg:gap-3 px-0 py-3 lg:py-4 cursor-pointer transition-all duration-300 text-base lg:text-lg xl:text-xl font-medium tracking-wide relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1030,8 +1030,8 @@ const ChatPage = () => {
                   <Palette className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6" />
                   AI绘画
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="virtualLive" 
+                <TabsTrigger
+                  value="virtualLive"
                   className="flex items-center gap-2 lg:gap-3 px-0 py-3 lg:py-4 cursor-pointer transition-all duration-300 text-base lg:text-lg xl:text-xl font-medium tracking-wide relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1045,9 +1045,9 @@ const ChatPage = () => {
               </TabsList>
 
               {/* 移动端：纯文本样式 */}
-              <TabsList className="md:hidden flex gap-6 overflow-x-auto scrollbar-hide px-4 py-0 bg-transparent border-none h-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <TabsTrigger 
-                  value="virtualIP" 
+              <TabsList className="md:hidden flex gap-6 overflow-x-auto scrollbar-hide px-4 py-0 bg-transparent border-none h-auto">
+                <TabsTrigger
+                  value="virtualIP"
                   className="flex items-center gap-2 flex-shrink-0 px-0 py-3 cursor-pointer transition-all duration-300 text-sm font-medium tracking-wide whitespace-nowrap relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1058,8 +1058,8 @@ const ChatPage = () => {
                   <MessageCircle className="w-3.5 h-3.5" />
                   AI对话
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="digitalEmployee" 
+                <TabsTrigger
+                  value="digitalEmployee"
                   className="flex items-center gap-2 flex-shrink-0 px-0 py-3 cursor-pointer transition-all duration-300 text-sm font-medium tracking-wide whitespace-nowrap relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1070,8 +1070,8 @@ const ChatPage = () => {
                   <PenTool className="w-3.5 h-3.5" />
                   智能创作
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="contentCreation" 
+                <TabsTrigger
+                  value="contentCreation"
                   className="flex items-center gap-2 flex-shrink-0 px-0 py-3 cursor-pointer transition-all duration-300 text-sm font-medium tracking-wide whitespace-nowrap relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1082,8 +1082,8 @@ const ChatPage = () => {
                   <Palette className="w-3.5 h-3.5" />
                   AI绘画
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="virtualLive" 
+                <TabsTrigger
+                  value="virtualLive"
                   className="flex items-center gap-2 flex-shrink-0 px-0 py-3 cursor-pointer transition-all duration-300 text-sm font-medium tracking-wide whitespace-nowrap relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1098,8 +1098,8 @@ const ChatPage = () => {
 
               {/* 平板端：纯文本样式 */}
               <TabsList className="hidden sm:flex md:hidden flex-wrap justify-center gap-6 lg:gap-8 bg-transparent border-none p-0 h-auto">
-                <TabsTrigger 
-                  value="virtualIP" 
+                <TabsTrigger
+                  value="virtualIP"
                   className="flex items-center gap-2 px-0 py-3 cursor-pointer transition-all duration-300 text-sm lg:text-base font-medium tracking-wide relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1110,8 +1110,8 @@ const ChatPage = () => {
                   <MessageCircle className="w-4 h-4" />
                   AI对话
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="digitalEmployee" 
+                <TabsTrigger
+                  value="digitalEmployee"
                   className="flex items-center gap-2 px-0 py-3 cursor-pointer transition-all duration-300 text-sm lg:text-base font-medium tracking-wide relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1122,8 +1122,8 @@ const ChatPage = () => {
                   <PenTool className="w-4 h-4" />
                   智能创作
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="contentCreation" 
+                <TabsTrigger
+                  value="contentCreation"
                   className="flex items-center gap-2 px-0 py-3 cursor-pointer transition-all duration-300 text-sm lg:text-base font-medium tracking-wide relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1134,8 +1134,8 @@ const ChatPage = () => {
                   <Palette className="w-4 h-4" />
                   AI绘画
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="virtualLive" 
+                <TabsTrigger
+                  value="virtualLive"
                   className="flex items-center gap-2 px-0 py-3 cursor-pointer transition-all duration-300 text-sm lg:text-base font-medium tracking-wide relative bg-transparent border-none shadow-none
                   data-[state=active]:text-blue-600 data-[state=active]:bg-transparent
                   data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-blue-600 data-[state=inactive]:bg-transparent
@@ -1179,7 +1179,7 @@ const ChatPage = () => {
                           <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">对接GPT接口，快速响应您的每一个问题</p>
                         </div>
                       </li>
-                      
+
                       <li className="flex items-start group">
                         <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center mr-3 group-hover:bg-blue-100 transition-colors duration-300">
                           <Check className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
@@ -1189,7 +1189,7 @@ const ChatPage = () => {
                           <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">智能理解需求，生成高质量文案和专业解答</p>
                         </div>
                       </li>
-                      
+
                       <li className="flex items-start group">
                         <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center mr-3 group-hover:bg-blue-100 transition-colors duration-300">
                           <Check className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
@@ -1200,7 +1200,7 @@ const ChatPage = () => {
                         </div>
                       </li>
                     </ul>
-                    
+
                     {/* 操作按钮 - 优化移动端布局 */}
                     <div className="pt-4 sm:pt-5 flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <Button className="bg-black hover:bg-gray-800 text-white px-6 sm:px-8 py-3 rounded-lg sm:rounded-none font-medium shadow-sm hover:shadow-md transition-all duration-300 text-sm sm:text-base hover:scale-105 w-full sm:w-auto min-h-[48px]">
@@ -1211,13 +1211,13 @@ const ChatPage = () => {
                       </Button>
                     </div>
                   </div>
-                  
+
                   {/* 右侧图片区域 - 优化移动端图片展示 */}
                   <div className="w-full xl:w-1/2 mt-6 xl:mt-0">
                     <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
-                      <img 
-                        src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png" 
-                        alt="文案AI对话应用场景" 
+                      <img
+                        src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png"
+                        alt="文案AI对话应用场景"
                         className="w-full h-auto object-cover"
                         loading="lazy"
                       />
@@ -1270,7 +1270,7 @@ const ChatPage = () => {
                           <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">支持多种AI模型，满足不同场景创作需求</p>
                         </div>
                       </li>
-                      
+
                       <li className="flex items-start group">
                         <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center mr-3 group-hover:bg-blue-100 transition-colors duration-300">
                           <Check className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
@@ -1280,7 +1280,7 @@ const ChatPage = () => {
                           <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">根据输入问题，AI进行深度理解与创作</p>
                         </div>
                       </li>
-                      
+
                       <li className="flex items-start group">
                         <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center mr-3 group-hover:bg-blue-100 transition-colors duration-300">
                           <Check className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
@@ -1302,13 +1302,13 @@ const ChatPage = () => {
                       </Button>
                     </div>
                   </div>
-                  
+
                   {/* 右侧图片区域 - 优化移动端图片展示 */}
                   <div className="w-full xl:w-1/2 mt-6 xl:mt-0">
                     <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
-                      <img 
-                        src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/create.png" 
-                        alt="AI智能创作应用场景" 
+                      <img
+                        src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/create.png"
+                        alt="AI智能创作应用场景"
                         className="w-full h-auto object-cover"
                         loading="lazy"
                       />
@@ -1361,7 +1361,7 @@ const ChatPage = () => {
                           <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">输入描述，AI自动生成精美图片</p>
                         </div>
                       </li>
-                      
+
                       <li className="flex items-start group">
                         <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center mr-3 group-hover:bg-blue-100 transition-colors duration-300">
                           <Check className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
@@ -1371,7 +1371,7 @@ const ChatPage = () => {
                           <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">支持多种绘画风格，满足不同创作需求</p>
                         </div>
                       </li>
-                      
+
                       <li className="flex items-start group">
                         <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center mr-3 group-hover:bg-blue-100 transition-colors duration-300">
                           <Check className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
@@ -1393,13 +1393,13 @@ const ChatPage = () => {
                       </Button>
                     </div>
                   </div>
-                  
+
                   {/* 右侧图片区域 - 优化移动端图片展示 */}
                   <div className="w-full xl:w-1/2 mt-6 xl:mt-0">
                     <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
-                      <img 
-                        src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png" 
-                        alt="AI绘画应用场景" 
+                      <img
+                        src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png"
+                        alt="AI绘画应用场景"
                         className="w-full h-auto object-cover"
                         loading="lazy"
                       />
@@ -1452,7 +1452,7 @@ const ChatPage = () => {
                           <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">支持自定义各类AI技能模型，灵活适配不同场景</p>
                         </div>
                       </li>
-                      
+
                       <li className="flex items-start group">
                         <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center mr-3 group-hover:bg-blue-100 transition-colors duration-300">
                           <Check className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
@@ -1462,7 +1462,7 @@ const ChatPage = () => {
                           <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">技能分类越细，AI回答越精准，提升专业度</p>
                         </div>
                       </li>
-                      
+
                       <li className="flex items-start group">
                         <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center mr-3 group-hover:bg-blue-100 transition-colors duration-300">
                           <Check className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
@@ -1484,13 +1484,13 @@ const ChatPage = () => {
                       </Button>
                     </div>
                   </div>
-                  
+
                   {/* 右侧图片区域 - 优化移动端图片展示 */}
                   <div className="w-full xl:w-1/2 mt-6 xl:mt-0">
                     <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm border border-gray-200/50">
-                      <img 
-                        src="https://java-chat-front.chatmoney.cn/api/uploads/image/20240612/04197fe3-1ad8-40b0-8b79-a63249d1bc83.png" 
-                        alt="AI技能应用场景" 
+                      <img
+                        src="https://java-chat-front.chatmoney.cn/api/uploads/image/20240612/04197fe3-1ad8-40b0-8b79-a63249d1bc83.png"
+                        alt="AI技能应用场景"
                         className="w-full h-auto object-cover"
                         loading="lazy"
                       />
@@ -1804,7 +1804,7 @@ const ChatPage = () => {
                   智能聊天对话，AI秒回答。对接ChatAI接口，可以对自然语言进行深度理解，识别出用户的意图和需求，从而提供更加精准的回答和服务。
                 </p>
               </div>
-              
+
               {/* 功能特性 - 优化移动端网格布局 */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
@@ -1816,7 +1816,7 @@ const ChatPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">AI秒级响应</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-50 rounded-md sm:rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1826,7 +1826,7 @@ const ChatPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">精准理解需求</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-50 rounded-md sm:rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1837,7 +1837,7 @@ const ChatPage = () => {
                   <p className="text-xs sm:text-sm text-gray-600">灵活对接业务</p>
                 </div>
               </div>
-              
+
               {/* 操作按钮 - 优化移动端布局 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg sm:rounded-none shadow-lg min-h-[48px]">
@@ -1851,13 +1851,13 @@ const ChatPage = () => {
                 </Button>
               </div>
             </div>
-            
+
             {/* 右侧图片 - 优化移动端显示 */}
             <div className="relative mt-8 lg:mt-0">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
-                <img 
-                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/dialogue.png" 
-                  alt="AI智能对话" 
+                <img
+                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/dialogue.png"
+                  alt="AI智能对话"
                   className="w-full rounded-xl sm:rounded-2xl shadow-lg"
                   loading="lazy"
                 />
@@ -1892,7 +1892,7 @@ const ChatPage = () => {
                   适用多场景，不同类型场景，满足您的不同需求，快速为您创作新的灵感。
                 </p>
               </div>
-              
+
               {/* 功能特性 - 优化移动端网格布局 */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
@@ -1904,7 +1904,7 @@ const ChatPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">可自定义多种创作场景，有效提高效率</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-50 rounded-md sm:rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1914,7 +1914,7 @@ const ChatPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">自定义调教指令，表单联动，创作更精准</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-50 rounded-md sm:rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1925,7 +1925,7 @@ const ChatPage = () => {
                   <p className="text-xs sm:text-sm text-gray-600">已支持GPT4.0超强模型，满足聊天不同需求</p>
                 </div>
               </div>
-              
+
               {/* 操作按钮 - 优化移动端布局 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg sm:rounded-none shadow-lg min-h-[48px]">
@@ -1942,9 +1942,9 @@ const ChatPage = () => {
             {/* 左侧图片 - 优化移动端显示 */}
             <div className="lg:order-1 relative mt-8 lg:mt-0">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
-                <img 
-                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/create.png" 
-                  alt="AI智能创作界面" 
+                <img
+                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/create.png"
+                  alt="AI智能创作界面"
                   className="w-full rounded-xl sm:rounded-2xl shadow-lg"
                   loading="lazy"
                 />
@@ -1979,7 +1979,7 @@ const ChatPage = () => {
                   已对接MJ、SD绘图、DALLE-3等众多绘画模型，作图更强大。适用于各类图像创作需求，包括图片创作、风景生成等场景。支持文生图、图生图等功能，满足绘画一系列需求。提供多种绘画风格和绘画类型，生成图片更生动。
                 </p>
               </div>
-              
+
               {/* 功能特性 - 优化移动端网格布局 */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
@@ -1991,7 +1991,7 @@ const ChatPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">MJ、SD、DALLE-3等主流AI绘画模型</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-50 rounded-md sm:rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -2001,7 +2001,7 @@ const ChatPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">图片创作、风景生成等多种应用场景</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-50 rounded-md sm:rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -2012,7 +2012,7 @@ const ChatPage = () => {
                   <p className="text-xs sm:text-sm text-gray-600">多种绘画风格与类型，图片更生动</p>
                 </div>
               </div>
-              
+
               {/* 操作按钮 - 优化移动端布局 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-lg sm:rounded-none shadow-lg min-h-[48px]">
@@ -2026,13 +2026,13 @@ const ChatPage = () => {
                 </Button>
               </div>
             </div>
-            
+
             {/* 右侧图片 - 优化移动端显示 */}
             <div className="relative mt-8 lg:mt-0">
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
-                <img 
-                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png" 
-                  alt="AI绘画界面" 
+                <img
+                  src="https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/img/art.png"
+                  alt="AI绘画界面"
                   className="w-full rounded-xl sm:rounded-2xl shadow-lg"
                   loading="lazy"
                 />
@@ -2069,7 +2069,7 @@ const ChatPage = () => {
                 <circle cx="150" cy="250" r="30" fill="black" fillOpacity="0.02" />
               </svg>
             </div>
-            
+
             {/* 主要内容 - 优化移动端布局 */}
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
               {/* 左侧内容 - 优化移动端间距和字体 */}
@@ -2082,7 +2082,7 @@ const ChatPage = () => {
                     基于Vue3和ThinkPHP技术栈开发的全平台AI系统，支持PC端、H5端、小程序和APP。集成主流AI模型如GPT4.0、文心一言等,
                     支持智能对话和AI绘画等功能。系统配备完整的会员体系和营销功能，让AI应用快速落地。
                   </p>
-                  
+
                   {/* 特性列表 - 优化移动端网格布局 */}
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">
                     {[
@@ -2102,7 +2102,7 @@ const ChatPage = () => {
                       </li>
                     ))}
                   </ul>
-                  
+
                   {/* 操作按钮 - 优化移动端布局 */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-8 py-4 rounded-xl shadow-xl text-base transform hover:scale-105 transition-all duration-300">
@@ -2114,7 +2114,7 @@ const ChatPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* 右侧功能卡片 - 优化移动端显示 */}
               <aside className="lg:col-span-2 relative hidden lg:block">
                 <div className="absolute inset-0 flex items-center justify-center p-8">

@@ -1,7 +1,6 @@
-import Hero from '@/components/HeroSection';
 import Carousel from '@/components/Carousel';
 import HotProducts from '@/components/HotProducts';
-import About from '@/components/AboutComponent';
+import Scenes from '@/components/Scenes';
 import Products from '@/components/ProductsSection';
 import Advantages from '@/components/AdvantagesSection';
 import Terminal from '@/components/TerminalSection';
@@ -11,7 +10,7 @@ import Contact from '@/components/ContactSection';
 import FAQ from '@/components/FAQ';
 import FunctionBlueprint from '@/components/FunctionSection';
 import BackToTop from '@/components/BackToTop';
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 import ClientLogoWall from '@/components/clients/ClientLogoWall';
 import clients from '@/components/clients/clients';
 
@@ -30,7 +29,7 @@ const Home = () => {
       <Carousel />
 
       <HotProducts />
-      <About />
+      <Scenes />
       <Products />
       <ClientLogoWall clients={clients} marquee />
       <FunctionBlueprint />

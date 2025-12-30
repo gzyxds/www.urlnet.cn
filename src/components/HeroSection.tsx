@@ -43,7 +43,7 @@ const useRotatingText = (texts: string[], speed: number = 3000) => {
 
   useEffect(() => {
     const currentText = texts[currentIndex];
-    
+
     if (!isDeleting) {
       if (displayText.length < currentText.length) {
         const timer = setTimeout(() => {
@@ -76,8 +76,8 @@ const useRotatingText = (texts: string[], speed: number = 3000) => {
  * 特性标签组件 - 渲染单个产品特性标签
  */
 const FeatureTag = ({ href, icon, label }: { href: string; icon: string; label: string }) => (
-  <a 
-    href={href} 
+  <a
+    href={href}
     className="px-3 py-1 sm:px-4 sm:py-2 bg-white backdrop-blur-sm rounded-full text-black text-xs sm:text-sm border border-gray-200 hover:bg-gray-50 transition-colors"
   >
     <svg className="w-4 h-4 inline-block mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -105,14 +105,14 @@ const StatItem = ({ value, label }: { value: string; label: string }) => (
 const Hero = () => {
   const isMobile = useMobile();
   const [showQRCode, setShowQRCode] = useState(false);
-  
+
   const rotatingTexts = [
     "艺创AI落地首选方案",
-    "通过AI为你创造收益", 
+    "通过AI为你创造收益",
     "一次购买、永久免费更新",
     "技术过硬、私有部署"
   ];
-  
+
   const rotatingText = useRotatingText(rotatingTexts, 3000);
 
   // 事件处理函数优化
@@ -144,7 +144,7 @@ const Hero = () => {
             <div className="absolute top-1/3 right-1/4 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
             <div className="absolute bottom-1/4 left-1/3 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{animationDelay: '4s'}}></div>
           </div>
-          
+
           {/* 网格背景 */}
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -187,7 +187,7 @@ const Hero = () => {
                 </span>
               </div>
             </div>
-          
+
             {/* 描述文字 */}
             <p className="text-base sm:text-lg lg:text-xl text-gray-700 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed">
               <span className="text-blue-600 font-semibold">一站式AIGC系统</span>，
@@ -203,14 +203,14 @@ const Hero = () => {
 
             {/* 行动按钮组 */}
             <div className="flex flex-row gap-3 justify-center mb-8 sm:mb-12">
-              <Button 
+              <Button
                 className="rounded-full px-6 py-2 h-auto text-sm sm:text-base font-medium"
                 onClick={handleDemoClick}
               >
                 立即体验
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="border-2 border-black text-black hover:bg-gray-100 backdrop-blur-sm px-6 py-2 h-auto text-sm sm:text-base font-medium rounded-full"
                 onClick={handleContactClick}
               >
@@ -240,7 +240,7 @@ const Hero = () => {
             onClick={handleCloseQRCode}
           >
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -256,21 +256,21 @@ const Hero = () => {
               >
                 <X className="w-4 h-4 text-gray-600" />
               </button>
-              
+
               <div className="p-8 text-center">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">联系客服</h3>
                 <p className="text-sm text-gray-600 mb-6">扫描二维码添加客服微信</p>
-                
+
                 <div className="flex justify-center mb-4">
                   <div className="relative">
-                    <img 
-                      src="/images/qrcode.png" 
-                      alt="客服二维码" 
+                    <img
+                      src="/images/qrcode.png"
+                      alt="客服二维码"
                       className="w-48 h-48 object-contain rounded-lg border border-gray-200 shadow-lg"
                     />
                   </div>
                 </div>
-                
+
                 <p className="text-xs text-gray-500">长按二维码保存到相册</p>
               </div>
             </motion.div>

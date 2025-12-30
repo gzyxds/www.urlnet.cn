@@ -1,420 +1,365 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, Star, Users, Store, GraduationCap, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Contact from '@/components/ContactSection';
+import { Search, ArrowRight, CheckCircle as CheckBadgeIcon, Inbox, Star, ShoppingCart, Play, Sparkles, Zap, Code2, PenTool, Bot, FileText, Database } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { productsData, type ProductItem } from "@/data/products";
+import { Link } from 'react-router-dom';
+import { cn } from "@/lib/utils";
 
-// 定义产品数据类型
-interface Product {
-  title: string;
+type Category = { id: string; name: string; icon?: React.ElementType };
+type AppData = {
+  id: number;
+  name: string;
+  image: string;
   description: string;
-  features: string[];
-  originalPrice: string;
-  currentPrice: string;
-  sourceCodeLink: string;
-  badge?: string;
-  icon?: React.ReactNode;
-  iconColor: string;
-  tags: string[];
-}
+  originalPrice: number;
+  discountPrice: number;
+  date: string;
+  rating?: number;
+  sales?: number;
+  link?: string;
+  features?: string[];
+  subtitle?: string;
+  buyLink?: string;
+};
 
-// 产品数据 - AI企业级解决方案
-const products: Product[] = [
-  {
-    title: "数字分身PHP版",
-    description: "基于PHP开发的数字分身系统，支持声音克隆、形象生成、视频制作等功能，适用于品牌宣传、在线教育、虚拟客服等场景。",
-    features: [
-      "声音克隆",
-      "形象生成",
-      "视频制作",
-      "多平台部署",
-      "实时渲染"
-    ],
-    originalPrice: "¥6800.00",
-    currentPrice: "¥4999.00",
-    sourceCodeLink: "/products/human",
-    badge: "PHP版",
-    icon: <Users className="h-5 w-5" />,
-    iconColor: "bg-blue-500",
-    tags: ["PHP"]
-  },
-  {
-    title: "企业知识库PHP版",
-    description: "基于PHP开发的企业知识库系统，支持文档智能解析、语义搜索、知识图谱构建等功能，帮助企业构建智能化的知识管理体系。",
-    features: [
-      "文档解析",
-      "语义搜索",
-      "知识图谱",
-      "智能问答",
-      "多格式支持"
-    ],
-    originalPrice: "¥9800.00",
-    currentPrice: "¥6600.00",
-    sourceCodeLink: "/demo",
-    badge: "PHP版",
-    icon: <Store className="h-5 w-5" />,
-    iconColor: "bg-orange-500",
-    tags: ["PHP"]
-  },
-  {
-    title: "聊天绘画PHP版",
-    description: "基于PHP开发的AI聊天绘画系统，支持多种艺术风格、批量生成、智能编辑等功能，为设计师和创作者提供强大的AI辅助工具。",
-    features: [
-      "多种风格",
-      "批量生成",
-      "智能编辑",
-      "高清输出",
-      "云端部署"
-    ],
-    originalPrice: "¥3800.00",
-    currentPrice: "¥2999.00",
-    sourceCodeLink: "/demo",
-    badge: "PHP版",
-    icon: <Store className="h-5 w-5" />,
-    iconColor: "bg-purple-500",
-    tags: ["PHP"]
-  },
-  {
-    title: "论文创作PHP版",
-    description: "基于PHP开发的论文创作系统，支持文章生成、内容优化、多语言翻译等功能，为学术研究提供高效的写作解决方案。",
-    features: [
-      "文章生成",
-      "内容优化",
-      "多语言翻译",
-      "格式排版",
-      "参考文献"
-    ],
-    originalPrice: "¥4699.00",
-    currentPrice: "¥3999.00",
-    sourceCodeLink: "/demo",
-    badge: "PHP版",
-    icon: <GraduationCap className="h-5 w-5" />,
-    iconColor: "bg-purple-700",
-    tags: ["PHP"]
-  },
-  {
-    title: "知识库Python版",
-    description: "基于Python开发的知识库系统，支持深度学习、自然语言处理、知识图谱等技术，提供智能化的知识管理解决方案。",
-    features: [
-      "深度学习",
-      "NLP处理",
-      "知识图谱",
-      "智能检索",
-      "自动分类"
-    ],
-    originalPrice: "¥9800.00",
-    currentPrice: "¥6600.00",
-    sourceCodeLink: "/demo",
-    badge: "Python版",
-    icon: <Store className="h-5 w-5" />,
-    iconColor: "bg-red-500",
-    tags: ["Python"]
-  },
-  {
-    title: "数字分身2.0-pro",
-    description: "基于Java开发的数字分身系统，采用微服务架构，支持高并发、分布式部署，提供企业级的数字人解决方案。",
-    features: [
-      "微服务架构",
-      "高并发支持",
-      "分布式部署",
-      "容器化",
-      "服务治理"
-    ],
-    originalPrice: "¥9800.00",
-    currentPrice: "¥6600.00",
-    sourceCodeLink: "/demo",
-    badge: "pro版",
-    icon: <Users className="h-5 w-5" />,
-    iconColor: "bg-orange-500",
-    tags: ["Java"]
-  },
-  {
-    title: "企业知识库JAVA版",
-    description: "基于Java开发的企业知识库系统，采用Spring Cloud框架，支持大规模数据处理和企业级应用部署。",
-    features: [
-      "Spring Cloud",
-      "分布式存储",
-      "集群部署",
-      "权限管理",
-      "数据安全"
-    ],
-    originalPrice: "¥98800.00",
-    currentPrice: "¥6600.00",
-    sourceCodeLink: "/demo",
-    badge: "Java版",
-    icon: <Store className="h-5 w-5" />,
-    iconColor: "bg-purple-500",
-    tags: ["Java"]
-  },
-  {
-    title: "聊天绘画JAVA版",
-    description: "基于Java开发的聊天绘画系统，采用分布式架构，支持大规模并发访问和海量图片处理能力。",
-    features: [
-      "分布式计算",
-      "图像处理",
-      "负载均衡",
-      "高可用性",
-      "监控告警"
-    ],
-    originalPrice: "¥3800.00",
-    currentPrice: "¥2999.00",
-    sourceCodeLink: "/demo",
-    badge: "Java版",
-    icon: <Store className="h-5 w-5" />,
-    iconColor: "bg-blue-500",
-    tags: ["Java"]
-  },
-    {
-    title: "艺创开源Agent系统",
-    description: "基于NestJS和Nuxt3构建的现代全栈框架，支持插件化开发和AI原生集成，为企业级应用提供灵活可扩展的技术架构。",
-    features: [
-      "NestJS + PostgreSQL后端",
-      "Nuxt3 + Nuxt UI前端",
-      "运行时插件系统",
-      "AI原生协作能力",
-      "TypeScript全栈支持"
-    ],
-    originalPrice: "免费开源",
-    currentPrice: "免费开源",
-    sourceCodeLink: "/demo",
-    badge: "全栈版",
-    icon: <Store className="h-5 w-5" />,
-    iconColor: "bg-blue-500",
-    tags: ["TypeScript", "NestJS", "Nuxt"]
-  },
-  {
-    title: "论文创作JAVA版",
-    description: "基于Java开发的论文创作系统，采用微服务架构，支持多用户协同写作和大规模内容处理。",
-    features: [
-      "协同写作",
-      "版本控制",
-      "实时保存",
-      "格式转换",
-      "智能校对"
-    ],
-    originalPrice: "¥469800.00",
-    currentPrice: "¥3999.00",
-    sourceCodeLink: "/demo",
-    badge: "Java版",
-    icon: <GraduationCap className="h-5 w-5" />,
-    iconColor: "bg-blue-500",
-    tags: ["Java"]
-  }
+const categories: Category[] = [
+  { id: 'all', name: '全部应用', icon: Zap },
+  { id: 'knowledge', name: '知识库', icon: Database },
+  { id: 'digital-human', name: 'AI数字人', icon: Bot },
+  { id: 'chat-draw', name: '聊天绘画', icon: PenTool },
+  { id: 'paper', name: '论文写作', icon: FileText },
+  { id: 'php', name: 'PHP源码', icon: Code2 },
+  { id: 'java', name: 'Java源码', icon: Code2 },
+  { id: 'python', name: 'Python源码', icon: Code2 },
 ];
 
 /**
- * 产品展示组件 - 参考图片样式重新设计
- * 采用现代化简约风格，白、黑、蓝色调
- * 优化数据展示区域排版，提升视觉层次感
- * @returns {JSX.Element} 组件
+ * 将产品数据转换为应用展示使用的数据结构
+ * @param products 产品数据源
+ * @returns 转换后的应用数据数组
  */
-const ProductShowcase = () => {
-  // 添加二维码弹窗状态
-  const [showQRCode, setShowQRCode] = useState<boolean>(false);
+function convertProductsToApps(products: ProductItem[]): AppData[] {
+  return products.map((p, idx) => ({
+    id: idx + 1,
+    name: p.title,
+    image: p.image,
+    description: p.description,
+    originalPrice: p.originalPrice,
+    discountPrice: p.price,
+    date: '上新',
+    rating: p.rating,
+    sales: p.sales,
+    link: p.link,
+    features: p.features,
+    subtitle: p.subtitle,
+    buyLink: p.buyLink
+  }));
+}
 
-  // 处理显示二维码弹窗
-  const handleShowQRCode = () => {
-    setShowQRCode(true);
+/**
+ * 根据搜索词与分类筛选应用列表
+ * 功能：支持按关键词（名称/描述/副标题/功能标签）与语义化分类过滤
+ * 参数：
+ * - query: 搜索关键词（string）
+ * - category: 当前分类ID（string）
+ * - source: 原始应用列表（AppData[]）
+ * 返回：过滤后的应用列表（AppData[]）
+ */
+function filterApps(query: string, category: string, source: AppData[]): AppData[] {
+  const q = query.trim().toLowerCase();
+  const bySearch = (app: AppData) => {
+    const haystack = [
+      app.name,
+      app.description,
+      app.subtitle ?? '',
+      ...(app.features ?? []),
+    ]
+      .join(' ')
+      .toLowerCase();
+    return haystack.includes(q);
   };
+  const byCategory = (app: AppData) => {
+    if (category === 'all') return true;
+    if (category === 'knowledge') return /知识库/i.test(app.name + (app.description ?? '') + (app.subtitle ?? ''));
+    if (category === 'digital-human') return /数字分身|数字人/i.test(app.name + (app.description ?? '') + (app.subtitle ?? ''));
+    if (category === 'chat-draw') return /聊天绘画|AI绘画|聊天/i.test(app.name + (app.description ?? '') + (app.subtitle ?? ''));
+    if (category === 'paper') return /论文|写作/i.test(app.name + (app.description ?? '') + (app.subtitle ?? ''));
+    if (category === 'php') return /PHP/i.test(app.subtitle ?? '');
+    if (category === 'java') return /Java/i.test(app.subtitle ?? '');
+    if (category === 'python') return /Python/i.test(app.subtitle ?? '');
+    return true;
+  };
+  return source.filter(app => bySearch(app) && byCategory(app));
+}
 
-  // 处理关闭二维码弹窗
-  const handleCloseQRCode = () => {
-    setShowQRCode(false);
-  };
+/**
+ * 应用市场展示组件
+ * 采用 Bento Grid 布局与 Glassmorphism 设计语言
+ * 优化点：
+ * 1. 使用 rounded-3xl 和 backdrop-blur 增强现代感
+ * 2. 增强卡片交互 (hover scale/shadow)
+ * 3. 优化侧边栏导航样式
+ * 4. 增强 Banner 视觉冲击力
+ */
+const ProductShowcase: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [activeCategory, setActiveCategory] = useState<string>('all');
 
-  // 动画变体
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6 }
-    }
-  };
+  const apps = useMemo<AppData[]>(() => convertProductsToApps(productsData), []);
+  const filteredApps = useMemo(() => filterApps(searchQuery, activeCategory, apps), [searchQuery, activeCategory, apps]);
 
   return (
-    <div className="bg-white py-16 sm:py-20 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 标题区域 */}
-        <motion.div
-          className="text-center mb-16 lg:mb-20"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6 tracking-tight">
-            企业级AI解决方案
-          </h2>
-          <p className="mx-auto max-w-3xl text-lg text-gray-600 leading-relaxed">
-            为不同规模企业提供专业的AI系统解决方案，支持多种AI应用场景和技术架构
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-gray-50/50 dark:bg-gray-950/50 pt-24 pb-20 relative overflow-hidden">
+      {/* 背景装饰 */}
+      <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-50/80 to-transparent dark:from-blue-950/20 dark:to-transparent pointer-events-none" />
+      <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[200px] -left-[200px] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* 产品网格 - 响应式布局 */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {products.map((product) => (
-            <motion.div
-              key={product.title}
-              className="group"
-              variants={cardVariants}
-            >
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                {/* 产品头部 */}
-                <div className="relative p-4 sm:p-6 border-b border-gray-100">
-                  {/* 图标、标题和徽章 */}
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div className="flex items-center">
-                      <div className={`flex items-center justify-center w-8 h-8 ${product.iconColor} rounded-lg text-white mr-2`}>
-                        {React.cloneElement(product.icon as React.ReactElement, { className: "h-4 w-4" })}
-                      </div>
-                      {/* 标题 */}
-                      <h3 className="text-base sm:text-lg font-bold text-black leading-tight">
-                        {product.title}
-                      </h3>
-                    </div>
-                    <span className="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-1 rounded-full">
-                      {product.badge}
-                    </span>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+          {/* 左侧边栏 */}
+          <aside className="w-full lg:w-72 shrink-0 space-y-8">
+            <div className="sticky top-24 space-y-8">
+              {/* 搜索框 */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative bg-white dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl border border-gray-200/50 dark:border-gray-800 shadow-sm transition-all duration-300 group-hover:shadow-md group-hover:border-blue-500/30">
+                  <input
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    type="text"
+                    placeholder="搜索应用..."
+                    className="w-full pl-11 pr-4 py-3.5 bg-transparent outline-none text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400"
+                  />
+                  <Search className="absolute left-3.5 top-3.5 w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors" />
+                </div>
+              </div>
+
+              {/* 分类导航 */}
+              <div className="space-y-3">
+                <h3 className="px-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">分类导航</h3>
+                <nav className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-hide">
+                  {categories.map((category) => {
+                    const isActive = activeCategory === category.id;
+                    const Icon = category.icon || Zap;
+                    return (
+                      <button
+                        key={category.id}
+                        onClick={() => setActiveCategory(category.id)}
+                        className={cn(
+                          "relative shrink-0 w-auto lg:w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 group overflow-hidden border",
+                          isActive
+                            ? "border-blue-500/30 dark:border-blue-400/30 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20"
+                            : "border-transparent hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+                        )}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="activeCategory"
+                            className="absolute inset-0 bg-blue-100/50 dark:bg-blue-900/20"
+                            initial={false}
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          />
+                        )}
+                        <span className="relative z-10 flex items-center gap-3">
+                          <Icon className={cn("w-4 h-4", isActive ? "text-blue-500" : "text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300")} />
+                          {category.name}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </nav>
+              </div>
+            </div>
+          </aside>
+
+          {/* 右侧主内容 */}
+          <main className="flex-1 min-w-0">
+            {/* 促销 Banner */}
+            <div className="relative overflow-hidden rounded-2xl bg-blue-50/50 dark:bg-blue-950/10 border border-blue-100 dark:border-blue-900/20 p-5 mb-8">
+              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div className="space-y-1 max-w-lg">
+                  <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-medium bg-blue-100/50 dark:bg-blue-900/20 px-2.5 py-0.5 rounded-full w-fit mb-2">
+                    <Sparkles className="w-3 h-3" />
+                    <span>限时特惠活动</span>
                   </div>
-
-
-
-                  {/* 描述 */}
-                  <p className="text-gray-600 leading-relaxed text-xs sm:text-sm">
-                    {product.description}
+                  <h2 className="text-xl lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    解锁 AI 生产力工具
+                  </h2>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                    联系客服领取限时 <span className="text-blue-600 dark:text-blue-400 font-bold">5折优惠码</span>，
+                    助力您的业务快速腾飞。
                   </p>
                 </div>
-
-                {/* 特性列表 */}
-                <div className="p-4 sm:p-6 flex-1">
-                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                    {product.features.map((feature) => (
-                      <div key={feature} className="flex items-center gap-1 bg-blue-50 px-2 py-1 rounded-md">
-                        <div className="flex-shrink-0 w-3 h-3 bg-blue-100 rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="h-2 w-2 text-blue-600" />
-                        </div>
-                        <span className="text-xs font-medium text-gray-700">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* 价格区域 */}
-                  <div className="border-t border-gray-100 pt-3 sm:pt-4">
-                    <div className="flex items-center justify-between mb-3 sm:mb-4">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xs text-gray-500">原价</span>
-                          <span className="text-xs text-gray-400 line-through">{product.originalPrice}</span>
-                        </div>
-                        <div className="text-lg sm:text-xl font-bold text-blue-600">
-                          {product.currentPrice}
-                        </div>
-                      </div>
-
-                      {/* 评分 */}
-                      <div className="flex items-center gap-0.5">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-yellow-400 fill-yellow-400" />
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* 操作按钮 - 并排显示 */}
-                    <div className="flex gap-2">
-                      <Button
-                        size="sm"
-                        className="flex-1 bg-white hover:bg-gray-50 text-gray-900 font-medium rounded-lg h-9 transition-all duration-200 text-xs border border-gray-200"
-                        onClick={handleShowQRCode}
-                      >
-                        联系客服
-                        <ArrowRight className="ml-1 h-3 w-3" />
-                      </Button>
-
-                      <Button
-                        size="sm"
-                        className="flex-1 border border-[#1d4ed8] bg-transparent hover:bg-[rgba(29,78,216,0.1)] text-[#1d4ed8] font-medium rounded-lg h-9 transition-all duration-200 text-xs"
-                        onClick={() => window.open(product.sourceCodeLink, '_blank', 'noopener,noreferrer')}
-                      >
-                        免费试用
-                      </Button>
-                    </div>
-                  </div>
-                </div>
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow-md transition-all duration-300 rounded-full font-semibold px-6 h-9 text-sm"
+                >
+                  获取优惠码
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                </Button>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+            </div>
 
-      {/* 添加联系我们组件 */}
-      <Contact />
+            {/* 应用列表头 */}
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <span className="w-1.5 h-6 bg-blue-500 rounded-full" />
+                全部应用
+                <span className="text-sm font-normal text-gray-500 ml-2">({filteredApps.length})</span>
+              </h2>
+            </div>
 
-      {/* 二维码弹窗 */}
-      <AnimatePresence>
-        {showQRCode && (
-          <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={handleCloseQRCode}
-          >
-            <motion.div
-              className="bg-white rounded-xl p-6 max-w-sm w-full relative shadow-2xl"
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
-                onClick={handleCloseQRCode}
-                aria-label="关闭"
+            {/* 应用卡片网格 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredApps.map((app) => (
+                <motion.div
+                  key={app.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  className="group"
+                >
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+                    <div className="aspect-video bg-gray-100 dark:bg-gray-700 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600"></div>
+                      <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                        <img
+                          src={app.image}
+                          alt={app.name}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="p-5 flex-1 flex flex-col">
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h3 className="font-bold text-gray-900 dark:text-white line-clamp-1">{app.name}</h3>
+                            {app.subtitle && (
+                              <span className="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded">
+                                {app.subtitle.replace(/[\[\]]/g, '')}
+                              </span>
+                            )}
+                          </div>
+                          <div className="flex flex-wrap gap-1 mb-2">
+                            {app.features?.slice(0, 3).map((feature, i) => (
+                              <span key={i} className="text-[10px] text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
+                                {feature}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4 flex-1">
+                        {app.description}
+                      </p>
+
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-sm text-gray-400 line-through">¥{app.originalPrice.toFixed(2)}</span>
+                          <span className="px-2.5 py-0.5 bg-gray-900 dark:bg-black text-[#FFD700] text-sm font-medium rounded-full border border-gray-800 shadow-sm flex items-center gap-1">
+                             <span className="text-xs font-normal text-gray-300">折后</span>
+                             ¥{app.discountPrice.toFixed(2)}
+                          </span>
+                          {app.originalPrice > app.discountPrice && (
+                            <span className="text-xs text-red-500 font-medium ml-auto">
+                              省¥{Math.round(app.originalPrice - app.discountPrice)}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100 dark:border-gray-700">
+                          <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1">
+                              <CheckBadgeIcon className="w-3.5 h-3.5" />
+                              <span>官方认证</span>
+                            </div>
+                            {typeof app.rating === 'number' && (
+                              <div className="flex items-center gap-1">
+                                <Star className="w-3.5 h-3.5 text-yellow-400" />
+                                <span>{app.rating}</span>
+                              </div>
+                            )}
+                          </div>
+                          {typeof app.sales === 'number' ? (
+                            <span>已售 {app.sales}</span>
+                          ) : (
+                            <span>{app.date}</span>
+                          )}
+                        </div>
+                        {(app.buyLink || app.link) && (
+                          <div className="flex gap-2 pt-3">
+                            {app.buyLink && (
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="flex-1 h-8 px-2 text-xs text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
+                                onClick={() => window.open(app.buyLink as string, '_blank')}
+                              >
+                                <ShoppingCart className="h-3.5 w-3.5 mr-1.5" />
+                                购买
+                              </Button>
+                            )}
+                            {app.link && (
+                              <Button
+                                variant="default"
+                                size="sm"
+                                className="flex-1 h-8 px-2 text-xs bg-blue-600 hover:bg-blue-700 transition-colors"
+                                asChild
+                              >
+                                <Link to={app.link as string} className="flex items-center justify-center">
+                                  <Play className="h-3.5 w-3.5 mr-1.5" />
+                                  演示
+                                </Link>
+                              </Button>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* 空状态 */}
+            {filteredApps.length === 0 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex flex-col items-center justify-center py-20 text-center"
               >
-                <X className="h-4 w-4 text-gray-600" />
-              </button>
-
-              <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">联系客服</h3>
-                <p className="text-sm text-gray-600 mb-6">扫描二维码添加客服微信，获取产品免费试用资格</p>
-
-                {/* 二维码 */}
-                <div className="flex justify-center mb-4">
-                  <div className="relative">
-                    <img
-                      src="/images/qrcode.png"
-                      alt="客服二维码"
-                      className="w-48 h-48 object-contain rounded-lg border border-gray-200 shadow-lg"
-                    />
-                  </div>
+                <div className="w-24 h-24 bg-gray-100 dark:bg-gray-800/50 rounded-full flex items-center justify-center mb-6">
+                  <Inbox className="w-10 h-10 text-gray-400" />
                 </div>
-
-                {/* 提示文字 */}
-                <p className="text-xs text-gray-500">长按二维码保存到相册</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">未找到相关应用</h3>
+                <p className="text-gray-500 max-w-xs mx-auto">
+                  试试更换搜索关键词，或者切换分类看看吧
+                </p>
+                <Button
+                  variant="outline"
+                  className="mt-6"
+                  onClick={() => {
+                    setSearchQuery('');
+                    setActiveCategory('all');
+                  }}
+                >
+                  重置筛选条件
+                </Button>
+              </motion.div>
+            )}
+          </main>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ProductShowcase;//产品展示组件
+export default ProductShowcase;

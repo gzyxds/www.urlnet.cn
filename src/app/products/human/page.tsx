@@ -2,15 +2,15 @@
 
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Check, Users, Bot, Play, Video, Mic, Tv, PenTool, X } from "lucide-react";
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { Check, Users, Bot, Play, Video, Tv, PenTool, X } from "lucide-react";
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { motion, AnimatePresence } from "framer-motion";
 
 const HumanPage = () => {
   const [activeScenario, setActiveScenario] = useState('virtualIP');
   // 添加二维码弹窗状态
   const [showQRCode, setShowQRCode] = useState(false);
-  
+
   usePageMetadata({
     title: '艺创AI_AI数字人系统源码_AI开源saas数字人系统_艺创AI数字人系统',
     description: 'AIGC系统源码,是专注提供AI系统源代码解决方案的技术团队，目前已开源「AI数字人SaaS系统」「超级全能AI变现系统」「企业AI知识库」「AI聊天绘画系统」「论文写作系统」拥有PHP和JAVA两种语言版本，技术实力强，系统体验好支持私有部署，专业团队、售后无忧',
@@ -19,123 +19,87 @@ const HumanPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* 头部横幅 - 优化响应式设计 */}
-      <section className="pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* 背景装饰 - 优化移动端显示 */}
-          <div className="absolute top-0 right-0 w-1/2 sm:w-1/3 h-1/2 sm:h-1/3 bg-gradient-to-r from-blue-200/20 to-indigo-200/20 rounded-full blur-2xl sm:blur-3xl -z-10"></div>
-          <div className="absolute bottom-0 left-0 w-1/2 sm:w-1/4 h-1/2 sm:h-1/4 bg-gradient-to-r from-blue-200/20 to-indigo-200/20 rounded-full blur-2xl sm:blur-3xl -z-10"></div>
-          
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-            {/* 左侧内容 - 优化移动端布局 */}
-            <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12 order-2 lg:order-1">
-              <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-2"></span>
-                虚拟数字人
-              </div>
-              
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-                数字分身
-              </h1>
-              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-lg leading-relaxed">
-                基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型
-              </p>
-              
-              {/* 数据指标 - 优化移动端网格 */}
-              <div className="grid grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
-                <div className="flex flex-col items-center sm:items-start">
-                  <span className="text-2xl sm:text-3xl font-bold text-gray-900">98.5<span className="text-sm sm:text-base font-normal">万+</span></span>
-                  <span className="text-xs sm:text-sm text-gray-500 mt-1 text-center sm:text-left">日活用户</span>
-                </div>
-                <div className="flex flex-col items-center sm:items-start">
-                  <span className="text-2xl sm:text-3xl font-bold text-gray-900">500<span className="text-sm sm:text-base font-normal">ms</span></span>
-                  <span className="text-xs sm:text-sm text-gray-500 mt-1 text-center sm:text-left">响应速度</span>
-                </div>
-                <div className="flex flex-col items-center sm:items-start">
-                  <span className="text-2xl sm:text-3xl font-bold text-gray-900">5<span className="text-sm sm:text-base font-normal">min起</span></span>
-                  <span className="text-xs sm:text-sm text-gray-500 mt-1 text-center sm:text-left">训练时长</span>
-                </div>
-              </div>
-              
-              {/* 按钮组 - 优化移动端按钮大小 */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
-                  onClick={() => window.location.href = '/demo'}
-                >
-                  <Play className="w-4 h-4 mr-2" />
-                  立即试用
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
-                  onClick={() => setShowQRCode(true)}
-                >
-                  <Users className="w-4 h-4 mr-2" />
-                  购买授权
-                </Button>
+      {/* 头部横幅 - 参考样式重构 */}
+      <section className="pt-32 pb-12 md:pt-48 md:pb-20 relative overflow-hidden z-10">
+        {/* 背景装饰 */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
+          <div className="absolute top-0 left-0 w-full h-[800px] bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-b from-blue-50/50 to-transparent blur-3xl opacity-60"></div>
+          <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-b from-indigo-50/50 to-transparent blur-3xl opacity-60"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs text-blue-600 mb-8">
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+            <span>虚拟数字人</span>
+          </div>
+
+          {/* Title */}
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-gray-900 leading-tight">
+            数字分身 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 block sm:inline">AI数字人系统</span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-base sm:text-xl text-gray-500 mb-8 md:mb-10 max-w-3xl mx-auto px-2 leading-relaxed">
+            基于先进的AI技术，提供高度拟真的数字人解决方案，助力企业数字化转型
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0 mb-12">
+            <Button
+              className="w-full sm:w-auto px-8 py-6 rounded-full bg-gray-900 text-white hover:bg-gray-800 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95"
+              onClick={() => window.location.href = '/demo'}
+            >
+              <Play className="w-5 h-5 mr-2" />
+              立即试用
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full sm:w-auto px-8 py-6 rounded-full border-gray-200 text-gray-700 hover:bg-gray-50 text-base font-semibold transition-all duration-300 active:scale-95"
+              onClick={() => setShowQRCode(true)}
+            >
+              <Users className="w-5 h-5 mr-2" />
+              购买授权
+            </Button>
+          </div>
+
+          {/* Metrics - 迁移至居中展示 */}
+          <div className="grid grid-cols-3 gap-4 sm:gap-12 max-w-2xl mx-auto border-t border-gray-100 pt-8 sm:pt-10 mb-16">
+            <div className="flex flex-col items-center">
+              <span className="text-2xl sm:text-4xl font-bold text-gray-900 mb-1">98.5<span className="text-sm sm:text-base font-normal text-gray-500 ml-1">万+</span></span>
+              <span className="text-xs sm:text-sm text-gray-500">日活用户</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl sm:text-4xl font-bold text-gray-900 mb-1">500<span className="text-sm sm:text-base font-normal text-gray-500 ml-1">ms</span></span>
+              <span className="text-xs sm:text-sm text-gray-500">响应速度</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-2xl sm:text-4xl font-bold text-gray-900 mb-1">5<span className="text-sm sm:text-base font-normal text-gray-500 ml-1">min起</span></span>
+              <span className="text-xs sm:text-sm text-gray-500">训练时长</span>
+            </div>
+          </div>
+
+          {/* Image - 迁移至底部居中展示 */}
+          <div className="relative mx-auto max-w-4xl lg:max-w-5xl px-2 sm:px-0">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white">
+              {/* 模拟界面容器 - 已替换为图片 */}
+              <div className="w-full bg-gray-50">
+                <img
+                  src="/images/scenarios/human.png"
+                  alt="数字人系统界面演示"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
-            
-            {/* 右侧图形 - 优化移动端显示 */}
-            <div className="w-full lg:w-1/2 relative order-1 lg:order-2">
-              <div className="relative mt-0 lg:mt-0">
-                {/* 主图 */}
-                <div className="relative mx-auto max-w-md lg:max-w-none">
-                  {/* 模拟界面容器 */}
-                  <div className="w-full aspect-[16/9] bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg shadow-lg p-4">
-                    {/* 模拟顶部导航栏 */}
-                    <div className="h-6 bg-white rounded-md shadow-sm mb-3 flex items-center px-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-red-400 mr-2"></div>
-                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 mr-2"></div>
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-                    </div>
-                    
-                    {/* 模拟主内容区域 */}
-                    <div className="grid grid-cols-3 gap-3 h-[calc(100%-2rem)]">
-                      {/* 左侧边栏 */}
-                      <div className="bg-white rounded-md shadow-sm p-2">
-                        <div className="w-full h-3 bg-gray-200 rounded mb-2"></div>
-                        <div className="w-3/4 h-3 bg-gray-200 rounded"></div>
-                      </div>
-                      
-                      {/* 中间内容区 */}
-                      <div className="col-span-2 bg-white rounded-md shadow-sm p-2">
-                        <div className="w-full h-full bg-blue-50 rounded-md flex items-center justify-center">
-                          <div className="w-12 h-12 bg-blue-100 rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* 悬浮标签 - 优化移动端位置和显示 */}
-                  <div className="absolute top-3 sm:top-4 right-2 sm:right-3 transform translate-x-0 -translate-y-0 bg-white rounded-xl shadow-lg p-2 sm:p-3 flex items-center max-w-[140px] sm:max-w-[160px] md:max-w-[180px] z-10">
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 bg-blue-50 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                      <Video className="h-3 w-3 sm:h-4 sm:w-4 text-blue-600" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm font-medium text-gray-900 leading-tight">视频生成</p>
-                      <p className="text-[10px] sm:text-xs text-gray-500 leading-tight mt-0.5">高清视频合成</p>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute bottom-3 sm:bottom-4 left-2 sm:left-3 transform translate-x-0 translate-y-0 bg-white rounded-xl shadow-lg p-2 sm:p-3 flex items-center max-w-[140px] sm:max-w-[160px] md:max-w-[180px] z-10">
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 bg-purple-50 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                      <Mic className="h-3 w-3 sm:h-4 sm:w-4 text-purple-600" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm font-medium text-gray-900 leading-tight">声音克隆</p>
-                      <p className="text-[10px] sm:text-xs text-gray-500 leading-tight mt-0.5">实时语音合成</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+            {/* 底部光晕 */}
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-blue-600/20 blur-[100px] -z-10 rounded-full"></div>
           </div>
         </div>
       </section>
 
-      
+
       {/* 产品优势 - 优化响应式布局 */}
       <section className="py-16 sm:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,7 +109,7 @@ const HumanPage = () => {
             <div className="w-12 sm:w-16 h-0.5 sm:h-1 bg-blue-600 mx-auto mb-4 sm:mb-6"></div>
             <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">多维度产品优势，助力企业数字化升级</p>
           </div>
-          
+
           {/* 企业智能客服卡片网格 - 优化移动端布局 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-0">
             {/* 产品卡片1 - 数字分身训练数据 */}
@@ -161,7 +125,7 @@ const HumanPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* 内容区域 */}
               <div className="p-6 sm:p-8">
                 <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-4 sm:mb-6">形象自然丰富</h4>
@@ -181,7 +145,7 @@ const HumanPage = () => {
                 </ul>
               </div>
             </div>
-            
+
             {/* 产品卡片2 - 声音复刻训练数据 */}
             <div className="group bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
               {/* 数据展示区域 */}
@@ -195,7 +159,7 @@ const HumanPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* 内容区域 */}
               <div className="p-6 sm:p-8">
                 <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-4 sm:mb-6">多元高质生成能力</h4>
@@ -215,7 +179,7 @@ const HumanPage = () => {
                 </ul>
               </div>
             </div>
-            
+
             {/* 产品卡片3 - 数字人整体效果达 */}
             <div className="group bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
               {/* 数据展示区域 */}
@@ -229,7 +193,7 @@ const HumanPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* 内容区域 */}
               <div className="p-6 sm:p-8">
                 <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-4 sm:mb-6">强大AI技术能力</h4>
@@ -249,7 +213,7 @@ const HumanPage = () => {
                 </ul>
               </div>
             </div>
-            
+
             {/* 产品卡片4 - 集成和接入方式 */}
             <div className="group bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
               {/* 数据展示区域 */}
@@ -260,7 +224,7 @@ const HumanPage = () => {
                   <div className="text-2xl sm:text-4xl font-bold">灵活</div>
                 </div>
               </div>
-              
+
               {/* 内容区域 */}
               <div className="p-6 sm:p-8">
                 <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-4 sm:mb-6">快速接入</h4>
@@ -291,7 +255,7 @@ const HumanPage = () => {
           <div className="absolute top-10 left-10 w-32 h-32 sm:w-40 sm:h-40 bg-blue-100 blur-2xl sm:blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-48 h-48 sm:w-60 sm:h-60 bg-indigo-100 blur-2xl sm:blur-3xl"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
             {/* 左侧内容 - 优化移动端布局 */}
@@ -300,15 +264,15 @@ const HumanPage = () => {
                 <span className="w-1.5 h-1.5 bg-blue-600 mr-2"></span>
                 在线演示
               </div>
-              
+
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 AI数字人SaaS系统2.0<br className="hidden sm:block" />演示中心
               </h2>
-              
+
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 通过我们的在线演示系统，您可以亲身体验AI数字人的强大功能和直观界面，无需安装，即刻体验。
               </p>
-              
+
               <div className="bg-white shadow-lg p-4 sm:p-6 mb-6 sm:mb-8">
                 <div className="flex items-center mb-3 sm:mb-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-50 flex items-center justify-center mr-2 sm:mr-3">
@@ -316,7 +280,7 @@ const HumanPage = () => {
                   </div>
                   <h3 className="text-base sm:text-lg font-medium">演示账号信息</h3>
                 </div>
-                
+
                 <div className="space-y-3 sm:space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
@@ -337,7 +301,7 @@ const HumanPage = () => {
                       </Button>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">代理商后台</p>
@@ -357,7 +321,7 @@ const HumanPage = () => {
                       </Button>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-gray-50">
                     <div className="mb-2 sm:mb-0">
                       <p className="text-xs sm:text-sm font-medium text-gray-900">SaaS平台端</p>
@@ -379,16 +343,16 @@ const HumanPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
                   onClick={() => setShowQRCode(true)}
                 >
                   申请专属演示
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px]"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -396,7 +360,7 @@ const HumanPage = () => {
                 </Button>
               </div>
             </div>
-            
+
             {/* 二维码弹窗 */}
             <AnimatePresence>
               {showQRCode && (
@@ -410,7 +374,7 @@ const HumanPage = () => {
                 >
                   {/* 背景遮罩 */}
                   <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-                  
+
                   {/* 模态框内容 */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -428,23 +392,23 @@ const HumanPage = () => {
                     >
                       <X className="w-4 h-4 text-gray-600" />
                     </button>
-                    
+
                     {/* 内容区域 */}
                     <div className="p-8 text-center">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">联系客服</h3>
                       <p className="text-sm text-gray-600 mb-6">扫描二维码添加客服微信</p>
-                      
+
                       {/* 二维码 */}
                       <div className="flex justify-center mb-4">
                         <div className="relative">
-                          <img 
-                            src="/images/qrcode.png" 
-                            alt="客服二维码" 
+                          <img
+                            src="/images/qrcode.png"
+                            alt="客服二维码"
                             className="w-48 h-48 object-contain rounded-lg border border-gray-200 shadow-lg"
                           />
                         </div>
                       </div>
-                      
+
                       {/* 提示文字 */}
                       <p className="text-xs text-gray-500">长按二维码保存到相册</p>
                     </div>
@@ -452,7 +416,7 @@ const HumanPage = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-             
+
             {/* 右侧内容 - 优化移动端显示 */}
             <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2">
               <div className="relative w-full max-w-md lg:max-w-none">
@@ -468,7 +432,7 @@ const HumanPage = () => {
                   playsInline
                   controls={false}
                 />
-                  
+
                   <div className="mt-3 sm:mt-4 flex items-center justify-between">
                     <div>
                       <h4 className="text-xs sm:text-sm font-medium text-gray-900">数字人管理平台</h4>
@@ -481,33 +445,33 @@ const HumanPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* 二维码 - 优化移动端位置 */}
                 <div className="absolute -bottom-3 sm:-bottom-6 -right-3 sm:-right-6 bg-white p-3 sm:p-4 shadow-lg">
-                  <img 
+                  <img
                     src="/images/wechat.png"
-                    alt="演示二维码" 
+                    alt="演示二维码"
                     className="w-20 h-20 sm:w-24 sm:h-24 bg-white"
                     loading="lazy"
                   />
                   <p className="text-xs text-center mt-1 sm:mt-2 text-gray-600">扫码体验移动端</p>
                 </div>
-                
+
                 {/* 装饰元素 - 优化移动端显示 */}
                 <div className="absolute -top-3 sm:-top-6 -left-3 sm:-left-6 bg-gradient-to-br from-blue-600 to-blue-700 p-3 sm:p-4 shadow-lg transform hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className="h-4 w-4 sm:h-5 sm:w-5 text-white" 
-                        viewBox="0 0 20 20" 
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-white"
+                        viewBox="0 0 20 20"
                         fill="currentColor"
                       >
                         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                        <path 
-                          fillRule="evenodd" 
-                          d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" 
-                          clipRule="evenodd" 
+                        <path
+                          fillRule="evenodd"
+                          d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                          clipRule="evenodd"
                         />
                       </svg>
                     </div>
@@ -523,7 +487,7 @@ const HumanPage = () => {
         </div>
       </section>
 
-      
+
       {/* 应用场景 - 现代化简约风格 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -541,10 +505,10 @@ const HumanPage = () => {
           {/* 场景标签导航 - 现代化简约风格 - 优化移动端滚动 */}
           <div className="flex justify-center mb-16">
             <div className="inline-flex bg-gray-50 p-1.5 shadow-sm overflow-x-auto max-w-full scrollbar-hide">
-              <button 
+              <button
                 className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 relative whitespace-nowrap min-w-[100px] sm:min-w-[120px] ${
-                  activeScenario === 'virtualIP' 
-                    ? 'bg-blue-600 text-white shadow-md' 
+                  activeScenario === 'virtualIP'
+                    ? 'bg-blue-600 text-white shadow-md'
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('virtualIP')}
@@ -557,10 +521,10 @@ const HumanPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
                 )}
               </button>
-              <button 
+              <button
                 className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 relative whitespace-nowrap min-w-[100px] sm:min-w-[120px] ${
-                  activeScenario === 'digitalEmployee' 
-                    ? 'bg-blue-600 text-white shadow-md' 
+                  activeScenario === 'digitalEmployee'
+                    ? 'bg-blue-600 text-white shadow-md'
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('digitalEmployee')}
@@ -573,10 +537,10 @@ const HumanPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
                 )}
               </button>
-              <button 
+              <button
                 className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 relative whitespace-nowrap min-w-[100px] sm:min-w-[120px] ${
-                  activeScenario === 'contentCreation' 
-                    ? 'bg-blue-600 text-white shadow-md' 
+                  activeScenario === 'contentCreation'
+                    ? 'bg-blue-600 text-white shadow-md'
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('contentCreation')}
@@ -589,10 +553,10 @@ const HumanPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
                 )}
               </button>
-              <button 
+              <button
                 className={`px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300 relative whitespace-nowrap min-w-[100px] sm:min-w-[120px] ${
-                  activeScenario === 'virtualLive' 
-                    ? 'bg-blue-600 text-white shadow-md' 
+                  activeScenario === 'virtualLive'
+                    ? 'bg-blue-600 text-white shadow-md'
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white'
                 }`}
                 onClick={() => setActiveScenario('virtualLive')}
@@ -622,7 +586,7 @@ const HumanPage = () => {
                     面向文化传播、影视内容等多个行业，帮助打造带货视频，赋能品牌营销，提升品牌心智。
                   </p>
                 </div>
-                
+
                 {/* 功能特性 */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
@@ -634,7 +598,7 @@ const HumanPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">提升品牌辨识度</p>
                   </div>
-                  
+
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -644,7 +608,7 @@ const HumanPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">高质量虚拟角色</p>
                   </div>
-                  
+
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -655,18 +619,18 @@ const HumanPage = () => {
                     <p className="text-sm text-gray-600">增强用户体验</p>
                   </div>
                 </div>
-                
+
                 {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
                   <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -675,7 +639,7 @@ const HumanPage = () => {
                 </Button>
               </div>
             </div>
-              
+
               {/* 右侧视频 */}
               <div className="relative">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl sm:rounded-3xl p-4 sm:p-8">
@@ -722,7 +686,7 @@ const HumanPage = () => {
                     为企业提供智能数字员工解决方案，提高工作效率，降低人力成本，实现业务流程自动化。
                   </p>
                 </div>
-                
+
                 {/* 功能特性 */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
@@ -734,7 +698,7 @@ const HumanPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">7×24小时在线服务</p>
                   </div>
-                  
+
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -744,7 +708,7 @@ const HumanPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">提高转化率</p>
                   </div>
-                  
+
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -755,18 +719,18 @@ const HumanPage = () => {
                     <p className="text-sm text-gray-600">标准化培训内容</p>
                   </div>
                 </div>
-                
+
                 {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
                   <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -820,7 +784,7 @@ const HumanPage = () => {
                     为媒体、自媒体、营销团队提供智能内容创作解决方案，提高内容生产效率和质量。
                   </p>
                 </div>
-                
+
                 {/* 功能特性 */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
@@ -832,7 +796,7 @@ const HumanPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">专业视频脚本</p>
                   </div>
-                  
+
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -842,7 +806,7 @@ const HumanPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">提高转化率</p>
                   </div>
-                  
+
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -853,18 +817,18 @@ const HumanPage = () => {
                     <p className="text-sm text-gray-600">拓展全球市场</p>
                   </div>
                 </div>
-                
+
                 {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
                   <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -888,7 +852,7 @@ const HumanPage = () => {
                     loop
                   >
                     {/* 视频不支持时显示的替代内容 */}
-                    <img 
+                    <img
                       src="https://server.mddai.cn/uploads/images/202411281956113c42f8382.png"
                       alt="内容创作应用场景"
                       className="w-full rounded-2xl shadow-lg"
@@ -928,7 +892,7 @@ const HumanPage = () => {
                     为直播行业提供虚拟主播解决方案，降低直播成本，提高直播效率和质量。
                   </p>
                 </div>
-                
+
                 {/* 功能特性 */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
@@ -940,7 +904,7 @@ const HumanPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">24小时不间断直播</p>
                   </div>
-                  
+
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -950,7 +914,7 @@ const HumanPage = () => {
                     </div>
                     <p className="text-sm text-gray-600">专业播报服务</p>
                   </div>
-                  
+
                   <div className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center mb-2">
                       <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-3">
@@ -961,18 +925,18 @@ const HumanPage = () => {
                     <p className="text-sm text-gray-600">增强互动体验</p>
                   </div>
                 </div>
-                
+
                 {/* 按钮组 - 优化移动端按钮大小 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
                   <Play className="w-4 h-4 mr-2" />
                   立即试用
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -981,7 +945,7 @@ const HumanPage = () => {
                 </Button>
               </div>
             </div>
-            
+
               {/* 右侧视频 */}
               <div className="relative">
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
@@ -1045,7 +1009,7 @@ const HumanPage = () => {
                   轻松创建你的AI虚拟数字人！只需上传一段视频，即可高品质、批量克隆你的形象！
                 </p>
               </div>
-              
+
               {/* 功能特性 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
@@ -1057,7 +1021,7 @@ const HumanPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">100%真实感官体验</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1067,7 +1031,7 @@ const HumanPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">100%快速生成</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300 sm:col-span-2 lg:col-span-1">
                   <div className="flex items-center mb-2">
                     <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1078,11 +1042,11 @@ const HumanPage = () => {
                   <p className="text-xs sm:text-sm text-gray-600">个性化定制服务</p>
                 </div>
               </div>
-              
-              
+
+
              {/* 按钮组 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
@@ -1090,7 +1054,7 @@ const HumanPage = () => {
                   立即体验
                 </Button>
 
-               <Button variant="outline" 
+               <Button variant="outline"
                className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                onClick={() => window.open('https://auth.cnai.art', '_blank')}
                >
@@ -1098,17 +1062,17 @@ const HumanPage = () => {
                  购买授权
                </Button>
 
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
                   <Bot className="w-4 h-4 mr-2" />
                   体验Demo
                 </Button>
-                
-                 <Button 
-                  variant="outline" 
+
+                 <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -1117,13 +1081,13 @@ const HumanPage = () => {
                 </Button>
               </div>
             </div>
-            
+
             {/* 右侧图片 */}
             <div className="relative mt-8 lg:mt-0">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
-                <img 
-                  src="/product/human1.png" 
-                  alt="数字人形象" 
+                <img
+                  src="/product/human1.png"
+                  alt="数字人形象"
                   className="w-full rounded-xl sm:rounded-2xl shadow-lg"
                 />
               </div>
@@ -1157,7 +1121,7 @@ const HumanPage = () => {
                   有声胜过一个性格说，仅需1句话，快速克隆你的声色，配合文案即可生成专属声音口播内容！
                 </p>
               </div>
-              
+
               {/* 功能特性 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
@@ -1169,7 +1133,7 @@ const HumanPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">100%真实还原</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1179,7 +1143,7 @@ const HumanPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">100%智能转换</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300 sm:col-span-2 lg:col-span-1">
                   <div className="flex items-center mb-2">
                     <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1190,10 +1154,10 @@ const HumanPage = () => {
                   <p className="text-xs sm:text-sm text-gray-600">100%自然效果</p>
                 </div>
               </div>
-              
+
               {/* 按钮组 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
@@ -1201,7 +1165,7 @@ const HumanPage = () => {
                   立即体验
                 </Button>
 
-               <Button variant="outline" 
+               <Button variant="outline"
                className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                onClick={() => window.open('https://auth.cnai.art', '_blank')}
                >
@@ -1209,17 +1173,17 @@ const HumanPage = () => {
                  购买授权
                </Button>
 
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
                   <Bot className="w-4 h-4 mr-2" />
                   体验Demo
                 </Button>
-                
-                 <Button 
-                  variant="outline" 
+
+                 <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -1232,9 +1196,9 @@ const HumanPage = () => {
             {/* 左侧图片 */}
             <div className="lg:order-1 relative mt-8 lg:mt-0">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
-                <img 
-                  src="https://lf3-starry.byteimg.com/obj/starry/image/r6j8q8i2q1_%E9%AB%98%E8%87%AA%E7%84%B6%E5%BA%A6.webp" 
-                  alt="声音克隆界面" 
+                <img
+                  src="https://lf3-starry.byteimg.com/obj/starry/image/r6j8q8i2q1_%E9%AB%98%E8%87%AA%E7%84%B6%E5%BA%A6.webp"
+                  alt="声音克隆界面"
                   className="w-full rounded-xl sm:rounded-2xl shadow-lg"
                 />
               </div>
@@ -1267,7 +1231,7 @@ const HumanPage = () => {
                   基于可定制的多层分站，输入用户相关信息系统后，即可创建新分站与管理账号。
                 </p>
               </div>
-              
+
               {/* 功能特性 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
@@ -1279,7 +1243,7 @@ const HumanPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">灵活的分站管理</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1289,7 +1253,7 @@ const HumanPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">完善的账户体系</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300 sm:col-span-2 lg:col-span-1">
                   <div className="flex items-center mb-2">
                     <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1300,10 +1264,10 @@ const HumanPage = () => {
                   <p className="text-xs sm:text-sm text-gray-600">精细的权限控制</p>
                 </div>
               </div>
-              
+
              {/* 按钮组 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
@@ -1311,7 +1275,7 @@ const HumanPage = () => {
                   立即体验
                 </Button>
 
-               <Button variant="outline" 
+               <Button variant="outline"
                className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                onClick={() => window.open('https://auth.cnai.art', '_blank')}
                >
@@ -1319,17 +1283,17 @@ const HumanPage = () => {
                  购买授权
                </Button>
 
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
                   <Bot className="w-4 h-4 mr-2" />
                   体验Demo
                 </Button>
-                
-                 <Button 
-                  variant="outline" 
+
+                 <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -1338,7 +1302,7 @@ const HumanPage = () => {
                 </Button>
               </div>
             </div>
-            
+
             {/* 右侧模拟界面 */}
             <div className="relative mt-8 lg:mt-0">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
@@ -1357,7 +1321,7 @@ const HumanPage = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* 模拟界面内容 */}
                   <div className="p-3 sm:p-4">
                     <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -1374,7 +1338,7 @@ const HumanPage = () => {
                         <p className="text-lg sm:text-xl font-bold text-green-600 mt-1">32.6%</p>
                       </div>
                     </div>
-                    
+
                     <div className="bg-gray-50 rounded-lg p-2 sm:p-3">
                       <div className="flex justify-between items-center mb-2 sm:mb-3">
                         <h3 className="font-medium text-gray-700 text-xs sm:text-sm">最近访问</h3>
@@ -1395,7 +1359,7 @@ const HumanPage = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* 悬浮标签 - 移动端优化 */}
               <div className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 bg-white rounded-xl sm:rounded-2xl shadow-lg p-2 sm:p-4 border border-gray-100 max-w-[140px] sm:max-w-none">
                 <div className="flex items-center space-x-2 sm:space-x-3">
@@ -1456,7 +1420,7 @@ const HumanPage = () => {
                   从容应对内容创作和营销需求，助力商家和创作者提升视频生成的效率，更好的在公私域做好内容营销，助力GMV提升。
                 </p>
               </div>
-              
+
               {/* 功能特性 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
@@ -1468,7 +1432,7 @@ const HumanPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">智能快速生成视频</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300">
                   <div className="flex items-center mb-2">
                     <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1478,7 +1442,7 @@ const HumanPage = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-600">多样化视频模板</p>
                 </div>
-                
+
                 <div className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow duration-300 sm:col-span-2 lg:col-span-1">
                   <div className="flex items-center mb-2">
                     <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center mr-2 sm:mr-3">
@@ -1489,10 +1453,10 @@ const HumanPage = () => {
                   <p className="text-xs sm:text-sm text-gray-600">提升内容转化率</p>
                 </div>
               </div>
-              
+
               {/* 按钮组 */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none shadow-lg min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
@@ -1500,7 +1464,7 @@ const HumanPage = () => {
                   立即体验
                 </Button>
 
-               <Button variant="outline" 
+               <Button variant="outline"
                className="border-blue-500 text-blue-700 hover:bg-blue-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                onClick={() => window.open('https://auth.cnai.art', '_blank')}
                >
@@ -1508,17 +1472,17 @@ const HumanPage = () => {
                  购买授权
                </Button>
 
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] flex-1 sm:flex-none flex items-center justify-center"
                   onClick={() => window.location.href = '/demo'}
                 >
                   <Bot className="w-4 h-4 mr-2" />
                   体验Demo
                 </Button>
-                
-                 <Button 
-                  variant="outline" 
+
+                 <Button
+                  variant="outline"
                   className="border-gray-300 text-gray-700 hover:bg-gray-50 px-6 sm:px-8 py-3 sm:py-3 h-auto text-sm sm:text-base font-medium rounded-none min-h-[44px] sm:min-h-[48px] flex items-center justify-center"
                   onClick={() => setShowQRCode(true)}
                 >
@@ -1538,7 +1502,7 @@ const HumanPage = () => {
               <div className="text-center mb-12">
                 <h2 className="text-2xl font-bold mb-4">接入流程</h2>
                 <p className="text-gray-600 text-sm mb-3">为你提供快速、便捷的接入服务</p>
-                <Button 
+                <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium mt-4"
                   onClick={() => window.open('https://v.cnai.art', '_blank')}
                 >
@@ -1611,7 +1575,7 @@ const HumanPage = () => {
                   <circle cx="150" cy="250" r="30" fill="black" fillOpacity="0.02" />
                 </svg>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
                 {/* 左侧内容 */}
                 <div className="md:col-span-3 p-8 md:p-12 relative z-10">
@@ -1622,7 +1586,7 @@ const HumanPage = () => {
                     <p className="text-gray-600 mb-6 text-base">
                      专为企业主、个人博主打造短视频IP的数字人源码系统，支持真人声音+形象克隆，一键合成知识付费、课程、带货、形象宣传、行业干货等口播视频。基于SaaS多开模式的架构设计，支持无限OEM贴牌开通站点。版本免费迭代升级+售后技术支撑，让你无后顾之忧！
                     </p>
-                    
+
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="flex items-start">
                         <div className="w-8 h-8 bg-blue-50 flex items-center justify-center mr-2">
@@ -1669,7 +1633,7 @@ const HumanPage = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="flex flex-wrap gap-3">
                       <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-4 rounded-none shadow-lg">
                         立即体验
@@ -1696,7 +1660,7 @@ const HumanPage = () => {
                             <h4 className="text-gray-900 font-medium text-lg">AI数字人</h4>
                             <p className="text-gray-500 text-sm text-center mt-1">PHP/Java双版本支持</p>
                           </div>
-                          
+
                           {/* 私有部署 */}
                           <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
                             <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
@@ -1707,7 +1671,7 @@ const HumanPage = () => {
                             <h4 className="text-gray-900 font-medium text-lg">私有部署</h4>
                             <p className="text-gray-500 text-sm text-center mt-1">安全可控的私有化部署</p>
                           </div>
-                          
+
                           {/* 专业团队 */}
                           <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
                             <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">
@@ -1718,7 +1682,7 @@ const HumanPage = () => {
                             <h4 className="text-gray-900 font-medium text-lg">专业团队</h4>
                             <p className="text-gray-500 text-sm text-center mt-1">一对一技术支持</p>
                           </div>
-                          
+
                           {/* 开源方案 */}
                           <div className="bg-white p-3 flex flex-col items-center justify-center shadow-sm">
                             <div className="w-10 h-10 bg-blue-50 flex items-center justify-center mb-2">

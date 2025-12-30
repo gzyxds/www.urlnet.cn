@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { NewsItem, NewsCategory, SortBy, SortOrder, NewsListOptions } from './types';
 // import { newsService } from './services/newsService';
 import { newsService } from './services/newsService';

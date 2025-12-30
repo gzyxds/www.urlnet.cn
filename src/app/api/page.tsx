@@ -30,7 +30,7 @@ import {
   Download
 } from "lucide-react";
 import Header from '@/components/HeaderSection';
-import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { toast } from '@/hooks/use-toast';
 
 const ApiPage = () => {
