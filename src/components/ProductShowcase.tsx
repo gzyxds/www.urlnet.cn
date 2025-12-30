@@ -21,6 +21,7 @@ type AppData = {
   features?: string[];
   subtitle?: string;
   buyLink?: string;
+  isPlugin?: boolean;
 };
 
 const mainCategories: Category[] = [
@@ -54,7 +55,8 @@ function convertProductsToApps(products: ProductItem[]): AppData[] {
     link: p.link,
     features: p.features,
     subtitle: p.subtitle,
-    buyLink: p.buyLink
+    buyLink: p.buyLink,
+    isPlugin: p.isPlugin
   }));
 }
 
@@ -262,8 +264,8 @@ const ProductShowcase: React.FC = () => {
                               </span>
                             )}
                             {/* 应用插件标签 */}
-                            {!/独立系统|PHP源码版|Java源码版|Python源码版|全新升级/.test(app.subtitle || '') && (
-                               <span className="text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/30 px-1.5 py-0.5 rounded">
+                            {app.isPlugin && (
+                               <span className="text-xs font-medium text-[#FFD700] bg-gray-900 dark:bg-black border border-gray-800 px-2 py-0.5 rounded shadow-sm">
                                  应用插件
                                </span>
                             )}

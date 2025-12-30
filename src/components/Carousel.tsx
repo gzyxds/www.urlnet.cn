@@ -212,6 +212,7 @@ const Carousel = () => {
                 size="lg"
                 variant="outline"
                 className="w-full sm:w-auto rounded-full px-8 py-6 text-base font-semibold border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 transition-all duration-300"
+                onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
               >
                 联系技术顾问
               </Button>

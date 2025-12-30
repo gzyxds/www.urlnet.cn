@@ -1,18 +1,52 @@
 
+/**
+ * 产品数据定义文件
+ * 包含所有产品列表的数据结构定义和静态数据
+ * @module Data/Products
+ */
+
+/**
+ * 购买链接的基础 URL
+ * 用于统一管理购买跳转地址
+ */
+const BASE_BUY_LINK = "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20";
+
+/**
+ * 产品信息接口定义
+ * 定义了展示在产品卡片上的所有字段结构
+ */
 export interface ProductItem {
+  /** 产品主图 URL (支持本地路径或远程 URL) */
   image: string;
+  /** 产品标题 */
   title: string;
+  /** 产品副标题 (通常包含版本或特性标签) */
   subtitle: string;
+  /** 产品简短描述 */
   description: string;
+  /** 产品核心特性列表 (用于标签展示) */
   features: string[];
+  /** 当前销售价格 (单位: 元) */
   price: number;
+  /** 原始价格 (单位: 元, 用于计算折扣) */
   originalPrice: number;
+  /** 演示链接地址 */
   link: string;
+  /** 产品评分 (0-5分) */
   rating: number;
+  /** 销量数据 */
   sales: number;
+  /** 购买链接地址 */
   buyLink: string;
+  /** 是否为插件类型产品 (用于特殊标记) */
+  isPlugin?: boolean;
 }
 
+/**
+ * 产品数据列表
+ * 包含所有在产品矩阵区块展示的产品信息
+ * 按业务优先级排序
+ */
 export const productsData: ProductItem[] = [
     {
       image: "/product/saas.webp",
@@ -25,7 +59,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 2156,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK
     },
     {
       image: "/product/work.webp",
@@ -38,7 +72,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 5203,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK
     },
     {
       image: "/product/ai.webp",
@@ -51,7 +85,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 3178,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK
     },
     {
       image: "/product/lw.svg",
@@ -64,7 +98,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 3132,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK
     },
     {
       image: "https://artaigc-1307986889.cos.ap-guangzhou.myqcloud.com/picture/Python.png",
@@ -77,7 +111,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 1165,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK
     },
     {
       image: "/product/saas.svg",
@@ -90,7 +124,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 4108,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK
     },
     {
       image: "/product/ai.svg",
@@ -103,7 +137,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.7,
       sales: 2389,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK
     },
     {
       image: "/product/buidai.svg",
@@ -116,7 +150,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.6,
       sales: 3134,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK
     },
     {
       image: "/product/buidai.webp",
@@ -129,7 +163,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 856,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: false
     },
     {
       image: "/product/Sora2短剧视频创作.png",
@@ -142,7 +177,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 1243,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/Nanobanana.png",
@@ -155,7 +191,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.7,
       sales: 982,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/AI简历.png",
@@ -168,7 +205,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 2103,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/思维导图.png",
@@ -181,7 +219,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 1567,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/AI证件照.png",
@@ -194,7 +233,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 3421,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/智能写作助手.png",
@@ -207,7 +247,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.7,
       sales: 1890,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/aippt.png",
@@ -220,7 +261,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 2341,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/AI合同.png",
@@ -233,7 +275,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 876,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/AI商图秀.png",
@@ -246,7 +289,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.7,
       sales: 1543,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/AI直播短视频数字人.png",
@@ -259,7 +303,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 2109,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/AI短剧小说创作.png",
@@ -272,7 +317,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.6,
       sales: 1120,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/GEO优化排名工具.png",
@@ -285,7 +331,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 654,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/即梦AI绘画.png",
@@ -298,7 +345,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.7,
       sales: 1876,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/即梦AI视频.png",
@@ -311,7 +359,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 1432,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/大模型擂台.png",
@@ -324,7 +373,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 5432,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/小红书内容复刻.png",
@@ -337,7 +387,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.7,
       sales: 2987,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/模绘衣境.png",
@@ -350,7 +401,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.8,
       sales: 765,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/热门视频混剪.png",
@@ -363,7 +415,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.6,
       sales: 1654,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/爆款文章自动配图.png",
@@ -376,7 +429,8 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.7,
       sales: 1980,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     },
     {
       image: "/product/AI音乐.png",
@@ -389,6 +443,7 @@ export const productsData: ProductItem[] = [
       link: "/demo",
       rating: 4.9,
       sales: 1200,
-      buyLink: "https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20"
+      buyLink: BASE_BUY_LINK,
+      isPlugin: true
     }
   ];

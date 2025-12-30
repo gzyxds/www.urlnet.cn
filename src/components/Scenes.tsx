@@ -273,7 +273,7 @@ const Scenes = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-20 text-center relative z-10">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 tracking-tight">
-          艺创AI -可以帮你做什么
+          艺创AI -可以帮你解决什么
         </h2>
         <p className="text-gray-500 text-sm sm:text-lg tracking-wide max-w-xl mx-auto">
           艺创AI 无限拓展应用场景

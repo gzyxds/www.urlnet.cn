@@ -1,10 +1,188 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useMemo, memo } from "react";
+import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Play, Star, Sparkles, CheckCircle as CheckBadgeIcon } from "lucide-react";
 import { Link } from 'react-router-dom';
-import { productsData } from '@/data/products';
+import { productsData, ProductItem } from '@/data/products';
+
+/**
+ * 动画变体配置
+ * 定义容器和子元素的动画行为，实现交错显示效果
+ */
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1 // 子元素交错动画间隔
+    }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 }
+  }
+};
+
+/**
+ * 预处理后的产品数据接口
+ * 包含计算属性，避免在渲染循环中重复计算
+ */
+interface ProcessedProductItem extends ProductItem {
+  /** 清理后的副标题 (移除 [] 符号) */
+  cleanSubtitle: string;
+  /** 节省金额 (原始价格 - 当前价格) */
+  savings: number;
+  /** 是否有折扣 */
+  hasDiscount: boolean;
+}
+
+/**
+ * 产品卡片组件
+ * 独立封装以提高可维护性和渲染性能
+ * @param props.product - 处理后的产品数据
+ * @param props.index - 索引值 (用于动画延迟计算，如果需要)
+ */
+const ProductCard = memo(({ product }: { product: ProcessedProductItem }) => {
+  return (
+    <motion.div
+      variants={itemVariants}
+      className="group flex flex-col relative bg-gradient-to-b from-blue-50/50 to-card border border-border/50 rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-500"
+    >
+      {/* 产品图片区域 */}
+      <div className="aspect-video bg-gray-100 dark:bg-gray-700 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600"></div>
+        <div className="absolute top-4 right-4 z-10">
+          <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-primary/20">
+            热销
+          </span>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            width="400" // 显式设置宽高比提示，减少布局偏移
+            height="225"
+          />
+        </div>
+      </div>
+
+      {/* 产品内容区域 */}
+      <div className="p-5 flex-1 flex flex-col">
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-1">
+              <h3 className="font-bold text-gray-900 dark:text-white line-clamp-1" title={product.title}>
+                {product.title}
+              </h3>
+              {product.subtitle && (
+                <span className="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded">
+                  {product.cleanSubtitle}
+                </span>
+              )}
+              {product.isPlugin && (
+                <span className="text-xs font-medium text-[#FFD700] bg-gray-900 dark:bg-black border border-gray-800 px-2 py-0.5 rounded shadow-sm">
+                  应用插件
+                </span>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-1 mb-2">
+              {product.features?.slice(0, 3).map((feature, i) => (
+                <span key={i} className="text-[10px] text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
+                  {feature}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4 flex-1" title={product.description}>
+          {product.description}
+        </p>
+
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-sm text-gray-400 line-through">¥{product.originalPrice.toFixed(2)}</span>
+            <span className="px-2.5 py-0.5 bg-gray-900 dark:bg-black text-[#FFD700] text-sm font-medium rounded-full border border-gray-800 shadow-sm flex items-center gap-1">
+               <span className="text-xs font-normal text-gray-300">折后</span>
+               ¥{product.price.toFixed(2)}
+            </span>
+            {product.hasDiscount && (
+              <span className="text-xs text-red-500 font-medium ml-auto">
+                省¥{product.savings}
+              </span>
+            )}
+          </div>
+
+          <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
+                <CheckBadgeIcon className="w-3.5 h-3.5" />
+                <span>官方认证</span>
+              </div>
+              {typeof product.rating === 'number' && (
+                <div className="flex items-center gap-1">
+                  <Star className="w-3.5 h-3.5 text-yellow-400" />
+                  <span>{product.rating}</span>
+                </div>
+              )}
+            </div>
+            {typeof product.sales === 'number' ? (
+              <span>已售 {product.sales}</span>
+            ) : (
+              <span>上新</span>
+            )}
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+            {/* 购买按钮 - 使用 asChild 渲染为链接以提升语义化和可访问性 */}
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full h-8 px-2 text-xs text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
+              asChild
+            >
+              <a
+                href={product.buyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center"
+              >
+                <ShoppingCart className="h-3.5 w-3.5 mr-1.5" />
+                购买
+              </a>
+            </Button>
+
+            <Button
+              variant="default"
+              size="sm"
+              className="w-full h-8 px-2 text-xs bg-blue-600 hover:bg-blue-700 transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new CustomEvent('showQRCodeModal'));
+              }}
+            >
+              <Play className="h-3.5 w-3.5 mr-1.5" />
+              演示
+            </Button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+});
+
+// 设置显示名称以便于调试
+ProductCard.displayName = "ProductCard";
 
 /**
  * 产品展示区块组件
@@ -12,12 +190,22 @@ import { productsData } from '@/data/products';
  * @returns React 组件
  */
 const Products = () => {
-  const products = productsData;
+  // 使用 useMemo 预处理数据，避免在渲染循环中重复计算
+  // 1. 清理 subtitle 中的 [] 符号
+  // 2. 计算节省金额
+  const processedProducts = useMemo<ProcessedProductItem[]>(() => {
+    return productsData.map(product => ({
+      ...product,
+      cleanSubtitle: product.subtitle ? product.subtitle.replace(/[\[\]]/g, '') : '',
+      savings: Math.round(product.originalPrice - product.price),
+      hasDiscount: product.originalPrice > product.price
+    }));
+  }, []);
 
   return (
     <section className="relative py-20 lg:py-32 bg-background overflow-hidden" id="products">
-      {/* 装饰背景 */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* 装饰背景 - 纯展示元素，使用 aria-hidden 隐藏 */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-[20%] right-[5%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[100px]" />
         <div className="absolute bottom-[10%] left-[5%] w-[30%] h-[30%] bg-blue-500/5 rounded-full blur-[80px]" />
       </div>
@@ -56,124 +244,21 @@ const Products = () => {
           </motion.p>
         </div>
 
-        {/* 产品网格 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {products.map((product, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group flex flex-col relative bg-gradient-to-b from-blue-50/50 to-card border border-border/50 rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-500"
-            >
-              {/* 产品图片区域 */}
-              <div className="aspect-video bg-gray-100 dark:bg-gray-700 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600"></div>
-                <div className="absolute top-4 right-4 z-10">
-                  <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-primary/20">
-                    热销
-                  </span>
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
-
-              {/* 产品内容区域 */}
-              <div className="p-5 flex-1 flex flex-col">
-                <div className="flex items-start justify-between gap-3 mb-2">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-bold text-gray-900 dark:text-white line-clamp-1">{product.title}</h3>
-                      {product.subtitle && (
-                        <span className="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded">
-                          {product.subtitle.replace(/[\[\]]/g, '')}
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-wrap gap-1 mb-2">
-                      {product.features?.slice(0, 3).map((feature, i) => (
-                        <span key={i} className="text-[10px] text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4 flex-1">
-                  {product.description}
-                </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-sm text-gray-400 line-through">¥{product.originalPrice.toFixed(2)}</span>
-                    <span className="px-2.5 py-0.5 bg-gray-900 dark:bg-black text-[#FFD700] text-sm font-medium rounded-full border border-gray-800 shadow-sm flex items-center gap-1">
-                       <span className="text-xs font-normal text-gray-300">折后</span>
-                       ¥{product.price.toFixed(2)}
-                    </span>
-                    {product.originalPrice > product.price && (
-                      <span className="text-xs text-red-500 font-medium ml-auto">
-                        省¥{Math.round(product.originalPrice - product.price)}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-100 dark:border-gray-700">
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1">
-                        <CheckBadgeIcon className="w-3.5 h-3.5" />
-                        <span>官方认证</span>
-                      </div>
-                      {typeof product.rating === 'number' && (
-                        <div className="flex items-center gap-1">
-                          <Star className="w-3.5 h-3.5 text-yellow-400" />
-                          <span>{product.rating}</span>
-                        </div>
-                      )}
-                    </div>
-                    {typeof product.sales === 'number' ? (
-                      <span>已售 {product.sales}</span>
-                    ) : (
-                      <span>上新</span>
-                    )}
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full h-8 px-2 text-xs text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
-                      onClick={() => window.open(product.buyLink, '_blank')}
-                    >
-                      <ShoppingCart className="h-3.5 w-3.5 mr-1.5" />
-                      购买
-                    </Button>
-
-                    <Button
-                      variant="default"
-                      size="sm"
-                      className="w-full h-8 px-2 text-xs bg-blue-600 hover:bg-blue-700 transition-colors"
-                      asChild
-                    >
-                      <Link to={product.link} className="flex items-center justify-center">
-                        <Play className="h-3.5 w-3.5 mr-1.5" />
-                        演示
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+        {/* 产品网格 - 使用 variants 实现交错动画 */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }} // 设置视口边距，提前/延迟触发
+        >
+          {processedProducts.map((product) => (
+            <ProductCard
+              key={product.title} // 使用唯一标题作为 key，优于 index
+              product={product}
+            />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

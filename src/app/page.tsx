@@ -9,7 +9,6 @@ import Scenario from '@/components/ScenarioSection';
 import Contact from '@/components/ContactSection';
 import FAQ from '@/components/FAQ';
 import FunctionBlueprint from '@/components/FunctionSection';
-import BackToTop from '@/components/BackToTop';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import ClientLogoWall from '@/components/clients/ClientLogoWall';
 import clients from '@/components/clients/clients';
@@ -25,7 +24,6 @@ const Home = () => {
 
   return (
     <>
-      <BackToTop />
       <Carousel />
 
       <HotProducts />

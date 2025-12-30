@@ -183,6 +183,12 @@ const buttonVariants = cva(
 
 ## 📝 代码风格与命名
 
+- **注释规范**:
+  - **语言**: 所有注释（包括代码注释和 HTML 注释）必须使用中文。
+  - **函数级注释**: 每个函数必须包含注释块，说明：
+    - 功能描述。
+    - 参数（名称、类型、描述）。
+    - 返回值（类型、描述）。
 - **文件命名**:
   - 组件: `PascalCase.tsx` (如 `Button.tsx`)
   - Hooks: `kebab-case.ts` (如 `use-page-metadata.ts`)
