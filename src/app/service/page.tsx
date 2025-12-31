@@ -14,7 +14,7 @@ const ServicePage = () => {
       </Helmet>
 
       {/* 支持与服务横幅 - 现代化简约设计 */}
-      <section className="pt-32 pb-32 bg-slate-100 relative overflow-hidden">
+      <section className="pb-32 bg-slate-100 relative overflow-hidden">
         {/* 极简几何背景装饰 - 仅使用蓝色调 */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* 主要装饰元素 - 简约蓝色几何形状 */}

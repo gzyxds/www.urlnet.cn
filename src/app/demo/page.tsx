@@ -30,7 +30,6 @@ const DemoPage = () => {
   return (
     <>
       <div className="min-h-screen bg-slate-50/30">
-        <div className="h-16 lg:h-20 bg-white"></div>
 
         {/* 简约英雄区域 */}
         <section className="relative py-20 lg:py-28 overflow-hidden bg-white">

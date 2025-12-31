@@ -30,24 +30,26 @@ export default function Banners() {
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="relative isolate flex items-center gap-x-6 overflow-hidden bg-primary px-6 py-2.5 sm:px-3.5 sm:before:flex-1"
+          className="relative isolate flex items-center gap-x-3 sm:gap-x-6 overflow-hidden bg-primary px-4 py-2.5 sm:px-3.5 sm:before:flex-1"
         >
           {/* 背景装饰效果 (可选，此处保留纯色以匹配参考设计) */}
 
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <p className="text-sm leading-6 text-white">
-              <button onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))} className="flex items-center gap-x-1 hover:text-white/90 transition-colors text-left">
-                <strong className="font-semibold">NEW 2026</strong>
-                <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-2 inline h-0.5 w-0.5 fill-current">
+          <div className="flex flex-1 items-center gap-x-4 min-w-0 sm:flex-initial">
+            <p className="text-sm leading-6 text-white truncate w-full">
+              <button onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))} className="flex items-center gap-x-1 hover:text-white/90 transition-colors text-left w-full">
+                <strong className="font-semibold whitespace-nowrap">NEW 2026</strong>
+                <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-2 inline h-0.5 w-0.5 fill-current flex-none">
                   <circle cx={1} cy={1} r={1} />
                 </svg>
-                BuidAI企业级开源智能体平台，官人认证的技术专家，部署搭建服务，活动价仅需500￥点击立即咨询。
-                <span aria-hidden="true">&nbsp;&rarr;</span>
+                <span className="truncate flex-1">
+                  BuidAI企业级开源智能体平台，官人认证的技术专家，部署搭建服务，活动价仅需500￥点击立即咨询。
+                </span>
+                <span aria-hidden="true" className="whitespace-nowrap">&nbsp;&rarr;</span>
               </button>
             </p>
           </div>
 
-          <div className="flex flex-1 justify-end">
+          <div className="flex flex-none justify-end sm:flex-1">
             <button
               type="button"
               className="-m-3 p-3 focus-visible:outline-offset-[-4px] hover:bg-white/10 rounded-full transition-colors"

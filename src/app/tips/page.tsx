@@ -147,7 +147,7 @@ const TipsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* 页面头部 */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-100 mt-8">
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
           <div className="text-center">
             <div className="flex justify-center items-center mb-8">

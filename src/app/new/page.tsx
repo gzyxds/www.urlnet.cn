@@ -7,10 +7,11 @@ import { newsService } from './services/newsService';
 import NewsCard from './components/NewsCard';
 import NewsFilter from './components/NewsFilter';
 import NewsPagination from './components/NewsPagination';
+import Header from '@/components/HeaderSection';
 
 /**
  * 新闻列表页面组件
- * 
+ *
  * 功能说明：
  * - 展示新闻列表，支持分页显示
  * - 提供多维度筛选功能（分类、标签、搜索）
@@ -21,7 +22,7 @@ import NewsPagination from './components/NewsPagination';
 const NewsListPage: React.FC = () => {
   // URL参数管理
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   // 页面状态管理
   const [newsList, setNewsList] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +37,7 @@ const NewsListPage: React.FC = () => {
   const [sortBy, setSortBy] = useState<SortBy>('publishDate');
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
   const [searchKeyword, setSearchKeyword] = useState('');
-  
+
   // 头部搜索框状态管理
   const [headerSearchInput, setHeaderSearchInput] = useState('');
 
@@ -82,7 +83,7 @@ const NewsListPage: React.FC = () => {
       };
 
       const response = await newsService.getNews(options);
-      
+
       setNewsList(response.items);
       setTotalPages(response.totalPages);
       setTotalItems(response.total);
@@ -110,7 +111,7 @@ const NewsListPage: React.FC = () => {
    */
   const updateUrlParams = (params: Record<string, string | number | undefined>) => {
     const newParams = new URLSearchParams(searchParams);
-    
+
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== '') {
         newParams.set(key, String(value));
@@ -128,7 +129,7 @@ const NewsListPage: React.FC = () => {
   const handleCategoryChange = (newCategory?: NewsCategory) => {
     setCategory(newCategory);
     setCurrentPage(1);
-    updateUrlParams({ 
+    updateUrlParams({
       category: newCategory,
       page: undefined // 重置页码
     });
@@ -196,10 +197,8 @@ const NewsListPage: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-slate-50/30">
-      {/* 添加头部间距 */}
-      <div className="h-12 sm:h-16 lg:h-20"></div>
-      
+    <div className="min-h-screen bg-slate-50/30 font-sans">
+
       {/* 头部设计 - 参考图片风格的简洁居中布局 */}
       <div className="bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 sm:pb-20 md:pb-24 lg:pb-28">
@@ -208,12 +207,12 @@ const NewsListPage: React.FC = () => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
               每日掌握 <span className="text-blue-600">AI</span>行业关键动态
             </h1>
-            
+
             {/* 副标题描述 - 调整为较小字体 */}
             <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               加入28,000+专业人士的AI情报网络
             </p>
-            
+
             {/* 搜索区域 - 连接到搜索逻辑 */}
             <div className="max-w-md mx-auto">
               <form onSubmit={handleHeaderSearchSubmit}>
@@ -248,7 +247,7 @@ const NewsListPage: React.FC = () => {
                       </button>
                     )}
                   </div>
-                  <button 
+                  <button
                     type="submit"
                     className="h-12 px-6 bg-blue-600 text-white font-medium hover:bg-blue-700 transition-all duration-200 whitespace-nowrap"
                   >

@@ -30,7 +30,6 @@ const ProductsPage = () => {
   return (
     // 页面主容器，采用白色背景
     <div className="bg-white text-gray-800">
-      <div className="h-8 sm:h-10 lg:h-12"></div>
       <main>
         {/* 简约英雄区域 - 调整高度，使其更加紧凑 */}
         <section className="relative bg-slate-100 border-b border-gray-100">

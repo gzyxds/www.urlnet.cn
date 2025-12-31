@@ -466,7 +466,6 @@ const CodeDownloadPage: React.FC = () => {
   return (
     <>
       <main className="min-h-screen bg-slate-50/30">
-        <div className="h-16 lg:h-20 bg-white"></div>
 
         {renderHeader()}
         {renderFilterBar()}
