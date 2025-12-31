@@ -118,7 +118,7 @@ const ClientLogoWall: React.FC<ClientLogoWallProps> = ({
                           key={`${client.id}-${idx}`}
                           className="flex-shrink-0 w-48 p-6 bg-card border border-border/50 rounded-2xl hover:shadow-lg hover:border-primary/20 transition-all duration-300 group"
                         >
-                          <div className="h-12 mb-4 flex items-center justify-center transition-all duration-500">
+                          <div className="h-12 mb-4 flex items-center justify-center transition-all duration-500 bg-muted/20 rounded-lg p-2">
                             <img
                               src={client.logo}
                               alt={client.name}
@@ -148,7 +148,7 @@ const ClientLogoWall: React.FC<ClientLogoWallProps> = ({
                 transition={{ delay: idx * 0.05 }}
                 className="flex flex-col items-center p-6 bg-card border border-border/50 rounded-2xl hover:shadow-lg hover:border-primary/20 transition-all duration-300 group"
               >
-                <div className="h-12 mb-4 flex items-center justify-center w-full transition-all duration-500">
+                <div className="h-12 mb-4 flex items-center justify-center w-full transition-all duration-500 bg-muted/20 rounded-lg p-2">
                   <img
                     src={client.logo}
                     alt={client.name}

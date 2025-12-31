@@ -4,7 +4,7 @@
 
 ## 技术栈
 - 框架：React 18、TypeScript 5
-- 构建：Vite 5、@vitejs/plugin-react
+- 构建：Vite 7、@vitejs/plugin-react
 - 路由：react-router-dom
 - 样式：Tailwind CSS、CSS Variables（主题令牌）
 - 组件：Radix UI + shadcn/ui（class-variance-authority）

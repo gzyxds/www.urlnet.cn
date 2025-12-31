@@ -94,10 +94,10 @@ const clients = [
 const featuredClients = [
   {
     id: 'featured-1',
-    name: '腾讯',
-    logo: '/images/scenarios/logo.svg',
-    description: '为腾讯提供了全面的AI知识库解决方案，帮助其实现了客服效率提升40%，用户满意度提升25%。',
-    industry: '互联网',
+    name: 'Moonshot AI',
+    logo: '/product/logo.svg',
+    description: '为Moonshot提供了全面的AI知识库解决方案，帮助其实现了客服效率提升40%，用户满意度提升25%。',
+    industry: '人工智能',
   },
   {
     id: 'featured-2',
