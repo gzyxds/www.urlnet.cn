@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
@@ -24,6 +25,13 @@ export default function BlogDetail() {
   const [toc, setToc] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>('');
   const [copied, setCopied] = useState(false);
+
+  // SEO Meta 配置
+  usePageMetadata({
+    title: post ? `${post.title} - 艺创AI技术博客` : '文章详情 - 艺创AI技术博客',
+    description: post ? post.summary : '艺创AI技术博客文章详情页，分享人工智能前沿技术与实战经验。',
+    keywords: post ? `${post.category}, ${post.title}, 艺创AI, 人工智能` : '艺创AI, 技术博客, 人工智能'
+  });
 
   // 加载数据
   useEffect(() => {
