@@ -1,9 +1,15 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllPosts, Post } from './lib/posts';
-import HeaderSection from '@/components/HeaderSection';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 
 export default function BlogList() {
+  usePageMetadata({
+    title: '艺创AI技术博客 - 行业动态与技术见解',
+    description: '浏览艺创AI技术博客，获取最新的人工智能行业动态、技术深度解析、最佳实践分享以及企业数字化转型案例。',
+    keywords: '艺创AI博客, 人工智能技术, AI行业动态, 数字化转型, 技术见解, 最佳实践, AI新闻'
+  });
+
   const [posts, setPosts] = useState<Post[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('全部');
