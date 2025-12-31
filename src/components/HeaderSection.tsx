@@ -616,44 +616,76 @@ const Header: React.FC = () => {
             </div>
 
             {/* 用户菜单（桌面端） */}
-            <div className="hidden md:flex items-center space-x-1">
+            {/* 用户菜单（桌面端） */}
+            <div className="hidden md:flex items-center space-x-3">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
-                    <Button
-                      variant="ghost"
-                      className="text-sm font-medium text-gray-700 hover:text-[#015bfe] hover:bg-blue-50/70 rounded-lg px-2 py-1.5 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
-                    >
-                      登录
-                    </Button>
-                  </a>
+                  <Button
+                    variant="ghost"
+                    className="group flex items-center gap-2 px-2 py-1.5 rounded-full text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all duration-300 dark:text-gray-300 dark:hover:text-blue-400 dark:hover:bg-blue-900/20"
+                  >
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover:bg-blue-100 text-gray-500 group-hover:text-blue-600 transition-colors duration-300 dark:bg-gray-800 dark:group-hover:bg-blue-900 dark:text-gray-400">
+                      <User className="w-4 h-4" />
+                    </div>
+                    <span className="hidden lg:inline-block">账户</span>
+                    <ChevronDown className="w-3 h-3 text-gray-400 group-hover:text-blue-500 transition-colors" />
+                  </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56 p-2 rounded-xl border border-gray-100 shadow-lg bg-white/95 backdrop-blur-sm dark:bg-gray-800/95 dark:border-gray-700 animate-in fade-in-50 zoom-in-95 duration-150">
-                  <DropdownMenuLabel className="font-normal text-xs text-gray-500 px-2 dark:text-gray-400">账户</DropdownMenuLabel>
-                  <DropdownMenuSeparator className="my-1 dark:bg-gray-700" />
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <a href="https://console.cloudcvm.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        <User className="mr-2 h-4 w-4" />
-                        <span className="dark:text-gray-200">个人中心</span>
+                <DropdownMenuContent
+                  align="end"
+                  sideOffset={8}
+                  className="w-60 p-2 rounded-2xl border border-gray-100/50 shadow-2xl bg-white/80 backdrop-blur-xl dark:bg-gray-900/80 dark:border-gray-800 animate-in fade-in-50 zoom-in-95 duration-200"
+                >
+                  <DropdownMenuLabel className="px-3 py-2">
+                    <div className="text-xs font-medium text-gray-400 uppercase tracking-wider">我的账户</div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator className="my-1 bg-gray-100 dark:bg-gray-800" />
+                  <DropdownMenuGroup className="space-y-1">
+                    <DropdownMenuItem asChild className="group rounded-xl px-3 py-2.5 cursor-pointer focus:bg-blue-50 dark:focus:bg-blue-900/20">
+                      <a href="https://console.cloudcvm.com" target="_blank" rel="noopener noreferrer" className="flex items-center w-full">
+                        <div className="mr-3 flex items-center justify-center w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-blue-100/50 text-gray-500 group-hover:text-blue-600 transition-colors dark:bg-gray-800 dark:group-hover:bg-blue-900/30 dark:text-gray-400">
+                          <User className="h-4 w-4" />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700 dark:text-gray-200 dark:group-hover:text-blue-400">个人中心</span>
+                          <span className="text-[10px] text-gray-400 group-hover:text-blue-400/80">管理您的账户信息</span>
+                        </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        <Settings className="mr-2 h-4 w-4" />
-                        <span className="dark:text-gray-200">账户设置</span>
+
+                    <DropdownMenuItem asChild className="group rounded-xl px-3 py-2.5 cursor-pointer focus:bg-blue-50 dark:focus:bg-blue-900/20">
+                      <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer" className="flex items-center w-full">
+                        <div className="mr-3 flex items-center justify-center w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-blue-100/50 text-gray-500 group-hover:text-blue-600 transition-colors dark:bg-gray-800 dark:group-hover:bg-blue-900/30 dark:text-gray-400">
+                          <Settings className="h-4 w-4" />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700 dark:text-gray-200 dark:group-hover:text-blue-400">账户设置</span>
+                          <span className="text-[10px] text-gray-400 group-hover:text-blue-400/80">安全与偏好设置</span>
+                        </div>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                        <Link to="/docs" className="flex items-center" onClick={handleNavigation}>
-                        <HelpCircle className="mr-2 h-4 w-4" />
-                        <span className="dark:text-gray-200">文档中心</span>
+
+                    <DropdownMenuItem asChild className="group rounded-xl px-3 py-2.5 cursor-pointer focus:bg-blue-50 dark:focus:bg-blue-900/20">
+                      <Link to="/docs" className="flex items-center w-full" onClick={handleNavigation}>
+                        <div className="mr-3 flex items-center justify-center w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-blue-100/50 text-gray-500 group-hover:text-blue-600 transition-colors dark:bg-gray-800 dark:group-hover:bg-blue-900/30 dark:text-gray-400">
+                          <HelpCircle className="h-4 w-4" />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700 dark:text-gray-200 dark:group-hover:text-blue-400">文档中心</span>
+                          <span className="text-[10px] text-gray-400 group-hover:text-blue-400/80">查看使用指南</span>
+                        </div>
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="rounded-lg hover:bg-blue-50 focus:bg-blue-50 py-2 cursor-pointer dark:hover:bg-blue-950/50 dark:focus:bg-blue-950/50">
-                      <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        <span className="dark:text-gray-200">认证中心</span>
+
+                    <DropdownMenuItem asChild className="group rounded-xl px-3 py-2.5 cursor-pointer focus:bg-blue-50 dark:focus:bg-blue-900/20">
+                      <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer" className="flex items-center w-full">
+                        <div className="mr-3 flex items-center justify-center w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-blue-100/50 text-gray-500 group-hover:text-blue-600 transition-colors dark:bg-gray-800 dark:group-hover:bg-blue-900/30 dark:text-gray-400">
+                          <ExternalLink className="h-4 w-4" />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700 dark:text-gray-200 dark:group-hover:text-blue-400">认证中心</span>
+                          <span className="text-[10px] text-gray-400 group-hover:text-blue-400/80">实名与资质认证</span>
+                        </div>
                       </a>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
@@ -661,8 +693,8 @@ const Header: React.FC = () => {
               </DropdownMenu>
 
               <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
-                <Button className="text-sm font-medium bg-[#015bfe] hover:bg-blue-700 text-white rounded-lg shadow-sm shadow-blue-200 dark:shadow-blue-900/20 px-3 py-1.5">
-                  注册
+                <Button className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-medium px-5 py-2 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-95">
+                  免费注册
                 </Button>
               </a>
             </div>
