@@ -108,7 +108,7 @@ const demoProducts = [
     demos: [
       {
         title: "写作平台",
-        url: "https://cp.chatmoney.cn/generate/1",
+        url: "https://paper.gmlart.cn/",
         qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
@@ -208,14 +208,14 @@ const demoProducts = [
     ]
   },
   {
-    id: "long-writing-java",
-    name: "论文写作Java版",
-    description: "Java版论文写作系统，专为学术研究者和学生设计的AI写作助手。能够根据主题快速生成论文大纲和初稿，提供海量文献参考，显著提高论文写作效率和质量。集成AVA智能助手，提供更专业的写作指导。",
+    id: "BuidAI",
+    name: "必定AI(BuidAI)",
+    description: "必定AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成。",
     icon: FileText,
     color: "bg-lime-500",
     demos: [
       {
-        title: "论文写作Java",
+        title: "必定AI(BuidAI)",
         url: "联系客服获取",
         qrcode: "/images/qrcode.png",
         credentials: {
@@ -224,7 +224,7 @@ const demoProducts = [
         }
       },
       {
-        title: "论文写作后台",
+        title: "必定AI(BuidAI)后台",
         url: "联系客服获取",
         qrcode: "/images/wechat.png",
         credentials: {
