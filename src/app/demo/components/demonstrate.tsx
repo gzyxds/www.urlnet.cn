@@ -128,27 +128,36 @@ const demoProducts = [
   },
   {
     id: "digital-human-java",
-    name: "数字人系统2.0版  ",
+    name: "数字人PRO版",
     description: "2.0版数字人SaaS系统，融合了最新的AI技术和数字人交互体验。通过我们的在线演示系统，您可以亲身体验升级版AI数字人的强大功能和直观界面，无需安装，即刻体验。",
     icon: Monitor,
     color: "bg-cyan-500",
     demos: [
       {
-        title: "2.0管理后台",
-        url: "https://java-demo.cnai.art/admin/",
+        title: "PC端",
+        url: "https://pro.cnai.art",
         qrcode: "/images/qrcode.png",
-        credentials: {
-          username: "ava_demo",
-          password: "ava123"
-        }
-      },
-      {
-        title: "移动端",
-        url: "https://java.cnai.art/mobile",
-        qrcode: "/images/wechat.png",
         credentials: {
           username: "自行注册",
           password: "自行注册"
+        }
+      },
+      {
+        title: "移动小程序端",
+        url: "https://pro.cnai.art/mobile",
+        qrcode: "/images/qrcode.png",
+        credentials: {
+          username: "自行注册",
+          password: "自行注册"
+        }
+      },
+      {
+        title: "管理后台",
+        url: "https://digital.cnai.art/admin/",
+        qrcode: "/images/wechat.png",
+        credentials: {
+          username: "demo",
+          password: "demo"
         }
       }
     ]
