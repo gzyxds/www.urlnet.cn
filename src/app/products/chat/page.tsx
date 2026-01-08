@@ -673,18 +673,18 @@ const ChatPage = () => {
                   <div className="p-3 bg-gray-50 rounded-xl">
                     <div className="flex flex-col space-y-2">
                       <div>
-                        <p className="text-sm font-medium text-gray-900">PC端后台</p>
-                        <p className="text-xs text-blue-600 break-all">https://ai.xxx.com/admin/login</p>
+                        <p className="text-sm font-medium text-gray-900">前端演示</p>
+                        <p className="text-xs text-blue-600 break-all">https://cnai.art</p>
                       </div>
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-1 sm:space-y-0">
                           <div className="flex items-center">
                             <span className="text-xs text-gray-500 mr-2">账号:</span>
-                            <span className="text-xs font-medium">admin</span>
+                            <span className="text-xs font-medium">自行注册</span>
                           </div>
                           <div className="flex items-center">
                             <span className="text-xs text-gray-500 mr-2">密码:</span>
-                            <span className="text-xs font-medium">123456</span>
+                            <span className="text-xs font-medium">自行注册</span>
                           </div>
                         </div>
                         <Button variant="outline" size="sm" className="h-8 text-xs border-blue-600 text-blue-600 hover:bg-blue-50 rounded-full w-full sm:w-auto">
@@ -698,18 +698,18 @@ const ChatPage = () => {
                   <div className="p-3 bg-gray-50 rounded-xl">
                     <div className="flex flex-col space-y-2">
                       <div>
-                        <p className="text-sm font-medium text-gray-900">代理商后台</p>
-                        <p className="text-xs text-blue-600 break-all">https://ai.xxx.com/agent/login</p>
+                        <p className="text-sm font-medium text-gray-900">移动端</p>
+                        <p className="text-xs text-blue-600 break-all">https://cnai.art/mobile</p>
                       </div>
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-1 sm:space-y-0">
                           <div className="flex items-center">
                             <span className="text-xs text-gray-500 mr-2">账号:</span>
-                            <span className="text-xs font-medium">admin</span>
+                            <span className="text-xs font-medium">自行注册</span>
                           </div>
                           <div className="flex items-center">
                             <span className="text-xs text-gray-500 mr-2">密码:</span>
-                            <span className="text-xs font-medium">123456</span>
+                            <span className="text-xs font-medium">自行注册</span>
                           </div>
                         </div>
                         <Button variant="outline" size="sm" className="h-8 text-xs border-blue-600 text-blue-600 hover:bg-blue-50 rounded-full w-full sm:w-auto">
