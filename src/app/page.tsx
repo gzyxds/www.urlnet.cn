@@ -9,6 +9,7 @@ import Scenario from '@/components/ScenarioSection';
 import Contact from '@/components/ContactSection';
 import FAQ from '@/components/FAQ';
 import FunctionBlueprint from '@/components/FunctionSection';
+import NewsSection from '@/components/NewsSection';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import ClientLogoWall from '@/components/clients/ClientLogoWall';
 import clients from '@/components/clients/clients';
@@ -33,6 +34,7 @@ const Home = () => {
       <FunctionBlueprint />
       <Terminal />
       <Advantages />
+      <NewsSection />
       <Cases />
       <Scenario />
       <FAQ />
