@@ -148,7 +148,7 @@ const TipsPage: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* 页面头部 */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-28">
           <div className="text-center">
             <div className="flex justify-center items-center mb-8">
               <Sparkles className="w-8 h-8 text-blue-600 mr-3" />
@@ -175,13 +175,13 @@ const TipsPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* 左侧：搜索和筛选 */}
           <div className="lg:w-1/4">
             <div className="sticky top-8 space-y-6">
               {/* 搜索框 */}
-              <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <div className="bg-white rounded-xl border border-gray-200 p-4">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
@@ -189,13 +189,13 @@ const TipsPage: React.FC = () => {
                     placeholder="搜索提示词..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                   />
                 </div>
               </div>
 
               {/* 分类筛选 */}
-              <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <div className="bg-white rounded-xl border border-gray-200 p-4">
                 <div className="flex items-center mb-3">
                   <Filter className="w-4 h-4 text-gray-600 mr-2" />
                   <h3 className="font-medium text-gray-900">分类筛选</h3>
@@ -205,7 +205,7 @@ const TipsPage: React.FC = () => {
                     <button
                       key={category}
                       onClick={() => setSelectedCategory(category)}
-                      className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                      className={`w-full text-left px-3 py-2 rounded-xl text-sm transition-colors ${
                         selectedCategory === category
                           ? 'bg-blue-100 text-blue-800 font-medium'
                           : 'text-gray-600 hover:bg-gray-50'
@@ -218,7 +218,7 @@ const TipsPage: React.FC = () => {
               </div>
 
               {/* 统计信息 */}
-              <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <div className="bg-white rounded-xl border border-gray-200 p-4">
                 <h3 className="font-medium text-gray-900 mb-3">统计信息</h3>
                 <div className="space-y-2 text-sm text-gray-600">
                   <div className="flex justify-between">
@@ -244,7 +244,7 @@ const TipsPage: React.FC = () => {
           <div className="lg:w-3/4">
             {filteredPrompts.length === 0 ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-xl flex items-center justify-center">
                   <Search className="w-8 h-8 text-gray-400" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">未找到相关提示词</h3>
@@ -255,7 +255,7 @@ const TipsPage: React.FC = () => {
                 {filteredPrompts.map((prompt) => (
                   <div
                     key={prompt.id}
-                    className="bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200"
+                    className="bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200"
                   >
                     <div className="p-6">
                       {/* 提示词头部信息 */}
@@ -265,18 +265,18 @@ const TipsPage: React.FC = () => {
                             <h3 className="text-xl font-semibold text-gray-900 mr-3">
                               {prompt.title}
                             </h3>
-                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${difficultyMap[prompt.difficulty].color}`}>
+                            <span className={`px-2 py-1 rounded-xl text-xs font-medium ${difficultyMap[prompt.difficulty].color}`}>
                               {difficultyMap[prompt.difficulty].label}
                             </span>
                           </div>
                           <p className="text-gray-600 mb-3">{prompt.description}</p>
-                          
+
                           {/* 标签 */}
                           <div className="flex flex-wrap gap-2 mb-3">
                             {prompt.tags.map((tag, index) => (
                               <span
                                 key={index}
-                                className="inline-flex items-center px-2 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-medium"
+                                className="inline-flex items-center px-2 py-1 rounded-xl bg-blue-50 text-blue-700 text-xs font-medium"
                               >
                                 <Tag className="w-3 h-3 mr-1" />
                                 {tag}
@@ -316,10 +316,10 @@ const TipsPage: React.FC = () => {
                             selectedPrompt?.id === prompt.id ? 'rotate-90' : ''
                           }`} />
                         </button>
-                        
+
                         <button
                           onClick={() => handleCopy(prompt.content, prompt.id)}
-                          className={`flex items-center px-4 py-2 rounded-md font-medium transition-colors ${
+                          className={`flex items-center px-4 py-2 rounded-xl font-medium transition-colors ${
                             copiedId === prompt.id
                               ? 'bg-green-100 text-green-800'
                               : 'bg-blue-600 text-white hover:bg-blue-700'
@@ -334,7 +334,7 @@ const TipsPage: React.FC = () => {
                       {selectedPrompt?.id === prompt.id && (
                         <div className="mt-4 pt-4 border-t border-gray-100">
                           <h4 className="font-medium text-gray-900 mb-3">提示词内容：</h4>
-                          <div className="bg-gray-50 rounded-lg p-4">
+                          <div className="bg-gray-50 rounded-xl p-4">
                             <pre className="whitespace-pre-wrap text-sm text-gray-700 font-mono leading-relaxed">
                               {prompt.content}
                             </pre>
@@ -355,13 +355,13 @@ const TipsPage: React.FC = () => {
 
       {/* 页面底部信息 */}
       <div className="bg-gray-50 border-t border-gray-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
             <h3 className="text-lg font-medium text-gray-900 mb-2">需要更多提示词？</h3>
             <p className="text-gray-600 mb-4">
               我们持续更新高质量的 AI 提示词模板，助力您的创作和工作
             </p>
-            <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+            <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-colors">
               联系我们定制
             </button>
           </div>

@@ -10,6 +10,14 @@ const config: Config = {
     "*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+        "3xl": "1600px",
+      },
+    },
   	extend: {
   		screens: {
   			'xs': '475px',

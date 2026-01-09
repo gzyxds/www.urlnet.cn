@@ -95,4 +95,5 @@ export interface NavigationItem {
   title: string;
   icon: React.ReactNode;
   description: string;
+  link?: string;
 }

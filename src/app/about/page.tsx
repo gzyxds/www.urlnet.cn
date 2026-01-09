@@ -135,7 +135,7 @@ const AboutPage: React.FC = () => {
                 variants={fadeInUp}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-8 h-8 text-blue-600" />
                 </div>
                 <div className="text-3xl font-bold text-black mb-2">{stat.value}</div>
@@ -176,7 +176,7 @@ const AboutPage: React.FC = () => {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <div className="bg-gray-50 rounded-2xl p-12 text-center">
+              <div className="bg-gray-50 rounded-xl p-12 text-center">
                 <Building2 className="w-24 h-24 text-blue-600 mx-auto mb-6" />
                 <h3 className="text-xl font-semibold text-black mb-2">技术驱动创新</h3>
                 <p className="text-gray-600">持续投入研发，推动AI技术边界</p>
@@ -274,7 +274,7 @@ const AboutPage: React.FC = () => {
                       index % 2 === 0 ? '' : 'lg:grid-flow-col-dense'
                     }`}>
                       <div className={`${index % 2 === 0 ? 'lg:pr-16' : 'lg:pl-16 lg:col-start-2'}`}>
-                        <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-blue-200">
+                        <div className="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-blue-200">
                           <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-4">
                               <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
@@ -317,7 +317,7 @@ const AboutPage: React.FC = () => {
 
                       <div className={`${index % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16 lg:col-start-1'}`}>
                         <div className="relative">
-                          <div className="bg-gray-50 rounded-2xl p-12 text-center relative overflow-hidden">
+                          <div className="bg-gray-50 rounded-xl p-12 text-center relative overflow-hidden">
                             <div className="absolute inset-0">
                               <div className="absolute top-4 right-4 w-16 h-16 border-2 border-blue-100 rounded-full"></div>
                               <div className="absolute bottom-4 left-4 w-8 h-8 bg-blue-100 rounded-full"></div>
@@ -353,7 +353,7 @@ const AboutPage: React.FC = () => {
             variants={fadeInUp}
             className="mt-20 text-center"
           >
-            <div className="container mx-auto px-4 bg-white border border-gray-100 rounded-2xl p-12 shadow-sm">
+            <div className="container mx-auto px-4 bg-white border border-gray-100 rounded-xl p-12 shadow-sm">
               <div className="grid md:grid-cols-3 gap-12">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-blue-600 mb-3">6+</div>
@@ -410,10 +410,10 @@ const AboutPage: React.FC = () => {
               }
             ].map((member, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="bg-white border border-gray-200 hover:border-blue-200 transition-colors duration-300">
+                <Card className="bg-white border border-gray-200 hover:border-blue-200 transition-colors duration-300 rounded-xl">
                   <CardContent className="p-8">
                     <div className="text-center mb-6">
-                      <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <div className="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                         <Users className="w-10 h-10 text-gray-400" />
                       </div>
                       <h3 className="text-xl font-semibold text-black mb-1">{member.name}</h3>
@@ -426,7 +426,7 @@ const AboutPage: React.FC = () => {
                       {member.expertise.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                          className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-xl"
                         >
                           {skill}
                         </span>
@@ -458,10 +458,10 @@ const AboutPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* 使命愿景 */}
             <motion.div variants={fadeInUp}>
-              <Card className="bg-white border border-gray-200 h-full">
+              <Card className="bg-white border border-gray-200 h-full rounded-xl">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
                       <Target className="w-6 h-6 text-blue-600" />
                     </div>
                     <h3 className="text-xl font-semibold text-black">使命与愿景</h3>
@@ -488,10 +488,10 @@ const AboutPage: React.FC = () => {
 
             {/* 核心价值观 */}
             <motion.div variants={fadeInUp}>
-              <Card className="bg-white border border-gray-200 h-full">
+              <Card className="bg-white border border-gray-200 h-full rounded-xl">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
                       <Heart className="w-6 h-6 text-blue-600" />
                     </div>
                     <h3 className="text-xl font-semibold text-black">核心价值观</h3>
@@ -505,7 +505,7 @@ const AboutPage: React.FC = () => {
                       { icon: Shield, title: "诚信负责", desc: "言出必行，承担社会责任" }
                     ].map((value, index) => (
                       <div key={index} className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-8 h-8 bg-gray-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
                           <value.icon className="w-4 h-4 text-gray-600" />
                         </div>
                         <div>
@@ -529,10 +529,10 @@ const AboutPage: React.FC = () => {
           variants={fadeInUp}
           className="mb-16"
         >
-          <Card className="bg-blue-600 border-0 text-white">
+          <Card className="bg-blue-600 border-0 text-white rounded-xl">
             <CardContent className="p-12 text-center">
               <div className="max-w-2xl mx-auto">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-6">
                   <Mail className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-3xl font-bold mb-4">
@@ -601,7 +601,7 @@ const AboutPage: React.FC = () => {
               ].map((partner, index) => (
                 <div
                   key={index}
-                  className="bg-gray-50 rounded-lg p-4 flex items-center justify-center h-16 hover:bg-gray-100 transition-colors duration-300"
+                  className="bg-gray-50 rounded-xl p-4 flex items-center justify-center h-16 hover:bg-gray-100 transition-colors duration-300"
                 >
                   <span className="text-gray-600 font-medium text-sm text-center">
                     {partner}
@@ -633,7 +633,7 @@ const AboutPage: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="relative bg-white rounded-2xl shadow-2xl max-w-sm w-full mx-4 overflow-hidden"
+              className="relative bg-white rounded-xl shadow-2xl max-w-sm w-full mx-4 overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* 关闭按钮 */}
@@ -656,7 +656,7 @@ const AboutPage: React.FC = () => {
                     <img
                       src="/images/qrcode.png"
                       alt="客服二维码"
-                      className="w-48 h-48 object-contain rounded-lg border border-gray-200 shadow-lg"
+                      className="w-48 h-48 object-contain rounded-xl border border-gray-200 shadow-lg"
                     />
                   </div>
                 </div>

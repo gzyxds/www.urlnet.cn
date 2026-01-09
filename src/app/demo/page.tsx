@@ -39,8 +39,8 @@ const DemoPage = () => {
              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-slate-50/80 rounded-full blur-[100px] mix-blend-multiply opacity-60" />
           </div>
 
-          <div className="container relative z-10 mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
+          <div className="container relative z-10">
+            <div className="max-w-6xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -88,9 +88,9 @@ const DemoPage = () => {
           </div>
         </section>
 
-        <main className="relative z-10 -mt-10 container mx-auto px-4 pb-20">
+        <main className="relative z-10 -mt-10 container pb-20">
           {/* 产品展示区域 */}
-          <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl border border-slate-100/50 overflow-hidden">
+          <div className="bg-gradient-to-br from-blue-50/50 to-white backdrop-blur-xl rounded-xl shadow-xl border border-gray-200/60 overflow-hidden">
              <DemoShowcase />
           </div>
         </main>

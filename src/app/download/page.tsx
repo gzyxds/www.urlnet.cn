@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import {
   Download,
   Smartphone,
@@ -29,8 +30,16 @@ import {
 } from "lucide-react";
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { toast } from '@/hooks/use-toast';
+import Carousel from "@/components/Carousel";
 
-const DownloadPage = () => {
+/**
+ * 下载页面组件
+ * 展示不同平台的客户端下载资源，包括 Windows, macOS, Linux, iOS 和 Android
+ * 提供平台分类、详细版本列表、功能特性介绍以及行动呼吁区域
+ *
+ * @returns {JSX.Element} 下载页面组件
+ */
+export default function DownloadPage(): JSX.Element {
   const [copiedLink, setCopiedLink] = useState<string | null>(null);
 
   // 设置下载页面元数据
@@ -44,62 +53,62 @@ const DownloadPage = () => {
     {
       title: "企业智能客服",
       description: "24/7智能客服系统，提供专业、高效的服务支持",
-      icon: <MessageSquare className="h-5 w-5 text-gray-600" />
+      icon: <MessageSquare className="h-5 w-5" />
     },
     {
       title: "智能文档管理",
       description: "AI驱动的文档处理和管理，提升工作效率",
-      icon: <FileText className="h-5 w-5 text-gray-600" />
+      icon: <FileText className="h-5 w-5" />
     },
     {
       title: "专家顾问助理",
       description: "专业AI顾问，为企业提供智能化决策支持",
-      icon: <Brain className="h-5 w-5 text-gray-600" />
+      icon: <Brain className="h-5 w-5" />
     },
     {
       title: "机器人管理",
       description: "智能机器人管理系统，自动化业务流程",
-      icon: <Bot className="h-5 w-5 text-gray-600" />
+      icon: <Bot className="h-5 w-5" />
     },
     {
       title: "知识库数据训练",
       description: "企业专属知识库构建和训练服务",
-      icon: <Database className="h-5 w-5 text-gray-600" />
+      icon: <Database className="h-5 w-5" />
     },
     {
       title: "AI数字人",
       description: "逼真的AI数字人技术，打造沉浸式体验",
-      icon: <Users className="h-5 w-5 text-gray-600" />
+      icon: <Users className="h-5 w-5" />
     },
     {
       title: "智能问答",
       description: "基于知识库的智能问答系统",
-      icon: <BookOpen className="h-5 w-5 text-gray-600" />
+      icon: <BookOpen className="h-5 w-5" />
     },
     {
       title: "智能创作",
       description: "AI驱动的智能创作工具，激发无限创意",
-      icon: <Zap className="h-5 w-5 text-gray-600" />
+      icon: <Zap className="h-5 w-5" />
     },
     {
       title: "AI绘画",
       description: "专业级AI绘画工具，将创意转化为艺术作品",
-      icon: <Palette className="h-5 w-5 text-gray-600" />
+      icon: <Palette className="h-5 w-5" />
     },
     {
       title: "AI视频",
       description: "AI视频生成和编辑，打造专业级内容",
-      icon: <Video className="h-5 w-5 text-gray-600" />
+      icon: <Video className="h-5 w-5" />
     },
     {
       title: "AI音乐",
       description: "AI音乐创作和编曲，释放音乐创作潜能",
-      icon: <Music className="h-5 w-5 text-gray-600" />
+      icon: <Music className="h-5 w-5" />
     },
     {
       title: "AIPPT",
       description: "智能PPT生成工具，快速创建专业演示文稿",
-      icon: <Package className="h-5 w-5 text-gray-600" />
+      icon: <Package className="h-5 w-5" />
     }
   ];
 
@@ -210,7 +219,13 @@ const DownloadPage = () => {
     }
   ];
 
-  const getPlatformColor = (platform: string) => {
+  /**
+   * 根据平台名称获取对应的样式颜色类名
+   *
+   * @param {string} platform - 平台标识符 (如 'windows', 'macos', 'linux' 等)
+   * @returns {string} 返回 Tailwind CSS 颜色类名字符串
+   */
+  const getPlatformColor = (platform: string): string => {
     switch (platform) {
       case 'windows': return 'bg-blue-100 text-blue-800';
       case 'macos': return 'bg-gray-100 text-gray-800';
@@ -222,7 +237,13 @@ const DownloadPage = () => {
     }
   };
 
-  const copyDownloadLink = async (fileName: string) => {
+  /**
+   * 复制指定文件的下载链接到剪贴板
+   *
+   * @param {string} fileName - 要复制链接的文件名
+   * @returns {Promise<void>} 异步操作
+   */
+  const copyDownloadLink = async (fileName: string): Promise<void> => {
     const downloadUrl = `https://download.cnaiart.com/${fileName}`;
     try {
       await navigator.clipboard.writeText(downloadUrl);
@@ -241,474 +262,270 @@ const DownloadPage = () => {
     }
   };
 
-  const downloadFile = (fileName: string) => {
+  /**
+   * 在新窗口中打开指定文件的下载链接
+   *
+   * @param {string} fileName - 要下载的文件名
+   * @returns {void}
+   */
+  const downloadFile = (fileName: string): void => {
     const downloadUrl = `https://download.cnaiart.com/${fileName}`;
     window.open(downloadUrl, '_blank');
   };
 
+  // 平台分类定义
+  const platformGroups = [
+    {
+      id: 'windows',
+      name: 'Windows',
+      icon: <Monitor className="h-8 w-8 text-blue-600" />,
+      description: '支持 Windows 10 及以上系统，提供 exe 安装包和 msi 安装包。',
+      color: 'blue',
+      gradient: 'from-blue-50/50 via-white to-white',
+      hoverGradient: 'hover:from-blue-100/40 hover:via-blue-50/20 hover:to-white',
+      files: downloadResources.filter(r => r.platform === 'windows')
+    },
+    {
+      id: 'macos',
+      name: 'macOS',
+      icon: <Laptop className="h-8 w-8 text-gray-800" />,
+      description: '支持 Intel 和 Apple Silicon (M1/M2/M3) 芯片。',
+      color: 'gray',
+      gradient: 'from-gray-50/50 via-white to-white',
+      hoverGradient: 'hover:from-gray-100/40 hover:via-gray-50/20 hover:to-white',
+      files: downloadResources.filter(r => r.platform === 'macos')
+    },
+    {
+      id: 'mobile',
+      name: '移动端',
+      icon: <Smartphone className="h-8 w-8 text-indigo-600" />,
+      description: '支持 Android 7.0+ 和 iOS 15.6+，随时随地开启创作。',
+      color: 'indigo',
+      gradient: 'from-indigo-50/50 via-white to-white',
+      hoverGradient: 'hover:from-indigo-100/40 hover:via-indigo-50/20 hover:to-white',
+      files: downloadResources.filter(r => ['android', 'ios'].includes(r.platform))
+    },
+    {
+      id: 'linux',
+      name: 'Linux',
+      icon: <Monitor className="h-8 w-8 text-orange-600" />,
+      description: '提供 rpm, deb 和 AppImage 多种格式支持。',
+      color: 'orange',
+      gradient: 'from-orange-50/50 via-white to-white',
+      hoverGradient: 'hover:from-orange-100/40 hover:via-orange-50/20 hover:to-white',
+      files: downloadResources.filter(r => r.platform === 'linux')
+    }
+  ];
+
   return (
-    <>
-      <main className="min-h-screen bg-white">
-        {/* 顶部横幅 - 现代简约设计（白、黑、蓝色调） */}
-        <section className="relative bg-slate-100 overflow-hidden border-b border-gray-100 pt-8 sm:pt-12 lg:pt-16">
-          {/* 装饰图形元素 - 简洁几何形状 */}
-          <div className="absolute inset-0 overflow-hidden">
-            <svg className="absolute right-0 top-0 h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" fill="none">
-              <motion.path
-                d="M1200,100 L1440,0 L1440,800 L1000,800 C1100,600 1300,300 1200,100Z"
-                fill="rgba(59, 130, 246, 0.03)"
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.5 }}
-              />
-              <motion.rect
-                x="1100"
-                y="100"
-                width="200"
-                height="200"
-                rx="20"
-                fill="rgba(59, 130, 246, 0.05)"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              />
-              <motion.circle
-                cx="1300"
-                cy="400"
-                r="80"
-                fill="rgba(59, 130, 246, 0.07)"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              />
-            </svg>
+    <div className="min-h-screen bg-white">
+      <Carousel />
+
+      {/* 2. 平台下载区域 */}
+      <section id="download-list" className="py-32 bg-gray-50/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">选择您的平台</h2>
+            <p className="text-gray-500 text-xl font-light">支持多种操作系统，为您提供最流畅的使用体验</p>
           </div>
 
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12 md:py-24 lg:py-32">
-              {/* 左侧内容 */}
-              <div className="max-w-2xl">
-                <motion.div
-                  className="inline-flex items-center px-4 py-2 rounded-md bg-blue-50 mb-6 border border-blue-100"
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <Download className="h-4 w-4 mr-2 text-blue-600" />
-                  <span className="text-sm font-medium text-blue-700">全平台支持</span>
-                </motion.div>
-
-                <motion.h1
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-relaxed text-gray-900"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  艺创AI <br />
-                  <span className="inline-block mt-4 text-blue-600">产品终端下载中心</span>
-                </motion.h1>
-
-                <motion.p
-                  className="text-lg text-gray-600 mb-8 leading-relaxed"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  艺创AI致力于打造企业级全能AIGC创作平台，提供全方位智能解决方案。涵盖企业智能客服、智能文档管理、专家顾问助理等核心功能，助力企业实现智能化转型。
-                </motion.p>
-
-                <motion.div
-                  className="flex flex-wrap gap-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                >
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2">
-                    <Download className="h-4 w-4 mr-2" />
-                    立即下载
-                  </Button>
-                  <Button variant="outline" className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium px-4 py-2">
-                    <Globe className="h-4 w-4 mr-2" />
-                    了解更多
-                  </Button>
-                </motion.div>
-
-                <motion.div
-                  className="mt-6 mb-2 flex flex-wrap items-center gap-2 text-sm"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                >
-                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">Windows</Badge>
-                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">macOS</Badge>
-                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">Linux</Badge>
-                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">Android</Badge>
-                  <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200">iOS</Badge>
-                </motion.div>
-              </div>
-
-              {/* 右侧设备展示 - 简约动画效果 */}
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mb-20">
+            {platformGroups.map((group) => (
               <motion.div
-                className="relative hidden lg:block ml-auto"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                key={group.id}
+                whileHover={{ y: -10 }}
+                className={cn(
+                  "bg-gradient-to-br rounded-xl p-8 border border-gray-100 shadow-sm transition-all duration-500 flex flex-col h-full",
+                  group.gradient,
+                  group.hoverGradient
+                )}
               >
-                <div className="relative">
-                  {/* 简约风格的设备展示框 */}
-                  <motion.div
-                    className="w-[480px] h-[320px] bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg overflow-hidden border border-blue-200"
-                    initial={{ y: 20 }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    {/* 顶部状态栏 */}
-                    <div className="h-8 bg-white/80 border-b border-blue-100 flex items-center px-4">
-                      <div className="flex space-x-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-blue-400"></div>
-                        <div className="w-2.5 h-2.5 rounded-full bg-blue-300"></div>
-                        <div className="w-2.5 h-2.5 rounded-full bg-blue-200"></div>
-                      </div>
-                    </div>
-
-                    {/* 内容区域 */}
-                    <div className="p-6">
-                      {/* 标题栏 */}
-                      <div className="bg-white/60 w-full h-10 rounded-lg mb-6"></div>
-
-                      {/* 内容网格 */}
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-white/60 h-16 rounded-lg"></div>
-                        <div className="bg-white/60 h-16 rounded-lg"></div>
-                        <div className="bg-white/60 h-16 rounded-lg"></div>
-                        <div className="bg-white/60 h-16 rounded-lg"></div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* 装饰元素 */}
-                  <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/5 rounded-full"></div>
-                  <div className="absolute -left-8 -top-8 w-32 h-32 bg-blue-600/5 rounded-full"></div>
+                <div className={`w-16 h-16 rounded-lg mb-8 flex items-center justify-center bg-${group.color}-50`}>
+                  {group.icon}
                 </div>
-              </motion.div>
-            </div>
-          </div>
-   </section>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{group.name}</h3>
+                <p className="text-gray-500 text-sm mb-8 leading-relaxed flex-grow">{group.description}</p>
 
-        {/* 核心功能展示 */}
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-                核心功能
-              </h2>
-              <p className="text-xl text-gray-600 max-w-6xl mx-auto font-light">
-                全方位智能解决方案，助力企业数字化转型
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-8xl mx-auto">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="h-full bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group">
-                    <CardContent className="p-6 text-center">
-                      <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-50 transition-colors duration-300">
-                        {feature.icon}
+                <div className="space-y-3">
+                  {group.files.slice(0, 3).map((file, idx) => (
+                    <div key={idx} className="flex items-center justify-between p-3 rounded-md bg-gray-50 group hover:bg-blue-50 transition-colors">
+                      <div className="flex items-center gap-3">
+                        <Package className="w-4 h-4 text-gray-400 group-hover:text-blue-500" />
+                        <span className="text-xs font-medium text-gray-700 truncate max-w-[120px]">{file.name}</span>
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed text-sm">
-                        {feature.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 下载资源列表 */}
-        <section className="py-24 bg-gray-50/50">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-                下载资源
-              </h2>
-              <p className="text-xl text-gray-600 max-w-6xl mx-auto font-light">
-                选择适合您系统的版本进行下载
-              </p>
-            </div>
-
-            <div className="max-w-8xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                {/* 桌面端表格 */}
-                <div className="hidden lg:block">
-                  <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
-                    <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-600">
-                      <div className="col-span-3">软件包名称</div>
-                      <div className="col-span-2">系统平台</div>
-                      <div className="col-span-2">文件大小</div>
-                      <div className="col-span-2">更新日期</div>
-                      <div className="col-span-3 text-center">下载操作</div>
-                    </div>
-                  </div>
-
-                  <div className="divide-y divide-gray-200">
-                    {downloadResources.map((resource, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.05 }}
-                        className="px-6 py-4 hover:bg-gray-50 transition-colors duration-200"
+                      <button
+                        onClick={() => downloadFile(file.name)}
+                        className="text-blue-600 hover:text-blue-700 transition-colors"
                       >
-                        <div className="grid grid-cols-12 gap-4 items-center">
-                          <div className="col-span-3">
-                            <div className="flex items-center space-x-3">
-                              <div className="text-gray-400">
-                                {resource.icon}
-                              </div>
-                              <div>
-                                <div className="font-medium text-gray-900 text-sm">
-                                  {resource.name}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-span-2">
-                            <Badge className={`${getPlatformColor(resource.platform)}`}>
-                              {resource.type}
-                            </Badge>
-                          </div>
-                          <div className="col-span-2 text-sm text-gray-600">
-                            {resource.size}
-                          </div>
-                          <div className="col-span-2 text-sm text-gray-600">
-                            {resource.date}
-                          </div>
-                          <div className="col-span-3 flex space-x-2 justify-center">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => copyDownloadLink(resource.name)}
-                              className="h-8 px-3"
-                            >
-                              {copiedLink === resource.name ? (
-                                <CheckCircle className="h-4 w-4 text-green-600" />
-                              ) : (
-                                <Copy className="h-4 w-4" />
-                              )}
-                              <span className="ml-1 text-xs">
-                                {copiedLink === resource.name ? "已复制" : "复制链接"}
-                              </span>
-                            </Button>
-                            <Button
-                              size="sm"
-                              onClick={() => downloadFile(resource.name)}
-                              className="h-8 px-3 bg-blue-600 hover:bg-blue-700"
-                            >
-                              <Download className="h-4 w-4 mr-1" />
-                              立即下载
-                            </Button>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
+                        <Download className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))}
+                  {group.files.length > 3 && (
+                    <div className="text-center">
+                      <span className="text-xs text-gray-400">及更多版本...</span>
+                    </div>
+                  )}
                 </div>
 
-                {/* 移动端卡片布局 */}
-                <div className="lg:hidden">
-                  {downloadResources.map((resource, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.05 }}
-                      className="p-4 border-b border-gray-200 last:border-b-0"
-                    >
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center space-x-3">
-                          <div className="text-gray-400">
-                            {resource.icon}
-                          </div>
-                          <div>
-                            <div className="font-medium text-gray-900 text-sm">
-                              {resource.name}
-                            </div>
-                            <Badge className={`mt-1 ${getPlatformColor(resource.platform)}`}>
-                              {resource.type}
-                            </Badge>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center text-sm text-gray-600 mb-3">
-                        <span>文件大小: {resource.size}</span>
-                        <span>更新日期: {resource.date}</span>
-                      </div>
-                      <div className="flex space-x-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => copyDownloadLink(resource.name)}
-                          className="flex-1 h-8"
-                        >
-                          {copiedLink === resource.name ? (
-                            <CheckCircle className="h-4 w-4 text-green-600" />
-                          ) : (
-                            <Copy className="h-4 w-4" />
-                          )}
-                          <span className="ml-1 text-xs">
-                            {copiedLink === resource.name ? "已复制" : "复制链接"}
-                          </span>
-                        </Button>
-                        <Button
-                          size="sm"
-                          onClick={() => downloadFile(resource.name)}
-                          className="flex-1 h-8 bg-blue-600 hover:bg-blue-700"
-                        >
-                          <Download className="h-4 w-4 mr-1" />
-                          立即下载
-                        </Button>
-                      </div>
-                    </motion.div>
-                  ))}
+                <Button
+                  className="mt-8 w-full bg-gray-900 hover:bg-gray-800 text-white rounded-lg h-12"
+                  onClick={() => {
+                    const el = document.getElementById(`files-${group.id}`);
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  查看全部版本
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* 详细文件列表 */}
+          <div className="space-y-16">
+            {platformGroups.map((group) => (
+              <div key={group.id} id={`files-${group.id}`} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <div className="px-10 py-8 bg-gray-50/50 border-b border-gray-200 flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-lg bg-${group.color}-100`}>
+                      {group.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900">{group.name} 版本详情</h4>
+                      <p className="text-sm text-gray-500">共 {group.files.length} 个可用资源</p>
+                    </div>
+                  </div>
                 </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left">
+                    <thead>
+                      <tr className="text-xs uppercase tracking-wider text-gray-400 border-b border-gray-200">
+                        <th className="px-10 py-6 font-semibold">软件包名称</th>
+                        <th className="px-6 py-6 font-semibold">类型</th>
+                        <th className="px-6 py-6 font-semibold">大小</th>
+                        <th className="px-6 py-6 font-semibold">更新日期</th>
+                        <th className="px-10 py-6 font-semibold text-right">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {group.files.map((file, idx) => (
+                        <tr key={idx} className="hover:bg-gray-50 transition-colors group">
+                          <td className="px-10 py-5">
+                            <div className="flex items-center gap-3">
+                              {file.icon}
+                              <span className="text-sm font-medium text-gray-900">{file.name}</span>
+                            </div>
+                          </td>
+                          <td className="px-6 py-5">
+                            <Badge variant="outline" className="rounded-md font-normal bg-gray-50">{file.type}</Badge>
+                          </td>
+                          <td className="px-6 py-5 text-sm text-gray-500">{file.size}</td>
+                          <td className="px-6 py-5 text-sm text-gray-500">{file.date}</td>
+                          <td className="px-10 py-5 text-right">
+                            <div className="flex items-center justify-end gap-3">
+                              <button
+                                onClick={() => copyDownloadLink(file.name)}
+                                className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all"
+                                title="复制链接"
+                              >
+                                {copiedLink === file.name ? <CheckCircle className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                              </button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => downloadFile(file.name)}
+                                className="h-9 px-4 rounded-lg border-gray-200 hover:border-blue-500 hover:text-blue-600 group-hover:bg-blue-50 transition-all"
+                              >
+                                <Download className="w-3.5 h-3.5 mr-2" />
+                                下载
+                              </Button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. 核心特性 - Bento Grid 风格 */}
+      <section className="py-32 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">全能 AIGC 创作平台</h2>
+            <p className="text-gray-500 text-xl font-light">一套系统，满足企业智能化转型的全场景需求</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className={cn(
+                  "p-8 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-gradient-to-br hover:from-white hover:to-blue-50/50 transition-all duration-500 group",
+                  index === 0 || index === 3 ? "md:col-span-2" : ""
+                )}
+              >
+                <div className="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-500">
+                  <div className="text-gray-600 group-hover:text-white transition-colors duration-500">
+                    {feature.icon}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. CTA 区域 */}
+      <section className="py-32">
+        <div className="container mx-auto px-6">
+          <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-r from-[#929cfb] to-[#ec8bf9]">
+            {/* 网格背景纹理 */}
+            <div
+              className="absolute inset-0 opacity-[0.08] pointer-events-none"
+              style={{
+                backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
+                backgroundSize: '40px 40px'
+              }}
+            />
+
+            {/* 径向光晕装饰 - 已移除 */}
+
+            <div className="relative z-10 text-center max-w-4xl mx-auto px-6 py-20 lg:py-24">
+              <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 tracking-tight">准备好开启智能创作之旅了吗？</h2>
+              <p className="text-blue-50 text-lg lg:text-xl mb-12 font-light max-w-2xl mx-auto opacity-90">
+                现在下载艺创AI 客户端，体验极速、安全、高效的 AIGC 创作能力。
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-6">
+                <Button
+                  size="lg"
+                  className="bg-white text-[#2f3659] hover:bg-gray-50 h-14 px-10 rounded-full text-lg font-semibold transition-all hover:scale-105"
+                >
+                  <Download className="mr-2 h-5 w-5" />
+                  下载桌面版
+                </Button>
+                <Button
+                  size="lg"
+                  className="bg-[#1d2447] text-white hover:bg-[#2f3659] h-14 px-10 rounded-full text-lg font-semibold transition-all hover:scale-105 border-transparent"
+                >
+                  <Globe className="mr-2 h-5 w-5" />
+                  使用 Web 版
+                </Button>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* 二维码下载 */}
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="max-w-8xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">
-                  扫码下载
-                </h2>
-                <p className="text-xl text-gray-600 mb-12 max-w-6xl mx-auto font-light">
-                  使用手机扫描二维码，快速下载移动端应用
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                  <Card className="p-8 text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Smartphone className="h-8 w-8 text-green-600" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Android版本</h3>
-                    <div className="w-32 h-32 bg-white border border-gray-200 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <img
-                        src="/images/qrcode.png"
-                        alt="Android下载二维码"
-                        className="w-28 h-28"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          target.nextElementSibling?.classList.remove('hidden');
-                        }}
-                      />
-                      <QrCode className="h-24 w-24 text-gray-400 hidden" />
-                    </div>
-                    <p className="text-sm text-gray-600">Android 7.0+</p>
-                  </Card>
-
-                  <Card className="p-8 text-center">
-                    <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Smartphone className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">iOS版本</h3>
-                    <div className="w-32 h-32 bg-white border border-gray-200 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <img
-                        src="/images/qrcode.png"
-                        alt="iOS下载二维码"
-                        className="w-28 h-28"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          target.nextElementSibling?.classList.remove('hidden');
-                        }}
-                      />
-                      <QrCode className="h-24 w-24 text-gray-400 hidden" />
-                    </div>
-                    <p className="text-sm text-gray-600">iOS 15.6+</p>
-                  </Card>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* 使用说明 */}
-        <section className="py-24 bg-gray-50/50">
-          <div className="container mx-auto px-6">
-            <div className="max-w-8xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight text-center">
-                  使用说明
-                </h2>
-
-                <Card className="p-8">
-                  <div className="space-y-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <span className="text-blue-600 font-bold text-sm">1</span>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 mb-2">文件格式说明</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          dmg结尾的是macOS版本，deb结尾的是Linux版本，exe和msi结尾的是Windows版本，apk结尾的是Android版本，ipa结尾的是iOS版本。
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start space-x-4">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <span className="text-blue-600 font-bold text-sm">2</span>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 mb-2">下载方式</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          点击资源名称可以复制下载链接，点击下载会使用浏览器下载软件包。
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start space-x-4">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <span className="text-blue-600 font-bold text-sm">3</span>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 mb-2">使用限制</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          打包仅限个人使用，请勿传播或商业用途，否则后果自负。
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </section>
+    </div>
   );
-};
-
-export default DownloadPage;
+}

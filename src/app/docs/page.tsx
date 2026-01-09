@@ -44,6 +44,13 @@ const DocsPage = () => {
       description: "开发者API接口文档"
     },
     {
+      id: "feishu",
+      title: "飞书文档",
+      icon: <FileText className="h-5 w-5" />,
+      description: "提供详细的使用部署指南",
+      link: "https://docs.buidai.com/"
+    },
+    {
       id: "faq",
       title: "常见问题",
       icon: <HelpCircle className="h-5 w-5" />,
@@ -57,7 +64,7 @@ const DocsPage = () => {
       title: "快速入门",
       description: "了解如何开始使用我们的AI产品，包括账号设置、基本操作和常见问题解答。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: "https://rwm01l8tn3x.feishu.cn/wiki/VqNCwBO0KiqWIWkSfdHcDigGnZg?from=getting_started",
+      link: "https://docs.buidai.com/",
       category: "基础",
       tags: ["新手", "入门", "设置"]
     },
@@ -65,7 +72,7 @@ const DocsPage = () => {
       title: "数字分身使用指南",
       description: "学习如何配置和使用数字分身产品，包括个性化设置、多渠道部署和数据分析。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: "https://rwm01l8tn3x.feishu.cn/wiki/WzEywceOSioYQCkT5lzczU4znee?from=from_copylink",
+      link: "https://docs.buidai.com/",
       category: "产品",
       tags: ["数字分身", "配置", "部署"]
     },
@@ -73,7 +80,7 @@ const DocsPage = () => {
       title: "企业知识库使用指南",
       description: "掌握企业知识库的构建和管理方法，包括文档导入、权限设置和智能检索。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: "https://rwm01l8tn3x.feishu.cn/wiki/QrAHwLXHIiOlZVk2u7mcqT63nJd?from=from_copylink",
+      link: "https://docs.buidai.com/",
       category: "产品",
       tags: ["知识库", "管理", "检索"]
     },
@@ -81,7 +88,7 @@ const DocsPage = () => {
       title: "聊天绘画使用指南",
       description: "探索聊天绘画的创作技巧，包括提示词编写、风格选择和图像编辑。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: "https://rwm01l8tn3x.feishu.cn/wiki/WhaQwtkk0iKZ8Dke8kccCwUynBb?from=from_copylink",
+      link: "https://docs.buidai.com/",
       category: "产品",
       tags: ["绘画", "创作", "提示词"]
     },
@@ -89,7 +96,7 @@ const DocsPage = () => {
       title: "论文创作使用指南",
       description: "了解如何使用论文创作工具提升研究效率，包括文献分析、写作辅助和格式规范。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: "https://rwm01l8tn3x.feishu.cn/wiki/ESanw7rLri4MhXkE6b9c4qpenjh?from=from_copylink",
+      link: "https://docs.buidai.com/",
       category: "产品",
       tags: ["论文", "写作", "研究"]
     },
@@ -97,7 +104,7 @@ const DocsPage = () => {
       title: "最佳实践",
       description: "获取各行业使用AI产品的最佳实践和成功案例，帮助您充分发挥产品价值。",
       icon: <FileText className="h-5 w-5 text-blue-600" />,
-      link: "https://rwm01l8tn3x.feishu.cn/wiki/VqNCwBO0KiqWIWkSfdHcDigGnZg?from=from_copylink",
+      link: "https://docs.buidai.com/",
       category: "进阶",
       tags: ["实践", "案例", "优化"]
     }
@@ -109,7 +116,7 @@ const DocsPage = () => {
       title: "API概述",
       description: "了解我们的API架构、认证方式和基本使用流程。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: "https://api-docs.urlnet.cn/overview/introduction?from=api_overview",
+      link: "https://docs.buidai.com/",
       category: "基础",
       tags: ["API", "认证", "架构"]
     },
@@ -117,7 +124,7 @@ const DocsPage = () => {
       title: "数字分身API",
       description: "数字分身API文档，包括对话接口、情感分析和个性化配置。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: "https://78kttw0tjc.apifox.cn/",
+      link: "https://docs.buidai.com/",
       category: "产品",
       tags: ["数字分身", "对话", "API"]
     },
@@ -125,7 +132,7 @@ const DocsPage = () => {
       title: "企业知识库API",
       description: "企业知识库API文档，包括文档管理、搜索查询和权限控制。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: "https://io38j82vph.apifox.cn/",
+      link: "https://docs.buidai.com/",
       category: "产品",
       tags: ["知识库", "搜索", "API"]
     },
@@ -133,7 +140,7 @@ const DocsPage = () => {
       title: "聊天绘画API",
       description: "聊天绘画API文档，包括图像生成、风格转换和批量处理。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: "https://api-docs.urlnet.cn/chat-painting/generation?from=painting_api",
+      link: "https://docs.buidai.com/",
       category: "产品",
       tags: ["绘画", "图像", "API"]
     },
@@ -141,7 +148,7 @@ const DocsPage = () => {
       title: "论文创作API",
       description: "论文创作API文档，包括文献分析、内容生成和格式转换。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: "https://api-docs.urlnet.cn/paper-writing/analysis?from=paper_api",
+      link: "https://docs.buidai.com/",
       category: "产品",
       tags: ["论文", "写作", "API"]
     },
@@ -149,7 +156,7 @@ const DocsPage = () => {
       title: "SDK下载",
       description: "各种编程语言的SDK下载和使用说明，包括Python、Java、JavaScript等。",
       icon: <Code className="h-5 w-5 text-blue-600" />,
-      link: "https://developer.urlnet.cn/sdk/downloads?from=sdk_download",
+      link: "https://docs.buidai.com/",
       category: "工具",
       tags: ["SDK", "下载", "开发"]
     }
@@ -160,42 +167,42 @@ const DocsPage = () => {
     {
       question: "如何开始使用AI科技的产品？",
       answer: "您可以通过注册账号，选择适合您的产品和套餐，完成付款后即可开始使用。我们提供14天免费试用，帮助您充分了解产品功能。",
-      link: "https://help.urlnet.cn/getting-started/registration?from=faq_start",
+      link: "https://docs.buidai.com/",
       category: "账户",
       tags: ["入门", "注册", "试用"]
     },
     {
       question: "产品支持哪些语言？",
       answer: "我们的产品目前支持中文、英文、日文、韩文等多种语言，未来将继续扩展语言支持范围。",
-      link: "https://help.urlnet.cn/features/language-support?from=faq_language",
+      link: "https://docs.buidai.com/",
       category: "功能",
       tags: ["语言", "多语言", "支持"]
     },
     {
       question: "如何确保数据安全？",
       answer: "我们采用银行级加密技术保护您的数据，所有数据传输和存储均经过加密。我们遵循严格的数据保护政策，不会未经授权访问或分享您的数据。",
-      link: "https://help.urlnet.cn/security/data-protection?from=faq_security",
+      link: "https://docs.buidai.com/",
       category: "安全",
       tags: ["安全", "加密", "隐私"]
     },
     {
       question: "是否提供定制开发服务？",
       answer: "是的，我们提供定制开发服务，可以根据您的特定需求调整产品功能或开发全新解决方案。请联系我们的销售团队了解详情。",
-      link: "https://help.urlnet.cn/services/custom-development?from=faq_custom",
+      link: "https://docs.buidai.com/",
       category: "服务",
       tags: ["定制", "开发", "服务"]
     },
     {
       question: "如何获取技术支持？",
       answer: "您可以通过在线客服、电子邮件或电话获取技术支持。我们的支持团队将在24小时内回应您的问题。企业版客户享有专属技术支持经理。",
-      link: "https://help.urlnet.cn/support/contact-methods?from=faq_support",
+      link: "https://docs.buidai.com/",
       category: "支持",
       tags: ["支持", "客服", "帮助"]
     },
     {
       question: "如何升级或更改订阅计划？",
       answer: "您可以在账户设置中查看和管理您的订阅计划。根据需要，您可以随时升级套餐或添加更多用户许可。",
-      link: "https://help.urlnet.cn/account/subscription-management?from=faq_subscription",
+      link: "https://docs.buidai.com/",
       category: "账户",
       tags: ["订阅", "升级", "计划"]
     }
@@ -231,7 +238,7 @@ const DocsPage = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <Card className="h-full border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 bg-white">
+              <Card className="h-full border border-gray-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 bg-white rounded-xl group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-blue-50/30">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight pr-4">
@@ -272,10 +279,10 @@ const DocsPage = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="group"
           >
-            <Card className="h-full border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 bg-white">
+          <Card className="h-full border border-gray-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 bg-white rounded-xl group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-blue-50/30">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-3">
-                  <div className="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
+                  <div className="p-2 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
                     {item.icon}
                   </div>
                   <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
@@ -296,7 +303,7 @@ const DocsPage = () => {
                     {item.tags.slice(0, 3).map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-full"
+                        className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-xl"
                       >
                         {tag}
                       </span>
@@ -307,7 +314,7 @@ const DocsPage = () => {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-600 hover:text-blue-700 transition-all duration-200 text-sm font-medium group"
+                  className="inline-flex items-center px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-600 hover:text-blue-700 transition-all duration-200 text-sm font-medium group"
                 >
                   {activeCategory === "api" ? "查看文档" : "阅读文档"}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1.5" />
@@ -393,7 +400,7 @@ const DocsPage = () => {
 
                 {/* 导航菜单 */}
                 <div className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block`}>
-                  <Card className="bg-white border border-gray-200 shadow-sm">
+                  <Card className="bg-white border border-gray-200 shadow-sm rounded-xl">
                     <CardHeader className="pb-4">
                       <CardTitle className="text-lg font-semibold text-gray-900">文档分类</CardTitle>
                     </CardHeader>
@@ -403,25 +410,36 @@ const DocsPage = () => {
                           <button
                             key={item.id}
                             onClick={() => {
-                              setActiveCategory(item.id);
-                              setIsSidebarOpen(false);
+                              if (item.link) {
+                                window.open(item.link, '_blank');
+                              } else {
+                                setActiveCategory(item.id);
+                                setIsSidebarOpen(false);
+                              }
                             }}
-                            className={`w-full text-left p-4 rounded-lg transition-all duration-200 group ${
+                            className={`w-full text-left p-4 rounded-xl transition-all duration-200 group ${
                               activeCategory === item.id
                                 ? 'bg-blue-600 text-white shadow-md'
                                 : 'hover:bg-gray-50 text-gray-700'
                             }`}
                           >
                             <div className="flex items-center space-x-3">
-                              <div className={`p-2 rounded-lg transition-colors ${
+                              <div className={`p-2 rounded-xl transition-colors ${
                                 activeCategory === item.id
                                   ? 'bg-white/20 text-white'
                                   : 'bg-blue-50 text-blue-600 group-hover:bg-blue-100'
                               }`}>
                                 {item.icon}
                               </div>
-                              <div>
-                                <div className="font-medium">{item.title}</div>
+                              <div className="flex-1">
+                                <div className="flex items-center justify-between">
+                                  <div className="font-medium">{item.title}</div>
+                                  {item.link && (
+                                    <ArrowRight className={`h-3 w-3 opacity-50 group-hover:translate-x-1 transition-transform ${
+                                      activeCategory === item.id ? 'text-white' : 'text-gray-400'
+                                    }`} />
+                                  )}
+                                </div>
                                 <div className={`text-sm ${
                                   activeCategory === item.id
                                     ? 'text-blue-100'
@@ -438,7 +456,7 @@ const DocsPage = () => {
                   </Card>
 
                   {/* 快速链接 */}
-                  <Card className="mt-6 bg-white border border-gray-200 shadow-sm">
+                  <Card className="mt-6 bg-white border border-gray-200 shadow-sm rounded-xl">
                     <CardHeader className="pb-4">
                       <CardTitle className="text-lg font-semibold text-gray-900">快速链接</CardTitle>
                     </CardHeader>

@@ -647,7 +647,7 @@ const Header: React.FC = () => {
                           <User className="h-4 w-4" />
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700 dark:text-gray-200 dark:group-hover:text-blue-400">个人中心</span>
+                          <span className="text-sm font-medium text-gray-700 group-hover:text-blue-700 dark:text-gray-200 dark:group-hover:text-blue-400">授权中心</span>
                           <span className="text-[10px] text-gray-400 group-hover:text-blue-400/80">管理您的账户信息</span>
                         </div>
                       </a>
