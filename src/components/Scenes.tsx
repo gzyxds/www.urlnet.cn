@@ -26,7 +26,6 @@ const gradients = [
 
 /**
  * Scenes 组件 (重构为 3D 轮播展示)
- * 复刻 FeatureCarousel.vue 的设计，展示产品特性
  * 数据来源: ProductsSection
  */
 const Scenes = () => {

@@ -34,6 +34,21 @@ const DemoPage = () => {
         {/* 简约英雄区域 */}
         <section className="relative py-20 lg:py-28 overflow-hidden bg-white">
           {/* 背景装饰 */}
+          <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+             <div className="relative w-full md:w-[85%] h-full md:h-[85%]">
+               <img
+                 src="/images/scenarios/agent.svg"
+                 alt=""
+                 className="w-full h-full object-contain opacity-100 md:opacity-80"
+               />
+               {/* 四周渐变遮罩，实现柔和边缘 - 移动端减小遮罩范围 */}
+               <div className="absolute inset-y-0 left-0 w-1/6 md:w-1/4 bg-gradient-to-r from-white to-transparent" />
+               <div className="absolute inset-y-0 right-0 w-1/6 md:w-1/4 bg-gradient-to-l from-white to-transparent" />
+               <div className="absolute inset-x-0 top-0 h-1/6 md:h-1/4 bg-gradient-to-b from-white to-transparent" />
+               <div className="absolute inset-x-0 bottom-0 h-1/6 md:h-1/4 bg-gradient-to-t from-white to-transparent" />
+             </div>
+          </div>
+
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
              <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px] mix-blend-multiply opacity-60" />
              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-slate-50/80 rounded-full blur-[100px] mix-blend-multiply opacity-60" />
