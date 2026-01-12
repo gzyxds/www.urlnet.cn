@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import DemoShowcase from './components/demo';
 import Contact from '@/components/ContactSection';
+import OpenScenarioSection from '@/components/OpenScenarioSection';
 
 /**
  * 产品演示页面
@@ -110,6 +111,10 @@ const DemoPage = () => {
           </div>
         </main>
       </div>
+      
+      {/* 开源场景 */}
+      <OpenScenarioSection />
+      
       <Contact />
     </>
   );

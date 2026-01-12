@@ -30,6 +30,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import Contact from '@/components/ContactSection';
+import OpenScenarioSection from '@/components/OpenScenarioSection';
 
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { cn } from "@/lib/utils";
@@ -519,6 +520,10 @@ const CodeDownloadPage: React.FC = () => {
           </div>
         </section>
       </main>
+      
+      {/* 开源场景 */}
+      <OpenScenarioSection />
+      
       <Contact />
 
       <AnimatePresence>

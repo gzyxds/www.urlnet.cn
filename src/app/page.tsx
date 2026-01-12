@@ -13,6 +13,7 @@ import NewsSection from '@/components/NewsSection';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import ClientLogoWall from '@/components/clients/ClientLogoWall';
 import clients from '@/components/clients/clients';
+import OpenScenarioSection from '@/components/OpenScenarioSection';
 
 
 const Home = () => {
@@ -26,7 +27,7 @@ const Home = () => {
   return (
     <>
       <Carousel />
-
+      <OpenScenarioSection />
       <HotProducts />
       <Scenes />
       <Products />

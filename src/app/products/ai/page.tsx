@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { cn } from "@/lib/utils";
 import ContactSection from "@/components/ContactSection";
+import OpenScenarioSection from "@/components/OpenScenarioSection";
 
 // ==========================================
 // 类型定义 (Type Definitions)
@@ -1734,6 +1735,10 @@ function AiPage() {
           </div>
         </div>
       </section>
+
+      {/* 开源场景 */}
+      <OpenScenarioSection />
+
       <ContactSection />
     </div>
   );

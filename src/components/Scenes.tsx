@@ -26,7 +26,7 @@ const gradients = [
 
 /**
  * Scenes 组件 (重构为 3D 轮播展示)
- * 数据来源: ProductsSection
+ * 数据来源: featuresData
  */
 const Scenes = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -41,7 +41,7 @@ const Scenes = () => {
   const animationFrameId = useRef<number | null>(null);
   const autoScrollFrameId = useRef<number | null>(null);
   const scrollAccumulator = useRef(0);
-  const AUTO_SCROLL_SPEED = 0.5;
+  const AUTO_SCROLL_SPEED = 0.5; // 像素/帧，参考 Vue 版本
 
   // 准备数据：映射产品数据并添加渐变色
   const originalCards = useMemo(() => {
@@ -53,7 +53,7 @@ const Scenes = () => {
     }));
   }, []);
 
-  // 复制 5 份以实现无限滚动
+  // 复制 5 份以实现无限滚动（参考 Vue 版本）
   const cards = useMemo(() => {
     return [
       ...originalCards,
@@ -64,39 +64,41 @@ const Scenes = () => {
     ];
   }, [originalCards]);
 
-  // 更新卡片 3D 变换效果
+  // 更新卡片 3D 变换效果（参考 Vue 版本优化）
   const updateTransforms = useCallback(() => {
     if (!scrollContainerRef.current) return;
-
+    
     const viewportCenter = window.innerWidth / 2;
     const isMobile = window.innerWidth < 768;
+    const range = isMobile ? window.innerWidth * 0.8 : 1000;
 
     cardRefs.current.forEach((card) => {
       if (!card) return;
+      
       const rect = card.getBoundingClientRect();
       const cardCenter = rect.left + rect.width / 2;
 
-      // 计算距离中心的归一化距离
-      const range = isMobile ? window.innerWidth * 0.8 : 1000;
+      // 计算距离中心的标准化距离
       let dist = (cardCenter - viewportCenter) / range;
-
-      // 限制范围
+      
+      // 限制距离范围
       if (dist < -1) dist = -1;
       if (dist > 1) dist = 1;
 
-      // 计算变换参数
+      const absDist = Math.abs(dist);
+      // 参考 Vue 版本的 3D 效果参数
       const rotation = dist * (isMobile ? 15 : 45);
-      const translateZ = Math.abs(dist) * (isMobile ? -50 : -200);
-      const scale = 1 - Math.abs(dist) * (isMobile ? 0.05 : 0.1);
-      const opacity = 1 - Math.abs(dist) * (isMobile ? 0.1 : 0.3);
+      const translateZ = absDist * (isMobile ? -50 : -200);
+      const scale = 1 - absDist * (isMobile ? 0.05 : 0.1);
+      const opacity = 1 - absDist * (isMobile ? 0.1 : 0.3);
 
-      // 应用样式
+      // 直接设置 transform，性能更好
       card.style.transform = `perspective(1000px) rotateY(${rotation}deg) translateZ(${translateZ}px) scale(${scale})`;
       card.style.opacity = `${opacity}`;
     });
   }, []);
 
-  // 检查无限滚动重置
+  // 检查无限滚动重置（参考 Vue 版本的 5 组逻辑）
   const checkInfiniteScroll = useCallback(() => {
     if (!scrollContainerRef.current || isDragging) return;
 
@@ -107,17 +109,19 @@ const Scenes = () => {
     const itemFullWidth = cardWidth + gap;
     const singleSetWidth = itemFullWidth * originalCards.length;
 
-    // 如果滚动到了第 4 组（倒数第 2 组），跳转回第 2 组
-    if (container.scrollLeft > singleSetWidth * 3.5) {
+    const scrollLeft = container.scrollLeft;
+    // 5 组卡片：索引 0, 1, 2, 3, 4
+    // 滚动到第 4 组时（倒数第 2 组），跳转回第 2 组
+    if (scrollLeft > singleSetWidth * 3.5) {
       container.scrollLeft -= singleSetWidth * 2;
     }
-    // 如果滚动到了第 0 组（第 1 组），跳转回第 2 组
-    else if (container.scrollLeft < singleSetWidth * 0.5) {
+    // 滚动到第 0 组时（第 1 组），跳转回第 2 组
+    else if (scrollLeft < singleSetWidth * 0.5) {
       container.scrollLeft += singleSetWidth * 2;
     }
   }, [isDragging, originalCards.length]);
 
-  // 滚动处理循环
+  // 滚动处理（使用 RAF 避免重复调用）
   const handleScroll = useCallback(() => {
     if (animationFrameId.current) {
       cancelAnimationFrame(animationFrameId.current);
@@ -143,7 +147,7 @@ const Scenes = () => {
   }, [isDragging]);
 
   const startAutoPlay = useCallback(() => {
-    if (autoScrollFrameId.current) cancelAnimationFrame(autoScrollFrameId.current);
+    stopAutoPlay(); // 先停止已有的
     autoScrollLoop();
   }, [autoScrollLoop]);
 
@@ -168,7 +172,7 @@ const Scenes = () => {
     if (!isDragging || !scrollContainerRef.current) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5; // Scroll-fast
+    const walk = (x - startX.current) * 1.5; // 参考 Vue 版本的灵敏度
     scrollContainerRef.current.scrollLeft = initialScrollLeft.current - walk;
   };
 
@@ -200,7 +204,7 @@ const Scenes = () => {
     document.addEventListener('visibilitychange', handleVisibilityChange);
     window.addEventListener('resize', handleScroll);
 
-    // 初始化位置
+    // 初始化位置（参考 Vue 版本定位到第 2 组）
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const isMobile = window.innerWidth < 768;
@@ -209,6 +213,7 @@ const Scenes = () => {
       const itemFullWidth = cardWidth + gap;
 
       const singleSetWidth = itemFullWidth * originalCards.length;
+      // 初始化到第 2 组（索引 2，5 组中的中间位置）
       const initialSetOffset = singleSetWidth * 2;
 
       if (!isMobile) {
@@ -217,6 +222,7 @@ const Scenes = () => {
         container.scrollLeft = initialSetOffset;
       }
 
+      // 强制更新一次
       updateTransforms();
       startAutoPlay();
     }
@@ -252,6 +258,7 @@ const Scenes = () => {
         .perspective-item {
           transform-style: preserve-3d;
           transition: transform 0.1s linear, opacity 0.1s linear;
+          will-change: transform;
         }
       `;
       document.head.appendChild(style);
@@ -259,14 +266,21 @@ const Scenes = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-gray-900 overflow-hidden relative" id="scenes">
-      {/* 背景参考 */}
+    <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900 overflow-hidden relative" id="scenes">
+      {/* 背景设计 - 参考 Vue 版本简洁网格风格 */}
       <div className="absolute inset-x-0 top-0 h-[500px] pointer-events-none select-none overflow-hidden z-0">
         <div className="relative w-full h-full flex flex-col items-center pt-[27px] md:pt-[70px]">
-          {/* 网格背景 - 放大并居中 */}
-          <div className="absolute inset-0 bg-[url('/agent.svg')] bg-center bg-no-repeat [background-size:120%_auto] md:[background-size:100%_auto] [mask-image:linear-gradient(to_bottom,white,transparent)] opacity-70 dark:opacity-30"></div>
+          {/* 网格背景 */}
+          <div className="absolute inset-0 opacity-70 dark:opacity-30" style={{
+            backgroundImage: `
+              linear-gradient(to right, rgb(100 116 139 / 0.1) 1px, transparent 1px),
+              linear-gradient(to bottom, rgb(100 116 139 / 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+            maskImage: 'linear-gradient(to bottom, white, transparent)'
+          }}></div>
           {/* 渐变背景覆盖 */}
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white/80 to-white dark:from-gray-800/50 dark:via-gray-900/80 dark:to-gray-900 -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white/80 to-white dark:from-blue-950/30 dark:via-gray-900/80 dark:to-gray-900 -z-10"></div>
         </div>
       </div>
 
@@ -283,7 +297,7 @@ const Scenes = () => {
       <div className="relative w-full">
         <div
           ref={scrollContainerRef}
-          className={`flex gap-4 sm:gap-8 overflow-x-auto pb-12 pt-8 md:pb-20 md:pt-10 px-[7.5vw] sm:px-[50vw] perspective-container select-none touch-pan-x scroll-auto scrollbar-hide ${
+          className={`flex gap-4 sm:gap-8 overflow-x-auto pb-12 pt-8 md:pb-20 md:pt-10 px-[7.5vw] sm:px-[50vw] perspective-container select-none scroll-auto scrollbar-hide touch-pan-x ${
             isDragging ? 'cursor-grabbing' : 'cursor-grab'
           }`}
           onScroll={handleScroll}
@@ -299,10 +313,10 @@ const Scenes = () => {
             <div
               key={index}
               ref={(el) => { cardRefs.current[index] = el; }}
-              className="shrink-0 w-[85vw] sm:w-[320px] perspective-item will-change-transform"
+              className="shrink-0 w-[85vw] sm:w-[360px] perspective-item will-change-transform"
             >
               <div
-                className={`group relative h-auto min-h-[220px] sm:min-h-[260px] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] bg-gradient-to-br ${card.gradient} backdrop-blur-md border border-white/60 dark:border-gray-700/60 shadow-lg`}
+                className={`group relative h-auto min-h-[220px] sm:min-h-[260px] rounded-2xl overflow-hidden bg-gradient-to-br ${card.gradient} backdrop-blur-md md:border md:border-white/60 dark:md:border-gray-700/60 md:shadow-lg`}
               >
                 {/* Content */}
                 <div className="p-6 sm:p-8 h-full flex flex-col justify-between relative z-10">
@@ -321,7 +335,7 @@ const Scenes = () => {
                     </p>
                   </div>
 
-                  {/* Decorative number or element could go here if needed */}
+                  {/* 装饰性数字 */}
                   <div className="absolute bottom-4 right-4 opacity-10 font-black text-6xl select-none pointer-events-none">
                     {index % originalCards.length + 1 < 10 ? `0${index % originalCards.length + 1}` : index % originalCards.length + 1}
                   </div>
@@ -331,9 +345,9 @@ const Scenes = () => {
           ))}
         </div>
 
-        {/* 淡入边缘 */}
-        <div className="absolute inset-y-0 left-0 w-8 md:w-64 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 pointer-events-none z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-8 md:w-64 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 pointer-events-none z-10"></div>
+        {/* 淡入边缘 - 仅桌面端显示 */}
+        <div className="hidden md:block absolute inset-y-0 left-0 md:w-64 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 pointer-events-none z-10"></div>
+        <div className="hidden md:block absolute inset-y-0 right-0 md:w-64 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 pointer-events-none z-10"></div>
       </div>
     </section>
   );

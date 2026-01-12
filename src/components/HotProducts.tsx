@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useRef, useEffect, memo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import {
   Globe,
   ShoppingCart,
@@ -52,278 +51,241 @@ import {
   Scale,
   FileCheck,
   AlertTriangle,
-  FileBarChart
+  FileBarChart,
+  ChevronRight
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // --- 类型定义 ---
-type ScenarioType = 'ecommerce' | 'enterprise' | 'education' | 'government' | 'finance' | 'healthcare';
+type TabType = 'visual' | 'agent' | 'knowledge' | 'model' | 'marketing';
 
-interface SubProduct {
+interface Feature {
   title: string;
-  description: string;
+  desc: string;
   icon: React.ComponentType<{ className?: string }>;
-  isHot?: boolean;
-  isNew?: boolean;
-  link?: string;
 }
 
-interface ScenarioConfig {
+interface TabConfig {
+  name: string;
   title: string;
   icon: React.ComponentType<{ className?: string }>;
-  products: SubProduct[];
+  features: Feature[];
 }
 
-// --- 场景配置数据 ---
-const SCENARIO_CONFIG: Record<ScenarioType, ScenarioConfig> = {
-  ecommerce: {
-    title: '电商零售解决方案',
-    icon: ShoppingCart,
-    products: [
-      { title: '智能客服', description: '24/7自动回复，提升服务效率', icon: MessageSquare, isHot: true },
-      { title: '商品推荐', description: '个性化推荐算法，提高转化率', icon: Sparkles, isHot: true },
-      { title: '订单管理', description: '自动化订单处理，减少人工成本', icon: ClipboardList, isHot: true },
-      { title: '库存优化', description: '智能库存预测，降低库存成本', icon: Package },
-      { title: '用户画像', description: '深度分析用户行为，精准营销', icon: UserCheck },
-      { title: '营销自动化', description: '智能生成营销活动方案', icon: Megaphone },
-      { title: '价格监控', description: '实时监控竞品价格动态', icon: TrendingUp },
-      { title: '评论分析', description: 'NLP分析用户评价情感', icon: MessageCircle },
-      { title: '直播带货', description: 'AI虚拟主播全天候带货', icon: Video }
+// --- 数据源配置 ---
+const TABS_CONFIG: Record<TabType, TabConfig> = {
+  visual: {
+    name: 'AI 视觉创作',
+    title: 'AI 视觉与创意生成解决方案',
+    icon: ImagePlus,
+    features: [
+      { icon: Video, title: 'Sora2视频', desc: '新一代视频生成模型，支持长视频创作' },
+      { icon: ImagePlus, title: '香蕉绘画Nanobanana', desc: '专业级AI绘画工具，精准控制画面细节' },
+      { icon: Sparkles, title: 'AI视频 & AI绘画', desc: '一站式智能视频与图像生成平台' },
+      { icon: Layout, title: '艺术二维码', desc: '融合品牌元素的个性化艺术二维码生成' },
+      { icon: ImagePlus, title: '豆包文生图', desc: '基于字节跳动豆包模型的图像生成能力' },
+      { icon: GitMerge, title: 'AI改图', desc: '智能图像编辑，支持局部重绘与风格迁移' },
+      { icon: Mic, title: 'AI配音工具', desc: '逼真的语音合成，支持多种情感与音色' }
     ]
   },
-  enterprise: {
-    title: '企业级智能办公',
-    icon: Building,
-    products: [
-      { title: '文档智能', description: '自动生成和处理各类文档', icon: FileText, isHot: true },
-      { title: '会议助手', description: '智能会议记录和任务分配', icon: Mic, isHot: true },
-      { title: '项目管理', description: 'AI驱动的项目进度跟踪', icon: Kanban, isNew: true },
-      { title: '数据分析', description: '智能业务数据分析报告', icon: BarChart3 },
-      { title: '流程自动化', description: 'RPA机器人处理重复工作', icon: GitMerge },
-      { title: '知识库管理', description: '企业知识沉淀与智能检索', icon: BookOpen },
-      { title: '招聘助手', description: '简历自动筛选与人岗匹配', icon: UserPlus },
-      { title: '财务报销', description: '智能票据识别与审核', icon: Receipt },
-      { title: '考勤管理', description: '智能排班与考勤统计', icon: Clock }
+  agent: {
+    name: '智能对话 Agent',
+    title: '智能体与对话交互系统',
+    icon: MessageSquare,
+    features: [
+      { icon: Server, title: '智能体', desc: '自定义专属AI智能体，满足个性化需求' },
+      { icon: MessageSquare, title: 'AI对话', desc: '基于大语言模型的流畅自然交互体验' },
+      { icon: Layout, title: '对话html预览', desc: '实时预览对话中生成的HTML代码效果' },
+      { icon: Cloud, title: '对话上传文件', desc: '支持在对话中直接上传并解析文件内容' },
+      { icon: Server, title: '智能体DSL', desc: '通过DSL灵活编排智能体工作流' },
+      { icon: Sparkles, title: '对话文案AI补全', desc: '智能预测并补全用户输入内容' },
+      { icon: Mic, title: '语音播报', desc: '将对话回复自动转换为语音播报' },
+      { icon: Users, title: '分享对话', desc: '一键生成链接，便捷分享精彩对话' }
     ]
   },
-  education: {
-    title: '智慧教育平台',
-    icon: GraduationCap,
-    products: [
-      { title: '个性化学习', description: '根据学习进度定制课程', icon: BookOpenCheck, isHot: true },
-      { title: '智能评测', description: '自动批改和学习分析', icon: PenTool, isHot: true },
-      { title: '课程推荐', description: 'AI推荐最适合的学习路径', icon: Route, isNew: true },
-      { title: '学习跟踪', description: '实时监控学习效果', icon: Activity },
-      { title: '虚拟导师', description: 'AI助教随时答疑解惑', icon: MonitorPlay },
-      { title: '口语陪练', description: '智能语音识别纠正发音', icon: Ear },
-      { title: '题库生成', description: '根据知识点自动生成试题', icon: FileQuestion },
-      { title: '教务管理', description: '智能排课与资源调度', icon: Calendar },
-      { title: '家校互动', description: '自动化生成学生成长报告', icon: Users }
+  knowledge: {
+    name: '知识库与文档',
+    title: '企业级知识库与文档处理',
+    icon: FileText,
+    features: [
+      { icon: FileText, title: '知识库', desc: '构建企业私有知识库，数据安全可控' },
+      { icon: Cloud, title: '文件导入导出', desc: '支持多种格式文档的批量导入与导出' },
+      { icon: GitMerge, title: '问答对导入', desc: '快速导入QA问答对，优化模型回复' },
+      { icon: BarChart3, title: '拆分问答对', desc: '智能拆分长文档为独立的问答对片段' },
+      { icon: FileText, title: '文档问答', desc: '基于文档内容的精准问答与检索' },
+      { icon: FileText, title: 'PDF解析工具', desc: '高效提取PDF文档中的文本与表格' },
+      { icon: FileText, title: '文件生成', desc: '自动生成报告、合同等标准化文档' }
     ]
   },
-  government: {
-    title: '政务服务数字化',
-    icon: Globe,
-    products: [
-      { title: '智能政务', description: '自动化政务流程处理', icon: Server, isHot: true },
-      { title: '公共服务', description: '24/7在线政务服务', icon: Cloud, isHot: true },
-      { title: '数据治理', description: '政务数据统一管理', icon: Database, isNew: true },
-      { title: '安全保障', description: '政务信息安全防护', icon: Shield },
-      { title: '舆情监测', description: '全网舆情实时分析预警', icon: Activity },
-      { title: '政策解读', description: 'AI智能问答解读政策法规', icon: FileSearch },
-      { title: '智慧社区', description: '社区网格化智能管理', icon: Layout },
-      { title: '应急指挥', description: '突发事件智能调度决策', icon: AlertTriangle },
-      { title: '便民热线', description: '智能语音识别分流热线', icon: Phone }
+  model: {
+    name: '模型与数据能力',
+    title: '多模型管理与数据解析',
+    icon: Server,
+    features: [
+      { icon: Server, title: 'MCP', desc: '支持模型上下文协议，增强模型能力' },
+      { icon: Server, title: '模型管理', desc: '统一管理与调度各类大语言模型' },
+      { icon: ImagePlus, title: '大模型视觉识别', desc: '赋予模型强大的图像理解与分析能力' },
+      { icon: Globe, title: '网页解析', desc: '智能提取网页正文与关键信息' },
+      { icon: ImagePlus, title: '图文解析', desc: '多模态内容深度理解与结构化提取' },
+      { icon: FileText, title: '内容总结', desc: '快速提炼长文核心观点与摘要' },
+      { icon: BarChart3, title: '图表生成', desc: '根据数据自动生成可视化图表' }
     ]
   },
-  finance: {
-    title: '金融科技创新',
-    icon: Briefcase,
-    products: [
-      { title: '风险控制', description: 'AI驱动的风险评估模型', icon: Shield, isHot: true },
-      { title: '智能投顾', description: '个性化投资建议服务', icon: PieChart, isHot: true },
-      { title: '客户服务', description: '智能金融客服系统', icon: MessageSquare, isNew: true },
-      { title: '合规监管', description: '自动化合规检查', icon: Scale },
-      { title: '反欺诈', description: '实时交易欺诈检测拦截', icon: Lock },
-      { title: '信贷审批', description: '智能信贷资质审核', icon: FileCheck },
-      { title: '市场预测', description: 'AI量化分析市场趋势', icon: TrendingUp },
-      { title: '保险理赔', description: '智能定损与理赔自动化', icon: FileBarChart },
-      { title: '研报分析', description: '自动提取研报核心观点', icon: FileText }
-    ]
-  },
-  healthcare: {
-    title: '智慧医疗健康',
-    icon: Users,
-    products: [
-      { title: '智能诊断', description: 'AI辅助医疗诊断系统', icon: Stethoscope, isHot: true },
-      { title: '健康管理', description: '个人健康数据跟踪', icon: HeartPulse, isHot: true },
-      { title: '数据分析', description: '医疗大数据智能分析', icon: Activity, isNew: true },
-      { title: '远程医疗', description: '在线医疗咨询服务', icon: Video },
-      { title: '药物研发', description: 'AI加速新药筛选流程', icon: Microscope },
-      { title: '病历结构化', description: '自动提取电子病历信息', icon: FileText },
-      { title: '影像分析', description: 'CT/MRI影像智能阅片', icon: ImagePlus },
-      { title: '随访管理', description: '智能语音机器人自动随访', icon: Phone },
-      { title: '导诊分诊', description: '根据症状智能推荐科室', icon: Layout }
+  marketing: {
+    name: '营销与应用集成',
+    title: '全渠道营销与应用生态集成',
+    icon: Megaphone,
+    features: [
+      { icon: MessageSquare, title: '发布至微信公众号', desc: '一键推送文章至微信公众号平台' },
+      { icon: ImagePlus, title: '发布至朋友圈海报', desc: '自动生成适合朋友圈传播的营销海报' },
+      { icon: MessageSquare, title: '发布至企业微信', desc: '无缝打通企业微信，赋能内部办公' },
+      { icon: Server, title: '发布至影刀RPA', desc: '集成RPA能力，实现业务流程自动化' },
+      { icon: Layout, title: '思维导图', desc: '一键生成结构清晰的思维导图' },
+      { icon: BarChart3, title: 'GEO排名', desc: '基于地理位置的搜索排名优化工具' },
+      { icon: Layout, title: 'AI PPT', desc: '输入主题即可自动生成精美PPT' },
+      { icon: Sparkles, title: '爆款文章生成', desc: '辅助创作高流量、高转化的爆款文章' }
     ]
   }
 };
 
-// 优化：提取产品卡片为独立组件，使用memo避免重复渲染
-const ProductCard = memo(({ product, index }: { product: SubProduct; index: number }) => (
-  <div
-    className="group p-3 lg:p-3.5 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-blue-50/80 dark:hover:bg-gray-700/80 transition-colors duration-200 flex flex-col gap-2 cursor-pointer active:scale-[0.98] h-full border border-gray-200/60 dark:border-gray-700/40"
-  >
-    {/* 图标和标题行 */}
-    <div className="flex items-start gap-2.5 w-full">
-      {/* 左侧图标 */}
-      <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-blue-100/80 dark:bg-blue-950/80 backdrop-blur-sm flex items-center justify-center group-hover:bg-blue-600 dark:group-hover:bg-blue-600 transition-colors duration-200">
-        <product.icon className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400 group-hover:text-white dark:group-hover:text-white transition-colors duration-200" />
-      </div>
-
-      {/* 标题和标签 */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-1.5 mb-1">
-          <h3 className="text-sm lg:text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 truncate">
-            {product.title}
-          </h3>
-          {product.isHot && (
-            <span className="flex-shrink-0 px-1.5 py-0.5 text-[10px] font-bold text-white bg-gradient-to-r from-red-500 to-pink-500 rounded">
-              HOT
-            </span>
-          )}
-          {product.isNew && (
-            <span className="flex-shrink-0 px-1.5 py-0.5 text-[10px] font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-500 rounded">
-              NEW
-            </span>
-          )}
-        </div>
+// 功能卡片组件
+const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) => (
+  <div className="group flex flex-col gap-3 p-3 lg:flex-row lg:gap-4 lg:p-4 rounded-none lg:rounded-2xl lg:-ml-4 hover:bg-muted/50 transition-colors duration-300 border-0 lg:border lg:border-border/50 lg:hover:border-border">
+    <div className="shrink-0">
+      <div className="w-10 h-10 rounded-lg lg:rounded-xl bg-muted flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+        <feature.icon className="h-5 w-5" />
       </div>
     </div>
-
-    {/* 描述 */}
-    <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2 flex-1">
-      {product.description}
-    </p>
-
-    {/* 底部操作提示 */}
-    <div className="hidden lg:flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
-      <span>立即使用</span>
-      <ArrowRight className="w-3 h-3" />
+    <div className="flex-1 min-w-0">
+      <h4 className="font-bold text-sm lg:text-lg mb-1 text-foreground group-hover:text-primary transition-colors truncate">
+        {feature.title}
+      </h4>
+      <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed line-clamp-2">
+        {feature.desc}
+      </p>
+    </div>
+    <div className="shrink-0 hidden lg:block">
+      <a
+        href="https://www.cnai.art/dialogue/chat"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-3 py-1 text-xs font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-full transition-all shadow-none"
+      >
+        立即创作
+      </a>
     </div>
   </div>
-));
-
-ProductCard.displayName = 'ProductCard';
+);
 
 const HotProducts: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<ScenarioType>('ecommerce');
+  const [activeTab, setActiveTab] = useState<TabType>('visual');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const currentConfig = useMemo(() => SCENARIO_CONFIG[activeTab], [activeTab]);
+  const currentConfig = useMemo(() => TABS_CONFIG[activeTab], [activeTab]);
 
-  // 自动滚动选中的 Tab 到视图中间 (针对移动端)
-  useEffect(() => {
-    if (scrollContainerRef.current) {
-      const activeBtn = scrollContainerRef.current.querySelector(`[data-tab="${activeTab}"]`) as HTMLElement;
-      if (activeBtn) {
-        const containerWidth = scrollContainerRef.current.offsetWidth;
-        const btnLeft = activeBtn.offsetLeft;
-        const btnWidth = activeBtn.offsetWidth;
-        const scrollLeft = btnLeft - containerWidth / 2 + btnWidth / 2;
-
-        scrollContainerRef.current.scrollTo({
-          left: scrollLeft,
-          behavior: 'smooth'
-        });
-      }
-    }
-  }, [activeTab]);
+  const handleMouseEnter = (key: TabType) => {
+    setActiveTab(key);
+  };
 
   return (
-    <section className="py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50/30 dark:from-gray-900 dark:to-gray-950" id="hot-products">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 标题区域 */}
-        <div className="text-center mb-8 lg:mb-10">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
-            热门产品与服务
+    <section className="w-full py-12 sm:py-24 font-sans bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-950 dark:to-gray-900/80" id="hot-products">
+      <div className="container mx-auto px-4">
+
+        {/* 顶部标题 */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
+            全场景 <span className="text-blue-500">AI 解决方案</span>
           </h2>
-          <div className="w-16 h-1.5 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full mb-6" />
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            为您提供全方位的技术解决方案,助力业务快速增长
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            赋能企业与个人的超级智能体平台，助力业务数智化升级
           </p>
         </div>
-  
-        <div className="flex flex-col lg:flex-row lg:bg-gray-50/80 dark:lg:bg-gray-900/80 lg:backdrop-blur-md lg:rounded-xl lg:shadow-lg lg:shadow-gray-200/50 dark:lg:shadow-black/30 lg:overflow-hidden lg:border lg:border-gray-200/60 dark:lg:border-gray-800/60">
-          {/* 移动端顶部导航 - 极简设计 */}
-          <div
-            ref={scrollContainerRef}
-            className="lg:hidden overflow-x-auto scrollbar-hide sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 pb-3 pt-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
-          >
-            <div className="flex gap-2 min-w-max">
-              {(Object.keys(SCENARIO_CONFIG) as ScenarioType[]).map((key) => {
-                const config = SCENARIO_CONFIG[key];
-                const isActive = activeTab === key;
-                return (
-                  <button
-                    key={key}
-                    data-tab={key}
-                    onClick={() => setActiveTab(key)}
-                    className={cn(
-                      "flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-medium transition-colors duration-200 whitespace-nowrap active:scale-95",
-                      isActive
-                        ? "bg-blue-600 text-white"
-                        : "bg-slate-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
-                    )}
-                  >
-                    <config.icon className={cn("w-3.5 h-3.5", isActive ? "text-white" : "text-gray-400 dark:text-gray-500")} />
-                    <span>{config.title}</span>
-                  </button>
-                );
-              })}
+
+        {/* 主体卡片容器 */}
+        <div className="relative rounded-none lg:rounded-3xl overflow-hidden border-0 lg:border lg:border-border/50 shadow-none lg:shadow-sm min-h-[600px] flex flex-col lg:flex-row transition-all duration-500 backdrop-blur-xl bg-card/80">
+          {/* 背景装饰 - 简化 */}
+          <div className="absolute inset-0 z-0 bg-gradient-to-br from-muted/20 via-background/40 to-muted/20"></div>
+
+          {/* 导航区域 */}
+          <aside className="relative z-10 w-full lg:w-1/4 bg-muted/30 border-b lg:border-b-0 lg:border-r border-border/40 backdrop-blur-md flex flex-col">
+            {/* 移动端横向滚动/桌面端垂直列表 */}
+            <div className="flex-1 overflow-x-auto lg:overflow-y-auto scrollbar-hide">
+              <div className="flex lg:flex-col p-2 lg:p-4 gap-2">
+                {(Object.keys(TABS_CONFIG) as TabType[]).map((key) => {
+                  const config = TABS_CONFIG[key];
+                  const isActive = activeTab === key;
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => setActiveTab(key)}
+                      onMouseEnter={() => handleMouseEnter(key)}
+                      className={cn(
+                        "group relative flex items-center px-4 py-3 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 min-w-[140px] lg:min-w-0 text-left outline-none",
+                        isActive
+                          ? "bg-card text-primary shadow-none lg:shadow-sm lg:ring-1 lg:ring-border"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      )}
+                    >
+                      {/* 激活指示条 */}
+                      <div
+                        className={cn(
+                          "absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full transition-all duration-300",
+                          isActive ? "opacity-100" : "opacity-0"
+                        )}
+                      ></div>
+
+                      <config.icon
+                        className={cn(
+                          "h-5 w-5 mr-3 transition-colors shrink-0",
+                          isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground"
+                        )}
+                      />
+                      <span className="text-sm font-medium truncate">{config.name}</span>
+
+                      {/* 箭头 */}
+                      <ChevronRight
+                        className={cn(
+                          "ml-auto h-4 w-4 opacity-0 -translate-x-2 transition-all duration-300 hidden lg:block",
+                          isActive ? "opacity-100 translate-x-0 text-muted-foreground" : ""
+                        )}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          </aside>
 
-          {/* 桌面端左侧导航 */}
-          <div className="hidden lg:flex lg:flex-col lg:w-1/4 xl:w-1/5 bg-gray-50/60 dark:bg-gray-800/60 backdrop-blur-md flex-shrink-0 py-5 relative">
-            <div className="flex flex-col justify-between h-full px-4 xl:px-5 relative z-10">
-              {(Object.keys(SCENARIO_CONFIG) as ScenarioType[]).map((key) => {
-                const config = SCENARIO_CONFIG[key];
-                const Icon = config.icon;
-                const isActive = activeTab === key;
-
-                return (
-                  <button
-                    key={key}
-                    onClick={() => setActiveTab(key)}
-                    className={cn(
-                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-[15px] font-medium transition-colors duration-200 w-full text-left relative backdrop-blur-sm",
-                      isActive
-                        ? "bg-white/90 dark:bg-gray-700/90 text-blue-600 dark:text-blue-400 shadow-sm"
-                        : "text-gray-700 dark:text-gray-400 hover:bg-white/60 dark:hover:bg-gray-750/60 hover:text-gray-900 dark:hover:text-gray-200"
-                    )}
-                  >
-                    {isActive && (
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-blue-600 dark:bg-blue-500 rounded-r-full" />
-                    )}
-                    <Icon className={cn("w-4 h-4", isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-500")} />
-                    <span className="relative z-10">{config.title}</span>
-                  </button>
-                );
-              })}
+          {/* 内容面板 */}
+          <section className="relative z-10 flex-1 p-6 sm:p-8 lg:p-12 flex flex-col">
+            {/* 头部信息 */}
+            <div className="mb-8 animate-slide-up">
+              <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 flex items-center gap-3">
+                {currentConfig?.title}
+              </h3>
+              <div className="h-1 w-20 bg-primary rounded-full"></div>
             </div>
-          </div>
 
-          {/* 右侧内容区域 */}
-          <div className="flex-1 p-4 sm:p-5 lg:p-5 lg:bg-white/70 dark:lg:bg-gray-900/70 lg:backdrop-blur-md lg:border-l lg:border-gray-200/60 dark:lg:border-gray-800/60">
-            <div
-              key={activeTab}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
-            >
-              {currentConfig.products.map((product, index) => (
-                <ProductCard key={index} product={product} index={index} />
+            {/* 功能网格 */}
+            <div className="flex-1 grid grid-cols-2 gap-3 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-8 content-start mb-8">
+              {currentConfig.features.map((feature, index) => (
+                <FeatureCard key={index} feature={feature} index={index} />
               ))}
             </div>
-          </div>
+
+            {/* 底部操作栏 */}
+            <div className="mt-auto pt-6 border-t border-border flex flex-wrap gap-4">
+              <button className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-full transition-all shadow-sm hover:-translate-y-0.5">
+                了解方案详情
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </button>
+
+              <button className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-foreground bg-card hover:bg-muted border border-border rounded-full transition-all hover:border-primary/30 hover:-translate-y-0.5 shadow-sm">
+                联系售前咨询
+                <MessageSquare className="ml-2 h-4 w-4" />
+              </button>
+            </div>
+          </section>
         </div>
       </div>
     </section>

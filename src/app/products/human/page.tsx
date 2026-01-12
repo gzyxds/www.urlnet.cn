@@ -6,6 +6,7 @@ import { Check, Users, Bot, Play, Video, Tv, PenTool, X } from "lucide-react";
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { motion, AnimatePresence } from "framer-motion";
 import ContactSection from "@/components/ContactSection";
+import OpenScenarioSection from "@/components/OpenScenarioSection";
 /**
  * 英雄区域关键指标数据
  */
@@ -1135,7 +1136,11 @@ const HumanPage = () => {
           </div>
         </div>
       </div>
-       <ContactSection />
+
+      {/* 开源场景 */}
+      <OpenScenarioSection />
+
+      <ContactSection />
     </div>
   );
 };

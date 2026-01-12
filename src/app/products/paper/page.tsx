@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Check, Users, Bot, Play, PenTool, BarChart3, Bell, FileText } from "lucide-react";
 import { usePageMetadata } from '@/hooks/use-page-metadata';
 import ContactSection from "@/components/ContactSection";
+import OpenScenarioSection from "@/components/OpenScenarioSection";
 
 // -----------------------------------------------------------------------------
 // 数据常量定义
@@ -1136,7 +1137,11 @@ const PaperPage = () => {
           </div>
         </div>
       </div>
-       <ContactSection />
+
+      {/* 开源场景 */}
+      <OpenScenarioSection />
+
+      <ContactSection />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { usePageMetadata } from '@/hooks/use-page-metadata';
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ContactSection from "@/components/ContactSection";
+import OpenScenarioSection from "@/components/OpenScenarioSection";
 
 // 自定义CSS动画样式
 const customStyles = `
@@ -1587,7 +1588,11 @@ const ChatPage = () => {
           </div>
         </div>
       </div>
-       <ContactSection />
+
+      {/* 开源场景 */}
+      <OpenScenarioSection />
+
+      <ContactSection />
     </div>
   );
 };
