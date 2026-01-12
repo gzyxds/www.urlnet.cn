@@ -1,16 +1,20 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Gift, MessageCircle } from 'lucide-react';
 
 /**
  * FAQ 组件
  *
  * @description
  * 采用左右布局的常见问题解答组件。
- * 左侧展示标题和描述，右侧展示问题列表。
- * 参考了现代极简设计风格，使用 Grid 布局实现响应式适配。
+ * 左侧展示标题、描述和操作按钮，右侧展示问题列表。
+ * 支持点击展开/收缩的手风琴效果。
  */
 const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   const faqs = [
     {
       question: "你们开发AI系统的周期是多久?",
@@ -30,6 +34,20 @@ const FAQ = () => {
     }
   ];
 
+  /**
+   * 切换展开/收缩状态
+   */
+  const toggleItem = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  /**
+   * 显示二维码弹窗
+   */
+  const handleShowQRCode = () => {
+    window.dispatchEvent(new CustomEvent('showQRCodeModal'));
+  };
+
   return (
     <section className="bg-white py-24 sm:py-32" id="faq">
       <div className="container mx-auto px-6 lg:px-8">
@@ -47,18 +65,32 @@ const FAQ = () => {
                 常见问题解答
               </h2>
               <p className="mt-4 text-base leading-7 text-gray-600">
-                找不到您想要的答案？请联系我们的{' '}
-                <a href="#" className="font-semibold text-primary hover:text-primary/80">
-                  客户支持
-                </a>{' '}
-                团队。
+                找不到您想要的答案？请联系我们的客户支持团队，我们将为您提供专业解答。
               </p>
+
+              {/* 操作按钮 */}
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={handleShowQRCode}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <Gift className="w-4 h-4" />
+                  获取优惠码
+                </button>
+                <button
+                  onClick={handleShowQRCode}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-slate-100 text-slate-700 text-sm font-medium rounded-lg hover:bg-slate-200 transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  联系客服
+                </button>
+              </div>
             </motion.div>
           </div>
 
-          {/* 右侧：问题列表 */}
+          {/* 右侧：问题列表 - 手风琴效果 */}
           <div className="mt-10 lg:col-span-7 lg:mt-0">
-            <dl className="space-y-10">
+            <dl className="space-y-4">
               {faqs.map((faq, index) => (
                 <motion.div
                   key={faq.question}
@@ -66,13 +98,38 @@ const FAQ = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  className="border border-slate-200 rounded-lg overflow-hidden"
                 >
-                  <dt className="text-base font-semibold leading-7 text-gray-900">
-                    {faq.question}
+                  <dt>
+                    <button
+                      onClick={() => toggleItem(index)}
+                      className="w-full flex items-center justify-between px-5 py-4 text-left bg-slate-50 hover:bg-slate-100 transition-colors"
+                    >
+                      <span className="text-base font-medium text-gray-900">
+                        {faq.question}
+                      </span>
+                      <ChevronDown 
+                        className={`w-5 h-5 text-slate-500 transition-transform duration-200 ${
+                          openIndex === index ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </button>
                   </dt>
-                  <dd className="mt-2 text-base leading-7 text-gray-600">
-                    {faq.answer}
-                  </dd>
+                  <AnimatePresence>
+                    {openIndex === index && (
+                      <motion.dd
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-5 py-4 text-base leading-7 text-gray-600 bg-white">
+                          {faq.answer}
+                        </div>
+                      </motion.dd>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               ))}
             </dl>

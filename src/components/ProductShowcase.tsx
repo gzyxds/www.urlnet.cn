@@ -211,6 +211,7 @@ const ProductShowcase: React.FC = () => {
                 </div>
                 <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow-md transition-all duration-300 rounded-full font-semibold px-6 h-9 text-sm"
+                  onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
                 >
                   获取优惠码
                   <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
