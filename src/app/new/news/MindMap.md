@@ -2,7 +2,7 @@
 title: "AI 思维导图插件"
 summary: "必定AI Mind Map 是一款集成在 必定AI 平台中的 AI 思维导图工具，支持自然语言生成、多种布局、可视化编辑等功能，帮助用户快速整理思路、拆解任务与规划项目。"
 
-category: "productivity"
+category: "入门教程"
 tags: ["思维导图", "AI工具", "效率工具", "可视化", "必定AI"]
 
 author:

@@ -33,7 +33,15 @@ const ProductsPage = () => {
       <main>
         {/* 简约英雄区域 - 调整高度，使其更加紧凑 */}
         <section className="relative bg-slate-100 border-b border-gray-100">
-          <div className="container mx-auto px-6 py-16 sm:py-18 lg:py-20">
+          {/* 网格背景 */}
+          <div 
+            className="absolute inset-0 opacity-[0.15] pointer-events-none z-0"
+            style={{
+              backgroundImage: `linear-gradient(to right, #93c5fd 1px, transparent 1px), linear-gradient(to bottom, #93c5fd 1px, transparent 1px)`,
+              backgroundSize: '32px 32px'
+            }}
+          />
+          <div className="relative z-10 container mx-auto px-6 py-16 sm:py-18 lg:py-20">
             <div className="max-w-4xl mx-auto text-center flex flex-col justify-center min-h-[300px] sm:min-h-[320px] lg:min-h-[350px]">
               {/* 内容区域 - 使用 flex 布局确保垂直居中 */}
               <div className="flex flex-col items-center justify-center space-y-6">
