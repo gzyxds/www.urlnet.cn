@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import {
@@ -43,20 +43,17 @@ interface NavItem {
 const SCROLL_THRESHOLD = 20;
 const MOBILE_BREAKPOINT = 768;
 
-// 动画配置
-const MENU_ITEM_VARIANTS = {
-  hidden: { opacity: 0, y: 10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.05, duration: 0.3, ease: "easeOut" as const }
-  })
+// 优化后的动画配置 - 减少动画复杂度
+const MOBILE_MENU_VARIANTS = {
+  hidden: { opacity: 0, height: 0 },
+  visible: { opacity: 1, height: "auto" },
+  exit: { opacity: 0, height: 0 }
 };
 
-const MOBILE_MENU_VARIANTS = {
-  hidden: { height: 0, opacity: 0, y: -10 },
-  visible: { height: "auto", opacity: 1, y: 0 },
-  exit: { height: 0, opacity: 0, y: -10 }
+const DROPDOWN_VARIANTS = {
+  hidden: { opacity: 0, y: 5 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 5 }
 };
 
 /**
@@ -268,97 +265,51 @@ const Header: React.FC = () => {
 
 
 
-  // 渲染移动端菜单项
-  const renderMobileMenuItem = (subItem: NavSubItem, index: number) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: index * 0.05, duration: 0.2 }}
-    >
-      {subItem.external ? (
-        <div
-          className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 cursor-pointer border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700 relative"
-          onClick={() => openExternalLink(subItem.url!)}
-        >
-          <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-            {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
-          </div>
-          <ExternalLink className="h-3 w-3 text-gray-400 absolute top-2 right-2 dark:text-gray-500" />
+  // 优化：提取为独立组件，避免每次渲染重新创建
+  const MobileMenuItem = memo(({ subItem }: { subItem: NavSubItem }) => {
+    // 移动端极简设计：移除边框、阴影等装饰效果
+    const baseClass = "flex flex-col items-center p-3 rounded-lg bg-slate-50 hover:bg-blue-50/80 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-900/30";
+    const iconWrapperClass = "w-9 h-9 rounded-lg flex items-center justify-center mb-1.5";
+    
+    const content = (
+      <>
+        <div className={iconWrapperClass}>
+          {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
         </div>
-      ) : (
-                        <Link
-                          to={subItem.path}
-                          className="flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-blue-50/70 transition-all duration-200 border border-gray-100 hover:border-blue-200 dark:bg-gray-700/50 dark:hover:bg-blue-950/30 dark:border-gray-600 dark:hover:border-blue-700"
-                          onClick={handleNavigation}
-        >
-          <div className={`w-10 h-10 rounded-lg bg-${subItem.color}-100 flex items-center justify-center mb-2 text-${subItem.color}-600 dark:bg-${subItem.color}-900/50 dark:text-${subItem.color}-400`}>
-            {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
-          </div>
-        </Link>
-      )}
-    </motion.div>
-  );
-
-  // 渲染移动端分类菜单项
-  const renderMobileCategorizedMenu = (items: NavSubItem[], menuName: string) => {
-    // 根据菜单类型分组项目
-    const getLeftItems = () => {
-      if (menuName === "产品与服务") {
-        // 行业相关：前3个项目
-        return items.slice(0, 3);
-      } else if (menuName === "支持与服务") {
-        // 服务相关：前3个项目
-        return items.slice(0, 3);
-      } else if (menuName === "产品体验") {
-        // 体验相关：前3个项目
-        return items.slice(0, 3);
-      } else if (menuName === "新闻资讯") {
-        // 资讯相关：前3个项目
-        return items.slice(0, 3);
-      }
-      return items.slice(0, Math.ceil(items.length / 2));
-    };
-
-    const getRightItems = () => {
-      if (menuName === "产品与服务") {
-        // 使用场景：后3个项目
-        return items.slice(3);
-      } else if (menuName === "支持与服务") {
-        // 支持相关：后3个项目
-        return items.slice(3);
-      } else if (menuName === "产品体验") {
-        // 更多：后3个项目
-        return items.slice(3);
-      } else if (menuName === "新闻资讯") {
-        // 动态相关：后3个项目
-        return items.slice(3);
-      }
-      return items.slice(Math.ceil(items.length / 2));
-    };
-
-    const leftItems = getLeftItems();
-    const rightItems = getRightItems();
+        <div className="flex flex-col items-center text-center">
+          <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
+          <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
+        </div>
+      </>
+    );
 
     return (
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-3">
-          {leftItems.map((item, index) => renderMobileMenuItem(item, index))}
-        </div>
-        <div className="space-y-3">
-          {rightItems.map((item, index) => renderMobileMenuItem(item, index + leftItems.length))}
-        </div>
+      <div>
+        {subItem.external ? (
+          <div
+            className={`${baseClass} cursor-pointer relative`}
+            onClick={() => openExternalLink(subItem.url!)}
+          >
+            {content}
+            <ExternalLink className="h-3 w-3 text-gray-400 absolute top-2 right-2 dark:text-gray-500" />
+          </div>
+        ) : (
+          <Link to={subItem.path} className={baseClass} onClick={handleNavigation}>
+            {content}
+          </Link>
+        )}
       </div>
     );
-  };
+  });
+
+  // 优化：使用CSS Grid两行两列布局
+  const renderMobileCategorizedMenu = useCallback((items: NavSubItem[]) => {
+    return (
+      <div className="grid grid-cols-2 gap-2.5">
+        {items.map((item, index) => <MobileMenuItem key={index} subItem={item} />)}
+      </div>
+    );
+  }, [handleNavigation, openExternalLink]);
 
   return (
     <header
@@ -371,18 +322,14 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14">
-          {/* Logo区域 */}
-          <div className="flex items-center space-x-8">
-            <Link to="/" className="flex items-center group" onClick={handleNavigation}>
-              <motion.div
-                className="flex items-center"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <img src="/images/scenarios/logo.svg" alt="艺创AI企业网站" className="h-10 w-auto" />
-                <span className="ml-1.5 text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded-full font-medium dark:bg-blue-900 dark:text-blue-300">艺创AI</span>
-              </motion.div>
-            </Link>
+            {/* Logo区域 */}
+            <div className="flex items-center space-x-8">
+              <Link to="/" className="flex items-center group" onClick={handleNavigation}>
+                <div className="flex items-center transition-transform hover:scale-105">
+                  <img src="/images/scenarios/logo.svg" alt="艺创AI企业网站" className="h-10 w-auto" />
+                  <span className="ml-1.5 text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded-full font-medium dark:bg-blue-900 dark:text-blue-300">艺创AI</span>
+                </div>
+              </Link>
 
             {/* 桌面端导航 */}
             <nav className="hidden md:flex items-center space-x-2">
@@ -412,18 +359,13 @@ const Header: React.FC = () => {
                     <AnimatePresence>
                       {hoveredMenu === item.name && (
                         <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{
-                            duration: 0.2,
-                            ease: [0.4, 0, 0.2, 1],
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 30
-                          }}
+                          variants={DROPDOWN_VARIANTS}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                          transition={{ duration: 0.15 }}
                           className="absolute left-0 right-0 mx-auto top-full mt-3 w-[480px] bg-white dark:bg-gray-900 shadow-xl border border-gray-200/60 dark:border-gray-700/60 rounded-lg backdrop-blur-sm z-50"
-                          style={{ marginLeft: '-210px' }} // 使用固定偏移量使下拉菜单居中
+                          style={{ marginLeft: '-210px' }}
                           onMouseEnter={handleDropdownMouseEnter}
                           onMouseLeave={handleDropdownMouseLeave}
                         >
@@ -445,12 +387,7 @@ const Header: React.FC = () => {
                           <div className="p-4">
                             <div className="grid grid-cols-2 gap-2">
                               {item.items?.map((subItem, subIndex) => (
-                                <motion.div
-                                  key={subIndex}
-                                  initial={{ opacity: 0, y: 5 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: subIndex * 0.05, duration: 0.2 }}
-                                >
+                                <div key={subIndex}>
                                   {subItem.external ? (
                                     <div
                                       className="enterprise-menu-item group/item cursor-pointer"
@@ -507,7 +444,7 @@ const Header: React.FC = () => {
                                       </div>
                                     </Link>
                                   )}
-                                </motion.div>
+                                </div>
                               ))}
                             </div>
                           </div>
@@ -534,31 +471,17 @@ const Header: React.FC = () => {
           {/* 操作按钮区域 */}
           <div className="flex items-center space-x-1">
             {/* 暗黑模式切换按钮（桌面端） */}
-            <motion.div
-              className="hidden md:block"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <div className="hidden md:block">
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-full h-8 w-8 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
+                className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-full h-8 w-8 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 transition-all"
                 onClick={toggleDarkMode}
                 aria-label={isDarkMode ? "切换到亮色模式" : "切换到暗黑模式"}
               >
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={isDarkMode ? "dark" : "light"}
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                  </motion.div>
-                </AnimatePresence>
+                {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
-            </motion.div>
+            </div>
 
             {/* 通知和GitHub（桌面端） */}
             <div className="hidden md:flex items-center space-x-1">
@@ -700,26 +623,13 @@ const Header: React.FC = () => {
             </div>
 
             {/* 移动端菜单按钮 */}
-            <motion.button
-              className="md:hidden p-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-600 hover:text-[#015bfe] hover:bg-blue-50/70 hover:border-blue-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 dark:hover:border-blue-700 transition-all duration-200 flex items-center justify-center min-w-[40px] w-10 h-10 shadow-sm"
+            <button
+              className="md:hidden p-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-600 hover:text-[#015bfe] hover:bg-blue-50/70 hover:border-blue-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 dark:hover:border-blue-700 transition-all duration-200 flex items-center justify-center min-w-[40px] w-10 h-10 shadow-sm active:scale-95"
               onClick={toggleMobileMenu}
               aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
-              whileTap={{ scale: 0.95 }}
-              whileHover={{ scale: 1.05 }}
             >
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={mobileMenuOpen ? "close" : "open"}
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex items-center justify-center"
-                >
-                  {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </motion.div>
-              </AnimatePresence>
-            </motion.button>
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
       </div>
@@ -733,7 +643,7 @@ const Header: React.FC = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.2 }}
           >
             <div className="container mx-auto px-4 py-6 max-h-[80vh] overflow-y-auto">
               {/* 移动端工具栏 */}
@@ -763,27 +673,17 @@ const Header: React.FC = () => {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50"
+                    className="text-gray-600 hover:text-[#015bfe] hover:bg-blue-50 rounded-lg h-8 w-8 p-0 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-950/50 transition-all"
                     onClick={toggleDarkMode}
                   >
-                    <AnimatePresence mode="wait" initial={false}>
-                      <motion.div
-                        key={isDarkMode ? "dark" : "light"}
-                        initial={{ rotate: -180, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: 180, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                      </motion.div>
-                    </AnimatePresence>
+                    {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                   </Button>
                 </div>
               </div>
 
               <nav className="flex flex-col space-y-2">
                 {/* 产品与服务菜单 */}
-                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={0} variants={MENU_ITEM_VARIANTS}>
+                <div className="rounded-lg bg-slate-50 p-2.5 dark:bg-gray-800/50">
                   <button
                     onClick={() => toggleMobileDropdown('products')}
                     className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
@@ -797,12 +697,12 @@ const Header: React.FC = () => {
                         <span className="text-xs text-gray-500 dark:text-gray-400">产品中心与核心服务</span>
                       </div>
                     </div>
-                    <motion.div
-                      animate={{ rotate: activeDropdown === 'products' ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
+                    <div
+                      className="transition-transform duration-200"
+                      style={{ transform: activeDropdown === 'products' ? 'rotate(180deg)' : 'rotate(0deg)' }}
                     >
                       <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-                    </motion.div>
+                    </div>
                   </button>
 
                   <AnimatePresence>
@@ -812,79 +712,78 @@ const Header: React.FC = () => {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        transition={{ duration: 0.2 }}
                         className="overflow-hidden mt-4"
                       >
-                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
-                          <div className="flex justify-between mb-3">
-                            <div className="px-1">
-                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">行业</h4>
-                            </div>
-                            <div className="px-1">
-                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">使用场景</h4>
-                            </div>
-                          </div>
-                          <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
-                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "产品与服务")?.items || [], "产品与服务")}
+                        <div className="p-3 bg-white/90 rounded-lg dark:bg-gray-900/90">
+                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "产品与服务")?.items || [])}
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                </div>
 
-                {/* 产品演示 */}
-                <motion.div initial="hidden" animate="visible" custom={1} variants={MENU_ITEM_VARIANTS}>
+                {/* 快速导航网格 */}
+                <div className="grid grid-cols-2 gap-2">
                   <Link
                     to="/demo"
-                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50"
+                    className="flex items-center p-3 rounded-lg bg-slate-50 hover:bg-blue-50/80 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-900/30"
                     onClick={handleNavigation}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center mr-3 dark:bg-cyan-900/50">
-                      <Zap className="h-5 w-5 text-cyan-600 dark:text-cyan-400" />
+                    <div className="w-9 h-9 rounded-lg bg-cyan-100 flex items-center justify-center mr-2.5 dark:bg-cyan-900/50">
+                      <Zap className="h-4 w-4 text-cyan-600 dark:text-cyan-400" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-medium text-gray-800 dark:text-gray-200">产品演示</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">在线体验产品功能</span>
+                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">产品演示</span>
+                      <span className="text-[11px] text-gray-500 dark:text-gray-400">在线体验</span>
                     </div>
                   </Link>
-                </motion.div>
 
-                {/* 产品文档 */}
-                <motion.div initial="hidden" animate="visible" custom={2} variants={MENU_ITEM_VARIANTS}>
                   <Link
                     to="/docs"
-                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50"
+                    className="flex items-center p-3 rounded-lg bg-slate-50 hover:bg-blue-50/80 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-900/30"
                     onClick={handleNavigation}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center mr-3 dark:bg-indigo-900/50">
-                      <BookOpen className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+                    <div className="w-9 h-9 rounded-lg bg-indigo-100 flex items-center justify-center mr-2.5 dark:bg-indigo-900/50">
+                      <BookOpen className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-medium text-gray-800 dark:text-gray-200">产品文档</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">详细的使用指南</span>
+                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">产品文档</span>
+                      <span className="text-[11px] text-gray-500 dark:text-gray-400">使用指南</span>
                     </div>
                   </Link>
-                </motion.div>
 
-                {/* 新闻资讯 */}
-                <motion.div initial="hidden" animate="visible" custom={3} variants={MENU_ITEM_VARIANTS}>
                   <Link
                     to="/new"
-                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50"
+                    className="flex items-center p-3 rounded-lg bg-slate-50 hover:bg-blue-50/80 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-900/30"
                     onClick={handleNavigation}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3 dark:bg-blue-900/50">
-                      <Newspaper className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                    <div className="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center mr-2.5 dark:bg-blue-900/50">
+                      <Newspaper className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-medium text-gray-800 dark:text-gray-200">新闻资讯</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">最新动态与行业资讯</span>
+                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">新闻资讯</span>
+                      <span className="text-[11px] text-gray-500 dark:text-gray-400">最新动态</span>
                     </div>
                   </Link>
-                </motion.div>
+
+                  <Link
+                    to="/about"
+                    className="flex items-center p-3 rounded-lg bg-slate-50 hover:bg-blue-50/80 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-900/30"
+                    onClick={handleNavigation}
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-emerald-100 flex items-center justify-center mr-2.5 dark:bg-emerald-900/50">
+                      <User className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">关于我们</span>
+                      <span className="text-[11px] text-gray-500 dark:text-gray-400">了解团队</span>
+                    </div>
+                  </Link>
+                </div>
 
                 {/* 支持与服务菜单 */}
-                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={4} variants={MENU_ITEM_VARIANTS}>
+                <div className="rounded-lg bg-slate-50 p-2.5 dark:bg-gray-800/50">
                   <button
                     onClick={() => toggleMobileDropdown('agency')}
                     className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
@@ -898,12 +797,12 @@ const Header: React.FC = () => {
                         <span className="text-xs text-gray-500 dark:text-gray-400">技术支持与合作服务</span>
                       </div>
                     </div>
-                    <motion.div
-                      animate={{ rotate: activeDropdown === 'agency' ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
+                    <div
+                      className="transition-transform duration-200"
+                      style={{ transform: activeDropdown === 'agency' ? 'rotate(180deg)' : 'rotate(0deg)' }}
                     >
                       <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-                    </motion.div>
+                    </div>
                   </button>
 
                   <AnimatePresence>
@@ -913,28 +812,19 @@ const Header: React.FC = () => {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        transition={{ duration: 0.2 }}
                         className="overflow-hidden mt-4"
                       >
-                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
-                          <div className="flex justify-between mb-3">
-                            <div className="px-1">
-                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">服务</h4>
-                            </div>
-                            <div className="px-1">
-                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">支持</h4>
-                            </div>
-                          </div>
-                          <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
-                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "支持与服务")?.items || [], "支持与服务")}
+                        <div className="p-3 bg-white/90 rounded-lg dark:bg-gray-900/90">
+                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "支持与服务")?.items || [])}
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                </div>
 
                 {/* 产品体验菜单 */}
-                <motion.div className="rounded-xl bg-gray-50/50 p-3 dark:bg-gray-800/50" initial="hidden" animate="visible" custom={5} variants={MENU_ITEM_VARIANTS}>
+                <div className="rounded-lg bg-slate-50 p-2.5 dark:bg-gray-800/50">
                   <button
                     onClick={() => toggleMobileDropdown('experience')}
                     className="flex items-center justify-between w-full py-3 px-3 rounded-lg hover:bg-blue-50/70 transition-colors duration-200 dark:hover:bg-blue-950/50"
@@ -948,12 +838,12 @@ const Header: React.FC = () => {
                         <span className="text-xs text-gray-500 dark:text-gray-400">在线体验产品功能</span>
                       </div>
                     </div>
-                    <motion.div
-                      animate={{ rotate: activeDropdown === 'experience' ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
+                    <div
+                      className="transition-transform duration-200"
+                      style={{ transform: activeDropdown === 'experience' ? 'rotate(180deg)' : 'rotate(0deg)' }}
                     >
                       <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-                    </motion.div>
+                    </div>
                   </button>
 
                   <AnimatePresence>
@@ -963,75 +853,45 @@ const Header: React.FC = () => {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        transition={{ duration: 0.2 }}
                         className="overflow-hidden mt-4"
                       >
-                        <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg dark:bg-gray-800/80 dark:border-gray-700">
-                          <div className="flex justify-between mb-3">
-                            <div className="px-1">
-                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">体验</h4>
-                            </div>
-                            <div className="px-1">
-                              <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-1">更多</h4>
-                            </div>
-                          </div>
-                          <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
-                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "产品体验")?.items || [], "产品体验")}
+                        <div className="p-3 bg-white/90 rounded-lg dark:bg-gray-900/90">
+                          {renderMobileCategorizedMenu(navItems.find(item => item.name === "产品体验")?.items || [])}
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
-
-                {/* 关于我们 */}
-                <motion.div initial="hidden" animate="visible" custom={6} variants={MENU_ITEM_VARIANTS}>
-                  <Link
-                    to="/about"
-                    className="flex items-center p-4 rounded-xl bg-gray-50/50 hover:bg-blue-50/70 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-950/50"
-                    onClick={handleNavigation}
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mr-3 dark:bg-emerald-900/50">
-                      <User className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="font-medium text-gray-800 dark:text-gray-200">关于我们</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">了解艺创AI团队</span>
-                    </div>
-                  </Link>
-                </motion.div>
+                </div>
 
                 {/* 登录和注册按钮 */}
-                <motion.div className="pt-6 space-y-3" initial="hidden" animate="visible" custom={7} variants={MENU_ITEM_VARIANTS}>
-                  <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 dark:from-blue-950/50 dark:to-indigo-950/50 dark:border-blue-800">
-                    <div className="flex items-center mb-3">
-                      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2 dark:bg-blue-900/50">
-                        <User className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                <div className="pt-4 space-y-2.5">
+                  <div className="p-3.5 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg dark:from-blue-950/50 dark:to-indigo-950/50">
+                    <div className="flex items-center mb-2.5">
+                      <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center mr-2 dark:bg-blue-900/50">
+                        <User className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
                       </div>
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">账户中心</span>
                     </div>
-                    <div className="space-y-2">
-                      <motion.div whileTap={{ scale: 0.98 }}>
-                        <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
-                          <Button
-                            variant="outline"
-                            className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900 text-sm md:text-base py-2 md:py-3 md:px-6"
-                          >
-                            <User className="h-4 w-4 md:h-5 md:w-5 mr-2" />
-                            登录账户
-                          </Button>
-                        </a>
-                      </motion.div>
-                      <motion.div whileTap={{ scale: 0.98 }}>
-                        <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
-                          <Button className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg shadow-lg shadow-blue-200/50 transition-all duration-200 dark:shadow-blue-900/20 text-sm md:text-base py-2 md:py-3 md:px-6">
-                            <Sparkles className="h-4 w-4 md:h-5 md:w-5 mr-2" />
-                            免费注册
-                          </Button>
-                        </a>
-                      </motion.div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
+                        <Button
+                          variant="outline"
+                          className="border-[#015bfe] text-[#015bfe] hover:bg-[#015bfe] hover:text-white w-full font-medium rounded-lg transition-all duration-200 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900 text-sm py-2.5"
+                        >
+                          <User className="h-4 w-4 mr-1.5" />
+                          登录
+                        </Button>
+                      </a>
+                      <a href="https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-[#015bfe] to-blue-600 hover:from-blue-700 hover:to-blue-800 text-white w-full font-medium rounded-lg transition-all duration-200 text-sm py-2.5">
+                          <Sparkles className="h-4 w-4 mr-1.5" />
+                          注册
+                        </Button>
+                      </a>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </nav>
             </div>
           </motion.div>

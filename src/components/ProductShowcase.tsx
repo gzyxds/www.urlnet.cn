@@ -151,7 +151,7 @@ const ProductShowcase: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50/50 dark:bg-gray-950/50 pt-24 pb-20 relative overflow-hidden">
+    <div className="min-h-screen bg-gray-50/50 dark:bg-gray-900 pt-24 pb-20 relative overflow-hidden">
       {/* 背景装饰 */}
       <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-50/80 to-transparent dark:from-blue-950/20 dark:to-transparent pointer-events-none" />
       <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -179,13 +179,13 @@ const ProductShowcase: React.FC = () => {
 
               {/* 分类导航 */}
               <div className="space-y-3">
-                <h3 className="px-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">分类导航</h3>
+               <h3 className="px-2 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">分类导航</h3>
                 {renderCategoryList(mainCategories)}
               </div>
 
               {/* 插件应用 */}
               <div className="space-y-3 pt-2">
-                <h3 className="px-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">插件应用</h3>
+               <h3 className="px-2 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">插件应用</h3>
                 {renderCategoryList(pluginCategories)}
               </div>
             </div>
@@ -223,7 +223,7 @@ const ProductShowcase: React.FC = () => {
               <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                 <span className="w-1.5 h-6 bg-blue-500 rounded-full" />
                 全部应用
-                <span className="text-sm font-normal text-gray-500 ml-2">({filteredApps.length})</span>
+               <span className="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">({filteredApps.length})</span>
               </h2>
             </div>
 
@@ -292,7 +292,7 @@ const ProductShowcase: React.FC = () => {
                              ¥{app.discountPrice.toFixed(2)}
                           </span>
                           {app.originalPrice > app.discountPrice && (
-                            <span className="text-xs text-red-500 font-medium ml-auto">
+                             <span className="text-xs text-red-500 dark:text-red-400 font-medium ml-auto">
                               省¥{Math.round(app.originalPrice - app.discountPrice)}
                             </span>
                           )}
@@ -323,7 +323,7 @@ const ProductShowcase: React.FC = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="flex-1 h-8 px-2 text-xs text-blue-600 border-blue-200 hover:bg-blue-50 hover:border-blue-300 transition-colors"
+                                className="flex-1 h-8 px-2 text-xs text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-300 dark:hover:border-blue-700 transition-colors"
                                 onClick={() => window.open(app.buyLink as string, '_blank')}
                               >
                                 <ShoppingCart className="h-3.5 w-3.5 mr-1.5" />
@@ -334,7 +334,7 @@ const ProductShowcase: React.FC = () => {
                               <Button
                                 variant="default"
                                 size="sm"
-                                className="flex-1 h-8 px-2 text-xs bg-blue-600 hover:bg-blue-700 transition-colors"
+                                className="flex-1 h-8 px-2 text-xs bg-blue-600 dark:bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors"
                                 asChild
                               >
                                 <Link to={app.link as string} className="flex items-center justify-center">
@@ -363,7 +363,7 @@ const ProductShowcase: React.FC = () => {
                   <Inbox className="w-10 h-10 text-gray-400" />
                 </div>
                 <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">未找到相关应用</h3>
-                <p className="text-gray-500 max-w-xs mx-auto">
+                <p className="text-gray-500 dark:text-gray-400 max-w-xs mx-auto">
                   试试更换搜索关键词，或者切换分类看看吧
                 </p>
                 <Button

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Globe,
@@ -168,6 +168,53 @@ const SCENARIO_CONFIG: Record<ScenarioType, ScenarioConfig> = {
   }
 };
 
+// 优化：提取产品卡片为独立组件，使用memo避免重复渲染
+const ProductCard = memo(({ product, index }: { product: SubProduct; index: number }) => (
+  <div
+    className="group p-3 lg:p-3.5 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-blue-50/80 dark:hover:bg-gray-700/80 transition-colors duration-200 flex flex-col gap-2 cursor-pointer active:scale-[0.98] h-full border border-gray-200/60 dark:border-gray-700/40"
+  >
+    {/* 图标和标题行 */}
+    <div className="flex items-start gap-2.5 w-full">
+      {/* 左侧图标 */}
+      <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-blue-100/80 dark:bg-blue-950/80 backdrop-blur-sm flex items-center justify-center group-hover:bg-blue-600 dark:group-hover:bg-blue-600 transition-colors duration-200">
+        <product.icon className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400 group-hover:text-white dark:group-hover:text-white transition-colors duration-200" />
+      </div>
+
+      {/* 标题和标签 */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-1.5 mb-1">
+          <h3 className="text-sm lg:text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 truncate">
+            {product.title}
+          </h3>
+          {product.isHot && (
+            <span className="flex-shrink-0 px-1.5 py-0.5 text-[10px] font-bold text-white bg-gradient-to-r from-red-500 to-pink-500 rounded">
+              HOT
+            </span>
+          )}
+          {product.isNew && (
+            <span className="flex-shrink-0 px-1.5 py-0.5 text-[10px] font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-500 rounded">
+              NEW
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+
+    {/* 描述 */}
+    <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2 flex-1">
+      {product.description}
+    </p>
+
+    {/* 底部操作提示 */}
+    <div className="hidden lg:flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+      <span>立即使用</span>
+      <ArrowRight className="w-3 h-3" />
+    </div>
+  </div>
+));
+
+ProductCard.displayName = 'ProductCard';
+
 const HotProducts: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ScenarioType>('ecommerce');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -193,24 +240,24 @@ const HotProducts: React.FC = () => {
   }, [activeTab]);
 
   return (
-    <section className="py-12 lg:py-20 bg-gray-50/50" id="hot-products">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className="py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50/30 dark:from-gray-900 dark:to-gray-950" id="hot-products">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* 标题区域 */}
-        <div className="text-center mb-10 lg:mb-14">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+        <div className="text-center mb-8 lg:mb-10">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
             热门产品与服务
           </h2>
-          <div className="w-16 h-1.5 bg-blue-600 mx-auto rounded-full mb-6" />
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            为您提供全方位的技术解决方案，助力业务快速增长
+          <div className="w-16 h-1.5 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full mb-6" />
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            为您提供全方位的技术解决方案,助力业务快速增长
           </p>
         </div>
-
-        <div className="flex flex-col lg:flex-row min-h-[480px] lg:bg-white lg:rounded-2xl lg:shadow-xl lg:shadow-gray-100/50 lg:border lg:border-gray-100 lg:overflow-hidden">
-          {/* 移动端/平板端顶部导航 - 优化触控体验 */}
+  
+        <div className="flex flex-col lg:flex-row lg:bg-gray-50/80 dark:lg:bg-gray-900/80 lg:backdrop-blur-md lg:rounded-xl lg:shadow-lg lg:shadow-gray-200/50 dark:lg:shadow-black/30 lg:overflow-hidden lg:border lg:border-gray-200/60 dark:lg:border-gray-800/60">
+          {/* 移动端顶部导航 - 极简设计 */}
           <div
             ref={scrollContainerRef}
-            className="lg:hidden overflow-x-auto scrollbar-hide sticky top-0 z-20 -mx-4 px-4 pb-4 pt-2 bg-gray-50/95 backdrop-blur-sm"
+            className="lg:hidden overflow-x-auto scrollbar-hide sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 pb-3 pt-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
           >
             <div className="flex gap-2 min-w-max">
               {(Object.keys(SCENARIO_CONFIG) as ScenarioType[]).map((key) => {
@@ -222,13 +269,13 @@ const HotProducts: React.FC = () => {
                     data-tab={key}
                     onClick={() => setActiveTab(key)}
                     className={cn(
-                      "flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-medium transition-all duration-200 border whitespace-nowrap active:scale-95",
+                      "flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-medium transition-colors duration-200 whitespace-nowrap active:scale-95",
                       isActive
-                        ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
-                        : "bg-white text-gray-600 border-gray-200 shadow-sm"
+                        ? "bg-blue-600 text-white"
+                        : "bg-slate-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
                     )}
                   >
-                    <config.icon className={cn("w-3.5 h-3.5", isActive ? "text-white" : "text-gray-400")} />
+                    <config.icon className={cn("w-3.5 h-3.5", isActive ? "text-white" : "text-gray-400 dark:text-gray-500")} />
                     <span>{config.title}</span>
                   </button>
                 );
@@ -236,9 +283,9 @@ const HotProducts: React.FC = () => {
             </div>
           </div>
 
-          {/* 桌面端左侧侧边栏导航 */}
-          <div className="hidden lg:block lg:w-1/4 xl:w-1/5 bg-gray-50/30 flex-shrink-0 border-r border-gray-100 py-8 relative">
-            <div className="flex flex-col gap-2 px-4 xl:px-6 relative z-10">
+          {/* 桌面端左侧导航 */}
+          <div className="hidden lg:flex lg:flex-col lg:w-1/4 xl:w-1/5 bg-gray-50/60 dark:bg-gray-800/60 backdrop-blur-md flex-shrink-0 py-5 relative">
+            <div className="flex flex-col justify-between h-full px-4 xl:px-5 relative z-10">
               {(Object.keys(SCENARIO_CONFIG) as ScenarioType[]).map((key) => {
                 const config = SCENARIO_CONFIG[key];
                 const Icon = config.icon;
@@ -249,84 +296,33 @@ const HotProducts: React.FC = () => {
                     key={key}
                     onClick={() => setActiveTab(key)}
                     className={cn(
-                      "flex items-center gap-4 px-5 py-4 rounded-xl text-base font-medium transition-all duration-300 w-full text-left relative overflow-hidden group",
+                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-[15px] font-medium transition-colors duration-200 w-full text-left relative backdrop-blur-sm",
                       isActive
-                        ? "bg-white text-blue-600 shadow-sm ring-1 ring-black/5"
-                        : "text-gray-600 hover:bg-white/60 hover:text-gray-900"
+                        ? "bg-white/90 dark:bg-gray-700/90 text-blue-600 dark:text-blue-400 shadow-sm"
+                        : "text-gray-700 dark:text-gray-400 hover:bg-white/60 dark:hover:bg-gray-750/60 hover:text-gray-900 dark:hover:text-gray-200"
                     )}
                   >
                     {isActive && (
-                      <motion.div
-                        layoutId="active-pill"
-                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-blue-600 rounded-r-full"
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      />
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-blue-600 dark:bg-blue-500 rounded-r-full" />
                     )}
-                    <Icon className={cn("w-5 h-5", isActive ? "text-blue-600" : "text-gray-400 group-hover:text-gray-600")} />
+                    <Icon className={cn("w-4 h-4", isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-500")} />
                     <span className="relative z-10">{config.title}</span>
                   </button>
                 );
               })}
             </div>
-
-            {/* 装饰性背景图 */}
-            <div className="absolute bottom-0 left-0 right-0 px-8 pb-8 opacity-40 pointer-events-none z-0">
-              <img src="/images/scenarios/sidebar-bg.svg" alt="" className="w-full" onError={(e) => e.currentTarget.style.display = 'none'} />
-            </div>
           </div>
 
           {/* 右侧内容区域 */}
-          <div className="flex-1 lg:p-8 lg:bg-white">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -10 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6"
-              >
-                {currentConfig.products.map((product, index) => (
-                  <div
-                    key={index}
-                    className="group p-3 lg:p-4 rounded-xl border border-gray-100 bg-white hover:border-blue-100 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-3 h-full cursor-pointer active:scale-[0.98]"
-                  >
-                    {/* 左侧图标区域 */}
-                    <div className="flex-shrink-0 w-10 h-10 lg:w-10 lg:h-10 rounded-lg bg-blue-50/50 flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300 sm:mt-0.5">
-                      <product.icon className="w-5 h-5 lg:w-5 lg:h-5 text-blue-600 group-hover:text-white transition-colors duration-300" />
-                    </div>
-
-                    {/* 右侧内容区域 */}
-                    <div className="flex-1 min-w-0 text-center sm:text-left w-full">
-                      <div className="flex items-center justify-center sm:justify-start gap-1.5 mb-1.5 sm:mb-1">
-                        <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 truncate max-w-[80%] sm:max-w-none">
-                          {product.title}
-                        </h3>
-                        {product.isHot && (
-                          <span className="flex-shrink-0 px-1.5 py-0.5 text-[10px] font-bold text-white bg-gradient-to-r from-red-500 to-pink-500 rounded flex items-center justify-center shadow-sm scale-90 sm:scale-100">
-                            HOT
-                          </span>
-                        )}
-                        {product.isNew && (
-                          <span className="flex-shrink-0 px-1.5 py-0.5 text-[10px] font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-500 rounded flex items-center justify-center shadow-sm scale-90 sm:scale-100">
-                            NEW
-                          </span>
-                        )}
-                      </div>
-
-                      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 sm:line-clamp-2 mb-0 lg:mb-2 h-auto lg:h-8">
-                        {product.description}
-                      </p>
-
-                      <div className="hidden lg:flex items-center gap-1 text-[11px] font-medium text-blue-600 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                        <span>立即使用</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
+          <div className="flex-1 p-4 sm:p-5 lg:p-5 lg:bg-white/70 dark:lg:bg-gray-900/70 lg:backdrop-blur-md lg:border-l lg:border-gray-200/60 dark:lg:border-gray-800/60">
+            <div
+              key={activeTab}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+            >
+              {currentConfig.products.map((product, index) => (
+                <ProductCard key={index} product={product} index={index} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

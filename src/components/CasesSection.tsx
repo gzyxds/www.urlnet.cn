@@ -199,7 +199,7 @@ const Cases = () => {
   }, [filteredCases.length]);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-32 bg-muted/20 overflow-hidden" id="cases">
+    <section className="py-16 sm:py-20 lg:py-32 bg-muted/20 dark:bg-gray-900 overflow-hidden" id="cases">
       <div className="container mx-auto px-4 sm:px-6">
         {/* 头部区域 */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-6">
@@ -208,7 +208,7 @@ const Cases = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-4"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 dark:bg-blue-500/10 text-primary dark:text-blue-400 text-xs sm:text-sm font-medium mb-4 border border-primary/20 dark:border-blue-500/20"
             >
               <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>客户成功案例</span>
@@ -218,16 +218,16 @@ const Cases = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 tracking-tight text-gray-900 dark:text-gray-100"
             >
-              见证<span className="text-primary">AI</span>落地的力量
+              见证<span className="text-primary dark:text-blue-400">AI</span>落地的力量
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-base sm:text-lg text-muted-foreground"
+              className="text-base sm:text-lg text-muted-foreground dark:text-gray-400"
             >
               深入各行各业，探索人工智能如何重塑业务价值
             </motion.p>
@@ -242,8 +242,8 @@ const Cases = () => {
                 className={cn(
                   "flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap",
                   selectedCategory === category.id
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                    : "bg-background border border-border hover:bg-muted text-muted-foreground hover:text-foreground"
+                    ? "bg-primary dark:bg-blue-600 text-primary-foreground dark:text-white shadow-lg shadow-primary/25 dark:shadow-blue-600/25"
+                    : "bg-background dark:bg-gray-800 border border-border dark:border-gray-700 hover:bg-muted dark:hover:bg-gray-700 text-muted-foreground dark:text-gray-400 hover:text-foreground dark:hover:text-gray-100"
                 )}
               >
                 <category.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -265,18 +265,18 @@ const Cases = () => {
               className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start lg:items-center"
             >
               {/* 左侧：图片展示 */}
-              <div className="relative group rounded-2xl sm:rounded-[2rem] overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[600px] shadow-lg sm:shadow-2xl">
+              <div className="relative group rounded-2xl sm:rounded-[2rem] overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[600px] shadow-lg sm:shadow-2xl dark:shadow-gray-900/50">
                 <img
                   src={currentCase.image}
                   alt={currentCase.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent dark:from-black/90 dark:via-black/30" />
 
                 {/* 浮动数据卡片 - 移动端优化 */}
                 <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 grid grid-cols-2 gap-2 sm:gap-4">
                   {Object.entries(currentCase.metrics).map(([key, value], idx) => (
-                    <div key={key} className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/20">
+                    <div key={key} className="bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/20 dark:border-white/10">
                       <div className="text-lg sm:text-2xl font-bold text-white mb-0.5 sm:mb-1">{value}</div>
                       <div className="text-[10px] sm:text-xs text-white/70 uppercase tracking-wider font-medium truncate">
                         {key === 'efficiency' ? '效率提升' :
@@ -302,68 +302,68 @@ const Cases = () => {
               <div className="space-y-6 sm:space-y-8 px-1 sm:px-0">
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-4 sm:mb-6">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-primary/10 dark:bg-blue-500/10 flex items-center justify-center text-primary dark:text-blue-400">
                       <currentCase.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {currentCase.tags.map(tag => (
-                        <span key={tag} className="px-2.5 py-1 rounded-full bg-muted text-[10px] sm:text-xs font-medium text-muted-foreground">
+                        <span key={tag} className="px-2.5 py-1 rounded-full bg-muted dark:bg-gray-800 text-[10px] sm:text-xs font-medium text-muted-foreground dark:text-gray-400">
                           {tag}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-foreground">{currentCase.title}</h3>
-                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-foreground dark:text-gray-100">{currentCase.title}</h3>
+                  <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400 leading-relaxed mb-6 sm:mb-8">
                     {currentCase.description}
                   </p>
 
                   <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                     {currentCase.features.slice(0, 3).map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                        <span className="text-sm sm:text-base text-foreground/80">{feature}</span>
+                        <CheckCircle2 className="w-5 h-5 text-primary dark:text-blue-400 shrink-0 mt-0.5" />
+                        <span className="text-sm sm:text-base text-foreground/80 dark:text-gray-300">{feature}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* 客户证言 */}
-                  <div className="bg-card border border-border/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 relative">
-                    <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-primary/20 absolute top-4 right-4" />
+                  <div className="bg-card dark:bg-gray-800 border border-border/50 dark:border-gray-700/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 relative">
+                    <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-primary/20 dark:text-blue-400/20 absolute top-4 right-4" />
                     <div className="flex items-center gap-3 sm:gap-4">
                       <img
                         src={currentCase.author.avatar}
                         alt={currentCase.author.name}
-                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-primary/20"
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-primary/20 dark:ring-blue-400/20"
                       />
                       <div>
-                        <div className="font-bold text-foreground text-sm sm:text-base">{currentCase.author.name}</div>
-                        <div className="text-xs sm:text-sm text-muted-foreground">{currentCase.author.role}</div>
+                        <div className="font-bold text-foreground dark:text-gray-100 text-sm sm:text-base">{currentCase.author.name}</div>
+                        <div className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">{currentCase.author.role}</div>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* 导航控制 */}
-                <div className="flex items-center justify-between pt-6 sm:pt-8 border-t border-border/50 relative z-20">
+                <div className="flex items-center justify-between pt-6 sm:pt-8 border-t border-border/50 dark:border-gray-700/50 relative z-20">
                   <div className="flex gap-3 sm:gap-4">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         handlePrev();
                       }}
-                      className="group w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-border bg-background flex items-center justify-center hover:bg-muted hover:border-primary/30 transition-all duration-300 active:scale-95"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-border dark:border-gray-700 bg-background dark:bg-gray-800 flex items-center justify-center hover:bg-muted dark:hover:bg-gray-700 hover:border-primary/30 dark:hover:border-blue-400/30 transition-all duration-300 active:scale-95"
                       aria-label="Previous case"
                     >
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 rotate-180 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 rotate-180 text-muted-foreground dark:text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors" />
                     </button>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         handleNext();
                       }}
-                      className="group w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-primary/40 active:scale-95"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary dark:bg-blue-600 text-primary-foreground dark:text-white flex items-center justify-center hover:bg-primary/90 dark:hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-primary/25 dark:shadow-blue-600/25 hover:shadow-primary/40 dark:hover:shadow-blue-600/40 active:scale-95"
                       aria-label="Next case"
                     >
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 transition-transform" />
@@ -380,8 +380,8 @@ const Cases = () => {
                         className={cn(
                           "rounded-full transition-all duration-300",
                           idx === currentCaseIndex
-                            ? "w-6 sm:w-8 h-1.5 sm:h-2 bg-primary shadow-sm"
-                            : "w-1.5 sm:w-2 h-1.5 sm:h-2 bg-border hover:bg-primary/50"
+                            ? "w-6 sm:w-8 h-1.5 sm:h-2 bg-primary dark:bg-blue-500 shadow-sm"
+                            : "w-1.5 sm:w-2 h-1.5 sm:h-2 bg-border dark:bg-gray-700 hover:bg-primary/50 dark:hover:bg-blue-500/50"
                         )}
                         aria-label={`Go to case ${idx + 1}`}
                       />
@@ -395,14 +395,14 @@ const Cases = () => {
 
         {/* 底部 CTA */}
         <div className="mt-12 sm:mt-16 md:mt-20 text-center px-4 sm:px-0">
-          <div className="inline-flex flex-col sm:flex-row gap-3 sm:gap-4 items-center bg-card border border-border p-3 sm:p-2 sm:pr-6 rounded-2xl sm:rounded-full shadow-sm hover:shadow-md transition-shadow w-full sm:w-auto mx-auto max-w-sm sm:max-w-none">
-            <span className="bg-primary/10 text-primary px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-full text-xs sm:text-sm font-semibold w-full sm:w-auto text-center">
+          <div className="inline-flex flex-col sm:flex-row gap-3 sm:gap-4 items-center bg-card dark:bg-gray-800 border border-border dark:border-gray-700 p-3 sm:p-2 sm:pr-6 rounded-2xl sm:rounded-full shadow-sm hover:shadow-md dark:hover:shadow-gray-900/30 transition-shadow w-full sm:w-auto mx-auto max-w-sm sm:max-w-none">
+            <span className="bg-primary/10 dark:bg-blue-500/10 text-primary dark:text-blue-400 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-full text-xs sm:text-sm font-semibold w-full sm:w-auto text-center border border-primary/20 dark:border-blue-500/20">
               New
             </span>
-            <span className="text-sm font-medium text-foreground text-center sm:text-left flex-1 sm:flex-none">
+            <span className="text-sm font-medium text-foreground dark:text-gray-100 text-center sm:text-left flex-1 sm:flex-none">
               探索更多行业解决方案与成功实践
             </span>
-            <Button variant="ghost" className="gap-2 text-primary hover:text-primary hover:bg-primary/5 w-full sm:w-auto h-10 sm:h-10 text-sm justify-center sm:justify-start -ml-0 sm:-ml-2 rounded-lg sm:rounded-md">
+            <Button variant="ghost" className="gap-2 text-primary dark:text-blue-400 hover:text-primary dark:hover:text-blue-300 hover:bg-primary/5 dark:hover:bg-blue-500/10 w-full sm:w-auto h-10 sm:h-10 text-sm justify-center sm:justify-start -ml-0 sm:-ml-2 rounded-lg sm:rounded-md">
               查看所有案例 <ArrowRight className="w-4 h-4" />
             </Button>
           </div>

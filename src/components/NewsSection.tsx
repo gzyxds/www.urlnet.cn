@@ -41,11 +41,11 @@ const NewsSection = () => {
   }
 
   return (
-    <section className="relative py-20 lg:py-32 bg-gray-50/50 overflow-hidden" id="news">
+    <section className="relative py-20 lg:py-32 bg-gray-50/50 dark:bg-gray-900 overflow-hidden" id="news">
       {/* 背景装饰 */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute top-[40%] -left-[10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[100px]" />
+        <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-primary/5 dark:bg-blue-500/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] -left-[10%] w-[40%] h-[40%] bg-blue-500/5 dark:bg-blue-400/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -57,7 +57,7 @@ const NewsSection = () => {
           viewport={{ once: true }}
         >
           <motion.div
-            className="inline-flex items-center px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-6 border border-primary/20"
+            className="inline-flex items-center px-4 py-1.5 bg-primary/10 dark:bg-blue-500/10 text-primary dark:text-blue-400 text-sm font-medium rounded-full mb-6 border border-primary/20 dark:border-blue-500/20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -67,20 +67,20 @@ const NewsSection = () => {
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-foreground"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-foreground dark:text-gray-100"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            行业<span className="text-primary mx-2 relative inline-block">
+            行业<span className="text-primary dark:text-blue-400 mx-2 relative inline-block">
               <span className="relative z-10">资讯</span>
-              <span className="absolute bottom-2 left-0 right-0 h-3 bg-primary/20 -rotate-1 z-0" />
+              <span className="absolute bottom-2 left-0 right-0 h-3 bg-primary/20 dark:bg-blue-500/20 -rotate-1 z-0" />
             </span>动态
           </motion.h2>
 
           <motion.p
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -104,7 +104,7 @@ const NewsSection = () => {
                 to={`/new/${post.slug}`}
                 className="group h-full flex flex-col"
               >
-                <div className="relative h-48 lg:h-56 rounded-2xl overflow-hidden bg-gray-100 mb-5 group-hover:shadow-xl group-hover:shadow-primary/10 transition-all duration-500">
+                <div className="relative h-48 lg:h-56 rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-5 group-hover:shadow-xl group-hover:shadow-primary/10 dark:group-hover:shadow-primary/5 transition-all duration-500">
                   {post.coverImage ? (
                     <img
                       src={post.coverImage}
@@ -118,7 +118,7 @@ const NewsSection = () => {
                   )}
                   {/* 分类标签 */}
                   <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-medium bg-white/95 backdrop-blur-sm text-blue-600 shadow-sm border border-blue-50">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-medium bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm text-blue-600 dark:text-blue-400 shadow-sm border border-blue-50 dark:border-blue-900/50">
                       {NewsCategoryLabels[post.category] || '资讯'}
                     </span>
                   </div>
@@ -128,7 +128,7 @@ const NewsSection = () => {
 
                 <div className="flex flex-col flex-grow">
                   {/* 元信息 */}
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground dark:text-gray-500 mb-3">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{post.publishDate.toLocaleDateString('zh-CN')}</span>
@@ -140,17 +140,17 @@ const NewsSection = () => {
                   </div>
 
                   {/* 标题 */}
-                  <h3 className="text-base lg:text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors leading-tight">
+                  <h3 className="text-base lg:text-lg font-bold text-foreground dark:text-gray-100 mb-2 line-clamp-2 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors leading-tight">
                     {post.title}
                   </h3>
 
                   {/* 摘要 */}
-                  <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed mb-4 flex-grow">
+                  <p className="text-sm text-muted-foreground dark:text-gray-400 line-clamp-2 leading-relaxed mb-4 flex-grow">
                     {post.summary}
                   </p>
 
                   {/* 阅读更多 */}
-                  <div className="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all mt-auto pt-3 border-t border-border/50">
+                  <div className="flex items-center text-primary dark:text-blue-400 text-sm font-medium group-hover:gap-2 transition-all mt-auto pt-3 border-t border-border/50 dark:border-gray-700/50">
                     阅读全文
                     <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -170,7 +170,7 @@ const NewsSection = () => {
         >
           <Link
             to="/new"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-primary dark:bg-blue-600 text-primary-foreground dark:text-white rounded-xl font-semibold hover:bg-primary/90 dark:hover:bg-blue-700 hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-blue-600/20 transition-all duration-300"
           >
             查看全部新闻
             <ArrowRight className="w-4 h-4" />

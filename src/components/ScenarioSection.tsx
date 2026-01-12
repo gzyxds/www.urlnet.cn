@@ -186,7 +186,7 @@ const TabNavigation = ({
   onSelect: (id: string) => void;
 }) => (
   <div className="flex justify-center mb-8 lg:mb-12">
-    <div className="inline-flex items-center p-1 bg-white rounded-full border border-gray-100 shadow-sm gap-1.5 overflow-x-auto max-w-full scrollbar-hide">
+    <div className="inline-flex items-center p-1 bg-white dark:bg-gray-800 rounded-full border border-gray-100 dark:border-gray-700 shadow-sm gap-1.5 overflow-x-auto max-w-full scrollbar-hide">
       {scenarios.map((scenario) => {
         const IconComponent = scenario.icon;
         const isActive = activeId === scenario.id;
@@ -198,7 +198,7 @@ const TabNavigation = ({
               "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
               isActive
                 ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
-                : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-200"
             )}
             aria-selected={isActive}
             role="tab"
@@ -219,16 +219,16 @@ const TabNavigation = ({
 const HeroCard = ({ scenario }: { scenario: ScenarioData }) => (
   <div className="lg:col-span-4 h-full">
     <div className={cn(
-      "relative h-full min-h-[420px] lg:min-h-[500px] rounded-2xl overflow-hidden p-6 lg:p-8 border border-gray-200/60 shadow-xl shadow-gray-100/50 bg-gradient-to-br transition-colors duration-500",
+      "relative h-full min-h-[420px] lg:min-h-[500px] rounded-2xl overflow-hidden p-6 lg:p-8 border border-gray-200/60 dark:border-gray-700/60 shadow-xl shadow-gray-100/50 dark:shadow-gray-900/50 bg-gradient-to-br transition-colors duration-500",
       scenario.gradient
     )}>
       {/* 文本内容区域 */}
       <div className="relative z-20">
-        <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight tracking-tight">
+        <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4 leading-tight tracking-tight">
           {scenario.title}
         </h3>
-        <div className="w-10 h-1 bg-blue-600 mb-4 rounded-full" />
-        <p className="text-gray-600 text-base lg:text-lg leading-relaxed mb-6 line-clamp-4">
+        <div className="w-10 h-1 bg-blue-600 dark:bg-blue-500 mb-4 rounded-full" />
+        <p className="text-gray-600 dark:text-gray-400 text-base lg:text-lg leading-relaxed mb-6 line-clamp-4">
           {scenario.description}
         </p>
       </div>
@@ -254,11 +254,11 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.1 * index + 0.2 }} // 错峰动画
-    className="group relative bg-white rounded-2xl p-5 lg:p-6 border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50/50 transition-all duration-300 flex flex-col justify-between h-auto min-h-[220px]"
+    className="group relative bg-white dark:bg-gray-800 rounded-2xl p-5 lg:p-6 border border-gray-100 dark:border-gray-700 hover:border-blue-100 dark:hover:border-blue-900 hover:shadow-lg hover:shadow-blue-50/50 dark:hover:shadow-blue-900/20 transition-all duration-300 flex flex-col justify-between h-auto min-h-[220px]"
   >
     <div>
       <div className="flex items-start justify-between mb-4">
-        <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+        <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 dark:group-hover:bg-blue-600 group-hover:text-white dark:group-hover:text-white transition-colors duration-300 shadow-sm">
           <feature.icon className="w-5 h-5" />
         </div>
         {feature.badge && (
@@ -271,10 +271,10 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
         )}
       </div>
 
-      <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+      <h4 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
         {feature.title}
       </h4>
-      <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">
+      <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed line-clamp-3">
         {feature.desc}
       </p>
     </div>
@@ -307,10 +307,10 @@ const Scenario = () => {
   const currentScenario = SCENARIOS.find(s => s.id === activeScenarioId) || SCENARIOS[0];
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-50/30 relative overflow-hidden" id="scenarios">
+    <section className="py-16 lg:py-24 bg-gray-50/30 dark:bg-gray-900 relative overflow-hidden" id="scenarios">
       {/* 装饰性背景光晕 - 优化了位置和模糊度 */}
-      <div className="absolute -bottom-[20%] -right-[10%] w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" />
-      <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-indigo-50/40 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
+      <div className="absolute -bottom-[20%] -right-[10%] w-[800px] h-[800px] bg-blue-100/30 dark:bg-blue-900/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
+      <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-indigo-50/40 dark:bg-indigo-900/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <TabNavigation

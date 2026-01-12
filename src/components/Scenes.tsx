@@ -259,22 +259,22 @@ const Scenes = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden relative" id="scenes">
+    <section className="py-16 md:py-24 bg-white dark:bg-gray-900 overflow-hidden relative" id="scenes">
       {/* 背景参考 */}
       <div className="absolute inset-x-0 top-0 h-[500px] pointer-events-none select-none overflow-hidden z-0">
         <div className="relative w-full h-full flex flex-col items-center pt-[27px] md:pt-[70px]">
           {/* 网格背景 - 放大并居中 */}
-          <div className="absolute inset-0 bg-[url('/agent.svg')] bg-center bg-no-repeat [background-size:120%_auto] md:[background-size:100%_auto] [mask-image:linear-gradient(to_bottom,white,transparent)] opacity-70"></div>
+          <div className="absolute inset-0 bg-[url('/agent.svg')] bg-center bg-no-repeat [background-size:120%_auto] md:[background-size:100%_auto] [mask-image:linear-gradient(to_bottom,white,transparent)] opacity-70 dark:opacity-30"></div>
           {/* 渐变背景覆盖 */}
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white/80 to-white -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white/80 to-white dark:from-gray-800/50 dark:via-gray-900/80 dark:to-gray-900 -z-10"></div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-20 text-center relative z-10">
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 md:mb-6 tracking-tight">
           艺创AI -可以帮你解决什么
         </h2>
-        <p className="text-gray-500 text-sm sm:text-lg tracking-wide max-w-xl mx-auto">
+        <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-lg tracking-wide max-w-xl mx-auto">
           艺创AI 无限拓展应用场景
         </p>
       </div>
@@ -302,21 +302,21 @@ const Scenes = () => {
               className="shrink-0 w-[85vw] sm:w-[320px] perspective-item will-change-transform"
             >
               <div
-                className={`group relative h-auto min-h-[220px] sm:min-h-[260px] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] bg-gradient-to-br ${card.gradient} backdrop-blur-md border border-white/60 shadow-lg`}
+                className={`group relative h-auto min-h-[220px] sm:min-h-[260px] rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] bg-gradient-to-br ${card.gradient} backdrop-blur-md border border-white/60 dark:border-gray-700/60 shadow-lg`}
               >
                 {/* Content */}
                 <div className="p-6 sm:p-8 h-full flex flex-col justify-between relative z-10">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 tracking-tight">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2 tracking-tight">
                       {card.title}
                     </h3>
                     {card.subtitle && (
-                      <p className="text-gray-600 text-sm font-medium mb-3 opacity-90">
+                      <p className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-3 opacity-90">
                         {card.subtitle}
                       </p>
                     )}
-                    <div className="w-12 h-1 bg-gray-900/10 rounded-full mb-4"></div>
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed font-medium">
+                    <div className="w-12 h-1 bg-gray-900/10 dark:bg-gray-100/10 rounded-full mb-4"></div>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed font-medium">
                       {card.desc}
                     </p>
                   </div>
@@ -332,8 +332,8 @@ const Scenes = () => {
         </div>
 
         {/* 淡入边缘 */}
-        <div className="absolute inset-y-0 left-0 w-8 md:w-64 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-8 md:w-64 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 left-0 w-8 md:w-64 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-8 md:w-64 bg-gradient-to-l from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 pointer-events-none z-10"></div>
       </div>
     </section>
   );
