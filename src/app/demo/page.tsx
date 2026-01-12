@@ -104,9 +104,9 @@ const DemoPage = () => {
           </div>
         </section>
 
-        <main className="relative z-10 -mt-10 container pb-20">
+        <main className="relative z-10 -mt-10 px-2 sm:px-4 lg:container pb-20">
           {/* 产品展示区域 */}
-          <div className="bg-gradient-to-br from-blue-50/50 to-white backdrop-blur-xl rounded-xl shadow-xl border border-gray-200/60 overflow-hidden">
+          <div className="bg-gradient-to-br from-blue-50/50 to-white backdrop-blur-xl rounded-xl shadow-sm border border-gray-200/60 overflow-hidden">
              <DemoShowcase />
           </div>
         </main>

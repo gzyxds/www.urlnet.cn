@@ -374,8 +374,10 @@ const Demonstrate: React.FC = () => {
       </aside>
 
       {/* 右侧产品详情内容区域 */}
-      <section className="flex-1 bg-white overflow-y-auto">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-10">
+      <section className="flex-1 relative overflow-y-auto">
+        {/* 渐变背景 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/60 via-white to-indigo-100/50 pointer-events-none z-0" />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-10">
         <AnimatePresence mode="wait">
           {activeProduct && (
             <motion.div
@@ -421,69 +423,39 @@ const Demonstrate: React.FC = () => {
               </header>
 
               {/* 演示站点卡片列表 */}
-              <div className="space-y-3 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-6 lg:space-y-0">
+              <div className="grid grid-cols-2 gap-3 lg:grid-cols-2 xl:grid-cols-3 lg:gap-6">
                 {activeProduct.demos.map((demo, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="group bg-white overflow-hidden flex flex-col"
+                    className="group bg-slate-50 lg:bg-white rounded-lg overflow-hidden flex flex-col lg:border lg:border-slate-100"
                   >
                     {/* 移动端极简卡片 */}
-                    <div className="lg:hidden">
+                    <div className="lg:hidden p-3">
                       {/* 标题 */}
-                      <div className="py-3">
-                        <h3 className="font-semibold text-slate-900 text-sm">{demo.title}</h3>
-                      </div>
+                      <h3 className="font-semibold text-slate-900 text-xs mb-3 truncate">{demo.title}</h3>
                       
-                      {/* 内容 */}
-                      <div className="py-4 space-y-3">
-                        {/* 访问地址 */}
-                        <div className="flex items-center justify-between gap-3 py-2">
-                          <span className="text-slate-500 text-xs">访问地址</span>
-                          <a 
-                            href={demo.url} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="text-blue-600 text-xs font-medium truncate flex-1 text-right hover:underline"
-                          >
-                            {demo.url}
-                          </a>
+                      {/* 账号密码 */}
+                      <div className="space-y-2 mb-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] text-slate-500">账号</span>
+                          <span className="text-[11px] font-medium text-slate-900 truncate ml-2">{demo.credentials.username}</span>
                         </div>
-                        
-                        {/* 账号密码 */}
-                        <div className="flex items-center gap-3 py-2">
-                          <div className="flex-1">
-                            <div className="text-[10px] text-slate-500 mb-1">账号</div>
-                            <div className="text-xs font-medium text-slate-900 truncate">{demo.credentials.username}</div>
-                          </div>
-                          <div className="w-px h-8 bg-slate-100"></div>
-                          <div className="flex-1">
-                            <div className="text-[10px] text-slate-500 mb-1">密码</div>
-                            <div className="text-xs font-medium text-slate-900 truncate">{demo.credentials.password}</div>
-                          </div>
-                        </div>
-
-                        {/* 操作按钮 */}
-                        <div className="flex gap-2 pt-3">
-                          <Button
-                            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs h-9"
-                            onClick={() => window.open(demo.url, '_blank')}
-                          >
-                            <ExternalLink className="w-3.5 h-3.5 mr-1" />
-                            访问
-                          </Button>
-                          <Button
-                            variant="outline"
-                            className="flex-1 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs h-9"
-                            onClick={() => window.open('https://console.cloudcvm.com/cart/goodsList.htm?fpg_id=61&spg_id=20', '_blank')}
-                          >
-                            <ShoppingCart className="w-3.5 h-3.5 mr-1" />
-                            购买
-                          </Button>
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] text-slate-500">密码</span>
+                          <span className="text-[11px] font-medium text-slate-900 truncate ml-2">{demo.credentials.password}</span>
                         </div>
                       </div>
+
+                      {/* 操作按钮 */}
+                      <button
+                        className="w-full bg-blue-600 text-white text-xs h-8 rounded-md font-medium"
+                        onClick={() => window.open(demo.url, '_blank')}
+                      >
+                        访问演示
+                      </button>
                     </div>
 
                     {/* 桌面端完整卡片 */}
@@ -561,7 +533,7 @@ const Demonstrate: React.FC = () => {
                       className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs lg:text-sm h-9 lg:h-10"
                       onClick={() => handleShowQRCode()}
                     >
-                      申请演示
+                     获取产品优惠码
                     </Button>
                     <Button
                       variant="outline"
