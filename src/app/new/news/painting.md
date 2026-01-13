@@ -2,7 +2,7 @@
 title: "AI绘画插件"
 summary: "必定AI Paint 是一款集成于 必定AI 平台的 AI 绘画生成插件，支持文生图、图生图、自定义尺寸等功能，用户只需输入文字描述或上传参考图片即可快速生成高质量 AI 图片。"
 
-category: "creative"
+category: "AI绘画"
 tags: ["AI绘画", "文生图", "图生图", "必定AI", "即梦AI"]
 
 author:
