@@ -549,14 +549,14 @@ function AiPage() {
 
             <div className="mt-10 flex items-center gap-x-6">
               <Button
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 h-auto"
+                className="rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary/90 hover:shadow-xl transition-all duration-300 h-auto"
                 onClick={() => (window.location.href = "/demo")}
               >
                 免费体验 Demo
               </Button>
               <Button
-                variant="ghost"
-                className="text-sm/6 font-semibold text-gray-900 hover:bg-transparent hover:text-indigo-600 p-0 h-auto"
+                variant="outline"
+                className="rounded-xl border-primary/30 px-6 py-3 text-sm font-semibold text-primary hover:bg-primary/5 hover:border-primary transition-all duration-300 h-auto"
                 onClick={() => {
                   const event = new CustomEvent("showQRCodeModal");
                   window.dispatchEvent(event);
