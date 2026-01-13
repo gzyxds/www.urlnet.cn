@@ -532,14 +532,14 @@ function AiPage() {
                   最新发布
                 </span>
                 <span className="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-600">
-                  <span>AI 引擎 5.0 正式上线</span>
+                  <span>🔥增加Sora视频生成应用</span>
                   <ChevronRight className="size-5 text-gray-400" />
                 </span>
               </div>
             </div>
 
             <h1 className="mt-10 text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl">
-              重塑企业全能知识库
+              重塑企业级全能AI
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
               融合 LLM
