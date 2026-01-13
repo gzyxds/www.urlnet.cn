@@ -31,9 +31,9 @@ const Home = () => {
       <HotProducts />
       <Scenes />
       <Products />
-      <ClientLogoWall clients={clients} marquee />
-      <FunctionBlueprint />
       <Terminal />
+      <ClientLogoWall clients={clients} marquee />
+      <FunctionBlueprint />      
       <Advantages />
       <NewsSection />
       <Cases />

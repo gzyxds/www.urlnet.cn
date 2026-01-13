@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronUp, Headphones, Gift, User, X } from "lucide-react";
+import { ChevronUp, Headphones, Gift, User } from "lucide-react";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -190,7 +190,7 @@ const BackToTop = () => {
         </AnimatePresence>
       </div>
 
-      {/* 新增：点击弹出的二维码模态框 */}
+      {/* 点击弹出的二维码模态框 */}
       <AnimatePresence>
         {showClickQRCode && (
           <motion.div
@@ -198,7 +198,7 @@ const BackToTop = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center"
+            className="fixed inset-0 z-[60] flex items-center justify-center px-4"
             onClick={handleCloseClickQRCode}
           >
             {/* 背景遮罩 */}
@@ -206,40 +206,78 @@ const BackToTop = () => {
             
             {/* 模态框内容 */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 20 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="relative bg-white shadow-2xl max-w-xs sm:max-w-sm w-full mx-4 overflow-hidden"
+              className="relative bg-white rounded-lg shadow-2xl w-full max-w-[600px] overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* 关闭按钮 */}
-              <button
-                onClick={handleCloseClickQRCode}
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 w-7 h-7 sm:w-8 sm:h-8 bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10"
-                aria-label="关闭"
-              >
-                <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-600" />
-              </button>
-              
-              {/* 内容区域 */}
-              <div className="p-6 sm:p-8 text-center">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">联系客服</h3>
-                <p className="text-sm text-gray-600 mb-4 sm:mb-6">扫描二维码添加客服微信</p>
-                
-                {/* 二维码 */}
-                <div className="flex justify-center mb-3 sm:mb-4">
-                  <div className="relative">
-                    <img 
-                      src="/images/qrcode.png" 
-                      alt="客服二维码" 
-                      className="w-40 h-40 sm:w-48 sm:h-48 object-contain border border-gray-200 shadow-lg"
-                    />
+              {/* 顶部公告条 */}
+              <div className="bg-primary/10 px-4 sm:px-5 py-3 flex items-center justify-between">
+                <div className="flex items-center text-sm flex-wrap gap-1">
+                  <span className="flex items-center mr-1">
+                    <span className="w-2 h-2 bg-red-500 rounded-full mr-1.5 animate-pulse"></span>
+                    <span className="text-gray-600">公告：</span>
+                  </span>
+                  <span className="text-primary font-medium">联系客服</span>
+                  <span className="text-gray-600">获取产品优惠码、关注公众号了解</span>
+                  <span className="text-primary font-medium">优惠活动</span>
+                  <span className="text-gray-600">和</span>
+                  <span className="text-primary font-medium">产品更新</span>
+                </div>
+                {/* 关闭按钮 */}
+                <button
+                  onClick={handleCloseClickQRCode}
+                  className="text-gray-400 hover:text-gray-600 text-xl leading-none ml-2 flex-shrink-0"
+                  aria-label="关闭"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* 主内容区域 */}
+              <div className="px-6 py-8 sm:px-10 sm:py-10">
+                {/* 标题区域 */}
+                <div className="mb-6">
+                  <div className="flex items-center mb-3">
+                    <span className="w-6 h-[2px] bg-primary mr-3"></span>
+                    <span className="text-xs tracking-widest text-primary font-medium">CONNECT SUPPORT</span>
                   </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">联系客服</h3>
+                  <p className="text-sm text-gray-500">扫码添加客服微信获取【优惠码】   关注公众号了解最新优惠活动和产品更新</p>
                 </div>
                 
-                {/* 提示文字 */}
-                <p className="text-xs text-gray-500">长按二维码保存到相册</p>
+                {/* 二维码区域 */}
+                <div className="grid grid-cols-2 gap-4 sm:gap-8">
+                  {/* 微信客服 */}
+                  <div className="text-center">
+                    <div className="bg-white border border-gray-200 rounded-lg p-3 sm:p-6 mb-3 sm:mb-4">
+                      <img 
+                        src="/images/qrcode.png" 
+                        alt="微信客服二维码" 
+                        className="w-full max-w-[180px] mx-auto" 
+                        loading="lazy"
+                      />
+                    </div>
+                    <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">添加客服微信</h4>
+                    <p className="text-xs text-gray-500">产品咨询 / 优惠码 / </p>
+                  </div>
+                  
+                  {/* 公众号 */}
+                  <div className="text-center">
+                    <div className="bg-white border border-gray-200 rounded-lg p-3 sm:p-6 mb-3 sm:mb-4">
+                      <img 
+                        src="/images/wechat.png" 
+                        alt="微信公众号二维码" 
+                        className="w-full max-w-[180px] mx-auto" 
+                        loading="lazy"
+                      />
+                    </div>
+                    <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">关注公众号</h4>
+                    <p className="text-xs text-gray-500">优惠活动 / 产品更新</p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

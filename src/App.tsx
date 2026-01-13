@@ -35,7 +35,6 @@ import TipsPage from './app/tips/page';
 // 新闻相关页面
 import NewsListPage from './app/new/page';
 import NewsDetailPage from './app/new/[id]/page';
-
 import ClientLogoWallExample from './components/clients/ClientLogoWallExample';
 
 /**

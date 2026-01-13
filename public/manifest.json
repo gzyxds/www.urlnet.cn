@@ -1,0 +1,61 @@
+{
+  "name": "艺创AI",
+  "short_name": "艺创AI",
+  "description": "艺创AI专注提供AI系统源代码解决方案的技术团队「AI数字人系统」「企业全能AI变现系统」「AI聊天绘画系统」「AI论文写作系统」",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#015bfe",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "44x44",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "63x69",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/scenarios/logo.svg",
+      "sizes": "68x68",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "产品中心",
+      "short_name": "产品",
+      "description": "查看艺创AI所有产品",
+      "url": "/products",
+      "icons": [
+        {
+          "src": "/images/scenarios/logo.svg",
+          "sizes": "68x68"
+        }
+      ]
+    },
+    {
+      "name": "AI聊天绘画",
+      "short_name": "聊天绘画",
+      "description": "AI辅助创意设计",
+      "url": "/products/chat",
+      "icons": [
+        {
+          "src": "/images/scenarios/logo.svg",
+          "sizes": "68x68"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# 艺创AI - 搜索引擎抓取规则
+
+User-agent: *
+Allow: /
+
+# 禁止抓取的目录
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /build/
+
+# 允许抓取的目录
+Allow: /public/
+Allow: /images/
+
+# Sitemap 位置
+Sitemap: https://www.urlnet.cn/sitemap.xml
