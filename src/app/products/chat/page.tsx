@@ -1310,17 +1310,17 @@ const ChatPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="md:col-span-1 md:row-span-1 group bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 text-white shadow-lg transition-all duration-500"
+              className="md:col-span-1 md:row-span-1 group bg-primary/5 rounded-3xl p-8 shadow-sm transition-all duration-500"
             >
               <div className="flex flex-col h-full">
-                <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center mb-6">
-                  <Zap className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                  <Zap className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">营销闭环</h3>
-                <p className="text-blue-100 text-sm leading-relaxed mb-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">营销闭环</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
                   VIP会员、优惠券挽留、多种营销工具助您提升转化与复购。
                 </p>
-                <div className="mt-auto bg-white/10 rounded-2xl p-3 border border-white/10 text-center text-xs font-medium">
+                <div className="mt-auto bg-primary/10 rounded-2xl p-3 text-center text-xs font-medium text-primary">
                   查看营销工具集
                 </div>
               </div>

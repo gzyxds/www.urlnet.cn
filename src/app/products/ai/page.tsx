@@ -484,18 +484,18 @@ function AiPage() {
       <div className="relative isolate overflow-hidden bg-white">
         <svg
           aria-hidden="true"
-          className="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-gray-200"
+          className="absolute inset-0 -z-10 size-full mask-[linear-gradient(to_bottom,white,transparent)] stroke-gray-200/30"
         >
           <defs>
             <pattern
               x="50%"
               y={-1}
               id="983e3e4c-de6d-4c3f-8d64-b9761d1534cc"
-              width={200}
-              height={200}
+              width={32}
+              height={32}
               patternUnits="userSpaceOnUse"
             >
-              <path d="M.5 200V.5H200" fill="none" />
+              <path d="M.5 32V.5H32" fill="none" />
             </pattern>
           </defs>
           <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
