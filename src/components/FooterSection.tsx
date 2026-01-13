@@ -201,7 +201,7 @@ const Footer = () => {
                 <div className="absolute inset-0 bg-blue-500 dark:bg-blue-600 rounded-2xl blur-xl opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition-opacity duration-500"></div>
                 <div className="relative bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
                   <img
-                    src="/product/logo.svg"
+                    src="/logo.svg"
                     alt="艺创AI"
                     className="w-16 h-16 object-contain"
                   />
@@ -275,7 +275,7 @@ const Footer = () => {
           {/* 左侧品牌区 */}
           <div className="col-span-2 lg:col-span-2">
             <Link to="/" className="flex items-center space-x-3 mb-6">
-              <img src="/product/logo.svg" alt="艺创AI" className="h-8 w-auto" />
+              <img src="/logo.svg" alt="艺创AI" className="h-8 w-auto" />
               <span className="font-bold text-xl text-gray-900 dark:text-gray-100">艺创AI</span>
             </Link>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs mb-6">
