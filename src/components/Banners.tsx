@@ -42,7 +42,7 @@ export default function Banners() {
                   <circle cx={1} cy={1} r={1} />
                 </svg>
                 <span className="truncate flex-1">
-                  BuidAI企业级开源智能体平台，官人认证的技术专家，部署搭建服务，活动价仅需500￥点击立即咨询。
+                  🎉 限时特惠活动公告、获取优惠码、最高立减3200元
                 </span>
                 <span aria-hidden="true" className="whitespace-nowrap">&nbsp;&rarr;</span>
               </button>
