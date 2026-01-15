@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useMemo, memo } from "react";
+import { useMemo, memo } from "react";
 import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Play, Star, Sparkles, CheckCircle as CheckBadgeIcon } from "lucide-react";
-import { Link } from 'react-router-dom';
 import { productsData, ProductItem } from '@/data/products';
 
 /**
@@ -196,7 +195,7 @@ const Products = () => {
   const processedProducts = useMemo<ProcessedProductItem[]>(() => {
     return productsData.map(product => ({
       ...product,
-      cleanSubtitle: product.subtitle ? product.subtitle.replace(/[\[\]]/g, '') : '',
+      cleanSubtitle: product.subtitle ? product.subtitle.replace(/\[|\]/g, '') : '',
       savings: Math.round(product.originalPrice - product.price),
       hasDiscount: product.originalPrice > product.price
     }));

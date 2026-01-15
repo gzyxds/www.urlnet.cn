@@ -5,6 +5,19 @@ import { useMobile } from "@/hooks/use-mobile";
 import { motion } from "framer-motion";
 import { ArrowRight, Monitor, Apple, Terminal, Sparkles, Download } from "lucide-react";
 
+type FooterLink = {
+  text: string;
+  href?: string;
+  to?: string;
+  type?: 'qq' | 'social';
+};
+
+interface FooterGroup {
+  title: string;
+  links: FooterLink[];
+  customContent?: boolean;
+}
+
 /**
  * Footer组件 - 网站底部区域
  * 包含客户端下载区域、产品功能菜单、服务支持、关于我们和二维码等内容
@@ -26,7 +39,7 @@ const Footer = () => {
   ];
 
   // Footer 链接数据
-  const footerLinks = [
+  const footerLinks: FooterGroup[] = [
     {
       title: '产品中心',
       links: [
@@ -86,11 +99,11 @@ const Footer = () => {
     </div>
   );
 
-  const renderGroupContent = (group: any) => {
+  const renderGroupContent = (group: FooterGroup) => {
     if (group.customContent) {
       return (
         <div className="space-y-3">
-          {group.links.map((link: any, idx: number) => {
+          {group.links.map((link: FooterLink, idx: number) => {
             if (link.type === 'qq') {
               return (
                 <div key={idx} className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
@@ -131,7 +144,7 @@ const Footer = () => {
 
     return (
       <ul className="space-y-3 text-sm text-gray-500 dark:text-gray-400">
-        {group.links.map((link: any, idx: number) => (
+        {group.links.map((link: FooterLink, idx: number) => (
           <li key={idx}>
             {link.to ? (
               <Link to={link.to} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors block">

@@ -56,6 +56,50 @@ const DROPDOWN_VARIANTS = {
   exit: { opacity: 0, y: 5 }
 };
 
+
+// 提取为独立组件
+interface MobileMenuItemProps {
+  subItem: NavSubItem;
+  onNavigate: () => void;
+  onOpenExternal: (url: string) => void;
+}
+
+const MobileMenuItem = memo(({ subItem, onNavigate, onOpenExternal }: MobileMenuItemProps) => {
+  // 移动端极简设计：移除边框、阴影等装饰效果
+  const baseClass = "flex flex-col items-center p-3 rounded-lg bg-slate-50 hover:bg-blue-50/80 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-900/30";
+  const iconWrapperClass = "w-9 h-9 rounded-lg flex items-center justify-center mb-1.5";
+
+  const content = (
+    <>
+      <div className={iconWrapperClass}>
+        {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
+      </div>
+      <div className="flex flex-col items-center text-center">
+        <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
+        <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
+      </div>
+    </>
+  );
+
+  return (
+    <div>
+      {subItem.external ? (
+        <div
+          className={`${baseClass} cursor-pointer relative`}
+          onClick={() => onOpenExternal(subItem.url!)}
+        >
+          {content}
+          <ExternalLink className="h-3 w-3 text-gray-400 absolute top-2 right-2 dark:text-gray-500" />
+        </div>
+      ) : (
+        <Link to={subItem.path} className={baseClass} onClick={onNavigate}>
+          {content}
+        </Link>
+      )}
+    </div>
+  );
+});
+
 /**
  * 网站头部导航组件
  * 功能：响应式导航、下拉菜单、暗黑模式切换、用户菜单、滚动监听
@@ -265,48 +309,20 @@ const Header: React.FC = () => {
 
 
 
-  // 优化：提取为独立组件，避免每次渲染重新创建
-  const MobileMenuItem = memo(({ subItem }: { subItem: NavSubItem }) => {
-    // 移动端极简设计：移除边框、阴影等装饰效果
-    const baseClass = "flex flex-col items-center p-3 rounded-lg bg-slate-50 hover:bg-blue-50/80 transition-colors duration-200 dark:bg-gray-800/50 dark:hover:bg-blue-900/30";
-    const iconWrapperClass = "w-9 h-9 rounded-lg flex items-center justify-center mb-1.5";
-    
-    const content = (
-      <>
-        <div className={iconWrapperClass}>
-          {React.cloneElement(subItem.icon, { className: "h-5 w-5" })}
-        </div>
-        <div className="flex flex-col items-center text-center">
-          <span className="font-medium text-gray-800 dark:text-gray-200 text-sm mb-1">{subItem.name}</span>
-          <span className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{subItem.description}</span>
-        </div>
-      </>
-    );
 
-    return (
-      <div>
-        {subItem.external ? (
-          <div
-            className={`${baseClass} cursor-pointer relative`}
-            onClick={() => openExternalLink(subItem.url!)}
-          >
-            {content}
-            <ExternalLink className="h-3 w-3 text-gray-400 absolute top-2 right-2 dark:text-gray-500" />
-          </div>
-        ) : (
-          <Link to={subItem.path} className={baseClass} onClick={handleNavigation}>
-            {content}
-          </Link>
-        )}
-      </div>
-    );
-  });
 
   // 优化：使用CSS Grid两行两列布局
   const renderMobileCategorizedMenu = useCallback((items: NavSubItem[]) => {
     return (
       <div className="grid grid-cols-2 gap-2.5">
-        {items.map((item, index) => <MobileMenuItem key={index} subItem={item} />)}
+        {items.map((item, index) => (
+          <MobileMenuItem
+            key={index}
+            subItem={item}
+            onNavigate={handleNavigation}
+            onOpenExternal={openExternalLink}
+          />
+        ))}
       </div>
     );
   }, [handleNavigation, openExternalLink]);

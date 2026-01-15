@@ -276,7 +276,7 @@ const ApiPage = () => {
         description: "代码已复制到剪贴板",
       });
       setTimeout(() => setCopiedCode(null), 2000);
-    } catch (err) {
+    } catch {
       toast({
         title: "复制失败",
         description: "请手动复制代码",

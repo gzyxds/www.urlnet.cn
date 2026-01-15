@@ -11,6 +11,13 @@ import {
 import { productsData } from '@/data/products';
 import { cn } from '@/lib/utils';
 
+const sentences = [
+  '它能够助您快速开发AI应用，缩短80%项目交付周期',
+  '它拥有开箱即用的丰富AI应用',
+  '它正在努力成为AI应用落地的首选方案',
+  '它能够助您快速落地MVP，验证AI应用商业价值'
+];
+
 /**
  * 简单的 Marquee 组件
  * 支持垂直和水平滚动
@@ -58,15 +65,13 @@ const Marquee = ({
  * Hero Section 风格的 Carousel 组件
  * 复刻参考设计的布局与交互
  */
+/**
+ * Hero Section 风格的 Carousel 组件
+ * 复刻参考设计的布局与交互
+ */
 const Carousel = () => {
   // 打字机效果状态
   const [typeWriterText, setTypeWriterText] = useState('');
-  const sentences = [
-    '它能够助您快速开发AI应用，缩短80%项目交付周期',
-    '它拥有开箱即用的丰富AI应用',
-    '它正在努力成为AI应用落地的首选方案',
-    '它能够助您快速落地MVP，验证AI应用商业价值'
-  ];
 
   // 图片数据处理
   const marqueeImages = useMemo(() => {

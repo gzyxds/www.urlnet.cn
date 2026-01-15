@@ -15,6 +15,10 @@ interface TocItem {
   level: number;
 }
 
+interface MarkdownCodeProps extends React.HTMLAttributes<HTMLElement> {
+  inline?: boolean;
+}
+
 export default function BlogDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -100,26 +104,26 @@ export default function BlogDetail() {
 
   // 自定义 Markdown 渲染组件以添加 ID 和优化样式
   const MarkdownComponents = {
-    h2: ({ children }: any) => {
-      const text = children[0];
+    h2: ({ children }: { children?: React.ReactNode }) => {
+      const text = Array.isArray(children) ? children[0] : children;
       const id = typeof text === 'string' ? text.toLowerCase().replace(/[^\w\u4e00-\u9fa5]+/g, '-') : '';
       return <h2 id={id} className="text-2xl font-bold mt-12 mb-6 scroll-mt-32 pb-2 border-b border-gray-100">{children}</h2>;
     },
-    h3: ({ children }: any) => {
-      const text = children[0];
+    h3: ({ children }: { children?: React.ReactNode }) => {
+      const text = Array.isArray(children) ? children[0] : children;
       const id = typeof text === 'string' ? text.toLowerCase().replace(/[^\w\u4e00-\u9fa5]+/g, '-') : '';
       return <h3 id={id} className="text-xl font-bold mt-8 mb-4 scroll-mt-32 text-gray-800">{children}</h3>;
     },
-    p: ({ children }: any) => <p className="mb-6 leading-relaxed text-gray-600">{children}</p>,
-    ul: ({ children }: any) => <ul className="list-disc list-outside ml-6 mb-6 space-y-2 text-gray-600">{children}</ul>,
-    ol: ({ children }: any) => <ol className="list-decimal list-outside ml-6 mb-6 space-y-2 text-gray-600">{children}</ol>,
-    li: ({ children }: any) => <li className="pl-1">{children}</li>,
-    blockquote: ({ children }: any) => (
+    p: ({ children }: { children?: React.ReactNode }) => <p className="mb-6 leading-relaxed text-gray-600">{children}</p>,
+    ul: ({ children }: { children?: React.ReactNode }) => <ul className="list-disc list-outside ml-6 mb-6 space-y-2 text-gray-600">{children}</ul>,
+    ol: ({ children }: { children?: React.ReactNode }) => <ol className="list-decimal list-outside ml-6 mb-6 space-y-2 text-gray-600">{children}</ol>,
+    li: ({ children }: { children?: React.ReactNode }) => <li className="pl-1">{children}</li>,
+    blockquote: ({ children }: { children?: React.ReactNode }) => (
       <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-8 bg-blue-50/50 rounded-r-lg text-gray-700 italic">
         {children}
       </blockquote>
     ),
-    code: ({ node, inline, className, children, ...props }: any) => {
+    code: ({ inline, className, children, ...props }: MarkdownCodeProps) => {
       const match = /language-(\w+)/.exec(className || '');
       return !inline && match ? (
         <code className={className} {...props}>
@@ -131,7 +135,7 @@ export default function BlogDetail() {
         </code>
       );
     },
-    pre: ({ children }: any) => (
+    pre: ({ children }: { children?: React.ReactNode }) => (
       <div className="relative mb-8 rounded-xl overflow-hidden bg-gray-50 shadow-sm border border-gray-200 group my-6">
         <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b border-gray-200">
           <div className="flex items-center gap-1.5">
@@ -148,7 +152,7 @@ export default function BlogDetail() {
         </pre>
       </div>
     ),
-    img: ({ src, alt }: any) => (
+    img: ({ src, alt }: React.ImgHTMLAttributes<HTMLImageElement>) => (
       <figure className="my-8">
         <img
           src={src}
@@ -159,7 +163,7 @@ export default function BlogDetail() {
         {alt && <figcaption className="text-center text-sm text-gray-400 mt-3">{alt}</figcaption>}
       </figure>
     ),
-    a: ({ href, children }: any) => (
+    a: ({ href, children }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
       <a
         href={href}
         target="_blank"
@@ -169,17 +173,17 @@ export default function BlogDetail() {
         {children}
       </a>
     ),
-    table: ({ children }: any) => (
+    table: ({ children }: { children?: React.ReactNode }) => (
       <div className="overflow-x-auto my-8 border border-gray-200 rounded-xl">
         <table className="min-w-full divide-y divide-gray-200">
           {children}
         </table>
       </div>
     ),
-    thead: ({ children }: any) => <thead className="bg-gray-50">{children}</thead>,
-    th: ({ children }: any) => <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{children}</th>,
-    tbody: ({ children }: any) => <tbody className="bg-white divide-y divide-gray-200">{children}</tbody>,
-    td: ({ children }: any) => <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{children}</td>,
+    thead: ({ children }: { children?: React.ReactNode }) => <thead className="bg-gray-50">{children}</thead>,
+    th: ({ children }: { children?: React.ReactNode }) => <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{children}</th>,
+    tbody: ({ children }: { children?: React.ReactNode }) => <tbody className="bg-white divide-y divide-gray-200">{children}</tbody>,
+    td: ({ children }: { children?: React.ReactNode }) => <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{children}</td>,
     hr: () => <hr className="my-12 border-gray-100" />
   };
 

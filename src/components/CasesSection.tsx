@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import {
@@ -11,8 +11,6 @@ import {
   Award,
   CheckCircle2,
   ArrowRight,
-  MessageCircle,
-  FileText,
   Quote
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -275,7 +273,7 @@ const Cases = () => {
 
                 {/* 浮动数据卡片 - 移动端优化 */}
                 <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 grid grid-cols-2 gap-2 sm:gap-4">
-                  {Object.entries(currentCase.metrics).map(([key, value], idx) => (
+                  {Object.entries(currentCase.metrics).map(([key, value]) => (
                     <div key={key} className="bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/20 dark:border-white/10">
                       <div className="text-lg sm:text-2xl font-bold text-white mb-0.5 sm:mb-1">{value}</div>
                       <div className="text-[10px] sm:text-xs text-white/70 uppercase tracking-wider font-medium truncate">

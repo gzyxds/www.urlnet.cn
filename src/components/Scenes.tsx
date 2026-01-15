@@ -67,20 +67,20 @@ const Scenes = () => {
   // 更新卡片 3D 变换效果（参考 Vue 版本优化）
   const updateTransforms = useCallback(() => {
     if (!scrollContainerRef.current) return;
-    
+
     const viewportCenter = window.innerWidth / 2;
     const isMobile = window.innerWidth < 768;
     const range = isMobile ? window.innerWidth * 0.8 : 1000;
 
     cardRefs.current.forEach((card) => {
       if (!card) return;
-      
+
       const rect = card.getBoundingClientRect();
       const cardCenter = rect.left + rect.width / 2;
 
       // 计算距离中心的标准化距离
       let dist = (cardCenter - viewportCenter) / range;
-      
+
       // 限制距离范围
       if (dist < -1) dist = -1;
       if (dist > 1) dist = 1;
@@ -146,17 +146,17 @@ const Scenes = () => {
     autoScrollFrameId.current = requestAnimationFrame(autoScrollLoop);
   }, [isDragging]);
 
-  const startAutoPlay = useCallback(() => {
-    stopAutoPlay(); // 先停止已有的
-    autoScrollLoop();
-  }, [autoScrollLoop]);
-
   const stopAutoPlay = useCallback(() => {
     if (autoScrollFrameId.current) {
       cancelAnimationFrame(autoScrollFrameId.current);
       autoScrollFrameId.current = null;
     }
   }, []);
+
+  const startAutoPlay = useCallback(() => {
+    stopAutoPlay(); // 先停止已有的
+    autoScrollLoop();
+  }, [autoScrollLoop, stopAutoPlay]);
 
   // 拖拽事件处理
   const startDrag = (e: React.MouseEvent) => {

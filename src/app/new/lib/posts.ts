@@ -50,7 +50,7 @@ function parseFrontMatter(content: string): { data: FrontMatter; content: string
 
   const rawYaml = match[1];
   const markdownBody = match[2];
-  const data: any = {};
+  const data: Record<string, string | string[]> = {};
 
   rawYaml.split('\n').forEach(line => {
     const parts = line.split(':');
@@ -72,7 +72,7 @@ function parseFrontMatter(content: string): { data: FrontMatter; content: string
     }
   });
 
-  return { data: data as FrontMatter, content: markdownBody };
+  return { data: data as unknown as FrontMatter, content: markdownBody };
 }
 
 // 获取所有文章

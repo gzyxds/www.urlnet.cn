@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Users, Code, Handshake, Target, CheckCircle, Phone, MessageCircle, FileText, Settings, Check } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { usePageMetadata } from '@/hooks/use-page-metadata';
-import { cn } from "@/lib/utils";
 import ContactSection from "@/components/ContactSection";
 
 /**

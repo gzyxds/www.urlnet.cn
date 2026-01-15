@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Zap, Shield, Clock, Users, Check, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const Advantages = () => {
   return (

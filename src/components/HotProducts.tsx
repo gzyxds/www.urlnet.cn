@@ -1,58 +1,23 @@
 "use client";
 
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Globe,
-  ShoppingCart,
-  Users,
-  Building,
-  Briefcase,
-  GraduationCap,
   ArrowRight,
-  Shield,
   BarChart3,
   MessageSquare,
-  Clock,
-  Database,
-  Cloud,
-  Lock,
   Server,
   Sparkles,
-  ClipboardList,
-  Package,
-  UserCheck,
   Megaphone,
-  TrendingUp,
-  MessageCircle,
   Video,
   FileText,
   Mic,
-  Kanban,
   GitMerge,
-  BookOpen,
-  UserPlus,
-  Receipt,
-  BookOpenCheck,
-  PenTool,
-  Route,
-  MonitorPlay,
-  Ear,
-  FileQuestion,
-  Calendar,
-  Activity,
-  Stethoscope,
-  HeartPulse,
-  Microscope,
-  FileSearch,
   ImagePlus,
-  Phone,
   Layout,
-  PieChart,
-  Scale,
-  FileCheck,
-  AlertTriangle,
-  FileBarChart,
-  ChevronRight
+  ChevronRight,
+  Users,
+  Cloud
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -149,7 +114,7 @@ const TABS_CONFIG: Record<TabType, TabConfig> = {
 };
 
 // 功能卡片组件
-const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) => (
+const FeatureCard = ({ feature }: { feature: Feature }) => (
   <div className="group flex flex-col gap-3 p-3 lg:flex-row lg:gap-4 lg:p-4 rounded-none lg:rounded-2xl lg:-ml-4 hover:bg-muted/50 transition-colors duration-300 border-0 lg:border lg:border-border/50 lg:hover:border-border">
     <div className="shrink-0">
       <div className="w-10 h-10 rounded-lg lg:rounded-xl bg-muted flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
@@ -179,7 +144,6 @@ const FeatureCard = ({ feature, index }: { feature: Feature; index: number }) =>
 
 const HotProducts: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('visual');
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const currentConfig = useMemo(() => TABS_CONFIG[activeTab], [activeTab]);
 
@@ -269,7 +233,7 @@ const HotProducts: React.FC = () => {
             {/* 功能网格 */}
             <div className="flex-1 grid grid-cols-2 gap-3 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-8 content-start mb-8">
               {currentConfig.features.map((feature, index) => (
-                <FeatureCard key={index} feature={feature} index={index} />
+                <FeatureCard key={index} feature={feature} />
               ))}
             </div>
 

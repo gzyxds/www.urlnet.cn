@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import {
@@ -11,7 +10,6 @@ import {
   Smartphone,
   Monitor,
   Laptop,
-  QrCode,
   Copy,
   CheckCircle,
   FileText,
@@ -220,24 +218,6 @@ export default function DownloadPage(): JSX.Element {
   ];
 
   /**
-   * 根据平台名称获取对应的样式颜色类名
-   *
-   * @param {string} platform - 平台标识符 (如 'windows', 'macos', 'linux' 等)
-   * @returns {string} 返回 Tailwind CSS 颜色类名字符串
-   */
-  const getPlatformColor = (platform: string): string => {
-    switch (platform) {
-      case 'windows': return 'bg-blue-100 text-blue-800';
-      case 'macos': return 'bg-gray-100 text-gray-800';
-      case 'linux': return 'bg-orange-100 text-orange-800';
-      case 'ios': return 'bg-black text-white';
-      case 'android': return 'bg-green-100 text-green-800';
-      case 'archive': return 'bg-purple-100 text-purple-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
-
-  /**
    * 复制指定文件的下载链接到剪贴板
    *
    * @param {string} fileName - 要复制链接的文件名
@@ -253,7 +233,7 @@ export default function DownloadPage(): JSX.Element {
         description: "下载链接已复制到剪贴板",
       });
       setTimeout(() => setCopiedLink(null), 2000);
-    } catch (err) {
+    } catch {
       toast({
         title: "复制失败",
         description: "请手动复制下载链接",

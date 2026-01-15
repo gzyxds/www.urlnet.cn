@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Search, ArrowRight, CheckCircle as CheckBadgeIcon, Inbox, Star, ShoppingCart, Play, Sparkles, Zap, Code2, PenTool, Bot, FileText, Database, Puzzle, Video, Briefcase, LayoutGrid } from 'lucide-react';
+import { Search, ArrowRight, CheckCircle as CheckBadgeIcon, Inbox, Star, ShoppingCart, Play, Sparkles, Zap, PenTool, Database, Video, Briefcase, LayoutGrid } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { productsData, type ProductItem } from "@/data/products";
 import { Link } from 'react-router-dom';
@@ -260,9 +260,9 @@ const ProductShowcase: React.FC = () => {
                           <div className="flex items-center gap-2 mb-1">
                             <h3 className="font-bold text-gray-900 dark:text-white line-clamp-1">{app.name}</h3>
                             {app.subtitle && (
-                              <span className="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded">
-                                {app.subtitle.replace(/[\[\]]/g, '')}
-                              </span>
+                                <span className="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded">
+                                {app.subtitle.replace(/\[|\]/g, '')}
+                                </span>
                             )}
                             {/* 应用插件标签 */}
                             {app.isPlugin && (

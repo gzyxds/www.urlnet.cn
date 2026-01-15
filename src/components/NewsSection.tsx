@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, Newspaper } from 'lucide-react';
 import { getAllPosts, Post } from '@/app/new/lib/posts';
 import { NewsCategoryLabels } from '@/app/new/types';
-import { cn } from '@/lib/utils';
 
 /**
  * 新闻组件 - 在首页展示最新新闻

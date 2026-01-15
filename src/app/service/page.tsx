@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Check, MessageSquare, Phone, Mail, Settings, ShieldCheck, Headphones, Zap, FileText, BarChart3 } from "lucide-react";
+import { Check, MessageSquare, Phone, Mail, ShieldCheck, Headphones, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { usePageMetadata } from '@/hooks/use-page-metadata';

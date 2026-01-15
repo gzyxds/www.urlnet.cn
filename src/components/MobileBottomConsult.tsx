@@ -40,14 +40,14 @@ interface QRModalData {
 /**
  * 手机端底部业务咨询组件
  * 参考火山引擎的设计风格，提供移动端底部固定的业务咨询功能
- * 
+ *
  * 功能特性：
  * 1. 固定在移动端底部，不影响页面内容
  * 2. 包含演示、客服、QQ客服三个主要功能
  * 3. 响应式设计，仅在移动端显示
  * 4. 支持暗黑模式
  * 5. 使用Framer Motion实现流畅动画
- * 
+ *
  * @param props - 组件属性
  * @returns React组件
  */
@@ -127,7 +127,7 @@ const MobileBottomConsult: React.FC<MobileBottomConsultProps> = ({
       >
         {/* 左右分离布局：左侧图标按钮，右侧业务咨询按钮 */}
         <div className="flex items-center justify-between px-4 py-3">
-          
+
           {/* 左侧三个图标按钮容器 */}
           <div className="flex items-center gap-3">
             {/* 查看演示按钮 */}
@@ -167,7 +167,7 @@ const MobileBottomConsult: React.FC<MobileBottomConsultProps> = ({
           {/* 业务咨询按钮单独靠右边缘显示 */}
           <motion.button
             className="bg-[#0055ff] hover:bg-[#0055ff]/90 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 text-sm shadow-md"
-            onClick={() => openQR('business', presalesQR, '业务咨询', '扫描二维码联系我们，获取专业的业务咨询服务')}
+            onClick={() => openQR('business', presalesQR, '业务咨询', `扫描二维码联系我们（热线：${phoneNumber}），获取专业的业务咨询服务`)}
             aria-label="业务咨询"
             whileTap={{ scale: 0.95 }}
           >
@@ -189,7 +189,7 @@ const MobileBottomConsult: React.FC<MobileBottomConsultProps> = ({
           >
             {/* 背景遮罩 */}
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
-            
+
             {/* 弹窗内容 */}
             <motion.div
               className="relative bg-white dark:bg-gray-800 rounded-lg p-6 max-w-sm w-full mx-4 shadow-xl mb-24"
