@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Search, ArrowRight, CheckCircle as CheckBadgeIcon, Inbox, Star, ShoppingCart, Play, Sparkles, Zap, PenTool, Database, Video, Briefcase, LayoutGrid } from 'lucide-react';
+import { Search, ArrowRight, CheckCircle as CheckBadgeIcon, Inbox, Star, ShoppingCart, Play, Sparkles, Zap, PenTool, Database, Video, Briefcase, LayoutGrid, Music, Coffee, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { productsData, type ProductItem } from "@/data/products";
 import { Link } from 'react-router-dom';
@@ -32,8 +32,11 @@ const mainCategories: Category[] = [
 const pluginCategories: Category[] = [
   { id: 'video', name: '图像视频', icon: Video },
   { id: 'writing', name: '智能写作', icon: PenTool },
+  { id: 'audio', name: 'AI音频', icon: Music },
   { id: 'enterprise', name: '企业工具', icon: Briefcase },
   { id: 'efficiency', name: '效率工具', icon: LayoutGrid },
+  { id: 'lifestyle', name: '生活娱乐', icon: Coffee },
+  { id: 'coming', name: '即将上架', icon: Clock },
 ];
 
 /**
@@ -95,6 +98,17 @@ function filterApps(query: string, category: string, source: AppData[]): AppData
     if (category === 'enterprise') return /企业工具/.test(sub);
     if (category === 'efficiency') return /效率工具/.test(sub);
 
+    // 新增分类筛选逻辑
+    if (category === 'audio') {
+      return /音乐|音频|声音|配音|歌曲|说话/.test(app.name + (app.features?.join('') || ''));
+    }
+    if (category === 'lifestyle') {
+      return /小说|短剧|娱乐|生活|游戏|复刻/.test(app.name + (app.features?.join('') || ''));
+    }
+    if (category === 'coming') {
+      return /即将上架/.test(sub);
+    }
+
     return true;
   };
   return source.filter(app => bySearch(app) && byCategory(app));
@@ -116,46 +130,57 @@ const ProductShowcase: React.FC = () => {
   const apps = useMemo<AppData[]>(() => convertProductsToApps(productsData), []);
   const filteredApps = useMemo(() => filterApps(searchQuery, activeCategory, apps), [searchQuery, activeCategory, apps]);
 
-  const renderCategoryList = (list: Category[]) => (
-    <nav className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-hide">
-      {list.map((category) => {
-        const isActive = activeCategory === category.id;
-        const Icon = category.icon || Zap;
-        return (
-          <button
-            key={category.id}
-            onClick={() => setActiveCategory(category.id)}
-            className={cn(
-              "relative shrink-0 w-auto lg:w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 group overflow-hidden border",
-              isActive
-                ? "border-blue-500/30 dark:border-blue-400/30 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20"
-                : "border-transparent hover:bg-gray-100 dark:hover:bg-gray-800/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
-            )}
-          >
-            {isActive && (
-              <motion.div
-                layoutId="activeCategory"
-                className="absolute inset-0 bg-blue-100/50 dark:bg-blue-900/20"
-                initial={false}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-            )}
-            <span className="relative z-10 flex items-center gap-3">
-              <Icon className={cn("w-4 h-4", isActive ? "text-blue-500" : "text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300")} />
-              {category.name}
-            </span>
-          </button>
-        );
-      })}
-    </nav>
+  const renderCategoryList = (list: Category[], title: string) => (
+    <div className="py-2">
+      <h3 className="px-4 mb-3 text-sm font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
+        {title}
+      </h3>
+      <nav className="flex lg:flex-col gap-1.5 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-hide">
+        {list.map((category) => {
+          const isActive = activeCategory === category.id;
+          const Icon = category.icon || Zap;
+          return (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={cn(
+                "relative shrink-0 w-auto lg:w-full text-left px-4 py-3 rounded-xl text-base transition-all duration-200 group flex items-center justify-between overflow-hidden",
+                isActive
+                  ? "text-white font-medium shadow-md shadow-blue-500/20"
+                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-gray-200"
+              )}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="activeCategoryBg"
+                  className="absolute inset-0 bg-blue-600 dark:bg-blue-600 rounded-xl"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
+
+              <div className="flex items-center gap-3.5 relative z-10">
+                <Icon className={cn(
+                  "w-5 h-5 transition-colors",
+                  isActive ? "text-white" : "text-gray-400 group-hover:text-gray-500"
+                )} />
+                <span>{category.name}</span>
+              </div>
+            </button>
+          );
+        })}
+      </nav>
+    </div>
   );
 
   return (
-    <div className="min-h-screen bg-gray-50/50 dark:bg-gray-900 pt-24 pb-20 relative overflow-hidden">
-      {/* 背景装饰 */}
-      <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-50/80 to-transparent dark:from-blue-950/20 dark:to-transparent pointer-events-none" />
-      <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-[200px] -left-[200px] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="min-h-screen bg-gray-50/50 dark:bg-gray-900 pt-24 pb-20 relative">
+      {/* 背景装饰容器 - 独立出来以避免 overflow-hidden 影响 sticky 定位 */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-blue-50/80 to-transparent dark:from-blue-950/20 dark:to-transparent" />
+        <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[100px]" />
+        <div className="absolute top-[200px] -left-[200px] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]" />
+      </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
@@ -177,16 +202,11 @@ const ProductShowcase: React.FC = () => {
                 </div>
               </div>
 
-              {/* 分类导航 */}
-              <div className="space-y-3">
-               <h3 className="px-2 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">分类导航</h3>
-                {renderCategoryList(mainCategories)}
-              </div>
-
-              {/* 插件应用 */}
-              <div className="space-y-3 pt-2">
-               <h3 className="px-2 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">插件应用</h3>
-                {renderCategoryList(pluginCategories)}
+              {/* 导航菜单组 */}
+              <div className="lg:bg-white/50 lg:dark:bg-gray-800/40 lg:backdrop-blur-md lg:rounded-2xl lg:border lg:border-gray-200/50 lg:dark:border-gray-700/50 lg:p-3 lg:shadow-sm space-y-2">
+                {renderCategoryList(mainCategories, '发现')}
+                <div className="h-px bg-gray-100 dark:bg-gray-800 mx-2 hidden lg:block" />
+                {renderCategoryList(pluginCategories, '分类')}
               </div>
             </div>
           </aside>
@@ -194,27 +214,36 @@ const ProductShowcase: React.FC = () => {
           {/* 右侧主内容 */}
           <main className="flex-1 min-w-0">
             {/* 促销 Banner */}
-            <div className="relative overflow-hidden rounded-2xl bg-blue-50/50 dark:bg-blue-950/10 border border-blue-100 dark:border-blue-900/20 p-5 mb-8">
-              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div className="space-y-1 max-w-lg">
-                  <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-medium bg-blue-100/50 dark:bg-blue-900/20 px-2.5 py-0.5 rounded-full w-fit mb-2">
-                    <Sparkles className="w-3 h-3" />
+            <div className="relative overflow-hidden rounded-2xl border border-blue-500/20 dark:border-blue-400/20 p-6 mb-8 group">
+              {/* 渐变背景 */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 dark:from-blue-800 dark:via-blue-900 dark:to-blue-950" />
+
+              {/* 网格背景装饰 */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+
+              {/* 动态光效 */}
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-colors duration-500" />
+
+              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="space-y-2 max-w-lg">
+                  <div className="flex items-center gap-2 text-blue-50 text-xs font-medium bg-white/10 backdrop-blur-sm border border-white/10 px-3 py-1 rounded-full w-fit">
+                    <Sparkles className="w-3.5 h-3.5 text-blue-200" />
                     <span>限时特惠活动</span>
                   </div>
-                  <h2 className="text-xl lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    解锁 AI 生产力工具
+                  <h2 className="text-2xl lg:text-3xl font-bold tracking-tight text-white">
+                    解锁 <span className="text-blue-100">AI 生产力工具</span>
                   </h2>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                    联系客服领取限时 <span className="text-blue-600 dark:text-blue-400 font-bold">5折优惠码</span>，
+                  <p className="text-blue-100/90 text-sm leading-relaxed">
+                    联系客服领取限时 <span className="text-blue-700 font-bold bg-white px-1 rounded shadow-sm">5折优惠码</span>，
                     助力您的业务快速腾飞。
                   </p>
                 </div>
                 <Button
-                  className="bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow-md transition-all duration-300 rounded-full font-semibold px-6 h-9 text-sm"
+                  className="bg-white hover:bg-blue-50 text-blue-700 hover:text-blue-800 shadow-lg shadow-black/10 hover:shadow-black/20 transition-all duration-300 rounded-full font-semibold px-8 h-11 text-sm shrink-0 border border-transparent"
                   onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
                 >
                   获取优惠码
-                  <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
             </div>
