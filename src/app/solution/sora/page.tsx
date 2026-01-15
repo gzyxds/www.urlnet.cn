@@ -22,33 +22,33 @@ import FunctionBlueprint from "@/components/FunctionSection";
 // --- 功能网格数据 ---
 const features = [
   {
-    title: '文生图（Text-to-Image）',
-    desc: '基于 Gemini 3 Pro Image Preview 模型,只需输入自然语言提示词,即可生成高质量图像。',
+    title: '文生视频（Prompt-to-Video）',
+    desc: '基于 Sora 视频模型，只需输入自然语言提示词，即可生成具有电影感的镜头序列。',
     icon: FileText,
   },
   {
-    title: '图生图（Image-to-Image）',
-    desc: '上传 1-5 张参考图片,结合提示词生成新图像,保持风格与主体一致性。',
+    title: '图生视频（Image-to-Video）',
+    desc: '将品牌海报、分镜草图等静态素材转化为动态视频，保持主体与画风一致。',
     icon: ImageIcon,
   },
   {
-    title: '多图融合',
-    desc: '支持多张图片智能融合,理解图片中物体的逻辑关系,生成更加丰富的画面。',
+    title: '长视频生成与编排',
+    desc: '通过场景片段与时间轴编排，稳定生成分钟级长视频，适配故事、教程与广告场景。',
     icon: Sparkles,
   },
   {
-    title: '角色一致性保持',
-    desc: '有效保持角色一致性,支持固定角色、画风与色调,沉淀品牌专属视觉资产。',
+    title: '多模态控制',
+    desc: '同时利用文本、图片、音频等多模态输入精细控制镜头运动、节奏与氛围。',
     icon: User,
   },
   {
-    title: '文本渲染',
-    desc: '强大的文本渲染能力,支持在图像中生成清晰准确的文字内容。',
+    title: 'Sora 工作流自动化',
+    desc: '与 BuidAI 工作流引擎深度集成，从脚本生成到多端分发全流程自动化。',
     icon: PenTool,
   },
   {
-    title: '预置模板开箱即用',
-    desc: '预置多个绘画模板,开箱即用,后台可自由配置提示词、封面和参考图数量。',
+    title: '企业级 Sora 部署',
+    desc: '支持开源 Sora 源码接入与私有化部署，满足安全合规与弹性扩展需求。',
     icon: Box,
   },
 ];
@@ -68,71 +68,71 @@ interface FeatureDetail {
 
 const featureDetailsData: FeatureDetail[] = [
   {
-    title: '文生图：用文字直接创造精美图像',
-    desc: '基于 Gemini 3 Pro Image Preview 模型的文生图能力,只需输入提示词,即可生成高质量图像。生成速度极快,让创意瞬间变为现实。',
-    image: '/solution/Nanobanana-2.png',
+    title: '文生视频：用 Sora 把脚本直接变成镜头',
+    desc: '基于 Sora 视频生成模型的文生视频能力，只需输入脚本或提示词，即可生成具有镜头语言和节奏感的成片，适合广告、讲解、剧情等多种场景。',
+    image: '/solution/sora-1.png',
     points: [
       {
-        title: '自然语言提示词',
-        desc: '支持自然语言描述,无需专业绘画技能,用文字即可表达创意想法。'
+        title: '导演级镜头控制',
+        desc: '在提示词中描述运动方式、景别和情绪，Sora 按导演意图生成连贯镜头。'
       },
       {
-        title: '高质量图像输出',
-        desc: '基于 Gemini 3 Pro Image Preview 模型,生成细节丰富、色彩饱满的高质量图像。'
-      },
-      {
-        title: '极速生成体验',
-        desc: '生成速度非常快,大幅缩短等待时间,提升创作效率。'
+        title: '复杂场景一键拆分',
+        desc: '长文案自动拆分为多个镜头片段，逐段驱动 Sora 生成，同时保持人物与场景一致。'
       },
       {
         title: '风格与角色可复用',
-        desc: '支持固定角色、画风与色调,沉淀品牌专属视觉资产,持续迭代系列内容。'
+        desc: '支持固定角色、画风与色调，沉淀品牌专属视觉资产，持续迭代系列内容。'
+      },
+      {
+        title: '结构化脚本适配',
+        desc: '支持导入分镜脚本或大纲，按段落驱动 Sora 生成对应场景，清晰映射创意结构。'
       }
     ]
   },
   {
-    title: '图生图：让参考图成为创作起点',
-    desc: '支持上传 1-5 张参考图片,结合提示词生成新图像。保持角色一致性,理解图片中物体的逻辑关系,让创作更加精准。',
-    image: '/solution/Nanobanana-2.png',
+    title: '图生视频：让静态素材在 Sora 中“活”起来',
+    desc: '针对电商海报、产品渲染图、分镜草图优化的图生视频能力，让原有设计资产在 Sora 中快速变成动态画面。',
+    image: '/solution/sora-2.png',
     points: [
       {
-        title: '多图参考输入',
-        desc: '支持上传 1-5 张参考图片,提供更丰富的创作素材和灵感来源。'
+        title: '单图到多镜头视频',
+        desc: '上传单张图片，在 Sora 中生成多视角运动镜头，营造环绕、推进等丰富空间感。'
       },
       {
-        title: '角色一致性保持',
-        desc: '有效保持角色一致性,确保生成图像中的角色特征与参考图高度一致。'
+        title: '多图场景串联',
+        desc: '将多张草图或分镜图串联为连贯故事视频，自动补足中间过渡镜头。'
       },
       {
-        title: '智能逻辑理解',
-        desc: '能够理解图片中物体的逻辑关系,生成更加合理、自然的画面。'
+        title: '镜头运动与构图预设',
+        desc: '内置多种镜头运动与构图模板，一键应用，即可获得专业感十足的动效画面。'
       },
       {
-        title: '风格与细节传承',
-        desc: '从参考图中学习风格、构图和细节,生成与原图风格协调的新图像。'
+        title: '品牌素材资产化',
+        desc: '将已有 KV、海报和 IP 角色在 Sora 中扩展为系列短视频内容。'
       }
     ]
   },
   {
-    title: '模板配置与后台管理：开箱即用的企业级方案',
-    desc: '预置多个绘画模板,开箱即用。后台支持自由配置提示词、封面和参考图数量,可查看生成记录和积分消耗情况,满足企业级管理需求。',
-    image: '/solution/Nanobanana-3.png',
+    title: 'Sora 视频增强与编辑：从出片到成片一站打通',
+    desc: '内置围绕 Sora 生成素材的增强与轻量编辑能力，从清晰度、节奏到字幕配音，帮助团队快速产出可直接投放的成片。',
+    image: '/solution/sora-3.png',
     points: [
       {
-        title: '预置模板开箱即用',
-        desc: '预置多个绘画模板,无需配置即可使用,快速上手,降低学习成本。'
+        title: '面向大屏的画质增强',
+        desc: '对 Sora 生成素材进行分辨率提升与细节补偿，保证在大屏与高清场景中依然细腻。'
       },
       {
-        title: '灵活的模板配置',
-        desc: '后台可自由配置生图模板的提示词、封面和参考图数量,满足不同场景需求。'
+        title: '节奏与时长精细调节',
+        desc: '结合时间轴工具控制镜头节奏与停留时长，让画面节奏与文案、配乐高度对齐。'
       },
       {
-        title: '生成记录与积分管理',
-        desc: '后台可查看生成记录和积分消耗情况,支持配置用户生成消耗积分和是否免费。'
+        title: '配音与字幕一体化',
+        desc: '与 BuidAI 语音、字幕能力集成，一键生成多语种配音与字幕轨道，降低后期成本。'
       },
       {
-        title: '自定义应用名称',
-        desc: '后台可自由修改应用在前台显示的名称,打造品牌专属体验。'
+        title: '多渠道发布适配',
+        desc: '按平台比例与时长导出多版本视频，覆盖短视频平台、官网与线下大屏等多种发布场景。'
       }
     ]
   },
@@ -262,11 +262,11 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
   );
 };
 
-export default function BananaPage() {
+export default function SoraPage() {
   usePageMetadata({
-    title: 'Nanobanana 香蕉绘画 - 开源免费的 AI 图像生成系统 | BuidAI',
-    description: 'BuidAI Nanobanana 香蕉绘画平台提供一站式 AI 图像创作解决方案。基于 Gemini 3 Pro Image Preview 模型,支持高质量文生图、图生图及多图融合。预置多个模板开箱即用,保持角色一致性,支持文本渲染,生成速度极快。提供完整源码与私有化部署支持,助力企业低成本打造专属 AI 绘画应用。',
-    keywords: 'Nanobanana,香蕉绘画,AI绘画,文生图,图生图,多图融合,Gemini 3 Pro,图像生成模型,BuidAI,开源AI系统,私有化部署,AI绘画工具'
+    title: 'Sora 视频生成引擎 - 开源免费的 AI 视频创作系统 | BuidAI',
+    description: 'BuidAI Sora 视频生成平台提供一站式 AI 视频创作解决方案。支持高质量文生视频、图生视频及长视频生成。基于开源 Sora 技术构建，提供 Sora 源码与私有化部署支持，助力企业低成本打造专属 AI 视频应用。',
+    keywords: 'Sora,Sora视频,Sora源码,AI视频生成,文生视频,视频生成模型,BuidAI,开源AI系统,私有化部署,OpenAI Sora,视频大模型'
   });
 
   const toDemo = () => {
@@ -311,7 +311,7 @@ export default function BananaPage() {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 mb-4"
             >
               <span className="px-1.5 py-0.5 rounded bg-primary text-[11px] font-bold text-white tracking-wider">NEW</span>
-              <span className="text-xs text-gray-600 dark:text-gray-300">Nanobanana 香蕉绘画 2.0 发布</span>
+              <span className="text-xs text-gray-600 dark:text-gray-300">Sora 视频生成引擎 2.0 发布</span>
             </motion.div>
 
             <motion.h1
@@ -320,7 +320,7 @@ export default function BananaPage() {
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight"
             >
-              打造您的 <span className="text-primary">专属 AI 绘画世界</span>
+              打造您的 <span className="text-primary">专属 AI 视频世界</span>
             </motion.h1>
 
             <motion.p
@@ -329,7 +329,7 @@ export default function BananaPage() {
               transition={{ delay: 0.2 }}
               className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
             >
-              基于 Gemini 3 Pro Image Preview 的新一代 AI 绘画平台,一键生成高质量图像。<br className="hidden sm:block" />预置模板开箱即用,保持角色一致性,开启智能绘画创作新时代。
+              新一代 Sora 视频生成平台，一键生成电影级视频。<br className="hidden sm:block" />让创意无限延伸，让画面栩栩如生，开启智能视频创作新时代。
             </motion.p>
 
             <motion.div
@@ -368,8 +368,8 @@ export default function BananaPage() {
         >
           <div className="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
             <img
-              src="/solution/banana-1.png"
-              alt="香蕉绘画展示"
+              src="/solution/sora.png"
+              alt="Sora 视频生成展示"
               className="w-full h-full object-contain"
             />
           </div>
@@ -381,10 +381,10 @@ export default function BananaPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              全能型 Nanobanana 香蕉绘画平台
+              全能型 Sora 视频生成平台
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-lg">
-              集文生图、图生图、多图融合于一体,为您提供一站式解决方案
+              集文生视频、图生视频、视频编辑于一体，为您提供一站式解决方案
             </p>
           </div>
 

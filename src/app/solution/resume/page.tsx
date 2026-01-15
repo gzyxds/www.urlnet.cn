@@ -311,7 +311,7 @@ export default function ResumePage() {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 mb-4"
             >
               <span className="px-1.5 py-0.5 rounded bg-primary text-[11px] font-bold text-white tracking-wider">NEW</span>
-              <span className="text-xs text-gray-600 dark:text-gray-300">Nanobanana 香蕉绘画 2.0 发布</span>
+              <span className="text-xs text-gray-600 dark:text-gray-300">AI简历 2.0 发布</span>
             </motion.div>
 
             <motion.h1
@@ -320,7 +320,7 @@ export default function ResumePage() {
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight"
             >
-              打造您的 <span className="text-primary">专属 AI 绘画世界</span>
+              一键生成 <span className="text-primary">智能分析</span>
             </motion.h1>
 
             <motion.p
@@ -329,7 +329,7 @@ export default function ResumePage() {
               transition={{ delay: 0.2 }}
               className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
             >
-              基于 Gemini 3 Pro Image Preview 的新一代 AI 绘画平台,一键生成高质量图像。<br className="hidden sm:block" />预置模板开箱即用,保持角色一致性,开启智能绘画创作新时代。
+              致力于高效生成与深度优化您的个人简历，帮助您节省时间的同时，显著提升简历质量与影响力。<br className="hidden sm:block" />通过简单的基本信息输入，即可快速生成结构完整的个人简历。
             </motion.p>
 
             <motion.div
@@ -343,7 +343,7 @@ export default function ResumePage() {
                 className="gap-2"
                 onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
               >
-                开始构建
+                开始制作
                 <ArrowRight className="w-4 h-4" />
               </Button>
               <Button
@@ -351,7 +351,7 @@ export default function ResumePage() {
                 variant="outline"
                 onClick={toDemo}
               >
-                查看案例
+                查看示例
               </Button>
             </motion.div>
           </div>
@@ -368,8 +368,8 @@ export default function ResumePage() {
         >
           <div className="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
             <img
-              src="/solution/banana-1.png"
-              alt="香蕉绘画展示"
+              src="/solution/resume.png"
+              alt="AI简历展示"
               className="w-full h-full object-contain"
             />
           </div>
@@ -381,10 +381,10 @@ export default function ResumePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              全能型 Nanobanana 香蕉绘画平台
+              全能型 AI 简历制作平台
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-lg">
-              集文生图、图生图、多图融合于一体,为您提供一站式解决方案
+              集智能问答、简历模板、在线编辑、模块管理、AI分析于一体，为您提供一站式简历制作解决方案
             </p>
           </div>
 
