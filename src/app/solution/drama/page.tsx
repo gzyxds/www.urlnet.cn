@@ -6,47 +6,49 @@ import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { motion } from "framer-motion";
 import {
   FileText,
-  Image as ImageIcon,
+  Users,
+  ArrowLeftRight,
   Sparkles,
-  User,
-  PenTool,
-  Box,
+  ClipboardList,
+  Settings,
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { UserReviews } from "@/components/UserReviews";
+import FunctionBlueprint from "@/components/FunctionSection";
 
 // --- 功能网格数据 ---
 const features = [
   {
-    title: '文生图（Text-to-Image）',
-    desc: '基于 Gemini 3 Pro Image Preview 模型,只需输入自然语言提示词,即可生成高质量图像。',
+    title: '无限量剧本创作',
+    desc: '支持创建无限量剧本和小说,满足自媒体创作者、编剧、网络作家的多样化创作需求。',
     icon: FileText,
   },
   {
-    title: '图生图（Image-to-Image）',
-    desc: '上传 1-5 张参考图片,结合提示词生成新图像,保持风格与主体一致性。',
-    icon: ImageIcon,
+    title: '角色设定管理',
+    desc: '完善的角色卡和故事设定功能,帮助用户构建丰富的人物形象和世界观。',
+    icon: Users,
   },
   {
-    title: '多图融合',
-    desc: '支持多张图片智能融合,理解图片中物体的逻辑关系,生成更加丰富的画面。',
+    title: '章节可视化拖拽',
+    desc: '章节顺序可视化拖拽,灵活调整剧情结构,让创作流程更加直观高效。',
+    icon: ArrowLeftRight,
+  },
+  {
+    title: 'AI 扩写润色',
+    desc: '正文支持选中文本进行扩写、润色、改写、续写,提升内容质量和创作效率。',
     icon: Sparkles,
   },
   {
-    title: '角色一致性保持',
-    desc: '有效保持角色一致性,支持固定角色、画风与色调,沉淀品牌专属视觉资产。',
-    icon: User,
+    title: '大纲细纲记录',
+    desc: '完善的大纲和细纲记录功能,帮助用户系统化规划故事情节和章节内容。',
+    icon: ClipboardList,
   },
   {
-    title: '文本渲染',
-    desc: '强大的文本渲染能力,支持在图像中生成清晰准确的文字内容。',
-    icon: PenTool,
-  },
-  {
-    title: '预置模板开箱即用',
-    desc: '预置多个绘画模板,开箱即用,后台可自由配置提示词、封面和参考图数量。',
-    icon: Box,
+    title: '多种风格配置',
+    desc: '后台可配置多种写作提示词风格,支持插入变量,每种风格可配置不同大模型。',
+    icon: Settings,
   },
 ];
 
@@ -65,71 +67,71 @@ interface FeatureDetail {
 
 const featureDetailsData: FeatureDetail[] = [
   {
-    title: '文生图：用文字直接创造精美图像',
-    desc: '基于 Gemini 3 Pro Image Preview 模型的文生图能力,只需输入提示词,即可生成高质量图像。生成速度极快,让创意瞬间变为现实。',
-    image: '/product/Nanobanana-1.png',
+    title: '无限量剧本创作,构建完整故事世界',
+    desc: '支持创建无限量剧本和小说,提供丰富的剧情模板、角色设定和冲突框架。帮助自媒体创作者、编剧、网络作家快速构思情节、对话和分镜,让短剧创作更高效、更系统。',
+    image: '/solution/drama-3.png',
     points: [
       {
-        title: '自然语言提示词',
-        desc: '支持自然语言描述,无需专业绘画技能,用文字即可表达创意想法。'
+        title: '丰富剧情模板',
+        desc: '内置多种剧情模板,涵盖搞笑段子、情感剧场、品牌微剧等类型,快速上手创作。'
       },
       {
-        title: '高质量图像输出',
-        desc: '基于 Gemini 3 Pro Image Preview 模型,生成细节丰富、色彩饱满的高质量图像。'
+        title: '角色设定管理',
+        desc: '完善的角色卡功能,记录人物性格、外貌、背景等设定,保持角色一致性。'
       },
       {
-        title: '极速生成体验',
-        desc: '生成速度非常快,大幅缩短等待时间,提升创作效率。'
+        title: '冲突框架构建',
+        desc: '提供专业的冲突框架模板,帮助用户构建引人入胜的故事冲突和情节转折。'
       },
       {
-        title: '风格与角色可复用',
-        desc: '支持固定角色、画风与色调,沉淀品牌专属视觉资产,持续迭代系列内容。'
+        title: '无限量创作空间',
+        desc: '支持创建无限量剧本和小说,满足自媒体创作者、编剧、网络作家的多样化创作需求。'
       }
     ]
   },
   {
-    title: '图生图：让参考图成为创作起点',
-    desc: '支持上传 1-5 张参考图片,结合提示词生成新图像。保持角色一致性,理解图片中物体的逻辑关系,让创作更加精准。',
-    image: '/product/Nanobanana-2.png',
+    title: '章节可视化拖拽与大纲管理,系统化创作流程',
+    desc: '章节顺序可视化拖拽,灵活调整剧情结构。完善的大纲和细纲记录功能,帮助用户系统化规划故事情节和章节内容,让创作流程更加直观高效。',
+    image: '/solution/drama-3.png',
     points: [
       {
-        title: '多图参考输入',
-        desc: '支持上传 1-5 张参考图片,提供更丰富的创作素材和灵感来源。'
+        title: '章节可视化拖拽',
+        desc: '支持章节顺序可视化拖拽,灵活调整剧情结构,让创作流程更加直观高效。'
       },
       {
-        title: '角色一致性保持',
-        desc: '有效保持角色一致性,确保生成图像中的角色特征与参考图高度一致。'
+        title: '大纲细纲记录',
+        desc: '完善的大纲和细纲记录功能,帮助用户系统化规划故事情节和章节内容。'
       },
       {
-        title: '智能逻辑理解',
-        desc: '能够理解图片中物体的逻辑关系,生成更加合理、自然的画面。'
+        title: '故事设定管理',
+        desc: '支持世界观、背景设定等故事元素管理,构建完整的故事世界。'
       },
       {
-        title: '风格与细节传承',
-        desc: '从参考图中学习风格、构图和细节,生成与原图风格协调的新图像。'
+        title: '灵活调整结构',
+        desc: '随时调整章节顺序和内容结构,支持草稿编辑与复用,方便内容迭代与优化。'
       }
     ]
   },
   {
-    title: '模板配置与后台管理：开箱即用的企业级方案',
-    desc: '预置多个绘画模板,开箱即用。后台支持自由配置提示词、封面和参考图数量,可查看生成记录和积分消耗情况,满足企业级管理需求。',
-    image: '/product/Nanobanana-3.png',
+    title: 'AI 智能辅助写作,提升创作效率与质量',
+    desc: '正文支持选中文本进行扩写、润色、改写、续写。后台可配置多种写作提示词风格,支持插入变量,每种风格可配置不同大模型。正文一键排版、复制全文,可调节字号大小。',
+    image: '/solution/drama-3.png',
     points: [
       {
-        title: '预置模板开箱即用',
-        desc: '预置多个绘画模板,无需配置即可使用,快速上手,降低学习成本。'
+        title: 'AI 扩写续写',
+        desc: '选中文本即可进行扩写和续写,AI 根据上下文智能生成连贯内容,提升创作效率。'
       },
       {
-        title: '灵活的模板配置',
-        desc: '后台可自由配置生图模板的提示词、封面和参考图数量,满足不同场景需求。'
+        title: 'AI 润色改写',
+        desc: '支持对文本进行润色和改写,优化语言表达,提升内容质量和可读性。'
       },
       {
-        title: '生成记录与积分管理',
-        desc: '后台可查看生成记录和积分消耗情况,支持配置用户生成消耗积分和是否免费。'
+        title: '多种风格配置',
+        desc: '后台可配置多种写作提示词风格,支持插入变量,每种风格可配置不同大模型。'
       },
       {
-        title: '自定义应用名称',
-        desc: '后台可自由修改应用在前台显示的名称,打造品牌专属体验。'
+        title: '便捷编辑工具',
+        desc: '正文一键排版、复制全文,可调节字号大小,提供舒适的写作和阅读体验。'
       }
     ]
   },
@@ -231,7 +233,7 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
           {/* 调用操作按钮 */}
           <div className="mt-2">
-            <Button size="lg" className="rounded-full px-8 shadow-lg shadow-primary/20">
+            <Button size="lg">
               立即体验
             </Button>
           </div>
@@ -244,7 +246,7 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
                     <img
                         src={detail.image}
                         alt={detail.title}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-contain"
                     />
                 </div>
             </div>
@@ -259,11 +261,11 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
   );
 };
 
-export default function BananaPage() {
+export default function DramaPage() {
   usePageMetadata({
-    title: 'Nanobanana 香蕉绘画 - 开源免费的 AI 图像生成系统 | BuidAI',
-    description: 'BuidAI Nanobanana 香蕉绘画平台提供一站式 AI 图像创作解决方案。基于 Gemini 3 Pro Image Preview 模型,支持高质量文生图、图生图及多图融合。预置多个模板开箱即用,保持角色一致性,支持文本渲染,生成速度极快。提供完整源码与私有化部署支持,助力企业低成本打造专属 AI 绘画应用。',
-    keywords: 'Nanobanana,香蕉绘画,AI绘画,文生图,图生图,多图融合,Gemini 3 Pro,图像生成模型,BuidAI,开源AI系统,私有化部署,AI绘画工具'
+    title: 'AI短剧小说创作 - 开源免费的网文短剧写作系统 | 必定AI-BuidAI',
+    description: '必定AI-BuidAI 网文短剧写作是一款专注于短剧本和网络小说创作的辅助工具,适合自媒体创作者、编剧、网络作家及内容团队使用。提供丰富的剧情模板、角色设定和冲突框架,支持创建无限量剧本、章节可视化拖拽、AI 扩写润色改写续写。',
+    keywords: 'AI短剧创作,网文写作,短剧本创作,网络小说,AI写作工具,必定AI,BuidAI,小说创作,剧本生成,AI扩写,AI润色'
   });
 
   const toDemo = () => {
@@ -276,22 +278,17 @@ export default function BananaPage() {
       {/* 首屏区域 */}
       <div className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
         {/* 背景特效 */}
-        <div className="absolute inset-0 -z-10 overflow-visible pointer-events-none select-none">
+        <div className="absolute inset-0 overflow-visible pointer-events-none select-none">
           {/* 顶部聚焦光束 */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[80px] mix-blend-multiply dark:mix-blend-normal dark:bg-primary/10"></div>
           {/* 科技网格背景 */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-          {/* 抽象几何点缀 */}
-          <motion.div
-            animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-blue-400/30 to-transparent rounded-full blur-2xl hidden md:block"
-          />
-          <motion.div
-            animate={{ y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}
-            transition={{ duration: 6, repeat: Infinity, delay: 1 }}
-            className="absolute bottom-40 left-10 w-24 h-24 bg-gradient-to-tr from-purple-400/30 to-transparent rounded-full blur-xl hidden md:block"
-          />
+          <div
+            className="absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"
+            style={{
+              backgroundImage: 'linear-gradient(to right, rgba(128, 128, 128, 0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px)',
+              backgroundSize: '24px 24px'
+            }}
+          ></div>
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -302,7 +299,7 @@ export default function BananaPage() {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 mb-4"
             >
               <span className="px-1.5 py-0.5 rounded bg-primary text-[11px] font-bold text-white tracking-wider">NEW</span>
-              <span className="text-xs text-gray-600 dark:text-gray-300">Nanobanana 香蕉绘画 2.0 发布</span>
+              <span className="text-xs text-gray-600 dark:text-gray-300">AI 短剧小说创作 2.0 发布</span>
             </motion.div>
 
             <motion.h1
@@ -311,7 +308,7 @@ export default function BananaPage() {
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight"
             >
-              打造您的 <span className="text-primary">专属 AI 绘画世界</span>
+              打造您的 <span className="text-primary">专属爆款短剧</span>
             </motion.h1>
 
             <motion.p
@@ -320,7 +317,7 @@ export default function BananaPage() {
               transition={{ delay: 0.2 }}
               className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
             >
-              基于 Gemini 3 Pro Image Preview 的新一代 AI 绘画平台,一键生成高质量图像。<br className="hidden sm:block" />预置模板开箱即用,保持角色一致性,开启智能绘画创作新时代。
+              专为自媒体创作者、编剧、网络作家打造的 AI 写作工具,支持无限量剧本创作。<br className="hidden sm:block" />AI 扩写润色改写续写,章节可视化拖拽,开启智能创作新时代。
             </motion.p>
 
             <motion.div
@@ -331,16 +328,16 @@ export default function BananaPage() {
             >
               <Button
                 size="lg"
-                className="px-8 py-7 rounded-full text-base font-medium shadow-lg shadow-primary/20 gap-2"
+                className="gap-2"
+                onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
               >
                 开始构建
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={toDemo}
-                className="px-8 py-7 rounded-full text-base font-medium bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
               >
                 查看案例
               </Button>
@@ -359,8 +356,8 @@ export default function BananaPage() {
         >
           <div className="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
             <img
-              src="/product/banana-1.png"
-              alt="香蕉绘画展示"
+              src="/solution/drama-3.png"
+              alt="AI短剧小说创作"
               className="w-full h-full object-contain"
             />
           </div>
@@ -372,10 +369,10 @@ export default function BananaPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              全能型 Nanobanana 香蕉绘画平台
+              全能型 AI 短剧小说创作平台
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-lg">
-              集文生图、图生图、多图融合于一体,为您提供一站式解决方案
+              集剧本创作、角色设定、AI 辅助写作于一体,为您提供一站式解决方案
             </p>
           </div>
 
@@ -387,9 +384,9 @@ export default function BananaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-gray-100 dark:border-gray-800 transition-all duration-300 group hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
+                className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-gray-100 dark:border-gray-800 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
@@ -416,6 +413,47 @@ export default function BananaPage() {
             </motion.div>
         ))}
       </div>
+
+      {/* 用户评价 */}
+      <UserReviews />
+
+      {/* 功能详情 */}
+      <FunctionBlueprint />
+
+      {/* 行动号召区域 */}
+      <section className="py-24 bg-gray-50 dark:bg-gray-800/30 relative overflow-hidden">
+        {/* 背景图形 */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] right-[-5%] w-[30%] h-[30%] bg-blue-400/10 rounded-full blur-[80px]"></div>
+          <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-purple-400/10 rounded-full blur-[80px]"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            准备好开始创作了吗？
+          </h2>
+          <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button
+              size="lg"
+              className="px-10 py-6 rounded-full text-lg"
+              onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
+            >
+              免费试用
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="px-10 py-6 rounded-full text-lg bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+              onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
+            >
+              联系商务
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

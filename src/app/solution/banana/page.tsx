@@ -15,6 +15,9 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { UserReviews } from "@/components/UserReviews";
+import FunctionBlueprint from "@/components/FunctionSection";
+
 
 // --- 功能网格数据 ---
 const features = [
@@ -67,7 +70,7 @@ const featureDetailsData: FeatureDetail[] = [
   {
     title: '文生图：用文字直接创造精美图像',
     desc: '基于 Gemini 3 Pro Image Preview 模型的文生图能力,只需输入提示词,即可生成高质量图像。生成速度极快,让创意瞬间变为现实。',
-    image: '/product/Nanobanana-1.png',
+    image: '/solution/Nanobanana-2.png',
     points: [
       {
         title: '自然语言提示词',
@@ -90,7 +93,7 @@ const featureDetailsData: FeatureDetail[] = [
   {
     title: '图生图：让参考图成为创作起点',
     desc: '支持上传 1-5 张参考图片,结合提示词生成新图像。保持角色一致性,理解图片中物体的逻辑关系,让创作更加精准。',
-    image: '/product/Nanobanana-2.png',
+    image: '/solution/Nanobanana-2.png',
     points: [
       {
         title: '多图参考输入',
@@ -113,7 +116,7 @@ const featureDetailsData: FeatureDetail[] = [
   {
     title: '模板配置与后台管理：开箱即用的企业级方案',
     desc: '预置多个绘画模板,开箱即用。后台支持自由配置提示词、封面和参考图数量,可查看生成记录和积分消耗情况,满足企业级管理需求。',
-    image: '/product/Nanobanana-3.png',
+    image: '/solution/Nanobanana-3.png',
     points: [
       {
         title: '预置模板开箱即用',
@@ -231,7 +234,7 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
           {/* 调用操作按钮 */}
           <div className="mt-2">
-            <Button size="lg" className="rounded-full px-8 shadow-lg shadow-primary/20">
+            <Button size="lg">
               立即体验
             </Button>
           </div>
@@ -244,7 +247,7 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
                     <img
                         src={detail.image}
                         alt={detail.title}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-contain"
                     />
                 </div>
             </div>
@@ -276,11 +279,17 @@ export default function BananaPage() {
       {/* 首屏区域 */}
       <div className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
         {/* 背景特效 */}
-        <div className="absolute inset-0 -z-10 overflow-visible pointer-events-none select-none">
+        <div className="absolute inset-0 overflow-visible pointer-events-none select-none">
           {/* 顶部聚焦光束 */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[80px] mix-blend-multiply dark:mix-blend-normal dark:bg-primary/10"></div>
           {/* 科技网格背景 */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+          <div
+            className="absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"
+            style={{
+              backgroundImage: 'linear-gradient(to right, rgba(128, 128, 128, 0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px)',
+              backgroundSize: '24px 24px'
+            }}
+          ></div>
           {/* 抽象几何点缀 */}
           <motion.div
             animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
@@ -331,16 +340,16 @@ export default function BananaPage() {
             >
               <Button
                 size="lg"
-                className="px-8 py-7 rounded-full text-base font-medium shadow-lg shadow-primary/20 gap-2"
+                className="gap-2"
+                onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
               >
                 开始构建
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={toDemo}
-                className="px-8 py-7 rounded-full text-base font-medium bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
               >
                 查看案例
               </Button>
@@ -359,7 +368,7 @@ export default function BananaPage() {
         >
           <div className="relative rounded-2xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-sm bg-white/60 dark:bg-gray-800/60 aspect-video flex items-center justify-center">
             <img
-              src="/product/banana-1.png"
+              src="/solution/banana-1.png"
               alt="香蕉绘画展示"
               className="w-full h-full object-contain"
             />
@@ -387,9 +396,9 @@ export default function BananaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-gray-100 dark:border-gray-800 transition-all duration-300 group hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
+                className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-gray-100 dark:border-gray-800 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
@@ -416,6 +425,47 @@ export default function BananaPage() {
             </motion.div>
         ))}
       </div>
+
+      {/* 用户评价 */}
+      <UserReviews />
+
+      {/* 功能详情 */}
+      <FunctionBlueprint />
+
+      {/* 行动号召区域 */}
+      <section className="py-24 bg-gray-50 dark:bg-gray-800/30 relative overflow-hidden">
+        {/* 背景图形 */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] right-[-5%] w-[30%] h-[30%] bg-blue-400/10 rounded-full blur-[80px]"></div>
+          <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-purple-400/10 rounded-full blur-[80px]"></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            准备好开始创作了吗？
+          </h2>
+          <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button
+              size="lg"
+              className="px-10 py-6 rounded-full text-lg"
+              onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
+            >
+              免费试用
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="px-10 py-6 rounded-full text-lg bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+              onClick={() => window.dispatchEvent(new CustomEvent('showQRCodeModal'))}
+            >
+              联系商务
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
