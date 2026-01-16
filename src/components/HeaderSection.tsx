@@ -168,6 +168,7 @@ const Header: React.FC = () => {
         { name: "艺创数字人", path: "https://v.cnai.ar", icon: <User className="h-5 w-5" />, color: "amber", description: "数字人互动体验", external: true, url: "https://v.cnai.art" },
         { name: "聊天绘画", path: "https://cnai.ar", icon: <Layers className="h-5 w-5" />, color: "purple", description: "AI绘画创作体验", external: true, url: "https://cnai.art" },
         { name: "论文创作", path: "https://paper.gmlart.cn", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "智能写作体验", external: true, url: "https://paper.gmlart.cn" },
+        { name: "必定AI", path: "https://cloud.buidai.com/", icon: <BookOpen className="h-5 w-5" />, color: "amber", description: "创意生产力平台", external: true, url: "https://cloud.buidai.com/" },
         { name: "云计算", path: "https://www.cloudcvm.com", icon: <Cloud className="h-5 w-5" />, color: "sky", description: "云端计算服务", external: true, url: "https://www.cloudcvm.com" },
         { name: "免费领卡", path: "https://h5.lot-ml.com/ProductEn/Index/1a654e0b341cadd2", icon: <Gift className="h-5 w-5" />, color: "pink", description: "免费体验卡领取", external: true, url: "https://h5.lot-ml.com/ProductEn/Index/1a654e0b341cadd2" }
       ]

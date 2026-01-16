@@ -241,7 +241,7 @@ const demoProducts = [
     demos: [
       {
         title: "必定AI(BuidAI)",
-        url: "联系客服获取",
+        url: "https://cloud.buidai.com/",
         qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
@@ -250,11 +250,11 @@ const demoProducts = [
       },
       {
         title: "必定AI(BuidAI)后台",
-        url: "联系客服获取",
+        url: "https://cloud.buidai.com/",
         qrcode: "/images/wechat.png",
         credentials: {
-          username: "admin",
-          password: "123456"
+          username: "自行注册",
+          password: "自行注册"
         }
       }
     ]
@@ -436,7 +436,7 @@ const Demonstrate: React.FC = () => {
                     <div className="lg:hidden p-3">
                       {/* 标题 */}
                       <h3 className="font-semibold text-slate-900 text-xs mb-3 truncate">{demo.title}</h3>
-                      
+
                       {/* 账号密码 */}
                       <div className="space-y-2 mb-3">
                         <div className="flex items-center justify-between">
