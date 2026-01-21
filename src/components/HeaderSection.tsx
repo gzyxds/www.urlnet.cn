@@ -129,7 +129,7 @@ const Header: React.FC = () => {
       ]
     },
     { name: "产品演示", path: "/demo" },
-    {
+    /* {
       name: "解决方案",
       dropdown: true,
       items: [
@@ -145,7 +145,7 @@ const Header: React.FC = () => {
         { name: "视频混剪", path: "/solution/videoclip", icon: <Zap className="h-5 w-5" />, color: "pink", description: "批量混剪与智能剪辑解决方案" },
         { name: "小红书创作", path: "/solution/xhs", icon: <Newspaper className="h-5 w-5" />, color: "red", description: "小红书热门内容创作与运营助手" }
       ]
-    },
+    }, */
     { name: "产品文档", path: "/docs" },
     { name: "新闻资讯", path: "/new" },
     {
