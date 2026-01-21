@@ -155,7 +155,7 @@ const Header: React.FC = () => {
         { name: "服务支持", path: "/service", icon: <HelpCircle className="h-5 w-5" />, color: "indigo", description: "获取专业技术支持" },
         { name: "AI提示词", path: "/tips", icon: <Sparkles className="h-5 w-5" />, color: "purple", description: "精选AI提示词模板库" },
         { name: "代理合作", path: "/agency", icon: <Zap className="h-5 w-5" />, color: "cyan", description: "成为合作伙伴" },
-        { name: "必定AI", path: "https://www.buidai.com", icon: <ExternalLink className="h-5 w-5" />, color: "rose", description: "企业级智能体平台" },
+        { name: "必创AI", path: "https://www.buidai.com", icon: <ExternalLink className="h-5 w-5" />, color: "rose", description: "企业级智能体平台" },
         { name: "APP下载", path: "/download", icon: <Cloud className="h-5 w-5" />, color: "emerald", description: "移动端应用下载" },
         { name: "集成与API", path: "/api", icon: <Code className="h-5 w-5" />, color: "indigo", description: "系统集成开发文档" },
       ]
