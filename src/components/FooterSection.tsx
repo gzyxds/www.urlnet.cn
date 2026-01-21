@@ -315,7 +315,7 @@ const Footer = () => {
         <div className="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
             <p className="text-gray-400 dark:text-gray-500 text-sm">
-              © {new Date().getFullYear()} 艺创AI BuidAI. All rights reserved.
+              © {new Date().getFullYear()} 艺创AI. All rights reserved.
             </p>
             <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" className="text-gray-400 dark:text-gray-500 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               赣ICP备2023002309号-8
