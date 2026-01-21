@@ -232,10 +232,10 @@ const demoProducts = [
   },
   {
     id: "BuidAI",
-    name: "必定AI",
+    name: "必创AI",
     version: "BuidAI",
     versionColor: "bg-lime-100 text-lime-600",
-    description: "必定AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成。",
+    description: "必创AI, BuidAI, AI创意生产力平台, 智能体,香蕉绘画Nanobanana, AI绘画, AI视频, AI对话, Sora2, 知识库, 内容总结, PDF解析工具, 文档问答, 爆款文章生成。",
     icon: FileText,
     color: "bg-lime-500",
     demos: [
