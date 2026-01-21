@@ -87,7 +87,7 @@ const FunctionBlueprint = () => {
             功能全景
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground tracking-tight">
-            Build AI Fast.
+           艺创AI
           </h2>
           <h3 className="text-2xl md:text-3xl font-medium mb-8 text-primary tracking-wide">
             In Minutes, Not Months. Really Fast!

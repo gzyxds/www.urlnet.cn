@@ -139,20 +139,7 @@ export const productsData: ProductItem[] = [
       sales: 2389,
       buyLink: BASE_BUY_LINK
     },
-    {
-      image: "/product/buidai.svg",
-      title: "企业级开源智能体部署服务",
-      subtitle: "[PHP源码版]",
-      description: "零代码搭建具备智能体、MCP、RAG管道、知识库、大模型聚合、上下文工程等原生AI能力...",
-      features: ["MCP", "知识库", "大模型聚合", "扣子"],
-      price: 500,
-      originalPrice: 1500,
-      link: "/demo",
-      rating: 4.6,
-      sales: 3134,
-      buyLink: BASE_BUY_LINK
-    },
-    {
+    /* {
       image: "/product/buidai.webp",
       title: "BuidAl部署服务",
       subtitle: "[独立系统]",
@@ -179,7 +166,7 @@ export const productsData: ProductItem[] = [
       sales: 1243,
       buyLink: BASE_BUY_LINK,
       isPlugin: true
-    },
+    } 
     {
       image: "/product/Nanobanana.png",
       title: "Nanobanana",
@@ -445,5 +432,5 @@ export const productsData: ProductItem[] = [
       sales: 1200,
       buyLink: BASE_BUY_LINK,
       isPlugin: true
-    }
+    }*/
   ];

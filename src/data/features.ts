@@ -110,7 +110,7 @@ export const featuresData: FeatureItem[] = [
     title: "key池轮询",
     description: "支持多key轮询，提高整体系统的吞吐量和响应速度。"
   },
-  {
+  /* {
     title: "BuidAl部署服务",
     description: "官方技术专家，帮您部署 BuildAl 平台框架，支持本地部署或服务器部署"
   },
@@ -192,6 +192,6 @@ export const featuresData: FeatureItem[] = [
   },
   {
     title: "AI音乐",
-    description: "AI音乐是一款以文本/歌词/哼唱/乐谱为输入，快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具，旨在降低门槛、提升效率，支持个人娱乐与商用配乐的“人机协同”"
-  }
+    description: "AI音乐是一款以文本/歌词/哼唱/乐谱为输入，快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具，旨在降低门槛、提升效率，支持个人娱乐与商用配乐的"人机协同""
+  } */
 ];
