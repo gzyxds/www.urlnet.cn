@@ -263,9 +263,9 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
 export default function DramaPage() {
   usePageMetadata({
-    title: 'AI短剧小说创作 - 开源免费的网文短剧写作系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 网文短剧写作是一款专注于短剧本和网络小说创作的辅助工具,适合自媒体创作者、编剧、网络作家及内容团队使用。提供丰富的剧情模板、角色设定和冲突框架,支持创建无限量剧本、章节可视化拖拽、AI 扩写润色改写续写。',
-    keywords: 'AI短剧创作,网文写作,短剧本创作,网络小说,AI写作工具,必定AI,BuidAI,小说创作,剧本生成,AI扩写,AI润色'
+    title: 'AI短剧小说创作 - 开源免费的网文短剧写作系统 | 智言AI-BuidAI',
+    description: '智言AI-BuidAI 网文短剧写作是一款专注于短剧本和网络小说创作的辅助工具,适合自媒体创作者、编剧、网络作家及内容团队使用。提供丰富的剧情模板、角色设定和冲突框架,支持创建无限量剧本、章节可视化拖拽、AI 扩写润色改写续写。',
+    keywords: 'AI短剧创作,网文写作,短剧本创作,网络小说,AI写作工具,智言AI,BuidAI,小说创作,剧本生成,AI扩写,AI润色'
   });
 
   const toDemo = () => {
@@ -433,7 +433,7 @@ export default function DramaPage() {
             准备好开始创作了吗？
           </h2>
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+            立即加入 智言IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button

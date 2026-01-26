@@ -28,7 +28,7 @@ const Footer = () => {
   // 友情链接数据
   const friendLinks = [
     { text: "艺创AI", href: "https://www.cnai.art" },
-    { text: "必定AI", href: "https://buidai.com" },
+    { text: "智言AI", href: "https://buidai.com" },
     { text: "企业知识库", href: "https://www.cnai.art" },
     { text: "优刻云", href: "https://www.cloudcvm.com" },
     { text: "AI数字人", href: "https://pro.cnai.art" },

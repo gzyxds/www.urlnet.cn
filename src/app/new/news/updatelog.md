@@ -3,7 +3,7 @@ title: "更新日志"
 summary: "全能AI知识库系统「PHP源码版」-V4.5.0"
 
 category: "更新日志"
-tags: ["AI视频", "文生视频", "图生视频", "Sora", "短剧创作", "必定AI"]
+tags: ["AI视频", "文生视频", "图生视频", "Sora", "短剧创作", "智言AI"]
 
 author:
   name: "产品团队"

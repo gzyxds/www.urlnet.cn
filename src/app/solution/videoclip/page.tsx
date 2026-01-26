@@ -264,9 +264,9 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
 export default function VideoclipPage() {
   usePageMetadata({
-    title: '视频混剪助手 - 开源免费的视频剪辑软件 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 视频混剪助手是一款高效易用的视频剪辑软件,专为短视频创作者、Vlogger及营销人员设计。支持自动化批量剪辑、智能转场、滤镜调色、字幕添加和背景音乐匹配,提供海量模板与素材库,一键生成节奏感强、视觉冲击力大的混剪视频。无论是门店营销推广、产品带货、直播切片,都能轻松制作出专业级别的视频内容,大幅降低剪辑门槛与时间成本。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: '视频混剪,视频剪辑,批量剪辑,智能转场,滤镜调色,字幕添加,背景音乐,必定AI,BuidAI,视频制作工具,开源AI系统,私有化部署,视频剪辑源码'
+    title: '视频混剪助手 - 开源免费的视频剪辑软件 | 智言AI-BuidAI',
+    description: '智言AI-BuidAI 视频混剪助手是一款高效易用的视频剪辑软件,专为短视频创作者、Vlogger及营销人员设计。支持自动化批量剪辑、智能转场、滤镜调色、字幕添加和背景音乐匹配,提供海量模板与素材库,一键生成节奏感强、视觉冲击力大的混剪视频。无论是门店营销推广、产品带货、直播切片,都能轻松制作出专业级别的视频内容,大幅降低剪辑门槛与时间成本。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: '视频混剪,视频剪辑,批量剪辑,智能转场,滤镜调色,字幕添加,背景音乐,智言AI,BuidAI,视频制作工具,开源AI系统,私有化部署,视频剪辑源码'
   });
 
   const toDemo = () => {
@@ -445,7 +445,7 @@ export default function VideoclipPage() {
             准备好开始创作了吗？
           </h2>
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+            立即加入 智言IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button

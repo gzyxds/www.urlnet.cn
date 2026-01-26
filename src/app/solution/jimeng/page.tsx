@@ -263,9 +263,9 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
 export default function JimengPage() {
   usePageMetadata({
-    title: '即梦AI - 开源免费的 AI 视频生成系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 即梦AI是一款快速生成视频的工具,用户只需输入文字描述或上传参考图,即可快速生成风格多样的短视频。支持纯文本提示词或上传参考图来生成视频,支持生成不同的视频比例、分辨率(720P、1080P)。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: '即梦AI,AI视频生成,文生视频,图生视频,视频生成工具,必定AI,BuidAI,视频制作,开源AI系统,私有化部署,即梦4.0,视频生成源码'
+    title: '即梦AI - 开源免费的 AI 视频生成系统 | 智言AI-BuidAI',
+    description: '智言AI-BuidAI 即梦AI是一款快速生成视频的工具,用户只需输入文字描述或上传参考图,即可快速生成风格多样的短视频。支持纯文本提示词或上传参考图来生成视频,支持生成不同的视频比例、分辨率(720P、1080P)。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: '即梦AI,AI视频生成,文生视频,图生视频,视频生成工具,智言AI,BuidAI,视频制作,开源AI系统,私有化部署,即梦4.0,视频生成源码'
   });
 
   const toDemo = () => {
@@ -444,7 +444,7 @@ export default function JimengPage() {
             准备好开始创作了吗？
           </h2>
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+            立即加入 智言IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button

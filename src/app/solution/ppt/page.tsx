@@ -264,9 +264,9 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
 export default function PptPage() {
   usePageMetadata({
-    title: 'AI PPT - 开源免费的智能演示文稿制作工具 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI AI PPT是一款智能演示文稿制作工具，能够根据用户输入的主题或大纲，自动生成结构清晰、设计美观的PPT页面。内置多种模板与图表，支持智能配色、字体搭配与动画效果优化，还可一键生成演讲备注。无论是工作报告、学术展示还是商业提案，都能快速输出专业级演示文稿，显著提升制作效率与视觉表现力。基于开源技术构建，提供完整源码与私有化部署支持。',
-    keywords: 'AI PPT,智能演示文稿,自动生成PPT,模板图表,智能配色,字体搭配,动画效果,必定AI,BuidAI,PPT制作工具,开源AI系统,私有化部署,PPT源码'
+    title: 'AI PPT - 开源免费的智能演示文稿制作工具 | 智言AI-BuidAI',
+    description: '智言AI-BuidAI AI PPT是一款智能演示文稿制作工具，能够根据用户输入的主题或大纲，自动生成结构清晰、设计美观的PPT页面。内置多种模板与图表，支持智能配色、字体搭配与动画效果优化，还可一键生成演讲备注。无论是工作报告、学术展示还是商业提案，都能快速输出专业级演示文稿，显著提升制作效率与视觉表现力。基于开源技术构建，提供完整源码与私有化部署支持。',
+    keywords: 'AI PPT,智能演示文稿,自动生成PPT,模板图表,智能配色,字体搭配,动画效果,智言AI,BuidAI,PPT制作工具,开源AI系统,私有化部署,PPT源码'
   });
 
   const toDemo = () => {
@@ -444,7 +444,7 @@ export default function PptPage() {
             准备好开始创作了吗？
           </h2>
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+            立即加入 智言IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button

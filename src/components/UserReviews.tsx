@@ -113,7 +113,7 @@ export function UserReviews() {
             深受开发者与创作者喜爱
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-lg">
-            听听来自社区的真实反馈，见证 必定AI-BuidAI 如何提升工作效率
+            听听来自社区的真实反馈，见证 智言AI-BuidAI 如何提升工作效率
           </p>
         </div>
 

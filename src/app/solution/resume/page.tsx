@@ -264,9 +264,9 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
 export default function ResumePage() {
   usePageMetadata({
-    title: 'AI简历 - 开源免费的智能简历生成与分析系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI AI简历致力于高效生成与深度优化您的个人简历，帮助您节省时间的同时，显著提升简历质量与影响力。是基于AI研发的智能文案生成平台。通过简单的基本信息输入，即可快速生成结构完整的个人简历。并可基于已有内容进行深度解析，评估亮点并提供优化建议。基于开源技术构建，提供完整源码与私有化部署支持。',
-    keywords: 'AI简历,智能简历,简历生成,简历分析,简历优化,简历模板,必定AI,BuidAI,简历制作工具,开源AI系统,私有化部署,简历源码'
+    title: 'AI简历 - 开源免费的智能简历生成与分析系统 | 智言AI-BuidAI',
+    description: '智言AI-BuidAI AI简历致力于高效生成与深度优化您的个人简历，帮助您节省时间的同时，显著提升简历质量与影响力。是基于AI研发的智能文案生成平台。通过简单的基本信息输入，即可快速生成结构完整的个人简历。并可基于已有内容进行深度解析，评估亮点并提供优化建议。基于开源技术构建，提供完整源码与私有化部署支持。',
+    keywords: 'AI简历,智能简历,简历生成,简历分析,简历优化,简历模板,智言AI,BuidAI,简历制作工具,开源AI系统,私有化部署,简历源码'
   });
 
   const toDemo = () => {
@@ -445,7 +445,7 @@ export default function ResumePage() {
             准备好开始创作了吗？
           </h2>
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+            立即加入 智言IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button

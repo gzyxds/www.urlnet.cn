@@ -1,9 +1,9 @@
 ---
 title: "Sora2短剧视频创作"
-summary: "Sora2短剧视频创作是一款专为必定AI平台打造的扩展插件，基于先进的Sora 2.0引擎，支持文生视频、图生视频、横竖屏自适应等功能，用户只需输入文字描述或上传参考图片即可快速生成专业品质的短剧和创意视频。"
+summary: "Sora2短剧视频创作是一款专为智言AI平台打造的扩展插件，基于先进的Sora 2.0引擎，支持文生视频、图生视频、横竖屏自适应等功能，用户只需输入文字描述或上传参考图片即可快速生成专业品质的短剧和创意视频。"
 
 category: "AI视频"
-tags: ["AI视频", "文生视频", "图生视频", "Sora", "短剧创作", "必定AI"]
+tags: ["AI视频", "文生视频", "图生视频", "Sora", "短剧创作", "智言AI"]
 
 author:
   name: "产品团队"
@@ -49,7 +49,7 @@ readTime: 15
 
 ### 什么是 Sora2 短剧视频插件？
 
-**Sora2短剧视频创作**是一款专为必定AI平台打造的扩展插件。它基于先进的Sora 2.0引擎，专注于短剧和创意视频的智能化生成。插件深度集成必定AI的用户体系、算力管理和存储服务，为用户提供流畅的视频创作体验。
+**Sora2短剧视频创作**是一款专为智言AI平台打造的扩展插件。它基于先进的Sora 2.0引擎，专注于短剧和创意视频的智能化生成。插件深度集成智言AI的用户体系、算力管理和存储服务，为用户提供流畅的视频创作体验。
 
 ### 核心价值
 
@@ -102,26 +102,26 @@ readTime: 15
 
 ### 技术栈
 
-**必定AI 扩展架构:**
-- **扩展框架**: 必定AI Extension SDK v25.1.0+
+**智言AI 扩展架构:**
+- **扩展框架**: 智言AI Extension SDK v25.1.0+
 - **前端技术**: Nuxt 3 + Vue 3 + TypeScript
-- **UI 组件**: 必定AI UI 组件库 + Nuxt UI
+- **UI 组件**: 智言AI UI 组件库 + Nuxt UI
 - **视频组件**: vue-waterfall-plugin-next（瀑布流布局）
-- **后端集成**: 必定AI Core + Service + HTTP 模块
-- **数据库**: 必定AI DB (PostgreSQL + TypeORM)
-- **用户系统**: 必定AI 统一用户认证和权限管理
-- **存储服务**: 必定AI 统一存储服务
+- **后端集成**: 智言AI Core + Service + HTTP 模块
+- **数据库**: 智言AI DB (PostgreSQL + TypeORM)
+- **用户系统**: 智言AI 统一用户认证和权限管理
+- **存储服务**: 智言AI 统一存储服务
 
 **核心依赖:**
 - **AI 引擎**: Sora 2.0 API 集成
-- **算力管理**: 必定AI 算力计费系统
-- **多语言**: 必定AI i18n 国际化
+- **算力管理**: 智言AI 算力计费系统
+- **多语言**: 智言AI i18n 国际化
 - **构建工具**: tsup + concurrently
 
 ### 项目结构
 
 ```
-必定AI-sora2/
+智言AI-sora2/
 ├── src/
 │   ├── api/                      # 后端扩展模块
 │   │   ├── db/                   # 数据库层
@@ -161,14 +161,14 @@ sequenceDiagram
     participant User as 用户
     participant WebUI as 前端界面
     participant Extension as 扩展后端
-    participant 必定AI as 必定AI平台
+    participant 智言AI as 智言AI平台
     participant SoraAPI as Sora2 API
     participant Storage as 存储服务
     
     User->>WebUI: 1.输入描述/上传图片
     WebUI->>Extension: 2.提交生成请求
-    Extension->>必定AI: 3.验证用户权限和算力
-    必定AI-->>Extension: 4.返回验证结果
+    Extension->>智言AI: 3.验证用户权限和算力
+    智言AI-->>Extension: 4.返回验证结果
     Extension->>SoraAPI: 5.创建视频任务
     SoraAPI-->>Extension: 6.返回任务ID
     
@@ -180,7 +180,7 @@ sequenceDiagram
     
     SoraAPI-->>Extension: 10.返回视频URL
     Extension->>Storage: 11.下载并保存视频
-    Extension->>必定AI: 12.扣除算力/保存记录
+    Extension->>智言AI: 12.扣除算力/保存记录
     Extension-->>WebUI: 13.返回生成结果
     WebUI-->>User: 14.展示视频
 ```
@@ -189,7 +189,7 @@ sequenceDiagram
 
 1. **用户输入**: 用户输入视频描述（Prompt）、选择时长、方向等参数，可选上传参考图片
 2. **前端处理**: 图片压缩处理、参数验证、Base64编码
-3. **权限校验**: 通过必定AI平台验证用户权限和算力余额
+3. **权限校验**: 通过智言AI平台验证用户权限和算力余额
 4. **任务创建**: 调用Sora2 API创建视频生成任务，支持sora-2和sora-2-pro模型
 5. **状态轮询**: 定期轮询任务状态（processing → completed/failed），实时更新进度
 6. **结果处理**: 下载生成的视频到本地存储（可配置）
@@ -203,7 +203,7 @@ sequenceDiagram
 
 #### 第一步：进入插件页面
 
-在必定AI平台中找到并点击「Sora2短剧视频创作」插件，进入视频生成页面。页面包含：
+在智言AI平台中找到并点击「Sora2短剧视频创作」插件，进入视频生成页面。页面包含：
 
 - **视频生成区**: 输入提示词和参数设置
 - **灵感广场**: 浏览精选视频案例，获取创作灵感

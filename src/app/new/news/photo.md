@@ -1,9 +1,9 @@
 ---
 title: "AI证件照"
-summary: "必定AI ID Photo 是一款集成于 必定AI 平台的智能证件照生成插件，利用先进的 AI 人像识别和背景替换技术，支持智能抠图、背景替换、尺寸调整、高清输出等功能，用户只需上传日常照片即可快速生成符合官方标准的专业证件照。"
+summary: "智言AI ID Photo 是一款集成于 智言AI 平台的智能证件照生成插件，利用先进的 AI 人像识别和背景替换技术，支持智能抠图、背景替换、尺寸调整、高清输出等功能，用户只需上传日常照片即可快速生成符合官方标准的专业证件照。"
 
 category: "AI插件"
-tags: ["AI证件照", "智能抠图", "背景替换", "人像识别", "必定AI"]
+tags: ["AI证件照", "智能抠图", "背景替换", "人像识别", "智言AI"]
 
 author:
   name: "产品团队"
@@ -46,7 +46,7 @@ readTime: 15
 
 ### 什么是 AI证件照插件？
 
-**必定AI ID Photo** 是一款集成于 必定AI 平台的智能证件照生成插件。它利用先进的 AI 人像识别和背景替换技术，让用户只需上传一张日常照片，即可快速生成符合官方标准的专业证件照，无需任何专业摄影或后期处理技能。
+**智言AI ID Photo** 是一款集成于 智言AI 平台的智能证件照生成插件。它利用先进的 AI 人像识别和背景替换技术，让用户只需上传一张日常照片，即可快速生成符合官方标准的专业证件照，无需任何专业摄影或后期处理技能。
 
 ### 核心价值
 
@@ -98,26 +98,26 @@ readTime: 15
 
 ### 技术栈
 
-**必定AI 扩展架构:**
-- **扩展框架**: 必定AI Extension SDK v25.1.0+
+**智言AI 扩展架构:**
+- **扩展框架**: 智言AI Extension SDK v25.1.0+
 - **前端技术**: Nuxt 3 + Vue 3 + TypeScript
-- **UI 组件**: 必定AI UI 组件库 + Nuxt UI
+- **UI 组件**: 智言AI UI 组件库 + Nuxt UI
 - **图像处理**: Canvas API + AI 背景移除技术
-- **后端集成**: 必定AI Core + Service + HTTP 模块
-- **数据库**: 必定AI DB (PostgreSQL + TypeORM)
-- **用户系统**: 必定AI 统一用户认证和权限管理
-- **存储服务**: 必定AI 统一存储服务
+- **后端集成**: 智言AI Core + Service + HTTP 模块
+- **数据库**: 智言AI DB (PostgreSQL + TypeORM)
+- **用户系统**: 智言AI 统一用户认证和权限管理
+- **存储服务**: 智言AI 统一存储服务
 
 **核心依赖:**
 - **AI 引擎**: 智能人像识别与背景替换技术
-- **算力管理**: 必定AI 算力计费系统
-- **多语言**: 必定AI i18n 国际化
+- **算力管理**: 智言AI 算力计费系统
+- **多语言**: 智言AI i18n 国际化
 - **构建工具**: tsup + concurrently
 
 ### 项目结构
 
 ```
-必定AI-id-photo/
+智言AI-id-photo/
 ├── src/
 │   ├── api/                      # 后端扩展模块
 │   │   ├── db/                   # 数据库层
@@ -160,19 +160,19 @@ sequenceDiagram
     participant User as 用户
     participant WebUI as 前端界面
     participant Extension as 扩展后端
-    participant 必定AI as 必定AI平台
+    participant 智言AI as 智言AI平台
     participant AIEngine as AI引擎
     participant Storage as 存储服务
     
     User->>WebUI: 1.上传日常照片
     WebUI->>Extension: 2.提交处理请求
-    Extension->>必定AI: 3.验证用户权限和算力
-    必定AI-->>Extension: 4.返回验证结果
+    Extension->>智言AI: 3.验证用户权限和算力
+    智言AI-->>Extension: 4.返回验证结果
     Extension->>AIEngine: 5.AI智能抠图处理
     AIEngine-->>Extension: 6.返回人像轮廓
     Extension->>Extension: 7.背景替换和尺寸调整
     Extension->>Storage: 8.保存处理后的证件照
-    Extension->>必定AI: 9.扣除算力/保存记录
+    Extension->>智言AI: 9.扣除算力/保存记录
     Extension-->>WebUI: 10.返回证件照结果
     WebUI-->>User: 11.展示和下载证件照
 ```
@@ -194,7 +194,7 @@ sequenceDiagram
 
 #### 第一步：进入证件照生成页面
 
-在必定AI平台中找到并点击「AI证件照」插件，进入证件照生成页面。
+在智言AI平台中找到并点击「AI证件照」插件，进入证件照生成页面。
 
 #### 第二步：上传日常照片
 

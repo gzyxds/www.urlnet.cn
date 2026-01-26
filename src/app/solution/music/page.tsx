@@ -265,9 +265,9 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
 export default function MusicPage() {
   usePageMetadata({
-    title: 'AI音乐 - 开源免费的 AI 音乐生成系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI AI音乐是一款以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具,旨在降低门槛、提升效率,支持个人娱乐与商用配乐的"人机协同"。基于开源技术构建,提供完整源码与私有化部署支持。',
-    keywords: 'AI音乐,音乐生成,文生音乐,歌词生成,哼唱生成,乐谱生成,必定AI,BuidAI,音乐创作工具,开源AI系统,私有化部署,音乐源码'
+    title: 'AI音乐 - 开源免费的 AI 音乐生成系统 | 智言AI-BuidAI',
+    description: '智言AI-BuidAI AI音乐是一款以文本/歌词/哼唱/乐谱为输入,快速生成完整歌曲、伴奏、人声或纯音乐的创作与生产工具,旨在降低门槛、提升效率,支持个人娱乐与商用配乐的"人机协同"。基于开源技术构建,提供完整源码与私有化部署支持。',
+    keywords: 'AI音乐,音乐生成,文生音乐,歌词生成,哼唱生成,乐谱生成,智言AI,BuidAI,音乐创作工具,开源AI系统,私有化部署,音乐源码'
   });
 
   const toDemo = () => {
@@ -445,7 +445,7 @@ export default function MusicPage() {
             准备好开始创作了吗？
           </h2>
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+            立即加入 智言IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button

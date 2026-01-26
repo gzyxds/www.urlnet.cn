@@ -264,9 +264,9 @@ const FeatureDetailSection = ({ detail, index }: { detail: FeatureDetail; index:
 
 export default function ModelPage() {
   usePageMetadata({
-    title: '电商试衣换装 - 开源免费的AI模特换装系统 | 必定AI-BuidAI',
-    description: '必定AI-BuidAI 电商试衣换装是一款专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术，即可实现「商品一键适配模特上身」与「背景智能替换」两大核心功能，让您的商品在众多竞争者中脱颖而出。基于开源技术构建，提供完整源码与私有化部署支持。',
-    keywords: '电商试衣,AI换装,AI模特,背景替换,商品主图,电商视觉优化,必定AI,BuidAI,AI系统,AI源码,开源代码,试衣换装源码'
+    title: '电商试衣换装 - 开源免费的AI模特换装系统 | 智言AI-BuidAI',
+    description: '智言AI-BuidAI 电商试衣换装是一款专为电商卖家打造的AI视觉优化解决方案，提升商品主图的吸引力与转化率。无需复杂拍摄与高昂成本，通过AI技术，即可实现「商品一键适配模特上身」与「背景智能替换」两大核心功能，让您的商品在众多竞争者中脱颖而出。基于开源技术构建，提供完整源码与私有化部署支持。',
+    keywords: '电商试衣,AI换装,AI模特,背景替换,商品主图,电商视觉优化,智言AI,BuidAI,AI系统,AI源码,开源代码,试衣换装源码'
   });
 
   const toDemo = () => {
@@ -444,7 +444,7 @@ export default function ModelPage() {
             准备好开始创作了吗？
           </h2>
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            立即加入 必定IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
+            立即加入 智言IA-BuidAI，体验前沿 AI 技术带来的无限可能。无需复杂的配置，快速构建您的AI应用。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button
