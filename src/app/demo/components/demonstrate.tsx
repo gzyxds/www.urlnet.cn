@@ -241,7 +241,7 @@ const demoProducts = [
     demos: [
       {
         title: "智言AI",
-        url: "#",
+        url: "https://www.gmlart.cn/",
         qrcode: "/images/qrcode.png",
         credentials: {
           username: "自行注册",
@@ -250,7 +250,7 @@ const demoProducts = [
       },
       {
         title: "智言AI后台",
-        url: "#",
+        url: "https://www.gmlart.cn/",
         qrcode: "/images/wechat.png",
         credentials: {
           username: "自行注册",
