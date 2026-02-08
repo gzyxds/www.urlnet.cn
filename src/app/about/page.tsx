@@ -24,8 +24,15 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 
 const AboutPage: React.FC = () => {
+  usePageMetadata({
+    title: '关于我们 - 艺创AI | 领先的AI技术服务商',
+    description: '艺创AI专注人工智能技术研发与应用，提供AI数字人、知识库、智能对话等企业级解决方案。致力于降低企业AI应用门槛，推动数字化转型。',
+    keywords: '关于艺创AI,AI技术服务商,人工智能研发,企业数字化转型,AI解决方案团队'
+  });
+
   // 二维码模态框状态
   const [showQRCode, setShowQRCode] = useState(false);
 

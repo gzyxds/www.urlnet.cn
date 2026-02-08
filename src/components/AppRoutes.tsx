@@ -2,6 +2,7 @@ import { lazy, Suspense, ComponentType } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import ClientLogoWallExample from './clients/ClientLogoWallExample';
+import NotFound from './NotFound';
 
 // 动态导入所有页面组件
 const pages = import.meta.glob('@/app/**/page.tsx') as Record<string, () => Promise<{ default: ComponentType<unknown> }>>;
@@ -73,6 +74,9 @@ export default function AppRoutes(): JSX.Element {
 
         {/* 手动配置的额外路由 */}
         <Route path="/test-client-logo" element={<ClientLogoWallExample />} />
+
+        {/* 404 页面 */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );

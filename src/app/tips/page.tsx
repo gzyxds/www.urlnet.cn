@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Search, Filter, Copy, Star, Tag, Clock, User, ChevronRight, Sparkles } from 'lucide-react';
+import { usePageMetadata } from '@/hooks/use-page-metadata';
 
 // AI 提示词数据接口定义
 interface PromptData {
@@ -116,6 +117,12 @@ const TipsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('全部');
   const [selectedPrompt, setSelectedPrompt] = useState<PromptData | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  usePageMetadata({
+    title: 'AI提示词库 - 高质量Prompt指令大全 | 艺创AI',
+    description: '汇集专业文案写作、代码审查、数据分析等场景的优质AI提示词（Prompt）。助您更好地使用ChatGPT、Claude等大模型，提升工作效率。',
+    keywords: 'AI提示词,Prompt大全,ChatGPT指令,AI写作提示词,代码审查Prompt,数据分析Prompt'
+  });
 
   // 过滤和搜索逻辑
   const filteredPrompts = useMemo(() => {
