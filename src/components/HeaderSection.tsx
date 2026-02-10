@@ -129,23 +129,25 @@ const Header: React.FC = () => {
       ]
     },
     { name: "产品演示", path: "/demo" },
-    /* {
+    {
       name: "解决方案",
       dropdown: true,
       items: [
-        { name: "Nanobanana", path: "/solution/banana", icon: <Gift className="h-5 w-5" />, color: "amber", description: "最热门的图像生成系统" },
-        { name: "AI短剧小说", path: "/solution/drama", icon: <FileText className="h-5 w-5" />, color: "purple", description: "短剧与网文创作解决方案" },
-        { name: "即梦AI视频", path: "/solution/jimeng", icon: <Zap className="h-5 w-5" />, color: "cyan", description: "文生视频与图生视频创作平台" },
-        { name: "即梦AI绘画", path: "/solution/jmdraw", icon: <Layers className="h-5 w-5" />, color: "indigo", description: "多风格 AI 绘画生成系统" },
-        { name: "电商试衣换装", path: "/solution/model", icon: <User className="h-5 w-5" />, color: "emerald", description: "电商商品 AI 模特换装方案" },
-        { name: "AI音乐生成", path: "/solution/music", icon: <Cloud className="h-5 w-5" />, color: "blue", description: "文本到音乐的智能创作工具" },
-        { name: "AI PPT", path: "/solution/ppt", icon: <BookOpen className="h-5 w-5" />, color: "rose", description: "自动生成演示文稿的 AI 助手" },
-        { name: "AI简历助手", path: "/solution/resume", icon: <Archive className="h-5 w-5" />, color: "teal", description: "智能简历生成与优化系统" },
-        { name: "Sora视频", path: "/solution/sora", icon: <Code className="h-5 w-5" />, color: "orange", description: "基于 Sora 的 AI 视频创作平台" },
-        { name: "视频混剪", path: "/solution/videoclip", icon: <Zap className="h-5 w-5" />, color: "pink", description: "批量混剪与智能剪辑解决方案" },
-        { name: "小红书创作", path: "/solution/xhs", icon: <Newspaper className="h-5 w-5" />, color: "red", description: "小红书热门内容创作与运营助手" }
+        { name: "Nanobanana", path: "/solution/banana", icon: <Gift className="h-5 w-5" />, color: "amber", description: "最热门的图像生成" },
+        { name: "AI漫剧创作", path: "/solution/wanclipg", icon: <Gift className="h-5 w-5" />, color: "amber", description: "最热门的视频生成" },
+        { name: "AI短剧小说", path: "/solution/drama", icon: <FileText className="h-5 w-5" />, color: "purple", description: "短剧与网文创作" },
+        { name: "GEO优化排名", path: "/solution/geo", icon: <FileText className="h-5 w-5" />, color: "purple", description: "GEO搜索优化" },
+        { name: "即梦AI视频", path: "/solution/jimeng", icon: <Zap className="h-5 w-5" />, color: "cyan", description: "文生视频与图生视频" },
+        { name: "即梦AI绘画", path: "/solution/jmdraw", icon: <Layers className="h-5 w-5" />, color: "indigo", description: "多风格AI绘画生成" },
+        { name: "电商试衣换装", path: "/solution/model", icon: <User className="h-5 w-5" />, color: "emerald", description: "电商商品AI模特换装" },
+        { name: "AI音乐生成", path: "/solution/music", icon: <Cloud className="h-5 w-5" />, color: "blue", description: "文本到音乐智能创作" },
+        { name: "AI PPT", path: "/solution/ppt", icon: <BookOpen className="h-5 w-5" />, color: "rose", description: "自动生成文稿AIPPT" },
+        { name: "AI简历助手", path: "/solution/resume", icon: <Archive className="h-5 w-5" />, color: "teal", description: "智能简历生成与优化" },
+        { name: "Sora视频", path: "/solution/sora", icon: <Code className="h-5 w-5" />, color: "orange", description: "基于Sora的AI创作平台" },
+        { name: "视频混剪", path: "/solution/videoclip", icon: <Zap className="h-5 w-5" />, color: "pink", description: "批量混剪与智能剪辑" },
+        { name: "小红书创作", path: "/solution/xhs", icon: <Newspaper className="h-5 w-5" />, color: "red", description: "小红书热门内容创作" }
       ]
-    }, */
+    },
     { name: "产品文档", path: "/docs" },
     { name: "新闻资讯", path: "/new" },
     {
