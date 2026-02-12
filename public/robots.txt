@@ -6,7 +6,6 @@ Allow: /
 
 # 禁止抓取开发目录
 Disallow: /node_modules/
-Disallow: /src/
 Disallow: /.git/
 Disallow: /dist/
 Disallow: /build/
