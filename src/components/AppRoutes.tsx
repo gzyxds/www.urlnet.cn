@@ -4,8 +4,8 @@ import { Loader2 } from 'lucide-react';
 import ClientLogoWallExample from './clients/ClientLogoWallExample';
 import NotFound from './NotFound';
 
-// 动态导入所有页面组件
-const pages = import.meta.glob('@/app/**/page.tsx') as Record<string, () => Promise<{ default: ComponentType<unknown> }>>;
+// 动态导入所有页面组件（使用相对路径，Vite 7 兼容）
+const pages = import.meta.glob('../app/**/page.tsx') as Record<string, () => Promise<{ default: ComponentType<unknown> }>>;
 
 /**
  * 解析文件路径获取路由路径
